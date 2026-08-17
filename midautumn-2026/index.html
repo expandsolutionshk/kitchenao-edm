@@ -1,0 +1,322 @@
+<!--
+============================================================
+Kitchen AO — 2026 中秋到會 EDM (v9 · 官網 黑金 clean 風） — Raw HTML for FluentCRM
+貼入：FluentCRM → Campaign → Block Editor → 加「HTML / Custom Code」block → 貼晒
+
+★ Look & feel：參考官網 aoaodelivery.com — 黑 + 金、大量留白、卡片式、簡約現代。
+★ 資訊架構：HEADER → HERO → PRIMARY CTA → COUPON → FEATURED
+   → PRODUCT CARDS (2x2) → SIGNATURE DISHES (4) → 會員優惠 （卡）
+   → 按人數套餐 → SOCIAL PROOF → IG REELS (2) → FOOTER
+★ CTA 只用兩種：
+   Primary  = 黑底白字   bg #1A1A1A / color #fff
+   Secondary= 白底黑框黑字 bg #fff / border 1px #1A1A1A
+★ 〔...〕= placeholder，請換真實中秋文案/價/優惠碼/連結。
+
+色票：#1A1A1A 黑（文字/掣/footer) · #C8A24A 金（點綴/分隔/價/badge) · #9A7B2E 深金（小字）
+       · #FAF7F1 米白背景 · #FFFFFF 卡 · #ECE6DA 卡框 · #7A7268 次要字
+============================================================
+-->
+<!DOCTYPE html>
+<html lang="zh-HK" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Kitchen AO 中秋到會</title>
+<style>
+  body{margin:0;padding:0;background:#FAF7F1;-webkit-text-size-adjust:100%;}
+  img{border:0;outline:none;text-decoration:none;display:block;}
+  table{border-collapse:collapse;}
+  a{color:#9A7B2E;}
+  .btn-primary a{background:#1A1A1A;color:#ffffff!important;}
+  .btn-secondary a{background:#ffffff;color:#1A1A1A!important;border:1px solid #1A1A1A;}
+  @media only screen and (max-width:600px){
+    .container{width:100%!important;}
+    .px{padding-left:22px!important;padding-right:22px!important;}
+    .h1{font-size:27px!important;line-height:34px!important;}
+    .hero-pad{padding:28px 22px 6px!important;}
+    .stack{display:block!important;width:100%!important;}
+    .sig{width:50%!important;display:inline-block!important;}
+    .nav a{font-size:12px!important;padding:0 8px!important;}
+    .hlogo{width:150px!important;}
+  }
+  /* ===== Dark-mode 加固 (Apple/iOS Mail via media query · Outlook via data-ogsc) ===== */
+  @media (prefers-color-scheme: dark){
+    .btn-primary a{background:#000000!important;color:#ffffff!important;}
+    .btn-secondary a{background:#ffffff!important;color:#1A1A1A!important;border:1px solid #1A1A1A!important;}
+  }
+  [data-ogsc] .btn-primary a{background:#000000!important;color:#ffffff!important;}
+  [data-ogsc] .btn-secondary a{background:#ffffff!important;color:#1A1A1A!important;}
+</style>
+</head>
+<body style="margin:0;padding:0;background:#FAF7F1;">
+
+<!-- Pre-header (hidden) -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#FAF7F1;">
+🥮 中秋團圓到會・會員專享 9 折・各區即訂即送・酒店級廚師團隊主理
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FAF7F1;">
+<tr><td align="center" style="padding:20px 12px;">
+
+<table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff;border-radius:4px;overflow:hidden;font-family:Arial,'PingFang HK','Microsoft JhengHei',sans-serif;">
+
+  <!-- ============================================================ -->
+  <!-- 1. HEADER — 黑 logo + 金線 + 文字 nav （簡約） -->
+  <!-- ============================================================ -->
+  <tr><td style="padding:26px 24px 20px;background:#ffffff;border-bottom:2px solid #C8A24A;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr><td align="center" style="padding-bottom:14px;">
+        <a href="https://aoaodelivery.com/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img class="hlogo" src="https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png" width="168" alt="Kitchen AO" style="width:168px;height:auto;margin:0 auto;"></a>
+      </td></tr>
+      <tr><td align="center" class="nav">
+        <a href="https://aoaodelivery.com/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:0 12px;color:#1A1A1A;font-size:13px;font-weight:bold;letter-spacing:1px;text-decoration:none;">首頁</a>
+        <span style="color:#C8A24A;">·</span>
+        <a href="https://aoaodelivery.com/product-category/party/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:0 12px;color:#1A1A1A;font-size:13px;font-weight:bold;letter-spacing:1px;text-decoration:none;">到會推介</a>
+        <span style="color:#C8A24A;">·</span>
+        <a href="https://aoaodelivery.com/product-category/party-set-by-people/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:0 12px;color:#1A1A1A;font-size:13px;font-weight:bold;letter-spacing:1px;text-decoration:none;">會員優惠</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Greeting / issue -->
+  <tr><td style="padding:11px 24px;background:#FBF7EE;border-bottom:1px solid #EEE6D6;">
+    <span style="font-size:12.5px;color:#1A1A1A;font-weight:bold;">{{contact.first_name|"朋友"}}，你好 👋</span>
+    <span style="font-size:11.5px;color:#9A8f7e;">　電子報・〔2026 年 8 月・中秋號〕</span>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 2. HERO — Key Visual -->
+  <!-- ============================================================ -->
+  <tr><td style="background:#1A1A1A;">
+    <a href="https://aoaodelivery.com/product-category/party/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2026/08/mooncake-kithchen-ao-v3.jpg" width="600" alt="2026 中秋團圓到會 - Kitchen AO" style="width:100%;max-width:600px;height:auto;"></a>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 中秋雙重優惠 — 共用標題 -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:34px 40px 4px;background:#1A1A1A;border-top:1px solid #3a3a3a;">
+    <p style="margin:0 0 8px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">Mid-Autumn Offers</p>
+    <p style="margin:0;color:#ffffff;font-size:24px;font-weight:800;letter-spacing:2px;">中秋雙重優惠</p>
+    <div style="width:40px;height:2px;background:#C8A24A;margin:10px auto 0;"></div>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 中秋優惠 ① 企業送禮・客製化月餅禮盒 （黑底金字） -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:26px 40px 34px;background:#1A1A1A;">
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto 14px;"><tr><td style="border:1px solid #C8A24A;border-radius:30px;padding:5px 16px;"><span style="color:#C8A24A;font-size:12px;font-weight:bold;letter-spacing:1px;">中秋優惠 ①</span></td></tr></table>
+    <h1 style="margin:0 0 14px;color:#C8A24A;font-size:26px;line-height:34px;font-weight:800;letter-spacing:0.5px;">中秋企業送禮<br>客製化月餅禮盒</h1>
+    <p style="margin:0 0 6px;color:#ffffff;font-size:14px;line-height:22px;">5 款人氣流心口味 × 3 款精選禮盒</p>
+    <p style="margin:0 0 22px;color:#C9BFA8;font-size:14px;line-height:22px;">低至 <span style="color:#C8A24A;font-weight:bold;">$65/盒</span>，只需訂購 20 盒起，即可自訂盒面 Logo</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" bgcolor="#ffffff" style="border-radius:40px;">
+      <a href="https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E4%B8%AD%E7%A7%8B%E4%BC%81%E6%A5%AD%E9%80%81%E7%A6%AE%E3%83%BB%E5%AE%A2%E8%A3%BD%E5%8C%96%E6%9C%88%E9%A4%85%E7%A6%AE%E7%9B%92%E5%A0%B1%E5%83%B9%E5%8F%8A%E8%87%AA%E8%A8%82%20Logo%EF%BC%8C%E8%AC%9D%E8%AC%9D%EF%BC%81" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 34px;color:#9A7B2E;font-size:15px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;">WhatsApp 報價查詢・立即落單 →</a>
+    </td></tr></table>
+  </td></tr>
+
+  <!-- 3. HERO headline + PRIMARY CTA -->
+  <tr><td class="hero-pad" align="center" style="padding:34px 40px 8px;background:#ffffff;">
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto 14px;"><tr><td style="border:1px solid #C8A24A;border-radius:30px;padding:5px 16px;"><span style="color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:1px;">中秋優惠 ②</span></td></tr></table>
+    <p style="margin:0 0 12px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">Mid-Autumn Catering</p>
+    <h1 class="h1" style="margin:0 0 22px;color:#1A1A1A;font-size:30px;line-height:38px;font-weight:800;letter-spacing:0.5px;">🌕 中秋團圓・到會之選</h1>
+    <!-- Promo code -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:1px solid #C8A24A;border-radius:4px;"><tr><td align="center" style="padding:20px 18px;">
+      <p style="margin:0 0 10px;color:#9A7B2E;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;">Promo Code</p>
+      <p style="margin:0 0 8px;color:#1A1A1A;font-size:30px;font-weight:800;letter-spacing:6px;font-family:Arial,sans-serif;">【MOON90】</p>
+      <p style="margin:0;color:#7A7268;font-size:13px;">中秋早鳥優惠！凡於即日起至 9 月 20 日，結帳輸入即享 9 折・只限會員</p>
+    </td></tr></table>
+    <!-- Primary CTA (圓邊) -->
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center" class="btn-primary" style="margin-top:22px;"><tr><td align="center" style="border-radius:40px;">
+      <a href="https://aoaodelivery.com/product-category/party/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;">立即訂購 →</a>
+    </td></tr></table>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 6. 人氣到會系列 — 6 格 (名+描述+黑掣) -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:36px 40px 4px;background:#ffffff;">
+    <p style="margin:0 0 8px;color:#1A1A1A;font-size:21px;font-weight:800;letter-spacing:1px;">人氣到會系列</p>
+    <div style="width:40px;height:2px;background:#C8A24A;margin:0 auto;"></div>
+  </td></tr>
+  <tr><td style="padding:16px 30px 4px;background:#ffffff;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="stack" width="50%" valign="top" style="padding:8px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+            <tr><td><a href="https://aoaodelivery.com/product-category/party/foot-party/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-600x600.jpg" width="100%" alt="美食派對 Gourmet Set" style="width:100%;height:auto;"></a></td></tr>
+            <tr><td style="padding:14px 16px 16px;">
+              <p style="margin:0 0 6px;color:#1A1A1A;font-size:15px;font-weight:bold;">美食派對 Gourmet Set</p>
+              <p style="margin:0 0 12px;color:#7A7268;font-size:12px;line-height:17px;">多款精緻熱食冷盤，派對聚會分享首選</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-primary"><tr><td align="center" style="border-radius:2px;"><a href="https://aoaodelivery.com/product-category/party/foot-party/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 22px;font-size:13px;font-weight:bold;text-decoration:none;border-radius:2px;">立即訂購 →</a></td></tr></table>
+            </td></tr>
+          </table>
+        </td>
+        <td class="stack" width="50%" valign="top" style="padding:8px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+            <tr><td><a href="https://aoaodelivery.com/product/5-people-self-selected-platter/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600-1.png" width="100%" alt="5 人自選拼盤" style="width:100%;height:auto;"></a></td></tr>
+            <tr><td style="padding:14px 16px 16px;">
+              <p style="margin:0 0 6px;color:#1A1A1A;font-size:15px;font-weight:bold;">5 人自選拼盤</p>
+              <p style="margin:0 0 12px;color:#7A7268;font-size:12px;line-height:17px;">自由配搭手指小食，5 人聚會啱食</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-primary"><tr><td align="center" style="border-radius:2px;"><a href="https://aoaodelivery.com/product/5-people-self-selected-platter/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 22px;font-size:13px;font-weight:bold;text-decoration:none;border-radius:2px;">立即訂購 →</a></td></tr></table>
+            </td></tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="stack" width="50%" valign="top" style="padding:8px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+            <tr><td><a href="https://aoaodelivery.com/product/staff-meal/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2024/07/SM-Staff-Meal-Lv1-scaled.jpg" width="100%" alt="員工膳食餐盒 Staff Meal" style="width:100%;height:auto;"></a></td></tr>
+            <tr><td style="padding:14px 16px 16px;">
+              <p style="margin:0 0 6px;color:#1A1A1A;font-size:15px;font-weight:bold;">員工膳食餐盒 Staff Meal</p>
+              <p style="margin:0 0 12px;color:#7A7268;font-size:12px;line-height:17px;">營養均衡飯盒，公司員工餐首選</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-primary"><tr><td align="center" style="border-radius:2px;"><a href="https://aoaodelivery.com/product/staff-meal/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 22px;font-size:13px;font-weight:bold;text-decoration:none;border-radius:2px;">立即訂購 →</a></td></tr></table>
+            </td></tr>
+          </table>
+        </td>
+        <td class="stack" width="50%" valign="top" style="padding:8px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+            <tr><td><a href="https://aoaodelivery.com/product/business-lunch-box/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/CAB-Commercial-Meal-Lv2_%E9%A0%81%E9%9D%A2_1-1-724x1024-1.jpg" width="100%" alt="商務餐盒 16 款任選" style="width:100%;height:auto;"></a></td></tr>
+            <tr><td style="padding:14px 16px 16px;">
+              <p style="margin:0 0 6px;color:#1A1A1A;font-size:15px;font-weight:bold;">商務餐盒 16 款任選</p>
+              <p style="margin:0 0 12px;color:#7A7268;font-size:12px;line-height:17px;">16 款主菜任揀，會議商務午餐之選</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-primary"><tr><td align="center" style="border-radius:2px;"><a href="https://aoaodelivery.com/product/business-lunch-box/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 22px;font-size:13px;font-weight:bold;text-decoration:none;border-radius:2px;">立即訂購 →</a></td></tr></table>
+            </td></tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="stack" width="50%" valign="top" style="padding:8px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+            <tr><td><a href="https://aoaodelivery.com/product-category/party/children/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/202308-KIDS-thumbnail-02.jpg" width="100%" alt="快樂兒童餐" style="width:100%;height:auto;"></a></td></tr>
+            <tr><td style="padding:14px 16px 16px;">
+              <p style="margin:0 0 6px;color:#1A1A1A;font-size:15px;font-weight:bold;">快樂兒童餐</p>
+              <p style="margin:0 0 12px;color:#7A7268;font-size:12px;line-height:17px;">小朋友至愛，生日派對歡樂之選</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-primary"><tr><td align="center" style="border-radius:2px;"><a href="https://aoaodelivery.com/product-category/party/children/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 22px;font-size:13px;font-weight:bold;text-decoration:none;border-radius:2px;">立即訂購 →</a></td></tr></table>
+            </td></tr>
+          </table>
+        </td>
+        <td class="stack" width="50%" valign="top" style="padding:8px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+            <tr><td><a href="https://aoaodelivery.com/product/ao-15-20pax-boat-party-set/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.26-PM-600x600.jpeg" width="100%" alt="狂歡派對船河套餐" style="width:100%;height:auto;"></a></td></tr>
+            <tr><td style="padding:14px 16px 16px;">
+              <p style="margin:0 0 6px;color:#1A1A1A;font-size:15px;font-weight:bold;">狂歡派對船河套餐</p>
+              <p style="margin:0 0 12px;color:#7A7268;font-size:12px;line-height:17px;">船河出海聚會，豐富餐點一應俱全</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-primary"><tr><td align="center" style="border-radius:2px;"><a href="https://aoaodelivery.com/product/ao-15-20pax-boat-party-set/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:9px 22px;font-size:13px;font-weight:bold;text-decoration:none;border-radius:2px;">立即訂購 →</a></td></tr></table>
+            </td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 7. 套餐必揀招牌菜 (worldcup) -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:36px 40px 4px;background:#FBF7EE;border-top:1px solid #ECE6DA;">
+    <p style="margin:0 0 6px;color:#1A1A1A;font-size:21px;font-weight:800;letter-spacing:1px;">🍽️ 套餐必揀招牌菜</p>
+    <p style="margin:0 0 8px;color:#7A7268;font-size:12.5px;">以下為人氣主菜，可於「人數選餐」套餐內揀選</p>
+    <div style="width:40px;height:2px;background:#C8A24A;margin:0 auto;"></div>
+  </td></tr>
+  <tr><td style="padding:16px 30px 4px;background:#FBF7EE;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td class="stack" width="50%" valign="top" style="padding:8px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+          <tr><td><a href="https://aoaodelivery.com/product/ms02l-%e8%a5%bf%e4%ba%ac%e7%87%92%e3%80%8c%e5%af%8c%e5%a3%ab%e9%87%91%e8%a5%b4%e3%80%8d%e5%a8%81%e5%a3%ab%e5%bf%8c%e7%99%bd%e5%91%b3%e5%99%8c%e7%87%92%e9%b9%bf%e5%85%92%e5%b3%b6%e5%8f%89%e7%87%92/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-2-1.jpeg" width="100%" alt="黑白叉燒 鹿兒島叉燒扒" style="width:100%;height:auto;"></a></td></tr>
+          <tr><td style="padding:14px 16px 16px;">
+            <p style="margin:0 0 4px;color:#1A1A1A;font-size:14px;font-weight:bold;">「黑白叉燒」西京燒 vs 香港燒</p>
+            <p style="margin:0;color:#7A7268;font-size:12px;line-height:17px;">鹿兒島叉燒扒（3 磅）·需於套餐內揀選</p>
+          </td></tr>
+        </table>
+      </td>
+      <td class="stack" width="50%" valign="top" style="padding:8px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:6px;overflow:hidden;">
+          <tr><td><a href="https://aoaodelivery.com/product/ps01l%e3%80%8c%e5%86%a9%e6%a8%82%e3%80%8d%e6%b8%85%e9%85%92%e7%85%ae%e8%9f%b9%e7%9a%87%e7%81%b8%e7%87%92%e5%b7%a6%e5%8f%a3%e9%ad%9a%e9%86%ac%e6%b2%b9%e3%b7%9b%e4%bb%94%e9%a3%af-4%e7%a3%85/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-4.jpeg" width="100%" alt="冩樂蟹皇左口魚煲仔飯" style="width:100%;height:auto;"></a></td></tr>
+          <tr><td style="padding:14px 16px 16px;">
+            <p style="margin:0 0 4px;color:#1A1A1A;font-size:14px;font-weight:bold;">「冩樂」蟹皇左口魚煲仔飯</p>
+            <p style="margin:0;color:#7A7268;font-size:12px;line-height:17px;">清酒灸燒（3 磅）$168·需於套餐內揀選</p>
+          </td></tr>
+        </table>
+      </td>
+    </tr></table>
+  </td></tr>
+  <tr><td align="center" style="padding:14px 40px 34px;background:#FBF7EE;">
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center" class="btn-secondary"><tr><td align="center" style="border-radius:2px;">
+      <a href="https://aoaodelivery.com/product-category/party-set-by-people/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:11px 30px;font-size:14px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:2px;">👥 按人數揀套餐 →</a>
+    </td></tr></table>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 8. 大量訂購 / WhatsApp (worldcup, 黑底) -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:34px 40px;background:#1A1A1A;">
+    <p style="margin:0 0 16px;color:#ffffff;font-size:15px;line-height:22px;">大量訂購 / 想度身訂造餐單？</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" bgcolor="#ffffff" style="border-radius:40px;">
+      <a href="https://wa.me/85269011987?text=%E6%94%B6%E5%88%B0%E9%9B%BB%E9%83%B5%E6%8E%A8%E5%BB%A3%E6%83%B3%E6%9F%A5%E8%A9%A2" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:13px 30px;color:#9A7B2E;font-size:15px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;">📱 WhatsApp 即時查詢</a>
+    </td></tr></table>
+    <p style="margin:14px 0 0;font-size:13px;"><a href="https://aoaodelivery.com/catering-quote-enquiry/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer" style="color:#C8A24A;">或填免費報價查詢 →</a></p>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 9. 🎁 會員專屬優惠 — 2 橫額 (worldcup) -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:36px 40px 4px;background:#FBF7EE;">
+    <p style="margin:0 0 8px;color:#1A1A1A;font-size:21px;font-weight:800;letter-spacing:1px;">🎁 會員專屬優惠</p>
+    <div style="width:40px;height:2px;background:#C8A24A;margin:0 auto;"></div>
+  </td></tr>
+  <tr><td style="padding:16px 24px 4px;background:#FBF7EE;">
+    <a href="https://aoaodelivery.com/product-category/party-set-by-people/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-1440x599.jpg" width="100%" alt="多買多嘗 — 滿$1500/$2200/$3000 即送精選禮品" style="width:100%;height:auto;border-radius:6px;"></a>
+  </td></tr>
+  <tr><td style="padding:8px 24px 34px;background:#FBF7EE;">
+    <a href="https://aoaodelivery.com/product-category/party-set-by-people/?utm_source=edm&utm_medium=email&utm_campaign=midautumn2026" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0-02-1440x599.jpg" width="100%" alt="舊會員優惠 — 舊單每$2000當$100洗" style="width:100%;height:auto;border-radius:6px;"></a>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- 10. SOCIAL PROOF + INSTAGRAM 精選 — 全黑底，收 4 個 IG post -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:36px 40px 6px;background:#1A1A1A;">
+    <p style="margin:0 0 6px;color:#C8A24A;font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">Trusted by</p>
+    <p style="margin:0 0 12px;color:#ffffff;font-size:19px;font-weight:bold;">大品牌活動都揀 Kitchen AO</p>
+    <p style="margin:0;color:#C8A24A;font-size:15px;font-weight:bold;letter-spacing:1px;">★★★★★　4.8 / 5　Google 評價</p>
+  </td></tr>
+
+  <!-- 金幼分隔線 -->
+  <tr><td style="padding:20px 40px 0;background:#1A1A1A;"><div style="border-top:1px solid #3a3a3a;"></div></td></tr>
+
+  <!-- Instagram 精選 （白字） -->
+  <tr><td align="center" style="padding:22px 40px 4px;background:#1A1A1A;">
+    <p style="margin:0 0 8px;color:#ffffff;font-size:19px;font-weight:800;letter-spacing:1px;">Instagram 精選</p>
+    <div style="width:40px;height:2px;background:#C8A24A;margin:0 auto;"></div>
+  </td></tr>
+  <tr><td style="padding:18px 30px 4px;background:#1A1A1A;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="stack" width="50%" valign="top" style="padding:8px;"><a href="https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><img src="https://aoaodelivery.com/wp-content/uploads/2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="100%" alt="李寧跑步活動到會" style="width:100%;height:auto;border-radius:4px;background:#333;"><p style="margin:8px 0 2px;color:#ffffff;font-size:12.5px;font-weight:bold;line-height:17px;">李寧跑步活動</p><p style="margin:0;color:#C8A24A;font-size:13px;font-weight:bold;">睇 Reels →</p></a></td>
+        <td class="stack" width="50%" valign="top" style="padding:8px;"><a href="https://www.instagram.com/reel/DW3TE0tt7ob/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><img src="https://aoaodelivery.com/wp-content/uploads/2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="100%" alt="Lululemon K11 MUSEA 空中花園跑步活動到會" style="width:100%;height:auto;border-radius:4px;background:#333;"><p style="margin:8px 0 2px;color:#ffffff;font-size:12.5px;font-weight:bold;line-height:17px;">Lululemon K11 空中花園活動</p><p style="margin:0;color:#C8A24A;font-size:13px;font-weight:bold;">睇 Reels →</p></a></td>
+      </tr>
+      <tr>
+        <td class="stack" width="50%" valign="top" style="padding:8px;"><a href="https://www.instagram.com/p/C9RU4gISzIS/?igsh=MXZtbXlyNXJoZXJvaA==" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><img src="https://aoaodelivery.com/wp-content/uploads/2026/07/kitchen-ao-catering-McLaren-private-event.png" width="100%" alt="McLaren 私人活動到會 廚師及侍應服務" style="width:100%;height:auto;border-radius:4px;background:#333;"><p style="margin:8px 0 2px;color:#ffffff;font-size:12.5px;font-weight:bold;line-height:17px;">McLaren 私人活動｜廚師及侍應服務</p><p style="margin:0;color:#C8A24A;font-size:13px;font-weight:bold;">睇 Reels →</p></a></td>
+        <td class="stack" width="50%" valign="top" style="padding:8px;"><a href="https://www.instagram.com/reel/DWqVUpjtRbA/?igsh=ZTFvcmxic292eGh0" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><img src="https://aoaodelivery.com/wp-content/uploads/2026/07/kitchen-ao-catering-UGG-Event.jpg" width="100%" alt="UGG 品牌活動到會 全套服務" style="width:100%;height:auto;border-radius:4px;background:#333;"><p style="margin:8px 0 2px;color:#ffffff;font-size:12.5px;font-weight:bold;line-height:17px;">UGG 品牌活動｜全套到會服務</p><p style="margin:0;color:#C8A24A;font-size:13px;font-weight:bold;">睇 Reels →</p></a></td>
+      </tr>
+    </table>
+  </td></tr>
+  <tr><td align="center" style="padding:14px 40px 36px;background:#1A1A1A;">
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" style="border:1px solid #C8A24A;border-radius:2px;">
+      <a href="https://www.instagram.com/kitchen.ao/" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:11px 28px;color:#C8A24A;font-size:14px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:2px;">＋ 追蹤 @kitchen.ao</a>
+    </td></tr></table>
+  </td></tr>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER — worldcup 版本 -->
+  <!-- ============================================================ -->
+  <tr><td align="center" style="padding:22px 30px;background:#241A12;">
+    <img src="https://aoaodelivery.com/wp-content/uploads/2026/07/kitchenAO_logo-white.png" width="120" alt="Kitchen AO" style="width:120px;height:auto;margin:0 auto 10px;">
+    <p style="margin:0 0 6px;color:#C9B18A;font-size:12px;line-height:18px;">WhatsApp +852 6901 1987 ｜ <a href="https://www.instagram.com/kitchen.ao/" target="_blank" rel="noopener noreferrer" style="color:#C9B18A;">IG @kitchen.ao</a> ｜ <a href="https://www.facebook.com/Kitchen.ao.official/" target="_blank" rel="noopener noreferrer" style="color:#C9B18A;">Facebook</a></p>
+    <p style="margin:0;color:#8a7a6e;font-size:11px;line-height:17px;">{{crm.business_name}}</p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
