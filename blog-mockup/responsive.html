@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen AO 網誌模板 — 激光刻字</title>
+<style>
+  html,body{margin:0;}
+  body{background:#f2ede3;padding:24px 16px 60px;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;}
+  .ao-preview-wrap{background:#fff;max-width:900px;margin:0 auto;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.06);padding:26px 26px 40px;}
+  .ao-preview-note{max-width:900px;margin:0 auto 14px;font-size:12px;color:#9A8f7e;text-align:center;}
+</style>
+</head>
+<body>
+<p class="ao-preview-note">響應式版預覽(手機自動切換手機 layout)</p>
+<div class="ao-preview-wrap">
+<!-- ============================================================
+     Kitchen AO 網誌模板 — 激光刻字（黑金 clean 風，參考 EDM style）
+     用法:WordPress 文章 → 用「Custom HTML / Raw HTML」區塊貼落 CONTENT
+     ⚠️ 重複 H1 提醒:呢個檔頂部已包含 H1(方便預覽/整篇貼)。
+        WordPress 主題會自動用「文章標題欄」再輸出一個 H1 —— 若直接連 H1 一齊貼會變兩個 H1。
+        建議二擇一:(a)貼落 content 前刪走呢個 <h1>,標題用返文章標題欄;或
+        (b)保留呢個 <h1>,同時將文章標題欄設為唔顯示(視乎主題)。
+     文章標題(H1)建議:【香港到會新玩法】食物都可以玩 Laser？激光打印漢堡／馬卡龍點亮你的派對！
+     ============================================================ -->
+
+<div class="ao-article">
+<style>
+.ao-article{max-width:860px;margin:0 auto;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33;line-height:1.9;font-size:17px;}
+.ao-article p{margin:0 0 18px;}
+.ao-h1{font-size:30px;line-height:1.45;font-weight:800;color:#1A1A1A;margin:0 0 22px;}
+@media(max-width:600px){.ao-h1{font-size:24px;line-height:1.4;}}
+.ao-article strong{color:#1A1A1A;}
+.ao-lead{font-size:18px;color:#4A4238;background:#FAF7F1;border-left:4px solid #C8A24A;border-radius:10px;padding:18px 20px;margin:0 0 28px;}
+/* Intro:問句開場 + 場合標籤 */
+.ao-q{font-size:20px;font-weight:800;color:#1A1A1A;margin:0 0 8px;}
+.ao-intro{font-size:17px;color:#4A4238;margin:0 0 16px;}
+.ao-introcard{background:#fff;border:1px solid #EBE3D2;border-radius:16px;padding:24px 28px;box-shadow:0 3px 16px rgba(0,0,0,.06);margin:0 0 22px;}
+.ao-introcard .ao-q{margin-top:0;}
+.ao-introcard .ao-intro{margin-bottom:0;}
+.ao-tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 30px;}
+.ao-tags span{background:#FAF7F1;border:1px solid #E4D9C2;color:#9A7B2E;font-weight:600;font-size:14px;padding:6px 14px;border-radius:40px;}
+.ao-h2{position:relative;clear:both;font-size:25px;line-height:1.35;font-weight:800;color:#1A1A1A;margin:40px 0 16px;padding-top:16px;}
+.ao-h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A;}
+/* 文字左 + 圖右(頂部對齊)*/
+.ao-split{display:flex;gap:28px;align-items:flex-start;clear:both;margin:40px 0 0;}
+.ao-split-main{flex:1;min-width:0;}
+.ao-split-main .ao-h2{margin-top:0;}
+.ao-split-aside{flex:0 0 42%;max-width:360px;margin:0;}
+.ao-split-aside img{width:100%;height:auto;border-radius:14px;display:block;}
+.ao-split-aside figcaption{font-size:13px;color:#9A8f7e;margin-top:8px;}
+@media(max-width:600px){.ao-split{flex-direction:column;gap:8px;}.ao-split-aside{flex-basis:auto;max-width:100%;}}
+.ao-h3{font-size:19px;font-weight:700;color:#9A7B2E;margin:24px 0 10px;}
+.ao-article a{color:#9A7B2E;font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+.ao-article a:hover{color:#C8A24A;}
+/* 目錄 */
+.ao-toc{background:#FBF7EE;border:1px solid #EBE3D2;border-radius:14px;padding:18px 22px;margin:0 0 30px;}
+.ao-toc .t{font-size:13px;font-weight:700;letter-spacing:3px;color:#C8A24A;text-transform:uppercase;margin:0 0 10px;}
+.ao-toc ul{margin:0;padding-left:20px;}
+.ao-toc li{margin:6px 0;}
+/* 圖片 */
+.ao-fig{margin:24px 0;}
+.ao-fig img{width:100%;height:auto;border-radius:14px;display:block;}
+.ao-fig figcaption{font-size:13px;color:#9A8f7e;text-align:center;margin-top:8px;}
+/* 浮右細圖(文繞圖)*/
+.ao-fig-right{float:right;width:40%;max-width:340px;margin:6px 0 14px 26px;}
+.ao-fig-right figcaption{text-align:left;}
+/* IG / 影片嵌入 */
+/* 數據卡(social proof)*/
+.ao-stats-t{clear:both;text-align:center;font-size:19px;font-weight:800;color:#1A1A1A;margin:30px 0 12px;}
+.ao-stats{clear:both;display:flex;flex-wrap:wrap;gap:12px;margin:0 0 10px;}
+.ao-stats .stat{flex:1;min-width:130px;background:#1A1A1A;border-radius:14px;padding:18px 10px;text-align:center;}
+.ao-stats .num{display:block;font-size:27px;font-weight:800;color:#F7CE46;line-height:1.1;}
+.ao-stats .lbl{display:block;font-size:13px;color:#C9BFA8;margin-top:7px;line-height:1.4;}
+@media(max-width:600px){.ao-stats .stat{flex:1 1 44%;}}
+.ao-embed-cap{text-align:center;font-size:12px;font-weight:700;letter-spacing:2px;color:#C8A24A;text-transform:uppercase;margin:0 0 10px;}
+.ao-embed{margin:0;display:flex;justify-content:center;}
+/* 桌面:數據卡左 + IG 右 */
+.ao-proof{clear:both;display:flex;gap:22px;align-items:flex-start;margin:28px 0;}
+.ao-proof-left{flex:1;min-width:0;}
+.ao-proof-left .ao-stats-t{text-align:left;margin-top:0;}
+.ao-proof-right{flex:0 0 44%;max-width:360px;}
+/* 左邊數據卡:一行一個(直排)*/
+.ao-proof-left .ao-stats{display:grid;grid-template-columns:1fr;gap:12px;}
+.ao-proof-left .ao-stats .stat{min-width:0;width:auto;padding:16px 16px;}
+@media(max-width:600px){.ao-proof{flex-direction:column;}.ao-proof-right{flex-basis:auto;max-width:100%;}.ao-proof-left .ao-stats-t{text-align:center;}.ao-proof-left .ao-stats{grid-template-columns:1fr;}}
+.ao-embed .instagram-media{margin:0 auto!important;}
+@media(max-width:600px){.ao-fig-right{float:none;width:100%;max-width:100%;margin:16px 0;}}
+/* 兩圖平列 */
+.ao-duo{clear:both;display:flex;gap:16px;margin:24px 0;align-items:stretch;}
+.ao-duo>figure,.ao-duo>.ao-prodcard{flex:1;margin:0;max-width:none;}
+.ao-duo figure img{width:100%;height:auto;border-radius:14px;display:block;}
+@media(max-width:600px){.ao-duo{flex-direction:column;}}
+/* 平列等高 + 右圖 crop 上半 */
+.ao-duo-eq figure img{height:380px;object-fit:cover;object-position:center;}
+.ao-duo-eq figure:last-child img{object-position:bottom;}
+@media(max-width:600px){.ao-duo-eq figure img{height:260px;}}
+/* 圖片 placeholder(未有圖) */
+.ao-ph{border:2px dashed #C8A24A;border-radius:14px;background:#FBF7EE;color:#9A7B2E;text-align:center;padding:38px 20px;margin:24px 0;font-weight:600;}
+.ao-ph small{display:block;color:#b9a98f;font-weight:400;margin-top:6px;}
+/* 推薦 / callout 黑金卡 */
+.ao-callout{clear:both;background:#1A1A1A;border-radius:14px;padding:22px 24px;margin:26px 0;color:#EDE6D6;}
+.ao-callout .k{color:#F7CE46;font-weight:800;font-size:16px;margin:0 0 6px;}
+.ao-callout a{color:#F7CE46;}
+/* CTA */
+.ao-cta{text-align:center;margin:34px 0 10px;}
+.ao-cta a{display:inline-block;background:#1A1A1A;color:#fff!important;font-weight:700;font-size:17px;letter-spacing:.5px;text-decoration:none;padding:15px 34px;border-radius:40px;}
+/* FAQ */
+.ao-faq{border:1px solid #EBE3D2;border-radius:14px;padding:6px 20px;margin:12px 0;background:#fff;}
+.ao-faq summary{cursor:pointer;font-weight:700;color:#1A1A1A;font-size:17px;padding:14px 0;list-style:none;}
+.ao-faq summary::-webkit-details-marker{display:none;}
+.ao-faq summary:before{content:"＋";color:#C8A24A;font-weight:800;margin-right:10px;}
+.ao-faq[open] summary:before{content:"－";}
+.ao-faq .a{padding:0 0 16px;color:#4A4238;}
+/* 產品卡(EDM 白色卡:圖上 + 白底文字)*/
+.ao-prodcard{clear:both;max-width:360px;margin:24px auto;background:#fff;border:1px solid #EBE3D2;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.ao-prodcard img{width:100%;height:auto;display:block;}
+.ao-prodcard .foot{padding:14px 18px 16px;}
+.ao-prodcard .eyb{font-size:12px;font-weight:700;letter-spacing:3px;color:#C8A24A;margin:0 0 4px;}
+.ao-prodcard .foot a{font-size:18px;font-weight:800;color:#1A1A1A!important;text-decoration:none;}
+/* 訂購資訊 table */
+.ao-order{clear:both;border:1px solid #EBE3D2;border-radius:14px;overflow:hidden;margin:26px 0;}
+.ao-order-cap{background:#1A1A1A;color:#F7CE46;font-weight:800;font-size:18px;padding:14px 18px;letter-spacing:1px;}
+.ao-order-cap small{display:block;color:#C9BFA8;font-weight:400;font-size:13px;letter-spacing:0;margin-top:3px;}
+.ao-order table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;}
+.ao-order th{background:#FBF7EE;color:#9A7B2E;text-align:left;width:36%;padding:12px 14px;vertical-align:top;border-top:1px solid #EBE3D2;font-weight:700;}
+.ao-order td{padding:12px 14px;vertical-align:top;border-top:1px solid #EBE3D2;color:#4A4238;}
+.ao-order a{color:#9A7B2E;font-weight:600;}
+.ao-order .wa{display:inline-block;background:#25D366;color:#fff!important;font-weight:700;text-decoration:none;padding:8px 18px;border-radius:40px;margin-top:6px;}
+@media(max-width:600px){.ao-order table{font-size:13.5px;}.ao-order th,.ao-order td{padding:10px 10px;}.ao-order th{width:32%;}}
+/* 底部:分享 + 有用嗎 */
+.ao-bottombar{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:center;text-align:center;border-top:1px solid #EBE3D2;border-bottom:1px solid #EBE3D2;padding:16px 0;margin:36px 0 0;}
+.ao-share{background:#1A1A1A;color:#fff;border:0;font-weight:700;font-size:15px;padding:10px 18px;border-radius:40px;cursor:pointer;}
+.ao-helpful{display:flex;align-items:center;justify-content:center;gap:10px;color:#4A4238;font-size:15px;flex-wrap:wrap;}
+.ao-helpful button{background:#FAF7F1;border:1px solid #E4D9C2;color:#9A7B2E;font-weight:600;padding:7px 15px;border-radius:40px;cursor:pointer;}
+.ao-helpful button:hover{background:#F1E9D6;}
+/* 相關 Tag */
+.ao-tagsec{margin:24px 0;}
+.ao-tagsec .lbl{display:block;font-size:12px;font-weight:700;letter-spacing:2px;color:#C8A24A;margin:0 0 10px;}
+/* 延伸閱讀 */
+.ao-related{background:#FAF7F1;border:1px solid #EBE3D2;border-radius:14px;padding:18px 22px;margin:24px 0 8px;}
+.ao-related-t{font-size:17px;font-weight:800;color:#1A1A1A;margin:0 0 8px;}
+.ao-related a{display:block;padding:9px 0;color:#9A7B2E!important;font-weight:600;text-decoration:none;border-top:1px dashed #E4D9C2;}
+.ao-related a:first-of-type{border-top:0;}
+.ao-related a:hover{color:#C8A24A!important;}
+</style>
+
+<!-- LEAD / 引言 -->
+<h1 class="ao-h1">【香港到會新玩法】食物都可以玩 Laser？激光打印漢堡／馬卡龍點亮你的派對！</h1>
+
+<div class="ao-introcard">
+  <p class="ao-q">🤔 食物，真係可以刻字？</p>
+  <p class="ao-intro">可以。而家用<strong>食物雷射雕刻</strong>技術，就能夠喺漢堡包或馬卡龍表面，精準刻上公司 Logo、名字或祝福語。一份普通<strong>香港到會</strong>食物，一刻上去就變成全場搶住影相嘅主角。以下同你逐點拆解呢種<strong>客製化到會</strong>玩法同注意事項。</p>
+</div>
+<div class="ao-tagsec">
+  <span class="lbl">此文章相關 Tag</span>
+  <div class="ao-tags">
+    <span>🎂 生日派對</span>
+    <span>🏢 公司活動</span>
+    <span>💍 婚禮回禮</span>
+    <span>🎁 客製紀念品</span>
+  </div>
+</div>
+
+<!-- 目錄 -->
+<nav class="ao-toc">
+  <div class="t">目錄</div>
+  <ul>
+    <li><a href="#sec1">安心食用的創意到會科技，傳遞個性化心意</a></li>
+    <li><a href="#sec2">企業活動與商務茶點到會，打印 Logo 突顯公司形象</a></li>
+    <li><a href="#faq">常見問題 Q&amp;A</a></li>
+  </ul>
+</nav>
+
+<!-- SECTION 1 -->
+<h2 id="sec1" class="ao-h2">安心食用的創意到會科技，傳遞個性化心意</h2>
+<p>激光食物打印或<strong>食物雷射雕刻</strong>，並非使用油墨，而是利用高度集中的光束能量，在食物表面準確地刻上指定的圖案或文字，過程就像為食物進行微型的「雕刻」或「烙印」。使用的激光設備亦符合相關安全標準，不會改變到會食物原本的味道，可以安心食用。</p>
+<p>Kitchen AO 已引入這項技術，應用於 <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">迷你芝士手打牛肉漢堡</a> 及 <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener">法式七彩馬卡龍</a> 這兩款熱賣的 <strong>Party Food</strong> 之上。曾有舉辦婚宴的客人，要求在迷你漢堡包表面印上派對主題、新人名字縮寫，甚至一句與活動有關的創意金句 —— 當賓客拿起漢堡包，看到刻上的字句時立即會心微笑。</p>
+
+<!-- 平列:左=激光打印漢堡相,右=迷你芝士漢堡產品卡 -->
+<div class="ao-duo">
+  <figure>
+    <img src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4266-e1788770926121.jpg" alt="激光打印漢堡 — Kitchen AO 香港到會客製化派對食物 Happy Birthday">
+    <figcaption>激光打印漢堡：包面清晰刻上「Happy Birthday」</figcaption>
+  </figure>
+  <div class="ao-prodcard">
+    <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-07-1024x1024.jpg" alt="迷你芝士手打牛肉漢堡 — 激光刻字到會派對食物 Kitchen AO"></a>
+    <div class="foot">
+      <p class="eyb">熱賣 PARTY FOOD</p>
+      <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">🍔 迷你芝士手打牛肉漢堡 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- 訂購資訊 table:雷射包 -->
+<div class="ao-order">
+  <div class="ao-order-cap">🔥 雷射包 Laser Buns｜自訂祝福語<small>包面幫你刻字 —— 生日祝福、公司 Logo、活動金句都得</small></div>
+  <table>
+    <tr><th>產品／價錢</th><td><a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">迷你芝士手打牛肉漢堡（單點）</a>：<strong>$228 / 8 個</strong>、<strong>$408 / 15 個</strong></td></tr>
+    <tr><th>最低訂購</th><td>8 個起即可預訂一組字（單點或任何套餐均適用）</td></tr>
+    <tr><th>打印費</th><td>公司 Logo / 圖案 每個 <strong>$10–$15</strong></td></tr>
+    <tr><th>落單時間</th><td>最少 <strong>3 日前</strong>預訂；3 日內請先 WhatsApp 查詢確認</td></tr>
+    <tr><th>字數建議</th><td>20 個英文字母以內</td></tr>
+    <tr><th>落單方法</th><td>先將要打印嘅字／圖案 WhatsApp 俾客服，確認可打印後 Offline 收費。<br><a class="wa" href="https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E9%9B%B7%E5%B0%84%E5%8C%85%E6%BF%80%E5%85%89%E5%88%BB%E5%AD%97%EF%BC%8C%E6%83%B3%E6%89%93%E5%8D%B0%E5%98%85%E5%AD%97/%E5%9C%96%E6%A1%88%E4%BF%82%EF%BC%9A" target="_blank" rel="noopener">💬 WhatsApp 查詢 852 6901 1987</a></td></tr>
+  </table>
+</div>
+
+<!-- 套餐推薦 callout -->
+<div class="ao-callout">
+  <p class="k">🍔 想食多啲？</p>
+  <p style="margin:0;">除以上單點外，可以選購 <a href="https://aoaodelivery.com/product-category/party/foot-party/" target="_blank" rel="noopener">精選美食派對套餐</a> —— 前菜、沙律、主食齊全，加埋雷射雕刻迷你芝士手打牛肉漢堡，大飽口福。</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="ao-split">
+  <div class="ao-split-main">
+    <h2 id="sec2" class="ao-h2">企業活動與商務茶點到會，打印 Logo 突顯公司形象</h2>
+    <p>作為<strong>企業活動到會</strong>主角的馬卡龍，其光滑表面最適合印上公司 Logo，甚至客製化印上不同賓客的名字作紀念品，令這款法式小甜品升級成企業活動專屬美食，加深出席賓客的印象。Kitchen AO 表示，只要客人提早 7–14 天預訂相關派對小食及服務，並<strong>提供</strong>線條清晰的圖案或文字設計稿，期間 Kitchen AO 亦會提供具體雷射雕刻指引，便可打造獨一無二的到會小食。</p>
+  </div>
+  <figure class="ao-split-aside">
+    <img src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4265.jpg" alt="激光打印馬卡龍 — 企業活動到會客製化 Logo 甜點 Kitchen AO">
+    <figcaption>激光打印馬卡龍：光滑表面最適合印 Logo</figcaption>
+  </figure>
+</div>
+
+<!-- Social proof:桌面 數據卡左 + IG 右;手機上下 -->
+<div class="ao-proof">
+<div class="ao-proof-left">
+<p class="ao-stats-t">🔥 雷射包人氣實績</p>
+<div class="ao-stats">
+  <div class="stat"><span class="num">21萬+</span><span class="lbl">IG Reels 觀看</span></div>
+  <div class="stat"><span class="num">500+</span><span class="lbl">每月雷射包查詢</span></div>
+  <div class="stat"><span class="num">100+</span><span class="lbl">每月雷射包訂單</span></div>
+  <div class="stat"><span class="num">20</span><span class="lbl">平均每單「包」數</span></div>
+</div>
+</div>
+<div class="ao-proof-right">
+<p class="ao-embed-cap">🎬 客人實況分享</p>
+<div class="ao-embed">
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C3kmXrMyiUf/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/C3kmXrMyiUf/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/C3kmXrMyiUf/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Kitchen AO🔥 口碑🥇到會 派對食物 公司宴會 小朋友 party catering (@kitchen.ao)</a></p></div></blockquote>
+<script async src="https://www.instagram.com/embed.js"></script>
+</div>
+</div><!-- /ao-proof-right -->
+</div><!-- /ao-proof -->
+
+<!-- 兩圖平列(等高,右圖 crop 上半)-->
+<div class="ao-duo ao-duo-eq">
+  <figure>
+    <img src="https://aoaodelivery.com/wp-content/uploads/2025/05/DSC01522.jpeg" alt="激光打印馬卡龍 — 企業活動到會客製化 Logo 甜點">
+  </figure>
+  <figure>
+    <img src="https://aoaodelivery.com/wp-content/uploads/2025/04/123-scaled.jpg" alt="激光打印食物 — 客製化派對打卡食物 Kitchen AO">
+  </figure>
+</div>
+
+<p>能夠在派對上注入更多心思，定必為出席者製造更多美好回憶。激光食物打印不止是一種裝飾，更承載活動的創意、搞手為賓客傳遞的心意，增加大家的互動。如果你也希望塑造這份獨特的客製化體驗，歡迎與 Kitchen AO 的到會專家查詢。</p>
+
+<div class="ao-cta">
+  <a href="https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E6%BF%80%E5%85%89%E6%89%93%E5%8D%B0%E9%A3%9F%E7%89%A9%EF%BC%88%E6%BC%A2%E5%A0%A1%EF%BC%8F%E9%A6%AC%E5%8D%A1%E9%BE%8D%EF%BC%89%E5%98%85%E6%96%B9%E6%A1%88%E5%90%8C%E5%A0%B1%E5%83%B9%EF%BC%8C%E8%AC%9D%E8%AC%9D%EF%BC%81" target="_blank" rel="noopener">💬 WhatsApp 查詢激光打印方案與報價 →</a>
+</div>
+
+<!-- FAQ -->
+<h2 id="faq" class="ao-h2">常見問題 Q&amp;A</h2>
+
+<details class="ao-faq">
+  <summary>Q1：激光食物打印安全嗎？會改變食物味道嗎？</summary>
+  <div class="a">激光食物打印過程是安全的。我們使用符合食品安全標準的專用激光設備，其能量只作用於食物表層，不會添加任何物質。激光處理過程可能會產生極輕微的焦糖化效果（類似烤麵包邊緣），但對漢堡包或馬卡龍的整體味道影響微乎其微，甚至可能增添一絲獨特風味。您可以安心享用這些客製化食物。</div>
+</details>
+
+<details class="ao-faq">
+  <summary>Q2：目前可以在哪些食物上進行激光打印？</summary>
+  <div class="a">目前我們主要提供在漢堡包（頂部包面）和馬卡龍（光滑表面）上的激光打印服務。這兩種食物的表面特性非常適合進行精細的圖案或文字打印。如果您對其他食物的打印可能性感興趣，歡迎向我們查詢，我們可以探討技術上的可行性，為您打造更多特色派對食物。</div>
+</details>
+
+<details class="ao-faq">
+  <summary>Q3：激光打印食物適合應用在哪些場合？</summary>
+  <div class="a">激光打印食物的應用範圍非常廣泛！從企業活動到會（如週年慶、發佈會）、品牌推廣，到私人派對（如生日派對到會、婚禮、紀念日）、節日慶典，甚至用作特別的禮物或回禮（如散水餅、婚禮回禮小食）。任何希望增添獨特性、驚喜感和派對亮點的場合，都非常適合引入這種到會新玩法。</div>
+</details>
+
+<details class="ao-faq">
+  <summary>Q4：激光打印對圖片或文字設計有什麼要求？</summary>
+  <div class="a">為確保最佳打印效果，建議提供線條清晰、對比度高的單色圖案或文字設計稿，例如公司 Logo 的向量圖（AI/EPS 格式）或純黑色文字。過於複雜、細節過多或包含漸變色的圖像可能難以完美呈現。我們會提供具體的設計指引，並在生產前與您確認設計稿，確保滿足食物雷射雕刻的技術要求。</div>
+</details>
+
+<details class="ao-faq">
+  <summary>Q5：訂製激光打印食物需要提前多久預訂？</summary>
+  <div class="a">由於涉及設計確認和生產排程，我們建議您至少提前 7–14 天預訂激光食物打印服務，特別是數量較多或設計較複雜的訂單。在節日或派對旺季，可能需要更長的預訂時間。提前預訂能確保我們有足夠時間為您準備完美的個性化到會食物，為您的香港到會增添色彩。</div>
+</details>
+
+<!-- 分享 + 有用嗎 -->
+<div class="ao-bottombar">
+  <button class="ao-share" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);var t=this;t.textContent='✅ 已複製連結';setTimeout(function(){t.textContent='🔗 複製文章連結';},2000);">🔗 複製文章連結</button>
+  <div class="ao-helpful" id="aoHelpful">
+    <span>呢篇文章有冇幫到你？</span>
+    <button type="button" onclick="document.getElementById('aoHelpful').innerHTML='🙏 多謝你嘅回饋！';">👍 有用</button>
+    <button type="button" onclick="document.getElementById('aoHelpful').innerHTML='🙏 多謝你嘅回饋！我哋會繼續改善。';">👎 一般</button>
+  </div>
+</div>
+
+<!-- 相關 Tag -->
+<div class="ao-tagsec">
+  <span class="lbl">此文章相關 Tag</span>
+  <div class="ao-tags">
+    <span>🎂 生日派對</span>
+    <span>🏢 公司活動</span>
+    <span>💍 婚禮回禮</span>
+    <span>🎁 客製紀念品</span>
+  </div>
+</div>
+
+<!-- 延伸閱讀 -->
+<div class="ao-related">
+  <p class="ao-related-t">📖 延伸閱讀</p>
+  <a href="https://aoaodelivery.com/blog/kids-birthday-party-catering/">【香港家長必讀】小朋友生日會到會挑選指南 →</a>
+  <a href="https://aoaodelivery.com/blog/company-event-catering-guide/">香港公司活動到會攻略 2026｜Budget、餐單、服務全指南 →</a>
+  <a href="https://aoaodelivery.com/blog/catering-pitfalls-guide/">【香港到會避伏指南 2026】5 大常見中伏位 →</a>
+</div>
+
+</div>
+<!-- ============================================================ -->
+
+</div>
+</body>
+</html>
