@@ -284,10 +284,24 @@
   <button class="ao-share" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);var t=this;t.textContent='✅ 已複製連結';setTimeout(function(){t.textContent='🔗 複製文章連結';},2000);">🔗 複製文章連結</button>
   <div class="ao-helpful" id="aoHelpful">
     <span>呢篇文章有冇幫到你？</span>
-    <button type="button" onclick="document.getElementById('aoHelpful').innerHTML='🙏 多謝你嘅回饋！';">👍 有用</button>
-    <button type="button" onclick="document.getElementById('aoHelpful').innerHTML='🙏 多謝你嘅回饋！我哋會繼續改善。';">👎 一般</button>
+    <button type="button" onclick="aoVote('up')">👍 有用</button>
+    <button type="button" onclick="aoVote('down')">👎 一般</button>
   </div>
 </div>
+<script>
+window.AO_VOTE_ENDPOINT = "https://script.google.com/macros/s/AKfycbys2loW9LmKPHALbYjBiM11jtbQTD2r6vaI6GCJydA-IBQgzhRsyzufKeiZSMwE6z2R/exec";
+function aoVote(v){
+  var box = document.getElementById('aoHelpful');
+  var key = 'ao_voted_' + location.pathname;
+  if(localStorage.getItem(key)){ box.innerHTML = '🙏 你已經投過票，多謝你嘅回饋！'; return; }
+  try{ localStorage.setItem(key, v); }catch(e){}
+  var payload = { vote:v, url:location.href, title:document.title, ref:document.referrer };
+  try{
+    fetch(window.AO_VOTE_ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(payload)}).catch(function(){});
+  }catch(e){}
+  box.innerHTML = (v==='up') ? '🙏 多謝你嘅回饋！' : '🙏 多謝你嘅回饋！我哋會繼續改善。';
+}
+</script>
 
 <!-- 相關 Tag -->
 <div class="ao-tagsec">
