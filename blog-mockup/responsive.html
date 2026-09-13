@@ -50,6 +50,22 @@
 .ao-split-aside img{width:100%;height:auto;border-radius:14px;display:block;}
 .ao-split-aside figcaption{font-size:13px;color:#9A8f7e;margin-top:8px;}
 @media(max-width:600px){.ao-split{flex-direction:column;gap:8px;}.ao-split-aside{flex-basis:auto;max-width:100%;}}
+/* 合作機構展示 */
+.ao-partners{clear:both;margin:40px 0;text-align:center;}
+.ao-partners-t{font-size:25px;font-weight:800;color:#1A1A1A;margin:0 0 8px;}
+.ao-partners-sub{font-size:14.5px;color:#9A8f7e;max-width:640px;margin:0 auto 18px;line-height:1.7;}
+.ao-partners-card{background:#fff;border:1px solid #EBE3D2;border-radius:16px;padding:18px;box-shadow:0 3px 16px rgba(0,0,0,.05);}
+.ao-partners-card img{width:100%;height:auto;display:block;border-radius:8px;}
+@media(max-width:600px){.ao-partners-t{font-size:21px;}}
+/* 企業 CTA banner */
+.ao-partner-cta{clear:both;background:#1E2B4F;border-radius:18px;padding:38px 28px;text-align:center;margin:28px 0;}
+.ao-partner-cta .t{font-size:26px;font-weight:800;color:#fff;margin:0 0 14px;line-height:1.4;}
+.ao-partner-cta .d{font-size:15px;color:#C9CEDD;max-width:620px;margin:0 auto 24px;line-height:1.8;}
+.ao-partner-cta .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.ao-partner-cta .btns a{display:inline-block;font-weight:700;font-size:15px;text-decoration:none;padding:13px 26px;border-radius:10px;}
+.ao-partner-cta .b-gold{background:#C8A24A;color:#1E2B4F!important;}
+.ao-partner-cta .b-white{background:#fff;color:#1E2B4F!important;}
+@media(max-width:600px){.ao-partner-cta{padding:30px 20px;}.ao-partner-cta .t{font-size:21px;}}
 .ao-h3{font-size:19px;font-weight:700;color:#9A7B2E;margin:24px 0 10px;}
 .ao-article a{color:#9A7B2E;font-weight:600;text-decoration:underline;text-underline-offset:3px;}
 .ao-article a:hover{color:#C8A24A;}
@@ -139,9 +155,17 @@
 /* 底部:分享 + 有用嗎 */
 .ao-bottombar{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:center;text-align:center;border-top:1px solid #EBE3D2;border-bottom:1px solid #EBE3D2;padding:16px 0;margin:36px 0 0;}
 .ao-share{background:#1A1A1A;color:#fff;border:0;font-weight:700;font-size:15px;padding:10px 18px;border-radius:40px;cursor:pointer;}
-.ao-helpful{display:flex;align-items:center;justify-content:center;gap:10px;color:#4A4238;font-size:15px;flex-wrap:wrap;}
+.ao-helpful{display:flex;flex-direction:column;align-items:center;color:#4A4238;font-size:15px;}
+.ao-help-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
 .ao-helpful button{background:#FAF7F1;border:1px solid #E4D9C2;color:#9A7B2E;font-weight:600;padding:7px 15px;border-radius:40px;cursor:pointer;}
 .ao-helpful button:hover{background:#F1E9D6;}
+.ao-helpful button:disabled{cursor:default;}
+.ao-helpful button.voted{border-color:#C8A24A;background:#F1E4C4;color:#7A5F1E;}
+.ao-rate{width:100%;max-width:360px;margin:14px auto 0;}
+.ao-rate-bar{height:8px;background:#EFE7D4;border-radius:20px;overflow:hidden;}
+.ao-rate-bar span{display:block;height:100%;width:0;background:#C8A24A;transition:width .4s ease;}
+.ao-rate-txt{font-size:13px;color:#9A8f7e;margin-top:7px;text-align:center;}
+.ao-rate-txt b{color:#1A1A1A;font-weight:800;}
 /* 相關 Tag */
 .ao-tagsec{margin:24px 0;}
 .ao-tagsec .lbl{display:block;font-size:12px;font-weight:700;letter-spacing:2px;color:#C8A24A;margin:0 0 10px;}
@@ -241,6 +265,25 @@
   </figure>
 </div>
 
+<!-- 部分合作機構展示 -->
+<div class="ao-partners">
+  <p class="ao-partners-t">部分合作機構展示</p>
+  <p class="ao-partners-sub">以下為 Kitchen AO 曾合作或服務過的部分企業、醫療、教育及公共機構名單展示。</p>
+  <div class="ao-partners-card">
+    <img src="https://aoaodelivery.com/wp-content/uploads/2024/09/KirchenAO-Partnership_%E9%A0%81%E9%9D%A2_5-1024x465.jpg" alt="Kitchen AO 合作夥伴及服務機構展示 — 企業、醫療、教育及公共機構">
+  </div>
+</div>
+
+<!-- 企業 CTA banner -->
+<div class="ao-partner-cta">
+  <p class="t">想了解企業或機構活動到會方案？</p>
+  <p class="d">無論是公司午餐、品牌發布、醫療機構活動、學校聚會、周年晚宴或節日安排，我們都可以按活動性質與預算提供更合適的餐飲配搭建議。</p>
+  <div class="btns">
+    <a class="b-gold" href="https://aoaodelivery.com/contacts/" target="_blank" rel="noopener">聯絡我們查詢</a>
+    <a class="b-white" href="https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E4%BC%81%E6%A5%AD%EF%BC%8F%E6%A9%9F%E6%A7%8B%E6%B4%BB%E5%8B%95%E5%88%B0%E6%9C%83%E6%96%B9%E6%A1%88" target="_blank" rel="noopener">WhatsApp 即時查詢</a>
+  </div>
+</div>
+
 <!-- Social proof:桌面 數據卡左 + IG 右;手機上下 -->
 <div class="ao-proof">
 <div class="ao-proof-left">
@@ -299,20 +342,32 @@
 <div class="ao-bottombar">
   <button class="ao-share" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);var t=this;t.textContent='✅ 已複製連結';setTimeout(function(){t.textContent='🔗 複製文章連結';},2000);">🔗 複製文章連結</button>
   <div class="ao-helpful" id="aoHelpful">
-    <span id="aoQ">呢篇文章有冇幫到你？</span>
-    <button type="button" id="aoUp" onclick="aoVote('up')">👍 有用 <b id="aoUpN"></b></button>
-    <button type="button" id="aoDown" onclick="aoVote('down')">👎 一般 <b id="aoDownN"></b></button>
+    <div class="ao-help-row">
+      <span id="aoQ">呢篇文章有冇幫到你？</span>
+      <button type="button" id="aoUp" onclick="aoVote('up')">👍 有用</button>
+      <button type="button" id="aoDown" onclick="aoVote('down')">👎 一般</button>
+    </div>
+    <div class="ao-rate" id="aoRate" style="display:none">
+      <div class="ao-rate-bar"><span id="aoRateFill"></span></div>
+      <div class="ao-rate-txt"><b id="aoRatePct"></b> 讀者覺得有用 · <span id="aoRateTotal"></span></div>
+    </div>
   </div>
 </div>
 <script>
 window.AO_VOTE_ENDPOINT = "https://script.google.com/macros/s/AKfycbys2loW9LmKPHALbYjBiM11jtbQTD2r6vaI6GCJydA-IBQgzhRsyzufKeiZSMwE6z2R/exec";
 window._aoUp = 0; window._aoDown = 0;
-function aoSetN(id, n){ var el = document.getElementById(id); if(el) el.textContent = (n>0 ? n : ''); }
-window.aoCounts = function(r){
-  if(!r || !r.ok) return;
-  window._aoUp = r.up||0; window._aoDown = r.down||0;
-  aoSetN('aoUpN', window._aoUp); aoSetN('aoDownN', window._aoDown);
-};
+function aoRender(){
+  var up = window._aoUp||0, down = window._aoDown||0, total = up + down;
+  var rate = document.getElementById('aoRate'); if(!rate) return;
+  if(total > 0){
+    var pct = Math.round(up / total * 100);
+    document.getElementById('aoRateFill').style.width = pct + '%';
+    document.getElementById('aoRatePct').textContent = pct + '%';
+    document.getElementById('aoRateTotal').textContent = '共 ' + total + ' 票';
+    rate.style.display = 'block';
+  } else { rate.style.display = 'none'; }
+}
+window.aoCounts = function(r){ if(!r || !r.ok) return; window._aoUp = r.up||0; window._aoDown = r.down||0; aoRender(); };
 (function(){
   var s = document.createElement('script');
   s.src = window.AO_VOTE_ENDPOINT + '?callback=aoCounts&url=' + encodeURIComponent(location.href);
@@ -324,13 +379,14 @@ function aoThanks(){
 }
 function aoVote(v){
   var key = 'ao_voted_' + location.pathname;
-  if(localStorage.getItem(key)){ aoThanks(); return; }
+  if(localStorage.getItem(key)){ aoThanks(); aoRender(); return; }
   try{ localStorage.setItem(key, v); }catch(e){}
-  if(v==='up'){ window._aoUp++; aoSetN('aoUpN', window._aoUp); } else { window._aoDown++; aoSetN('aoDownN', window._aoDown); }
+  if(v==='up') window._aoUp++; else window._aoDown++;
+  var vb = document.getElementById(v==='up' ? 'aoUp' : 'aoDown'); if(vb) vb.classList.add('voted');
   try{
     fetch(window.AO_VOTE_ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify({vote:v, url:location.href, title:document.title, ref:document.referrer})}).catch(function(){});
   }catch(e){}
-  aoThanks();
+  aoThanks(); aoRender();
 }
 </script>
 
