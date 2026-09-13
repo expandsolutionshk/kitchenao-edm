@@ -79,6 +79,16 @@
 .ao-duo-eq figure img{height:380px;object-fit:cover;object-position:center;}
 .ao-duo-eq figure:last-child img{object-position:bottom;}
 @media(max-width:600px){.ao-duo-eq figure img{height:260px;}}
+/* 三圖平排 */
+.ao-trio{display:flex;gap:16px;clear:both;margin:24px 0;}
+.ao-trio figure{flex:1;min-width:0;margin:0;}
+.ao-trio img{width:100%;height:240px;object-fit:cover;border-radius:14px;display:block;}
+@media(max-width:600px){.ao-trio{flex-direction:column;}.ao-trio img{height:220px;}}
+/* 兩產品卡等高 + 馬卡龍卡 placeholder */
+.ao-duo .ao-prodcard img{height:280px;object-fit:cover;object-position:center;}
+.ao-cardph{height:280px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#FBF7EE;color:#9A7B2E;text-align:center;padding:20px;font-weight:600;border-bottom:2px dashed #C8A24A;}
+.ao-cardph small{display:block;color:#b9a98f;font-weight:400;font-size:12px;margin-top:8px;}
+@media(max-width:600px){.ao-duo .ao-prodcard img,.ao-cardph{height:240px;}}
 /* 圖片 placeholder(未有圖) */
 .ao-ph{border:2px dashed #C8A24A;border-radius:14px;background:#FBF7EE;color:#9A7B2E;text-align:center;padding:38px 20px;margin:24px 0;font-weight:600;}
 .ao-ph small{display:block;color:#b9a98f;font-weight:400;margin-top:6px;}
@@ -106,6 +116,7 @@
 .ao-order{clear:both;border:1px solid #EBE3D2;border-radius:14px;overflow:hidden;margin:26px 0;}
 .ao-order-cap{background:#1A1A1A;color:#F7CE46;font-weight:800;font-size:18px;padding:14px 18px;letter-spacing:1px;}
 .ao-order-cap small{display:block;color:#C9BFA8;font-weight:400;font-size:13px;letter-spacing:0;margin-top:3px;}
+.ao-order-cap a{color:#F7CE46;text-decoration:underline;text-underline-offset:2px;}
 .ao-order table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;}
 .ao-order th{background:#FBF7EE;color:#9A7B2E;text-align:left;width:36%;padding:12px 14px;vertical-align:top;border-top:1px solid #EBE3D2;font-weight:700;}
 .ao-order td{padding:12px 14px;vertical-align:top;border-top:1px solid #EBE3D2;color:#4A4238;}
@@ -161,12 +172,16 @@
 <p>激光食物打印或<strong>食物激光雕刻</strong>，並非使用油墨，而是利用高度集中的光束能量，在食物表面準確地刻上指定的圖案或文字，過程就像為食物進行微型的「雕刻」或「烙印」。使用的激光設備亦符合相關安全標準，不會改變到會食物原本的味道，可以安心食用。</p>
 <p>Kitchen AO 已引入這項技術，應用於 <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">迷你芝士手打牛肉漢堡</a> 及 <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener">法式七彩馬卡龍</a> 這兩款熱賣的 <strong>Party Food</strong> 之上。曾有舉辦婚宴的客人，要求在迷你漢堡包表面印上派對主題、新人名字縮寫，甚至一句與活動有關的創意金句 —— 當賓客拿起漢堡包，看到刻上的字句時立即會心微笑。</p>
 
-<!-- 平列:左=激光打印漢堡相,右=迷你芝士漢堡產品卡 -->
+<!-- 三張印字食物相平排 -->
+<div class="ao-trio">
+  <figure><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4266-e1788770926121.jpg" alt="激光打印漢堡 — Kitchen AO 香港到會派對食物 Happy Birthday"></figure>
+  <figure><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/DSC01522.jpeg" alt="激光打印馬卡龍 — 企業活動到會 Logo 甜點 Kitchen AO"></figure>
+  <figure><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/123-scaled.jpg" alt="激光打印食物 — 訂製派對打卡食物 Kitchen AO"></figure>
+</div>
+
+<!-- 最受歡迎兩款印字食物:兩張產品卡 -->
+<p class="ao-stats-t">最受歡迎兩款印字食物</p>
 <div class="ao-duo">
-  <figure>
-    <img src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4266-e1788770926121.jpg" alt="激光打印漢堡 — Kitchen AO 香港到會訂製派對食物 Happy Birthday">
-    <figcaption>激光打印漢堡：包面清晰刻上「Happy Birthday」</figcaption>
-  </figure>
   <div class="ao-prodcard">
     <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-07-1024x1024.jpg" alt="迷你芝士手打牛肉漢堡 — 激光刻字到會派對食物 Kitchen AO"></a>
     <div class="foot">
@@ -174,11 +189,18 @@
       <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">🍔 迷你芝士手打牛肉漢堡 →</a>
     </div>
   </div>
+  <div class="ao-prodcard">
+    <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener"><div class="ao-cardph">🌈 馬卡龍產品相<small>請貼上 d01 馬卡龍產品圖 URL 取代此框</small></div></a>
+    <div class="foot">
+      <p class="eyb">熱賣 PARTY FOOD</p>
+      <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener">🌈 法式七彩馬卡龍 →</a>
+    </div>
+  </div>
 </div>
 
 <!-- 訂購資訊 table:雷射包 -->
 <div class="ao-order">
-  <div class="ao-order-cap">🔥 雷射包 Laser Buns｜自訂祝福語<small>包面幫你刻字 —— 生日祝福、公司 Logo、活動金句都得</small></div>
+  <div class="ao-order-cap">🔥 雷射包／雷射<a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener">七彩馬卡龍</a> Laser Buns / Macarons｜自訂祝福語<small>包面、餅面幫你刻字 —— 生日祝福、公司 Logo、活動金句都得</small></div>
   <table>
     <tr><th>產品／價錢</th><td><a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">迷你芝士手打牛肉漢堡（單點）</a>：<strong>$228 / 8 個</strong>、<strong>$408 / 15 個</strong></td></tr>
     <tr><th>最低訂購</th><td>8 個起即可預訂一組字（單點或任何套餐均適用）</td></tr>
@@ -192,7 +214,7 @@
 <!-- 套餐推薦 callout -->
 <div class="ao-callout">
   <p class="k">🍔 想食多啲？</p>
-  <p style="margin:0;">除以上單點外，可以選購 <a href="https://aoaodelivery.com/product-category/party/foot-party/" target="_blank" rel="noopener">精選美食派對套餐</a> —— 前菜、沙律、主食齊全，加埋激光雕刻迷你芝士手打牛肉漢堡，大飽口福。</p>
+  <p style="margin:0;">除以上單點外，可以選購 <a href="https://aoaodelivery.com/product-category/party/foot-party/" target="_blank" rel="noopener">精選美食派對套餐</a> —— 前菜、沙律、主食齊全，加埋激光雕刻迷你芝士手打牛肉漢堡，仲有甜品 <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener">法式七彩馬卡龍</a>，大飽口福。</p>
 </div>
 
 <!-- SECTION 2 -->
@@ -226,16 +248,6 @@
 </div>
 </div><!-- /ao-proof-right -->
 </div><!-- /ao-proof -->
-
-<!-- 兩圖平列(等高,右圖 crop 上半)-->
-<div class="ao-duo ao-duo-eq">
-  <figure>
-    <img src="https://aoaodelivery.com/wp-content/uploads/2025/05/DSC01522.jpeg" alt="激光打印馬卡龍 — 企業活動到會訂製 Logo 甜點">
-  </figure>
-  <figure>
-    <img src="https://aoaodelivery.com/wp-content/uploads/2025/04/123-scaled.jpg" alt="激光打印食物 — 訂製派對打卡食物 Kitchen AO">
-  </figure>
-</div>
 
 <p>能夠在派對上注入更多心思，定必為出席者製造更多美好回憶。激光食物打印不止是一種裝飾，更承載活動的創意、搞手為賓客傳遞的心意，增加大家的互動。如果你也希望塑造這份獨特的訂製體驗，歡迎與 Kitchen AO 的到會專家查詢。</p>
 
