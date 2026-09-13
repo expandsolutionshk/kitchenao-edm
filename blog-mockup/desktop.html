@@ -37,6 +37,7 @@
 .ao-introcard .ao-intro{margin-bottom:0;}
 .ao-tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 30px;}
 .ao-tags span{background:#FAF7F1;border:1px solid #E4D9C2;color:#9A7B2E;font-weight:600;font-size:14px;padding:6px 14px;border-radius:40px;}
+@media(max-width:600px){.ao-tags{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}.ao-tags span{flex:0 0 auto;white-space:nowrap;}}
 .ao-h2{position:relative;clear:both;font-size:25px;line-height:1.35;font-weight:800;color:#1A1A1A;margin:40px 0 16px;padding-top:16px;}
 .ao-h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A;}
 /* 文字左 + 圖右(頂部對齊)*/
@@ -112,7 +113,7 @@
 .ao-trio{display:flex;gap:16px;clear:both;margin:24px 0;}
 .ao-trio figure{flex:1;min-width:0;margin:0;}
 .ao-trio img{width:100%;height:240px!important;object-fit:cover!important;border-radius:14px;display:block;}
-@media(max-width:600px){.ao-trio{flex-direction:column;}.ao-trio img{height:220px!important;}}
+@media(max-width:600px){.ao-trio{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:12px;padding-bottom:6px;}.ao-trio figure{flex:0 0 85%;scroll-snap-align:center;}.ao-trio img{height:230px!important;}}
 /* 兩產品卡:show 全圖(唔 crop) */
 .ao-duo .ao-prodcard img{width:100%;height:auto;display:block;}
 /* 圖片 placeholder(未有圖) */
@@ -206,23 +207,23 @@
 
 <!-- 三張印字食物相平排 -->
 <div class="ao-trio">
-  <figure><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4266-e1788770926121.jpg" alt="激光打印漢堡 — Kitchen AO 香港到會派對食物 Happy Birthday"></figure>
-  <figure><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/DSC01522.jpeg" alt="激光打印馬卡龍 — 企業活動到會 Logo 甜點 Kitchen AO"></figure>
-  <figure><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/123-scaled.jpg" alt="激光打印食物 — 訂製派對打卡食物 Kitchen AO"></figure>
+  <figure><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4266-e1788770926121.jpg" alt="激光打印漢堡 — Kitchen AO 香港到會派對食物 Happy Birthday"></figure>
+  <figure><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2025/05/DSC01522-768x577.jpeg" alt="激光打印馬卡龍 — 企業活動到會 Logo 甜點 Kitchen AO"></figure>
+  <figure><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2025/04/123-768x1024.jpg" alt="激光打印食物 — 訂製派對打卡食物 Kitchen AO"></figure>
 </div>
 
 <!-- 最受歡迎兩款印字食物:兩張產品卡 -->
 <p class="ao-stats-t">最受歡迎兩款印字食物</p>
 <div class="ao-duo">
   <div class="ao-prodcard">
-    <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-07-scaled.jpg" alt="迷你芝士手打牛肉漢堡 — 激光刻字到會派對食物 Kitchen AO"></a>
+    <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-07-768x768.jpg" alt="迷你芝士手打牛肉漢堡 — 激光刻字到會派對食物 Kitchen AO"></a>
     <div class="foot">
       <p class="eyb">熱賣 PARTY FOOD</p>
       <a href="https://aoaodelivery.com/product/a0700-handmade-mini-cheeseburger/" target="_blank" rel="noopener">🍔 迷你芝士手打牛肉漢堡 →</a>
     </div>
   </div>
   <div class="ao-prodcard">
-    <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/法式七彩馬卡龍.png" alt="法式七彩馬卡龍 — 激光刻字到會派對甜品 Kitchen AO"></a>
+    <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/09/法式七彩馬卡龍-768x768.png" alt="法式七彩馬卡龍 — 激光刻字到會派對甜品 Kitchen AO"></a>
     <div class="foot">
       <p class="eyb">熱賣 PARTY FOOD</p>
       <a href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank" rel="noopener">🌈 法式七彩馬卡龍 →</a>
@@ -255,7 +256,7 @@
     <p>作為<strong>企業活動到會</strong>主角的馬卡龍，其光滑表面最適合印上公司 Logo，甚至訂製印上不同賓客的名字作紀念品，令這款法式小甜品升級成企業活動專屬美食，加深出席賓客的印象。Kitchen AO 表示，只要客人提早 7–14 天預訂相關派對小食及服務，並<strong>提供</strong>線條清晰的圖案或文字設計稿，期間 Kitchen AO 亦會提供具體激光雕刻指引，便可打造獨一無二的到會小食。</p>
   </div>
   <figure class="ao-split-aside">
-    <img src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4265.jpg" alt="激光打印馬卡龍 — 企業活動到會訂製 Logo 甜點 Kitchen AO">
+    <img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2025/04/IMG_4265-768x939.jpg" alt="激光打印馬卡龍 — 企業活動到會訂製 Logo 甜點 Kitchen AO">
     <figcaption>激光打印馬卡龍：光滑表面最適合印 Logo</figcaption>
   </figure>
 </div>
@@ -265,7 +266,7 @@
   <p class="ao-partners-t">部分合作機構展示</p>
   <p class="ao-partners-sub">以下為 Kitchen AO 曾合作或服務過的部分企業、醫療、教育及公共機構名單展示。</p>
   <div class="ao-partners-card">
-    <img src="https://aoaodelivery.com/wp-content/uploads/2024/09/KirchenAO-Partnership_%E9%A0%81%E9%9D%A2_5-1024x465.jpg" alt="Kitchen AO 合作夥伴及服務機構展示 — 企業、醫療、教育及公共機構">
+    <img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2024/09/KirchenAO-Partnership_%E9%A0%81%E9%9D%A2_5-1024x465.jpg" alt="Kitchen AO 合作夥伴及服務機構展示 — 企業、醫療、教育及公共機構">
   </div>
 </div>
 
