@@ -152,9 +152,21 @@
 .ao-ctbox{position:relative;}
 .ao-ctbox .ao-sl-btn{top:0;margin-top:0;display:none;z-index:6;}
 @media(max-width:700px){.ao-ctbox{padding-top:44px;}.ao-ctbox::before{content:"左右滑動查看其他類型";position:absolute;left:12px;top:9px;font-size:13px;font-weight:700;color:#8A7F6B;}.ao-ctbox .ao-sl-btn{display:block;}.ao-ctbox .ao-sl-btn.prev{left:auto;right:56px;}.ao-ctbox .ao-sl-btn.next{right:12px;}}
+.ao-kv{position:relative;overflow:hidden;border-radius:14px;background:linear-gradient(#9FE0F0,#FFF1CF);}
+.ao-kv img.ao-kvp{opacity:0;transition:opacity .35s ease;animation-play-state:paused!important;}
+.ao-kv.is-ready img.ao-kvp{opacity:1;animation-play-state:running!important;}
+.ao-kv img.ao-kvp{position:absolute;width:5.848%!important;height:auto!important;border-radius:0!important;transform-origin:50% 96%;will-change:transform;pointer-events:none;}
+.ao-kv .p1{left:49.86%;top:40.674%;animation:aoKvHop 1.8s ease-in-out infinite;}
+.ao-kv .p2{left:53.623%;top:40.674%;animation:aoKvSway 2.4s ease-in-out infinite;}
+.ao-kv .p3{left:57.385%;top:40.674%;animation:aoKvSelfie 2.8s ease-in-out .6s infinite;}
+@media(max-width:600px){.ao-kv img.ao-kvp{width:9.57%!important;}.ao-kv .p1{left:26.994%;top:59.058%;}.ao-kv .p2{left:33.151%;top:59.058%;}.ao-kv .p3{left:39.308%;top:59.058%;}}
+@keyframes aoKvHop{0%,55%,100%{transform:translateY(0) scaleY(1);}20%{transform:translateY(-18%) scaleY(1.03);}35%{transform:translateY(0) scaleY(.94);}45%{transform:translateY(-5%);}}
+@keyframes aoKvSway{0%,100%{transform:rotate(-7deg);}50%{transform:rotate(7deg);}}
+@keyframes aoKvSelfie{0%,100%{transform:rotate(0) translateY(0);}20%{transform:rotate(-9deg);}40%{transform:rotate(0) translateY(-10%);}60%{transform:rotate(6deg);}80%{transform:rotate(0);}}
+@media(prefers-reduced-motion:reduce){.ao-kv img.ao-kvp{animation:none!important;}}
 </style>
 
-<figure class="ao-fig"><picture><source media="(max-width:600px)" srcset="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-catering-2026-kv-mobile.webp" width="1080" height="1350"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-catering-2026-kv.webp" width="1600" height="900" alt="船河到會 2026 船P必備清單及到會食物攻略" fetchpriority="high"></picture></figure>
+<figure class="ao-fig ao-kv"><picture><source media="(max-width:600px)" srcset="img/boat-party-catering-2026-kv-bg-mobile.webp" width="1080" height="1350"><img src="img/boat-party-catering-2026-kv-bg.webp" width="1600" height="900" alt="船河到會 2026 船P必備清單及到會食物攻略" fetchpriority="high" onload="this.closest('.ao-kv').classList.add('is-ready')"></picture><img class="ao-kvp p1" src="img/boat-party-kv-person-1.webp" width="256" height="328" alt="" aria-hidden="true" decoding="async"><img class="ao-kvp p2" src="img/boat-party-kv-person-2.webp" width="256" height="328" alt="" aria-hidden="true" decoding="async"><img class="ao-kvp p3" src="img/boat-party-kv-person-3.webp" width="256" height="328" alt="" aria-hidden="true" decoding="async"></figure><script>(function(){document.querySelectorAll(".ao-kv").forEach(function(k){var i=k.querySelector("picture img");function r(){k.classList.add("is-ready");}if(!i||i.complete&&i.naturalWidth){r();}else{i.addEventListener("load",r);i.addEventListener("error",r);setTimeout(r,4000);}});})();</script>
 <p class="ao-intro">出海舉行<strong>船上派對</strong>，除了預訂船隻，最花心思的往往是物資與餐飲安排。本文由出發前的<strong>船P必備清單</strong>、食物選擇與份量、飲品冰塊，以及碼頭交收流程逐一整理，並附<strong>船河到會</strong>套餐推介，是一份適合搞手收藏的<strong>船P懶人包</strong>。</p>
 
 <nav class="ao-toc">
@@ -174,7 +186,7 @@
 <p>無論是遊艇派對還是船上派對，船P的準備均可分為個人物品及全船共用物資兩部分，而個人物品則視乎參加者的玩法而有所不同。有人一上船便換上泳衣準備浮潛，亦有人只想在甲板上曬太陽、拍照聊天。下表按「落水人士」、「打卡舒適型」及「搞手」三類整理船P必備清單，作為遊船河準備的清單，出發前逐項核對，便可避免在海中心才發現遺漏。</p>
 
 <h3 class="ao-h3">船P必備清單：落水人士、打卡舒適型、搞手一表看清</h3>
-<figure class="ao-fig"><picture><source media="(max-width:600px)" srcset="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-checklist-2026-mobile.webp" width="1080" height="1350"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-checklist-2026.webp" width="1600" height="900" alt="船P必備清單：落水人士、打卡舒適型、搞手出發前檢查表" loading="lazy"></picture></figure>
+<figure class="ao-fig"><picture><source media="(max-width:600px)" srcset="img/boat-party-checklist-2026-mobile.webp" width="1080" height="1350"><img src="img/boat-party-checklist-2026.webp" width="1600" height="900" alt="船P必備清單：落水人士、打卡舒適型、搞手出發前檢查表" loading="lazy"></picture></figure>
 <p class="ao-tcap">Kitchen AO 船P出發前檢查表</p>
 <div class="ao-ctbox"><button type="button" class="ao-sl-btn prev" aria-label="向左" onclick="this.parentNode.querySelector('.ao-ctwrap').scrollBy({left:-172,behavior:'smooth'})">‹</button><div class="ao-ctframe"><div class="ao-ctwrap"><table class="ao-ctable"><colgroup><col class="k"><col><col><col></colgroup><thead><tr><th class="c0">類別</th><th class="c1">落水人士</th><th class="c2">打卡舒適型</th><th class="c3">搞手（全船共用）</th></tr></thead><tbody>
 <tr class="intro"><td class="rh">類型簡介</td><td>計劃浮潛、SUP（Stand Up Paddle，即「站立式槳板」）、Wakeboard（滑水板）、香蕉船、跳水等水上活動，重點在防水、防曬及補充體力。</td><td>以曬太陽、聊天、拍照及玩遊戲為主，重點在舒適、防曬及娛樂。</td><td>負責統籌全船物資、食物交收及安全，重點在份量充足、衛生及清潔。</td></tr>
@@ -194,7 +206,7 @@
 <h2 id="food" class="ao-h2">船P帶咩食物？遊船河食物選擇與份量計算</h2>
 <p>在搖晃且海風強勁的船上，選擇合適的<strong>遊船河食物</strong>至關重要：既要美味，亦要方便實用。以下由食物宜忌、配搭以至份量計算，逐步說明如何準備<strong>船河派對食物</strong>。</p>
 
-<figure class="ao-fig"><picture><source media="(max-width:600px)" srcset="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-food-drinks-2026-mobile.webp" width="1080" height="1350"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-food-drinks-2026.webp" width="1600" height="900" alt="船P食物飲品攻略：適合帶上船的一口小食及飲品冰塊" loading="lazy"></picture></figure>
+<figure class="ao-fig"><picture><source media="(max-width:600px)" srcset="img/boat-party-food-drinks-2026-mobile.webp" width="1080" height="1350"><img src="img/boat-party-food-drinks-2026.webp" width="1600" height="900" alt="船P食物飲品攻略：適合帶上船的一口小食及飲品冰塊" loading="lazy"></picture></figure>
 <h3 class="ao-h3">船P食物宜與忌：為何首選一口小食？</h3>
 <div class="ao-dd">
 <div class="do"><p class="t">適合帶上船</p><ul>
