@@ -153,7 +153,9 @@
 .ao-ctbox .ao-sl-btn.prev{left:-6px;}
 .ao-ctbox .ao-sl-btn.next{right:-6px;}
 @media(max-width:700px){.ao-ctbox .ao-sl-btn{display:block;}}
-.ao-kv{position:relative;overflow:hidden;border-radius:14px;}
+.ao-kv{position:relative;overflow:hidden;border-radius:14px;background:linear-gradient(#9FE0F0,#FFF1CF);}
+.ao-kv img.ao-kvp{opacity:0;transition:opacity .35s ease;animation-play-state:paused!important;}
+.ao-kv.is-ready img.ao-kvp{opacity:1;animation-play-state:running!important;}
 .ao-kv img.ao-kvp{position:absolute;width:5.848%!important;height:auto!important;border-radius:0!important;transform-origin:50% 96%;will-change:transform;pointer-events:none;}
 .ao-kv .p1{left:49.86%;top:40.674%;animation:aoKvHop 1.8s ease-in-out infinite;}
 .ao-kv .p2{left:53.623%;top:40.674%;animation:aoKvSway 2.4s ease-in-out infinite;}
@@ -165,7 +167,7 @@
 @media(prefers-reduced-motion:reduce){.ao-kv img.ao-kvp{animation:none!important;}}
 </style>
 
-<figure class="ao-fig ao-kv"><picture><source media="(max-width:600px)" srcset="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-catering-2026-kv-bg-mobile.webp" width="1080" height="1350"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-catering-2026-kv-bg.webp" width="1600" height="900" alt="船河到會 2026 船P必備清單及到會食物攻略" fetchpriority="high"></picture><img class="ao-kvp p1" src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-kv-person-1.webp" width="512" height="656" alt="" aria-hidden="true" decoding="async"><img class="ao-kvp p2" src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-kv-person-2.webp" width="512" height="656" alt="" aria-hidden="true" decoding="async"><img class="ao-kvp p3" src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-kv-person-3.webp" width="512" height="656" alt="" aria-hidden="true" decoding="async"></figure>
+<figure class="ao-fig ao-kv"><picture><source media="(max-width:600px)" srcset="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-catering-2026-kv-bg-mobile.webp" width="1080" height="1350"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-catering-2026-kv-bg.webp" width="1600" height="900" alt="船河到會 2026 船P必備清單及到會食物攻略" fetchpriority="high" onload="this.closest('.ao-kv').classList.add('is-ready')"></picture><img class="ao-kvp p1" src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-kv-person-1.webp" width="256" height="328" alt="" aria-hidden="true" decoding="async"><img class="ao-kvp p2" src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-kv-person-2.webp" width="256" height="328" alt="" aria-hidden="true" decoding="async"><img class="ao-kvp p3" src="https://aoaodelivery.com/wp-content/uploads/2026/09/boat-party-kv-person-3.webp" width="256" height="328" alt="" aria-hidden="true" decoding="async"></figure><script>(function(){document.querySelectorAll(".ao-kv").forEach(function(k){var i=k.querySelector("picture img");function r(){k.classList.add("is-ready");}if(!i||i.complete&&i.naturalWidth){r();}else{i.addEventListener("load",r);i.addEventListener("error",r);setTimeout(r,4000);}});})();</script>
 <p class="ao-intro">出海舉行<strong>船上派對</strong>，除了預訂船隻，最花心思的往往是物資與餐飲安排。本文由出發前的<strong>船P必備清單</strong>、食物選擇與份量、飲品冰塊，以及碼頭交收流程逐一整理，並附<strong>船河到會</strong>套餐推介，是一份適合搞手收藏的<strong>船P懶人包</strong>。</p>
 
 <nav class="ao-toc">
