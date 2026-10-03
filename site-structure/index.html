@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kitchen AO Site Structure 架構圖 2026-10</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+body{margin:0;font-family:-apple-system,"PingFang HK","Noto Sans HK",sans-serif;background:#FBF6EC;color:#2a2620}
+header{background:#1A1A1A;color:#F7CE46;padding:18px 24px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;color:#C9BFA8;font-size:13px}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px 24px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
+nav button{border:1.5px solid #1A1A1A;background:#fff;border-radius:30px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer}
+nav button.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
+section{display:none;padding:20px 24px 60px}section.on{display:block}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.05);overflow:auto}
+.legend{font-size:13px;color:#6b6252;margin:0 0 12px}.legend span{display:inline-block;padding:2px 10px;border-radius:8px;margin-right:6px}
+.new{background:#E3F4E8}.old{background:#FFF4D6}.bad{background:#FDE2E1}.ok{background:#E3F1FB}
+</style></head><body>
+<header><h1>Kitchen AO 網站架構圖（Site Structure）</h1><p>2026-10-03｜由「KitchenAO_Site_Structure_Map」主表整理；主表更新後重畫此圖</p></header>
+<nav id="nav"></nav>
+<div id="views"></div>
+<script>
+const V = {
+'全站總覽': `flowchart LR
+H["首頁 /"]:::ok --> C["/catering/ 場景總覽/"]:::new
+C --> B1["船河"]:::new & B2["素食"]:::new & B3["生日會"]:::new & B4["公司午餐"]:::new & B5["學校飯盒"]:::new & B6["中秋節"]:::new & B7["萬聖節"]:::new & B8["訂製食物"]:::new
+H --> P["產品"]:::ok
+P --> P1["派對套餐 /party/"]:::ok & P2["人數選餐 /party-set-by-people/"]:::ok & P3["單點 /a-la-carte/"]:::ok & P4["商務活動"]:::ok & P5["配菜"]:::ok & P6["派對用品"]:::ok & P7["中秋套餐 2026"]:::old
+H --> BL["Blog 13 篇"]:::ok
+H --> D["地區 hub /地區到會分類/"]:::old --> DD["15 個地區頁"]:::ok
+H --> SV["服務頁"]:::ok & TR["信任頁"]:::ok & SP["支援頁 delivery／foodbook／FAQ"]:::ok
+H -.-> X["要整理：舊 bldg 頁、2024 舊餐盒頁、sample-page"]:::old
+H -.-> HK["⚠️ 2 個被入侵頁面"]:::bad
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef bad fill:#FDE2E1,stroke:#E2574C
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'船河': `flowchart LR
+H["首頁"] --> L["/catering/boat-party/ landing 交易型/"]:::new
+OLD["/boat-trip-bldg/ 舊頁/"]:::old -- 301 --> L
+L --> C1["/party/boat-party-set/ 船河套餐/"]:::ok --> PR["5 個船河套餐產品 15–40 人"]:::ok
+L --> C2["/party/meat-monster/ 肉食盛盒/"]:::ok
+L --> S1["/a-la-carte/snacks/ 一口小食/"]:::ok
+L <--> BG["/blog/boat-party-catering-guide/ 船P必備清單/"]:::ok
+L --> DL["/delivery/ 碼頭交收・運費/"]:::ok
+DS["西貢地區頁（建議新增）"]:::new -.-> L
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'素食': `flowchart LR
+H["首頁"] --> L["/catering/vegetarian/ landing/"]:::new
+L --> C1["/party/vegetarians-set/ 素味人生 6–26 人/"]:::ok
+L --> C2["/a-la-carte/vegetarian/ 素食單品（新分類）/"]:::new
+C2 --> I1["焗茄子・翠玉瓜・白汁菠菜・薯蓉… 待廚房確認"]:::old
+L <--> BG["/blog/vegetarian-catering-hong-kong/ 要更新/"]:::old
+T1["/tag/素食到會/ 已 301/"]:::ok -.-> C1
+T2["/blog/tag/素食到會/ 建議 noindex/"]:::old
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'生日會': `flowchart LR
+H["首頁"] --> L["/catering/birthday-party/ landing/"]:::new
+OLD["/partyfood-bldg/ 舊頁/"]:::old -- 301 --> L
+L --> C1["/party/children/ 兒童套餐/"]:::ok & C2["/party/foot-party/ 美食派對 5–85 人/"]:::ok & C3["/party-supplies/ 食物架/"]:::ok & C4["/a-la-carte/dessert/ 甜品/"]:::ok
+L <--> B1["/blog/kids-birthday-party-catering/"]:::ok
+L <--> B2["/blog/laser-printed-food-party/"]:::ok
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'公司午餐': `flowchart LR
+H["首頁"] --> L["/catering/corporate-lunch/ 或沿用 /corporate-catering-hk//"]:::new
+L --> C["/product-category/商務活動/ hub/"]:::old
+C --> C1["staff-meal"]:::ok & C2["commercial-lunch-box"]:::ok & C3["executive-premium-meal-box"]:::ok & C4["royal-snackers-box"]:::ok & C5["a-bit-of-cuisines"]:::ok
+L --> C6["/單點商務小食/"]:::ok
+L --> RQ["/catering-quote-enquiry/ 報價"]:::ok
+L <--> B1["/blog/company-event-catering-guide/"]:::ok & B2["/blog/hong-kong-company-catering-how-to-choose/"]:::ok
+O1["/商務餐盒/ /高級餐盒-2/ /員工膳食餐盒/ /皇家小食盒/ /舌尖上的餐桌/"]:::old -- 301 --> C
+BE["/business-event/ 與 corporate 重疊"]:::old -.-> L
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'學校飯盒': `flowchart LR
+H["首頁"] --> L["/catering/school-lunch-box/ landing/"]:::new
+L --> N1["學校飯盒產品（未有）"]:::new
+L --> C1["/party/refreshment-set/ 學校聯歡會"]:::ok
+L --> C2["/商務活動/staff-meal/ 暫代"]:::ok
+L <--> BN["學校飯盒 blog（未有）"]:::new
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'中秋節': `flowchart LR
+H["首頁"] --> L["/catering/mid-autumn/ landing 每年沿用/"]:::new
+L --> C1["/中秋佳節團圓套餐-2026/ 建議改 slug/"]:::old
+L <--> M["/mooncake-preorder/ 月餅預訂/"]:::ok
+L <--> B1["/blog/mid-autumn-catering-hong-kong/"]:::ok
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'萬聖節': `flowchart LR
+H["首頁"] --> L["/catering/halloween/ landing/"]:::new
+L --> N1["萬聖節套餐（未有）"]:::new
+L --> C1["/party/foot-party/ 暫代"]:::ok
+L <--> B1["/blog/halloween-catering-hong-kong/ H1 要修正/"]:::old
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'訂製食物': `flowchart LR
+H["首頁"] --> L["/catering/custom-printed-food/ campaign/"]:::new
+OLD["/客製化紀念品訂製服務/"]:::old -- 合併 --> L
+L --> N1["訂製食物分類（未有）"]:::new --> P1["/product/船河小食/ 雷射漢堡包 slug 要改/"]:::old
+L <--> B1["/blog/laser-printed-food-party/"]:::ok
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`,
+'地區頁': `flowchart TB
+H["首頁"] --> HUB["/地區到會分類/ hub 要補內容/"]:::old
+HUB --> HK["港島"] & KL["九龍"] & NT["新界"]
+HK --> a1["中環"] & a2["西營盤"] & a3["灣仔"] & a4["銅鑼灣"] & a5["北角"] & a6["鰂魚涌"]
+KL --> b1["尖沙咀"] & b2["旺角"] & b3["深水埗"] & b4["九龍城"] & b5["觀塘"] & b6["九龍灣 新增"]:::new & b7["長沙灣 新增"]:::new
+NT --> c1["沙田"] & c2["荃灣"] & c3["元朗"] & c4["屯門"] & c5["將軍澳 新增"]:::new & c6["葵涌 新增"]:::new & c7["西貢 新增"]:::new
+DL["/delivery/ 運費表"]:::ok -.連去.-> HUB
+c7 -.-> BOAT["船河 landing"]:::new
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef ok fill:#E3F1FB,stroke:#2B7BD0`
+};
+mermaid.initialize({startOnLoad:false,securityLevel:'strict',flowchart:{htmlLabels:true,curve:'basis'}});
+const nav=document.getElementById('nav'),views=document.getElementById('views');let i=0;
+for(const [k,code] of Object.entries(V)){
+  const b=document.createElement('button');b.textContent=k;nav.appendChild(b);
+  const s=document.createElement('section');s.innerHTML='<p class="legend"><span class="new">綠＝新建</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
+  s.querySelector('pre').textContent=code;views.appendChild(s);
+  b.onclick=async()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');s.classList.add('on');const pre=s.querySelector('pre');if(!pre.dataset.done){await mermaid.run({nodes:[pre]});pre.dataset.done=1;}};
+  if(i++===0)setTimeout(()=>b.click(),0);
+}
+</script></body></html>
