@@ -263,14 +263,14 @@
     });
   });
 
-  // ===== Frequency cap：每日最多 3 次（每日 reset）=====
+  // ===== Frequency cap：每日最多 5 次（每日 reset）=====
   var KEY = 'ao_popup_halloween26';
   var d = new Date();
   var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
   var data = { date: '', count: 0 };
   try { var raw = localStorage.getItem(KEY); if (raw) data = JSON.parse(raw); } catch (e) {}
   if (data.date !== today) { data = { date: today, count: 0 }; }
-  if (data.count >= 3) return;
+  if (data.count >= 5) return;
 
   function openPopup() {
     overlay.style.display = 'flex';
