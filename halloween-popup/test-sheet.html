@@ -1,3 +1,18 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tracking 測試 – Halloween Pop up</title>
+<style>body{margin:0;font-family:-apple-system,'PingFang TC',sans-serif;background:#f4f1ec;color:#231814}.panel{max-width:640px;margin:0 auto;padding:20px}h1{font-size:20px}ol{line-height:1.9;padding-left:20px}.btn{display:inline-block;margin:6px 8px 6px 0;padding:10px 16px;border-radius:999px;border:0;background:#231814;color:#fff;font-weight:700;cursor:pointer;text-decoration:none;font-size:14px}.btn.o{background:#FF7A1A;color:#231814}code{background:#eee;padding:1px 5px;border-radius:4px}#st{margin-top:10px;font-weight:700}</style></head><body>
+<div class="panel"><h1>🧪 Google Sheet Tracking 測試頁</h1>
+<p>呢頁用 <b>真 tracking</b>（會寫入 Google Sheet）。Sheet 入面「頁面網址」會顯示 <code>github.io</code>，方便分辨係測試。</p>
+<ol>
+<li>撳 <b>①</b>：直接測 Apps Script（會開新 tab，見到「tracking OK」即係成功）</li>
+<li>撳 <b>②</b> 開 Pop up，再撳「按此狂嘩一下」（展開）→ 再撳一次（收起）</li>
+<li>撳 Pop up 入面 <b>CTA 掣</b> 同 <b>KV 圖</b>（測試頁會開新 tab）</li>
+<li>開 <a href="https://docs.google.com/spreadsheets/d/1SaSPiEYFy8wxhMpJuJGSWFl4sLFeUUCE3FRIib9BOFk/edit" target="_blank">Google Sheet</a> 睇有冇新行（約 2–5 秒）</li>
+</ol>
+<a class="btn" href="https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec?test=1" target="_blank">① 測試 Apps Script</a>
+<button class="btn o" onclick="document.getElementById('ao-popup-overlay').style.display='flex'">② 開 Pop up</button>
+<a class="btn" style="background:#2f7d32" href="https://docs.google.com/spreadsheets/d/1SaSPiEYFy8wxhMpJuJGSWFl4sLFeUUCE3FRIib9BOFk/edit" target="_blank">③ 開 Google Sheet</a>
+<p style="font-size:13px;color:#666">完成測試後，可以喺 Sheet 刪除 github.io 同 test 嘅行。</p></div>
+<script>try{localStorage.removeItem('ao_popup_halloween26')}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&display=swap&text=Halloween">
 <div id="ao-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;">
@@ -6,7 +21,7 @@
     <button id="ao-popup-close" aria-label="關閉優惠視窗" style="position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;">
       ×
     </button>
-    <a data-ao-track="kv_banner" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_popup_kv" style="display:block;text-decoration:none;">
+    <a data-ao-track="kv_banner" target="_blank" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_popup_kv" style="display:block;text-decoration:none;">
       <img class="ao-hw-kv" referrerpolicy="no-referrer" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg" alt="Halloween 萬聖節狂嘩套餐 到會 banner" style="display:block;width:100%;height:auto;">
     </a>
     <div class="ao-hw-body" style="padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;">
@@ -31,7 +46,7 @@
         ✓ 可使用會員優惠現金券，但其他優惠碼不適用
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;">
-        <a class="ao-hw-cta" data-ao-track="cta_button" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_popup_cta" style="flex:1 1 180px;display:inline-block;padding:13px 16px;border-radius:999px;background:#FF7A1A;color:#1c1426;text-decoration:none;text-align:center;font-size:15px;font-weight:800;line-height:1.2;">
+        <a class="ao-hw-cta" data-ao-track="cta_button" target="_blank" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_popup_cta" style="flex:1 1 180px;display:inline-block;padding:13px 16px;border-radius:999px;background:#FF7A1A;color:#1c1426;text-decoration:none;text-align:center;font-size:15px;font-weight:800;line-height:1.2;">
           <span class="ao-hw-bats" aria-hidden="true"><i class="b1"><svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg></i><i class="b2"><svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg></i><i class="b3"><svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg></i></span>
           <span class="ao-hw-txt">🎃 立即預訂萬聖節套餐</span>
         </a>
@@ -254,3 +269,4 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closePopup(); } });
 })();
 </script>
+</body></html>

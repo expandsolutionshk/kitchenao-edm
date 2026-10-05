@@ -199,10 +199,10 @@
   }
   // ===== Google Sheet click log=====
   var AO_SHEET_URL = 'PREVIEW_OFF_https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec';
-  function aoSheetLog(label) {
+  function aoSheetLog(label, action) {
     if (AO_SHEET_URL.indexOf('https://script.google.com/') !== 0) return;
     var body = JSON.stringify({
-      popup_id: 'halloween_2026', label: label,
+      popup_id: 'halloween_2026', label: label, action: action || 'click',
       page: location.href, ref: document.referrer,
       device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
       sw: window.innerWidth, ua: navigator.userAgent
@@ -248,7 +248,8 @@
     tg.addEventListener('click', function () {
       var open = fold.classList.toggle('is-open');
       tg.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (open) aoTrack('expand_menu');
+      aoTrack(open ? 'expand_menu' : 'collapse_menu');
+      aoSheetLog(open ? 'menu_expand' : 'menu_collapse', 'toggle');
       tg.querySelector('.ao-hw-tl').textContent = open ? '收起菜式' : '按此狂嘩一下・睇 5 大主打菜式';
     });
   }

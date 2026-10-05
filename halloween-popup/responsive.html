@@ -217,10 +217,10 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
   }
   // ===== Google Sheet click log=====
   var AO_SHEET_URL = &#x27;https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec&#x27;;
-  function aoSheetLog(label) {
+  function aoSheetLog(label, action) {
     if (AO_SHEET_URL.indexOf(&#x27;https://script.google.com/&#x27;) !== 0) return;
     var body = JSON.stringify({
-      popup_id: &#x27;halloween_2026&#x27;, label: label,
+      popup_id: &#x27;halloween_2026&#x27;, label: label, action: action || &#x27;click&#x27;,
       page: location.href, ref: document.referrer,
       device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? &#x27;mobile&#x27; : &#x27;desktop&#x27;,
       sw: window.innerWidth, ua: navigator.userAgent
@@ -266,7 +266,8 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
     tg.addEventListener(&#x27;click&#x27;, function () {
       var open = fold.classList.toggle(&#x27;is-open&#x27;);
       tg.setAttribute(&#x27;aria-expanded&#x27;, open ? &#x27;true&#x27; : &#x27;false&#x27;);
-      if (open) aoTrack(&#x27;expand_menu&#x27;);
+      aoTrack(open ? &#x27;expand_menu&#x27; : &#x27;collapse_menu&#x27;);
+      aoSheetLog(open ? &#x27;menu_expand&#x27; : &#x27;menu_collapse&#x27;, &#x27;toggle&#x27;);
       tg.querySelector(&#x27;.ao-hw-tl&#x27;).textContent = open ? &#x27;收起菜式&#x27; : &#x27;按此狂嘩一下・睇 5 大主打菜式&#x27;;
     });
   }
@@ -477,10 +478,10 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
   }
   // ===== Google Sheet click log=====
   var AO_SHEET_URL = &#x27;PREVIEW_OFF_https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec&#x27;;
-  function aoSheetLog(label) {
+  function aoSheetLog(label, action) {
     if (AO_SHEET_URL.indexOf(&#x27;https://script.google.com/&#x27;) !== 0) return;
     var body = JSON.stringify({
-      popup_id: &#x27;halloween_2026&#x27;, label: label,
+      popup_id: &#x27;halloween_2026&#x27;, label: label, action: action || &#x27;click&#x27;,
       page: location.href, ref: document.referrer,
       device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? &#x27;mobile&#x27; : &#x27;desktop&#x27;,
       sw: window.innerWidth, ua: navigator.userAgent
@@ -526,7 +527,8 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
     tg.addEventListener(&#x27;click&#x27;, function () {
       var open = fold.classList.toggle(&#x27;is-open&#x27;);
       tg.setAttribute(&#x27;aria-expanded&#x27;, open ? &#x27;true&#x27; : &#x27;false&#x27;);
-      if (open) aoTrack(&#x27;expand_menu&#x27;);
+      aoTrack(open ? &#x27;expand_menu&#x27; : &#x27;collapse_menu&#x27;);
+      aoSheetLog(open ? &#x27;menu_expand&#x27; : &#x27;menu_collapse&#x27;, &#x27;toggle&#x27;);
       tg.querySelector(&#x27;.ao-hw-tl&#x27;).textContent = open ? &#x27;收起菜式&#x27; : &#x27;按此狂嘩一下・睇 5 大主打菜式&#x27;;
     });
   }
@@ -734,10 +736,10 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
   }
   // ===== Google Sheet click log=====
   var AO_SHEET_URL = &#x27;PREVIEW_OFF_https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec&#x27;;
-  function aoSheetLog(label) {
+  function aoSheetLog(label, action) {
     if (AO_SHEET_URL.indexOf(&#x27;https://script.google.com/&#x27;) !== 0) return;
     var body = JSON.stringify({
-      popup_id: &#x27;halloween_2026&#x27;, label: label,
+      popup_id: &#x27;halloween_2026&#x27;, label: label, action: action || &#x27;click&#x27;,
       page: location.href, ref: document.referrer,
       device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? &#x27;mobile&#x27; : &#x27;desktop&#x27;,
       sw: window.innerWidth, ua: navigator.userAgent
@@ -783,7 +785,8 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
     tg.addEventListener(&#x27;click&#x27;, function () {
       var open = fold.classList.toggle(&#x27;is-open&#x27;);
       tg.setAttribute(&#x27;aria-expanded&#x27;, open ? &#x27;true&#x27; : &#x27;false&#x27;);
-      if (open) aoTrack(&#x27;expand_menu&#x27;);
+      aoTrack(open ? &#x27;expand_menu&#x27; : &#x27;collapse_menu&#x27;);
+      aoSheetLog(open ? &#x27;menu_expand&#x27; : &#x27;menu_collapse&#x27;, &#x27;toggle&#x27;);
       tg.querySelector(&#x27;.ao-hw-tl&#x27;).textContent = open ? &#x27;收起菜式&#x27; : &#x27;按此狂嘩一下・睇 5 大主打菜式&#x27;;
     });
   }
