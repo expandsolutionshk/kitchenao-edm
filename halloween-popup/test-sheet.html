@@ -194,6 +194,33 @@
 @keyframes aoHwFlicker { 0%,18%,22%,62%,64%,100% { opacity:1; text-shadow:0 0 6px rgba(255,122,26,.75), 0 0 16px rgba(255,122,26,.45), 0 2px 0 #3a1200; } 20%,63% { opacity:.55; text-shadow:none; } }
 @keyframes aoHwGhost { 0%,100% { transform:translateY(0); text-shadow:0 0 8px rgba(176,74,214,.7), 0 2px 0 #3d1a5c; } 50% { transform:translateY(-2px); text-shadow:0 0 16px rgba(176,74,214,1), 0 2px 0 #3d1a5c; } }
 @media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-en, #ao-popup-box .ao-hw-zh { animation:none; } }
+
+/* ===== Desktop 放大（641px 或以上）===== */
+@media (min-width: 641px) {
+  #ao-popup-box { max-width:580px !important; border-radius:22px !important; }
+  #ao-popup-box .ao-hw-kv { max-height:46vh; }
+  #ao-popup-close { top:12px !important; right:12px !important; width:38px !important; height:38px !important; font-size:22px !important; }
+  #ao-popup-box .ao-hw-body { padding:16px 24px 22px !important; }
+  #ao-popup-box .ao-hw-title { font-size:24px !important; margin:0 0 12px !important; }
+  #ao-popup-box .ao-hw-ticket { margin:0 0 12px; border-radius:14px; }
+  #ao-popup-box .ao-hw-t1 { font-size:15.5px; padding:11px 8px; }
+  #ao-popup-box .ao-hw-dot { width:10px; height:10px; }
+  #ao-popup-box .ao-hw-t2 { padding:8px 16px; }
+  #ao-popup-box .ao-hw-t2 small { font-size:12px; }
+  #ao-popup-box .ao-hw-t2 b { font-size:18px; }
+  #ao-popup-box .ao-hw-toggle { font-size:16px !important; padding:13px 14px !important; margin:0 0 12px !important; border-radius:14px !important; }
+  #ao-popup-box .ao-hw-tg-ico { font-size:20px; }
+  #ao-popup-box .ao-hw-menu { margin:0 0 12px !important; padding:4px 14px !important; }
+  #ao-popup-box .ao-hw-menu li { padding:7px 0 !important; gap:10px; }
+  #ao-popup-box .ao-hw-ico { width:24px; font-size:18px; }
+  #ao-popup-box .ao-hw-menu small { font-size:12.5px; }
+  #ao-popup-box .ao-hw-menu b { font-size:16px; }
+  #ao-popup-box .ao-hw-terms { margin:0 0 14px !important; padding:10px 16px !important; font-size:13.5px !important; line-height:1.75 !important; }
+  #ao-popup-box .ao-hw-cta { padding:15px 16px !important; font-size:17px !important; }
+  #ao-popup-box .ao-hw-bats i { width:38px; }
+  #ao-popup-box .ao-hw-bats i.b2 { width:28px; }
+  #ao-popup-box .ao-hw-bats i.b3 { width:32px; }
+}
 </style>
 <script>
 (function () {
