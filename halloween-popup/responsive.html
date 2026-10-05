@@ -18,7 +18,9 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 <button id="cpy" style="margin:0" onclick="var t=document.getElementById('code');navigator.clipboard.writeText(t.value).then(()=>{this.textContent='✓ 已複製'},()=>{t.select();document.execCommand('copy');this.textContent='✓ 已複製'});setTimeout(()=>{this.textContent='複製 HTML Code'},2000)">複製 HTML Code</button>
 <a href="popup-code.html" download="halloween-popup-2026.html" style="padding:8px 16px;border-radius:999px;background:#fff;color:#1c1426;font-weight:700;font-size:13px;text-decoration:none">⬇ 下載 .html</a>
 </div>
-<textarea id="code" readonly style="width:100%;box-sizing:border-box;height:180px;background:#0f0b15;color:#e6dcf5;border:1px solid #4a3463;border-radius:10px;padding:10px;font:12px/1.5 Menlo,monospace">&lt;div id=&quot;ao-popup-overlay&quot; style=&quot;display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;&quot;&gt;
+<textarea id="code" readonly style="width:100%;box-sizing:border-box;height:180px;background:#0f0b15;color:#e6dcf5;border:1px solid #4a3463;border-radius:10px;padding:10px;font:12px/1.5 Menlo,monospace">&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Creepster&amp;display=swap&amp;text=Halloween&quot;&gt;
+&lt;div id=&quot;ao-popup-overlay&quot; style=&quot;display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;&quot;&gt;
   &lt;div id=&quot;ao-popup-box&quot; style=&quot;position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow-y:auto;overflow-x:hidden;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;&quot;&gt;
 
     &lt;button id=&quot;ao-popup-close&quot; aria-label=&quot;關閉優惠視窗&quot; style=&quot;position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;&quot;&gt;
@@ -28,9 +30,7 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
       &lt;img class=&quot;ao-hw-kv&quot; referrerpolicy=&quot;no-referrer&quot; src=&quot;https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg&quot; alt=&quot;Halloween 萬聖節狂嘩套餐 到會 banner&quot; style=&quot;display:block;width:100%;height:auto;&quot;&gt;
     &lt;/a&gt;
     &lt;div class=&quot;ao-hw-body&quot; style=&quot;padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,&#x27;PingFang TC&#x27;,&#x27;Noto Sans TC&#x27;,&#x27;Microsoft JhengHei&#x27;,sans-serif;&quot;&gt;
-      &lt;div class=&quot;ao-hw-title&quot; style=&quot;margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;&quot;&gt;
-        Halloween 萬聖節狂嘩套餐
-      &lt;/div&gt;
+      &lt;div class=&quot;ao-hw-title&quot; style=&quot;margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;&quot;&gt;&lt;span class=&quot;ao-hw-en&quot;&gt;Halloween&lt;/span&gt; &lt;span class=&quot;ao-hw-zh&quot;&gt;萬聖節狂嘩套餐&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;ao-hw-ticket&quot;&gt;
         &lt;div class=&quot;ao-hw-t1&quot;&gt;&lt;span class=&quot;ao-hw-dot&quot;&gt;&lt;/span&gt;即日接受訂購&lt;/div&gt;
         &lt;div class=&quot;ao-hw-t2&quot;&gt;&lt;small&gt;送貨日期&lt;/small&gt;&lt;b&gt;&lt;span&gt;10月23日&lt;/span&gt; – &lt;span&gt;11月1日&lt;/span&gt;&lt;/b&gt;&lt;/div&gt;
@@ -191,6 +191,14 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 #ao-popup-box .ao-hw-fold.is-open li:nth-child(5) { transition-delay:.33s; }
 @media (max-width: 360px) { #ao-popup-box .ao-hw-toggle { font-size:13px !important; padding:9px 10px !important; } }
 @media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-tg-ico, #ao-popup-box .ao-hw-toggle { animation:none; } #ao-popup-box .ao-hw-fold, #ao-popup-box .ao-hw-fold li { transition:none; } }
+
+/* ===== 標題：Halloween 字體 + 鬼火效果 ===== */
+#ao-popup-box .ao-hw-title { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px; }
+#ao-popup-box .ao-hw-en { font-family:&#x27;Creepster&#x27;,&#x27;Chiller&#x27;,fantasy,cursive; font-weight:400; font-size:1.45em; letter-spacing:1.5px; line-height:1; color:#FF8A1F; text-shadow:0 0 6px rgba(255,122,26,.75), 0 2px 0 #3a1200; animation:aoHwFlicker 4s linear infinite; }
+#ao-popup-box .ao-hw-zh { color:#fff; letter-spacing:1px; text-shadow:0 0 10px rgba(176,74,214,.85), 0 2px 0 #3d1a5c; animation:aoHwGhost 3s ease-in-out infinite; }
+@keyframes aoHwFlicker { 0%,18%,22%,62%,64%,100% { opacity:1; text-shadow:0 0 6px rgba(255,122,26,.75), 0 0 16px rgba(255,122,26,.45), 0 2px 0 #3a1200; } 20%,63% { opacity:.55; text-shadow:none; } }
+@keyframes aoHwGhost { 0%,100% { transform:translateY(0); text-shadow:0 0 8px rgba(176,74,214,.7), 0 2px 0 #3d1a5c; } 50% { transform:translateY(-2px); text-shadow:0 0 16px rgba(176,74,214,1), 0 2px 0 #3d1a5c; } }
+@media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-en, #ao-popup-box .ao-hw-zh { animation:none; } }
 &lt;/style&gt;
 &lt;script&gt;
 (function () {
@@ -239,7 +247,9 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 <button onclick="document.querySelectorAll('iframe').forEach(f=>f.srcdoc=f.srcdoc)">↻ 重新彈出</button>
 <div class="row">
 <div><div class="lab">Desktop 1280 × 960</div><div class="dwrap"><iframe srcdoc="&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;style&gt;body{margin:0;font-family:sans-serif;background:#f4f1ec}header{background:#231814;color:#EBB62E;padding:16px 20px;font-weight:800}main{padding:20px}.b{background:#ddd;border-radius:10px;height:160px;margin:0 0 14px}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;header&gt;KITCHEN AO（假網站背景）&lt;/header&gt;&lt;main&gt;&lt;div class=&quot;b&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b&quot;&gt;&lt;/div&gt;&lt;/main&gt;
-&lt;script&gt;try{localStorage.removeItem(&#x27;ao_popup_halloween26&#x27;)}catch(e){}&lt;/script&gt;&lt;div id=&quot;ao-popup-overlay&quot; style=&quot;display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;&quot;&gt;
+&lt;script&gt;try{localStorage.removeItem(&#x27;ao_popup_halloween26&#x27;)}catch(e){}&lt;/script&gt;&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Creepster&amp;display=swap&amp;text=Halloween&quot;&gt;
+&lt;div id=&quot;ao-popup-overlay&quot; style=&quot;display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;&quot;&gt;
   &lt;div id=&quot;ao-popup-box&quot; style=&quot;position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow-y:auto;overflow-x:hidden;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;&quot;&gt;
 
     &lt;button id=&quot;ao-popup-close&quot; aria-label=&quot;關閉優惠視窗&quot; style=&quot;position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;&quot;&gt;
@@ -249,9 +259,7 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
       &lt;img class=&quot;ao-hw-kv&quot; referrerpolicy=&quot;no-referrer&quot; src=&quot;https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg&quot; alt=&quot;Halloween 萬聖節狂嘩套餐 到會 banner&quot; style=&quot;display:block;width:100%;height:auto;&quot;&gt;
     &lt;/a&gt;
     &lt;div class=&quot;ao-hw-body&quot; style=&quot;padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,&#x27;PingFang TC&#x27;,&#x27;Noto Sans TC&#x27;,&#x27;Microsoft JhengHei&#x27;,sans-serif;&quot;&gt;
-      &lt;div class=&quot;ao-hw-title&quot; style=&quot;margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;&quot;&gt;
-        Halloween 萬聖節狂嘩套餐
-      &lt;/div&gt;
+      &lt;div class=&quot;ao-hw-title&quot; style=&quot;margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;&quot;&gt;&lt;span class=&quot;ao-hw-en&quot;&gt;Halloween&lt;/span&gt; &lt;span class=&quot;ao-hw-zh&quot;&gt;萬聖節狂嘩套餐&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;ao-hw-ticket&quot;&gt;
         &lt;div class=&quot;ao-hw-t1&quot;&gt;&lt;span class=&quot;ao-hw-dot&quot;&gt;&lt;/span&gt;即日接受訂購&lt;/div&gt;
         &lt;div class=&quot;ao-hw-t2&quot;&gt;&lt;small&gt;送貨日期&lt;/small&gt;&lt;b&gt;&lt;span&gt;10月23日&lt;/span&gt; – &lt;span&gt;11月1日&lt;/span&gt;&lt;/b&gt;&lt;/div&gt;
@@ -412,6 +420,14 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 #ao-popup-box .ao-hw-fold.is-open li:nth-child(5) { transition-delay:.33s; }
 @media (max-width: 360px) { #ao-popup-box .ao-hw-toggle { font-size:13px !important; padding:9px 10px !important; } }
 @media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-tg-ico, #ao-popup-box .ao-hw-toggle { animation:none; } #ao-popup-box .ao-hw-fold, #ao-popup-box .ao-hw-fold li { transition:none; } }
+
+/* ===== 標題：Halloween 字體 + 鬼火效果 ===== */
+#ao-popup-box .ao-hw-title { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px; }
+#ao-popup-box .ao-hw-en { font-family:&#x27;Creepster&#x27;,&#x27;Chiller&#x27;,fantasy,cursive; font-weight:400; font-size:1.45em; letter-spacing:1.5px; line-height:1; color:#FF8A1F; text-shadow:0 0 6px rgba(255,122,26,.75), 0 2px 0 #3a1200; animation:aoHwFlicker 4s linear infinite; }
+#ao-popup-box .ao-hw-zh { color:#fff; letter-spacing:1px; text-shadow:0 0 10px rgba(176,74,214,.85), 0 2px 0 #3d1a5c; animation:aoHwGhost 3s ease-in-out infinite; }
+@keyframes aoHwFlicker { 0%,18%,22%,62%,64%,100% { opacity:1; text-shadow:0 0 6px rgba(255,122,26,.75), 0 0 16px rgba(255,122,26,.45), 0 2px 0 #3a1200; } 20%,63% { opacity:.55; text-shadow:none; } }
+@keyframes aoHwGhost { 0%,100% { transform:translateY(0); text-shadow:0 0 8px rgba(176,74,214,.7), 0 2px 0 #3d1a5c; } 50% { transform:translateY(-2px); text-shadow:0 0 16px rgba(176,74,214,1), 0 2px 0 #3d1a5c; } }
+@media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-en, #ao-popup-box .ao-hw-zh { animation:none; } }
 &lt;/style&gt;
 &lt;script&gt;
 (function () {
@@ -457,7 +473,9 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 &lt;/script&gt;
 &lt;/body&gt;&lt;/html&gt;"></iframe></div></div>
 <div><div class="lab">Mobile 390 × 780</div><div class="phone"><iframe srcdoc="&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;style&gt;body{margin:0;font-family:sans-serif;background:#f4f1ec}header{background:#231814;color:#EBB62E;padding:16px 20px;font-weight:800}main{padding:20px}.b{background:#ddd;border-radius:10px;height:160px;margin:0 0 14px}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;header&gt;KITCHEN AO（假網站背景）&lt;/header&gt;&lt;main&gt;&lt;div class=&quot;b&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b&quot;&gt;&lt;/div&gt;&lt;/main&gt;
-&lt;script&gt;try{localStorage.removeItem(&#x27;ao_popup_halloween26&#x27;)}catch(e){}&lt;/script&gt;&lt;div id=&quot;ao-popup-overlay&quot; style=&quot;display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;&quot;&gt;
+&lt;script&gt;try{localStorage.removeItem(&#x27;ao_popup_halloween26&#x27;)}catch(e){}&lt;/script&gt;&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Creepster&amp;display=swap&amp;text=Halloween&quot;&gt;
+&lt;div id=&quot;ao-popup-overlay&quot; style=&quot;display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;&quot;&gt;
   &lt;div id=&quot;ao-popup-box&quot; style=&quot;position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow-y:auto;overflow-x:hidden;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;&quot;&gt;
 
     &lt;button id=&quot;ao-popup-close&quot; aria-label=&quot;關閉優惠視窗&quot; style=&quot;position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;&quot;&gt;
@@ -467,9 +485,7 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
       &lt;img class=&quot;ao-hw-kv&quot; referrerpolicy=&quot;no-referrer&quot; src=&quot;https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg&quot; alt=&quot;Halloween 萬聖節狂嘩套餐 到會 banner&quot; style=&quot;display:block;width:100%;height:auto;&quot;&gt;
     &lt;/a&gt;
     &lt;div class=&quot;ao-hw-body&quot; style=&quot;padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,&#x27;PingFang TC&#x27;,&#x27;Noto Sans TC&#x27;,&#x27;Microsoft JhengHei&#x27;,sans-serif;&quot;&gt;
-      &lt;div class=&quot;ao-hw-title&quot; style=&quot;margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;&quot;&gt;
-        Halloween 萬聖節狂嘩套餐
-      &lt;/div&gt;
+      &lt;div class=&quot;ao-hw-title&quot; style=&quot;margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;&quot;&gt;&lt;span class=&quot;ao-hw-en&quot;&gt;Halloween&lt;/span&gt; &lt;span class=&quot;ao-hw-zh&quot;&gt;萬聖節狂嘩套餐&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;ao-hw-ticket&quot;&gt;
         &lt;div class=&quot;ao-hw-t1&quot;&gt;&lt;span class=&quot;ao-hw-dot&quot;&gt;&lt;/span&gt;即日接受訂購&lt;/div&gt;
         &lt;div class=&quot;ao-hw-t2&quot;&gt;&lt;small&gt;送貨日期&lt;/small&gt;&lt;b&gt;&lt;span&gt;10月23日&lt;/span&gt; – &lt;span&gt;11月1日&lt;/span&gt;&lt;/b&gt;&lt;/div&gt;
@@ -630,6 +646,14 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 #ao-popup-box .ao-hw-fold.is-open li:nth-child(5) { transition-delay:.33s; }
 @media (max-width: 360px) { #ao-popup-box .ao-hw-toggle { font-size:13px !important; padding:9px 10px !important; } }
 @media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-tg-ico, #ao-popup-box .ao-hw-toggle { animation:none; } #ao-popup-box .ao-hw-fold, #ao-popup-box .ao-hw-fold li { transition:none; } }
+
+/* ===== 標題：Halloween 字體 + 鬼火效果 ===== */
+#ao-popup-box .ao-hw-title { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px; }
+#ao-popup-box .ao-hw-en { font-family:&#x27;Creepster&#x27;,&#x27;Chiller&#x27;,fantasy,cursive; font-weight:400; font-size:1.45em; letter-spacing:1.5px; line-height:1; color:#FF8A1F; text-shadow:0 0 6px rgba(255,122,26,.75), 0 2px 0 #3a1200; animation:aoHwFlicker 4s linear infinite; }
+#ao-popup-box .ao-hw-zh { color:#fff; letter-spacing:1px; text-shadow:0 0 10px rgba(176,74,214,.85), 0 2px 0 #3d1a5c; animation:aoHwGhost 3s ease-in-out infinite; }
+@keyframes aoHwFlicker { 0%,18%,22%,62%,64%,100% { opacity:1; text-shadow:0 0 6px rgba(255,122,26,.75), 0 0 16px rgba(255,122,26,.45), 0 2px 0 #3a1200; } 20%,63% { opacity:.55; text-shadow:none; } }
+@keyframes aoHwGhost { 0%,100% { transform:translateY(0); text-shadow:0 0 8px rgba(176,74,214,.7), 0 2px 0 #3d1a5c; } 50% { transform:translateY(-2px); text-shadow:0 0 16px rgba(176,74,214,1), 0 2px 0 #3d1a5c; } }
+@media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-en, #ao-popup-box .ao-hw-zh { animation:none; } }
 &lt;/style&gt;
 &lt;script&gt;
 (function () {

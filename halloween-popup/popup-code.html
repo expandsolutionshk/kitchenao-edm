@@ -1,3 +1,5 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&display=swap&text=Halloween">
 <div id="ao-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;">
   <div id="ao-popup-box" style="position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow-y:auto;overflow-x:hidden;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;">
 
@@ -8,9 +10,7 @@
       <img class="ao-hw-kv" referrerpolicy="no-referrer" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg" alt="Halloween 萬聖節狂嘩套餐 到會 banner" style="display:block;width:100%;height:auto;">
     </a>
     <div class="ao-hw-body" style="padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;">
-      <div class="ao-hw-title" style="margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;">
-        Halloween 萬聖節狂嘩套餐
-      </div>
+      <div class="ao-hw-title" style="margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;"><span class="ao-hw-en">Halloween</span> <span class="ao-hw-zh">萬聖節狂嘩套餐</span></div>
       <div class="ao-hw-ticket">
         <div class="ao-hw-t1"><span class="ao-hw-dot"></span>即日接受訂購</div>
         <div class="ao-hw-t2"><small>送貨日期</small><b><span>10月23日</span> – <span>11月1日</span></b></div>
@@ -171,6 +171,14 @@
 #ao-popup-box .ao-hw-fold.is-open li:nth-child(5) { transition-delay:.33s; }
 @media (max-width: 360px) { #ao-popup-box .ao-hw-toggle { font-size:13px !important; padding:9px 10px !important; } }
 @media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-tg-ico, #ao-popup-box .ao-hw-toggle { animation:none; } #ao-popup-box .ao-hw-fold, #ao-popup-box .ao-hw-fold li { transition:none; } }
+
+/* ===== 標題：Halloween 字體 + 鬼火效果 ===== */
+#ao-popup-box .ao-hw-title { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px; }
+#ao-popup-box .ao-hw-en { font-family:'Creepster','Chiller',fantasy,cursive; font-weight:400; font-size:1.45em; letter-spacing:1.5px; line-height:1; color:#FF8A1F; text-shadow:0 0 6px rgba(255,122,26,.75), 0 2px 0 #3a1200; animation:aoHwFlicker 4s linear infinite; }
+#ao-popup-box .ao-hw-zh { color:#fff; letter-spacing:1px; text-shadow:0 0 10px rgba(176,74,214,.85), 0 2px 0 #3d1a5c; animation:aoHwGhost 3s ease-in-out infinite; }
+@keyframes aoHwFlicker { 0%,18%,22%,62%,64%,100% { opacity:1; text-shadow:0 0 6px rgba(255,122,26,.75), 0 0 16px rgba(255,122,26,.45), 0 2px 0 #3a1200; } 20%,63% { opacity:.55; text-shadow:none; } }
+@keyframes aoHwGhost { 0%,100% { transform:translateY(0); text-shadow:0 0 8px rgba(176,74,214,.7), 0 2px 0 #3d1a5c; } 50% { transform:translateY(-2px); text-shadow:0 0 16px rgba(176,74,214,1), 0 2px 0 #3d1a5c; } }
+@media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-en, #ao-popup-box .ao-hw-zh { animation:none; } }
 </style>
 <script>
 (function () {
