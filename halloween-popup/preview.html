@@ -7,7 +7,7 @@
       ×
     </button>
     <a href="https://aoaodelivery.com/product-category/halloween-set/" style="display:block;text-decoration:none;">
-      <img class="ao-hw-kv" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg" alt="Halloween 萬聖節狂嘩套餐 到會 banner" style="display:block;width:100%;height:auto;">
+      <img class="ao-hw-kv" referrerpolicy="no-referrer" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg" alt="Halloween 萬聖節狂嘩套餐 到會 banner" style="display:block;width:100%;height:auto;">
     </a>
     <div class="ao-hw-body" style="padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;">
       <div class="ao-hw-title" style="margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;">
@@ -17,9 +17,8 @@
         <div class="ao-hw-t1"><span class="ao-hw-dot"></span>即日接受訂購</div>
         <div class="ao-hw-t2"><small>送貨日期</small><b><span>10月23日</span> – <span>11月1日</span></b></div>
       </div>
-      <div class="ao-hw-sub" style="margin:0 0 8px;color:#f3e9ff;font-size:14.5px;font-weight:700;line-height:1.5;">
-        主打 5 大狂嘩小食：
-      </div>
+      <button type="button" class="ao-hw-toggle" aria-expanded="false" aria-controls="ao-hw-fold"><span class="ao-hw-tg-ico">👻</span><span class="ao-hw-tl">按此狂嘩一下・睇 5 大主打菜式</span><span class="ao-hw-arr">▾</span></button>
+      <div class="ao-hw-fold" id="ao-hw-fold">
       <ul class="ao-hw-menu">
         <li><span class="ao-hw-ico">👁️‍🗨️</span><span><small>惡魔的眼睛</small><b>開心果醬荔枝藍苺酥盒</b></span></li>
         <li><span class="ao-hw-ico">💉</span><span><small>血淋淋科學怪人</small><b>香濃蕃茄手指腸仔</b></span></li>
@@ -27,6 +26,7 @@
         <li><span class="ao-hw-ico">🦇</span><span><small>小蝙蝠</small><b>墨汁雞全翼</b></span></li>
         <li><span class="ao-hw-ico">🎃</span><span><small>哈囉喂</small><b>南瓜墨汁海鮮意大利飯</b></span></li>
       </ul>
+      </div>
       <div class="ao-hw-terms" style="margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#3a2410;color:#FFB36B;text-wrap:pretty;font-size:13.5px;font-weight:700;line-height:1.8;">
         ✓ 10 月 22 日前預訂・即享 92 折<br>
         ✓ 各區免費送遞（滿 $1,450）<br>
@@ -59,7 +59,7 @@
 #ao-popup-box .ao-hw-t2 b span { white-space:nowrap; }
 #ao-popup-box .ao-hw-t2 b { font-size:17px; font-weight:900; line-height:1.3; white-space:nowrap; }
 
-/* ===== 5 大小食：食物名 highlight ===== */
+/* ===== 5 大主打菜式：食物名 highlight ===== */
 #ao-popup-box .ao-hw-menu { list-style:none !important; margin:0 0 16px !important; padding:6px 12px !important; border-radius:14px; background:#2c1f3b; border:1px solid #4a3463; }
 #ao-popup-box .ao-hw-menu li { display:flex; align-items:center; gap:10px; margin:0 !important; padding:7px 0 !important; border-bottom:1px dashed rgba(255,255,255,.12); line-height:1.3; list-style:none !important; }
 #ao-popup-box .ao-hw-menu li:last-child { border-bottom:0; }
@@ -125,7 +125,8 @@
 #ao-popup-box .ao-hw-menu { margin:0 0 10px !important; padding:2px 10px !important; border-radius:12px; }
 #ao-popup-box .ao-hw-menu li { padding:5px 0 !important; gap:8px; }
 #ao-popup-box .ao-hw-ico { width:20px; font-size:15px; }
-#ao-popup-box .ao-hw-menu small { font-size:11px; margin-right:5px; }
+#ao-popup-box .ao-hw-menu small { display:block; font-size:11px; margin:0 0 1px; line-height:1.25; }
+#ao-popup-box .ao-hw-menu b { display:block; line-height:1.3; }
 #ao-popup-box .ao-hw-menu b { font-size:13.5px; }
 #ao-popup-box .ao-hw-terms { margin:0 0 12px !important; padding:7px 12px !important; border-radius:12px !important; font-size:11.5px !important; line-height:1.65 !important; font-weight:600 !important; }
 #ao-popup-box .ao-hw-cta { padding:11px 14px !important; font-size:14.5px !important; }
@@ -147,6 +148,31 @@
   #ao-popup-box .ao-hw-menu b { font-size:12.5px; }
   #ao-popup-box .ao-hw-menu small { font-size:10.5px; }
 }
+
+/* ===== 5 大主打菜式：收起 / 按此狂嘩一下 ===== */
+#ao-popup-box .ao-hw-toggle { position:relative; overflow:hidden; display:flex !important; align-items:center; justify-content:center; gap:8px; width:100% !important; margin:0 0 10px !important; padding:10px 12px !important; border:0 !important; border-radius:12px !important; background:linear-gradient(90deg,#3d1a5c,#7b2fa8,#b04ad6,#7b2fa8,#3d1a5c) !important; background-size:300% 100% !important; color:#ffffff !important; font:inherit; font-size:14px !important; font-weight:800 !important; line-height:1.3 !important; letter-spacing:0 !important; text-transform:none !important; cursor:pointer; animation:aoHwFlow 3s linear infinite, aoHwPulse 2s ease-in-out infinite; }
+#ao-popup-box .ao-hw-toggle:hover { filter:brightness(1.12); }
+#ao-popup-box .ao-hw-tl { color:#ffffff; }
+#ao-popup-box .ao-hw-arr { color:#FFB347; }
+@keyframes aoHwFlow { 0% { background-position:0% 50%; } 100% { background-position:150% 50%; } }
+@keyframes aoHwPulse { 0%,100% { box-shadow:0 0 0 0 rgba(176,74,214,.55); } 50% { box-shadow:0 0 0 6px rgba(176,74,214,0), 0 0 16px rgba(176,74,214,.6); } }
+#ao-popup-box .ao-hw-toggle[aria-expanded="true"] { animation:none; background-position:50% 50% !important; }
+#ao-popup-box .ao-hw-tg-ico { display:inline-block; font-size:17px; animation:aoHwBoo 1.6s ease-in-out infinite; }
+@keyframes aoHwBoo { 0%,100% { transform:translateY(0) rotate(0); } 25% { transform:translateY(-3px) rotate(-10deg); } 50% { transform:translateY(0) rotate(0); } 75% { transform:translateY(-3px) rotate(10deg); } }
+#ao-popup-box .ao-hw-arr { display:inline-block; transition:transform .3s; }
+#ao-popup-box .ao-hw-toggle[aria-expanded="true"] .ao-hw-arr { transform:rotate(180deg); }
+#ao-popup-box .ao-hw-toggle[aria-expanded="true"] .ao-hw-tg-ico { animation:none; }
+#ao-popup-box .ao-hw-fold { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+#ao-popup-box .ao-hw-fold.is-open { max-height:480px; }
+#ao-popup-box .ao-hw-fold li { opacity:0; transform:translateX(-10px); transition:opacity .3s, transform .3s; }
+#ao-popup-box .ao-hw-fold.is-open li { opacity:1; transform:none; }
+#ao-popup-box .ao-hw-fold.is-open li:nth-child(1) { transition-delay:.05s; }
+#ao-popup-box .ao-hw-fold.is-open li:nth-child(2) { transition-delay:.12s; }
+#ao-popup-box .ao-hw-fold.is-open li:nth-child(3) { transition-delay:.19s; }
+#ao-popup-box .ao-hw-fold.is-open li:nth-child(4) { transition-delay:.26s; }
+#ao-popup-box .ao-hw-fold.is-open li:nth-child(5) { transition-delay:.33s; }
+@media (max-width: 360px) { #ao-popup-box .ao-hw-toggle { font-size:13px !important; padding:9px 10px !important; } }
+@media (prefers-reduced-motion: reduce) { #ao-popup-box .ao-hw-tg-ico, #ao-popup-box .ao-hw-toggle { animation:none; } #ao-popup-box .ao-hw-fold, #ao-popup-box .ao-hw-fold li { transition:none; } }
 </style>
 <script>
 (function () {
@@ -176,6 +202,17 @@
   setTimeout(openPopup, 800);
   closeBtn.addEventListener('click', function (e) { e.preventDefault(); closePopup(); });
   overlay.addEventListener('click', function (e) { if (e.target === overlay) { closePopup(); } });
+
+  // ===== 5 大主打菜式：按此狂嘩一下 展開 / 收起 =====
+  var tg = box.querySelector('.ao-hw-toggle');
+  var fold = box.querySelector('.ao-hw-fold');
+  if (tg && fold) {
+    tg.addEventListener('click', function () {
+      var open = fold.classList.toggle('is-open');
+      tg.setAttribute('aria-expanded', open ? 'true' : 'false');
+      tg.querySelector('.ao-hw-tl').textContent = open ? '收起菜式' : '按此狂嘩一下・睇 5 大主打菜式';
+    });
+  }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closePopup(); } });
 })();
 </script>
