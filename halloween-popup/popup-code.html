@@ -1,5 +1,5 @@
 <div id="ao-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;">
-  <div id="ao-popup-box" style="position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);overflow-y:auto;overflow-x:hidden;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;">
+  <div id="ao-popup-box" style="position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow-y:auto;overflow-x:hidden;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;">
 
     <button id="ao-popup-close" aria-label="關閉優惠視窗" style="position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;">
       ×
@@ -13,7 +13,7 @@
       </div>
       <div class="ao-hw-ticket">
         <div class="ao-hw-t1"><span class="ao-hw-dot"></span>即日接受訂購</div>
-        <div class="ao-hw-t2"><small>送貨日期</small><b>10月23日 – 11月1日</b></div>
+        <div class="ao-hw-t2"><small>送貨日期</small><b><span>10月23日</span> – <span>11月1日</span></b></div>
       </div>
       <div style="margin:0 0 8px;color:#f3e9ff;font-size:14.5px;font-weight:700;line-height:1.5;">
         主打 5 大狂嘩小食：
@@ -25,7 +25,7 @@
         🦇 小蝙蝠墨汁雞全翼<br>
         🎃 哈囉喂南瓜墨汁海鮮意大利飯
       </div>
-      <div style="margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#3a2410;color:#FFB36B;font-size:13.5px;font-weight:700;line-height:1.8;">
+      <div style="margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#3a2410;color:#FFB36B;text-wrap:pretty;font-size:13.5px;font-weight:700;line-height:1.8;">
         ✓ 10 月 22 日前預訂・即享 92 折<br>
         ✓ 各區免費送遞（滿 $1,450）<br>
         ✓ 可使用會員優惠現金券，但其他優惠碼不適用
@@ -54,6 +54,7 @@
 @keyframes aoHwDot { 0% { box-shadow:0 0 0 0 rgba(31,191,74,.7); } 100% { box-shadow:0 0 0 9px rgba(31,191,74,0); } }
 #ao-popup-box .ao-hw-t2 { flex:1 1 auto; display:flex; flex-direction:column; justify-content:center; padding:10px 14px; border-left:2px dashed rgba(28,20,38,.35); }
 #ao-popup-box .ao-hw-t2 small { font-size:12px; font-weight:700; opacity:.75; line-height:1.3; }
+#ao-popup-box .ao-hw-t2 b span { white-space:nowrap; }
 #ao-popup-box .ao-hw-t2 b { font-size:17px; font-weight:900; line-height:1.3; white-space:nowrap; }
 
 /* ===== 預訂掣：反光掃過 + 定時搖動 + 蝙蝠飛過 ===== */
@@ -79,6 +80,16 @@
   #ao-popup-box img { width: 100% !important; height: auto !important; }
   #ao-popup-box .ao-hw-t2 b { font-size:15.5px; }
   #ao-popup-close { top: 8px !important; right: 8px !important; width: 36px !important; height: 36px !important; font-size: 20px !important; }
+}
+@supports (height: 100dvh) {
+  @media (max-width: 640px) { #ao-popup-box { max-height: calc(100dvh - 28px) !important; } }
+}
+@media (max-width: 360px) {
+  #ao-popup-box .ao-hw-t1 { flex-basis:40%; font-size:13px; gap:5px; padding:10px 6px; }
+  #ao-popup-box .ao-hw-ticket::before, #ao-popup-box .ao-hw-ticket::after { left:40%; }
+  #ao-popup-box .ao-hw-t2 { padding:9px 10px; }
+  #ao-popup-box .ao-hw-t2 b { font-size:13.5px; white-space:normal; }
+  #ao-popup-box > div:last-child { padding:16px 14px 18px !important; }
 }
 </style>
 <script>
