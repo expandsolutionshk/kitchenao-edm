@@ -34,10 +34,10 @@ MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套�
     <h2 id="ao-qp-title" class="ao-qp-title">快速選擇派對套餐</h2>
     <p class="ao-qp-sub">先按人數或系列選擇合適套餐，再直接網上下單。</p>
   </div>
-  <div class="ao-qp-sec"><div class="ao-qp-lbl">按人數選擇</div><div class="ao-qp-ppl">{ppl}</div></div>
-  <div class="ao-qp-sec"><div class="ao-qp-lbl">按系列選擇</div><div class="ao-qp-series">{ser}</div></div>
+  <div class="ao-qp-sec"><div class="ao-qp-lbl"><span>1</span>按人數選擇</div><div class="ao-qp-ppl">{ppl}</div></div>
+  <div class="ao-qp-sec"><div class="ao-qp-lbl"><span>2</span>按系列選擇</div><div class="ao-qp-series">{ser}</div></div>
   <div class="ao-qp-sec ao-qp-sec--top">
-    <div class="ao-qp-tophead"><span class="ao-qp-toptag">🔥 本週 <b>TOP 5</b> 人氣推介</span></div>
+    <div class="ao-qp-tophead"><span class="ao-qp-toptag"><i>3</i>🔥 本週 <b>TOP 5</b> 人氣推介</span></div>
     <div class="ao-qp-pop">{top}</div>
   </div>
   <div class="ao-qp-help"><p>仍未決定選擇哪一款？</p><a href="{WA}" target="_blank" rel="noopener noreferrer"{dl('qp_whatsapp')}>WhatsApp 專人為你配搭餐單</a></div>
@@ -68,12 +68,14 @@ CSS='''<style>
 .ao-qp-sub{margin:0 !important;color:#cbbca6;font-size:15px;line-height:1.7;}
 .ao-qp-sec{margin:0 0 28px;}
 .ao-qp-lbl{display:flex;align-items:center;gap:10px;margin:0 0 12px;color:#e3c98f;font-size:16px;font-weight:800;letter-spacing:.5px;}
+.ao-qp-lbl span{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#d6b468;color:#241a12;font-size:13px;font-weight:800;}
 .ao-qp-lbl::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(214,180,104,.5),rgba(214,180,104,0));}
 
 /* ===== 本週 TOP 5：大字 + 金色標籤 + 疊層卡 ===== */
 .ao-qp-sec--top{position:relative;margin-top:44px;padding:34px 20px 22px;border-radius:20px;background:linear-gradient(180deg,rgba(214,180,104,.14) 0%,rgba(214,180,104,.04) 100%);border:1px solid rgba(214,180,104,.35);box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 6px rgba(214,180,104,.06);}
 .ao-qp-tophead{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);z-index:2;white-space:nowrap;}
 .ao-qp-toptag{display:inline-flex;align-items:center;gap:6px;padding:10px 26px;border-radius:999px;background:linear-gradient(135deg,#f0d39a 0%,#d2a44e 100%);color:#241a12;font-size:21px;font-weight:800;letter-spacing:1px;line-height:1.2;box-shadow:0 8px 20px rgba(0,0,0,.45),0 0 0 4px #211812,0 0 0 5px rgba(214,180,104,.6);}
+.ao-qp-toptag i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-right:2px;border-radius:50%;background:#241a12;color:#f0d39a;font-style:normal;font-size:13px;}
 .ao-qp-toptag b{padding:2px 9px;border-radius:8px;background:#241a12;color:#f0d39a;font-weight:800;}
 .ao-qp-pop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:6px;}
 .ao-qp-pop a{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;border:1px solid rgba(214,180,104,.25);background:#1b140f;color:#f6eddf !important;box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .25s ease,border-color .25s ease;}
@@ -97,14 +99,15 @@ CSS='''<style>
 .ao-qp-pop a.is-hw .ao-qp-pr strong{color:#ffb347;}
 .ao-qp-pop a.is-hw .ao-qp-btn{background:linear-gradient(135deg,#ff8a1f,#ff5a00);color:#1c1426;}
 
-/* ===== 按人數 ===== */
+/* ===== 按人數（白卡） ===== */
 .ao-qp-ppl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;}
-.ao-qp-ppl a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:76px;padding:12px 6px;border:1px solid rgba(214,180,104,.35);border-radius:14px;background:rgba(255,255,255,.03);color:#f6eddf !important;text-align:center;line-height:1.2;transition:all .25s ease;}
-.ao-qp-ppl b{display:flex;align-items:baseline;gap:4px;font-size:21px;font-weight:800;white-space:nowrap;color:#f6eddf;}
-.ao-qp-ppl small{font-size:12.5px;font-weight:700;color:#c9a45c;}
-.ao-qp-ppl em{font-style:normal;font-size:12px;color:#a99880;white-space:nowrap;}
-.ao-qp-ppl a:hover{background:#c9a45c;border-color:#c9a45c;}
-.ao-qp-ppl a:hover b,.ao-qp-ppl a:hover small,.ao-qp-ppl a:hover em{color:#1d150f;}
+.ao-qp-ppl a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:78px;padding:12px 6px;border:2px solid transparent;border-radius:14px;background:#fff;color:#2b211b !important;text-align:center;line-height:1.2;box-shadow:0 6px 16px rgba(0,0,0,.28);transition:all .25s ease;}
+.ao-qp-ppl a::before{content:"";position:absolute;left:50%;top:0;width:28px;height:3px;border-radius:0 0 3px 3px;background:#d2a44e;transform:translateX(-50%);transition:width .25s ease;}
+.ao-qp-ppl b{display:flex;align-items:baseline;gap:4px;font-size:21px;font-weight:800;white-space:nowrap;color:#2b211b;letter-spacing:.3px;}
+.ao-qp-ppl small{font-size:13px;font-weight:700;color:#9a7230;}
+.ao-qp-ppl em{font-style:normal;font-size:12px;color:#7d6e60;white-space:nowrap;}
+.ao-qp-ppl a:hover,.ao-qp-ppl a:focus-visible{border-color:#d6b468;background:#fbf3e3;}
+.ao-qp-ppl a:hover::before{width:60%;}
 
 /* ===== 按系列 ===== */
 .ao-qp-series{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
@@ -149,7 +152,7 @@ CSS='''<style>
   .ao-qp-pop::-webkit-scrollbar{display:none;}
   .ao-qp-pop a{flex:0 0 62%;scroll-snap-align:start;}
   .ao-qp-ppl{gap:8px;}
-  .ao-qp-ppl a{min-height:64px;padding:9px 4px;}
+  .ao-qp-ppl a{min-height:66px;padding:10px 4px;border-radius:12px;}
   .ao-qp-ppl b{font-size:17px;}
   .ao-qp-ppl em{font-size:11px;}
   .ao-qp-series{gap:8px;}
