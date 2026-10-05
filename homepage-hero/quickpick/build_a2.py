@@ -1,19 +1,48 @@
-<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*,*::before,*::after{box-sizing:border-box}img{max-width:100%}html,body{overflow-x:hidden}body{margin:0;font-family:"Rubik","Noto Sans TC","PingFang TC",sans-serif;background:#fff}.hd{height:70px;background:#a98a52}.wpcol{padding:0 15px;background:#f7f4ef}@media(min-width:768px){.wpcol{padding:0 30px}}</style></head><body><div class="hd"></div><div class="wpcol" style="background:#fff"><!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option A 黑金（Raw HTML）===== -->
+import urllib.parse, html, shutil
+B='https://aoaodelivery.com'; U=B+'/wp-content/uploads/'
+def dl(l): return f" onclick=\"window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'{l}'}});\""
+PPL=[('2 - 6','小型聚會','2-6人','qp_ppl_2_6'),('7 - 11','家庭派對','7-11人','qp_ppl_7_11'),('12 - 16','生日派對','12-16人','qp_ppl_12_16'),('18 - 25','公司／朋友聚餐','18-25人','qp_ppl_18_25'),('30+','大型活動','30人以上','qp_ppl_30'),('100+','企業活動','100人以上','qp_ppl_100')]
+SER=[('🎃','Halloween 萬聖節狂嘩套餐','期間限定・10月23日至11月1日送貨','/product-category/halloween-set/?ao_ref=hw26_party_qp','qp_s_halloween','期間限定','hw'),
+('⭐','美食派對 Gourmet','人氣之選・熱食主菜','/product-category/party/foot-party/','qp_s_gourmet','人氣','hot'),
+('🥂','輕食宴會 Refreshment','會議茶點・開幕酒會','/product-category/party/refreshment-set/','qp_s_refreshment','',''),
+('🚤','船河派對套餐','碼頭交收・方便分發','/product-category/party/boat-party-set/','qp_s_boat','',''),
+('🧸','兒童派對套餐','兒童生日派對','/product-category/party/children/','qp_s_kids','',''),
+('💑','雙人套餐','二人慶祝・紀念日','/product-category/party/set-for-two/','qp_s_couple','',''),
+('🥗','「素」味人生','素食派對套餐','/product-category/party/vegetarians-set/','qp_s_veg','',''),
+('🍖','肉食獸套餐','上將海港之選','/product-category/party/meat-monster/','qp_s_meat','',''),
+('🧺','Chill 一下野餐盒','野餐・戶外活動','/product-category/party/chill-box/','qp_s_chill','',''),
+('🍢','手指食物拼盤','Finger Food・Platter','/product-category/party/platter/','qp_s_platter','','')]
+# (id, name, desc, price, regular, suffix, img, url, cls)
+TOP=[(21622,'AO 18 - 22 人 Halloween 萬聖節狂嘩套餐','期間限定・5 大狂嘩主打菜式',3758,4088,'',U+'2026/10/2026-Halloween-18-22_set-photo-600x600.jpg','/product/ao-18-22pax-halloween萬聖節狂嘩套餐/','hw'),
+(6262,'AO 12 - 16 人美食派對 Gourmet Set','人氣之選・熱食主菜',2988,2988,'',U+'2026/03/12-16_101-X-KITCHENAO-03-03-03-03-600x600.jpg','/product/ao-12-16pax-gourmet-set/',''),
+(6394,'派對大快樂兒童餐（5 人起）','兒童生日派對・自選人數',600,600,'起',U+'2023/10/202308-KIDS-thumbnail_工作區域-1-600x600.jpg','/product/party-big-happy-kids-meal-select-the-number-of-people-5-people-or-more/',''),
+(6407,'AO 18 - 22 人輕食宴會套餐 Refreshment','會議茶點・開幕酒會',3488,3488,'',U+'2023/11/refreshmentparty-04-600x600.jpg','/product/ao-18-22pax-refreshment-set/',''),
+(14314,'AO 36 - 40 人狂歡派對船河套餐','Boat Party Set・碼頭交收',6332,6332,'',U+'2025/04/WhatsApp-Image-2025-04-12-at-4.08.26-PM-600x600.jpeg','/product/ao-36-40pax-狂歡派對船河套餐-boat-party-set/','')]
+WA='https://wa.me/85269011987?text='+urllib.parse.quote('你好，我已在 Kitchen AO 網站瀏覽過派對到會餐單，但仍未決定選擇哪一款，想查詢以下問題：')
+def ppl_url(k): return B+'/product-category/party-set-by-people/'+k+'分享選項/'
+def price_html(p,r,suf):
+    s=f'<strong data-price>HK${p:,}{suf}</strong>'
+    if r>p: s+=f'<del data-reg>HK${r:,}</del>'
+    return s
+ppl=''.join(f'<a href="{ppl_url(k)}"{dl(t)}><b>{n}<small>人</small></b><em>{d}</em></a>' for n,d,k,t in PPL)
+ser=''.join(f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}><i>{e}</i><span><b>{n}</b><small>{s}</small></span>{f"<em>{bd}</em>" if bd else ""}</a>' for e,n,s,u,t,bd,c in SER)
+top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn">查看詳情</span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
+MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option A 黑金（Raw HTML）===== -->
 <section class="ao-qp ao-qp--a" aria-labelledby="ao-qp-title">
   <div class="ao-qp-head">
     <p class="ao-qp-eyebrow">Kitchen AO Party Catering</p>
     <h2 id="ao-qp-title" class="ao-qp-title">快速選擇派對套餐</h2>
     <p class="ao-qp-sub">先按人數或系列選擇合適套餐，再直接網上下單。</p>
   </div>
-  <div class="ao-qp-sec"><div class="ao-qp-lbl">按人數選擇</div><div class="ao-qp-ppl"><a href="https://aoaodelivery.com/product-category/party-set-by-people/2-6人分享選項/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_ppl_2_6'});"><b>2 - 6<small>人</small></b><em>小型聚會</em></a><a href="https://aoaodelivery.com/product-category/party-set-by-people/7-11人分享選項/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_ppl_7_11'});"><b>7 - 11<small>人</small></b><em>家庭派對</em></a><a href="https://aoaodelivery.com/product-category/party-set-by-people/12-16人分享選項/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_ppl_12_16'});"><b>12 - 16<small>人</small></b><em>生日派對</em></a><a href="https://aoaodelivery.com/product-category/party-set-by-people/18-25人分享選項/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_ppl_18_25'});"><b>18 - 25<small>人</small></b><em>公司／朋友聚餐</em></a><a href="https://aoaodelivery.com/product-category/party-set-by-people/30人以上分享選項/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_ppl_30'});"><b>30+<small>人</small></b><em>大型活動</em></a><a href="https://aoaodelivery.com/product-category/party-set-by-people/100人以上分享選項/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_ppl_100'});"><b>100+<small>人</small></b><em>企業活動</em></a></div></div>
-  <div class="ao-qp-sec"><div class="ao-qp-lbl">按系列選擇</div><div class="ao-qp-series"><a class="is-hw" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_party_qp" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_halloween'});"><i>🎃</i><span><b>Halloween 萬聖節狂嘩套餐</b><small>期間限定・10月23日至11月1日送貨</small></span><em>期間限定</em></a><a class="is-hot" href="https://aoaodelivery.com/product-category/party/foot-party/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_gourmet'});"><i>⭐</i><span><b>美食派對 Gourmet</b><small>人氣之選・熱食主菜</small></span><em>人氣</em></a><a class="" href="https://aoaodelivery.com/product-category/party/refreshment-set/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_refreshment'});"><i>🥂</i><span><b>輕食宴會 Refreshment</b><small>會議茶點・開幕酒會</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/boat-party-set/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_boat'});"><i>🚤</i><span><b>船河派對套餐</b><small>碼頭交收・方便分發</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/children/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_kids'});"><i>🧸</i><span><b>兒童派對套餐</b><small>兒童生日派對</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/set-for-two/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_couple'});"><i>💑</i><span><b>雙人套餐</b><small>二人慶祝・紀念日</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_veg'});"><i>🥗</i><span><b>「素」味人生</b><small>素食派對套餐</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/meat-monster/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_meat'});"><i>🍖</i><span><b>肉食獸套餐</b><small>上將海港之選</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/chill-box/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_chill'});"><i>🧺</i><span><b>Chill 一下野餐盒</b><small>野餐・戶外活動</small></span></a><a class="" href="https://aoaodelivery.com/product-category/party/platter/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_s_platter'});"><i>🍢</i><span><b>手指食物拼盤</b><small>Finger Food・Platter</small></span></a></div></div>
+  <div class="ao-qp-sec"><div class="ao-qp-lbl">按人數選擇</div><div class="ao-qp-ppl">{ppl}</div></div>
+  <div class="ao-qp-sec"><div class="ao-qp-lbl">按系列選擇</div><div class="ao-qp-series">{ser}</div></div>
   <div class="ao-qp-sec ao-qp-sec--top">
     <div class="ao-qp-tophead"><span class="ao-qp-toptag">🔥 本週 <b>TOP 5</b> 人氣推介</span></div>
-    <div class="ao-qp-pop"><a class="is-hw" href="https://aoaodelivery.com/product/ao-18-22pax-halloween萬聖節狂嘩套餐/" data-pid="21622" data-suffix="" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_top_21622'});"><span class="ao-qp-ph"><img src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-18-22_set-photo-600x600.jpg" alt="AO 18 - 22 人 Halloween 萬聖節狂嘩套餐" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP 1</span></span><span class="ao-qp-pi"><b>AO 18 - 22 人 Halloween 萬聖節狂嘩套餐</b><em>期間限定・5 大狂嘩主打菜式</em><span class="ao-qp-pr"><strong data-price>HK$3,758</strong><del data-reg>HK$4,088</del></span><span class="ao-qp-btn">查看詳情</span></span></a><a class="" href="https://aoaodelivery.com/product/ao-12-16pax-gourmet-set/" data-pid="6262" data-suffix="" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_top_6262'});"><span class="ao-qp-ph"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/12-16_101-X-KITCHENAO-03-03-03-03-600x600.jpg" alt="AO 12 - 16 人美食派對 Gourmet Set" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP 2</span></span><span class="ao-qp-pi"><b>AO 12 - 16 人美食派對 Gourmet Set</b><em>人氣之選・熱食主菜</em><span class="ao-qp-pr"><strong data-price>HK$2,988</strong></span><span class="ao-qp-btn">查看詳情</span></span></a><a class="" href="https://aoaodelivery.com/product/party-big-happy-kids-meal-select-the-number-of-people-5-people-or-more/" data-pid="6394" data-suffix="起" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_top_6394'});"><span class="ao-qp-ph"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/202308-KIDS-thumbnail_工作區域-1-600x600.jpg" alt="派對大快樂兒童餐（5 人起）" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP 3</span></span><span class="ao-qp-pi"><b>派對大快樂兒童餐（5 人起）</b><em>兒童生日派對・自選人數</em><span class="ao-qp-pr"><strong data-price>HK$600起</strong></span><span class="ao-qp-btn">查看詳情</span></span></a><a class="" href="https://aoaodelivery.com/product/ao-18-22pax-refreshment-set/" data-pid="6407" data-suffix="" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_top_6407'});"><span class="ao-qp-ph"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/refreshmentparty-04-600x600.jpg" alt="AO 18 - 22 人輕食宴會套餐 Refreshment" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP 4</span></span><span class="ao-qp-pi"><b>AO 18 - 22 人輕食宴會套餐 Refreshment</b><em>會議茶點・開幕酒會</em><span class="ao-qp-pr"><strong data-price>HK$3,488</strong></span><span class="ao-qp-btn">查看詳情</span></span></a><a class="" href="https://aoaodelivery.com/product/ao-36-40pax-狂歡派對船河套餐-boat-party-set/" data-pid="14314" data-suffix="" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_top_14314'});"><span class="ao-qp-ph"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.26-PM-600x600.jpeg" alt="AO 36 - 40 人狂歡派對船河套餐" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP 5</span></span><span class="ao-qp-pi"><b>AO 36 - 40 人狂歡派對船河套餐</b><em>Boat Party Set・碼頭交收</em><span class="ao-qp-pr"><strong data-price>HK$6,332</strong></span><span class="ao-qp-btn">查看詳情</span></span></a></div>
+    <div class="ao-qp-pop">{top}</div>
   </div>
-  <div class="ao-qp-help"><p>仍未決定選擇哪一款？</p><a href="https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%B7%B2%E5%9C%A8%20Kitchen%20AO%20%E7%B6%B2%E7%AB%99%E7%80%8F%E8%A6%BD%E9%81%8E%E6%B4%BE%E5%B0%8D%E5%88%B0%E6%9C%83%E9%A4%90%E5%96%AE%EF%BC%8C%E4%BD%86%E4%BB%8D%E6%9C%AA%E6%B1%BA%E5%AE%9A%E9%81%B8%E6%93%87%E5%93%AA%E4%B8%80%E6%AC%BE%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%E4%BB%A5%E4%B8%8B%E5%95%8F%E9%A1%8C%EF%BC%9A" target="_blank" rel="noopener noreferrer" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'qp_whatsapp'});">WhatsApp 專人為你配搭餐單</a></div>
-</section>
-<script>
+  <div class="ao-qp-help"><p>仍未決定選擇哪一款？</p><a href="{WA}" target="_blank" rel="noopener noreferrer"{dl('qp_whatsapp')}>WhatsApp 專人為你配搭餐單</a></div>
+</section>'''
+JS='''<script>
 (function(){
   /* 自動更新「本週 TOP 5 人氣推介」價錢（讀取 WooCommerce 現價；失敗則保留原價） */
   var box=document.currentScript&&document.currentScript.previousElementSibling;
@@ -28,8 +57,8 @@
     });
   }).catch(function(){});
 })();
-</script>
-<style>
+</script>'''
+CSS='''<style>
 .ao-qp{max-width:1180px;margin:16px auto 32px;padding:40px 36px 34px;border-radius:24px;background:radial-gradient(120% 140% at 0% 0%,#3a2a20 0%,#211812 55%,#15100c 100%);color:#efe5d6;box-shadow:inset 0 0 0 1px rgba(214,180,104,.25);font-family:inherit;}
 .ao-qp *{box-sizing:border-box;font-family:inherit;}
 .ao-qp a{text-decoration:none !important;}
@@ -133,5 +162,17 @@
   .ao-qp-help a{width:100%;text-align:center;}
 }
 @media (prefers-reduced-motion:reduce){.ao-qp a,.ao-qp img{transition:none !important;}}
-</style>
-</div></body></html>
+</style>'''
+code=MARK+'\n'+JS+'\n'+CSS+'\n'
+open('option-a.html','w',encoding='utf-8').write(code)
+head='<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*,*::before,*::after{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;font-family:"Rubik","Noto Sans TC","PingFang TC",sans-serif;background:#fff;color:#333}.hd{height:60px;background:#a98a52}.wpcol{padding:20px 15px}@media(min-width:768px){.wpcol{padding:30px 30px}}</style></head><body><div class="hd"></div><div class="wpcol">'
+open('preview-a.html','w',encoding='utf-8').write(head+code+'</div></body></html>')
+P='/sessions/great-festive-darwin/mnt/Desktop/cowork - aoao/pages/'
+shutil.copy('option-a.html',P+'party-quickpick-option-A.html'); shutil.copy('preview-a.html',P+'party-quickpick-option-A-preview.html')
+import re
+idx=open('index.html',encoding='utf-8').read()
+idx=re.sub(r'(<textarea id="ca"[^>]*>).*?(</textarea>)',lambda m:m.group(1)+html.escape(code)+m.group(2),idx,flags=re.S)
+open('index.html','w',encoding='utf-8').write(idx)
+print(len(code), code.count('–'), code.count('→'))
+fr=lambda w,h,s: f'<div style="display:inline-block;vertical-align:top;width:{int(w*s)}px;height:{int(h*s)}px;overflow:hidden;margin:3px"><iframe style="width:{w}px;height:{h}px;border:0;transform:scale({s});transform-origin:0 0" srcdoc="{html.escape(head+code+"</div></body></html>",quote=True)}"></iframe></div>'
+open('/sessions/great-festive-darwin/mnt/outputs/qpa.html','w',encoding='utf-8').write('<!doctype html><meta charset="utf-8"><body style="margin:0;background:#222;white-space:nowrap">'+fr(1300,1500,0.5)+fr(390,1600,0.47)+'</body>')
