@@ -34,8 +34,8 @@ MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套�
     <h2 id="ao-qp-title" class="ao-qp-title">快速選擇派對套餐</h2>
     <p class="ao-qp-sub">先按人數或系列選擇合適套餐，再直接網上下單。</p>
   </div>
-  <div class="ao-qp-sec"><div class="ao-qp-lbl"><span>1</span>按人數選擇</div><div class="ao-qp-ppl">{ppl}</div></div>
-  <div class="ao-qp-sec"><div class="ao-qp-lbl"><span>2</span>按系列選擇</div><div class="ao-qp-series">{ser}</div></div>
+  <div class="ao-qp-sec ao-qp-box ao-qp-box--ppl"><div class="ao-qp-tophead"><span class="ao-qp-tag ao-qp-tag--ppl"><i>1</i>👥 按人數選擇</span></div><div class="ao-qp-ppl">{ppl}</div></div>
+  <div class="ao-qp-sec ao-qp-box ao-qp-box--ser"><div class="ao-qp-tophead"><span class="ao-qp-tag ao-qp-tag--ser"><i>2</i>🍽️ 按系列選擇</span></div><div class="ao-qp-series">{ser}</div></div>
   <div class="ao-qp-sec ao-qp-sec--top">
     <div class="ao-qp-tophead"><span class="ao-qp-toptag"><i>3</i>🔥 本週 <b>TOP 5</b> 人氣推介</span></div>
     <div class="ao-qp-pop">{top}</div>
@@ -99,6 +99,20 @@ CSS='''<style>
 .ao-qp-pop a.is-hw .ao-qp-pr strong{color:#ffb347;}
 .ao-qp-pop a.is-hw .ao-qp-btn{background:linear-gradient(135deg,#ff8a1f,#ff5a00);color:#1c1426;}
 
+
+/* ===== 1・2 區塊：同 TOP 5 一樣疊層標籤，但用唔同顏色 ===== */
+.ao-qp-box{position:relative;margin-top:44px;padding:34px 20px 22px;border-radius:20px;box-shadow:0 18px 40px rgba(0,0,0,.3);}
+.ao-qp-tag{display:inline-flex;align-items:center;gap:6px;padding:10px 26px;border-radius:999px;font-size:19px;font-weight:800;letter-spacing:1px;line-height:1.2;}
+.ao-qp-tag i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-right:2px;border-radius:50%;font-style:normal;font-size:13px;}
+/* 1 按人數：象牙白 */
+.ao-qp-box--ppl{background:linear-gradient(180deg,rgba(246,237,223,.10) 0%,rgba(246,237,223,.03) 100%);border:1px solid rgba(246,237,223,.35);}
+.ao-qp-tag--ppl{background:linear-gradient(135deg,#fffaf1 0%,#eadcc4 100%);color:#2b211b;box-shadow:0 8px 20px rgba(0,0,0,.45),0 0 0 4px #211812,0 0 0 5px rgba(246,237,223,.55);}
+.ao-qp-tag--ppl i{background:#2b211b;color:#f6eddf;}
+/* 2 按系列：玫瑰銅 */
+.ao-qp-box--ser{background:linear-gradient(180deg,rgba(196,120,84,.14) 0%,rgba(196,120,84,.04) 100%);border:1px solid rgba(214,140,104,.45);}
+.ao-qp-tag--ser{background:linear-gradient(135deg,#e6a37f 0%,#a95c3b 100%);color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.45),0 0 0 4px #211812,0 0 0 5px rgba(214,140,104,.6);}
+.ao-qp-tag--ser i{background:#fff;color:#8f4a2d;}
+
 /* ===== 按人數（白卡） ===== */
 .ao-qp-ppl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;}
 .ao-qp-ppl a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:78px;padding:12px 6px;border:2px solid transparent;border-radius:14px;background:#fff;color:#2b211b !important;text-align:center;line-height:1.2;box-shadow:0 6px 16px rgba(0,0,0,.28);transition:all .25s ease;}
@@ -147,7 +161,8 @@ CSS='''<style>
   .ao-qp-sub{font-size:14px;}
   .ao-qp-sec{margin-bottom:24px;}
   .ao-qp-sec--top{margin-top:36px;padding:30px 0 14px 12px;border-radius:16px;}
-  .ao-qp-toptag{font-size:17px;padding:8px 18px;}
+  .ao-qp-toptag,.ao-qp-tag{font-size:16px;padding:8px 16px;}
+  .ao-qp-box{margin-top:36px;padding:30px 10px 14px;border-radius:16px;}
   .ao-qp-pop{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 12px 8px 0;scrollbar-width:none;}
   .ao-qp-pop::-webkit-scrollbar{display:none;}
   .ao-qp-pop a{flex:0 0 62%;scroll-snap-align:start;}
