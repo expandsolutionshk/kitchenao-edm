@@ -24,9 +24,11 @@ def price_html(p,r,suf):
     s=f'<strong data-price>HK${p:,}{suf}</strong>'
     if r>p: s+=f'<del data-reg>HK${r:,}</del>'
     return s
+BAT='<svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg>'
+BATS='<span class="ao-qp-bats" aria-hidden="true"><i class="b1">'+BAT+'</i><i class="b2">'+BAT+'</i><i class="b3">'+BAT+'</i></span>'
 ppl=''.join(f'<a href="{ppl_url(k)}"{dl(t)}><b>{n}<small>人</small></b><em>{d}</em></a>' for n,d,k,t in PPL)
-ser=''.join(f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}><i>{e}</i><span><b>{n}</b><small>{s}</small></span>{f"<em>{bd}</em>" if bd else ""}</a>' for e,n,s,u,t,bd,c in SER)
-top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn">查看詳情</span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
+ser=''.join(f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}>{BATS if c=="hw" else ""}<i>{e}</i><span><b>{n}</b><small>{s}</small></span>{f"<em>{bd}</em>" if bd else ""}</a>' for e,n,s,u,t,bd,c in SER)
+top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn">{BATS if c=="hw" else ""}<span>查看詳情</span></span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
 MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option A 黑金（Raw HTML）===== -->
 <section class="ao-qp ao-qp--a" aria-labelledby="ao-qp-title">
   <div class="ao-qp-head">
@@ -43,6 +45,19 @@ MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套�
   <div class="ao-qp-help"><p>仍未決定選擇哪一款？</p><a href="{WA}" target="_blank" rel="noopener noreferrer"{dl('qp_whatsapp')}>WhatsApp 專人為你配搭餐單</a></div>
 </section>'''
 JS='''<script>
+(function(){
+  /* 撳掣後顯示 Loading（新分頁／WhatsApp 除外） */
+  var root=document.currentScript&&document.currentScript.previousElementSibling;
+  if(root){
+    var ov=document.createElement('div');ov.className='ao-qp-loading';ov.setAttribute('role','status');ov.innerHTML='<span></span><p>載入中，請稍候…</p>';document.body.appendChild(ov);
+    root.addEventListener('click',function(e){
+      var a=e.target.closest('a[href]');if(!a||a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return;
+      ov.classList.toggle('is-hw',a.classList.contains('is-hw'));ov.classList.add('is-on');
+      setTimeout(function(){ov.classList.remove('is-on');},10000);
+    });
+    window.addEventListener('pageshow',function(){ov.classList.remove('is-on');});
+  }
+})();
 (function(){
   /* 自動更新「本週 TOP 5 人氣推介」價錢（讀取 WooCommerce 現價；失敗則保留原價） */
   var box=document.currentScript&&document.currentScript.previousElementSibling;
@@ -78,7 +93,7 @@ CSS='''<style>
 .ao-qp-toptag i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-right:2px;border-radius:50%;background:#241a12;color:#f0d39a;font-style:normal;font-size:13px;}
 .ao-qp-toptag b{padding:2px 9px;border-radius:8px;background:#241a12;color:#f0d39a;font-weight:800;}
 .ao-qp-pop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:6px;}
-.ao-qp-pop a{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;border:1px solid rgba(214,180,104,.25);background:#1b140f;color:#f6eddf !important;box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .25s ease,border-color .25s ease;}
+.ao-qp-pop a{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;border:1px solid #fff;background:#fff;color:#2b211b !important;box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .25s ease,border-color .25s ease;}
 .ao-qp-pop a:hover{transform:translateY(-4px);border-color:#c9a45c;}
 .ao-qp-ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;}
 .ao-qp-ph img{display:block;width:100% !important;height:100% !important;object-fit:cover;transition:transform .5s ease;}
@@ -86,17 +101,18 @@ CSS='''<style>
 .ao-qp-rank{position:absolute;left:10px;top:10px;padding:4px 10px;border-radius:8px;background:rgba(21,16,12,.85);color:#f0d39a;font-size:12px;font-weight:800;letter-spacing:1px;border:1px solid rgba(214,180,104,.6);}
 .ao-qp-pi{display:flex;flex-direction:column;flex:1;padding:12px 12px 14px;}
 .ao-qp-pi b{font-size:14.5px;font-weight:700;line-height:1.45;}
-.ao-qp-pi em{margin-top:3px;font-style:normal;font-size:12px;color:#a99880;line-height:1.5;}
+.ao-qp-pi em{margin-top:3px;font-style:normal;font-size:12px;color:#8a7b6e;line-height:1.5;}
 .ao-qp-pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;margin-top:auto;padding-top:10px;}
-.ao-qp-pr strong{font-size:18px;font-weight:800;color:#e7c98b;}
-.ao-qp-pr del{font-size:12px;color:#8d7f6c;}
+.ao-qp-pr strong{font-size:18px;font-weight:800;color:#9a6b1f;}
+.ao-qp-pr del{font-size:12px;color:#a39686;}
 .ao-qp-btn{display:block;margin-top:10px;padding:9px 10px;border-radius:999px;background:linear-gradient(135deg,#e3c482,#b8893f);color:#1d150f;font-size:13.5px;font-weight:800;text-align:center;line-height:1.2;transition:filter .2s ease;}
 .ao-qp-pop a:hover .ao-qp-btn{filter:brightness(1.1);}
 /* Halloween 卡（跟 Pop up 紫橙色調） */
-.ao-qp-pop a.is-hw{background:linear-gradient(180deg,#2c1f3b 0%,#1c1426 100%);border-color:#ff7a1a;box-shadow:0 10px 26px rgba(255,90,0,.25);}
+.ao-qp-pop a.is-hw{background:linear-gradient(180deg,#2c1f3b 0%,#1c1426 100%);border-color:#ff7a1a;color:#f6eddf !important;box-shadow:0 10px 26px rgba(255,90,0,.25);}
 .ao-qp-pop a.is-hw .ao-qp-rank{background:#ff7a1a;color:#1c1426;border-color:#ff7a1a;}
 .ao-qp-pop a.is-hw em{color:#cdb8e6;}
 .ao-qp-pop a.is-hw .ao-qp-pr strong{color:#ffb347;}
+.ao-qp-pop a.is-hw .ao-qp-pr del{color:#9c8bb3;}
 .ao-qp-pop a.is-hw .ao-qp-btn{background:linear-gradient(135deg,#ff8a1f,#ff5a00);color:#1c1426;}
 
 
@@ -115,13 +131,12 @@ CSS='''<style>
 
 /* ===== 按人數（白卡） ===== */
 .ao-qp-ppl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;}
-.ao-qp-ppl a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:78px;padding:12px 6px;border:2px solid transparent;border-radius:14px;background:#fff;color:#2b211b !important;text-align:center;line-height:1.2;box-shadow:0 6px 16px rgba(0,0,0,.28);transition:all .25s ease;}
-.ao-qp-ppl a::before{content:"";position:absolute;left:50%;top:0;width:28px;height:3px;border-radius:0 0 3px 3px;background:#d2a44e;transform:translateX(-50%);transition:width .25s ease;}
-.ao-qp-ppl b{display:flex;align-items:baseline;gap:4px;font-size:21px;font-weight:800;white-space:nowrap;color:#2b211b;letter-spacing:.3px;}
+.ao-qp-ppl a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:84px;padding:12px 6px;border:1.5px solid #fff;border-radius:16px;background:linear-gradient(180deg,#ffffff 0%,#f8f2e8 100%);color:#2b211b !important;text-align:center;line-height:1.2;box-shadow:0 6px 16px rgba(0,0,0,.28);transition:all .25s ease;}
+.ao-qp-ppl b{display:flex;align-items:baseline;gap:4px;font-size:22px;font-weight:800;white-space:nowrap;color:#2b211b;letter-spacing:.3px;}
 .ao-qp-ppl small{font-size:13px;font-weight:700;color:#9a7230;}
-.ao-qp-ppl em{font-style:normal;font-size:12px;color:#7d6e60;white-space:nowrap;}
-.ao-qp-ppl a:hover,.ao-qp-ppl a:focus-visible{border-color:#d6b468;background:#fbf3e3;}
-.ao-qp-ppl a:hover::before{width:60%;}
+.ao-qp-ppl em{display:inline-block;padding:3px 10px;border-radius:999px;background:#f1e6d2;font-style:normal;font-size:11.5px;font-weight:600;color:#7d5b27;white-space:nowrap;}
+.ao-qp-ppl a:hover,.ao-qp-ppl a:focus-visible{border-color:#d6b468;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.35),0 0 0 3px rgba(214,180,104,.35);}
+.ao-qp-ppl a:hover em{background:#2b211b;color:#f0d39a;}
 
 /* ===== 按系列 ===== */
 .ao-qp-series{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
@@ -146,6 +161,30 @@ CSS='''<style>
 .ao-qp-series a.is-hw em{background:linear-gradient(135deg,#ff8a1f,#ff5a00);color:#1c1426;}
 .ao-qp-series a.is-hw:hover{background:linear-gradient(135deg,#3a2850 0%,#22182e 100%);}
 
+
+/* ===== Halloween 蝙蝠動畫（同 Pop up） ===== */
+.ao-qp-bats{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit;pointer-events:none;}
+.ao-qp-bats i{position:absolute;top:50%;left:-12%;width:30px;margin-top:-7px;animation:aoQpBat 5s linear infinite;}
+.ao-qp-bats i.b2{width:22px;margin-top:-14px;animation-duration:6s;animation-delay:1.6s;}
+.ao-qp-bats i.b3{width:26px;margin-top:1px;animation-duration:5.5s;animation-delay:3.2s;}
+.ao-qp-bats svg{display:block;width:100%;height:auto;transform-origin:50% 40%;animation:aoQpFlap .16s ease-in-out infinite alternate;}
+.ao-qp-series a.is-hw .ao-qp-bats svg path{fill:#ff8a1f;opacity:.55;}
+.ao-qp-series a.is-hw > i,.ao-qp-series a.is-hw > span,.ao-qp-series a.is-hw > em{position:relative;z-index:1;}
+.ao-qp-btn{position:relative;overflow:hidden;}
+.ao-qp-btn > span{position:relative;z-index:1;}
+.ao-qp-pop a.is-hw .ao-qp-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.6),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoQpShine 2.8s ease-in-out infinite;z-index:2;}
+@keyframes aoQpBat{0%{left:-12%;transform:translateY(4px);}25%{transform:translateY(-6px);}50%{transform:translateY(5px);}75%{transform:translateY(-5px);}100%{left:108%;transform:translateY(3px);}}
+@keyframes aoQpFlap{from{transform:scaleY(1);}to{transform:scaleY(.55) scaleX(.92);}}
+@keyframes aoQpShine{0%{left:-60%;}55%,100%{left:130%;}}
+
+/* ===== 撳掣 Loading ===== */
+.ao-qp-loading{position:fixed;inset:0;z-index:999998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(21,16,12,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;}
+.ao-qp-loading.is-on{opacity:1;visibility:visible;}
+.ao-qp-loading span{width:54px;height:54px;border-radius:50%;border:4px solid rgba(240,211,154,.25);border-top-color:#f0d39a;animation:aoQpSpin .8s linear infinite;}
+.ao-qp-loading.is-hw span{border-color:rgba(255,138,31,.25);border-top-color:#ff8a1f;}
+.ao-qp-loading p{margin:0 !important;color:#f6eddf;font-size:15px;font-weight:700;letter-spacing:1px;}
+@keyframes aoQpSpin{to{transform:rotate(360deg);}}
+
 /* ===== WhatsApp ===== */
 .ao-qp-help{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 18px;padding-top:22px;border-top:1px solid rgba(214,180,104,.22);}
 .ao-qp-help p{margin:0 !important;font-size:15px;color:#cbbca6;}
@@ -167,7 +206,8 @@ CSS='''<style>
   .ao-qp-pop::-webkit-scrollbar{display:none;}
   .ao-qp-pop a{flex:0 0 62%;scroll-snap-align:start;}
   .ao-qp-ppl{gap:8px;}
-  .ao-qp-ppl a{min-height:66px;padding:10px 4px;border-radius:12px;}
+  .ao-qp-ppl a{min-height:70px;padding:9px 3px;gap:5px;border-radius:12px;}
+  .ao-qp-ppl em{padding:2px 7px;}
   .ao-qp-ppl b{font-size:17px;}
   .ao-qp-ppl em{font-size:11px;}
   .ao-qp-series{gap:8px;}
@@ -179,7 +219,7 @@ CSS='''<style>
   .ao-qp-help{flex-direction:column;}
   .ao-qp-help a{width:100%;text-align:center;}
 }
-@media (prefers-reduced-motion:reduce){.ao-qp a,.ao-qp img{transition:none !important;}}
+@media (prefers-reduced-motion:reduce){.ao-qp a,.ao-qp img{transition:none !important;}.ao-qp-bats{display:none;}.ao-qp-btn::after{animation:none !important;}}
 </style>'''
 code=MARK+'\n'+JS+'\n'+CSS+'\n'
 open('option-a.html','w',encoding='utf-8').write(code)
