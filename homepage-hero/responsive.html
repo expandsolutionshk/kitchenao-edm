@@ -1,25 +1,21 @@
-<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><title>Homepage Hero – Halloween CTA Mockup</title><style>
-body{margin:0;background:#2b2b2b;color:#fff;font-family:-apple-system,'PingFang TC',sans-serif;padding:24px}h1{font-size:18px;margin:0 0 6px}p{margin:0 0 16px;color:#bbb;font-size:13px}a{color:#FFB36B}
-.box{margin:0 0 22px;padding:16px;border-radius:14px;background:#1c1426;border:1px solid #4a3463;max-width:1180px}
-.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 10px}
-.btn{padding:8px 16px;border-radius:999px;border:0;background:#FF7A1A;font-weight:700;cursor:pointer;color:#1c1426;font-size:13px;text-decoration:none}
-textarea{width:100%;box-sizing:border-box;height:160px;background:#0f0b15;color:#e6dcf5;border:1px solid #4a3463;border-radius:10px;padding:10px;font:12px/1.5 Menlo,monospace}
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kitchen AO Homepage / Party Mockup</title><style>
+body{margin:0;background:#2b2b2b;color:#fff;font-family:-apple-system,'PingFang TC',sans-serif;padding:24px}h1{font-size:19px;margin:0 0 6px}p{margin:0 0 14px;color:#bbb;font-size:13px}a{color:#FFB36B}
+.nav{margin:0 0 18px;font-size:14px}.nav a{margin-right:14px}
+.box{margin:0 0 16px;padding:14px 16px;border-radius:14px;background:#1c1426;border:1px solid #4a3463;max-width:1180px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 6px}.note{margin:0 0 8px;font-size:12.5px;color:#cbbfe0}
+.btn{padding:7px 15px;border-radius:999px;border:0;background:#FF7A1A;font-weight:700;cursor:pointer;color:#1c1426;font-size:13px}
+textarea{width:100%;box-sizing:border-box;height:120px;background:#0f0b15;color:#e6dcf5;border:1px solid #4a3463;border-radius:10px;padding:10px;font:12px/1.5 Menlo,monospace}
+.lab2{margin:30px 0 10px;font-size:16px;font-weight:800;color:#FFB36B;border-top:1px solid #444;padding-top:18px}
 .row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}.lab{font-size:13px;color:#ccc;margin:0 0 8px}
-.dw{width:760px;height:500px;overflow:hidden;border-radius:10px;border:1px solid #555}.dw iframe{width:1440px;height:948px;transform:scale(.5278);transform-origin:0 0;border:0}
+.dw{width:760px;max-width:100%;height:520px;overflow:hidden;border-radius:10px;border:1px solid #555}.dw iframe{width:1440px;height:985px;transform:scale(.5278);transform-origin:0 0;border:0}
 .ph{width:390px;height:844px;border:10px solid #111;border-radius:40px;overflow:hidden;background:#000}.ph iframe{width:390px;height:844px;border:0}
 </style></head><body>
-<h1>Homepage — Hero + 活動場合 + 熱門套餐 Mockup</h1>
-<p>3 個原有 CTA（URL + Google Ads tracking 不變）＋ 新 Halloween CTA。Desktop：3 個等闊一行，Halloween 掣同總闊度；Mobile：全部 100% 闊，Halloween 放最底。<a href="preview.html">真機預覽</a></p>
-<div class="box"><div class="bar"><strong>📋 FINAL Hero HTML（取代 WordPress 原有 hero code）</strong>
-<button class="btn" onclick="var t=document.getElementById('code');navigator.clipboard.writeText(t.value).then(()=>{this.textContent='✓ 已複製'},()=>{t.select();document.execCommand('copy');this.textContent='✓ 已複製'});setTimeout(()=>{this.textContent='複製 HTML Code'},2000)">複製 HTML Code</button></div>
-<textarea id="code" readonly>&lt;!-- =====================================================================
-  Kitchen AO Homepage（2026-10）
-  PART 1：Hero（取代原有 hero Raw HTML）
-  PART 2：活動場合 + 熱門到會套餐推薦（取代原有 2 個 section，見下面說明）
-  ===================================================================== --&gt;
-
-&lt;!-- ========== PART 1：HERO ========== --&gt;
-&lt;section class=&quot;ao-hero&quot; style=&quot;padding:36px 20px;background:linear-gradient(180deg,#fbf8f3 0%,#f5efe7 100%);&quot;&gt;
+<h1>Kitchen AO — Homepage + Party 頁 Mockup</h1>
+<p>3 段 code 分開複製。Mockup 冇網站原本 header／字體，以 live 為準。</p>
+<div class="nav"><a href="preview.html" target="_blank">真機預覽：Homepage</a><a href="preview-party.html" target="_blank">真機預覽：Party 快選</a></div>
+<div class="box"><div class="bar"><strong>① Homepage Hero</strong>
+<button class="btn" onclick="cp('c1',this)">複製 HTML Code</button></div><p class="note">取代原有 hero Raw HTML（由 &lt;section class="ao-hero"&gt; 至 &lt;/style&gt;）。3 個原有 CTA URL／tracking 不變。</p>
+<textarea id="c1" readonly>&lt;section class=&quot;ao-hero&quot; style=&quot;padding:36px 20px;background:linear-gradient(180deg,#fbf8f3 0%,#f5efe7 100%);&quot;&gt;
   &lt;div class=&quot;ao-hero-grid&quot; style=&quot;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:28px;align-items:center;&quot;&gt;
     &lt;div style=&quot;order:1;&quot;&gt;
       &lt;div style=&quot;display:inline-block;margin:0 0 12px;padding:6px 12px;border-radius:999px;background:#efe4d1;color:#7d5b27;font-size:12px;font-weight:800;letter-spacing:0.08em;line-height:1.2;&quot;&gt;
@@ -103,15 +99,10 @@ textarea{width:100%;box-sizing:border-box;height:160px;background:#0f0b15;color:
   .ao-hero-hw-txt small{display:block;width:max-content;margin:5px auto 0;vertical-align:0;}
   .ao-hero-feats{flex-direction:column;gap:6px;}
 }
-&lt;/style&gt;
-
-
-&lt;!-- ========== PART 2：活動場合 + 熱門到會套餐推薦 ==========
-  做法：喺 WPBakery 刪除「香港到會推介2026」、「適合不同活動場合」2 個文字元素，
-  以及下面 3 個 inner row（3 張場合卡、熱門標題、3 張套餐卡），
-  原位加 1 個 Raw HTML，貼入以下 code。下面「日本直送」banner 嘅 row 保留不變。
-========================================================== --&gt;
-&lt;!-- ===== Kitchen AO Homepage｜活動場合 + 熱門到會套餐推薦（Raw HTML）===== --&gt;
+&lt;/style&gt;</textarea></div>
+<div class="box"><div class="bar"><strong>② Homepage 活動場合 + 熱門到會套餐推薦</strong>
+<button class="btn" onclick="cp('c2',this)">複製 HTML Code</button></div><p class="note">刪除「香港到會推介2026」「適合不同活動場合」2 個文字元素＋下面 3 個 inner row，原位加 1 個 Raw HTML 貼入。「日本直送」banner 保留。</p>
+<textarea id="c2" readonly>&lt;!-- ===== Kitchen AO Homepage｜活動場合 + 熱門到會套餐推薦（Raw HTML）===== --&gt;
 &lt;section class=&quot;ao-hs&quot; aria-labelledby=&quot;ao-hs-scene-title&quot;&gt;
   &lt;div class=&quot;ao-hs-wrap&quot;&gt;
     &lt;div class=&quot;ao-hs-head&quot;&gt;
@@ -262,8 +253,113 @@ textarea{width:100%;box-sizing:border-box;height:160px;background:#0f0b15;color:
   .ao-hs .ao-hs-body h3{font-size:20px;}
 }
 @media (prefers-reduced-motion:reduce){.ao-hs-scene,.ao-hs-img img,.ao-hs-pop &gt; img,.ao-hs-link i,.ao-hs-btn i{transition:none !important;}}
-&lt;/style&gt;
-</textarea></div>
-<div class="row"><div><div class="lab">Desktop 1440px</div><div class="dw"><iframe src="preview.html"></iframe></div></div>
-<div><div class="lab">Mobile 390px</div><div class="ph"><iframe src="preview.html"></iframe></div></div></div>
+&lt;/style&gt;</textarea></div>
+<div class="box"><div class="bar"><strong>③ /product-category/party/ 快速選擇派對套餐</strong>
+<button class="btn" onclick="cp('c3',this)">複製 HTML Code</button></div><p class="note">取代原有「快速選擇派對套餐」整段 code。</p>
+<textarea id="c3" readonly>&lt;!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐（Raw HTML）===== --&gt;
+&lt;section class=&quot;ao-qp&quot; aria-labelledby=&quot;ao-qp-title&quot;&gt;
+  &lt;div class=&quot;ao-qp-head&quot;&gt;
+    &lt;p class=&quot;ao-qp-eyebrow&quot;&gt;Kitchen AO Party Catering&lt;/p&gt;
+    &lt;h2 id=&quot;ao-qp-title&quot; class=&quot;ao-qp-title&quot;&gt;快速選擇派對套餐&lt;/h2&gt;
+    &lt;p class=&quot;ao-qp-sub&quot;&gt;先按人數或系列揀啱套餐，再直接網上下單。&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;ao-qp-block&quot;&gt;
+    &lt;div class=&quot;ao-qp-label&quot;&gt;&lt;span&gt;①&lt;/span&gt; 按人數揀&lt;/div&gt;
+    &lt;div class=&quot;ao-qp-ppl&quot;&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party-set-by-people/2-6人分享選項/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_ppl_2_6&#x27;});&quot;&gt;&lt;b&gt;2–6&lt;/b&gt;&lt;small&gt;人&lt;/small&gt;&lt;em&gt;小型聚會&lt;/em&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party-set-by-people/7-11人分享選項/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_ppl_7_11&#x27;});&quot;&gt;&lt;b&gt;7–11&lt;/b&gt;&lt;small&gt;人&lt;/small&gt;&lt;em&gt;家庭派對&lt;/em&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party-set-by-people/12-16人分享選項/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_ppl_12_16&#x27;});&quot;&gt;&lt;b&gt;12–16&lt;/b&gt;&lt;small&gt;人&lt;/small&gt;&lt;em&gt;生日會&lt;/em&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party-set-by-people/18-25人分享選項/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_ppl_18_25&#x27;});&quot;&gt;&lt;b&gt;18–25&lt;/b&gt;&lt;small&gt;人&lt;/small&gt;&lt;em&gt;公司聚餐&lt;/em&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party-set-by-people/30人以上分享選項/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_ppl_30&#x27;});&quot;&gt;&lt;b&gt;30+&lt;/b&gt;&lt;small&gt;人&lt;/small&gt;&lt;em&gt;大型活動&lt;/em&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party-set-by-people/100人以上分享選項/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_ppl_100&#x27;});&quot;&gt;&lt;b&gt;100+&lt;/b&gt;&lt;small&gt;人&lt;/small&gt;&lt;em&gt;企業活動&lt;/em&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;ao-qp-block&quot;&gt;
+    &lt;div class=&quot;ao-qp-label&quot;&gt;&lt;span&gt;②&lt;/span&gt; 按系列揀&lt;/div&gt;
+    &lt;div class=&quot;ao-qp-series&quot;&gt;
+      &lt;a class=&quot;is-hot&quot; href=&quot;https://aoaodelivery.com/product-category/party/foot-party/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_gourmet&#x27;});&quot;&gt;&lt;i&gt;⭐&lt;/i&gt;&lt;span&gt;&lt;b&gt;美食派對 Gourmet&lt;/b&gt;&lt;small&gt;人氣之選・熱食主菜&lt;/small&gt;&lt;/span&gt;&lt;em&gt;人氣&lt;/em&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/refreshment-set/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_refreshment&#x27;});&quot;&gt;&lt;i&gt;🥂&lt;/i&gt;&lt;span&gt;&lt;b&gt;輕食宴會 Refreshment&lt;/b&gt;&lt;small&gt;會議茶點・開幕酒會&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/boat-party-set/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_boat&#x27;});&quot;&gt;&lt;i&gt;🚤&lt;/i&gt;&lt;span&gt;&lt;b&gt;船河派對套餐&lt;/b&gt;&lt;small&gt;碼頭交收・方便分發&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/children/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_kids&#x27;});&quot;&gt;&lt;i&gt;🧸&lt;/i&gt;&lt;span&gt;&lt;b&gt;兒童派對套餐&lt;/b&gt;&lt;small&gt;小朋友生日會&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/set-for-two/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_couple&#x27;});&quot;&gt;&lt;i&gt;💑&lt;/i&gt;&lt;span&gt;&lt;b&gt;雙人套餐&lt;/b&gt;&lt;small&gt;二人慶祝・紀念日&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/vegetarians-set/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_veg&#x27;});&quot;&gt;&lt;i&gt;🥗&lt;/i&gt;&lt;span&gt;&lt;b&gt;「素」味人生&lt;/b&gt;&lt;small&gt;素食派對套餐&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/meat-monster/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_meat&#x27;});&quot;&gt;&lt;i&gt;🍖&lt;/i&gt;&lt;span&gt;&lt;b&gt;肉食獸套餐&lt;/b&gt;&lt;small&gt;上將海港之選&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/chill-box/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_chill&#x27;});&quot;&gt;&lt;i&gt;🧺&lt;/i&gt;&lt;span&gt;&lt;b&gt;Chill 一下野餐盒&lt;/b&gt;&lt;small&gt;野餐・戶外活動&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a href=&quot;https://aoaodelivery.com/product-category/party/platter/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_s_platter&#x27;});&quot;&gt;&lt;i&gt;🍢&lt;/i&gt;&lt;span&gt;&lt;b&gt;手指食物拼盤&lt;/b&gt;&lt;small&gt;Finger Food・Platter&lt;/small&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;ao-qp-help&quot;&gt;
+    &lt;p&gt;唔知揀邊款？WhatsApp 1 分鐘幫你配餐單。&lt;/p&gt;
+    &lt;a href=&quot;https://wa.me/85269011987?text=你好，我想查詢派對到會套餐及報價&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;qp_whatsapp&#x27;});&quot;&gt;WhatsApp 問配搭&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;style&gt;
+.ao-qp{max-width:1180px;margin:16px auto 32px;padding:30px 28px 28px;border-radius:22px;background:linear-gradient(135deg,#2b211b 0%,#3b2b22 48%,#1d1713 100%);color:#f5ede2;font-family:inherit;}
+.ao-qp *{box-sizing:border-box;}
+.ao-qp-head{text-align:center;margin:0 0 22px;}
+.ao-qp-eyebrow{margin:0 0 8px !important;color:#d6b468;font-size:11px;font-weight:700;letter-spacing:1.8px;line-height:1.3;text-transform:uppercase;}
+.ao-qp .ao-qp-title{margin:0 0 6px !important;color:#f8f1e7 !important;font-size:26px;font-weight:800;line-height:1.35;}
+.ao-qp-sub{margin:0 !important;color:#e6d9c6;font-size:15px;line-height:1.7;}
+.ao-qp-block{margin:0 0 20px;}
+.ao-qp-label{margin:0 0 10px;color:#f0d7a4;font-size:14px;font-weight:800;letter-spacing:.4px;}
+.ao-qp-label span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:6px;border-radius:50%;background:#d6b468;color:#2b211b;font-size:12px;}
+
+/* ① 人數 */
+.ao-qp-ppl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;}
+.ao-qp-ppl a{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 6px 12px;border-radius:16px;background:#fff;color:#2b211b !important;text-decoration:none !important;line-height:1.15;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
+.ao-qp-ppl b{font-size:22px;font-weight:800;}
+.ao-qp-ppl small{margin-top:2px;font-size:12px;font-weight:700;color:#7d5b27;}
+.ao-qp-ppl em{margin-top:6px;font-style:normal;font-size:11.5px;color:#8a7b6e;}
+.ao-qp-ppl a:hover{transform:translateY(-3px);background:#fbf3e3;box-shadow:0 8px 18px rgba(0,0,0,.25);}
+
+/* ② 系列 */
+.ao-qp-series{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.ao-qp-series a{position:relative;display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(214,180,104,.28);color:#f8f1e7 !important;text-decoration:none !important;transition:background .2s ease,border-color .2s ease,transform .2s ease;}
+.ao-qp-series a:hover{background:rgba(255,255,255,.13);border-color:#d6b468;transform:translateY(-2px);}
+.ao-qp-series i{flex:0 0 40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(214,180,104,.16);font-style:normal;font-size:20px;}
+.ao-qp-series span{display:flex;flex-direction:column;min-width:0;}
+.ao-qp-series b{font-size:15px;font-weight:800;line-height:1.3;}
+.ao-qp-series small{margin-top:2px;font-size:12px;color:#cdbda6;line-height:1.4;}
+.ao-qp-series a.is-hot{background:linear-gradient(135deg,#f0d39a 0%,#d2a44e 100%);border-color:transparent;color:#241a12 !important;}
+.ao-qp-series a.is-hot small{color:#5a4320;}
+.ao-qp-series a.is-hot i{background:rgba(255,255,255,.45);}
+.ao-qp-series em{position:absolute;top:-8px;right:10px;padding:2px 8px;border-radius:999px;background:#c0392b;color:#fff;font-style:normal;font-size:11px;font-weight:800;}
+
+/* WhatsApp */
+.ao-qp-help{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 16px;margin-top:6px;padding-top:18px;border-top:1px solid rgba(214,180,104,.25);}
+.ao-qp-help p{margin:0 !important;font-size:14px;color:#e6d9c6;}
+.ao-qp-help a{display:inline-block;padding:12px 26px;border-radius:999px;background:linear-gradient(135deg,#d9b46c 0%,#ba8b41 100%);color:#241a12 !important;text-decoration:none !important;font-size:15px;font-weight:800;line-height:1.2;}
+.ao-qp img.emoji{display:inline !important;width:1em !important;height:1em !important;margin:0 !important;vertical-align:-0.12em !important;}
+
+@media (max-width:960px){
+  .ao-qp-ppl{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .ao-qp-series{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:600px){
+  .ao-qp{padding:22px 14px 20px;border-radius:18px;}
+  .ao-qp .ao-qp-title{font-size:22px;}
+  .ao-qp-sub{font-size:14px;}
+  .ao-qp-ppl{gap:8px;}
+  .ao-qp-ppl a{padding:11px 4px 10px;border-radius:14px;}
+  .ao-qp-ppl b{font-size:19px;}
+  .ao-qp-series{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .ao-qp-series a{gap:8px;padding:10px 10px;border-radius:14px;}
+  .ao-qp-series i{flex:0 0 30px;height:30px;border-radius:9px;font-size:16px;}
+  .ao-qp-series b{font-size:13.5px;}
+  .ao-qp-series small{display:none;}
+  .ao-qp-series em{top:-7px;right:6px;font-size:10px;}
+  .ao-qp-help{flex-direction:column;}
+  .ao-qp-help a{width:100%;text-align:center;}
+}
+@media (prefers-reduced-motion:reduce){.ao-qp a{transition:none !important;}}
+&lt;/style&gt;</textarea></div>
+<div class="lab2">Homepage：Hero + 活動場合 + 熱門套餐</div><div class="row"><div><div class="lab">Desktop 1440px</div><div class="dw"><iframe src="preview.html" loading="lazy"></iframe></div></div>
+<div><div class="lab">Mobile 390px</div><div class="ph"><iframe src="preview.html" loading="lazy"></iframe></div></div></div>
+<div class="lab2">Party 頁：快速選擇派對套餐</div><div class="row"><div><div class="lab">Desktop 1440px</div><div class="dw"><iframe src="preview-party.html" loading="lazy"></iframe></div></div>
+<div><div class="lab">Mobile 390px</div><div class="ph"><iframe src="preview-party.html" loading="lazy"></iframe></div></div></div>
+<script>function cp(id,b){var t=document.getElementById(id);navigator.clipboard.writeText(t.value).then(function(){b.textContent='✓ 已複製'},function(){t.select();document.execCommand('copy');b.textContent='✓ 已複製'});setTimeout(function(){b.textContent='複製 HTML Code'},2000)}</script>
 </body></html>
