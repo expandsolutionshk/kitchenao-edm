@@ -14,7 +14,7 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
 <div class="lnk" style="margin:0 0 16px;font-size:14px">單獨測試：<a style="color:#FFB36B;margin-right:12px" href="desktop.html">Desktop</a><a style="color:#FFB36B;margin-right:12px" href="mobile.html">Mobile</a><a style="color:#FFB36B" href="preview.html">真機預覽（用手機／電腦直接開）</a></div>
 <div style="margin:0 0 24px;padding:16px;border-radius:14px;background:#1c1426;border:1px solid #4a3463;max-width:1142px">
 <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 10px">
-<strong style="font-size:15px">📋 CMS HTML Code（貼入 WordPress）</strong>
+<strong style="font-size:15px">📋 FINAL CMS HTML Code（貼入 WordPress）</strong>
 <button id="cpy" style="margin:0" onclick="var t=document.getElementById('code');navigator.clipboard.writeText(t.value).then(()=>{this.textContent='✓ 已複製'},()=>{t.select();document.execCommand('copy');this.textContent='✓ 已複製'});setTimeout(()=>{this.textContent='複製 HTML Code'},2000)">複製 HTML Code</button>
 <a href="popup-code.html" download="halloween-popup-2026.html" style="padding:8px 16px;border-radius:999px;background:#fff;color:#1c1426;font-weight:700;font-size:13px;text-decoration:none">⬇ 下載 .html</a>
 </div>
@@ -215,8 +215,27 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
     try { if (typeof window.gtag === &#x27;function&#x27;) { window.gtag(&#x27;event&#x27;, &#x27;popup_&#x27; + action, p); } } catch (e) {}
     try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: &#x27;popup_&#x27; + action }, p)); } catch (e) {}
   }
+  // ===== Google Sheet click log=====
+  var AO_SHEET_URL = &#x27;https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec&#x27;;
+  function aoSheetLog(label) {
+    if (AO_SHEET_URL.indexOf(&#x27;https://script.google.com/&#x27;) !== 0) return;
+    var body = JSON.stringify({
+      popup_id: &#x27;halloween_2026&#x27;, label: label,
+      page: location.href, ref: document.referrer,
+      device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? &#x27;mobile&#x27; : &#x27;desktop&#x27;,
+      sw: window.innerWidth, ua: navigator.userAgent
+    });
+    try {
+      if (navigator.sendBeacon &amp;&amp; navigator.sendBeacon(AO_SHEET_URL, new Blob([body], { type: &#x27;text/plain;charset=utf-8&#x27; }))) return;
+    } catch (e) {}
+    try { fetch(AO_SHEET_URL, { method: &#x27;POST&#x27;, mode: &#x27;no-cors&#x27;, keepalive: true, headers: { &#x27;Content-Type&#x27;: &#x27;text/plain;charset=utf-8&#x27; }, body: body }); } catch (e) {}
+  }
   box.querySelectorAll(&#x27;[data-ao-track]&#x27;).forEach(function (a) {
-    a.addEventListener(&#x27;click&#x27;, function () { aoTrack(&#x27;click&#x27;, a.getAttribute(&#x27;data-ao-track&#x27;)); });
+    a.addEventListener(&#x27;click&#x27;, function () {
+      var label = a.getAttribute(&#x27;data-ao-track&#x27;);
+      aoTrack(&#x27;click&#x27;, label);
+      aoSheetLog(label);
+    });
   });
 
   // ===== Frequency cap：每日最多 3 次（每日 reset）=====
@@ -456,8 +475,27 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
     try { if (typeof window.gtag === &#x27;function&#x27;) { window.gtag(&#x27;event&#x27;, &#x27;popup_&#x27; + action, p); } } catch (e) {}
     try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: &#x27;popup_&#x27; + action }, p)); } catch (e) {}
   }
+  // ===== Google Sheet click log=====
+  var AO_SHEET_URL = &#x27;PREVIEW_OFF_https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec&#x27;;
+  function aoSheetLog(label) {
+    if (AO_SHEET_URL.indexOf(&#x27;https://script.google.com/&#x27;) !== 0) return;
+    var body = JSON.stringify({
+      popup_id: &#x27;halloween_2026&#x27;, label: label,
+      page: location.href, ref: document.referrer,
+      device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? &#x27;mobile&#x27; : &#x27;desktop&#x27;,
+      sw: window.innerWidth, ua: navigator.userAgent
+    });
+    try {
+      if (navigator.sendBeacon &amp;&amp; navigator.sendBeacon(AO_SHEET_URL, new Blob([body], { type: &#x27;text/plain;charset=utf-8&#x27; }))) return;
+    } catch (e) {}
+    try { fetch(AO_SHEET_URL, { method: &#x27;POST&#x27;, mode: &#x27;no-cors&#x27;, keepalive: true, headers: { &#x27;Content-Type&#x27;: &#x27;text/plain;charset=utf-8&#x27; }, body: body }); } catch (e) {}
+  }
   box.querySelectorAll(&#x27;[data-ao-track]&#x27;).forEach(function (a) {
-    a.addEventListener(&#x27;click&#x27;, function () { aoTrack(&#x27;click&#x27;, a.getAttribute(&#x27;data-ao-track&#x27;)); });
+    a.addEventListener(&#x27;click&#x27;, function () {
+      var label = a.getAttribute(&#x27;data-ao-track&#x27;);
+      aoTrack(&#x27;click&#x27;, label);
+      aoSheetLog(label);
+    });
   });
 
   // ===== Frequency cap：每日最多 3 次（每日 reset）=====
@@ -694,8 +732,27 @@ button{margin:0 0 18px;padding:8px 16px;border-radius:999px;border:0;background:
     try { if (typeof window.gtag === &#x27;function&#x27;) { window.gtag(&#x27;event&#x27;, &#x27;popup_&#x27; + action, p); } } catch (e) {}
     try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: &#x27;popup_&#x27; + action }, p)); } catch (e) {}
   }
+  // ===== Google Sheet click log=====
+  var AO_SHEET_URL = &#x27;PREVIEW_OFF_https://script.google.com/macros/s/AKfycbwyV1OmiiExkNQcccPwsxd-ZmTEKx_LH2QdXC2XaWxyuzfYepIkpPlm_YZdBMEm6P_2PQ/exec&#x27;;
+  function aoSheetLog(label) {
+    if (AO_SHEET_URL.indexOf(&#x27;https://script.google.com/&#x27;) !== 0) return;
+    var body = JSON.stringify({
+      popup_id: &#x27;halloween_2026&#x27;, label: label,
+      page: location.href, ref: document.referrer,
+      device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? &#x27;mobile&#x27; : &#x27;desktop&#x27;,
+      sw: window.innerWidth, ua: navigator.userAgent
+    });
+    try {
+      if (navigator.sendBeacon &amp;&amp; navigator.sendBeacon(AO_SHEET_URL, new Blob([body], { type: &#x27;text/plain;charset=utf-8&#x27; }))) return;
+    } catch (e) {}
+    try { fetch(AO_SHEET_URL, { method: &#x27;POST&#x27;, mode: &#x27;no-cors&#x27;, keepalive: true, headers: { &#x27;Content-Type&#x27;: &#x27;text/plain;charset=utf-8&#x27; }, body: body }); } catch (e) {}
+  }
   box.querySelectorAll(&#x27;[data-ao-track]&#x27;).forEach(function (a) {
-    a.addEventListener(&#x27;click&#x27;, function () { aoTrack(&#x27;click&#x27;, a.getAttribute(&#x27;data-ao-track&#x27;)); });
+    a.addEventListener(&#x27;click&#x27;, function () {
+      var label = a.getAttribute(&#x27;data-ao-track&#x27;);
+      aoTrack(&#x27;click&#x27;, label);
+      aoSheetLog(label);
+    });
   });
 
   // ===== Frequency cap：每日最多 3 次（每日 reset）=====
