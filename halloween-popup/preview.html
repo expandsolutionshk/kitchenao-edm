@@ -8,7 +8,7 @@
     <button id="ao-popup-close" aria-label="關閉優惠視窗" style="position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;">
       ×
     </button>
-    <a href="https://aoaodelivery.com/product-category/halloween-set/" style="display:block;text-decoration:none;">
+    <a data-ao-track="kv_banner" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_popup_kv" style="display:block;text-decoration:none;">
       <img class="ao-hw-kv" referrerpolicy="no-referrer" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg" alt="Halloween 萬聖節狂嘩套餐 到會 banner" style="display:block;width:100%;height:auto;">
     </a>
     <div class="ao-hw-body" style="padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;">
@@ -33,7 +33,7 @@
         ✓ 可使用會員優惠現金券，但其他優惠碼不適用
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;">
-        <a class="ao-hw-cta" href="https://aoaodelivery.com/product-category/halloween-set/" style="flex:1 1 180px;display:inline-block;padding:13px 16px;border-radius:999px;background:#FF7A1A;color:#1c1426;text-decoration:none;text-align:center;font-size:15px;font-weight:800;line-height:1.2;">
+        <a class="ao-hw-cta" data-ao-track="cta_button" href="https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_popup_cta" style="flex:1 1 180px;display:inline-block;padding:13px 16px;border-radius:999px;background:#FF7A1A;color:#1c1426;text-decoration:none;text-align:center;font-size:15px;font-weight:800;line-height:1.2;">
           <span class="ao-hw-bats" aria-hidden="true"><i class="b1"><svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg></i><i class="b2"><svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg></i><i class="b3"><svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg></i></span>
           <span class="ao-hw-txt">🎃 立即預訂萬聖節套餐</span>
         </a>
@@ -191,6 +191,16 @@
 
   document.body.appendChild(overlay);
 
+  // ===== Tracking：GA4 event（有 gtag 或 GTM dataLayer 先會送）=====
+  function aoTrack(action, label) {
+    var p = { popup_id: 'halloween_2026', popup_action: action, popup_label: label || '' };
+    try { if (typeof window.gtag === 'function') { window.gtag('event', 'popup_' + action, p); } } catch (e) {}
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: 'popup_' + action }, p)); } catch (e) {}
+  }
+  box.querySelectorAll('[data-ao-track]').forEach(function (a) {
+    a.addEventListener('click', function () { aoTrack('click', a.getAttribute('data-ao-track')); });
+  });
+
   // ===== Frequency cap：每日最多 3 次（每日 reset）=====
   var KEY = 'ao_popup_halloween26';
   var d = new Date();
@@ -202,11 +212,12 @@
 
   function openPopup() {
     overlay.style.display = 'flex';
+    aoTrack('view');
     data.count = (data.count || 0) + 1;
     data.date = today;
     try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
   }
-  function closePopup() { overlay.style.display = 'none'; }
+  function closePopup() { if (overlay.style.display !== 'none') aoTrack('close'); overlay.style.display = 'none'; }
   setTimeout(openPopup, 800);
   closeBtn.addEventListener('click', function (e) { e.preventDefault(); closePopup(); });
   overlay.addEventListener('click', function (e) { if (e.target === overlay) { closePopup(); } });
@@ -218,6 +229,7 @@
     tg.addEventListener('click', function () {
       var open = fold.classList.toggle('is-open');
       tg.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) aoTrack('expand_menu');
       tg.querySelector('.ao-hw-tl').textContent = open ? '收起菜式' : '按此狂嘩一下・睇 5 大主打菜式';
     });
   }
