@@ -1,0 +1,82 @@
+<div id="ao-popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:999999;padding:18px;align-items:center;justify-content:center;">
+  <div id="ao-popup-box" style="position:relative;width:100%;max-width:520px;max-height:calc(100vh - 36px);overflow-y:auto;background:#1c1426;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,0.45);animation:aoPopupFade .28s ease;">
+
+    <button id="ao-popup-close" aria-label="關閉優惠視窗" style="position:absolute;top:10px;right:10px;width:38px;height:38px;border:none;border-radius:999px;background:rgba(0,0,0,0.6);color:#ffffff;font-size:22px;line-height:1;cursor:pointer;z-index:3;">
+      ×
+    </button>
+    <a href="https://aoaodelivery.com/product-category/halloween-set/" style="display:block;text-decoration:none;">
+      <img src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-scaled.jpg" alt="Halloween 萬聖節狂嘩套餐 到會 banner" style="display:block;width:100%;height:auto;">
+    </a>
+    <div style="padding:18px 18px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;">
+      <div style="margin:0 0 6px;color:#ffffff;font-size:23px;font-weight:800;line-height:1.35;">
+        Halloween 萬聖節狂嘩套餐
+      </div>
+      <div style="margin:0 0 12px;display:inline-block;padding:5px 12px;border-radius:999px;background:#FF7A1A;color:#1c1426;font-size:14px;font-weight:800;line-height:1.4;">
+        10 月 22 日前預訂 92 折（8% off）
+      </div>
+      <div style="margin:0 0 8px;color:#f3e9ff;font-size:14.5px;font-weight:700;line-height:1.5;">
+        主打 5 大狂嘩小食：
+      </div>
+      <div style="margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#2c1f3b;border:1px solid #4a3463;color:#f3e9ff;font-size:14px;font-weight:600;line-height:1.85;">
+        👁️‍🗨️ 惡魔的眼睛 開心果醬荔枝藍苺酥盒<br>
+        💉 血淋淋科學怪人 香濃蕃茄手指腸仔<br>
+        👻 萬聖節迷你芝士手打牛肉漢堡<br>
+        🦇 小蝙蝠墨汁雞全翼<br>
+        🎃 哈囉喂南瓜墨汁海鮮意大利飯
+      </div>
+      <div style="margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#3a2410;color:#FFB36B;font-size:13.5px;font-weight:700;line-height:1.8;">
+        ✓ 10 月 22 日前預訂・即享 92 折<br>
+        ✓ 各區免費送遞（滿 $1,450）<br>
+        ✓ 可使用會員優惠現金券，但其他優惠碼不適用
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="https://aoaodelivery.com/product-category/halloween-set/" style="flex:1 1 180px;display:inline-block;padding:13px 16px;border-radius:999px;background:#FF7A1A;color:#1c1426;text-decoration:none;text-align:center;font-size:15px;font-weight:800;line-height:1.2;">
+          立即預訂萬聖節套餐
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+@keyframes aoPopupFade {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 640px) {
+  #ao-popup-overlay { padding: 14px !important; }
+  #ao-popup-box { max-width: 100% !important; max-height: calc(100vh - 28px) !important; border-radius: 18px !important; }
+  #ao-popup-box img { width: 100% !important; height: auto !important; }
+  #ao-popup-close { top: 8px !important; right: 8px !important; width: 36px !important; height: 36px !important; font-size: 20px !important; }
+}
+</style>
+<script>
+(function () {
+  var overlay = document.getElementById('ao-popup-overlay');
+  var box = document.getElementById('ao-popup-box');
+  var closeBtn = document.getElementById('ao-popup-close');
+  if (!overlay || !box || !closeBtn) return;
+
+  document.body.appendChild(overlay);
+
+  // ===== Frequency cap：每日最多 3 次（每日 reset）=====
+  var KEY = 'ao_popup_halloween26';
+  var d = new Date();
+  var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  var data = { date: '', count: 0 };
+  try { var raw = localStorage.getItem(KEY); if (raw) data = JSON.parse(raw); } catch (e) {}
+  if (data.date !== today) { data = { date: today, count: 0 }; }
+  if (data.count >= 3) return;
+
+  function openPopup() {
+    overlay.style.display = 'flex';
+    data.count = (data.count || 0) + 1;
+    data.date = today;
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+  }
+  function closePopup() { overlay.style.display = 'none'; }
+  setTimeout(openPopup, 800);
+  closeBtn.addEventListener('click', function (e) { e.preventDefault(); closePopup(); });
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) { closePopup(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closePopup(); } });
+})();
+</script>
