@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Desktop 1440 Mockup</title><style>
+body{margin:0;background:#2b2b2b;color:#fff;font-family:-apple-system,'PingFang TC',sans-serif;padding:20px}h1{font-size:18px;margin:0 0 10px}a{color:#FFB36B}
+.nav{margin:0 0 16px;font-size:14px}.nav a{margin-right:14px}.tabs{margin:0 0 14px;display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{padding:8px 16px;border-radius:999px;border:0;background:#444;color:#fff;font-weight:700;cursor:pointer}.tabs button.on{background:#FF7A1A;color:#1c1426}
+.dw{width:100%;max-width:1440px;aspect-ratio:1440/900;border:1px solid #555;border-radius:10px;overflow:hidden;position:relative;background:#fff}.dw iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0}</style></head><body><h1>Desktop 1440 Mockup</h1>
+<div class="nav"><a href="responsive.html">← 全部（Code + 預覽）</a><a href="desktop.html">Desktop</a><a href="mobile.html">Mobile</a><a href="preview.html" target="_blank">真機：Homepage</a><a href="preview-party.html" target="_blank">真機：Party 快選</a></div>
+<div class="tabs"><button class="on" onclick="go('preview.html',this)">Homepage：Hero + 活動場合 + 熱門套餐</button><button onclick="go('preview-party.html',this)">Party 頁：快速選擇派對套餐</button></div>
+<div class="dw"><iframe id="f" src="preview.html?v=4"></iframe></div><script>function go(s,b){document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('f').src=s;}function fit(){var w=document.querySelector(".dw");document.getElementById("f").style.transform="scale("+(w.clientWidth/1440)+")"}addEventListener("resize",fit);fit();</script></body></html>
