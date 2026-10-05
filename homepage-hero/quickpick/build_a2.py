@@ -2,8 +2,8 @@ import urllib.parse, html, shutil
 B='https://aoaodelivery.com'; U=B+'/wp-content/uploads/'
 def dl(l): return f" onclick=\"window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'{l}'}});\""
 PPL=[('2 - 6','小型聚會','2-6人','qp_ppl_2_6'),('7 - 11','家庭派對','7-11人','qp_ppl_7_11'),('12 - 16','生日派對','12-16人','qp_ppl_12_16'),('18 - 25','公司／朋友聚餐','18-25人','qp_ppl_18_25'),('30+','大型活動','30人以上','qp_ppl_30'),('100+','企業活動','100人以上','qp_ppl_100')]
-SER=[('🎃','Halloween 萬聖節狂嘩套餐','','/product-category/halloween-set/?ao_ref=hw26_party_qp','qp_s_halloween','期間限定','hw'),
-('⭐','美食派對 Gourmet','人氣之選・熱食主菜','/product-category/party/foot-party/','qp_s_gourmet','人氣','hot'),
+SER=[('🎃','Halloween|萬聖節狂嘩套餐','','/product-category/halloween-set/?ao_ref=hw26_party_qp','qp_s_halloween','期間限定','hw'),
+('⭐','美食派對|Gourmet Set','人氣之選・熱食主菜','/product-category/party/foot-party/','qp_s_gourmet','人氣','hot'),
 ('🥂','輕食宴會 Refreshment','會議茶點・開幕酒會','/product-category/party/refreshment-set/','qp_s_refreshment','',''),
 ('🚤','船河派對套餐','碼頭交收・方便分發','/product-category/party/boat-party-set/','qp_s_boat','',''),
 ('🧸','兒童派對套餐','兒童生日派對','/product-category/party/children/','qp_s_kids','',''),
@@ -27,7 +27,8 @@ def price_html(p,r,suf):
 BAT='<svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg>'
 BATS='<span class="ao-qp-bats" aria-hidden="true"><i class="b1">'+BAT+'</i><i class="b2">'+BAT+'</i><i class="b3">'+BAT+'</i></span>'
 ppl=''.join(f'<a href="{ppl_url(k)}"{dl(t)}><b>{n}<small>人</small></b><em>{d}</em></a>' for n,d,k,t in PPL)
-ser=''.join((f'<a class="is-hw" href="{B+u}"{dl(t)}>{BATS}<i>{e}</i><span><mark class="ao-qp-limit">{bd}</mark><b>{n}</b></span></a>' if c=="hw" else f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}><i>{e}</i><span><b>{n}</b>{f"<small>{s}</small>" if s else ""}</span>{f"<em>{bd}</em>" if bd else ""}</a>') for e,n,s,u,t,bd,c in SER)
+def nm(n): return n.replace('|','<span class="ao-qp-l2"> ',1)+'</span>' if '|' in n else n
+ser=''.join((f'<a class="is-hw" href="{B+u}"{dl(t)}>{BATS}<i>{e}</i><span><mark class="ao-qp-limit">{bd}</mark><b>{nm(n)}</b></span></a>' if c=="hw" else f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}><i>{e}</i><span><b>{nm(n)}</b>{f"<small>{s}</small>" if s else ""}</span>{f"<em>{bd}</em>" if bd else ""}</a>') for e,n,s,u,t,bd,c in SER)
 top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn"><span>查看詳情</span></span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
 MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option A 黑金（Raw HTML）===== -->
 <section class="ao-qp ao-qp--a" aria-labelledby="ao-qp-title">
@@ -227,6 +228,7 @@ CSS='''<style>
   .ao-qp-series b{font-size:13px;}
   .ao-qp-series small{display:none;}
   .ao-qp-series em{position:absolute;top:-8px;right:6px;padding:2px 7px;font-size:10px;}
+  .ao-qp-l2{display:block;}
   .ao-qp-limit{padding:3px 9px;font-size:11px;letter-spacing:1px;margin-bottom:4px;}
   .ao-qp-series a.is-hw b{font-size:13.5px;}
   .ao-qp-help{flex-direction:column;}
