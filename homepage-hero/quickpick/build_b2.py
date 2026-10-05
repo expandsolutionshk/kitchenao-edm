@@ -1,0 +1,167 @@
+import html, re
+src=open('build_a2.py',encoding='utf-8').read()
+exec(src[:src.index("ppl=''.join(")])
+FEAST=U+'2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-600x600.jpeg'
+ppl=''.join(f'<a href="{ppl_url(k)}"{dl(t)}><b>{n}</b><small>人</small><em>{d}</em></a>' for n,d,k,t in PPL)
+def ser_item(e,n,s,u,t,bd,c):
+    if c=='hw':
+        return f'<a class="is-hw" href="{B+u}"{dl(t)}>{BATS}<i>{e}</i><span class="ao-qb-nm"><mark class="ao-qb-limit">{bd}</mark><b>{n}</b></span><span class="ao-qb-dots"></span><span class="ao-qb-go">選購</span></a>'
+    tag=f'<mark class="ao-qb-hot">{bd}</mark>' if bd else ''
+    return f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}><i>{e}</i><span class="ao-qb-nm">{tag}<b>{n}</b><small>{s}</small></span><span class="ao-qb-dots"></span><span class="ao-qb-go">選購</span></a>'
+ser=''.join(ser_item(*x) for x in SER)
+top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qb-no">0{i+1}</span><span class="ao-qb-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"></span><span class="ao-qb-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qb-btn">查看詳情</span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
+def head(script,title,no):
+    return f'<div class="ao-qb-h"><span class="ao-qb-script">{script}</span><h3><em>{no}</em>{title}</h3><span class="ao-qb-orn"><i></i>◆<i></i></span></div>'
+MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option B 餐廳雜誌風（Raw HTML）===== -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,600&family=Noto+Serif+TC:wght@600;700&display=swap">
+<section class="ao-qp ao-qb" aria-labelledby="ao-qb-title">
+  <div class="ao-qb-hero" style="background-image:linear-gradient(180deg,rgba(14,10,8,.55) 0%,rgba(14,10,8,.82) 100%),url('{FEAST}');">
+    <span class="ao-qb-script ao-qb-script--lg">Party Catering</span>
+    <h2 id="ao-qb-title" class="ao-qb-title">快速選擇派對套餐</h2>
+    <p class="ao-qb-sub">先按人數或系列選擇合適套餐，再直接網上下單。</p>
+    <div class="ao-qb-jump"><a href="#ao-qb-1">按人數</a><span>·</span><a href="#ao-qb-2">按系列</a><span>·</span><a href="#ao-qb-3">TOP 5</a></div>
+  </div>
+  <div class="ao-qb-body">
+    <div class="ao-qb-sec" id="ao-qb-1">{head('By Guests','按人數選擇','01')}<div class="ao-qb-ppl">{ppl}</div></div>
+    <div class="ao-qb-sec" id="ao-qb-2">{head('Our Menu','按系列選擇','02')}<div class="ao-qb-ser">{ser}</div></div>
+    <div class="ao-qb-sec ao-qb-sec--top" id="ao-qb-3">{head("Chef's Picks",'本週 TOP 5 人氣推介','03')}<div class="ao-qb-top">{top}</div></div>
+  </div>
+  <div class="ao-qb-foot"><span class="ao-qb-script">Need help?</span><p>仍未決定選擇哪一款？</p><a href="{WA}" target="_blank" rel="noopener noreferrer"{dl('qp_whatsapp')}>WhatsApp 專人為你配搭餐單</a></div>
+</section>'''
+JS=re.search(r"JS='''(.*?)'''",src,re.S).group(1)
+SERIF="'Noto Serif TC','Songti TC',serif"; PF="'Playfair Display','Noto Serif TC',serif"; GV="'Great Vibes',cursive"
+CSS=f'''<style>
+.ao-qb{{max-width:1180px;margin:16px auto 32px;overflow:hidden;border-radius:6px;background:#f7f3ec;color:#2a221c;box-shadow:0 24px 60px rgba(30,20,10,.18);font-family:inherit;}}
+.ao-qb *{{box-sizing:border-box;}}
+.ao-qb a{{text-decoration:none !important;}}
+.ao-qb-script{{display:block;font-family:{GV};font-size:26px;line-height:1;color:#b8955a;font-weight:400;}}
+.ao-qb-script--lg{{font-size:42px;color:#e2c48a;margin-bottom:6px;}}
+/* Hero */
+.ao-qb-hero{{padding:56px 24px 40px;text-align:center;background-size:cover;background-position:center;color:#fff;}}
+.ao-qb .ao-qb-title{{margin:0 0 10px !important;font-family:{SERIF};font-size:34px;font-weight:700;letter-spacing:4px;color:#fff !important;line-height:1.3;}}
+.ao-qb-sub{{margin:0 0 20px !important;color:#e8dccb;font-size:15px;line-height:1.7;}}
+.ao-qb-jump{{display:inline-flex;align-items:center;gap:12px;padding:8px 22px;border:1px solid rgba(226,196,138,.55);font-size:13px;letter-spacing:2px;}}
+.ao-qb-jump a{{color:#f3e6cf !important;font-weight:700;}}
+.ao-qb-jump a:hover{{color:#e2c48a !important;}}
+.ao-qb-jump span{{color:#b8955a;}}
+/* Section head */
+.ao-qb-body{{padding:44px 40px 10px;}}
+.ao-qb-sec{{margin:0 0 46px;scroll-margin-top:90px;}}
+.ao-qb-h{{text-align:center;margin:0 0 24px;}}
+.ao-qb-h h3{{margin:4px 0 8px !important;font-family:{SERIF};font-size:26px;font-weight:700;letter-spacing:3px;color:#1e1813 !important;line-height:1.35;}}
+.ao-qb-h h3 em{{margin-right:12px;font-family:{PF};font-style:italic;font-weight:600;color:#b8955a;letter-spacing:0;}}
+.ao-qb-orn{{display:inline-flex;align-items:center;gap:10px;color:#b8955a;font-size:9px;}}
+.ao-qb-orn i{{display:block;width:46px;height:1px;background:#cdb58a;}}
+/* People */
+.ao-qb-ppl{{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid #d9c9a8;background:#fff;}}
+.ao-qb-ppl a{{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:20px 6px 18px;border-right:1px solid #e8dcc6;color:#1e1813 !important;text-align:center;transition:background .25s ease,color .25s ease;}}
+.ao-qb-ppl a:last-child{{border-right:0;}}
+.ao-qb-ppl b{{font-family:{PF};font-size:28px;font-weight:600;line-height:1.1;white-space:nowrap;}}
+.ao-qb-ppl small{{font-size:12px;letter-spacing:3px;color:#b8955a;font-weight:700;}}
+.ao-qb-ppl em{{margin-top:6px;font-style:normal;font-size:12.5px;color:#7a6d60;white-space:nowrap;}}
+.ao-qb-ppl a:hover{{background:#1e1813;}}
+.ao-qb-ppl a:hover b,.ao-qb-ppl a:hover em{{color:#f3e6cf;}}
+.ao-qb-ppl a:hover small{{color:#e2c48a;}}
+/* Series = menu list */
+.ao-qb-ser{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;}}
+.ao-qb-ser a{{position:relative;display:flex;align-items:center;gap:14px;padding:16px 6px;border-bottom:1px dashed #d4c3a2;color:#1e1813 !important;transition:background .25s ease;}}
+.ao-qb-ser a:hover{{background:rgba(184,149,90,.08);}}
+.ao-qb-ser a > i{{flex:0 0 42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid #d9c9a8;background:#fff;font-style:normal;font-size:19px;}}
+.ao-qb-nm{{display:flex;flex-direction:column;min-width:0;}}
+.ao-qb-nm b{{font-size:16px;font-weight:800;line-height:1.35;}}
+.ao-qb-nm small{{margin-top:2px;font-size:12.5px;color:#8a7b6e;}}
+.ao-qb-dots{{flex:1;min-width:20px;align-self:center;border-bottom:1px dotted #c9b48c;transform:translateY(4px);}}
+.ao-qb-go{{flex:0 0 auto;font-family:{SERIF};font-size:13px;font-weight:700;letter-spacing:2px;color:#9a7230;}}
+.ao-qb-hot{{align-self:flex-start;margin:0 0 4px;padding:2px 9px;background:#c0392b;color:#fff;font-size:11px;font-weight:800;letter-spacing:1px;border-radius:2px;}}
+.ao-qb-ser a.is-hot{{background:linear-gradient(135deg,#f0d39a 0%,#d2a44e 100%);border-bottom-color:transparent;padding-left:14px;padding-right:14px;}}
+.ao-qb-ser a.is-hot small{{color:#5a4320;}}
+.ao-qb-ser a.is-hot .ao-qb-dots{{border-color:rgba(36,26,18,.35);}}
+.ao-qb-ser a.is-hot .ao-qb-go{{color:#241a12;}}
+.ao-qb-ser a.is-hot > i{{background:rgba(255,255,255,.6);border-color:transparent;}}
+/* Halloween row（Pop up 紫橙色調 + 蝙蝠） */
+.ao-qb-ser a.is-hw{{overflow:hidden;padding-left:14px;padding-right:14px;background:linear-gradient(135deg,#2c1f3b 0%,#1c1426 100%);border-bottom:2px solid #ff7a1a;color:#fff !important;}}
+.ao-qb-ser a.is-hw > i,.ao-qb-ser a.is-hw > span{{position:relative;z-index:1;}}
+.ao-qb-ser a.is-hw > i{{background:rgba(255,122,26,.18);border-color:rgba(255,122,26,.5);}}
+.ao-qb-ser a.is-hw .ao-qb-dots{{border-color:rgba(255,179,71,.5);}}
+.ao-qb-ser a.is-hw .ao-qb-go{{color:#ffb347;}}
+.ao-qb-limit{{align-self:flex-start;margin:0 0 5px;padding:3px 12px;border-radius:999px;background:linear-gradient(135deg,#ffd23f 0%,#ff8a1f 55%,#ff5a00 100%);color:#1c1426;font-size:12px;font-weight:900;letter-spacing:1.5px;line-height:1.3;animation:aoQbGlow 1.8s ease-in-out infinite;}}
+@keyframes aoQbGlow{{0%,100%{{box-shadow:0 0 0 2px rgba(255,179,71,.3),0 3px 10px rgba(255,90,0,.4);}}50%{{box-shadow:0 0 0 4px rgba(255,179,71,.5),0 3px 18px rgba(255,90,0,.8);}}}}
+.ao-qp-bats{{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;}}
+.ao-qp-bats i{{position:absolute !important;top:50%;left:-12%;width:32px !important;height:auto !important;border:0 !important;background:none !important;border-radius:0 !important;margin-top:-7px;animation:aoQpBat 5s linear infinite;}}
+.ao-qp-bats i.b2{{width:24px !important;margin-top:-15px;animation-duration:6s;animation-delay:1.6s;}}
+.ao-qp-bats i.b3{{width:28px !important;margin-top:1px;animation-duration:5.5s;animation-delay:3.2s;}}
+.ao-qp-bats svg{{display:block;width:100%;height:auto;transform-origin:50% 40%;animation:aoQpFlap .16s ease-in-out infinite alternate;}}
+.ao-qp-bats svg path{{fill:#ff8a1f;}}
+@keyframes aoQpBat{{0%{{left:-12%;transform:translateY(4px);}}25%{{transform:translateY(-6px);}}50%{{transform:translateY(5px);}}75%{{transform:translateY(-5px);}}100%{{left:108%;transform:translateY(3px);}}}}
+@keyframes aoQpFlap{{from{{transform:scaleY(1);}}to{{transform:scaleY(.55) scaleX(.92);}}}}
+/* TOP 5 */
+.ao-qb-sec--top{{margin-left:-40px;margin-right:-40px;padding:44px 40px 40px;background:#1a1410;}}
+.ao-qb-sec--top .ao-qb-h h3{{color:#f3e6cf !important;}}
+.ao-qb-top{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;}}
+.ao-qb-top a{{position:relative;display:flex;flex-direction:column;align-items:center;padding:22px 14px 18px;background:#fff;color:#1e1813 !important;text-align:center;transition:transform .25s ease,box-shadow .25s ease;}}
+.ao-qb-top a:hover{{transform:translateY(-5px);box-shadow:0 18px 34px rgba(0,0,0,.45);}}
+.ao-qb-no{{position:absolute;left:12px;top:8px;font-family:{PF};font-style:italic;font-size:30px;font-weight:600;color:#ffd23f;-webkit-text-stroke:1px #1e1813;text-shadow:2px 2px 0 #1e1813;line-height:1;z-index:2;}}
+.ao-qb-ph{{display:block;width:150px;max-width:86%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;padding:5px;background:linear-gradient(135deg,#e2c48a,#9a7230);}}
+.ao-qb-ph img{{display:block;width:100% !important;height:100% !important;object-fit:cover;border-radius:50%;transition:transform .5s ease;}}
+.ao-qb-top a:hover .ao-qb-ph img{{transform:scale(1.06);}}
+.ao-qb-pi{{display:flex;flex-direction:column;align-items:center;flex:1;width:100%;padding-top:14px;}}
+.ao-qb-pi b{{font-size:14.5px;font-weight:800;line-height:1.45;}}
+.ao-qb-pi em{{margin-top:4px;font-style:normal;font-size:12px;color:#8a7b6e;}}
+.ao-qb .ao-qp-pr{{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:2px 8px;margin-top:auto;padding-top:12px;}}
+.ao-qb .ao-qp-pr strong{{font-family:{PF};font-size:20px;font-weight:600;color:#9a6b1f;}}
+.ao-qb .ao-qp-pr del{{font-size:12px;color:#a39686;}}
+.ao-qb-btn{{display:block;width:100%;margin-top:12px;padding:10px 8px;border:1px solid #1e1813;color:#1e1813;font-size:13px;font-weight:800;letter-spacing:2px;transition:all .25s ease;}}
+.ao-qb-top a:hover .ao-qb-btn{{background:#1e1813;color:#f3e6cf;}}
+.ao-qb-top a.is-hw{{background:linear-gradient(180deg,#2c1f3b 0%,#1c1426 100%);color:#fff !important;box-shadow:0 0 0 2px #ff7a1a;}}
+.ao-qb-top a.is-hw .ao-qb-ph{{background:linear-gradient(135deg,#ffb347,#ff5a00);}}
+.ao-qb-top a.is-hw em{{color:#cdb8e6;}}
+.ao-qb-top a.is-hw .ao-qp-pr strong{{color:#ffb347;}}
+.ao-qb-top a.is-hw .ao-qp-pr del{{color:#9c8bb3;}}
+.ao-qb-top a.is-hw .ao-qb-btn{{border:0;background:linear-gradient(135deg,#ff8a1f,#ff5a00);color:#1c1426;}}
+/* Foot */
+.ao-qb-foot{{padding:34px 24px 38px;text-align:center;background:#f7f3ec;border-top:1px solid #e3d6bf;}}
+.ao-qb-foot p{{margin:4px 0 16px !important;font-family:{SERIF};font-size:18px;font-weight:700;color:#1e1813;letter-spacing:2px;}}
+.ao-qb-foot a{{display:inline-block;padding:14px 34px;background:#1e1813;color:#f3e6cf !important;font-size:15px;font-weight:800;letter-spacing:2px;transition:background .25s ease;}}
+.ao-qb-foot a:hover{{background:#9a7230;}}
+/* Loading（共用） */
+.ao-qp-loading{{position:fixed;inset:0;z-index:999998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(21,16,12,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;}}
+.ao-qp-loading.is-on{{opacity:1;visibility:visible;}}
+.ao-qp-loading span{{width:54px;height:54px;border-radius:50%;border:4px solid rgba(240,211,154,.25);border-top-color:#f0d39a;animation:aoQpSpin .8s linear infinite;}}
+.ao-qp-loading.is-hw span{{border-color:rgba(255,138,31,.25);border-top-color:#ff8a1f;}}
+.ao-qp-loading p{{margin:0 !important;color:#f6eddf;font-size:15px;font-weight:700;letter-spacing:1px;}}
+@keyframes aoQpSpin{{to{{transform:rotate(360deg);}}}}
+.ao-qb img.emoji{{display:inline !important;width:1em !important;height:1em !important;margin:0 !important;vertical-align:-0.12em !important;}}
+@media (max-width:1080px){{.ao-qb-top{{grid-template-columns:repeat(3,minmax(0,1fr));}}}}
+@media (max-width:960px){{.ao-qb-ppl{{grid-template-columns:repeat(3,minmax(0,1fr));}}.ao-qb-ppl a:nth-child(3){{border-right:0;}}.ao-qb-ppl a:nth-child(-n+3){{border-bottom:1px solid #e8dcc6;}}.ao-qb-ser{{gap:0 24px;}}}}
+@media (max-width:640px){{
+  .ao-qb{{border-radius:4px;}}
+  .ao-qb-hero{{padding:40px 16px 30px;}}
+  .ao-qb-script--lg{{font-size:34px;}}
+  .ao-qb .ao-qb-title{{font-size:25px;letter-spacing:2px;}}
+  .ao-qb-sub{{font-size:14px;}}
+  .ao-qb-jump{{gap:8px;padding:7px 14px;font-size:12px;letter-spacing:1px;}}
+  .ao-qb-body{{padding:32px 14px 4px;}}
+  .ao-qb-sec{{margin-bottom:36px;}}
+  .ao-qb-h h3{{font-size:21px;letter-spacing:2px;}}
+  .ao-qb-script{{font-size:22px;}}
+  .ao-qb-ppl a{{padding:14px 4px 12px;}}
+  .ao-qb-ppl b{{font-size:22px;}}
+  .ao-qb-ppl em{{font-size:11px;}}
+  .ao-qb-ser{{grid-template-columns:1fr;}}
+  .ao-qb-ser a{{padding:13px 4px;gap:12px;}}
+  .ao-qb-ser a > i{{flex-basis:36px;height:36px;font-size:17px;}}
+  .ao-qb-nm b{{font-size:15px;}}
+  .ao-qb-sec--top{{margin-left:-14px;margin-right:-14px;padding:34px 0 28px 14px;}}
+  .ao-qb-top{{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 14px 8px 0;scrollbar-width:none;}}
+  .ao-qb-top::-webkit-scrollbar{{display:none;}}
+  .ao-qb-top a{{flex:0 0 66%;scroll-snap-align:start;}}
+  .ao-qb-foot a{{display:block;}}
+}}
+@media (prefers-reduced-motion:reduce){{.ao-qb a,.ao-qb img{{transition:none !important;}}.ao-qp-bats{{display:none;}}.ao-qb-limit{{animation:none !important;}}}}
+</style>'''
+code=MARK+'\n'+JS+'\n'+CSS+'\n'
+open('option-b.html','w',encoding='utf-8').write(code)
+hd='<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*,*::before,*::after{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;font-family:"Rubik","Noto Sans TC","PingFang TC",sans-serif;background:#fff;color:#333}.hd{height:60px;background:#a98a52}.wpcol{padding:20px 15px}@media(min-width:768px){.wpcol{padding:30px 30px}}</style></head><body><div class="hd"></div><div class="wpcol">'
+open('preview-b.html','w',encoding='utf-8').write(hd+code+'</div></body></html>')
+print(len(code))
