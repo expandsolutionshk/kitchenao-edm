@@ -2,7 +2,7 @@ import urllib.parse, html, shutil
 B='https://aoaodelivery.com'; U=B+'/wp-content/uploads/'
 def dl(l): return f" onclick=\"window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'{l}'}});\""
 PPL=[('2 - 6','小型聚會','2-6人','qp_ppl_2_6'),('7 - 11','家庭派對','7-11人','qp_ppl_7_11'),('12 - 16','生日派對','12-16人','qp_ppl_12_16'),('18 - 25','公司／朋友聚餐','18-25人','qp_ppl_18_25'),('30+','大型活動','30人以上','qp_ppl_30'),('100+','企業活動','100人以上','qp_ppl_100')]
-SER=[('🎃','Halloween 萬聖節狂嘩套餐','期間限定・10月23日至11月1日送貨','/product-category/halloween-set/?ao_ref=hw26_party_qp','qp_s_halloween','期間限定','hw'),
+SER=[('🎃','Halloween 萬聖節狂嘩套餐','','/product-category/halloween-set/?ao_ref=hw26_party_qp','qp_s_halloween','期間限定','hw'),
 ('⭐','美食派對 Gourmet','人氣之選・熱食主菜','/product-category/party/foot-party/','qp_s_gourmet','人氣','hot'),
 ('🥂','輕食宴會 Refreshment','會議茶點・開幕酒會','/product-category/party/refreshment-set/','qp_s_refreshment','',''),
 ('🚤','船河派對套餐','碼頭交收・方便分發','/product-category/party/boat-party-set/','qp_s_boat','',''),
@@ -27,8 +27,8 @@ def price_html(p,r,suf):
 BAT='<svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg>'
 BATS='<span class="ao-qp-bats" aria-hidden="true"><i class="b1">'+BAT+'</i><i class="b2">'+BAT+'</i><i class="b3">'+BAT+'</i></span>'
 ppl=''.join(f'<a href="{ppl_url(k)}"{dl(t)}><b>{n}<small>人</small></b><em>{d}</em></a>' for n,d,k,t in PPL)
-ser=''.join(f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}>{BATS if c=="hw" else ""}<i>{e}</i><span><b>{n}</b><small>{s}</small></span>{f"<em>{bd}</em>" if bd else ""}</a>' for e,n,s,u,t,bd,c in SER)
-top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn">{BATS if c=="hw" else ""}<span>查看詳情</span></span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
+ser=''.join(f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}>{BATS if c=="hw" else ""}<i>{e}</i><span><b>{n}</b>{f"<small>{s}</small>" if s else ""}</span>{f"<em>{bd}</em>" if bd else ""}</a>' for e,n,s,u,t,bd,c in SER)
+top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn"><span>查看詳情</span></span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
 MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option A 黑金（Raw HTML）===== -->
 <section class="ao-qp ao-qp--a" aria-labelledby="ao-qp-title">
   <div class="ao-qp-head">
@@ -98,7 +98,7 @@ CSS='''<style>
 .ao-qp-ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;}
 .ao-qp-ph img{display:block;width:100% !important;height:100% !important;object-fit:cover;transition:transform .5s ease;}
 .ao-qp-pop a:hover .ao-qp-ph img{transform:scale(1.05);}
-.ao-qp-rank{position:absolute;left:10px;top:10px;padding:4px 10px;border-radius:8px;background:rgba(21,16,12,.85);color:#f0d39a;font-size:12px;font-weight:800;letter-spacing:1px;border:1px solid rgba(214,180,104,.6);}
+.ao-qp-rank{position:absolute;left:10px;top:10px;padding:5px 11px;border-radius:8px;background:#ffd23f;color:#1d150f;font-size:12.5px;font-weight:900;letter-spacing:1px;box-shadow:0 4px 12px rgba(0,0,0,.35),0 0 0 2px #1d150f;}
 .ao-qp-pi{display:flex;flex-direction:column;flex:1;padding:12px 12px 14px;}
 .ao-qp-pi b{font-size:14.5px;font-weight:700;line-height:1.45;}
 .ao-qp-pi em{margin-top:3px;font-style:normal;font-size:12px;color:#8a7b6e;line-height:1.5;}
@@ -109,7 +109,7 @@ CSS='''<style>
 .ao-qp-pop a:hover .ao-qp-btn{filter:brightness(1.1);}
 /* Halloween 卡（跟 Pop up 紫橙色調） */
 .ao-qp-pop a.is-hw{background:linear-gradient(180deg,#2c1f3b 0%,#1c1426 100%);border-color:#ff7a1a;color:#f6eddf !important;box-shadow:0 10px 26px rgba(255,90,0,.25);}
-.ao-qp-pop a.is-hw .ao-qp-rank{background:#ff7a1a;color:#1c1426;border-color:#ff7a1a;}
+
 .ao-qp-pop a.is-hw em{color:#cdb8e6;}
 .ao-qp-pop a.is-hw .ao-qp-pr strong{color:#ffb347;}
 .ao-qp-pop a.is-hw .ao-qp-pr del{color:#9c8bb3;}
@@ -158,7 +158,9 @@ CSS='''<style>
 .ao-qp-series a.is-hw b{color:#fff;}
 .ao-qp-series a.is-hw small{color:#cdb8e6;}
 .ao-qp-series a.is-hw i{background:rgba(255,122,26,.18);}
-.ao-qp-series a.is-hw em{background:linear-gradient(135deg,#ff8a1f,#ff5a00);color:#1c1426;}
+.ao-qp-series a.is-hw b{font-size:16px;}
+.ao-qp-series a.is-hw em{padding:6px 14px;font-size:13.5px;letter-spacing:1px;background:linear-gradient(135deg,#ffb347,#ff5a00);color:#1c1426;box-shadow:0 0 0 2px rgba(255,179,71,.35),0 4px 14px rgba(255,90,0,.55);animation:aoQpGlow 1.8s ease-in-out infinite;}
+@keyframes aoQpGlow{0%,100%{box-shadow:0 0 0 2px rgba(255,179,71,.35),0 4px 14px rgba(255,90,0,.45);}50%{box-shadow:0 0 0 4px rgba(255,179,71,.55),0 4px 22px rgba(255,90,0,.85);}}
 .ao-qp-series a.is-hw:hover{background:linear-gradient(135deg,#3a2850 0%,#22182e 100%);}
 
 
@@ -168,8 +170,12 @@ CSS='''<style>
 .ao-qp-bats i.b2{width:22px;margin-top:-14px;animation-duration:6s;animation-delay:1.6s;}
 .ao-qp-bats i.b3{width:26px;margin-top:1px;animation-duration:5.5s;animation-delay:3.2s;}
 .ao-qp-bats svg{display:block;width:100%;height:auto;transform-origin:50% 40%;animation:aoQpFlap .16s ease-in-out infinite alternate;}
-.ao-qp-series a.is-hw .ao-qp-bats svg path{fill:#ff8a1f;opacity:.55;}
-.ao-qp-series a.is-hw > i,.ao-qp-series a.is-hw > span,.ao-qp-series a.is-hw > em{position:relative;z-index:1;}
+.ao-qp-series a.is-hw .ao-qp-bats svg path{fill:#ff8a1f;}
+.ao-qp-series a.is-hw .ao-qp-bats i{width:34px;}
+.ao-qp-series a.is-hw .ao-qp-bats i.b2{width:26px;}
+.ao-qp-series a.is-hw .ao-qp-bats i.b3{width:30px;}
+.ao-qp-series a.is-hw > i,.ao-qp-series a.is-hw > span{position:relative;z-index:1;}
+.ao-qp-series a.is-hw > em{z-index:2;}
 .ao-qp-btn{position:relative;overflow:hidden;}
 .ao-qp-btn > span{position:relative;z-index:1;}
 .ao-qp-pop a.is-hw .ao-qp-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.6),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoQpShine 2.8s ease-in-out infinite;z-index:2;}
@@ -193,7 +199,10 @@ CSS='''<style>
 .ao-qp img.emoji{display:inline !important;width:1em !important;height:1em !important;margin:0 !important;vertical-align:-0.12em !important;}
 
 @media (max-width:1080px){.ao-qp-pop{grid-template-columns:repeat(3,minmax(0,1fr));}}
-@media (max-width:960px){.ao-qp-ppl{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media (max-width:960px){.ao-qp-ppl{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .ao-qp-series a.is-hw em,.ao-qp-series a.is-hot em{position:absolute;top:-10px;right:8px;margin:0;}
+  .ao-qp-series a.is-hw b{font-size:15px;}
+}
 @media (max-width:640px){
   .ao-qp{padding:26px 14px 22px;border-radius:18px;}
   .ao-qp .ao-qp-title{font-size:23px;}
@@ -216,10 +225,12 @@ CSS='''<style>
   .ao-qp-series b{font-size:13px;}
   .ao-qp-series small{display:none;}
   .ao-qp-series em{position:absolute;top:-8px;right:6px;padding:2px 7px;font-size:10px;}
+  .ao-qp-series a.is-hw em{position:absolute;top:-11px;right:4px;padding:3px 9px;font-size:11px;}
+  .ao-qp-series a.is-hw b{font-size:13.5px;}
   .ao-qp-help{flex-direction:column;}
   .ao-qp-help a{width:100%;text-align:center;}
 }
-@media (prefers-reduced-motion:reduce){.ao-qp a,.ao-qp img{transition:none !important;}.ao-qp-bats{display:none;}.ao-qp-btn::after{animation:none !important;}}
+@media (prefers-reduced-motion:reduce){.ao-qp a,.ao-qp img{transition:none !important;}.ao-qp-bats{display:none;}.ao-qp-series em{animation:none !important;}.ao-qp-btn::after{animation:none !important;}}
 </style>'''
 code=MARK+'\n'+JS+'\n'+CSS+'\n'
 open('option-a.html','w',encoding='utf-8').write(code)
