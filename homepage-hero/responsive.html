@@ -8,11 +8,18 @@ textarea{width:100%;box-sizing:border-box;height:160px;background:#0f0b15;color:
 .dw{width:760px;height:500px;overflow:hidden;border-radius:10px;border:1px solid #555}.dw iframe{width:1440px;height:948px;transform:scale(.5278);transform-origin:0 0;border:0}
 .ph{width:390px;height:844px;border:10px solid #111;border-radius:40px;overflow:hidden;background:#000}.ph iframe{width:390px;height:844px;border:0}
 </style></head><body>
-<h1>Homepage Hero — Halloween CTA Mockup</h1>
+<h1>Homepage — Hero + 活動場合 + 熱門套餐 Mockup</h1>
 <p>3 個原有 CTA（URL + Google Ads tracking 不變）＋ 新 Halloween CTA。Desktop：3 個等闊一行，Halloween 掣同總闊度；Mobile：全部 100% 闊，Halloween 放最底。<a href="preview.html">真機預覽</a></p>
 <div class="box"><div class="bar"><strong>📋 FINAL Hero HTML（取代 WordPress 原有 hero code）</strong>
 <button class="btn" onclick="var t=document.getElementById('code');navigator.clipboard.writeText(t.value).then(()=>{this.textContent='✓ 已複製'},()=>{t.select();document.execCommand('copy');this.textContent='✓ 已複製'});setTimeout(()=>{this.textContent='複製 HTML Code'},2000)">複製 HTML Code</button></div>
-<textarea id="code" readonly>&lt;section class=&quot;ao-hero&quot; style=&quot;padding:36px 20px;background:linear-gradient(180deg,#fbf8f3 0%,#f5efe7 100%);&quot;&gt;
+<textarea id="code" readonly>&lt;!-- =====================================================================
+  Kitchen AO Homepage（2026-10）
+  PART 1：Hero（取代原有 hero Raw HTML）
+  PART 2：活動場合 + 熱門到會套餐推薦（取代原有 2 個 section，見下面說明）
+  ===================================================================== --&gt;
+
+&lt;!-- ========== PART 1：HERO ========== --&gt;
+&lt;section class=&quot;ao-hero&quot; style=&quot;padding:36px 20px;background:linear-gradient(180deg,#fbf8f3 0%,#f5efe7 100%);&quot;&gt;
   &lt;div class=&quot;ao-hero-grid&quot; style=&quot;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:28px;align-items:center;&quot;&gt;
     &lt;div style=&quot;order:1;&quot;&gt;
       &lt;div style=&quot;display:inline-block;margin:0 0 12px;padding:6px 12px;border-radius:999px;background:#efe4d1;color:#7d5b27;font-size:12px;font-weight:800;letter-spacing:0.08em;line-height:1.2;&quot;&gt;
@@ -96,6 +103,165 @@ textarea{width:100%;box-sizing:border-box;height:160px;background:#0f0b15;color:
   .ao-hero-hw-txt small{display:block;width:max-content;margin:5px auto 0;vertical-align:0;}
   .ao-hero-feats{flex-direction:column;gap:6px;}
 }
+&lt;/style&gt;
+
+
+&lt;!-- ========== PART 2：活動場合 + 熱門到會套餐推薦 ==========
+  做法：喺 WPBakery 刪除「香港到會推介2026」、「適合不同活動場合」2 個文字元素，
+  以及下面 3 個 inner row（3 張場合卡、熱門標題、3 張套餐卡），
+  原位加 1 個 Raw HTML，貼入以下 code。下面「日本直送」banner 嘅 row 保留不變。
+========================================================== --&gt;
+&lt;!-- ===== Kitchen AO Homepage｜活動場合 + 熱門到會套餐推薦（Raw HTML）===== --&gt;
+&lt;section class=&quot;ao-hs&quot; aria-labelledby=&quot;ao-hs-scene-title&quot;&gt;
+  &lt;div class=&quot;ao-hs-wrap&quot;&gt;
+    &lt;div class=&quot;ao-hs-head&quot;&gt;
+      &lt;p class=&quot;ao-hs-eyebrow&quot;&gt;香港到會推介 2026｜派對・公司・船河到會套餐｜Kitchen AO&lt;/p&gt;
+      &lt;h2 id=&quot;ao-hs-scene-title&quot; class=&quot;ao-hs-title&quot;&gt;&lt;span class=&quot;ao-hs-nw&quot;&gt;適合不同活動場合的&lt;/span&gt;&lt;span class=&quot;ao-hs-nw&quot;&gt;到會服務&lt;/span&gt;&lt;/h2&gt;
+      &lt;p class=&quot;ao-hs-sub&quot;&gt;由派對聚會到公司活動，Kitchen AO 提供靈活而體面的餐飲安排。&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;ao-hs-scenes&quot; role=&quot;list&quot;&gt;
+      &lt;a class=&quot;ao-hs-scene&quot; role=&quot;listitem&quot; href=&quot;https://aoaodelivery.com/product-category/party/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;home_scene_party&#x27;});&quot;&gt;
+        &lt;div class=&quot;ao-hs-img&quot;&gt;&lt;img src=&quot;https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-600x600.jpeg&quot; alt=&quot;派對到會烤肉拼盤&quot; width=&quot;600&quot; height=&quot;600&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;span class=&quot;ao-hs-chip&quot;&gt;🎉 Party&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;ao-hs-body&quot;&gt;
+          &lt;h3&gt;派對到會&lt;/h3&gt;
+          &lt;p&gt;適合生日會、朋友聚會、家庭聚餐，套餐選擇靈活，方便分享。&lt;/p&gt;
+          &lt;div class=&quot;ao-hs-note&quot;&gt;小型聚會到大型派對都可安排&lt;/div&gt;
+          &lt;span class=&quot;ao-hs-link&quot;&gt;睇派對套餐 &lt;i&gt;→&lt;/i&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;ao-hs-scene&quot; role=&quot;listitem&quot; href=&quot;https://aoaodelivery.com/corporate-catering-hk/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;home_scene_corporate&#x27;});&quot;&gt;
+        &lt;div class=&quot;ao-hs-img&quot;&gt;&lt;img src=&quot;https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg&quot; alt=&quot;公司活動到會九宮格小食&quot; width=&quot;600&quot; height=&quot;600&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;span class=&quot;ao-hs-chip&quot;&gt;🏢 Corporate&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;ao-hs-body&quot;&gt;
+          &lt;h3&gt;公司活動餐飲&lt;/h3&gt;
+          &lt;p&gt;適合會議茶點、開幕酒會、員工聚餐，出餐穩定，送達準時。&lt;/p&gt;
+          &lt;div class=&quot;ao-hs-note&quot;&gt;商務場合更體面，安排更省心&lt;/div&gt;
+          &lt;span class=&quot;ao-hs-link&quot;&gt;了解公司到會 &lt;i&gt;→&lt;/i&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;ao-hs-scene&quot; role=&quot;listitem&quot; href=&quot;https://aoaodelivery.com/boat-trip-bldg/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;home_scene_boat&#x27;});&quot;&gt;
+        &lt;div class=&quot;ao-hs-img&quot;&gt;&lt;img src=&quot;https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg&quot; alt=&quot;船河到會及商務午餐餐盒&quot; width=&quot;600&quot; height=&quot;600&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;span class=&quot;ao-hs-chip&quot;&gt;🚤 Boat &amp;amp; Lunch&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;ao-hs-body&quot;&gt;
+          &lt;h3&gt;船河及商務午餐&lt;/h3&gt;
+          &lt;p&gt;適合外出活動、船河聚會及商務午餐，保溫穩定，方便分發。&lt;/p&gt;
+          &lt;div class=&quot;ao-hs-note&quot;&gt;方便攜帶，兼顧賣相與實用性&lt;/div&gt;
+          &lt;span class=&quot;ao-hs-link&quot;&gt;睇船河到會 &lt;i&gt;→&lt;/i&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;ao-hs-swipe&quot; aria-hidden=&quot;true&quot;&gt;← 左右滑動睇更多 →&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;ao-hs ao-hs-alt&quot; aria-labelledby=&quot;ao-hs-pop-title&quot;&gt;
+  &lt;div class=&quot;ao-hs-wrap&quot;&gt;
+    &lt;div class=&quot;ao-hs-head&quot;&gt;
+      &lt;p class=&quot;ao-hs-eyebrow&quot;&gt;BEST SELLERS&lt;/p&gt;
+      &lt;h2 id=&quot;ao-hs-pop-title&quot; class=&quot;ao-hs-title&quot;&gt;熱門到會套餐推薦&lt;/h2&gt;
+      &lt;p class=&quot;ao-hs-sub&quot;&gt;精選適合派對、公司聚會及輕食場合的人氣餐單，方便你快速開始預訂。&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;ao-hs-pops&quot;&gt;
+      &lt;a class=&quot;ao-hs-pop&quot; href=&quot;https://aoaodelivery.com/product-category/party/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;home_pop_party_set&#x27;});&quot;&gt;
+        &lt;img src=&quot;https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-2-1-600x600.jpeg&quot; alt=&quot;派對到會套餐&quot; width=&quot;600&quot; height=&quot;600&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+        &lt;div class=&quot;ao-hs-pop-in&quot;&gt;
+          &lt;span class=&quot;ao-hs-tag&quot;&gt;PARTY SET&lt;/span&gt;
+          &lt;h3&gt;派對到會套餐&lt;/h3&gt;
+          &lt;p&gt;適合生日會、朋友聚餐及節日慶祝，菜式豐富，方便多人分享。&lt;/p&gt;
+          &lt;div class=&quot;ao-hs-meta&quot;&gt;&lt;span&gt;👨‍👩‍👧 家庭聚會&lt;/span&gt;&lt;span&gt;🎂 派對場合&lt;/span&gt;&lt;/div&gt;
+          &lt;span class=&quot;ao-hs-btn&quot;&gt;查看套餐 &lt;i&gt;→&lt;/i&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;ao-hs-pop&quot; href=&quot;https://aoaodelivery.com/product-category/party/refreshment-set/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;home_pop_refreshment&#x27;});&quot;&gt;
+        &lt;img src=&quot;https://aoaodelivery.com/wp-content/uploads/2025/04/1627226895-3043389929-g.jpg&quot; alt=&quot;輕食宴會套餐&quot; width=&quot;600&quot; height=&quot;600&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+        &lt;div class=&quot;ao-hs-pop-in&quot;&gt;
+          &lt;span class=&quot;ao-hs-tag&quot;&gt;REFRESHMENT&lt;/span&gt;
+          &lt;h3&gt;輕食宴會套餐&lt;/h3&gt;
+          &lt;p&gt;適合會議茶點、開幕活動及下午茶聚會，款式精緻，取用方便。&lt;/p&gt;
+          &lt;div class=&quot;ao-hs-meta&quot;&gt;&lt;span&gt;💼 公司活動&lt;/span&gt;&lt;span&gt;🤝 商務場合&lt;/span&gt;&lt;/div&gt;
+          &lt;span class=&quot;ao-hs-btn&quot;&gt;查看套餐 &lt;i&gt;→&lt;/i&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;ao-hs-pop&quot; href=&quot;https://aoaodelivery.com/product-category/a-la-carte/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;home_pop_a_la_carte&#x27;});&quot;&gt;
+        &lt;img src=&quot;https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-07-600x600.jpg&quot; alt=&quot;單點美食精選&quot; width=&quot;600&quot; height=&quot;600&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
+        &lt;div class=&quot;ao-hs-pop-in&quot;&gt;
+          &lt;span class=&quot;ao-hs-tag&quot;&gt;À LA CARTE&lt;/span&gt;
+          &lt;h3&gt;單點美食精選&lt;/h3&gt;
+          &lt;p&gt;自由配搭小食、主菜、甜品及飲品，適合想靈活安排餐單的客人。&lt;/p&gt;
+          &lt;div class=&quot;ao-hs-meta&quot;&gt;&lt;span&gt;🧩 自由配搭&lt;/span&gt;&lt;span&gt;✨ 自組專屬餐單&lt;/span&gt;&lt;/div&gt;
+          &lt;span class=&quot;ao-hs-btn&quot;&gt;查看美食 &lt;i&gt;→&lt;/i&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;style&gt;
+.ao-hs{padding:56px 20px;background:#f7f4ef;font-family:inherit;}
+.ao-hs-alt{background:linear-gradient(180deg,#f7f4ef 0%,#efe6d8 100%);padding-top:24px;}
+.ao-hs-wrap{max-width:1180px;margin:0 auto;}
+.ao-hs-head{text-align:center;margin:0 auto 30px;max-width:760px;}
+.ao-hs-eyebrow{display:inline-block;margin:0 0 12px !important;padding:6px 14px;border-radius:999px;background:#efe4d1;color:#7d5b27;font-size:12.5px;font-weight:800;letter-spacing:.04em;line-height:1.4;}
+.ao-hs .ao-hs-title{margin:0 0 10px !important;color:#201814;font-size:34px;font-weight:800;line-height:1.25;}
+.ao-hs-nw{white-space:nowrap;}
+.ao-hs-sub{margin:0 !important;color:#6a5f58;font-size:16px;line-height:1.8;}
+
+/* ===== 場合卡：相片 + 內容 + 箭頭連結 ===== */
+.ao-hs-scenes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.ao-hs-scene{display:flex;flex-direction:column;background:#fff;border-radius:22px;overflow:hidden;text-decoration:none !important;color:inherit !important;box-shadow:0 10px 28px rgba(40,24,15,.08);transition:transform .25s ease,box-shadow .25s ease;}
+.ao-hs-scene:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(40,24,15,.14);}
+.ao-hs-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:#eee;}
+.ao-hs-img img{display:block;width:100% !important;height:100% !important;object-fit:cover;transition:transform .5s ease;}
+.ao-hs-scene:hover .ao-hs-img img{transform:scale(1.06);}
+.ao-hs-chip{position:absolute;left:14px;top:14px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:#201814;font-size:12.5px;font-weight:800;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+.ao-hs-body{display:flex;flex-direction:column;flex:1;padding:20px 22px 22px;}
+.ao-hs .ao-hs-body h3{margin:0 0 8px !important;color:#201814;font-size:22px;font-weight:800;line-height:1.3;}
+.ao-hs-body p{margin:0 0 12px !important;color:#5d534d;font-size:15px;line-height:1.75;}
+.ao-hs-note{margin:0 0 16px;color:#8a7b6e;font-size:13.5px;line-height:1.6;}
+.ao-hs-note::before{content:&quot;\2714\00A0&quot;;color:#b8955a;}
+.ao-hs-link{margin-top:auto;display:inline-flex;align-items:center;gap:6px;color:#7d5b27;font-size:15px;font-weight:800;}
+.ao-hs-link i,.ao-hs-btn i{font-style:normal;transition:transform .25s ease;}
+.ao-hs-scene:hover .ao-hs-link i,.ao-hs-pop:hover .ao-hs-btn i{transform:translateX(5px);}
+.ao-hs-swipe{display:none;}
+
+/* ===== 熱門套餐：海報式相片卡 ===== */
+.ao-hs-pops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.ao-hs-pop{position:relative;display:block;min-height:440px;border-radius:24px;overflow:hidden;text-decoration:none !important;color:#fff !important;box-shadow:0 14px 34px rgba(40,24,15,.16);isolation:isolate;}
+.ao-hs-pop &gt; img{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;z-index:-2;transition:transform .6s ease;}
+.ao-hs-pop::after{content:&quot;&quot;;position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,14,10,0) 25%,rgba(20,14,10,.55) 52%,rgba(20,14,10,.92) 100%);}
+.ao-hs-pop:hover &gt; img{transform:scale(1.07);}
+.ao-hs-pop-in{position:absolute;left:0;right:0;bottom:0;padding:22px 22px 24px;}
+.ao-hs-tag{display:inline-block;margin:0 0 8px;padding:4px 11px;border-radius:999px;background:#d9b06a;color:#241a12;font-size:11.5px;font-weight:800;letter-spacing:.08em;}
+.ao-hs .ao-hs-pop h3{margin:0 0 6px !important;color:#fff !important;font-size:24px;font-weight:800;line-height:1.3;}
+.ao-hs-pop p{margin:0 0 12px !important;color:rgba(255,255,255,.88) !important;font-size:14.5px;line-height:1.7;}
+.ao-hs-meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;}
+.ao-hs-meta span{padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:12.5px;line-height:1.5;}
+.ao-hs-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 16px;border-radius:999px;background:#fff;color:#1f1714;font-size:15px;font-weight:800;line-height:1.2;transition:background .25s ease;}
+.ao-hs-pop:hover .ao-hs-btn{background:#d9b06a;}
+.ao-hs img.emoji{display:inline !important;width:1em !important;height:1em !important;margin:0 .12em 0 0 !important;vertical-align:-0.12em !important;}
+
+@media (max-width:960px){
+  .ao-hs .ao-hs-title{font-size:30px;}
+  .ao-hs-pop{min-height:400px;}
+}
+@media (max-width:767px){
+  .ao-hs{padding:36px 0;}
+  .ao-hs-alt{padding-top:12px;}
+  .ao-hs-head{padding:0;margin-bottom:22px;}
+  .ao-hs .ao-hs-title{font-size:24px;}
+  .ao-hs-sub{font-size:15px;}
+  /* 場合卡：手機左右滑動 */
+  .ao-hs-scenes{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -14px;padding:4px 14px 18px;scroll-padding:0 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .ao-hs-scenes::-webkit-scrollbar{display:none;}
+  .ao-hs-scene{flex:0 0 86%;scroll-snap-align:start;}
+  .ao-hs-swipe{display:block;margin:2px 0 0;text-align:center;color:#a08f80;font-size:12.5px;}
+  /* 熱門套餐：手機直排 */
+  .ao-hs-pops{grid-template-columns:1fr;gap:16px;padding:0;}
+  .ao-hs-pop{min-height:380px;}
+  .ao-hs-body{padding:18px 18px 20px;}
+  .ao-hs .ao-hs-body h3{font-size:20px;}
+}
+@media (prefers-reduced-motion:reduce){.ao-hs-scene,.ao-hs-img img,.ao-hs-pop &gt; img,.ao-hs-link i,.ao-hs-btn i{transition:none !important;}}
 &lt;/style&gt;
 </textarea></div>
 <div class="row"><div><div class="lab">Desktop 1440px</div><div class="dw"><iframe src="preview.html"></iframe></div></div>
