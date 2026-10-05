@@ -1,0 +1,103 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><title>Homepage Hero – Halloween CTA Mockup</title><style>
+body{margin:0;background:#2b2b2b;color:#fff;font-family:-apple-system,'PingFang TC',sans-serif;padding:24px}h1{font-size:18px;margin:0 0 6px}p{margin:0 0 16px;color:#bbb;font-size:13px}a{color:#FFB36B}
+.box{margin:0 0 22px;padding:16px;border-radius:14px;background:#1c1426;border:1px solid #4a3463;max-width:1180px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 10px}
+.btn{padding:8px 16px;border-radius:999px;border:0;background:#FF7A1A;font-weight:700;cursor:pointer;color:#1c1426;font-size:13px;text-decoration:none}
+textarea{width:100%;box-sizing:border-box;height:160px;background:#0f0b15;color:#e6dcf5;border:1px solid #4a3463;border-radius:10px;padding:10px;font:12px/1.5 Menlo,monospace}
+.row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}.lab{font-size:13px;color:#ccc;margin:0 0 8px}
+.dw{width:760px;height:500px;overflow:hidden;border-radius:10px;border:1px solid #555}.dw iframe{width:1440px;height:948px;transform:scale(.5278);transform-origin:0 0;border:0}
+.ph{width:390px;height:844px;border:10px solid #111;border-radius:40px;overflow:hidden;background:#000}.ph iframe{width:390px;height:844px;border:0}
+</style></head><body>
+<h1>Homepage Hero — Halloween CTA Mockup</h1>
+<p>3 個原有 CTA（URL + Google Ads tracking 不變）＋ 新 Halloween CTA。Desktop：3 個等闊一行，Halloween 掣同總闊度；Mobile：全部 100% 闊，Halloween 放最底。<a href="preview.html">真機預覽</a></p>
+<div class="box"><div class="bar"><strong>📋 FINAL Hero HTML（取代 WordPress 原有 hero code）</strong>
+<button class="btn" onclick="var t=document.getElementById('code');navigator.clipboard.writeText(t.value).then(()=>{this.textContent='✓ 已複製'},()=>{t.select();document.execCommand('copy');this.textContent='✓ 已複製'});setTimeout(()=>{this.textContent='複製 HTML Code'},2000)">複製 HTML Code</button></div>
+<textarea id="code" readonly>&lt;section class=&quot;ao-hero&quot; style=&quot;padding:36px 20px;background:linear-gradient(180deg,#fbf8f3 0%,#f5efe7 100%);&quot;&gt;
+  &lt;div class=&quot;ao-hero-grid&quot; style=&quot;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:28px;align-items:center;&quot;&gt;
+    &lt;div style=&quot;order:1;&quot;&gt;
+      &lt;div style=&quot;display:inline-block;margin:0 0 12px;padding:6px 12px;border-radius:999px;background:#efe4d1;color:#7d5b27;font-size:12px;font-weight:800;letter-spacing:0.08em;line-height:1.2;&quot;&gt;
+        KITCHEN AO HONG KONG CATERING
+      &lt;/div&gt;
+      &lt;h1 style=&quot;margin:0 0 14px;color:#201814;font-size:42px;line-height:1.15;font-weight:800;&quot;&gt;
+        &lt;span class=&quot;ao-nw&quot;&gt;派對到會・&lt;/span&gt;&lt;span class=&quot;ao-nw&quot;&gt;公司活動餐飲&lt;/span&gt;&lt;br&gt;一站式安排
+      &lt;/h1&gt;
+      &lt;p style=&quot;margin:0 0 18px;max-width:620px;color:#5d534d;font-size:17px;line-height:1.9;&quot;&gt;
+        Kitchen AO 專注香港到會服務，適合生日派對、企業活動、家庭聚餐、船河聚會及品牌場合。由精緻擺盤、主打熱食到特色餐單，幫你把聚會做得更體面、更方便。
+      &lt;/p&gt;
+      &lt;div class=&quot;ao-hero-ctas&quot;&gt;
+        &lt;a class=&quot;ao-hero-btn&quot; href=&quot;https://aoaodelivery.com/product-category/party/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;view_menu&#x27;});&quot; style=&quot;display:inline-block;padding:14px 22px;border-radius:999px;background:#1f1714;color:#ffffff;text-decoration:none;font-size:15px;font-weight:800;line-height:1.2;&quot;&gt;
+          查看餐單
+        &lt;/a&gt;
+        &lt;a class=&quot;ao-hero-btn&quot; href=&quot;https://wa.me/85269011987?text=你好，我想查詢 Kitchen AO 到會餐單及報價&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;whatsapp&#x27;});&quot; style=&quot;display:inline-block;padding:14px 22px;border-radius:999px;background:#d9b06a;color:#241a12;text-decoration:none;font-size:15px;font-weight:800;line-height:1.2;&quot;&gt;
+          WhatsApp 查詢
+        &lt;/a&gt;
+        &lt;a class=&quot;ao-hero-btn&quot; href=&quot;https://aoaodelivery.com/catering-quote-enquiry/&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;quote_form&#x27;});&quot; style=&quot;display:inline-block;padding:12px 20px;border-radius:999px;background:#ffffff;color:#1f1714;text-decoration:none;font-size:15px;font-weight:800;line-height:1.2;border:2px solid #1f1714;&quot;&gt;
+          專人活動報價查詢
+        &lt;/a&gt;
+        &lt;a class=&quot;ao-hero-btn ao-hero-hw&quot; href=&quot;https://aoaodelivery.com/product-category/halloween-set/?ao_ref=hw26_home_hero&quot; onclick=&quot;window.dataLayer=window.dataLayer||[];dataLayer.push({event:&#x27;cta_click&#x27;,cta_label:&#x27;halloween_menu&#x27;});&quot;&gt;
+          &lt;span class=&quot;ao-hero-bats&quot; aria-hidden=&quot;true&quot;&gt;&lt;i class=&quot;b1&quot;&gt;&lt;svg viewBox=&quot;0 0 100 44&quot;&gt;&lt;path d=&quot;M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z&quot; fill=&quot;#2a0d3d&quot;/&gt;&lt;circle cx=&quot;47.6&quot; cy=&quot;20&quot; r=&quot;1.6&quot; fill=&quot;#FFE14D&quot;/&gt;&lt;circle cx=&quot;52.4&quot; cy=&quot;20&quot; r=&quot;1.6&quot; fill=&quot;#FFE14D&quot;/&gt;&lt;/svg&gt;&lt;/i&gt;&lt;i class=&quot;b2&quot;&gt;&lt;svg viewBox=&quot;0 0 100 44&quot;&gt;&lt;path d=&quot;M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z&quot; fill=&quot;#2a0d3d&quot;/&gt;&lt;circle cx=&quot;47.6&quot; cy=&quot;20&quot; r=&quot;1.6&quot; fill=&quot;#FFE14D&quot;/&gt;&lt;circle cx=&quot;52.4&quot; cy=&quot;20&quot; r=&quot;1.6&quot; fill=&quot;#FFE14D&quot;/&gt;&lt;/svg&gt;&lt;/i&gt;&lt;i class=&quot;b3&quot;&gt;&lt;svg viewBox=&quot;0 0 100 44&quot;&gt;&lt;path d=&quot;M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z&quot; fill=&quot;#2a0d3d&quot;/&gt;&lt;circle cx=&quot;47.6&quot; cy=&quot;20&quot; r=&quot;1.6&quot; fill=&quot;#FFE14D&quot;/&gt;&lt;circle cx=&quot;52.4&quot; cy=&quot;20&quot; r=&quot;1.6&quot; fill=&quot;#FFE14D&quot;/&gt;&lt;/svg&gt;&lt;/i&gt;&lt;/span&gt;
+          &lt;span class=&quot;ao-hero-hw-txt&quot;&gt;🎃 Halloween 萬聖節狂嘩套餐 &lt;small&gt;10月23日–11月1日送貨&lt;/small&gt;&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ao-hero-feats&quot; style=&quot;display:flex;flex-wrap:wrap;gap:8px 18px;color:#6a5f58;font-size:14px;line-height:1.7;&quot;&gt;
+        &lt;div style=&quot;white-space:nowrap;&quot;&gt;適合生日派對&lt;/div&gt;
+        &lt;div style=&quot;white-space:nowrap;&quot;&gt;公司活動餐飲&lt;/div&gt;
+        &lt;div style=&quot;white-space:nowrap;&quot;&gt;精緻擺盤到會&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;order:2;&quot;&gt;
+      &lt;div style=&quot;position:relative;background:#ffffff;border-radius:26px;padding:14px;box-shadow:0 20px 40px rgba(40,24,15,0.10);&quot;&gt;
+        &lt;img class=&quot;ao-hero-img&quot; src=&quot;https://aoaodelivery.com/wp-content/uploads/2026/07/catering-hongkong-corporate.jpg&quot;
+             alt=&quot;Kitchen AO 到會服務與精緻食物擺設&quot;
+             width=&quot;1200&quot; height=&quot;1400&quot; fetchpriority=&quot;high&quot; decoding=&quot;async&quot;
+             style=&quot;display:block;width:100%;height:680px;object-fit:cover;object-position:center top;border-radius:18px;&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;style&gt;
+.ao-hero-feats &gt; div::before{content:&quot;\2714\00A0&quot;;}
+.ao-hero .ao-nw{white-space:nowrap;}
+
+/* ===== CTA：3 個一行等闊，Halloween 掣喺下面同一闊度 ===== */
+.ao-hero-ctas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:620px;margin:0 0 18px;}
+.ao-hero-ctas .ao-hero-btn{display:flex !important;align-items:center;justify-content:center;min-height:50px;box-sizing:border-box;text-align:center;white-space:nowrap;}
+
+/* ===== Halloween CTA（同 Pop up 一樣：漸變 + 反光 + 搖動 + 蝙蝠）===== */
+.ao-hero-ctas .ao-hero-hw{grid-column:1 / -1;position:relative;overflow:hidden;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,#FF8A1F 0%,#FF5A00 100%);color:#1c1426 !important;text-decoration:none !important;font-size:16px;font-weight:800;line-height:1.25;box-shadow:0 6px 18px rgba(255,90,0,.40);animation:aoHeroWiggle 3.2s ease-in-out infinite;}
+.ao-hero-ctas .ao-hero-hw::after{content:&quot;&quot;;position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.65),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoHeroShine 2.8s ease-in-out infinite;z-index:3;pointer-events:none;}
+.ao-hero-hw-txt{position:relative;z-index:2;}
+.ao-hero img.emoji,.ao-hero img.wp-smiley{display:inline !important;width:1em !important;height:1em !important;margin:0 .15em 0 0 !important;vertical-align:-0.12em !important;border:0 !important;box-shadow:none !important;}
+.ao-hero-hw-txt small{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:rgba(28,20,38,.85);color:#FFB347;font-size:12px;font-weight:700;vertical-align:2px;}
+.ao-hero-bats{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.ao-hero-bats i{position:absolute;top:50%;left:-12%;width:36px;margin-top:-7px;animation:aoHeroBat 5s linear infinite;}
+.ao-hero-bats i.b2{width:26px;margin-top:-15px;animation-duration:6s;animation-delay:1.6s;}
+.ao-hero-bats i.b3{width:30px;margin-top:1px;animation-duration:5.5s;animation-delay:3.2s;}
+.ao-hero-bats svg{display:block;width:100%;height:auto;transform-origin:50% 40%;animation:aoHeroFlap .16s ease-in-out infinite alternate;}
+@keyframes aoHeroShine{0%{left:-60%;}55%,100%{left:130%;}}
+@keyframes aoHeroWiggle{0%,78%,100%{transform:rotate(0) scale(1);}82%{transform:rotate(-1.5deg) scale(1.03);}86%{transform:rotate(1.5deg) scale(1.03);}90%{transform:rotate(-1deg) scale(1.015);}94%{transform:rotate(.6deg) scale(1.005);}}
+@keyframes aoHeroBat{0%{left:-12%;transform:translateY(4px);}25%{transform:translateY(-6px);}50%{transform:translateY(5px);}75%{transform:translateY(-5px);}100%{left:108%;transform:translateY(3px);}}
+@keyframes aoHeroFlap{from{transform:scaleY(1);}to{transform:scaleY(.55) scaleX(.92);}}
+@media (prefers-reduced-motion:reduce){.ao-hero-bats{display:none;}.ao-hero-ctas .ao-hero-hw,.ao-hero-ctas .ao-hero-hw::after{animation:none;}}
+
+@media (max-width:960px){
+  .ao-hero-grid{grid-template-columns:1fr !important;gap:22px !important;}
+  .ao-hero h1{font-size:34px !important;}
+  .ao-hero .ao-hero-img{height:520px !important;}
+}
+@media (max-width:640px){
+  .ao-hero{padding:28px 16px !important;}
+  .ao-hero h1{font-size:28px !important;line-height:1.2 !important;}
+  .ao-hero p{font-size:15px !important;line-height:1.8 !important;}
+  .ao-hero .ao-hero-img{height:420px !important;object-position:center top !important;}
+  .ao-hero-ctas{grid-template-columns:1fr;gap:10px;max-width:none;}
+  .ao-hero-ctas .ao-hero-btn{width:100%;}
+  .ao-hero-ctas .ao-hero-hw{flex-direction:column;}
+  .ao-hero-hw-txt small{display:block;width:max-content;margin:5px auto 0;vertical-align:0;}
+  .ao-hero-feats{flex-direction:column;gap:6px;}
+}
+&lt;/style&gt;
+</textarea></div>
+<div class="row"><div><div class="lab">Desktop 1440px</div><div class="dw"><iframe src="preview.html"></iframe></div></div>
+<div><div class="lab">Mobile 390px</div><div class="ph"><iframe src="preview.html"></iframe></div></div></div>
+</body></html>

@@ -105,7 +105,7 @@
 @media (max-width: 640px) {
   #ao-popup-overlay { padding: 14px !important; }
   #ao-popup-box { max-width: 100% !important; max-height: calc(100vh - 28px) !important; border-radius: 18px !important; }
-  #ao-popup-box img { width: 100% !important; height: auto !important; }
+  #ao-popup-box .ao-hw-kv { width: 100% !important; height: auto !important; }
   #ao-popup-box .ao-hw-t2 b { font-size:15.5px; }
   #ao-popup-close { top: 8px !important; right: 8px !important; width: 36px !important; height: 36px !important; font-size: 20px !important; }
 }
@@ -221,6 +221,9 @@
   #ao-popup-box .ao-hw-bats i.b2 { width:28px; }
   #ao-popup-box .ao-hw-bats i.b3 { width:32px; }
 }
+
+/* ===== iPhone / WordPress emoji 圖片修正（防止 emoji 變超大）===== */
+#ao-popup-box img.emoji, #ao-popup-box img.wp-smiley { display:inline-block !important; width:1em !important; height:1em !important; max-width:1em !important; min-width:0 !important; margin:0 .12em !important; padding:0 !important; vertical-align:-0.12em !important; border:0 !important; box-shadow:none !important; background:none !important; object-fit:contain !important; }
 </style>
 <script>
 (function () {
