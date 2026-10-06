@@ -16,11 +16,13 @@ js='\n'.join(scripts).replace('document.currentScript&&document.currentScript.pr
 out=f'''/*! Kitchen AO｜/product-category/party/ 快速選擇派對套餐（Option B）｜由 WordPress 分類描述載入 */
 (function(){{
   var me=document.currentScript;
-  if(document.querySelector('.ao-qp'))return;
+  if(document.getElementById('ao-qp-css'))return;
+  var td=document.querySelector('.term-description');
+  [].forEach.call(document.querySelectorAll('.term-description .ao-qp'),function(x){{x.parentNode.removeChild(x);}});
   var st=document.createElement('style');st.id='ao-qp-css';st.textContent={json.dumps(css,ensure_ascii=False)};document.head.appendChild(st);
   var box=document.createElement('div');box.innerHTML={json.dumps(sec,ensure_ascii=False)};
   var __sec=box.firstElementChild;
-  if(me&&me.parentNode){{me.parentNode.insertBefore(__sec,me);}}else{{(document.querySelector('.term-description')||document.body).appendChild(__sec);}}
+  if(me&&td&&td.contains(me)){{me.parentNode.insertBefore(__sec,me);}}else if(td){{td.insertBefore(__sec,td.firstChild);}}else{{var hd=document.querySelector('.woocommerce-products-header');if(hd){{hd.appendChild(__sec);}}else{{return;}}}}
   (function(){{
 {js}
   }})();
