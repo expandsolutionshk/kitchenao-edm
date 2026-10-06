@@ -61,8 +61,9 @@ BIZJS="""<script>
   /* 捲過此區後：按鈕變成浮動 icon（只喺快選區域範圍內顯示） */
   var sec=document.querySelector('.ao-qp');
   if('IntersectionObserver' in window&&sec){
-    var areaGone=false,secIn=false;
-    function upd(){biz.classList.toggle('is-float',areaGone&&secIn);if(!(areaGone&&secIn))set(false);}
+    var areaGone=false,secIn=false,helpIn=false;
+    function upd(){var f=areaGone&&secIn&&!helpIn,was=biz.classList.contains('is-float');if(f!==was)set(false);biz.classList.toggle('is-float',f);}
+    var help=sec.querySelector('.ao-qp-help');if(help)new IntersectionObserver(function(en){helpIn=en[0].isIntersecting;upd();}).observe(help);
     new IntersectionObserver(function(en){var e=en[0];areaGone=!e.isIntersecting&&e.boundingClientRect.top<0;upd();}).observe(biz);
     new IntersectionObserver(function(en){secIn=en[0].isIntersecting;upd();},{rootMargin:'0px 0px -120px 0px'}).observe(sec);
   }

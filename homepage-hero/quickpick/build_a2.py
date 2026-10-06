@@ -5,11 +5,11 @@ PPL=[('2 - 6','小型聚會','2-6人','qp_ppl_2_6'),('7 - 11','家庭派對','7-
 SER=[('🎃','Halloween|萬聖節狂嘩套餐','','/product-category/halloween-set/?ao_ref=hw26_party_qp','qp_s_halloween','期間限定','hw'),
 ('⭐','美食派對|Gourmet Set','人氣之選・熱食主菜','/product-category/party/foot-party/','qp_s_gourmet','人氣','hot'),
 ('🥂','輕食宴會 Refreshment','會議茶點・開幕酒會','/product-category/party/refreshment-set/','qp_s_refreshment','',''),
-('🚤','船河派對套餐','碼頭交收・方便分發','/product-category/party/boat-party-set/','qp_s_boat','',''),
+('🍖','肉食獸套餐','上將海港之選','/product-category/party/meat-monster/','qp_s_meat','',''),
 ('🧸','兒童派對套餐','兒童生日派對','/product-category/party/children/','qp_s_kids','',''),
 ('💑','雙人套餐','二人慶祝・紀念日','/product-category/party/set-for-two/','qp_s_couple','',''),
 ('🥗','「素」味人生','素食派對套餐','/product-category/party/vegetarians-set/','qp_s_veg','',''),
-('🍖','肉食獸套餐','上將海港之選','/product-category/party/meat-monster/','qp_s_meat','',''),
+('🚤','船河派對套餐','碼頭交收・方便分發','/product-category/party/boat-party-set/','qp_s_boat','',''),
 ('🧺','Chill 一下野餐盒','野餐・戶外活動','/product-category/party/chill-box/','qp_s_chill','',''),
 ('🍢','手指食物拼盤','Finger Food・Platter','/product-category/party/platter/','qp_s_platter','',''),
 ('🍽️','單品|À la carte','小食・主菜・甜品自由配搭','/product-category/a-la-carte/','qp_s_alacarte','',''),
@@ -43,11 +43,26 @@ MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套�
   <div class="ao-qp-sec ao-qp-box ao-qp-box--ser"><div class="ao-qp-tophead"><span class="ao-qp-tag ao-qp-tag--ser"><i>2</i>🍽️ 按系列選擇</span></div><div class="ao-qp-series">{ser}</div></div>
   <div class="ao-qp-sec ao-qp-sec--top">
     <div class="ao-qp-tophead"><span class="ao-qp-toptag"><i>3</i>🔥 本週 <b>TOP 5</b> 人氣推介</span></div>
-    <div class="ao-qp-pop">{top}</div>
+    <div class="ao-qp-slider"><button type="button" class="ao-qp-nav ao-qp-prev" aria-label="上一個">‹</button><div class="ao-qp-pop">{top}</div><button type="button" class="ao-qp-nav ao-qp-next" aria-label="下一個">›</button></div>
+    <div class="ao-qp-dots" aria-hidden="true"></div>
   </div>
   <div class="ao-qp-help"><p>仍未決定選擇哪一款？</p><a href="{WA}" target="_blank" rel="noopener noreferrer"{dl('qp_whatsapp')}>WhatsApp 專人為你配搭餐單</a></div>
 </section>'''
 JS='''<script>
+(function(){
+  /* TOP 5 slider：箭咀＋圓點（≤1080px） */
+  var sec=document.currentScript&&document.currentScript.previousElementSibling;if(!sec)return;
+  var sl=sec.querySelector('.ao-qp-slider');if(!sl)return;
+  var track=sl.querySelector('.ao-qp-pop'),prev=sl.querySelector('.ao-qp-prev'),next=sl.querySelector('.ao-qp-next'),dots=sec.querySelector('.ao-qp-dots');
+  var cards=track.children;for(var i=0;i<cards.length;i++){dots.appendChild(document.createElement('i'));}
+  function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:track.clientWidth;}
+  function upd(){var max=track.scrollWidth-track.clientWidth-2;prev.disabled=track.scrollLeft<=2;next.disabled=track.scrollLeft>=max;
+    var idx=Math.round(track.scrollLeft/step());if(track.scrollLeft>=max)idx=cards.length-1;[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===idx);});}
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+  track.addEventListener('scroll',function(){window.requestAnimationFrame(upd);},{passive:true});
+  window.addEventListener('resize',upd);upd();
+})();
 (function(){
   /* 自動更新「本週 TOP 5 人氣推介」價錢（讀取 WooCommerce 現價；失敗則保留原價） */
   var box=document.currentScript&&document.currentScript.previousElementSibling;
@@ -84,7 +99,7 @@ CSS='''<style>
 .ao-qp-toptag b{padding:2px 9px;border-radius:8px;background:#241a12;color:#f0d39a;font-weight:800;}
 .ao-qp-pop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:6px;}
 .ao-qp-pop a{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;border:1px solid #fff;background:#fff;color:#2b211b !important;box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .25s ease,border-color .25s ease;}
-.ao-qp-pop a:hover{transform:translateY(-4px);border-color:#c9a45c;}
+@media (hover:hover){.ao-qp-pop a:hover{transform:translateY(-4px);border-color:#c9a45c;}}
 .ao-qp-ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;}
 .ao-qp-ph img{display:block;width:100% !important;height:100% !important;object-fit:cover;transition:transform .5s ease;}
 .ao-qp-pop a:hover .ao-qp-ph img{transform:scale(1.05);}
@@ -184,7 +199,22 @@ CSS='''<style>
 .ao-qp-help a:hover{filter:brightness(1.08);}
 .ao-qp img.emoji{display:inline !important;width:1em !important;height:1em !important;margin:0 !important;vertical-align:-0.12em !important;}
 
-@media (max-width:1080px){.ao-qp-pop{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.ao-qp-slider{position:relative;}
+.ao-qp-nav{display:none;}
+.ao-qp-dots{display:none;}
+/* ≤1080px：TOP 5 變成可左右滑動 */
+@media (max-width:1080px){
+  .ao-qp-pop{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y;padding:6px 2px 10px;scrollbar-width:none;}
+  .ao-qp-pop::-webkit-scrollbar{display:none;}
+  .ao-qp-pop a{flex:0 0 31%;scroll-snap-align:start;}
+  .ao-qp-nav{position:absolute;top:38%;z-index:5;display:flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:rgba(255,210,63,.95);color:#1d150f;font:inherit;font-size:24px;font-weight:900;line-height:1;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.4);transition:opacity .2s ease;}
+  .ao-qp-prev{left:-8px;}
+  .ao-qp-next{right:-8px;}
+  .ao-qp-nav[disabled]{opacity:0;pointer-events:none;}
+  .ao-qp-dots{display:flex;justify-content:center;gap:6px;margin-top:6px;}
+  .ao-qp-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .2s ease;}
+  .ao-qp-dots i.on{width:20px;border-radius:4px;background:#ffd23f;}
+}
 @media (max-width:960px){.ao-qp-ppl{grid-template-columns:repeat(3,minmax(0,1fr));}
   .ao-qp-series a.is-hot em{position:absolute;top:-10px;right:8px;margin:0;}
   .ao-qp-series a.is-hw b{font-size:15px;}
@@ -197,9 +227,11 @@ CSS='''<style>
   .ao-qp-sec--top{margin-top:36px;padding:30px 0 14px 12px;border-radius:16px;}
   .ao-qp-toptag,.ao-qp-tag{font-size:16px;padding:8px 16px;}
   .ao-qp-box{margin-top:36px;padding:30px 10px 14px;border-radius:16px;}
-  .ao-qp-pop{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 12px 8px 0;scrollbar-width:none;}
-  .ao-qp-pop::-webkit-scrollbar{display:none;}
-  .ao-qp-pop a{flex:0 0 62%;scroll-snap-align:start;}
+  .ao-qp-pop{gap:10px;padding:6px 2px 10px;}
+  .ao-qp-pop a{flex:0 0 66%;}
+  .ao-qp-nav{width:34px;height:34px;font-size:22px;}
+  .ao-qp-prev{left:-6px;}
+  .ao-qp-next{right:-2px;}
   .ao-qp-ppl{gap:8px;}
   .ao-qp-ppl a{min-height:70px;padding:9px 3px;gap:5px;border-radius:12px;}
   .ao-qp-ppl em{padding:2px 7px;}
