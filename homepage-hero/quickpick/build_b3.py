@@ -74,7 +74,6 @@ extra='''
 
 /* ===== 商務到會 TIPS ===== */
 .ao-biz{position:relative;z-index:20;display:flex;align-items:center;justify-content:center;min-height:80px;margin:8px -36px 0;padding:15px 20px;background:linear-gradient(90deg,rgba(30,42,74,0) 0%,rgba(30,42,74,.55) 20%,rgba(30,42,74,.55) 80%,rgba(30,42,74,0) 100%);border-top:1px solid rgba(120,150,210,.25);border-bottom:1px solid rgba(120,150,210,.25);}
-.ao-biz.has-cursor,.ao-biz.has-cursor *{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%2230%22%20viewBox%3D%220%200%2026%2030%22%3E%3Cpath%20d%3D%22M3%202%20L3%2024%20L8.5%2018.8%20L12.6%2027.5%20L16.4%2025.8%20L12.3%2017.2%20L20%2017.2%20Z%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%231e2a4a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 3 2,auto !important;}
 .ao-biz-wrap{position:relative;}
 .ao-biz-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px 0 10px;border:0;border-radius:999px;background:linear-gradient(135deg,#2c4a86 0%,#1e2a4a 100%);color:#fff;font:inherit;font-size:17px;font-weight:800;letter-spacing:2px;cursor:pointer;box-shadow:0 10px 24px rgba(10,20,50,.55),0 0 0 2px rgba(140,170,230,.35);animation:aoBizFloat 1.3s ease-in-out infinite;}
 .ao-biz-bi{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;font-size:17px;}
@@ -102,7 +101,7 @@ extra='''
 .ao-biz-more{display:block;margin-top:8px;padding:11px 16px;border-radius:999px;border:1.5px solid #1e2a4a;background:#fff;color:#1e2a4a !important;text-align:center;font-size:14.5px;font-weight:800;line-height:1.2;letter-spacing:1px;transition:background .2s ease,color .2s ease;}
 .ao-biz-more:hover{background:#1e2a4a;color:#fff !important;}
 /* 自訂游標：AO logo + We Serve, We WOW */
-.ao-biz-cursor{position:absolute;left:0;top:0;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:#1e2a4a;color:#fff;font-size:14px;font-weight:800;white-space:nowrap;pointer-events:none;opacity:0;margin:26px 0 0 18px;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:opacity .15s ease;}
+.ao-biz-cursor{position:absolute;left:0;top:0;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:#1e2a4a;color:#fff;font-size:14px;font-weight:800;white-space:nowrap;pointer-events:none;opacity:0;margin:22px 0 0 14px;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:opacity .15s ease;}
 .ao-biz-cursor::before{content:"";position:absolute;left:4px;top:-6px;border:6px solid transparent;border-bottom-color:#1e2a4a;border-left-color:#1e2a4a;}
 .ao-biz.has-cursor .ao-biz-cursor{opacity:1;}
 .ao-biz-logo{display:inline-block;width:52px;height:30px;border-radius:999px;background:#fff;position:relative;overflow:hidden;}
