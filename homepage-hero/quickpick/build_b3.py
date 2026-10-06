@@ -92,7 +92,7 @@ extra='''
 .ao-biz-ph span{display:block;font-size:10.5px;font-weight:800;letter-spacing:3px;color:#5b77b3;}
 .ao-biz-ph b{display:block;margin-top:2px;font-size:17px;font-weight:800;color:#1e2a4a;}
 .ao-biz-list{list-style:none !important;margin:0 0 14px !important;padding:0 !important;border:1px solid #e3e9f5;border-radius:12px;overflow:hidden;}
-.ao-biz-list li{display:flex;align-items:center;gap:10px;margin:0 !important;padding:9px 12px !important;font-size:14px;font-weight:700;line-height:1.4;list-style:none !important;}
+.ao-biz-list li{display:flex;align-items:center;gap:10px;text-align:left;margin:0 !important;padding:9px 12px !important;font-size:14px;font-weight:700;line-height:1.4;list-style:none !important;}
 .ao-biz-list li:nth-child(odd){background:#f5f8fd;}
 .ao-biz-list li + li{border-top:1px solid #edf1f8;}
 .ao-biz-tick{flex:0 0 22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#f0d39a 0%,#c99a45 100%);color:#241a12;font-size:12px;font-weight:900;box-shadow:0 2px 6px rgba(185,137,63,.45);}
