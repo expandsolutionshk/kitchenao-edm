@@ -56,7 +56,7 @@ extra='''
   .ao-qp-tag,.ao-qp-toptag{display:inline-block;white-space:nowrap;text-align:center;font-size:15px;padding:7px 18px 6px;letter-spacing:1px;border-radius:20px;line-height:1.35;}
   .ao-qp-tag i,.ao-qp-toptag i{display:inline-flex;vertical-align:1px;width:20px;height:20px;font-size:11px;margin-right:4px;}
   .ao-qp-toptag b{padding:1px 6px;}
-  .ao-qp-tag small,.ao-qp-toptag small{display:block;margin:1px 0 0;padding:0;border:0;text-align:center;font-size:9px;letter-spacing:3px;}
+  .ao-qp-tag small,.ao-qp-toptag small{display:block;margin:2px 0 0;padding:0;border:0;text-align:center;font-size:15px;letter-spacing:1.5px;opacity:.75;}
   .ao-qp-box,.ao-qp-sec--top{padding-top:44px;}
   /* 系列卡（手機）：上排 icon＋標籤，下排名稱 */
   .ao-qp-series a{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"ic tag" "nm nm";align-items:center;gap:7px 8px;padding:11px 12px 12px;min-height:84px;}

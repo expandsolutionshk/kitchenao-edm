@@ -11,7 +11,9 @@ SER=[('🎃','Halloween|萬聖節狂嘩套餐','','/product-category/halloween-s
 ('🥗','「素」味人生','素食派對套餐','/product-category/party/vegetarians-set/','qp_s_veg','',''),
 ('🍖','肉食獸套餐','上將海港之選','/product-category/party/meat-monster/','qp_s_meat','',''),
 ('🧺','Chill 一下野餐盒','野餐・戶外活動','/product-category/party/chill-box/','qp_s_chill','',''),
-('🍢','手指食物拼盤','Finger Food・Platter','/product-category/party/platter/','qp_s_platter','','')]
+('🍢','手指食物拼盤','Finger Food・Platter','/product-category/party/platter/','qp_s_platter','',''),
+('🍽️','單品|À la carte','小食・主菜・甜品自由配搭','/product-category/a-la-carte/','qp_s_alacarte','',''),
+('🎉','派對用品|Party Supplies','餐具・食物架・派對配件','/product-category/party-supplies/','qp_s_supplies','','')]
 # (id, name, desc, price, regular, suffix, img, url, cls)
 TOP=[(21622,'AO 18 - 22 人 Halloween 萬聖節狂嘩套餐','期間限定・5 大狂嘩主打菜式',3758,4088,'',U+'2026/10/2026-Halloween-18-22_set-photo-600x600.jpg','/product/ao-18-22pax-halloween萬聖節狂嘩套餐/','hw'),
 (6262,'AO 12 - 16 人美食派對 Gourmet Set','人氣之選・熱食主菜',2988,2988,'',U+'2026/03/12-16_101-X-KITCHENAO-03-03-03-03-600x600.jpg','/product/ao-12-16pax-gourmet-set/',''),
@@ -26,10 +28,10 @@ def price_html(p,r,suf):
     return s
 BAT='<svg viewBox="0 0 100 44"><path d="M50 18 L53 9 L55.5 17 C62 12 78 6 97 10 C89 14 85 20 87 27 C81 22 75 22 71 29 C67 24 61 24 57.5 31 C55 29 52.5 33 50 38 C47.5 33 45 29 42.5 31 C39 24 33 24 29 29 C25 22 19 22 13 27 C15 20 11 14 3 10 C22 6 38 12 44.5 17 L47 9 Z" fill="#2a0d3d"/><circle cx="47.6" cy="20" r="1.6" fill="#FFE14D"/><circle cx="52.4" cy="20" r="1.6" fill="#FFE14D"/></svg>'
 BATS='<span class="ao-qp-bats" aria-hidden="true"><i class="b1">'+BAT+'</i><i class="b2">'+BAT+'</i><i class="b3">'+BAT+'</i></span>'
-ppl=''.join(f'<a href="{ppl_url(k)}"{dl(t)}><b>{n}<small>人</small></b><em>{d}</em></a>' for n,d,k,t in PPL)
+ppl=''.join(f'<a href="{ppl_url(k)}" target="_blank" rel="noopener"{dl(t)}><b>{n}<small>人</small></b><em>{d}</em></a>' for n,d,k,t in PPL)
 def nm(n): return n.replace('|','<span class="ao-qp-l2"> ',1)+'</span>' if '|' in n else n
-ser=''.join((f'<a class="is-hw" href="{B+u}"{dl(t)}>{BATS}<i>{e}</i><span><mark class="ao-qp-limit">{bd}</mark><b>{nm(n)}</b></span></a>' if c=="hw" else f'<a class="{"is-"+c if c else ""}" href="{B+u}"{dl(t)}><i>{e}</i><span><b>{nm(n)}</b>{f"<small>{s}</small>" if s else ""}</span>{f"<em>{bd}</em>" if bd else ""}</a>') for e,n,s,u,t,bd,c in SER)
-top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn"><span>查看詳情</span></span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
+ser=''.join((f'<a class="is-hw" href="{B+u}" target="_blank" rel="noopener"{dl(t)}>{BATS}<i>{e}</i><span><mark class="ao-qp-limit">{bd}</mark><b>{nm(n)}</b></span></a>' if c=="hw" else f'<a class="{"is-"+c if c else ""}" href="{B+u}" target="_blank" rel="noopener"{dl(t)}><i>{e}</i><span><b>{nm(n)}</b>{f"<small>{s}</small>" if s else ""}</span>{f"<em>{bd}</em>" if bd else ""}</a>') for e,n,s,u,t,bd,c in SER)
+top=''.join(f'''<a class="{"is-"+c if c else ""}" href="{B+u}" target="_blank" rel="noopener" data-pid="{pid}" data-suffix="{suf}"{dl("qp_top_"+str(pid))}><span class="ao-qp-ph"><img src="{img}" alt="{html.escape(n)}" width="600" height="600" loading="lazy" decoding="async"><span class="ao-qp-rank">TOP {i+1}</span></span><span class="ao-qp-pi"><b>{n}</b><em>{d}</em><span class="ao-qp-pr">{price_html(p,r,suf)}</span><span class="ao-qp-btn"><span>查看詳情</span></span></span></a>''' for i,(pid,n,d,p,r,suf,img,u,c) in enumerate(TOP))
 MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套餐｜Option A 黑金（Raw HTML）===== -->
 <section class="ao-qp ao-qp--a" aria-labelledby="ao-qp-title">
   <div class="ao-qp-head">
@@ -46,19 +48,6 @@ MARK=f'''<!-- ===== Kitchen AO｜/product-category/party/ 快速選擇派對套�
   <div class="ao-qp-help"><p>仍未決定選擇哪一款？</p><a href="{WA}" target="_blank" rel="noopener noreferrer"{dl('qp_whatsapp')}>WhatsApp 專人為你配搭餐單</a></div>
 </section>'''
 JS='''<script>
-(function(){
-  /* 撳掣後顯示 Loading（新分頁／WhatsApp 除外） */
-  var root=document.currentScript&&document.currentScript.previousElementSibling;
-  if(root){
-    var ov=document.createElement('div');ov.className='ao-qp-loading';ov.setAttribute('role','status');ov.innerHTML='<span></span><p>載入中，請稍候…</p>';document.body.appendChild(ov);
-    root.addEventListener('click',function(e){
-      var a=e.target.closest('a[href]');if(!a||a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return;
-      ov.classList.toggle('is-hw',a.classList.contains('is-hw'));ov.classList.add('is-on');
-      setTimeout(function(){ov.classList.remove('is-on');},10000);
-    });
-    window.addEventListener('pageshow',function(){ov.classList.remove('is-on');});
-  }
-})();
 (function(){
   /* 自動更新「本週 TOP 5 人氣推介」價錢（讀取 WooCommerce 現價；失敗則保留原價） */
   var box=document.currentScript&&document.currentScript.previousElementSibling;
@@ -186,13 +175,6 @@ CSS='''<style>
 @keyframes aoQpFlap{from{transform:scaleY(1);}to{transform:scaleY(.55) scaleX(.92);}}
 @keyframes aoQpShine{0%{left:-60%;}55%,100%{left:130%;}}
 
-/* ===== 撳掣 Loading ===== */
-.ao-qp-loading{position:fixed;inset:0;z-index:999998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(21,16,12,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;}
-.ao-qp-loading.is-on{opacity:1;visibility:visible;}
-.ao-qp-loading span{width:54px;height:54px;border-radius:50%;border:4px solid rgba(240,211,154,.25);border-top-color:#f0d39a;animation:aoQpSpin .8s linear infinite;}
-.ao-qp-loading.is-hw span{border-color:rgba(255,138,31,.25);border-top-color:#ff8a1f;}
-.ao-qp-loading p{margin:0 !important;color:#f6eddf;font-size:15px;font-weight:700;letter-spacing:1px;}
-@keyframes aoQpSpin{to{transform:rotate(360deg);}}
 
 /* ===== WhatsApp ===== */
 .ao-qp-help{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 18px;padding-top:22px;border-top:1px solid rgba(214,180,104,.22);}
