@@ -170,11 +170,11 @@ extra='''
   .ao-qp-tag small,.ao-qp-toptag small{display:block;margin:2px 0 0;padding:0;border:0;text-align:center;font-size:15px;letter-spacing:1.5px;opacity:.75;}
   .ao-qp-box,.ao-qp-sec--top{padding-top:44px;}
   /* 系列卡（手機）：上排 icon＋標籤，下排名稱 */
-  .ao-qp-series a{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"ic tag" "nm nm";align-items:center;gap:7px 8px;padding:11px 12px 12px;min-height:84px;}
+  .ao-qp-series a{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"ic tag" "nm nm" "sb sb";text-align:left;align-items:center;gap:7px 8px;padding:11px 12px 12px;min-height:84px;}
   .ao-qp-series a > i{grid-area:ic;width:32px;height:32px;flex:none;font-size:16px;}
   .ao-qp-series a > span:not(.ao-qp-bats){display:contents;}
   .ao-qp-series a > span b{grid-area:nm;font-size:13.5px;line-height:1.35;}
-  .ao-qp-series a > span small{display:none;}
+  .ao-qp-series a > span small{grid-area:sb;display:block;margin-top:-4px;font-size:11.5px;line-height:1.4;}
   .ao-qp-series a > em,.ao-qp-series a.is-hot em{grid-area:tag;position:static;justify-self:start;margin:0;padding:3px 9px;font-size:10.5px;}
   .ao-qp-limit{grid-area:tag;justify-self:start;margin:0;padding:3px 10px;font-size:11px;}
   .ao-qp-series a.is-hw b{font-size:13.5px;}
