@@ -13,7 +13,7 @@ DISH=[
 ]
 cards=''.join(f'''
 <div class="ao-menucard{' ao-menucard--hero' if n==0 else ''}">
-<div class="ph"><img loading="lazy" decoding="async" src="{UP}{img}" alt="{a}{b} — KitchenAO 2026 萬聖節到會"></div>
+<div class="ph"><img loading="lazy" decoding="async" src="{UP}{img}" alt="{a}{b} — Kitchen AO 2026 萬聖節到會"></div>
 <div class="body">{'<span class="ao-hw-bigico" aria-hidden="true">'+ic+'</span><span class="ao-hw-must">今年主打</span>' if n==0 else ''}<p class="name">{'' if n==0 else '<span class="ic">'+ic+'</span>'}<small>{a}</small>{b}</p><p class="desc">{d}</p></div>
 </div>''' for n,(img,ic,a,b,d) in enumerate(DISH))
 SETS=[('5-6','133800','ao-5-6pax',1458),('8-10','191800','ao-8-10pax',2088),('12-16','288800','ao-12-16pax',3138),('18-22','375800','ao-18-22pax',4088),('26-30','500800','ao-26-30pax',5448),('35-40','655800','ao-35-40pax',7128)]
@@ -27,7 +27,7 @@ HTML=f'''<div class="ao-article ao-hw26">
 {CSS}
 </style>
 
-<a class="ao-hw-kvlink" href="{CAT}?ao_ref=hw26_blog_kv" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_kv'}});"><img class="ao-hw-kv" src="{UP}2025-Halloween-banner-1_banner_banner-1536x717.jpg" width="1536" height="717" alt="KitchenAO Halloween 萬聖節狂嘩套餐 2026 到會" fetchpriority="high" decoding="async"></a>
+<a class="ao-hw-kvlink" href="{CAT}?ao_ref=hw26_blog_kv" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_kv'}});"><img class="ao-hw-kv" src="{UP}2025-Halloween-banner-1_banner_banner-1536x717.jpg" width="1536" height="717" alt="Kitchen AO Halloween 萬聖節狂嘩套餐 2026 到會" fetchpriority="high" decoding="async"></a>
 
 <div class="ao-hw-ticket">
 <div class="ao-hw-t1"><span class="ao-hw-dot"></span>即日接受訂購</div>
@@ -64,14 +64,14 @@ HTML=f'''<div class="ao-article ao-hw26">
 <nav class="ao-toc">
 <div class="t">目錄</div>
 <ul>
-<li><a href="#why-halloween-catering">為何選擇 KitchenAO 萬聖節到會？</a></li>
+<li><a href="#why-halloween-catering">為何選擇 Kitchen AO 萬聖節到會？</a></li>
 <li><a href="#menu-details">2026 萬聖節狂嘩套餐：5 大主打菜式</a></li>
 <li><a href="#sets">按人數揀套餐（5 至 40 人）</a></li>
 <li><a href="#faq">萬聖節到會常見問題</a></li>
 </ul>
 </nav>
 
-<h2 id="why-halloween-catering" class="ao-h2">為何選擇 KitchenAO 萬聖節派對到會？</h2>
+<h2 id="why-halloween-catering" class="ao-h2">為何選擇 Kitchen AO 萬聖節派對到會？</h2>
 <div class="ao-why">
 <ul>
 <li><b>搞鬼造型，驚喜滿分：</b>廚師團隊將經典派對食物改造成充滿萬聖節氣氛嘅「暗黑料理」，絕對係派對打卡焦點！</li>
@@ -95,7 +95,7 @@ HTML=f'''<div class="ao-article ao-hw26">
 <div class="ao-menugrid">{cards}
 </div>
 
-<p style="margin-top:22px;">套餐內亦可選配 <strong>👻 怪誕骷髏頭白菌芝士焗肉醬蝴蝶粉</strong>，以及 KitchenAO 人氣前菜、沙律同主菜，自由組合成你嘅萬聖節派對枱。</p>
+<p style="margin-top:22px;">套餐內亦可選配 <strong>👻 怪誕骷髏頭白菌芝士焗肉醬蝴蝶粉</strong>，以及 Kitchen AO 人氣前菜、沙律同主菜，自由組合成你嘅萬聖節派對枱。</p>
 
 <div class="ao-cta">{cta('hw_blog_cta_menu','menu','👻 睇全部萬聖節套餐菜式')}</div>
 
@@ -104,7 +104,7 @@ HTML=f'''<div class="ao-article ao-hw26">
 <div class="ao-hw-sets">{sets}</div>
 <p class="ao-hw-note">* 價錢為網站現時優惠價，以下單頁面顯示為準。</p>
 
-<p style="margin-top:30px;">今個萬聖節，就用 KitchenAO 嘅搞鬼派對美食，驚艷你所有嘩鬼朋友吧！🎃 <strong>送貨日期為 10 月 23 日至 11 月 1 日</strong>，萬聖節係訂單高峰期，建議盡早預訂。</p>
+<p style="margin-top:30px;">今個萬聖節，就用 Kitchen AO 嘅搞鬼派對美食，驚艷你所有嘩鬼朋友吧！🎃 <strong>送貨日期為 10 月 23 日至 11 月 1 日</strong>，萬聖節係訂單高峰期，建議盡早預訂。</p>
 
 <div class="ao-cta ao-cta--2">
 {cta('hw_blog_cta_bottom','bottom','🎃 立即預訂萬聖節套餐')}
@@ -157,10 +157,10 @@ HTML=f'''<div class="ao-article ao-hw26">
   "@type":"FAQPage",
   "mainEntity":[
     {{"@type":"Question","name":"2026 萬聖節套餐幾時送貨？應該提早幾耐預訂？","acceptedAnswer":{{"@type":"Answer","text":"萬聖節套餐送貨日期為 10 月 23 日至 11 月 1 日，即日已接受訂購。建議最少提早 7–10 日預訂；10 月 22 日前預訂可享 92 折。"}}}},
-    {{"@type":"Question","name":"KitchenAO 萬聖節套餐有咩優惠？可唔可以用優惠碼？","acceptedAnswer":{{"@type":"Answer","text":"10 月 22 日前預訂享 92 折，各區滿 $1,450 免費送遞。可使用會員優惠現金券，但其他優惠碼不適用。"}}}},
-    {{"@type":"Question","name":"KitchenAO 萬聖節到會食物會好辣嗎？適合小朋友嗎？","acceptedAnswer":{{"@type":"Answer","text":"套餐以搞鬼造型為主，口味大眾化、冇辛辣元素，非常適合有小朋友參與嘅家庭派對。"}}}},
+    {{"@type":"Question","name":"Kitchen AO 萬聖節套餐有咩優惠？可唔可以用優惠碼？","acceptedAnswer":{{"@type":"Answer","text":"10 月 22 日前預訂享 92 折，各區滿 $1,450 免費送遞。可使用會員優惠現金券，但其他優惠碼不適用。"}}}},
+    {{"@type":"Question","name":"Kitchen AO 萬聖節到會食物會好辣嗎？適合小朋友嗎？","acceptedAnswer":{{"@type":"Answer","text":"套餐以搞鬼造型為主，口味大眾化、冇辛辣元素，非常適合有小朋友參與嘅家庭派對。"}}}},
     {{"@type":"Question","name":"除咗套餐菜式，可以額外加配其他食物嗎？","acceptedAnswer":{{"@type":"Answer","text":"可以。下單頁面設有小食加配同優惠價加配，亦可於常規到會餐單自由選配其他食物。"}}}},
-    {{"@type":"Question","name":"KitchenAO 的萬聖節到會送貨覆蓋哪些地區？","acceptedAnswer":{{"@type":"Answer","text":"到會服務覆蓋全港九新界大部分地區（偏遠地區及離島除外），下單時提供地址即可查詢詳情及運費。"}}}}
+    {{"@type":"Question","name":"Kitchen AO 的萬聖節到會送貨覆蓋哪些地區？","acceptedAnswer":{{"@type":"Answer","text":"到會服務覆蓋全港九新界大部分地區（偏遠地區及離島除外），下單時提供地址即可查詢詳情及運費。"}}}}
   ]
 }}
 </script>
