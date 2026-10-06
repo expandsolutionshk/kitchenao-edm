@@ -312,7 +312,7 @@ textarea{width:100%;box-sizing:border-box;height:110px;background:#0f0b15;color:
   var sec=document.querySelector(&#x27;.ao-qp&#x27;);
   if(&#x27;IntersectionObserver&#x27; in window&amp;&amp;sec){
     var areaGone=false,secIn=false,helpIn=false;
-    function upd(){var f=areaGone&amp;&amp;secIn&amp;&amp;!helpIn,was=biz.classList.contains(&#x27;is-float&#x27;);if(f!==was)set(false);biz.classList.toggle(&#x27;is-float&#x27;,f);}
+    var upd=function(){var f=areaGone&amp;&amp;secIn&amp;&amp;!helpIn,was=biz.classList.contains(&#x27;is-float&#x27;);if(f!==was)set(false);biz.classList.toggle(&#x27;is-float&#x27;,f);};
     var help=sec.querySelector(&#x27;.ao-qp-help&#x27;);if(help)new IntersectionObserver(function(en){helpIn=en[0].isIntersecting;upd();}).observe(help);
     new IntersectionObserver(function(en){var e=en[0];areaGone=!e.isIntersecting&amp;&amp;e.boundingClientRect.top&lt;0;upd();}).observe(biz);
     new IntersectionObserver(function(en){secIn=en[0].isIntersecting;upd();},{rootMargin:&#x27;0px 0px -120px 0px&#x27;}).observe(sec);
