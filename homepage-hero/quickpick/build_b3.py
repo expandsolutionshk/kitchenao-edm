@@ -20,7 +20,109 @@ b=b.replace(old_head,f'''  <div class="ao-qp-head ao-qp-head--photo" style="back
 b=b.replace('<i>1</i>👥 按人數選擇</span>','<i>1</i>👥 按人數選擇<small>BY GUESTS</small></span>')
 b=b.replace('<i>2</i>🍽️ 按系列選擇</span>','<i>2</i>🍽️ 按系列選擇<small>OUR MENU</small></span>')
 b=b.replace('<i>3</i>🔥 本週 <b>TOP 5</b> 人氣推介</span>','<i>3</i>🔥 本週 <b>TOP 5</b> 人氣推介<small>CHEF\'S PICKS</small></span>')
+
+# ===== 商務到會 TIPS 區（按人數選擇 與 按系列選擇 之間）=====
+LOGO='https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png'
+ITEMS=[('🍱','商務飯盒'),('🤝','Team Building'),('🥂','酒會 Finger Food 及 Canapé'),('🎀','簡易開張套餐'),('🎪','Event 活動'),('🏆','Annual Dinner'),('🍸','Cocktail 服務（Free Flow、Cocktail Bar）'),('🤵','服務生安排'),('📝','訂製食譜 Customised Recipe')]
+rows=''.join(f'<li><span class="ao-biz-tick">✓</span><span class="ao-biz-ic">{e}</span><span>{t}</span></li>' for e,t in ITEMS)
+BIZ=f"""<div class="ao-biz" data-biz>
+    <div class="ao-biz-wrap">
+      <button type="button" class="ao-biz-btn" aria-expanded="false" aria-controls="ao-biz-panel"><span class="ao-biz-bi">💼</span><span class="ao-biz-tx">商務到會 TIPS</span><span class="ao-biz-car">▾</span></button>
+      <div class="ao-biz-panel" id="ao-biz-panel" role="region" aria-label="商務到會服務">
+        <div class="ao-biz-ph"><span>FOR BUSINESS</span><b>企業及商務到會服務</b></div>
+        <ul class="ao-biz-list">{rows}</ul>
+        <a class="ao-biz-wa" href="https://api.whatsapp.com/send?phone=85269011987" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'qp_biz_whatsapp'}});">WhatsApp 聯絡企業客戶專員</a>
+      </div>
+    </div>
+    <div class="ao-biz-cursor" aria-hidden="true"><span class="ao-biz-logo"><img src="{LOGO}" alt="" width="194" height="121"></span><span>We Serve, We WOW</span></div>
+  </div>
+  """
+b=b.replace('<div class="ao-qp-sec ao-qp-box ao-qp-box--ser">',BIZ+'<div class="ao-qp-sec ao-qp-box ao-qp-box--ser">',1)
+assert 'data-biz' in b
+BIZJS="""<script>
+(function(){
+  /* 商務到會 TIPS：mouse over 展開、手機撳一下展開；自訂滑鼠游標 */
+  var biz=document.querySelector('.ao-qp [data-biz]');if(!biz)return;
+  var wrap=biz.querySelector('.ao-biz-wrap'),btn=biz.querySelector('.ao-biz-btn'),cur=biz.querySelector('.ao-biz-cursor');
+  function set(o){biz.classList.toggle('is-open',o);btn.setAttribute('aria-expanded',o?'true':'false');}
+  var fine=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(fine){
+    wrap.addEventListener('mouseenter',function(){set(true);});
+    wrap.addEventListener('mouseleave',function(){set(false);});
+    biz.addEventListener('mousemove',function(e){var r=biz.getBoundingClientRect();cur.style.transform='translate('+(e.clientX-r.left)+'px,'+(e.clientY-r.top)+'px)';biz.classList.add('has-cursor');});
+    biz.addEventListener('mouseleave',function(){biz.classList.remove('has-cursor');});
+  }
+  btn.addEventListener('click',function(){set(!biz.classList.contains('is-open'));if(biz.classList.contains('is-open')){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',cta_label:'qp_biz_open'});}});
+  document.addEventListener('click',function(e){if(!biz.contains(e.target))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  /* 捲過此區後：按鈕變成浮動 icon（只喺快選區域範圍內顯示） */
+  var sec=document.querySelector('.ao-qp');
+  if('IntersectionObserver' in window&&sec){
+    var areaGone=false,secIn=false;
+    function upd(){biz.classList.toggle('is-float',areaGone&&secIn);if(!(areaGone&&secIn))set(false);}
+    new IntersectionObserver(function(en){var e=en[0];areaGone=!e.isIntersecting&&e.boundingClientRect.top<0;upd();}).observe(biz);
+    new IntersectionObserver(function(en){secIn=en[0].isIntersecting;upd();},{rootMargin:'0px 0px -120px 0px'}).observe(sec);
+  }
+})();
+</script>"""
+b=b.replace('</script>','</script>\n'+BIZJS,1)
+
 extra='''
+
+/* ===== 商務到會 TIPS ===== */
+.ao-biz{position:relative;z-index:20;display:flex;align-items:center;justify-content:center;min-height:80px;margin:8px -36px 0;padding:15px 20px;background:linear-gradient(90deg,rgba(30,42,74,0) 0%,rgba(30,42,74,.55) 20%,rgba(30,42,74,.55) 80%,rgba(30,42,74,0) 100%);border-top:1px solid rgba(120,150,210,.25);border-bottom:1px solid rgba(120,150,210,.25);}
+.ao-biz.has-cursor,.ao-biz.has-cursor *{cursor:none !important;}
+.ao-biz-wrap{position:relative;}
+.ao-biz-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px 0 10px;border:0;border-radius:999px;background:linear-gradient(135deg,#2c4a86 0%,#1e2a4a 100%);color:#fff;font:inherit;font-size:17px;font-weight:800;letter-spacing:2px;cursor:pointer;box-shadow:0 10px 24px rgba(10,20,50,.55),0 0 0 2px rgba(140,170,230,.35);animation:aoBizFloat 3s ease-in-out infinite;}
+.ao-biz-bi{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;font-size:17px;}
+.ao-biz-car{font-size:12px;transition:transform .25s ease;opacity:.85;}
+.ao-biz.is-open .ao-biz-car{transform:rotate(180deg);}
+.ao-biz.is-open .ao-biz-btn{animation:none;}
+@keyframes aoBizFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.ao-biz-panel{position:absolute;left:50%;top:calc(100% + 12px);width:min(420px,88vw);padding:18px 18px 16px;border-radius:16px;background:#fff;color:#1e2a4a;box-shadow:0 24px 50px rgba(0,0,0,.45);transform:translate(-50%,-8px);opacity:0;visibility:hidden;transition:opacity .22s ease,transform .22s ease,visibility .22s;}
+.ao-biz-panel::before{content:"";position:absolute;left:50%;top:-14px;width:100%;height:14px;transform:translateX(-50%);}
+.ao-biz-panel::after{content:"";position:absolute;left:50%;top:-7px;width:14px;height:14px;background:#fff;transform:translateX(-50%) rotate(45deg);border-radius:2px;}
+.ao-biz.is-open .ao-biz-panel{opacity:1;visibility:visible;transform:translate(-50%,0);}
+.ao-biz-ph{margin:0 0 12px;padding:0 0 10px;border-bottom:2px solid #e3e9f5;text-align:center;}
+.ao-biz-ph span{display:block;font-size:10.5px;font-weight:800;letter-spacing:3px;color:#5b77b3;}
+.ao-biz-ph b{display:block;margin-top:2px;font-size:17px;font-weight:800;color:#1e2a4a;}
+.ao-biz-list{list-style:none !important;margin:0 0 14px !important;padding:0 !important;border:1px solid #e3e9f5;border-radius:12px;overflow:hidden;}
+.ao-biz-list li{display:flex;align-items:center;gap:10px;margin:0 !important;padding:9px 12px !important;font-size:14px;font-weight:700;line-height:1.4;list-style:none !important;}
+.ao-biz-list li:nth-child(odd){background:#f5f8fd;}
+.ao-biz-list li + li{border-top:1px solid #edf1f8;}
+.ao-biz-tick{flex:0 0 22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#f0d39a 0%,#c99a45 100%);color:#241a12;font-size:12px;font-weight:900;box-shadow:0 2px 6px rgba(185,137,63,.45);}
+.ao-biz-ic{flex:0 0 22px;text-align:center;font-size:16px;}
+.ao-biz-wa{display:block;padding:13px 16px;border-radius:999px;background:linear-gradient(135deg,#e3c482,#b8893f);color:#1d150f !important;text-align:center;font-size:15px;font-weight:800;line-height:1.2;letter-spacing:1px;box-shadow:0 8px 18px rgba(185,137,63,.35);transition:filter .2s ease;}
+.ao-biz-wa:hover{filter:brightness(1.08);}
+/* 自訂游標：AO logo + We Serve, We WOW */
+.ao-biz-cursor{position:absolute;left:0;top:0;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:#1e2a4a;color:#fff;font-size:14px;font-weight:800;white-space:nowrap;pointer-events:none;opacity:0;margin:8px 0 0 8px;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:opacity .15s ease;}
+.ao-biz-cursor::before{content:"";position:absolute;left:4px;top:-6px;border:6px solid transparent;border-bottom-color:#1e2a4a;border-left-color:#1e2a4a;}
+.ao-biz.has-cursor .ao-biz-cursor{opacity:1;}
+.ao-biz-logo{display:inline-block;width:52px;height:30px;border-radius:999px;background:#fff;position:relative;overflow:hidden;}
+.ao-biz-logo img{position:absolute;left:50%;top:5px;width:59px !important;height:auto !important;max-width:none !important;margin-left:-29.5px;clip-path:inset(0 0 41% 0);}
+.ao-biz-wrap .ao-biz-panel, .ao-biz-wrap .ao-biz-btn{position:relative;}
+.ao-biz-wrap .ao-biz-panel{position:absolute;}
+
+/* 浮動 icon 模式 */
+.ao-biz.is-float .ao-biz-wrap{position:fixed;left:18px;bottom:96px;z-index:99990;animation:aoBizIn .3s ease;}
+.ao-biz.is-float .ao-biz-btn{width:58px;height:58px;padding:0;justify-content:center;border-radius:50%;animation:aoBizPulse 2.4s ease-in-out infinite;}
+.ao-biz.is-float .ao-biz-tx,.ao-biz.is-float .ao-biz-car{display:none;}
+.ao-biz.is-float .ao-biz-bi{width:42px;height:42px;font-size:21px;}
+.ao-biz.is-float .ao-biz-btn::after{content:"商務到會";position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);padding:6px 12px;border-radius:999px;background:#1e2a4a;color:#fff;font-size:13px;font-weight:800;letter-spacing:1px;white-space:nowrap;box-shadow:0 6px 14px rgba(0,0,0,.35);}
+.ao-biz.is-float .ao-biz-panel{left:0;top:auto;bottom:calc(100% + 14px);transform:translate(0,8px);}
+.ao-biz.is-float.is-open .ao-biz-panel{transform:translate(0,0);}
+.ao-biz.is-float .ao-biz-panel::after{left:28px;top:auto;bottom:-7px;}
+.ao-biz.is-float .ao-biz-panel::before{top:auto;bottom:-14px;}
+@keyframes aoBizIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+@keyframes aoBizPulse{0%,100%{box-shadow:0 10px 24px rgba(10,20,50,.55),0 0 0 2px rgba(140,170,230,.35);}50%{box-shadow:0 10px 24px rgba(10,20,50,.55),0 0 0 9px rgba(140,170,230,0);}}
+@media (max-width:640px){
+  .ao-biz.is-float .ao-biz-wrap{left:12px;bottom:84px;}
+  .ao-biz{margin:6px -14px 0;min-height:76px;padding:13px 12px;}
+  .ao-biz-btn{height:48px;font-size:15px;letter-spacing:1px;padding-right:20px;}
+  .ao-biz-cursor{display:none;}
+  .ao-biz-list li{font-size:13.5px;padding:8px 10px !important;}
+}
+@media (prefers-reduced-motion:reduce){.ao-biz-btn{animation:none;}}
 /* ===== Option B 微調：餐廳質感（參考 Dina / Steak In / Black Truffle） ===== */
 .ao-qp{padding:0 36px 34px;overflow:hidden;background:#1d150f radial-gradient(120% 90% at 50% 0%,#2e2219 0%,#1d150f 60%,#140e0a 100%);box-shadow:inset 0 0 0 1px rgba(214,180,104,.3),0 30px 60px rgba(20,12,6,.25);border-radius:20px;}
 .ao-qp-head--photo{margin:0 -36px 34px;padding:58px 24px 34px;background-size:cover;background-position:center 40%;}
