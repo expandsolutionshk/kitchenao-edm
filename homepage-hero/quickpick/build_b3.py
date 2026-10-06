@@ -29,9 +29,11 @@ BIZ=f"""<div class="ao-biz" data-biz>
     <div class="ao-biz-wrap">
       <button type="button" class="ao-biz-btn" aria-expanded="false" aria-controls="ao-biz-panel"><span class="ao-biz-bi">💼</span><span class="ao-biz-tx">商務到會 TIPS</span><span class="ao-biz-car">▾</span></button>
       <div class="ao-biz-panel" id="ao-biz-panel" role="region" aria-label="商務到會服務">
+        <button type="button" class="ao-biz-x" aria-label="關閉">×</button>
         <div class="ao-biz-ph"><span>FOR BUSINESS</span><b>企業及商務到會服務</b></div>
         <ul class="ao-biz-list">{rows}</ul>
         <a class="ao-biz-wa" href="https://api.whatsapp.com/send?phone=85269011987" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'qp_biz_whatsapp'}});">WhatsApp 聯絡企業客戶專員</a>
+        <a class="ao-biz-more" href="https://aoaodelivery.com/business-event/" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'qp_biz_intro'}});">商務活動簡介</a>
       </div>
     </div>
     <div class="ao-biz-cursor" aria-hidden="true"><span class="ao-biz-logo"><img src="{LOGO}" alt="" width="194" height="121"></span><span>We Serve, We WOW</span></div>
@@ -52,6 +54,7 @@ BIZJS="""<script>
     biz.addEventListener('mousemove',function(e){var r=biz.getBoundingClientRect();cur.style.transform='translate('+(e.clientX-r.left)+'px,'+(e.clientY-r.top)+'px)';biz.classList.add('has-cursor');});
     biz.addEventListener('mouseleave',function(){biz.classList.remove('has-cursor');});
   }
+  biz.querySelector('.ao-biz-x').addEventListener('click',function(e){e.stopPropagation();set(false);btn.blur();});
   btn.addEventListener('click',function(){set(!biz.classList.contains('is-open'));if(biz.classList.contains('is-open')){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',cta_label:'qp_biz_open'});}});
   document.addEventListener('click',function(e){if(!biz.contains(e.target))set(false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
@@ -73,17 +76,19 @@ extra='''
 .ao-biz{position:relative;z-index:20;display:flex;align-items:center;justify-content:center;min-height:80px;margin:8px -36px 0;padding:15px 20px;background:linear-gradient(90deg,rgba(30,42,74,0) 0%,rgba(30,42,74,.55) 20%,rgba(30,42,74,.55) 80%,rgba(30,42,74,0) 100%);border-top:1px solid rgba(120,150,210,.25);border-bottom:1px solid rgba(120,150,210,.25);}
 .ao-biz.has-cursor,.ao-biz.has-cursor *{cursor:none !important;}
 .ao-biz-wrap{position:relative;}
-.ao-biz-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px 0 10px;border:0;border-radius:999px;background:linear-gradient(135deg,#2c4a86 0%,#1e2a4a 100%);color:#fff;font:inherit;font-size:17px;font-weight:800;letter-spacing:2px;cursor:pointer;box-shadow:0 10px 24px rgba(10,20,50,.55),0 0 0 2px rgba(140,170,230,.35);animation:aoBizFloat 3s ease-in-out infinite;}
+.ao-biz-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px 0 10px;border:0;border-radius:999px;background:linear-gradient(135deg,#2c4a86 0%,#1e2a4a 100%);color:#fff;font:inherit;font-size:17px;font-weight:800;letter-spacing:2px;cursor:pointer;box-shadow:0 10px 24px rgba(10,20,50,.55),0 0 0 2px rgba(140,170,230,.35);animation:aoBizFloat 1.3s ease-in-out infinite;}
 .ao-biz-bi{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;font-size:17px;}
 .ao-biz-car{font-size:12px;transition:transform .25s ease;opacity:.85;}
 .ao-biz.is-open .ao-biz-car{transform:rotate(180deg);}
 .ao-biz.is-open .ao-biz-btn{animation:none;}
-@keyframes aoBizFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+@keyframes aoBizFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 .ao-biz-panel{position:absolute;left:50%;top:calc(100% + 12px);width:min(420px,88vw);padding:18px 18px 16px;border-radius:16px;background:#fff;color:#1e2a4a;box-shadow:0 24px 50px rgba(0,0,0,.45);transform:translate(-50%,-8px);opacity:0;visibility:hidden;transition:opacity .22s ease,transform .22s ease,visibility .22s;}
 .ao-biz-panel::before{content:"";position:absolute;left:50%;top:-14px;width:100%;height:14px;transform:translateX(-50%);}
 .ao-biz-panel::after{content:"";position:absolute;left:50%;top:-7px;width:14px;height:14px;background:#fff;transform:translateX(-50%) rotate(45deg);border-radius:2px;}
 .ao-biz.is-open .ao-biz-panel{opacity:1;visibility:visible;transform:translate(-50%,0);}
-.ao-biz-ph{margin:0 0 12px;padding:0 0 10px;border-bottom:2px solid #e3e9f5;text-align:center;}
+.ao-biz-x{position:absolute;top:10px;right:10px;z-index:2;width:32px;height:32px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:50%;background:#1e2a4a;color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.25);transition:background .2s ease,transform .2s ease;}
+.ao-biz-x:hover{background:#b8893f;transform:rotate(90deg);}
+.ao-biz-ph{margin:0 0 12px;padding-right:30px;padding-left:30px;padding:0 0 10px;border-bottom:2px solid #e3e9f5;text-align:center;}
 .ao-biz-ph span{display:block;font-size:10.5px;font-weight:800;letter-spacing:3px;color:#5b77b3;}
 .ao-biz-ph b{display:block;margin-top:2px;font-size:17px;font-weight:800;color:#1e2a4a;}
 .ao-biz-list{list-style:none !important;margin:0 0 14px !important;padding:0 !important;border:1px solid #e3e9f5;border-radius:12px;overflow:hidden;}
@@ -94,6 +99,8 @@ extra='''
 .ao-biz-ic{flex:0 0 22px;text-align:center;font-size:16px;}
 .ao-biz-wa{display:block;padding:13px 16px;border-radius:999px;background:linear-gradient(135deg,#e3c482,#b8893f);color:#1d150f !important;text-align:center;font-size:15px;font-weight:800;line-height:1.2;letter-spacing:1px;box-shadow:0 8px 18px rgba(185,137,63,.35);transition:filter .2s ease;}
 .ao-biz-wa:hover{filter:brightness(1.08);}
+.ao-biz-more{display:block;margin-top:8px;padding:11px 16px;border-radius:999px;border:1.5px solid #1e2a4a;background:#fff;color:#1e2a4a !important;text-align:center;font-size:14.5px;font-weight:800;line-height:1.2;letter-spacing:1px;transition:background .2s ease,color .2s ease;}
+.ao-biz-more:hover{background:#1e2a4a;color:#fff !important;}
 /* 自訂游標：AO logo + We Serve, We WOW */
 .ao-biz-cursor{position:absolute;left:0;top:0;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:#1e2a4a;color:#fff;font-size:14px;font-weight:800;white-space:nowrap;pointer-events:none;opacity:0;margin:8px 0 0 8px;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:opacity .15s ease;}
 .ao-biz-cursor::before{content:"";position:absolute;left:4px;top:-6px;border:6px solid transparent;border-bottom-color:#1e2a4a;border-left-color:#1e2a4a;}
@@ -105,7 +112,7 @@ extra='''
 
 /* 浮動 icon 模式 */
 .ao-biz.is-float .ao-biz-wrap{position:fixed;left:18px;bottom:96px;z-index:99990;animation:aoBizIn .3s ease;}
-.ao-biz.is-float .ao-biz-btn{width:58px;height:58px;padding:0;justify-content:center;border-radius:50%;animation:aoBizPulse 2.4s ease-in-out infinite;}
+.ao-biz.is-float .ao-biz-btn{width:58px;height:58px;padding:0;justify-content:center;border-radius:50%;animation:aoBizPulse 1.3s ease-in-out infinite;}
 .ao-biz.is-float .ao-biz-tx,.ao-biz.is-float .ao-biz-car{display:none;}
 .ao-biz.is-float .ao-biz-bi{width:42px;height:42px;font-size:21px;}
 .ao-biz.is-float .ao-biz-btn::after{content:"商務到會";position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);padding:6px 12px;border-radius:999px;background:#1e2a4a;color:#fff;font-size:13px;font-weight:800;letter-spacing:1px;white-space:nowrap;box-shadow:0 6px 14px rgba(0,0,0,.35);}
