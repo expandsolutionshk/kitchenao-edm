@@ -68,15 +68,15 @@
 })();
 
   })();
-  /* SEO 文字：分類「內容說明」嘅文字移到產品列表下面，唔阻客人用 filter 同 search */
+  /* SEO 引導文字：分類「內容說明」嘅文字放喺快選區塊下面、price range／產品上面，做成細引導條 */
   (function(){
     var tdesc=document.querySelector('.term-description');if(!tdesc)return;
     var nodes=[].filter.call(tdesc.childNodes,function(n){return !(n.nodeType===1&&n.classList&&n.classList.contains('ao-qp'))&&(n.textContent||'').replace(/\s+/g,'')!=='';});
     if(!nodes.length)return;
-    var list=document.querySelector('.woocommerce-pagination')||document.querySelector('ul.products');if(!list||!list.parentNode)return;
     var box=document.createElement('div');box.className='ao-cat-seo';
     nodes.forEach(function(n){box.appendChild(n);});
-    list.parentNode.insertBefore(box,list.nextSibling);
-    var cs=document.createElement('style');cs.textContent='.ao-cat-seo{clear:both;max-width:1180px;margin:28px auto 8px;padding:16px 20px;border-top:1px solid #e8dfd0;color:#8a7b6e;font-size:13.5px;line-height:1.8;} .ao-cat-seo p{margin:0 0 6px !important;}';document.head.appendChild(cs);
+    var qp=tdesc.querySelector('.ao-qp');
+    if(qp&&qp.nextSibling){tdesc.insertBefore(box,qp.nextSibling);}else{tdesc.appendChild(box);}
+    var cs=document.createElement('style');cs.textContent='.ao-cat-seo{max-width:1180px;margin:-12px auto 26px;padding:14px 20px 14px 52px;position:relative;border:1px solid #eadfcb;border-left:4px solid #c9a45c;border-radius:12px;background:#fbf7f0;color:#5d534d;font-size:14px;line-height:1.75;text-align:left;} .ao-cat-seo::before{content:"↓";position:absolute;left:16px;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;background:#c9a45c;color:#fff;font-size:14px;font-weight:800;line-height:24px;text-align:center;animation:aoSeoBob 1.6s ease-in-out infinite;} .ao-cat-seo p{margin:0 !important;} .ao-cat-seo strong,.ao-cat-seo b{color:#7d5b27;} @keyframes aoSeoBob{0%,100%{transform:translateY(0);}50%{transform:translateY(3px);}} @media (max-width:640px){.ao-cat-seo{margin:-8px 0 20px;padding:12px 14px 12px 46px;font-size:13px;} .ao-cat-seo::before{left:12px;}} @media (prefers-reduced-motion:reduce){.ao-cat-seo::before{animation:none;}}';document.head.appendChild(cs);
   })();
 })();
