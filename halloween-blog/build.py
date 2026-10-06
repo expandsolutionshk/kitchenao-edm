@@ -82,6 +82,14 @@ HTML=f'''<div class="ao-article ao-hw26">
 <h2 id="menu-details" class="ao-h2">🎃 2026 萬聖節狂嘩套餐：5 大主打菜式</h2>
 <p>今年 5 款萬聖節限定菜式，造型搞鬼、味道認真。每個套餐可按人數揀選前菜、沙律、意粉／意大利飯同主菜，再配搭以下主打菜式：</p>
 
+<ul class="ao-hw-menu">
+<li><span class="ao-hw-ico">👁️</span><span><small>惡魔的眼睛</small><b>開心果醬荔枝藍苺酥盒</b></span></li>
+<li><span class="ao-hw-ico">💉</span><span><small>血淋淋科學怪人</small><b>香濃蕃茄手指腸仔</b></span></li>
+<li><span class="ao-hw-ico">👻</span><span><small>萬聖節</small><b>迷你芝士手打牛肉漢堡</b></span></li>
+<li><span class="ao-hw-ico">🦇</span><span><small>小蝙蝠</small><b>墨汁雞全翼</b></span></li>
+<li><span class="ao-hw-ico">🎃</span><span><small>哈囉喂</small><b>日本南瓜海鮮意大利飯（原個直送）</b></span></li>
+</ul>
+
 <div class="ao-menugrid">{cards}
 </div>
 
