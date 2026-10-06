@@ -16,9 +16,10 @@ cards=''.join(f'''
 <div class="ph"><img loading="lazy" decoding="async" src="{UP}{img}" alt="{a}{b} — KitchenAO 2026 萬聖節到會"></div>
 <div class="body">{'<span class="ao-hw-bigico" aria-hidden="true">'+ic+'</span><span class="ao-hw-must">今年主打</span>' if n==0 else ''}<p class="name">{'' if n==0 else '<span class="ic">'+ic+'</span>'}<small>{a}</small>{b}</p><p class="desc">{d}</p></div>
 </div>''' for n,(img,ic,a,b,d) in enumerate(DISH))
-SETS=[('5-6','133800','ao-5-6pax'),('8-10','191800','ao-8-10pax'),('12-16','288800','ao-12-16pax'),('18-22','375800','ao-18-22pax'),('26-30','500800','ao-26-30pax'),('35-40','655800','ao-35-40pax')]
+SETS=[('5-6','133800','ao-5-6pax',1458),('8-10','191800','ao-8-10pax',2088),('12-16','288800','ao-12-16pax',3138),('18-22','375800','ao-18-22pax',4088),('26-30','500800','ao-26-30pax',5448),('35-40','655800','ao-35-40pax',7128)]
+SFX={'35-40':''}
 SLUG='-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/'
-sets=''.join(f'<a class="ao-hw-set" href="https://aoaodelivery.com/product/{s}{SLUG}?ao_ref=hw26_blog_set{p.replace("-","_")}" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:\'cta_click\',cta_label:\'hw_blog_set_{p}\'}});"><b>{p}<small>人</small></b><span>${int(pr)//100:,}</span><i>查看 →</i></a>' for p,pr,s in SETS)
+sets=''.join(f'<a class="ao-hw-set" href="https://aoaodelivery.com/product/{s}{SLUG}?ao_ref=hw26_blog_set{p.replace("-","_")}" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:\'cta_click\',cta_label:\'hw_blog_set_{p}\'}});"><span class="ph"><img loading="lazy" decoding="async" src="{UP}2026-Halloween-{p}{SFX.get(p,"_set-photo")}-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 {p} 人"></span><span class="tx"><b>{p}<small>人</small></b><span class="pr"><del>${rp:,}<sup>.00</sup></del> <ins>${int(pr)//100:,}<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a>' for p,pr,s,rp in SETS)
 
 CSS=open('style.css').read()
 HTML=f'''<div class="ao-article ao-hw26">
@@ -34,8 +35,9 @@ HTML=f'''<div class="ao-article ao-hw26">
 </div>
 
 <div class="ao-introcard">
+<span class="ao-hw-badge" aria-hidden="true">🎃</span>
 <p class="ao-q">🎃 想搞一場全場尖叫嘅萬聖節派對？</p>
-<p class="ao-intro">「Trick or Treat！」KitchenAO <strong>2026 年 Halloween 萬聖節狂嘩套餐</strong>正式登場！今年推出 <strong>5 款全新搞鬼主打菜式</strong>，由「惡魔的眼睛」酥盒到原個日本南瓜海鮮意大利飯，<strong>5 人至 40 人</strong>都有合適套餐，全港送遞，屋企派對、朋友聚會、公司 Halloween Party 一樣咁啱。</p>
+<p class="ao-intro">「Trick or Treat！」Kitchen AO <strong>2026 年 Halloween 萬聖節狂嘩套餐</strong>正式登場！今年推出 <strong>5 款全新搞鬼主打菜式</strong>，由「惡魔的眼睛」酥盒到原個日本南瓜海鮮意大利飯，<strong>5 人至 40 人</strong>都有合適套餐，全港送遞，屋企派對、朋友聚會、公司 Halloween Party 一樣咁啱。</p>
 </div>
 
 <div class="ao-hw-terms">

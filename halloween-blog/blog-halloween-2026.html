@@ -23,9 +23,12 @@
 .ao-q{font-size:20px;font-weight:800;color:#1A1A1A;margin:0 0 8px;}
 .ao-intro{font-size:17px;color:#4A4238;margin:0 0 16px;}
 .ao-introcard{position:relative;margin:30px 0 22px;padding:30px 30px 26px;border:3px solid transparent;border-radius:22px;background:linear-gradient(#fffaf5,#fffaf5) padding-box,linear-gradient(135deg,#FFB347 0%,#FF7A1A 35%,#FF5A00 65%,#FFB347 100%) border-box;box-shadow:0 0 0 6px #fff,0 0 0 8px rgba(255,122,26,.25),0 12px 30px rgba(255,90,0,.15);}
-.ao-introcard::before{content:"";position:absolute;inset:8px;border:1.5px dashed rgba(255,122,26,.45);border-radius:15px;pointer-events:none;}
-.ao-introcard::after{content:"🎃";position:absolute;top:-24px;right:22px;width:46px;height:46px;border-radius:50%;background:#1c1426;border:3px solid #FF7A1A;font-size:24px;line-height:40px;text-align:center;box-shadow:0 6px 14px rgba(255,90,0,.35);animation:aoHwSwing 2.6s ease-in-out infinite;transform-origin:50% 0;}
+.ao-hw-badge{position:absolute;top:-24px;right:22px;z-index:2;display:block;width:46px;height:46px;border-radius:50%;background:#1c1426;border:3px solid #FF7A1A;box-sizing:border-box;font-size:24px;line-height:40px;text-align:center;cursor:default;box-shadow:0 6px 14px rgba(255,90,0,.35);animation:aoHwSwing 2.6s ease-in-out infinite;transform-origin:50% 0;transition:width .35s ease,height .35s ease,top .35s ease,right .35s ease,font-size .35s ease,line-height .35s ease,background-color .3s ease,border-color .3s ease,box-shadow .3s ease;}
 @keyframes aoHwSwing{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+@media (hover:hover) and (min-width:601px){
+.ao-hw-badge:hover{top:-62px;right:0;width:100px;height:100px;font-size:100px;line-height:100px;background-color:transparent;border-color:transparent;box-shadow:none;transform-origin:50% 50%;animation:aoHwFloat 3s ease-in-out infinite;filter:drop-shadow(0 10px 18px rgba(255,90,0,.35));}
+}
+.ao-article .ao-hw-badge img.emoji{width:1em!important;height:1em!important;margin:0!important;vertical-align:middle;}
 .ao-introcard .ao-q{position:relative;}
 .ao-introcard .ao-q{margin-top:0;}.ao-introcard .ao-intro{margin-bottom:0;}
 .ao-hw-terms{background:#1c1426;border-radius:16px;padding:18px 22px;margin:0 0 22px;color:#EDE3F7;}
@@ -80,11 +83,18 @@
 .ao-hw-menu b{display:block;color:#FFB347;font-size:21px;font-weight:800;line-height:1.35;}
 /* 人數套餐 */
 .ao-hw-sets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 8px;}
-.ao-article a.ao-hw-set{display:flex;flex-direction:column;align-items:center;gap:2px;padding:16px 10px;border-radius:14px;background:linear-gradient(180deg,#2c1f3b,#1c1426);border:1.5px solid #4a3463;color:#fff!important;text-decoration:none!important;text-align:center;transition:all .2s ease;}
-.ao-article a.ao-hw-set:hover{border-color:#FF7A1A;transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,90,0,.25);}
+.ao-article a.ao-hw-set{display:flex;flex-direction:column;overflow:hidden;padding:0;border-radius:16px;background:linear-gradient(180deg,#2c1f3b,#1c1426);border:1.5px solid #4a3463;color:#fff!important;text-decoration:none!important;text-align:center;transition:all .2s ease;}
+.ao-article a.ao-hw-set:hover{border-color:#FF7A1A;transform:translateY(-3px);box-shadow:0 10px 24px rgba(255,90,0,.28);}
+.ao-hw-set .ph{position:relative;display:block;overflow:hidden;aspect-ratio:1/1;line-height:0;background:#1c1426;}
+.ao-article .ao-hw-set .ph img{position:absolute;top:-1.5%;left:-1.5%;width:103%!important;max-width:none!important;height:103%!important;object-fit:cover;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transition:transform .35s ease;}
+.ao-article a.ao-hw-set:hover .ph img{transform:scale(1.05);}
+.ao-hw-set .tx{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 8px 14px;}
 .ao-hw-set b{font-size:24px;font-weight:900;line-height:1.2;color:#fff;}
 .ao-hw-set b small{margin-left:3px;font-size:13px;color:#b9a6d1;}
-.ao-hw-set span{color:#FFB347;font-size:17px;font-weight:800;}
+.ao-hw-set .pr{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:2px 8px;font-weight:800;line-height:1.3;}
+.ao-hw-set .pr del{color:#9d8fb0;font-size:14px;text-decoration:line-through;text-decoration-thickness:2px;}
+.ao-hw-set .pr ins{color:#FFB347;font-size:19px;text-decoration:none;background:none;}
+.ao-hw-set .pr sup{font-size:.6em;vertical-align:.55em;margin-left:1px;}
 .ao-hw-set i{margin-top:4px;font-style:normal;font-size:12.5px;color:#FF8A1F;font-weight:700;}
 .ao-hw-note{font-size:13px!important;color:#8a7f95;}
 /* CTA：同 pop up 一樣（反光 + 搖動 + 蝙蝠） */
@@ -129,7 +139,7 @@
 .ao-related a{display:block;padding:9px 0;color:#6a2a92!important;font-weight:600;text-decoration:none;border-top:1px dashed #E1D2EE;}
 .ao-related a:first-of-type{border-top:0;}
 .ao-related a:hover{color:#E2600A!important;}
-@media(prefers-reduced-motion:reduce){.ao-hw-bats{display:none;}.ao-hw-bigico,.ao-introcard::after{animation:none!important;}.ao-article a.ao-hw-cta,.ao-article a.ao-hw-cta::after,.ao-hw-dot{animation:none;}}
+@media(prefers-reduced-motion:reduce){.ao-hw-bats{display:none;}.ao-hw-bigico,.ao-hw-badge{animation:none!important;}.ao-article a.ao-hw-cta,.ao-article a.ao-hw-cta::after,.ao-hw-dot{animation:none;}}
 @media(max-width:600px){
 .ao-article{font-size:16px;}.ao-h2{font-size:22px!important;}
 .ao-hw-kvlink{border-radius:14px;}
@@ -158,8 +168,9 @@
 </div>
 
 <div class="ao-introcard">
+<span class="ao-hw-badge" aria-hidden="true">🎃</span>
 <p class="ao-q">🎃 想搞一場全場尖叫嘅萬聖節派對？</p>
-<p class="ao-intro">「Trick or Treat！」KitchenAO <strong>2026 年 Halloween 萬聖節狂嘩套餐</strong>正式登場！今年推出 <strong>5 款全新搞鬼主打菜式</strong>，由「惡魔的眼睛」酥盒到原個日本南瓜海鮮意大利飯，<strong>5 人至 40 人</strong>都有合適套餐，全港送遞，屋企派對、朋友聚會、公司 Halloween Party 一樣咁啱。</p>
+<p class="ao-intro">「Trick or Treat！」Kitchen AO <strong>2026 年 Halloween 萬聖節狂嘩套餐</strong>正式登場！今年推出 <strong>5 款全新搞鬼主打菜式</strong>，由「惡魔的眼睛」酥盒到原個日本南瓜海鮮意大利飯，<strong>5 人至 40 人</strong>都有合適套餐，全港送遞，屋企派對、朋友聚會、公司 Halloween Party 一樣咁啱。</p>
 </div>
 
 <div class="ao-hw-terms">
@@ -243,7 +254,7 @@
 
 <h2 id="sets" class="ao-h2">按人數揀套餐（5 至 40 人）</h2>
 <p>6 個人數選擇，按一下直接揀菜式落單：</p>
-<div class="ao-hw-sets"><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-5-6pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set5_6" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_5-6'});"><b>5-6<small>人</small></b><span>$1,338</span><i>查看 →</i></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-8-10pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set8_10" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_8-10'});"><b>8-10<small>人</small></b><span>$1,918</span><i>查看 →</i></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-12-16pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set12_16" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_12-16'});"><b>12-16<small>人</small></b><span>$2,888</span><i>查看 →</i></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-18-22pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set18_22" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_18-22'});"><b>18-22<small>人</small></b><span>$3,758</span><i>查看 →</i></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-26-30pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set26_30" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_26-30'});"><b>26-30<small>人</small></b><span>$5,008</span><i>查看 →</i></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-35-40pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set35_40" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_35-40'});"><b>35-40<small>人</small></b><span>$6,558</span><i>查看 →</i></a></div>
+<div class="ao-hw-sets"><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-5-6pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set5_6" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_5-6'});"><span class="ph"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-5-6_set-photo-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 5-6 人"></span><span class="tx"><b>5-6<small>人</small></b><span class="pr"><del>$1,458<sup>.00</sup></del> <ins>$1,338<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-8-10pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set8_10" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_8-10'});"><span class="ph"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-8-10_set-photo-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 8-10 人"></span><span class="tx"><b>8-10<small>人</small></b><span class="pr"><del>$2,088<sup>.00</sup></del> <ins>$1,918<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-12-16pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set12_16" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_12-16'});"><span class="ph"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-12-16_set-photo-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 12-16 人"></span><span class="tx"><b>12-16<small>人</small></b><span class="pr"><del>$3,138<sup>.00</sup></del> <ins>$2,888<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-18-22pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set18_22" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_18-22'});"><span class="ph"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-18-22_set-photo-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 18-22 人"></span><span class="tx"><b>18-22<small>人</small></b><span class="pr"><del>$4,088<sup>.00</sup></del> <ins>$3,758<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-26-30pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set26_30" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_26-30'});"><span class="ph"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-26-30_set-photo-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 26-30 人"></span><span class="tx"><b>26-30<small>人</small></b><span class="pr"><del>$5,448<sup>.00</sup></del> <ins>$5,008<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a><a class="ao-hw-set" href="https://aoaodelivery.com/product/ao-35-40pax-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/?ao_ref=hw26_blog_set35_40" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({event:'cta_click',cta_label:'hw_blog_set_35-40'});"><span class="ph"><img loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2026-Halloween-35-40-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 35-40 人"></span><span class="tx"><b>35-40<small>人</small></b><span class="pr"><del>$7,128<sup>.00</sup></del> <ins>$6,558<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a></div>
 <p class="ao-hw-note">* 價錢為網站現時優惠價，以下單頁面顯示為準。</p>
 
 <p style="margin-top:30px;">今個萬聖節，就用 KitchenAO 嘅搞鬼派對美食，驚艷你所有嘩鬼朋友吧！🎃 <strong>送貨日期為 10 月 23 日至 11 月 1 日</strong>，萬聖節係訂單高峰期，建議盡早預訂。</p>
