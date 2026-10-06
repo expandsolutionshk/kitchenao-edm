@@ -32,7 +32,7 @@ BIZ=f"""<div class="ao-biz" data-biz>
         <button type="button" class="ao-biz-x" aria-label="關閉">×</button>
         <div class="ao-biz-ph"><span>FOR BUSINESS</span><b>企業及商務到會服務</b></div>
         <ul class="ao-biz-list">{rows}</ul>
-        <a class="ao-biz-wa" href="https://api.whatsapp.com/send?phone=85269011987" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'qp_biz_whatsapp'}});">WhatsApp 聯絡企業客戶專員</a>
+        <a class="ao-biz-wa" href="https://api.whatsapp.com/send?phone=85269011987&text=%E4%BC%81%E6%A5%AD%E5%8F%8A%E5%95%86%E5%8B%99%E5%88%B0%E6%9C%83%E6%9C%8D%E5%8B%99%E6%9F%A5%E8%A9%A2" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'qp_biz_whatsapp'}});">WhatsApp 聯絡企業客戶專員</a>
         <a class="ao-biz-more" href="https://aoaodelivery.com/business-event/" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'qp_biz_intro'}});">商務活動簡介</a>
       </div>
     </div>
