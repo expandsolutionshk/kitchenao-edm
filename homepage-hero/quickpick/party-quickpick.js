@@ -68,4 +68,15 @@
 })();
 
   })();
+  /* SEO 文字：分類「內容說明」嘅文字移到產品列表下面，唔阻客人用 filter 同 search */
+  (function(){
+    var tdesc=document.querySelector('.term-description');if(!tdesc)return;
+    var nodes=[].filter.call(tdesc.childNodes,function(n){return !(n.nodeType===1&&n.classList&&n.classList.contains('ao-qp'))&&(n.textContent||'').replace(/\s+/g,'')!=='';});
+    if(!nodes.length)return;
+    var list=document.querySelector('.woocommerce-pagination')||document.querySelector('ul.products');if(!list||!list.parentNode)return;
+    var box=document.createElement('div');box.className='ao-cat-seo';
+    nodes.forEach(function(n){box.appendChild(n);});
+    list.parentNode.insertBefore(box,list.nextSibling);
+    var cs=document.createElement('style');cs.textContent='.ao-cat-seo{clear:both;max-width:1180px;margin:28px auto 8px;padding:16px 20px;border-top:1px solid #e8dfd0;color:#8a7b6e;font-size:13.5px;line-height:1.8;} .ao-cat-seo p{margin:0 0 6px !important;}';document.head.appendChild(cs);
+  })();
 })();
