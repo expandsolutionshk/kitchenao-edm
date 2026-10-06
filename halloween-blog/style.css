@@ -79,6 +79,37 @@
 .ao-hw-ico{flex:0 0 auto;width:34px;font-size:26px;text-align:center;}
 .ao-hw-menu small{display:block;margin:0 0 3px;color:#b9a6d1;font-size:14px;font-weight:700;}
 .ao-hw-menu b{display:block;color:#FFB347;font-size:21px;font-weight:800;line-height:1.35;}
+/* 新增 SEO 段落 */
+.ao-hw-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.ao-hw-fact{position:relative;padding:22px 22px 20px;border-radius:16px;background:linear-gradient(135deg,#2c1f3b 0%,#1c1426 100%);border:1px solid #4a3463;}
+.ao-hw-fact .fi{display:block;font-size:34px;line-height:1;margin:0 0 10px;}
+.ao-hw-fact .ft{margin:0 0 8px!important;color:#FFB347;font-size:18px;font-weight:800;line-height:1.4;}
+.ao-hw-fact .fd{margin:0!important;color:#E2D8EE;font-size:15.5px;line-height:1.8;}
+.ao-hw-fact strong{color:#fff;}
+.ao-hw-quote{display:flex;align-items:center;gap:16px;margin:22px 0 10px;padding:18px 22px;border:3px solid #FF7A1A;border-radius:18px;background:#FFF6EE;box-shadow:0 8px 20px rgba(255,90,0,.12);}
+.ao-hw-quote .qi{flex:0 0 auto;font-size:40px;line-height:1;}
+.ao-hw-quote p{margin:0!important;color:#3f2a14;font-size:16.5px;font-weight:600;line-height:1.8;}
+.ao-hw-quote strong{color:#C24E00;}
+.ao-hw-steps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.ao-hw-step{position:relative;padding:22px 20px 18px 20px;border:2px solid #E7DDF0;border-radius:16px;background:#fff;}
+.ao-hw-step .sn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;margin:0 0 10px;border-radius:50%;background:linear-gradient(135deg,#FF8A1F,#FF5A00);color:#1c1426;font-size:18px;font-weight:900;box-shadow:0 4px 10px rgba(255,90,0,.3);}
+.ao-hw-step .st{margin:0 0 6px!important;color:#1A1A1A;font-size:18px;font-weight:800;line-height:1.4;}
+.ao-hw-step .sd{margin:0!important;font-size:15.5px;line-height:1.8;}
+.ao-article .ao-hw-step ul.sl{margin:0!important;padding-left:18px!important;font-size:15px;line-height:1.7;}
+.ao-article .ao-hw-step ul.sl li{margin:4px 0!important;}
+.ao-hw-step b,.ao-hw-corpbox b{color:#6a2a92;}
+.ao-hw-corp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0 16px;}
+.ao-hw-corpbox{padding:20px 22px;border:2px solid #E1D2EE;border-radius:16px;background:#F6F0FB;}
+.ao-hw-corpbox p{margin:0 0 8px!important;font-size:15.5px;line-height:1.8;}
+.ao-hw-corpbox .ct{color:#1A1A1A;font-size:18px;font-weight:800;}
+.ao-article .ao-hw-corpbox ul{margin:0!important;padding-left:18px!important;font-size:15px;line-height:1.7;}
+.ao-article .ao-hw-corpbox li{margin:4px 0!important;}
+.ao-hw-corpbox--full{margin:0 0 10px;border-color:#FF7A1A;background:#FFF6EE;}
+.ao-hw-portion{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 0;}
+.ao-hw-portion span{display:block;padding:12px 10px;border-radius:12px;background:#1c1426;color:#FFB347;text-align:center;font-size:14.5px;font-weight:800;line-height:1.4;}
+.ao-hw-portion b{display:block;color:#fff;font-size:15px;}
+.ao-hw-corpcta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:14px;}
+.ao-article a.ao-hw-link{color:#C24E00!important;font-weight:800;}
 /* 人數套餐 */
 .ao-hw-sets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 8px;}
 .ao-article a.ao-hw-set{display:flex;flex-direction:column;overflow:hidden;padding:0;border-radius:16px;background:linear-gradient(180deg,#2c1f3b,#1c1426);border:1.5px solid #4a3463;color:#fff!important;text-decoration:none!important;text-align:center;transition:all .2s ease;}
@@ -152,6 +183,7 @@
 .ao-article .ao-hw-bigico img.emoji{width:120px!important;height:120px!important;}
 .ao-introcard{padding:26px 20px 22px;}
 .ao-article ul.ao-hw-menu{padding:4px 16px!important;}.ao-article .ao-hw-menu li{gap:12px;padding:10px 0!important;}.ao-hw-ico{width:28px;font-size:22px;}.ao-hw-menu small{font-size:12.5px;}.ao-hw-menu b{font-size:17px;}
+.ao-hw-facts,.ao-hw-steps,.ao-hw-corp{grid-template-columns:1fr;}.ao-hw-portion{grid-template-columns:1fr;}.ao-hw-quote{padding:16px;gap:12px;}.ao-hw-quote .qi{font-size:32px;}.ao-hw-quote p{font-size:15.5px;}
 .ao-hw-sets{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 .ao-article a.ao-hw-cta,.ao-article a.ao-hw-wa{display:block;width:100%;min-width:0;box-sizing:border-box;}
 }
