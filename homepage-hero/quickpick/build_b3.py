@@ -132,6 +132,7 @@ extra='''
 @media (prefers-reduced-motion:reduce){.ao-biz-btn{animation:none;}}
 /* ===== Option B 微調：餐廳質感（參考 Dina / Steak In / Black Truffle） ===== */
 .ao-qp{padding:0 36px 34px;overflow:hidden;background:#1d150f radial-gradient(120% 90% at 50% 0%,#2e2219 0%,#1d150f 60%,#140e0a 100%);box-shadow:inset 0 0 0 1px rgba(214,180,104,.3),0 30px 60px rgba(20,12,6,.25);border-radius:20px;}
+.site-main .ao-qp{margin-top:-36px !important;}
 .ao-qp-head--photo{margin:0 -36px 34px;padding:58px 24px 34px;background-size:cover;background-position:center 40%;}
 .ao-qp-head--photo .ao-qp-eyebrow{color:#e2c48a;letter-spacing:4px;}
 .ao-qp-head--photo .ao-qp-title{font-size:32px !important;letter-spacing:4px !important;text-shadow:0 2px 14px rgba(0,0,0,.55);}
