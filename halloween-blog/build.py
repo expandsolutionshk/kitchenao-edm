@@ -5,11 +5,11 @@ UP='https://aoaodelivery.com/wp-content/uploads/2026/10/'
 def cta(label,ref,txt):
     return f'<a class="ao-hw-cta" href="{CAT}?ao_ref=hw26_blog_{ref}" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:\'cta_click\',cta_label:\'{label}\'}});">{BATS}<span class="ao-hw-txt">{txt}</span></a>'
 DISH=[
- ('2026-halloween-story-_post-2-scaled.jpg','🎃','哈囉喂','「原個直送」日本南瓜海鮮意大利飯','以原個日本南瓜作器皿直送到會，南瓜蓉融入每顆米粒，配以彈牙海鮮，賣相與味道同樣出色。'),
- ('2026-halloween-story-_post-3-scaled.jpg','👁️','惡魔的眼睛','開心果醬荔枝藍苺酥盒','牛油酥盒釀入開心果醬，再以荔枝及藍莓砌成一隻隻「惡魔眼睛」，甜而不膩，一口一件，最適合派對享用。'),
- ('2026-halloween-story-_post-1-scaled.jpg','🩸','血淋淋科學怪人','香濃蕃茄手指腸仔','形似「斷指」的腸仔，淋上香濃蕃茄醬營造血淋淋效果，嚇人之餘又惹味，最受小朋友歡迎。'),
- ('2025-Halloween-burger-1-600x750.jpg','🍔','萬聖節','迷你芝士手打牛肉漢堡','手打牛肉配半溶芝士，換上萬聖節造型新裝，迷你尺寸方便拿取，大人小孩都適合。'),
- ('2026-halloween-story-_post-4-scaled.jpg','🦇','小蝙蝠','墨汁雞翼','以墨汁染成漆黑的雞翼，外層香脆、內裏嫩滑多汁，是餐桌上最搶眼的「小蝙蝠」。'),
+ ('2026-Kitchen-AO-Halloween-catering_post-2-scaled.jpg','🎃','哈囉喂','「原個直送」日本南瓜海鮮意大利飯','可以選配原個日本南瓜作器皿直送到會，南瓜蓉融入每顆米粒，配以彈牙海鮮，賣相與味道同樣出色。'),
+ ('2026-Kitchen-AO-Halloween-catering_post-3-scaled.jpg','👁️','惡魔的眼睛','開心果醬荔枝藍苺酥盒','牛油酥盒釀入開心果醬，再以荔枝及藍莓砌成一隻隻「惡魔眼睛」，甜而不膩，一口一件，最適合派對享用。'),
+ ('2026-Kitchen-AO-Halloween-catering_post-1-scaled.jpg','🩸','血淋淋科學怪人','香濃蕃茄手指腸仔','形似「斷指」的腸仔，淋上香濃蕃茄醬營造血淋淋效果，嚇人之餘又惹味，最受小朋友歡迎。'),
+ ('2025-Halloween-burger-1-600x750.jpg','🍔','萬聖節','迷你芝士手打牛肉漢堡','皇牌手打牛肉漢堡換上萬聖節造型新裝，迷你尺寸方便拿取，大人小孩都適合。'),
+ ('2026-halloween-story-_post-4-scaled.jpg','🦇','小蝙蝠','墨汁雞翼','以墨魚汁染成漆黑的雞翼，嫩滑多汁，是餐桌上最搶眼的「小蝙蝠」。'),
 ]
 cards=''.join(f'''
 <div class="ao-menucard{' ao-menucard--hero' if n==0 else ''}">
@@ -18,8 +18,9 @@ cards=''.join(f'''
 </div>''' for n,(img,ic,a,b,d) in enumerate(DISH))
 SETS=[('5-6','133800','ao-5-6pax',1458),('8-10','191800','ao-8-10pax',2088),('12-16','288800','ao-12-16pax',3138),('18-22','375800','ao-18-22pax',4088),('26-30','500800','ao-26-30pax',5448),('35-40','655800','ao-35-40pax',7128)]
 SFX={'35-40':''}
+SETIMG={'5-6':'2026-Kitchen-AO-Halloween-catering_-5-6_set-photo-600x600.jpg','8-10':'2026-Kitchen-AO-Halloween-catering_-8-10_set-photo-600x600.jpg'}
 SLUG='-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/'
-sets=''.join(f'<a class="ao-hw-set" href="https://aoaodelivery.com/product/{s}{SLUG}?ao_ref=hw26_blog_set{p.replace("-","_")}" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:\'cta_click\',cta_label:\'hw_blog_set_{p}\'}});"><span class="ph"><img loading="lazy" decoding="async" src="{UP}2026-Halloween-{p}{SFX.get(p,"_set-photo")}-600x600.jpg" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 {p} 人"></span><span class="tx"><b>{p}<small>人</small></b><span class="pr"><del>${rp:,}<sup>.00</sup></del> <ins>${int(pr)//100:,}<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a>' for p,pr,s,rp in SETS)
+sets=''.join(f'<a class="ao-hw-set" href="https://aoaodelivery.com/product/{s}{SLUG}?ao_ref=hw26_blog_set{p.replace("-","_")}" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:\'cta_click\',cta_label:\'hw_blog_set_{p}\'}});"><span class="ph"><img loading="lazy" decoding="async" src="{UP}{SETIMG.get(p, "2026-Halloween-"+p+SFX.get(p,"_set-photo")+"-600x600.jpg")}" width="600" height="600" alt="Halloween 萬聖節狂嘩套餐 {p} 人"></span><span class="tx"><b>{p}<small>人</small></b><span class="pr"><del>${rp:,}<sup>.00</sup></del> <ins>${int(pr)//100:,}<sup>.00</sup></ins></span><i>查看菜式 →</i></span></a>' for p,pr,s,rp in SETS)
 
 CSS=open('style.css').read()
 HTML=f'''<div class="ao-article ao-hw26">
