@@ -163,6 +163,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     .h1{{font-size:28px!important;line-height:37px!important;}}
     .stack3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
     .desk{{display:none!important;}}
+    .hide-m{{display:none!important;}}
     .mob{{display:block!important;max-height:none!important;overflow:visible!important;}}
     .hcell{{display:block!important;width:100%!important;text-align:center!important;padding:8px 10px!important;}}
     .hnav table,.hright table{{margin:0 auto!important;float:none!important;}}
@@ -183,6 +184,13 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 <!--[if mso]><table role="presentation" width="680" align="center" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
 <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:680px;margin:0 auto;background:{DK};border-radius:16px;overflow:hidden;font-family:Arial,'PingFang HK','Microsoft JhengHei',sans-serif;">
 
+  <!-- 頂部「瀏覽網頁版」連結 -->
+  <tr><td style="padding:8px 16px;background:#0f0a16;">
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td class="hide-m" valign="middle" style="color:#8a7f95;font-size:12px;line-height:16px;">🎃 萬聖節狂嘩套餐｜10/22 前預訂 92 折</td>
+      <td valign="middle" align="right" style="color:#8a7f95;font-size:12px;line-height:16px;white-space:nowrap;">電郵顯示不正常？<a href="{WEBV}" target="_blank" style="color:{OR};font-weight:bold;text-decoration:underline;">瀏覽網頁版 View in browser</a></td>
+    </tr></table>
+  </td></tr>
   <!-- HEADER：desktop 一行（logo｜導覽｜WhatsApp + IG）；mobile 兩行 -->
   <tr><td style="padding:0;background:#000000;">
     <table role="presentation" class="desk" width="100%" cellpadding="0" cellspacing="0" style="background:#000000;"><tr>
