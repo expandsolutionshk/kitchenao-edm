@@ -13,10 +13,10 @@ HERO=[('2026/10/2026-Kitchen-AO-Halloween-catering_post-2-600x750.jpg','🎃','�
 ('2026/10/2026-Kitchen-AO-Halloween-catering_post-1-600x750.jpg','💉','血淋淋科學怪人','香濃蕃茄手指腸仔','形似「斷指」的腸仔，嚇人之餘又惹味，小朋友最愛。'),
 ('2026/10/2025-Halloween-burger-1-600x750.jpg','👻','萬聖節','迷你芝士手打牛肉漢堡','皇牌手打牛肉漢堡換上萬聖節造型，迷你尺寸方便拿取。'),
 ('2026/10/2026-halloween-story-_post-4-600x750.jpg','🦇','小蝙蝠','墨汁雞翼','以墨魚汁染成漆黑的雞翼，嫩滑多汁，餐桌上最搶眼。')]
-ITEMS={'🥖 前菜 Appetizer':[('2019/06/Posts-06-600x600.jpg','焗雙色芝士吞拿魚脆法包'),('2019/06/Posts-10-600x600.jpg','香烤沙嗲串燒'),('2019/06/Posts-16-600x600.jpg','蜜蜜燒雞翼配脆薯角'),('2019/06/Posts-19-600x600.jpg','黑松露墨魚滑炸雲吞'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-04-600x600.png','避風塘炸海鮮豆腐配海鮮甜醬'),('2023/12/KitchenAO_DEC2023-ALA-CARTE-03-600x600.jpg','九層塔香酥雞'),('2023/12/KitchenAO_DEC2023-ALA-CARTE-06-600x600.jpg','蠔油鮑汁野菌鮑魚酥'),('2019/06/'+quote('蝦多')+'-03-600x600.jpg','懷舊芝麻蝦滑多士配泰汁'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-06-2-600x600.jpg','上海古早炸饅頭配煉奶'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-02-2-600x600.jpg','惹味蒜香焗茄子')],
-'🥗 沙律 Salad':[('2019/06/Posts-26-600x600.jpg','啖啖松葉蟹三文魚籽芒果沙律'),('2019/06/Posts-17-600x600.jpg','油香煙三文魚特調凱撒沙律'),('2019/06/Posts-08-600x600.jpg','慢煮水嫩雞胸青蘋果西芹合桃沙律'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-06-600x600.png','千島汁大蝦蜜桃沙律')],
-'🍝 意粉 / 意大利飯 Pasta':[('2019/06/Posts-01-600x600.jpg','香煎帶子即打香草醬海蝦意大利飯'),('2023/10/cafcfef6-09ff-4233-be66-84dd307ea036-600x600.jpg','黑松露野菌蘆筍忌廉意粉'),('2019/06/Posts-27-600x600.jpg','爆炒XO醬蜆肉香蒜意大利麵'),('2019/06/Posts-03-600x600.jpg','芝士腐乳卡邦尼長通粉')],
-'🍖 主菜 Main':[('2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-2-1-600x600.jpeg','「香港燒」烤燶邊香草蜜糖鹿兒島叉燒扒'),('2019/06/Posts-34-600x600-1.jpg','紅酒慢燴鮮蕃茄和牛牛肋條'),('2019/06/Posts-21-600x600.jpg','自家製黑松露牛油慢焗法國黃油春雞'),('2019/06/Posts-22-600x600.jpg','西班牙脆嫩乳香乳豬'),('2019/06/Posts-24-600x600.jpg','香煎紐西蘭穀飼羊架'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-02-600x600.png','泰好味汁燒西冷牛'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-04-2-600x600.jpg','椰香咖喱海鮮龍脷柳配蒜蓉包')]}
+ITEMS={'🥖 前菜 Appetizer':[('2019/06/Posts-06-300x300.jpg','焗雙色芝士吞拿魚脆法包'),('2019/06/Posts-10-300x300.jpg','香烤沙嗲串燒'),('2019/06/Posts-16-300x300.jpg','蜜蜜燒雞翼配脆薯角'),('2019/06/Posts-19-300x300.jpg','黑松露墨魚滑炸雲吞'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-04-300x300.png','避風塘炸海鮮豆腐配海鮮甜醬'),('2023/12/KitchenAO_DEC2023-ALA-CARTE-03-300x300.jpg','九層塔香酥雞'),('2023/12/KitchenAO_DEC2023-ALA-CARTE-06-300x300.jpg','蠔油鮑汁野菌鮑魚酥'),('2019/06/'+quote('蝦多')+'-03-300x300.jpg','懷舊芝麻蝦滑多士配泰汁'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-06-2-300x300.jpg','上海古早炸饅頭配煉奶'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-02-2-300x300.jpg','惹味蒜香焗茄子')],
+'🥗 沙律 Salad':[('2019/06/Posts-26-300x300.jpg','啖啖松葉蟹三文魚籽芒果沙律'),('2019/06/Posts-17-300x300.jpg','油香煙三文魚特調凱撒沙律'),('2019/06/Posts-08-300x300.jpg','慢煮水嫩雞胸青蘋果西芹合桃沙律'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-06-300x300.png','千島汁大蝦蜜桃沙律')],
+'🍝 意粉 / 意大利飯 Pasta':[('2019/06/Posts-01-300x300.jpg','香煎帶子即打香草醬海蝦意大利飯'),('2023/10/cafcfef6-09ff-4233-be66-84dd307ea036-300x300.jpg','黑松露野菌蘆筍忌廉意粉'),('2019/06/Posts-27-300x300.jpg','爆炒XO醬蜆肉香蒜意大利麵'),('2019/06/Posts-03-300x300.jpg','芝士腐乳卡邦尼長通粉')],
+'🍖 主菜 Main':[('2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-2-1-300x300.jpeg','「香港燒」烤燶邊香草蜜糖鹿兒島叉燒扒'),('2019/06/Posts-34-600x600-1-300x300.jpg','紅酒慢燴鮮蕃茄和牛牛肋條'),('2019/06/Posts-21-300x300.jpg','自家製黑松露牛油慢焗法國黃油春雞'),('2019/06/Posts-22-300x300.jpg','西班牙脆嫩乳香乳豬'),('2019/06/Posts-24-300x300.jpg','香煎紐西蘭穀飼羊架'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-02-300x300.png','泰好味汁燒西冷牛'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-04-2-300x300.jpg','椰香咖喱海鮮龍脷柳配蒜蓉包')]}
 SETS=[('5-6','1,458','1,338','2026-Kitchen-AO-Halloween-catering_-5-6_set-photo'),('8-10','2,088','1,918','2026-Kitchen-AO-Halloween-catering_-8-10_set-photo'),('12-16','3,138','2,888','2026-Halloween-12-16_set-photo'),('18-22','4,088','3,758','2026-Halloween-18-22_set-photo'),('26-30','5,448','5,008','2026-Halloween-26-30_set-photo'),('35-40','7,128','6,558','2026-Halloween-35-40')]
 SLUG='-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/'
 def a(href,inner,style=''): return f'<a href="{href}" target="_blank"'+(f' style="{style}"' if style else '')+f'>{inner}</a>'
@@ -64,7 +64,7 @@ def carousel(cid,slides,fallback,bg):
 <div class="hwfb">{fallback}</div>
 </td></tr>"""
 def car_css(cid,n):
-    return ''.join(f'#{cid}{i+1}:checked ~ .hwwrap .hws{i+1}{{display:block!important;}}' for i in range(n))
+    return ''.join(f'#{cid}{i+1}:checked ~ .hwwrap .hws{i+1}{{max-height:1600px!important;overflow:visible!important;}}' for i in range(n))
 dish_slides=[f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:2px solid {OR};border-radius:16px;overflow:hidden;">
   <tr><td style="font-size:0;line-height:0;">{a(CAT,f'<img src="{U}{img}" width="600" alt="{b}" style="width:100%;height:auto;display:block;">')}</td></tr>
   <tr><td style="padding:14px 18px 16px;"><p style="margin:0 0 3px;color:{LAV};font-size:13.5px;font-weight:bold;">{ic} {sm}　<span style="color:#8a7f95;font-weight:normal;">{i+1} / 5</span></p>
@@ -147,7 +147,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   body{{margin:0;padding:0;background:#140e1c;-webkit-text-size-adjust:100%;}}
   img{{border:0;outline:none;text-decoration:none;}}
   table{{border-collapse:collapse;}}
-  .hws{{display:none;}}
+  .hws{{display:block;max-height:0;overflow:hidden;}}
   .hwa{{display:inline-block;width:56px;height:56px;line-height:53px;border-radius:28px;background:{OR};color:{DK};font-size:36px;font-weight:900;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(255,90,0,.35);}}
   .hwdot{{display:inline-block;width:9px;height:9px;margin:0 4px;border-radius:9px;background:#6d5a85;cursor:pointer;}} .hwdot.on{{width:14px;background:{OR};}}
   @media screen and (-webkit-min-device-pixel-ratio:0){{
@@ -214,7 +214,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <h1 class="h1" style="margin:16px 0 0;color:#ffffff;font-size:34px;line-height:44px;font-weight:900;letter-spacing:1px;">召集全城嘩鬼！<br><span style="color:{YEL};">萬聖節狂嘩套餐</span>登場</h1>
   </td></tr>
   <tr><td align="center" style="padding:18px 48px 0;background:{DK};">
-    <p style="margin:0;color:#E2D8EE;font-size:16px;line-height:26px;">今年推出 5 款全新搞鬼主打菜式，造型要搞鬼，味道要認真！5 至 40 人均有合適套餐，無論家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
+    <p style="margin:0;color:#E2D8EE;font-size:16px;line-height:26px;">今年推出 5 款全新搞鬼主打菜式<br>造型要搞鬼，味道要認真！<br>5 至 40 人均有合適套餐<br>家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
   </td></tr>
   <tr><td align="center" style="padding:26px 30px 34px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT)}</td></tr>
 
@@ -243,12 +243,12 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   </td></tr>
 
   <!-- 5 大主打菜式 SLIDE -->
-  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真，每個套餐均包括以下主打菜式")}
+  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","每個套餐均包括以下主打菜式")}
   {hero_block}
   <tr><td style="padding:0 0 14px;background:{DK};"></td></tr>
 
   <!-- 按人數揀套餐 -->
-  {sect_hl("Choose by Guests","👥 按人數選擇套餐","由 5 人至 40 人，按圖即可選擇菜式及下單")}
+  {sect_hl("Choose by Guests","👥 按人數選擇套餐","由 5 人至 40 人<br>按圖即可選擇菜式及下單")}
   {set_block}
   <tr><td style="padding:8px 16px 4px;background:{DK};"><p style="margin:0;color:#8a7f95;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
   <tr><td align="center" style="padding:20px 30px 30px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT,300)}
@@ -269,7 +269,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <tr><td align="center" style="padding:14px 30px 4px;background:{YEL};">
     <p style="margin:0 0 8px;color:{DK};font-size:13px;font-weight:bold;letter-spacing:3px;">MIX &amp; MATCH</p>
     <p style="margin:0;color:{DK};font-size:24px;font-weight:800;letter-spacing:1px;line-height:31px;">🍽️ 套餐內更可自選</p>
-    <p style="margin:8px 0 0;color:#4a2a10;font-size:14.5px;line-height:21px;">除 5 大主打菜式外，套餐可按人數自選以下人氣菜式</p>
+    <p style="margin:8px 0 0;color:#4a2a10;font-size:14.5px;line-height:21px;">除 5 大主打菜式外<br>套餐可按人數自選以下人氣菜式</p>
     <div style="width:44px;height:3px;background:{DK};margin:12px auto 0;border-radius:3px;"></div>
   </td></tr>
   {item_rows}
@@ -281,11 +281,11 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- BLOG（卡片：左圓形圖・右置中標題＋描述＋細掣）-->
   <tr><td style="padding:30px 20px;background:{DK};">
     <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:{DK2};background-image:linear-gradient(135deg,#3a2350,{DK2});border:1px solid #4a3463;border-radius:20px;"><tr>
-      <td class="stack" width="44%" align="center" valign="middle" style="padding:24px 10px 24px 24px;">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="170" alt="萬聖節由來及 Halloween Party 攻略" style="width:170px;height:170px;border-radius:85px;border:3px solid {OR};display:block;margin:0 auto;">')}</td>
-      <td class="stack" align="center" valign="middle" style="padding:24px 26px 24px 10px;">
+      <td class="stack" width="44%" align="center" valign="middle" style="padding:24px 16px;">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="170" alt="萬聖節由來及 Halloween Party 攻略" style="width:170px;height:170px;border-radius:85px;border:3px solid {OR};display:block;margin:0 auto;">')}</td>
+      <td class="stack" align="center" valign="middle" style="padding:24px 18px;">
         <p style="margin:0 0 6px;color:{OR};font-size:12.5px;font-weight:bold;letter-spacing:3px;">BLOG</p>
         <p style="margin:0 0 10px;color:#ffffff;font-size:22px;font-weight:800;line-height:29px;">萬聖節由來<br>Halloween Party 攻略</p>
-        <p style="margin:0 0 16px;color:{LAV};font-size:13.5px;line-height:20px;">在家派對 4 步攻略、公司 Halloween Party 份量計算，一文看清。</p>
+        <p style="margin:0 0 16px;color:{LAV};font-size:13.5px;line-height:20px;">在家派對 4 步攻略<br>公司 Halloween Party 份量計算<br>一文看清。</p>
         <table cellpadding="0" cellspacing="0" align="center" style="border-collapse:separate;"><tr><td bgcolor="{OR}" style="background:{OR};border-radius:30px;">{a(BLOG,"閱讀全文 →",f"display:inline-block;padding:9px 22px;color:{DK};font-size:14px;font-weight:bold;text-decoration:none;border-radius:30px;")}</td></tr></table>
       </td>
     </tr></table>
@@ -294,7 +294,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- 大量訂購 -->
   <tr><td align="center" style="padding:32px 40px;background:{DK};">
     <p style="margin:0 0 6px;color:{YEL};font-size:13px;font-weight:bold;letter-spacing:3px;">CORPORATE HALLOWEEN PARTY</p>
-    <p style="margin:0 0 16px;color:#ffffff;font-size:17px;line-height:24px;">公司萬聖節派對或大量訂購？</p>
+    <p style="margin:0 0 16px;color:#ffffff;font-size:17px;line-height:24px;">公司萬聖節派對<br>或大量訂購？</p>
     <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" bgcolor="{OR}" style="border-radius:40px;background:{OR};">{a('https://wa.me/85269011987?text='+quote('企業及商務到會服務查詢'),"📱 WhatsApp 聯絡企業客戶專員",f"display:inline-block;padding:13px 26px;color:{DK};font-size:16px;font-weight:bold;text-decoration:none;border-radius:40px;")}</td></tr></table>
     <p style="margin:14px 0 0;font-size:15px;">{a(f"https://aoaodelivery.com/catering-quote-enquiry/?{UTM}","或填免費報價查詢 →",f"color:{OR};")}</p>
   </td></tr>
