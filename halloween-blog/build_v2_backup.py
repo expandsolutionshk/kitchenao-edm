@@ -28,7 +28,29 @@ HTML=f'''<div class="ao-article ao-hw26">
 {CSS}
 </style>
 
-<img class="ao-hw-blogkv" src="{UP}halloween-catering-2026-kv.webp" width="1600" height="900" alt="萬聖節到會 2026｜Halloween Party 派對美食推介及萬聖節由來" fetchpriority="high" decoding="async">
+<a class="ao-hw-kvlink" href="{CAT}?ao_ref=hw26_blog_kv" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_kv'}});"><img class="ao-hw-kv" src="{UP}2025-Halloween-banner-1_banner_banner-1536x717.jpg" width="1536" height="717" alt="Kitchen AO Halloween 萬聖節狂嘩套餐 2026 到會" fetchpriority="high" decoding="async"></a>
+
+<div class="ao-hw-ticket">
+<div class="ao-hw-t1"><span class="ao-hw-dot"></span>即日接受訂購</div>
+<div class="ao-hw-t2"><small>送貨日期</small><b><span>10月23日</span> – <span>11月1日</span></b></div>
+</div>
+
+<div class="ao-introcard">
+<span class="ao-hw-badge" aria-hidden="true">🎃</span>
+<p class="ao-q">🎃 想舉辦一場全場尖叫的萬聖節派對？</p>
+<p class="ao-intro">「Trick or Treat！」Kitchen AO <strong>2026 年 Halloween 萬聖節狂嘩套餐</strong>正式登場！今年推出 <strong>5 款全新搞鬼主打菜式</strong>，由「惡魔的眼睛」酥盒到原個日本南瓜海鮮意大利飯，<strong>5 至 40 人</strong>均有合適套餐，全港送遞，無論是家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
+</div>
+
+<div class="ao-hw-terms">
+<p class="ao-hw-terms-t">👻 2026 萬聖節優惠</p>
+<ul>
+<li><b>10 月 22 日前預訂</b>・即享 <b>92 折</b></li>
+<li>各區<b>免費送遞</b>（滿 $1,450）</li>
+<li>可使用會員優惠現金券，但其他優惠碼不適用</li>
+</ul>
+</div>
+
+<div class="ao-cta">{cta('hw_blog_cta_top','top','🎃 立即預訂萬聖節套餐')}</div>
 
 <div class="ao-tagsec">
 <span class="lbl">此文章相關 Tag</span>
@@ -78,32 +100,13 @@ HTML=f'''<div class="ao-article ao-hw26">
 <div class="ao-hw-corpbox"><p class="ct">🗓️ 時間與場地</p><p>建議選擇萬聖節前的星期五下午或午膳時段，在公司茶水間、會議室或公共空間進行，同事參與度最高。</p></div>
 <div class="ao-hw-corpbox"><p class="ct">🎭 活動建議</p><ul><li><b>Costume 比賽：</b>以部門組隊，增加跨部門互動</li><li><b>辦公桌佈置比賽：</b>由同事投票選出最恐怖的座位</li><li><b>Halloween 打卡位：</b>擺放南瓜及蝙蝠背景板，方便同事拍照分享</li></ul></div>
 </div>
+<div class="ao-hw-corpbox ao-hw-corpbox--full"><p class="ct">🍽️ 到會份量如何計算？</p><p>公司派對一般<strong>每人 1 份主菜加 3 至 4 件小食</strong>已經足夠。Kitchen AO 萬聖節套餐按人數設計：</p>
+<div class="ao-hw-portion"><span><b>約 15 人</b>12–16 人套餐</span><span><b>約 20 人</b>18–22 人套餐</span><span><b>30 人以上</b>26–30 或 35–40 人套餐</span></div>
+<p style="margin-top:12px!important;">如需籌辦更大型的公司活動，歡迎透過 WhatsApp 聯絡企業客戶專員，安排服務生、酒會 Finger Food 或 Cocktail 服務。</p>
+<div class="ao-hw-corpcta"><a class="ao-hw-wa" href="https://api.whatsapp.com/send?phone=85269011987&amp;text=企業及商務到會服務查詢" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_corp_whatsapp'}});">WhatsApp 聯絡企業客戶專員</a><a class="ao-hw-link" href="https://aoaodelivery.com/business-event/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_corp_business'}});">👉 了解更多：商務活動到會服務 →</a></div>
+</div>
 
 <h2 id="why-halloween-catering" class="ao-h2">為何選擇 Kitchen AO 萬聖節派對到會？</h2>
-<a class="ao-hw-kvlink" href="{CAT}?ao_ref=hw26_blog_kv" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_kv'}});"><img class="ao-hw-kv" src="{UP}2025-Halloween-banner-1_banner_banner-1536x717.jpg" width="1536" height="717" alt="Kitchen AO Halloween 萬聖節狂嘩套餐 2026 到會" loading="lazy" decoding="async"></a>
-
-<div class="ao-hw-ticket">
-<div class="ao-hw-t1"><span class="ao-hw-dot"></span>即日接受訂購</div>
-<div class="ao-hw-t2"><small>送貨日期</small><b><span>10月23日</span> – <span>11月1日</span></b></div>
-</div>
-
-<div class="ao-introcard">
-<span class="ao-hw-badge" aria-hidden="true">🎃</span>
-<p class="ao-q">🎃 想舉辦一場全場尖叫的萬聖節派對？</p>
-<p class="ao-intro">「Trick or Treat！」Kitchen AO <strong>2026 年 Halloween 萬聖節狂嘩套餐</strong>正式登場！今年推出 <strong>5 款全新搞鬼主打菜式</strong>，由「惡魔的眼睛」酥盒到原個日本南瓜海鮮意大利飯，<strong>5 至 40 人</strong>均有合適套餐，全港送遞，無論是家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
-</div>
-
-<div class="ao-hw-terms">
-<p class="ao-hw-terms-t">👻 2026 萬聖節優惠</p>
-<ul>
-<li><b>10 月 22 日前預訂</b>・即享 <b>92 折</b></li>
-<li>各區<b>免費送遞</b>（滿 $1,450）</li>
-<li>可使用會員優惠現金券，但其他優惠碼不適用</li>
-</ul>
-</div>
-
-<div class="ao-cta">{cta('hw_blog_cta_top','top','🎃 立即預訂萬聖節套餐')}</div>
-
 <div class="ao-why">
 <ul>
 <li><b>搞鬼造型，驚喜滿分：</b>廚師團隊將經典派對食物改造成充滿萬聖節氣氛的「暗黑料理」，絕對是派對的打卡焦點！</li>
@@ -135,12 +138,6 @@ HTML=f'''<div class="ao-article ao-hw26">
 <p>共有 6 個人數選擇，按一下即可選擇菜式及下單：</p>
 <div class="ao-hw-sets">{sets}</div>
 <p class="ao-hw-note">* 價錢為網站現時優惠價，以下單頁面顯示為準。</p>
-
-<div class="ao-hw-corpbox ao-hw-corpbox--full" style="margin-top:18px;"><p class="ct">🍽️ 到會份量如何計算？</p><p>公司派對一般<strong>每人 1 份主菜加 3 至 4 件小食</strong>已經足夠。Kitchen AO 萬聖節套餐按人數設計：</p>
-<div class="ao-hw-portion"><span><b>約 15 人</b>12–16 人套餐</span><span><b>約 20 人</b>18–22 人套餐</span><span><b>30 人以上</b>26–30 或 35–40 人套餐</span></div>
-<p style="margin-top:12px!important;">如需籌辦更大型的公司活動，歡迎透過 WhatsApp 聯絡企業客戶專員，安排服務生、酒會 Finger Food 或 Cocktail 服務。</p>
-<div class="ao-hw-corpcta"><a class="ao-hw-wa" href="https://api.whatsapp.com/send?phone=85269011987&amp;text=企業及商務到會服務查詢" target="_blank" rel="noopener" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_corp_whatsapp'}});">WhatsApp 聯絡企業客戶專員</a><a class="ao-hw-link" href="https://aoaodelivery.com/business-event/" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'hw_blog_corp_business'}});">👉 了解更多：商務活動到會服務 →</a></div>
-</div>
 
 <p style="margin-top:30px;">今個萬聖節，就以 Kitchen AO 的搞鬼派對美食，驚艷所有嘩鬼朋友吧！🎃 <strong>送貨日期為 10 月 23 日至 11 月 1 日</strong>，萬聖節是訂單高峰期，建議盡早預訂。</p>
 
