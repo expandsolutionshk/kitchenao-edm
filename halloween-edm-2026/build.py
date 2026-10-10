@@ -43,20 +43,14 @@ def dish_card(img,ic,sm,b,d):
         <p style="margin:0 0 6px;color:{YEL};font-size:16px;font-weight:800;line-height:21px;">{b}</p>
         <p style="margin:0;color:#E2D8EE;font-size:13px;line-height:19px;">{d}</p>
       </td></tr></table>"""
-h0=HERO[0]
-hero_block=f"""<tr><td style="padding:16px 20px 0;background:{DK};">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:2px solid {OR};border-radius:16px;overflow:hidden;"><tr>
-    <td class="stack" width="50%" valign="top" style="font-size:0;line-height:0;"><img src="{U}{h0[0]}" width="318" alt="{h0[3]}" style="width:100%;height:auto;display:block;"></td>
-    <td class="stack" width="50%" valign="middle" style="padding:20px 22px;">
-      <p style="margin:0 0 10px;"><span style="display:inline-block;padding:4px 12px;border-radius:20px;background:{OR};color:{DK};font-size:12.5px;font-weight:900;letter-spacing:1px;">今年主打</span></p>
-      <p style="margin:0 0 4px;color:{LAV};font-size:14px;font-weight:bold;">{h0[1]} {h0[2]}</p>
-      <p style="margin:0 0 10px;color:{YEL};font-size:21px;font-weight:800;line-height:28px;">{h0[3]}</p>
-      <p style="margin:0;color:#E2D8EE;font-size:14.5px;line-height:22px;">{h0[4]}</p>
-    </td></tr></table></td></tr>
-<tr><td style="padding:10px 14px 0;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-  <tr><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[1])}</td><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[2])}</td></tr>
-  <tr><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[3])}</td><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[4])}</td></tr>
-</table></td></tr>"""
+hero_list=''.join(f"""<tr><td width="34" valign="top" style="padding:7px 0;"><span style="display:inline-block;width:26px;height:26px;line-height:26px;border-radius:13px;background:{OR};color:{DK};font-size:13px;font-weight:900;text-align:center;">{i+1}</span></td>
+  <td valign="top" style="padding:7px 0 7px 6px;border-bottom:1px dashed #3d2d52;"><span style="color:{LAV};font-size:13px;font-weight:bold;">{h[1]} {h[2]}</span><br><span style="color:{YEL};font-size:16px;font-weight:800;line-height:22px;">{h[3]}</span><br><span style="color:#cfc3df;font-size:13px;line-height:19px;">{h[4]}</span></td></tr>""" for i,h in enumerate(HERO))
+hero_block=f"""<!-- 5 大主打：GIF 自動輪播（所有電郵程式都支援；Outlook Windows 只顯示第一格）+ 文字清單 -->
+<tr><td align="center" style="padding:16px 20px 0;background:{DK};">
+  {a(CAT,f'<img src="{IMG}5-dishes-slider.gif" width="480" alt="5 大主打菜式：「原個直送」日本南瓜海鮮意大利飯、開心果醬荔枝藍苺酥盒、香濃蕃茄手指腸仔、迷你芝士手打牛肉漢堡、墨汁雞翼" style="width:480px;max-width:100%;height:auto;border-radius:16px;border:2px solid {OR};display:block;margin:0 auto;">')}
+  <p style="margin:8px 0 0;color:{LAV};font-size:12.5px;">▶ 自動輪播 5 款主打菜式</p>
+</td></tr>
+<tr><td style="padding:14px 34px 0;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{hero_list}</table></td></tr>"""
 item_rows=''
 def item_cell(img,n):
     return f"""<td class="col3" width="33.33%" valign="top" style="padding:6px;">
