@@ -2,6 +2,9 @@ from urllib.parse import quote
 U='https://aoaodelivery.com/wp-content/uploads/'
 UTM='utm_source=edm&utm_medium=email&utm_campaign=halloween2026'
 CAT=f'https://aoaodelivery.com/product-category/halloween-set/?{UTM}'
+IMG='https://expandsolutionshk.github.io/kitchenao-edm/halloween-edm-2026/img/'
+QUICK=f'https://aoaodelivery.com/product-category/party/?{UTM}'
+GOURMET=f'https://aoaodelivery.com/product-category/party/foot-party/?{UTM}'
 WA='https://wa.me/85269011987?text='+quote('你好，我想查詢 2026 萬聖節狂嘩套餐')
 BLOG=f'https://aoaodelivery.com/blog/halloween-catering-hong-kong/?{UTM}'
 OR='#FF7A1A';OR2='#FF5A00';YEL='#FFB347';PUR='#7b2fa8';DK='#1c1426';DK2='#2c1f3b';LAV='#b9a6d1';CREAM='#FFF6EE'
@@ -17,9 +20,14 @@ ITEMS={'🥖 前菜 Appetizer':[('2019/06/Posts-06-600x600.jpg','焗雙色芝士
 SETS=[('5-6','1,458','1,338','2026-Kitchen-AO-Halloween-catering_-5-6_set-photo'),('8-10','2,088','1,918','2026-Kitchen-AO-Halloween-catering_-8-10_set-photo'),('12-16','3,138','2,888','2026-Halloween-12-16_set-photo'),('18-22','4,088','3,758','2026-Halloween-18-22_set-photo'),('26-30','5,448','5,008','2026-Halloween-26-30_set-photo'),('35-40','7,128','6,558','2026-Halloween-35-40')]
 SLUG='-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/'
 def a(href,inner,style=''): return f'<a href="{href}" target="_blank" rel="noopener noreferrer" style="{style}">{inner}</a>'
-def btn(txt,href,w=320):
+def btn(txt,href,w=340):
+    inner=f"""<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
+      <td valign="middle" style="padding-right:10px;font-size:0;line-height:0;"><img src="{IMG}bat-dark.png" width="38" alt="" style="width:38px;height:auto;display:block;"></td>
+      <td valign="middle" style="color:{DK};font-size:18px;font-weight:bold;letter-spacing:1px;white-space:nowrap;">{txt}</td>
+      <td valign="middle" style="padding-left:10px;font-size:0;line-height:0;"><img src="{IMG}bat-dark-flip.png" width="38" alt="" style="width:38px;height:auto;display:block;"></td>
+    </tr></table>"""
     return f'''<table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:0 auto;width:100%;max-width:{w}px;"><tr><td align="center" bgcolor="{OR}" style="border-radius:40px;background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{OR2});box-shadow:0 6px 18px rgba(255,90,0,.35);">
-      {a(href,txt,f"display:block;padding:16px 20px;color:{DK};font-size:18px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;")}
+      {a(href,inner,"display:block;padding:14px 16px;text-decoration:none;border-radius:40px;")}
     </td></tr></table>'''
 def sect_title(eyb,title,sub='',dark=True,bg=DK):
     c='#ffffff' if dark else DK
@@ -91,7 +99,10 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     .container{{width:100%!important;}}
     .h1{{font-size:23px!important;line-height:31px!important;}}
     .stack3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
-    .hlogo{{width:150px!important;}}
+    .hlogo{{width:120px!important;}}
+    .hcell{{display:block!important;width:100%!important;text-align:center!important;padding:8px 10px!important;}}
+    .hnav table,.hright table{{margin:0 auto!important;float:none!important;}}
+    .navi{{padding:0 6px!important;}} .navi a{{font-size:13px!important;}}
     .tk td{{display:block!important;width:100%!important;border-left:0!important;}}
     .stack{{display:block!important;width:100%!important;}}
     .col3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
@@ -108,17 +119,27 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 <!--[if mso]><table role="presentation" width="680" align="center" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
 <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:680px;margin:0 auto;background:{DK};border-radius:16px;overflow:hidden;font-family:Arial,'PingFang HK','Microsoft JhengHei',sans-serif;">
 
-  <!-- HEADER -->
-  <tr><td style="padding:16px 20px 12px;background:{DK};border-bottom:3px solid {OR};">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-      <tr><td align="center" style="padding-bottom:12px;">{a(f"https://aoaodelivery.com/?{UTM}",f'<img class="hlogo" src="{U}2026/07/kitchenAO_logo-white.png" width="150" alt="Kitchen AO" style="width:150px;height:auto;margin:0 auto;display:block;">')}</td></tr>
-      <tr><td align="center"><table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-        <td bgcolor="{DK2}" style="background:{DK2};border-radius:6px 0 0 6px;">{a(f"https://aoaodelivery.com/?{UTM}","網站首頁",f"display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td>
-        <td bgcolor="{DK2}" style="background:{DK2};border-left:1px solid {OR};">{a(CAT,"萬聖節套餐",f"display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td>
-        <td bgcolor="{OR}" style="background:{OR};border-radius:0 6px 6px 0;">{a(WA,"WhatsApp",f"display:block;padding:8px 13px;color:{DK};font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td>
-      </tr></table></td></tr>
-    </table>
+  <!-- HEADER（參考 adidas：黑色橫條・logo 靠左・導覽由左至右・WhatsApp + IG 靠右）-->
+  <tr><td style="padding:0;background:#000000;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#000000;"><tr>
+      <td class="hcell" valign="middle" width="150" style="padding:12px 10px 12px 16px;">{a(f"https://aoaodelivery.com/?{UTM}",f'<span style="display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;"><img class="hlogo" src="{U}2023/08/kitchenAO_logo_horizontal.png" width="120" alt="Kitchen AO" style="width:120px;height:auto;display:block;"></span>')}</td>
+      <td class="hcell hnav" valign="middle" style="padding:12px 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(QUICK,"快速選擇套餐","color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(CAT,"萬聖節套餐","color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(GOURMET,f'美食派對 <span style="display:inline-block;padding:2px 6px;border-radius:4px;background:{OR};color:{DK};font-size:10.5px;font-weight:900;vertical-align:2px;">🔥 HOT</span>',"color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(f"https://aoaodelivery.com/?{UTM}","網站首頁","color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+        </tr></table>
+      </td>
+      <td class="hcell hright" valign="middle" align="right" style="padding:12px 16px 12px 6px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="right"><tr>
+          <td valign="middle" bgcolor="#25D366" style="background:#25D366;border-radius:30px;">{a(WA,f'<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" width="16" height="16" alt="" style="width:16px;height:16px;vertical-align:-3px;display:inline-block;margin-right:5px;">WhatsApp 查詢',"display:inline-block;padding:8px 12px;color:#ffffff;font-size:13px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td>
+          <td valign="middle" style="padding-left:10px;">{a("https://www.instagram.com/kitchen.ao/",'<img src="https://expandsolutionshk.github.io/kitchenao-edm/halloween-edm-2026/img/icon-instagram.png" width="28" height="28" alt="Instagram" style="width:28px;height:28px;display:block;">')}</td>
+        </tr></table>
+      </td>
+    </tr></table>
   </td></tr>
+  <tr><td style="height:3px;line-height:3px;font-size:0;background:{OR};">&nbsp;</td></tr>
 
   <!-- Greeting -->
   <tr><td style="padding:12px 24px;background:{DK2};">
@@ -128,7 +149,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 
   <!-- TITLE -->
   <tr><td align="center" style="padding:30px 22px 6px;background:{DK};">
-    <p style="margin:0 0 10px;color:{OR};font-size:15px;font-weight:bold;letter-spacing:4px;text-transform:uppercase;">Halloween 2026</p>
+    <img src="{IMG}title-halloween-2026.png" width="340" alt="HALLOWEEN 2026" style="width:340px;max-width:80%;height:auto;margin:0 auto 12px;display:block;">
     <h1 class="h1" style="margin:0;color:#ffffff;font-size:26px;line-height:35px;font-weight:800;">🎃 召集全城嘩鬼！<br><span style="color:{YEL};">萬聖節狂嘩套餐</span> 正式登場</h1>
   </td></tr>
 
