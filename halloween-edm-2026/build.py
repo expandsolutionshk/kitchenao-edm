@@ -243,7 +243,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   </td></tr>
 
   <!-- 5 大主打菜式 SLIDE -->
-  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","每個套餐均包括以下主打菜式")}
+  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真<br>每個套餐均包括以下主打菜式")}
   {hero_block}
   <tr><td style="padding:0 0 14px;background:{DK};"></td></tr>
 
