@@ -19,7 +19,7 @@ ITEMS={'🥖 前菜 Appetizer':[('2019/06/Posts-06-600x600.jpg','焗雙色芝士
 '🍖 主菜 Main':[('2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-2-1-600x600.jpeg','「香港燒」烤燶邊香草蜜糖鹿兒島叉燒扒'),('2019/06/Posts-34-600x600-1.jpg','紅酒慢燴鮮蕃茄和牛牛肋條'),('2019/06/Posts-21-600x600.jpg','自家製黑松露牛油慢焗法國黃油春雞'),('2019/06/Posts-22-600x600.jpg','西班牙脆嫩乳香乳豬'),('2019/06/Posts-24-600x600.jpg','香煎紐西蘭穀飼羊架'),('2019/06/KitchenAO_MAY2023-ALA-CARTE-02-600x600.png','泰好味汁燒西冷牛'),('2019/06/KitchenAO_DEC2023-ALA-CARTE-04-2-600x600.jpg','椰香咖喱海鮮龍脷柳配蒜蓉包')]}
 SETS=[('5-6','1,458','1,338','2026-Kitchen-AO-Halloween-catering_-5-6_set-photo'),('8-10','2,088','1,918','2026-Kitchen-AO-Halloween-catering_-8-10_set-photo'),('12-16','3,138','2,888','2026-Halloween-12-16_set-photo'),('18-22','4,088','3,758','2026-Halloween-18-22_set-photo'),('26-30','5,448','5,008','2026-Halloween-26-30_set-photo'),('35-40','7,128','6,558','2026-Halloween-35-40')]
 SLUG='-halloween%e8%90%ac%e8%81%96%e7%af%80%e7%8b%82%e5%98%a9%e5%a5%97%e9%a4%90/'
-def a(href,inner,style=''): return f'<a href="{href}" target="_blank" rel="noopener noreferrer" style="{style}">{inner}</a>'
+def a(href,inner,style=''): return f'<a href="{href}" target="_blank"'+(f' style="{style}"' if style else '')+f'>{inner}</a>'
 def btn(txt,href,w=340):
     inner=f"""<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
       <td valign="middle" style="padding-right:10px;font-size:0;line-height:0;"><img src="{IMG}bat-dark.png" width="38" alt="" style="width:38px;height:auto;display:block;"></td>
@@ -29,6 +29,12 @@ def btn(txt,href,w=340):
     return f'''<table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:0 auto;width:100%;max-width:{w}px;"><tr><td align="center" bgcolor="{OR}" style="border-radius:40px;background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{OR2});box-shadow:0 6px 18px rgba(255,90,0,.35);">
       {a(href,inner,"display:block;padding:14px 16px;text-decoration:none;border-radius:40px;")}
     </td></tr></table>'''
+def sect_hl(eyb,title,sub,bg=DK):
+    return f"""<tr><td style="padding:34px 20px 4px;background:{bg};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:{DK2};background-image:linear-gradient(135deg,#3a2350,{DK2});border:2px solid {OR};border-radius:18px;box-shadow:0 0 0 4px rgba(255,122,26,.15);"><tr>
+  <td width="58" align="center" valign="middle" style="padding:14px 0 14px 10px;"><img src="{IMG}bat-orange.png" width="46" alt="" style="width:46px;height:auto;display:block;"></td>
+  <td align="center" valign="middle" style="padding:16px 6px;"><p style="margin:0 0 6px;color:{OR};font-size:12.5px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">{eyb}</p><p style="margin:0;color:#ffffff;font-size:24px;font-weight:800;letter-spacing:1px;line-height:31px;">{title}</p><p style="margin:8px 0 0;color:{YEL};font-size:14px;line-height:20px;">{sub}</p></td>
+  <td width="58" align="center" valign="middle" style="padding:14px 10px 14px 0;"><img src="{IMG}bat-orange-flip.png" width="46" alt="" style="width:46px;height:auto;display:block;"></td>
+</tr></table></td></tr>"""
 def sect_title(eyb,title,sub='',dark=True,bg=DK):
     c='#ffffff' if dark else DK
     s=f'<p style="margin:0 0 8px;color:{YEL if dark else "#C24E00"};font-size:13px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">{eyb}</p>' if eyb else ''
@@ -44,13 +50,13 @@ def carousel(cid,slides,fallback,bg):
     body=''
     for i,sl in enumerate(slides):
         p=(i-1)%n+1; q=(i+1)%n+1
-        dots=''.join(f'<label for="{cid}{k+1}" style="display:inline-block;width:{"14px" if k==i else "9px"};height:9px;margin:0 4px;border-radius:9px;background:{OR if k==i else "#6d5a85"};cursor:pointer;"></label>' for k in range(n))
-        nav=f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;"><tr>
-          <td width="54" align="left"><label for="{cid}{p}" style="display:inline-block;width:42px;height:42px;line-height:40px;border-radius:21px;background:{OR};color:{DK};font-size:26px;font-weight:900;text-align:center;cursor:pointer;">&#8249;</label></td>
-          <td align="center" style="font-size:0;">{dots}</td>
-          <td width="54" align="right"><label for="{cid}{q}" style="display:inline-block;width:42px;height:42px;line-height:40px;border-radius:21px;background:{OR};color:{DK};font-size:26px;font-weight:900;text-align:center;cursor:pointer;">&#8250;</label></td>
-        </tr></table>"""
-        body+=f'<div class="hws hws{i+1}">{sl}{nav}</div>'
+        dots=''.join(f'<label for="{cid}{k+1}" class="hwdot{" on" if k==i else ""}"></label>' for k in range(n))
+        AR="display:inline-block;width:40px;height:40px;line-height:38px;border-radius:20px;background:"+OR+";color:"+DK+";font-size:26px;font-weight:900;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(255,90,0,.35);"
+        body+=f"""<div class="hws hws{i+1}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td width="48" align="left" valign="middle"><label for="{cid}{p}" class="hwa">&#8249;</label></td>
+          <td align="center" valign="middle"><div style="max-width:400px;margin:0 auto;">{sl}</div></td>
+          <td width="48" align="right" valign="middle"><label for="{cid}{q}" class="hwa">&#8250;</label></td>
+        </tr></table><div style="text-align:center;font-size:0;margin-top:12px;">{dots}</div></div>"""
     return f"""<tr><td style="padding:16px 20px 0;background:{bg};">
 <!--[if !mso]><!-->
 <div class="hwcar hwcar-{cid}" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{radios}<div class="hwwrap">{body}</div></div>
@@ -82,14 +88,14 @@ item_rows=''
 def item_card(img,n):
     return f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #F0E2D2;border-radius:14px;overflow:hidden;">
         <tr><td style="font-size:0;line-height:0;"><img src="{U}{img}" width="196" alt="{n}" style="width:100%;height:auto;display:block;"></td></tr>
-        <tr><td height="46" valign="middle" align="center" style="padding:8px;height:46px;color:{DK};font-size:13.5px;font-weight:bold;line-height:18px;font-family:Arial,'PingFang HK','Microsoft JhengHei',sans-serif;">{n}</td></tr></table>"""
+        <tr><td height="46" valign="middle" align="center" style="padding:8px;height:46px;color:{DK};font-size:13.5px;font-weight:bold;line-height:18px;">{n}</td></tr></table>"""
 for cat,lst in ITEMS.items():
     cells='<!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><![endif]-->'
     for i,(img,n) in enumerate(lst):
         cells+=f'<!--[if mso]><td width="33%" valign="top"><![endif]--><div class="it" style="display:inline-block;width:33.33%;max-width:33.33%;vertical-align:top;box-sizing:border-box;padding:6px;font-size:14px;">{item_card(img,n)}</div><!--[if mso]></td><![endif]-->'
         if (i+1)%3==0 and i+1<len(lst): cells+='<!--[if mso]></tr><tr><![endif]-->'
     cells+='<!--[if mso]></tr></table><![endif]-->'
-    item_rows+=f"""<tr><td style="padding:22px 24px 4px;background:{YEL};"><p style="margin:0;"><span style="display:inline-block;padding:6px 16px;border-radius:20px;background:{DK};color:{YEL};font-size:16px;font-weight:800;">{cat}<span style="color:{LAV};font-size:12.5px;font-weight:normal;">　共 {len(lst)} 款</span></span></p></td></tr>
+    item_rows+=f"""<tr><td align="center" style="padding:22px 24px 4px;background:{YEL};"><p style="margin:0;text-align:center;"><span style="display:inline-block;padding:6px 16px;border-radius:20px;background:{DK};color:{YEL};font-size:16px;font-weight:800;">{cat}<span style="color:{LAV};font-size:12.5px;font-weight:normal;">　共 {len(lst)} 款</span></span></p></td></tr>
 <tr><td style="padding:4px 18px 0;background:{YEL};"><div style="font-size:0;line-height:0;text-align:left;">{cells}</div></td></tr>"""
 set_cells=''
 for i,(p,rp,pr,img) in enumerate(SETS):
@@ -102,7 +108,14 @@ set_slides=[f"""<table role="presentation" width="100%" cellpadding="0" cellspac
     <td valign="middle"><p style="margin:0;color:#ffffff;font-size:22px;font-weight:800;">{p} 人套餐</p><p style="margin:2px 0 0;color:{LAV};font-size:14px;"><s>${rp}</s>　<span style="color:{YEL};font-size:20px;font-weight:800;">${pr}</span></p></td>
     <td valign="middle" align="right"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="{OR}" style="background:{OR};border-radius:30px;">{a(f"https://aoaodelivery.com/product/ao-{p}pax{SLUG}?{UTM}","查看套餐 →",f"display:inline-block;padding:10px 16px;color:{DK};font-size:15px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td></tr></table></td>
   </tr></table></td></tr></table>""" for (p,rp,pr,img) in SETS]
-set_fb=f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{set_cells}</table>'
+pills=''
+for i,(p,rp,pr,img) in enumerate(SETS):
+    lbl=p+' 人<br><span style="color:'+YEL+';font-size:14px;">$'+pr+'</span>'
+    sty='display:block;padding:9px 4px;border:1px solid '+OR+';border-radius:14px;color:#ffffff;font-size:15px;font-weight:bold;text-decoration:none;line-height:20px;'
+    cell='<td width="33%" align="center" style="padding:4px;">'+a('https://aoaodelivery.com/product/ao-'+p+'pax'+SLUG+'?'+UTM,lbl,sty)+'</td>'
+    pills+=('<tr>' if i%3==0 else '')+cell+('</tr>' if i%3==2 else '')
+set_fb=f'<img src="{U}2026/10/{SETS[2][3]}-600x600.jpg" width="320" alt="萬聖節狂嘩套餐" style="width:320px;max-width:100%;height:auto;border-radius:14px;display:block;margin:0 auto 10px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{pills}</table>'
+
 set_block=carousel('hws6',set_slides,set_fb,DK)+note(DK,LAV)
 
 LOGO=a(f"https://aoaodelivery.com/?{UTM}",f'<span style="display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;"><img src="{U}2023/08/kitchenAO_logo_horizontal.png" width="112" alt="Kitchen AO" style="width:112px;height:auto;display:block;"></span>')
@@ -135,6 +148,8 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   img{{border:0;outline:none;text-decoration:none;}}
   table{{border-collapse:collapse;}}
   .hws{{display:none;}}
+  .hwa{{display:inline-block;width:40px;height:40px;line-height:38px;border-radius:20px;background:{OR};color:{DK};font-size:26px;font-weight:900;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(255,90,0,.35);}}
+  .hwdot{{display:inline-block;width:9px;height:9px;margin:0 4px;border-radius:9px;background:#6d5a85;cursor:pointer;}} .hwdot.on{{width:14px;background:{OR};}}
   @media screen and (-webkit-min-device-pixel-ratio:0){{
     .hwcar{{display:block!important;max-height:none!important;overflow:visible!important;}}
     .hwfb{{display:none!important;}}
@@ -145,7 +160,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   .hwfb-only{{}}
   @media only screen and (max-width:600px){{
     .container{{width:100%!important;}}
-    .h1{{font-size:23px!important;line-height:31px!important;}}
+    .h1{{font-size:28px!important;line-height:37px!important;}}
     .stack3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
     .desk{{display:none!important;}}
     .mob{{display:block!important;max-height:none!important;overflow:visible!important;}}
@@ -192,17 +207,19 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <div style="font-size:13.5px;color:{LAV};margin-top:3px;">電子報・2026 年 10 月・萬聖節號</div>
   </td></tr>
 
-  <!-- TITLE -->
-  <tr><td align="center" style="padding:30px 22px 6px;background:{DK};">
-    <img src="{IMG}title-halloween-2026.png" width="340" alt="HALLOWEEN 2026" style="width:340px;max-width:80%;height:auto;margin:0 auto 12px;display:block;">
-    <h1 class="h1" style="margin:0;color:#ffffff;font-size:26px;line-height:35px;font-weight:800;">🎃 召集全城嘩鬼！<br><span style="color:{YEL};">萬聖節狂嘩套餐</span> 正式登場</h1>
+  <!-- HERO（參考 Life360：大圖 → 大標題 → 描述 → CTA，留白充足）-->
+  <tr><td style="padding:28px 24px 0;background:{DK};">{a(CAT,f'<img src="{U}2026/10/2025-Halloween-banner-1_banner_banner-1024x478.jpg" width="632" alt="Halloween 萬聖節狂嘩套餐 2026" style="width:100%;max-width:100%;height:auto;border-radius:18px;display:block;">')}</td></tr>
+  <tr><td align="center" style="padding:34px 30px 0;background:{DK};">
+    <img src="{IMG}title-halloween-2026.png" width="300" alt="HALLOWEEN 2026" style="width:300px;max-width:75%;height:auto;margin:0 auto;display:block;">
+    <h1 class="h1" style="margin:16px 0 0;color:#ffffff;font-size:34px;line-height:44px;font-weight:900;letter-spacing:1px;">召集全城嘩鬼！<br><span style="color:{YEL};">萬聖節狂嘩套餐</span>登場</h1>
   </td></tr>
-
-  <!-- KV -->
-  <tr><td style="padding:18px 20px 0;background:{DK};">{a(CAT,f'<img src="{U}2026/10/2025-Halloween-banner-1_banner_banner-1024x478.jpg" width="640" alt="Halloween 萬聖節狂嘩套餐 2026" style="width:100%;max-width:100%;height:auto;border-radius:14px;display:block;">')}</td></tr>
+  <tr><td align="center" style="padding:18px 48px 0;background:{DK};">
+    <p style="margin:0;color:#E2D8EE;font-size:16px;line-height:26px;">今年推出 5 款全新搞鬼主打菜式，造型要搞鬼，味道要認真！5 至 40 人均有合適套餐，無論家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
+  </td></tr>
+  <tr><td align="center" style="padding:26px 30px 34px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT)}</td></tr>
 
   <!-- TICKET（同 pop up 一樣：橙色漸變・中間虛線・上下缺口）-->
-  <tr><td style="padding:16px 20px 0;background:{DK};">
+  <tr><td style="padding:0 20px 0;background:{DK};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{YEL});border-radius:14px;">
       <tr>
       <td align="center" valign="middle" width="44%" style="padding:16px 8px;color:{DK};font-size:17px;font-weight:800;white-space:nowrap;">即日接受訂購</td>
@@ -216,28 +233,26 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     </table>
   </td></tr>
 
-  <!-- intro + offers -->
-  <tr><td align="center" style="padding:20px 34px 4px;background:{DK};">
-    <p style="margin:0 0 14px;color:#E2D8EE;font-size:16px;line-height:25px;">今年推出 <b style="color:{YEL};">5 款全新搞鬼主打菜式</b>，造型要搞鬼，味道要認真！5 至 40 人均有合適套餐，無論家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
+  <!-- 優惠 -->
+  <tr><td style="padding:14px 20px 6px;background:{DK};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid #4a3463;border-radius:14px;"><tr><td align="left" style="padding:14px 18px;color:#EDE3F7;font-size:15px;line-height:27px;">
       <span style="color:{OR};font-weight:900;">✓</span> <b style="color:{YEL};">10 月 22 日前預訂</b>・即享 <b style="color:{YEL};">92 折</b><br>
       <span style="color:{OR};font-weight:900;">✓</span> 各區<b style="color:{YEL};">免費送遞</b>（滿 $1,450）<br>
       <span style="color:{OR};font-weight:900;">✓</span> 可使用會員優惠現金券（其他優惠碼不適用）
     </td></tr></table>
   </td></tr>
-  <tr><td align="center" style="padding:20px 30px 6px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT)}</td></tr>
 
   <!-- 5 大主打菜式 SLIDE -->
-  {sect_title("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真，每個套餐均包括以下主打菜式")}
+  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真，每個套餐均包括以下主打菜式")}
   {hero_block}
   <tr><td style="padding:0 0 14px;background:{DK};"></td></tr>
 
   <!-- 按人數揀套餐 -->
-  {sect_title("Choose by Guests","按人數選擇套餐","由 5 人至 40 人，按圖即可選擇菜式及下單")}
+  {sect_hl("Choose by Guests","👥 按人數選擇套餐","由 5 人至 40 人，按圖即可選擇菜式及下單")}
   {set_block}
   <tr><td style="padding:8px 16px 4px;background:{DK};"><p style="margin:0;color:#8a7f95;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
   <tr><td align="center" style="padding:20px 30px 30px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT,300)}
-    <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:10px auto 0;width:100%;max-width:300px;"><tr><td align="center" style="border-radius:40px;border:2px solid #ffffff;">{a(WA,"💬 WhatsApp 查詢","display:block;padding:12px 20px;color:#ffffff;font-size:17px;font-weight:bold;text-decoration:none;border-radius:40px;text-align:center;")}</td></tr></table>
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:12px auto 0;width:100%;max-width:300px;border-collapse:separate;"><tr><td align="center" bgcolor="#25D366" style="border-radius:40px;background:#25D366;box-shadow:0 6px 16px rgba(37,211,102,.3);">{a(WA,'<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" width="22" height="22" alt="" style="width:22px;height:22px;vertical-align:-5px;display:inline-block;margin-right:8px;border-radius:5px;">WhatsApp 查詢',"display:block;padding:13px 20px;color:#ffffff;font-size:17px;font-weight:bold;text-decoration:none;border-radius:40px;text-align:center;")}</td></tr></table>
   </td></tr>
 
   <!-- 套餐單品 CAROUSEL（無連結）-->
@@ -266,18 +281,13 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- BLOG -->
   <tr><td style="padding:30px 24px;background:{DK2};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td width="120" valign="middle" style="padding-right:16px;"><img src="{U}2026/10/2026-Kitchen-AO-Halloween-catering_post-2-600x750.jpg" width="120" alt="" style="width:120px;height:auto;border-radius:12px;display:block;"></td>
+      <td width="140" valign="middle" style="padding-right:16px;">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="140" alt="萬聖節由來及 Halloween Party 攻略" style="width:140px;height:auto;border-radius:14px;border:2px solid {OR};display:block;">')}</td>
       <td valign="middle"><p style="margin:0 0 6px;color:{YEL};font-size:13px;font-weight:bold;letter-spacing:2px;">BLOG</p>
         <p style="margin:0 0 8px;color:#ffffff;font-size:17px;font-weight:800;line-height:23px;">萬聖節由來 + Halloween Party 攻略</p>
         <p style="margin:0 0 10px;color:{LAV};font-size:14px;line-height:20px;">在家派對 4 步攻略、公司 Halloween Party 份量計算，一文看清。</p>
         {a(BLOG,"閱讀全文 →",f"color:{OR};font-size:15px;font-weight:bold;")}</td>
     </tr></table>
   </td></tr>
-
-  <!-- 會員優惠 -->
-  {sect_title("","🎁 會員專屬優惠",dark=False,bg=CREAM)}
-  <tr><td style="padding:16px 24px 4px;background:{CREAM};">{a(f"https://aoaodelivery.com/product-category/party-set-by-people/?{UTM}",f'<img src="{U}2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-1440x599.jpg" width="100%" alt="多買多嘗" style="width:100%;height:auto;border-radius:14px;display:block;">')}</td></tr>
-  <tr><td style="padding:8px 24px 32px;background:{CREAM};">{a(f"https://aoaodelivery.com/product-category/party-set-by-people/?{UTM}",f'<img src="{U}2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0-02-1440x599.jpg" width="100%" alt="舊會員優惠" style="width:100%;height:auto;border-radius:14px;display:block;">')}</td></tr>
 
   <!-- 大量訂購 -->
   <tr><td align="center" style="padding:32px 40px;background:{DK};">
@@ -287,11 +297,26 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <p style="margin:14px 0 0;font-size:15px;">{a(f"https://aoaodelivery.com/catering-quote-enquiry/?{UTM}","或填免費報價查詢 →",f"color:{OR};")}</p>
   </td></tr>
 
-  <!-- Social -->
-  <tr><td align="center" style="padding:30px 40px 34px;background:{DK2};">
+  <!-- 會員優惠 -->
+  {sect_title("","🎁 會員專屬優惠",dark=False,bg=CREAM)}
+  <tr><td style="padding:16px 24px 4px;background:{CREAM};">{a(f"https://aoaodelivery.com/product-category/party-set-by-people/?{UTM}",f'<img src="{U}2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-1440x599.jpg" width="100%" alt="多買多嘗" style="width:100%;height:auto;border-radius:14px;display:block;">')}</td></tr>
+  <tr><td style="padding:8px 24px 32px;background:{CREAM};">{a(f"https://aoaodelivery.com/product-category/party-set-by-people/?{UTM}",f'<img src="{U}2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0-02-1440x599.jpg" width="100%" alt="舊會員優惠" style="width:100%;height:auto;border-radius:14px;display:block;">')}</td></tr>
+
+  <!-- Social proof + Instagram 精選（跟中秋版）-->
+  <tr><td align="center" style="padding:36px 40px 6px;background:{DK};">
     <p style="margin:0 0 6px;color:{YEL};font-size:14px;font-weight:bold;letter-spacing:3px;">TRUSTED BY</p>
-    <p style="margin:0 0 10px;color:#ffffff;font-size:20px;font-weight:bold;">大品牌活動都選擇 Kitchen AO</p>
-    <p style="margin:0 0 16px;color:{OR};font-size:17px;font-weight:bold;">★★★★★　4.8 / 5　Google 評價</p>
+    <p style="margin:0 0 12px;color:#ffffff;font-size:21px;font-weight:bold;">大品牌活動都選擇 Kitchen AO</p>
+    <p style="margin:0;color:{OR};font-size:17px;font-weight:bold;letter-spacing:1px;">★★★★★　4.8 / 5　Google 評價</p>
+  </td></tr>
+  <tr><td style="padding:20px 40px 0;background:{DK};"><div style="border-top:1px solid #3d2d52;"></div></td></tr>
+  <tr><td align="center" style="padding:22px 40px 4px;background:{DK};">
+    <p style="margin:0 0 8px;color:#ffffff;font-size:21px;font-weight:800;letter-spacing:1px;">Instagram 精選</p>
+    <div style="width:44px;height:3px;background:{OR};margin:0 auto;border-radius:3px;"></div>
+  </td></tr>
+  <tr><td style="padding:18px 30px 4px;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="100%" alt="李寧跑步活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">李寧跑步活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="100%" alt="Lululemon K11 空中花園活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">Lululemon K11 空中花園活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr><tr><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<img src="{U}2026/07/kitchen-ao-catering-McLaren-private-event.png" width="100%" alt="McLaren 私人活動｜廚師及侍應服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">McLaren 私人活動｜廚師及侍應服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<img src="{U}2026/07/kitchen-ao-catering-UGG-Event.jpg" width="100%" alt="UGG 品牌活動｜全套到會服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">UGG 品牌活動｜全套到會服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr>
+  </table></td></tr>
+  <tr><td align="center" style="padding:14px 40px 36px;background:{DK};">
     <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" style="border:1px solid {OR};border-radius:40px;">{a("https://www.instagram.com/kitchen.ao/","＋ 追蹤 @kitchen.ao",f"display:inline-block;padding:11px 28px;color:{OR};font-size:16px;font-weight:bold;text-decoration:none;border-radius:40px;")}</td></tr></table>
   </td></tr>
 
@@ -310,6 +335,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 </html>
 '''
 import re
-html=re.sub(r'>\s+<','><',html)
+html=re.sub(r'(<table[^>]*style=")([^"]*border-radius[^"]*)"',lambda m:m.group(1)+('border-collapse:separate;border-spacing:0;' if 'border-collapse' not in m.group(2) else '')+m.group(2)+'"',html)
+html=re.sub(r'>\s+<','><',html).replace(' rel="noopener noreferrer"','').replace(' role="presentation"','').replace(' cellpadding="0" cellspacing="0"',' cellpadding="0" cellspacing="0"')
 html=re.sub(r'\n\s+',' ',html)
 open('index.html','w').write(html); print(len(html))
