@@ -278,14 +278,16 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
       <td align="right" valign="bottom"><img src="{IMG}el-mug.png" width="96" alt="" style="width:96px;height:auto;display:inline-block;"></td>
   </tr></table></td></tr>
 
-  <!-- BLOG -->
-  <tr><td style="padding:30px 24px;background:{DK2};">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td width="140" valign="middle" style="padding-right:16px;">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="140" alt="萬聖節由來及 Halloween Party 攻略" style="width:140px;height:auto;border-radius:14px;border:2px solid {OR};display:block;">')}</td>
-      <td valign="middle"><p style="margin:0 0 6px;color:{YEL};font-size:13px;font-weight:bold;letter-spacing:2px;">BLOG</p>
-        <p style="margin:0 0 8px;color:#ffffff;font-size:17px;font-weight:800;line-height:23px;">萬聖節由來 + Halloween Party 攻略</p>
-        <p style="margin:0 0 10px;color:{LAV};font-size:14px;line-height:20px;">在家派對 4 步攻略、公司 Halloween Party 份量計算，一文看清。</p>
-        {a(BLOG,"閱讀全文 →",f"color:{OR};font-size:15px;font-weight:bold;")}</td>
+  <!-- BLOG（卡片：左圓形圖・右置中標題＋描述＋細掣）-->
+  <tr><td style="padding:30px 20px;background:{DK};">
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:{DK2};background-image:linear-gradient(135deg,#3a2350,{DK2});border:1px solid #4a3463;border-radius:20px;"><tr>
+      <td class="stack" width="44%" align="center" valign="middle" style="padding:24px 10px 24px 24px;">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="170" alt="萬聖節由來及 Halloween Party 攻略" style="width:170px;height:170px;border-radius:85px;border:3px solid {OR};display:block;margin:0 auto;">')}</td>
+      <td class="stack" align="center" valign="middle" style="padding:24px 26px 24px 10px;">
+        <p style="margin:0 0 6px;color:{OR};font-size:12.5px;font-weight:bold;letter-spacing:3px;">BLOG</p>
+        <p style="margin:0 0 10px;color:#ffffff;font-size:22px;font-weight:800;line-height:29px;">萬聖節由來<br>Halloween Party 攻略</p>
+        <p style="margin:0 0 16px;color:{LAV};font-size:13.5px;line-height:20px;">在家派對 4 步攻略、公司 Halloween Party 份量計算，一文看清。</p>
+        <table cellpadding="0" cellspacing="0" align="center" style="border-collapse:separate;"><tr><td bgcolor="{OR}" style="background:{OR};border-radius:30px;">{a(BLOG,"閱讀全文 →",f"display:inline-block;padding:9px 22px;color:{DK};font-size:14px;font-weight:bold;text-decoration:none;border-radius:30px;")}</td></tr></table>
+      </td>
     </tr></table>
   </td></tr>
 
