@@ -53,9 +53,9 @@ def carousel(cid,slides,fallback,bg):
         dots=''.join(f'<label for="{cid}{k+1}" class="hwdot{" on" if k==i else ""}"></label>' for k in range(n))
         AR="display:inline-block;width:40px;height:40px;line-height:38px;border-radius:20px;background:"+OR+";color:"+DK+";font-size:26px;font-weight:900;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(255,90,0,.35);"
         body+=f"""<div class="hws hws{i+1}"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-          <td width="48" align="left" valign="middle"><label for="{cid}{p}" class="hwa">&#8249;</label></td>
+          <td width="64" align="left" valign="middle"><label for="{cid}{p}" class="hwa">&#8249;</label></td>
           <td align="center" valign="middle"><div style="max-width:400px;margin:0 auto;">{sl}</div></td>
-          <td width="48" align="right" valign="middle"><label for="{cid}{q}" class="hwa">&#8250;</label></td>
+          <td width="64" align="right" valign="middle"><label for="{cid}{q}" class="hwa">&#8250;</label></td>
         </tr></table><div style="text-align:center;font-size:0;margin-top:12px;">{dots}</div></div>"""
     return f"""<tr><td style="padding:16px 20px 0;background:{bg};">
 <!--[if !mso]><!-->
@@ -148,7 +148,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   img{{border:0;outline:none;text-decoration:none;}}
   table{{border-collapse:collapse;}}
   .hws{{display:none;}}
-  .hwa{{display:inline-block;width:40px;height:40px;line-height:38px;border-radius:20px;background:{OR};color:{DK};font-size:26px;font-weight:900;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(255,90,0,.35);}}
+  .hwa{{display:inline-block;width:56px;height:56px;line-height:53px;border-radius:28px;background:{OR};color:{DK};font-size:36px;font-weight:900;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(255,90,0,.35);}}
   .hwdot{{display:inline-block;width:9px;height:9px;margin:0 4px;border-radius:9px;background:#6d5a85;cursor:pointer;}} .hwdot.on{{width:14px;background:{OR};}}
   @media screen and (-webkit-min-device-pixel-ratio:0){{
     .hwcar{{display:block!important;max-height:none!important;overflow:visible!important;}}
