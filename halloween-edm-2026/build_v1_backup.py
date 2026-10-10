@@ -7,7 +7,7 @@ QUICK=f'https://aoaodelivery.com/product-category/party/?{UTM}'
 GOURMET=f'https://aoaodelivery.com/product-category/party/foot-party/?{UTM}'
 WA='https://wa.me/85269011987?text='+quote('你好，我想查詢 2026 萬聖節狂嘩套餐')
 BLOG=f'https://aoaodelivery.com/blog/halloween-catering-hong-kong/?{UTM}'
-OR='#FF7A1A';OR2='#FF5A00';YEL='#FFB347';PUR='#7b2fa8';DK='#1c1426';DK2='#2c1f3b';LAV='#b9a6d1';CREAM='#FFF6EE';ORBG='#FF9A3C'
+OR='#FF7A1A';OR2='#FF5A00';YEL='#FFB347';PUR='#7b2fa8';DK='#1c1426';DK2='#2c1f3b';LAV='#b9a6d1';CREAM='#FFF6EE'
 HERO=[('2026/10/2026-Kitchen-AO-Halloween-catering_post-2-600x750.jpg','🎃','哈囉喂','「原個直送」日本南瓜海鮮意大利飯','可以選配原個日本南瓜作器皿直送到會，南瓜蓉融入每顆米粒，配以彈牙海鮮，賣相與味道同樣出色。'),
 ('2026/10/2026-Kitchen-AO-Halloween-catering_post-3-600x750.jpg','👁️','惡魔的眼睛','開心果醬荔枝藍苺酥盒','荔枝及藍莓砌成「惡魔眼睛」，甜而不膩，一口一件。'),
 ('2026/10/2026-Kitchen-AO-Halloween-catering_post-1-600x750.jpg','💉','血淋淋科學怪人','香濃蕃茄手指腸仔','形似「斷指」的腸仔，嚇人之餘又惹味，小朋友最愛。'),
@@ -34,36 +34,6 @@ def sect_title(eyb,title,sub='',dark=True,bg=DK):
     s=f'<p style="margin:0 0 8px;color:{YEL if dark else "#C24E00"};font-size:13px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">{eyb}</p>' if eyb else ''
     sub=f'<p style="margin:8px 0 0;color:{LAV if dark else "#7A7268"};font-size:14.5px;line-height:21px;">{sub}</p>' if sub else ''
     return f'''<tr><td align="center" style="padding:34px 30px 6px;background:{bg};">{s}<p style="margin:0;color:{c};font-size:23px;font-weight:800;letter-spacing:1px;line-height:30px;">{title}</p>{sub}<div style="width:44px;height:3px;background:{OR};margin:12px auto 0;border-radius:3px;"></div></td></tr>'''
-
-WEBV='##web_preview_url##'   # FluentCRM「網頁版電郵」smartcode（寄出前請確認）
-def note(bg,col):
-    return f'<tr><td align="center" style="padding:10px 24px 0;background:{bg};"><p style="margin:0;color:{col};font-size:12.5px;line-height:18px;">如看不到內容，請<a href="{WEBV}" target="_blank" rel="noopener noreferrer" style="color:{col};font-weight:bold;text-decoration:underline;">按此瀏覽網頁版電郵</a></p></td></tr>'
-def carousel(cid,slides,fallback,bg):
-    n=len(slides)
-    radios=''.join(f'<input type="radio" name="{cid}" id="{cid}{i+1}" class="hwr"{" checked" if i==0 else ""} style="display:none;mso-hide:all;">' for i in range(n))
-    body=''
-    for i,sl in enumerate(slides):
-        p=(i-1)%n+1; q=(i+1)%n+1
-        dots=''.join(f'<label for="{cid}{k+1}" style="display:inline-block;width:{"14px" if k==i else "9px"};height:9px;margin:0 4px;border-radius:9px;background:{OR if k==i else "#6d5a85"};cursor:pointer;"></label>' for k in range(n))
-        nav=f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;"><tr>
-          <td width="54" align="left"><label for="{cid}{p}" style="display:inline-block;width:42px;height:42px;line-height:40px;border-radius:21px;background:{OR};color:{DK};font-size:26px;font-weight:900;text-align:center;cursor:pointer;">&#8249;</label></td>
-          <td align="center" style="font-size:0;">{dots}</td>
-          <td width="54" align="right"><label for="{cid}{q}" style="display:inline-block;width:42px;height:42px;line-height:40px;border-radius:21px;background:{OR};color:{DK};font-size:26px;font-weight:900;text-align:center;cursor:pointer;">&#8250;</label></td>
-        </tr></table>"""
-        body+=f'<div class="hws hws{i+1}">{sl}{nav}</div>'
-    return f"""<tr><td style="padding:16px 20px 0;background:{bg};">
-<!--[if !mso]><!-->
-<div class="hwcar hwcar-{cid}" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{radios}<div class="hwwrap">{body}</div></div>
-<!--<![endif]-->
-<div class="hwfb">{fallback}</div>
-</td></tr>"""
-def car_css(cid,n):
-    return ''.join(f'#{cid}{i+1}:checked ~ .hwwrap .hws{i+1}{{display:block!important;}}' for i in range(n))
-dish_slides=[f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:2px solid {OR};border-radius:16px;overflow:hidden;">
-  <tr><td style="font-size:0;line-height:0;">{a(CAT,f'<img src="{U}{img}" width="600" alt="{b}" style="width:100%;height:auto;display:block;">')}</td></tr>
-  <tr><td style="padding:14px 18px 16px;"><p style="margin:0 0 3px;color:{LAV};font-size:13.5px;font-weight:bold;">{ic} {sm}　<span style="color:#8a7f95;font-weight:normal;">{i+1} / 5</span></p>
-  <p style="margin:0 0 6px;color:{YEL};font-size:19px;font-weight:800;line-height:25px;">{b}</p><p style="margin:0;color:#E2D8EE;font-size:14px;line-height:21px;">{d}</p></td></tr></table>""" for i,(img,ic,sm,b,d) in enumerate(HERO)]
-
 # 5 大菜式：主打橫向大卡 + 其餘 2x2 格（固定闊度）
 def dish_card(img,ic,sm,b,d):
     return f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid #4a3463;border-radius:16px;overflow:hidden;">
@@ -75,9 +45,12 @@ def dish_card(img,ic,sm,b,d):
       </td></tr></table>"""
 hero_list=''.join(f"""<tr><td width="34" valign="top" style="padding:7px 0;"><span style="display:inline-block;width:26px;height:26px;line-height:26px;border-radius:13px;background:{OR};color:{DK};font-size:13px;font-weight:900;text-align:center;">{i+1}</span></td>
   <td valign="top" style="padding:7px 0 7px 6px;border-bottom:1px dashed #3d2d52;"><span style="color:{LAV};font-size:13px;font-weight:bold;">{h[1]} {h[2]}</span><br><span style="color:{YEL};font-size:16px;font-weight:800;line-height:22px;">{h[3]}</span><br><span style="color:#cfc3df;font-size:13px;line-height:19px;">{h[4]}</span></td></tr>""" for i,h in enumerate(HERO))
-hero_fb=f"""{a(CAT,f'<img src="{U}{HERO[0][0]}" width="480" alt="{HERO[0][3]}" style="width:480px;max-width:100%;height:auto;border-radius:16px;border:2px solid {OR};display:block;margin:0 auto;">')}
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">{hero_list}</table>"""
-hero_block=carousel('hwd',dish_slides,hero_fb,DK)+note(DK,LAV)
+hero_block=f"""<!-- 5 大主打：GIF 自動輪播（所有電郵程式都支援；Outlook Windows 只顯示第一格）+ 文字清單 -->
+<tr><td align="center" style="padding:16px 20px 0;background:{DK};">
+  {a(CAT,f'<img src="{IMG}5-dishes-slider.gif" width="480" alt="5 大主打菜式：「原個直送」日本南瓜海鮮意大利飯、開心果醬荔枝藍苺酥盒、香濃蕃茄手指腸仔、迷你芝士手打牛肉漢堡、墨汁雞翼" style="width:480px;max-width:100%;height:auto;border-radius:16px;border:2px solid {OR};display:block;margin:0 auto;">')}
+  <p style="margin:8px 0 0;color:{LAV};font-size:12.5px;">▶ 自動輪播 5 款主打菜式</p>
+</td></tr>
+<tr><td style="padding:14px 34px 0;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{hero_list}</table></td></tr>"""
 item_rows=''
 def item_cell(img,n):
     return f"""<td class="col3" width="33.33%" valign="top" style="padding:6px;">
@@ -90,32 +63,13 @@ for cat,lst in ITEMS.items():
     for r in range(0,len(lst),3):
         chunk=lst[r:r+3]; cells=''.join(item_cell(*x) for x in chunk)+''.join('<td class="col3 empty" width="33.33%" style="padding:6px;"></td>' for _ in range(3-len(chunk)))
         rows+=f'<tr>{cells}</tr>'
-    item_rows+=f"""<tr><td style="padding:22px 24px 4px;background:{YEL};"><p style="margin:0;"><span style="display:inline-block;padding:6px 16px;border-radius:20px;background:{DK};color:{YEL};font-size:16px;font-weight:800;">{cat}<span style="color:{LAV};font-size:12.5px;font-weight:normal;">　共 {len(lst)} 款</span></span></p></td></tr>
-<tr><td style="padding:4px 18px 0;background:{YEL};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table></td></tr>"""
+    item_rows+=f"""<tr><td style="padding:22px 24px 4px;background:{CREAM};"><p style="margin:0;color:#C24E00;font-size:17px;font-weight:800;">{cat}<span style="color:#9a8f7e;font-size:13px;font-weight:normal;">　共 {len(lst)} 款</span></p></td></tr>
+<tr><td style="padding:4px 18px 0;background:{CREAM};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table></td></tr>"""
 set_cells=''
 for i,(p,rp,pr,img) in enumerate(SETS):
     slug=('ao-'+p+'pax'+SLUG)
     cell=f'''<td class="stack3" width="33.33%" valign="top" align="center" style="padding:6px;">{a(f"https://aoaodelivery.com/product/{slug}?{UTM}",f"""<img src="{U}2026/10/{img}-600x600.jpg" width="100%" alt="萬聖節狂嘩套餐 {p} 人" style="width:100%;height:auto;border-radius:12px;display:block;"><p style="margin:8px 0 0;color:#ffffff;font-size:17px;font-weight:800;">{p} 人</p><p style="margin:2px 0 0;font-size:13px;color:{LAV};"><s>${rp}</s>　<span style="color:{YEL};font-size:16px;font-weight:800;">${pr}</span></p>""","text-decoration:none;")}</td>'''
     set_cells+=('<tr>' if i%3==0 else '')+cell+('</tr>' if i%3==2 else '')
-set_slides=[f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:2px solid {OR};border-radius:16px;overflow:hidden;">
-  <tr><td style="font-size:0;line-height:0;">{a(f"https://aoaodelivery.com/product/ao-{p}pax{SLUG}?{UTM}",f'<img src="{U}2026/10/{img}-600x600.jpg" width="600" alt="萬聖節狂嘩套餐 {p} 人" style="width:100%;height:auto;display:block;">')}</td></tr>
-  <tr><td style="padding:14px 18px 16px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td valign="middle"><p style="margin:0;color:#ffffff;font-size:22px;font-weight:800;">{p} 人套餐</p><p style="margin:2px 0 0;color:{LAV};font-size:14px;"><s>${rp}</s>　<span style="color:{YEL};font-size:20px;font-weight:800;">${pr}</span></p></td>
-    <td valign="middle" align="right"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="{OR}" style="background:{OR};border-radius:30px;">{a(f"https://aoaodelivery.com/product/ao-{p}pax{SLUG}?{UTM}","查看套餐 →",f"display:inline-block;padding:10px 16px;color:{DK};font-size:15px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td></tr></table></td>
-  </tr></table></td></tr></table>""" for (p,rp,pr,img) in SETS]
-set_fb=f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{set_cells}</table>'
-set_block=carousel('hws6',set_slides,set_fb,DK)+note(DK,LAV)
-
-LOGO=a(f"https://aoaodelivery.com/?{UTM}",f'<span style="display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;"><img src="{U}2023/08/kitchenAO_logo_horizontal.png" width="112" alt="Kitchen AO" style="width:112px;height:auto;display:block;"></span>')
-NS="color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;"
-FIRE='<sup style="font-size:11px;line-height:0;vertical-align:8px;margin-left:1px;">🔥</sup>'
-NAVITEMS=[('快速選擇套餐',QUICK,''),('萬聖節套餐',CAT,''),('美食派對',GOURMET,FIRE),('網站首頁',f"https://aoaodelivery.com/?{UTM}",'')]
-NAV=''.join(f'<td valign="middle" style="padding:0 9px;">{a(h,t+x,NS)}</td>' for t,h,x in NAVITEMS)
-NAVM=''.join(f'<td width="25%" align="center" valign="middle" style="padding:6px 2px;border-left:{"0" if i==0 else "1px solid #333"};">{a(h,t+x,NS.replace("14px","13px"))}</td>' for i,(t,h,x) in enumerate(NAVITEMS))
-ICONS=f"""<table role="presentation" cellpadding="0" cellspacing="0" align="right"><tr>
-  <td valign="middle">{a(WA,'<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" width="32" height="32" alt="WhatsApp 查詢" style="width:32px;height:32px;display:block;border-radius:8px;">')}</td>
-  <td valign="middle" style="padding-left:10px;">{a("https://www.instagram.com/kitchen.ao/",f'<img src="{IMG}icon-instagram.png" width="32" height="32" alt="Instagram" style="width:32px;height:32px;display:block;">')}</td>
-</tr></table>"""
 html=f'''<!--
 ============================================================
 Kitchen AO — 2026 Halloween 萬聖節狂嘩套餐 EDM — Raw HTML for FluentCRM
@@ -135,21 +89,11 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   body{{margin:0;padding:0;background:#140e1c;-webkit-text-size-adjust:100%;}}
   img{{border:0;outline:none;text-decoration:none;}}
   table{{border-collapse:collapse;}}
-  .hws{{display:none;}}
-  @media screen and (-webkit-min-device-pixel-ratio:0){{
-    .hwcar{{display:block!important;max-height:none!important;overflow:visible!important;}}
-    .hwfb{{display:none!important;}}
-    {car_css('hwd',5)}{car_css('hws6',6)}
-  }}
-  u + .body .hwcar{{display:none!important;}} u + .body .hwfb{{display:block!important;}}
-  [owa] .hwcar{{display:none!important;}} [owa] .hwfb{{display:block!important;}}
-  .hwfb-only{{}}
   @media only screen and (max-width:600px){{
     .container{{width:100%!important;}}
     .h1{{font-size:23px!important;line-height:31px!important;}}
     .stack3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
-    .desk{{display:none!important;}}
-    .mob{{display:block!important;max-height:none!important;overflow:visible!important;}}
+    .hlogo{{width:120px!important;}}
     .hcell{{display:block!important;width:100%!important;text-align:center!important;padding:8px 10px!important;}}
     .hnav table,.hright table{{margin:0 auto!important;float:none!important;}}
     .navi{{padding:0 6px!important;}} .navi a{{font-size:13px!important;}}
@@ -160,7 +104,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   }}
 </style>
 </head>
-<body class="body" style="margin:0;padding:0;background:#140e1c;">
+<body style="margin:0;padding:0;background:#140e1c;">
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#140e1c;">
 🎃 萬聖節狂嘩套餐登場｜5 款搞鬼主打菜式・5 至 40 人・10/22 前預訂 92 折
 </div>
@@ -169,21 +113,25 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 <!--[if mso]><table role="presentation" width="680" align="center" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
 <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:680px;margin:0 auto;background:{DK};border-radius:16px;overflow:hidden;font-family:Arial,'PingFang HK','Microsoft JhengHei',sans-serif;">
 
-  <!-- HEADER：desktop 一行（logo｜導覽｜WhatsApp + IG）；mobile 兩行 -->
+  <!-- HEADER（參考 adidas：黑色橫條・logo 靠左・導覽由左至右・WhatsApp + IG 靠右）-->
   <tr><td style="padding:0;background:#000000;">
-    <table role="presentation" class="desk" width="100%" cellpadding="0" cellspacing="0" style="background:#000000;"><tr>
-      <td valign="middle" width="140" style="padding:12px 6px 12px 16px;">{LOGO}</td>
-      <td valign="middle" style="padding:12px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr>{NAV}</tr></table></td>
-      <td valign="middle" align="right" style="padding:12px 16px 12px 4px;">{ICONS}</td>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#000000;"><tr>
+      <td class="hcell" valign="middle" width="150" style="padding:12px 10px 12px 16px;">{a(f"https://aoaodelivery.com/?{UTM}",f'<span style="display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;"><img class="hlogo" src="{U}2023/08/kitchenAO_logo_horizontal.png" width="120" alt="Kitchen AO" style="width:120px;height:auto;display:block;"></span>')}</td>
+      <td class="hcell hnav" valign="middle" style="padding:12px 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(QUICK,"快速選擇套餐","color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(CAT,"萬聖節套餐","color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(GOURMET,f'美食派對 <span style="display:inline-block;padding:2px 6px;border-radius:4px;background:{OR};color:{DK};font-size:10.5px;font-weight:900;vertical-align:2px;">🔥 HOT</span>',"color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+          <td class="navi" valign="middle" style="padding:0 9px;">{a(f"https://aoaodelivery.com/?{UTM}","網站首頁","color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;")}</td>
+        </tr></table>
+      </td>
+      <td class="hcell hright" valign="middle" align="right" style="padding:12px 16px 12px 6px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" align="right"><tr>
+          <td valign="middle" bgcolor="#25D366" style="background:#25D366;border-radius:30px;">{a(WA,f'<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" width="16" height="16" alt="" style="width:16px;height:16px;vertical-align:-3px;display:inline-block;margin-right:5px;">WhatsApp 查詢',"display:inline-block;padding:8px 12px;color:#ffffff;font-size:13px;font-weight:bold;text-decoration:none;white-space:nowrap;")}</td>
+          <td valign="middle" style="padding-left:10px;">{a("https://www.instagram.com/kitchen.ao/",'<img src="https://expandsolutionshk.github.io/kitchenao-edm/halloween-edm-2026/img/icon-instagram.png" width="28" height="28" alt="Instagram" style="width:28px;height:28px;display:block;">')}</td>
+        </tr></table>
+      </td>
     </tr></table>
-    <!--[if !mso]><!-->
-    <div class="mob" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#000000;">
-        <tr><td valign="middle" style="padding:12px 14px 8px;">{LOGO}</td><td valign="middle" align="right" style="padding:12px 14px 8px;">{ICONS}</td></tr>
-        <tr><td colspan="2" style="padding:4px 6px 12px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>{NAVM}</tr></table></td></tr>
-      </table>
-    </div>
-    <!--<![endif]-->
   </td></tr>
   <tr><td style="height:3px;line-height:3px;font-size:0;background:{OR};">&nbsp;</td></tr>
 
@@ -202,18 +150,11 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- KV -->
   <tr><td style="padding:18px 20px 0;background:{DK};">{a(CAT,f'<img src="{U}2026/10/2025-Halloween-banner-1_banner_banner-1024x478.jpg" width="640" alt="Halloween 萬聖節狂嘩套餐 2026" style="width:100%;max-width:100%;height:auto;border-radius:14px;display:block;">')}</td></tr>
 
-  <!-- TICKET（同 pop up 一樣：橙色漸變・中間虛線・上下缺口）-->
+  <!-- TICKET：送貨日期 -->
   <tr><td style="padding:16px 20px 0;background:{DK};">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{YEL});border-radius:14px;">
-      <tr>
-      <td align="center" valign="middle" width="44%" style="padding:16px 8px;color:{DK};font-size:17px;font-weight:800;white-space:nowrap;"><span style="display:inline-block;width:12px;height:12px;border-radius:6px;background:#1fbf4a;box-shadow:0 0 0 5px rgba(31,191,74,.28);vertical-align:1px;margin-right:10px;"></span>即日接受訂購</td>
-      <td width="22" valign="top" style="padding:0;font-size:0;line-height:0;">
-        <div style="width:22px;height:11px;background:{DK};border-radius:0 0 11px 11px;"></div>
-        <div style="width:0;height:52px;margin:3px auto;border-left:2px dashed rgba(28,20,38,.4);"></div>
-        <div style="width:22px;height:11px;background:{DK};border-radius:11px 11px 0 0;"></div>
-      </td>
-      <td valign="middle" style="padding:12px 16px;color:{DK};"><span style="font-size:13px;font-weight:bold;opacity:.75;">送貨日期</span><br><span style="font-size:21px;font-weight:900;white-space:nowrap;">10月23日 – 11月1日</span></td>
-      </tr>
+    <table role="presentation" class="tk" width="100%" cellpadding="0" cellspacing="0" style="background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{YEL});border-radius:14px;">
+      <tr><td align="center" width="42%" style="padding:14px 8px;color:{DK};font-size:16px;font-weight:800;">🟢 即日接受訂購</td>
+      <td align="center" style="padding:12px 10px;border-left:2px dashed rgba(28,20,38,.35);color:{DK};"><span style="font-size:12.5px;font-weight:bold;opacity:.75;">送貨日期</span><br><span style="font-size:19px;font-weight:900;">10月23日 – 11月1日</span></td></tr>
     </table>
   </td></tr>
 
@@ -235,34 +176,16 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 
   <!-- 按人數揀套餐 -->
   {sect_title("Choose by Guests","按人數選擇套餐","由 5 人至 40 人，按圖即可選擇菜式及下單")}
-  {set_block}
-  <tr><td style="padding:8px 16px 4px;background:{DK};"><p style="margin:0;color:#8a7f95;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
+  <tr><td style="padding:12px 16px 4px;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{set_cells}</table>
+    <p style="margin:8px 6px 0;color:#8a7f95;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
   <tr><td align="center" style="padding:20px 30px 30px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT,300)}
     <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:10px auto 0;width:100%;max-width:300px;"><tr><td align="center" style="border-radius:40px;border:2px solid #ffffff;">{a(WA,"💬 WhatsApp 查詢","display:block;padding:12px 20px;color:#ffffff;font-size:17px;font-weight:bold;text-decoration:none;border-radius:40px;text-align:center;")}</td></tr></table>
   </td></tr>
 
   <!-- 套餐單品 CAROUSEL（無連結）-->
-  <!-- 套餐自選：橙色 Halloween 區 + 卡通元素 -->
-  <tr><td style="padding:22px 16px 0;background:{ORBG};background-image:linear-gradient(180deg,#FF8A1F,{YEL});">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td align="left" valign="bottom" width="22%"><img src="{IMG}el-ghost1.png" width="70" alt="" style="width:70px;height:auto;display:block;"></td>
-      <td align="center" valign="top" width="18%" style="padding-top:2px;"><img src="{IMG}el-candy.png" width="80" alt="" style="width:80px;height:auto;display:inline-block;"></td>
-      <td align="center" valign="bottom" width="20%"><img src="{IMG}el-moon.png" width="70" alt="" style="width:70px;height:auto;display:inline-block;"></td>
-      <td align="center" valign="top" width="18%"><img src="{IMG}el-lollipop.png" width="54" alt="" style="width:54px;height:auto;display:inline-block;"></td>
-      <td align="right" valign="bottom" width="22%"><img src="{IMG}el-coffin.png" width="66" alt="" style="width:66px;height:auto;display:inline-block;"></td>
-    </tr></table>
-  </td></tr>
-  <tr><td align="center" style="padding:14px 30px 4px;background:{YEL};">
-    <p style="margin:0 0 8px;color:{DK};font-size:13px;font-weight:bold;letter-spacing:3px;">MIX &amp; MATCH</p>
-    <p style="margin:0;color:{DK};font-size:24px;font-weight:800;letter-spacing:1px;line-height:31px;">🍽️ 套餐內更可自選</p>
-    <p style="margin:8px 0 0;color:#4a2a10;font-size:14.5px;line-height:21px;">除 5 大主打菜式外，套餐可按人數自選以下人氣菜式</p>
-    <div style="width:44px;height:3px;background:{DK};margin:12px auto 0;border-radius:3px;"></div>
-  </td></tr>
+  {sect_title("Mix & Match","🍽️ 套餐內更可自選","除 5 大主打菜式外，套餐可按人數自選以下人氣菜式",dark=False,bg=CREAM)}
   {item_rows}
-  <tr><td style="padding:10px 16px 0;background:{YEL};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td align="left" valign="bottom"><img src="{IMG}el-witch.png" width="96" alt="" style="width:96px;height:auto;display:block;"></td>
-      <td align="right" valign="bottom"><img src="{IMG}el-mug.png" width="96" alt="" style="width:96px;height:auto;display:inline-block;"></td>
-  </tr></table></td></tr>
+  <tr><td style="padding:0 0 30px;background:{CREAM};"></td></tr>
 
   <!-- BLOG -->
   <tr><td style="padding:30px 24px;background:{DK2};">
@@ -310,7 +233,4 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 </body>
 </html>
 '''
-import re
-html=re.sub(r'>\s+<','><',html)
-html=re.sub(r'\n\s+',' ',html)
 open('index.html','w').write(html); print(len(html))
