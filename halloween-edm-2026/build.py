@@ -41,7 +41,7 @@ def sect_title(eyb,title,sub='',dark=True,bg=DK):
     sub=f'<p style="margin:8px 0 0;color:{LAV if dark else "#7A7268"};font-size:14.5px;line-height:21px;">{sub}</p>' if sub else ''
     return f'''<tr><td align="center" style="padding:34px 30px 6px;background:{bg};">{s}<p style="margin:0;color:{c};font-size:23px;font-weight:800;letter-spacing:1px;line-height:30px;">{title}</p>{sub}<div style="width:44px;height:3px;background:{OR};margin:12px auto 0;border-radius:3px;"></div></td></tr>'''
 
-WEBV='##web_preview_url##'   # FluentCRM「網頁版電郵」smartcode（寄出前請確認）
+WEBV='https://expandsolutionshk.github.io/kitchenao-edm/halloween-edm-2026/'   # FluentCRM「網頁版電郵」smartcode（寄出前請確認）
 def note(bg,col):
     return f'<tr><td align="center" style="padding:10px 24px 0;background:{bg};"><p style="margin:0;color:{col};font-size:12.5px;line-height:18px;">如看不到內容，請<a href="{WEBV}" target="_blank" rel="noopener noreferrer" style="color:{col};font-weight:bold;text-decoration:underline;">按此瀏覽網頁版電郵</a></p></td></tr>'
 def carousel(cid,slides,fallback,bg):
@@ -289,8 +289,8 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- BLOG（卡片：左圓形圖・右置中標題＋描述＋細掣）-->
   <tr><td style="padding:30px 20px;background:{DK};">
     <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:{DK2};background-image:linear-gradient(135deg,#3a2350,{DK2});border:1px solid #4a3463;border-radius:20px;"><tr>
-      <td class="stack" width="44%" align="center" valign="middle" style="padding:24px 16px;">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="170" alt="萬聖節由來及 Halloween Party 攻略" style="width:170px;height:170px;border-radius:85px;border:3px solid {OR};display:block;margin:0 auto;">')}</td>
-      <td class="stack" align="center" valign="middle" style="padding:24px 18px;">
+      <td class="stack" width="44%" align="center" valign="middle" style="padding:24px 16px;text-align:center;"><table cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;"><tr><td align="center">{a(BLOG,f'<img src="{IMG}blog-thumb.jpg" width="170" alt="萬聖節由來及 Halloween Party 攻略" style="width:170px;height:170px;border-radius:85px;border:3px solid {OR};display:block;">',"display:block;")}</td></tr></table></td>
+      <td class="stack" align="center" valign="middle" style="padding:24px 18px;text-align:center;">
         <p style="margin:0 0 6px;color:{OR};font-size:12.5px;font-weight:bold;letter-spacing:3px;">BLOG</p>
         <p style="margin:0 0 10px;color:#ffffff;font-size:22px;font-weight:800;line-height:29px;">萬聖節由來<br>Halloween Party 攻略</p>
         <p style="margin:0 0 16px;color:{LAV};font-size:13.5px;line-height:20px;">在家派對 4 步攻略<br>公司 Halloween Party 份量計算<br>一文看清。</p>
