@@ -348,4 +348,13 @@ import re
 html=re.sub(r'(<table[^>]*style=")([^"]*border-radius[^"]*)"',lambda m:m.group(1)+('border-collapse:separate;border-spacing:0;' if 'border-collapse' not in m.group(2) else '')+m.group(2)+'"',html)
 html=re.sub(r'>\s+<','><',html).replace(' rel="noopener noreferrer"','').replace(' role="presentation"','').replace(' cellpadding="0" cellspacing="0"',' cellpadding="0" cellspacing="0"')
 html=re.sub(r'\n\s+',' ',html)
-open('index.html','w').write(html); print(len(html))
+# ---- email 版（FluentCRM 用）----
+open('email.html','w').write(html)
+# ---- preview 版（GitHub 預覽用）：刪走招呼語、頂部「瀏覽網頁版」、slider 下面提示、CRM 代碼 ----
+pv=re.sub(r'<!-- 頂部「瀏覽網頁版」連結 -->.*?(?=<!-- HEADER)','',html,flags=re.S)
+pv=re.sub(r'<!-- Greeting -->.*?(?=<!--)','',pv,flags=re.S)
+pv=re.sub(r'<tr><td align="center" style="padding:10px 24px 0;background:[^"]*;"><p[^>]*>如看不到內容.*?</p></td></tr>','',pv,flags=re.S)
+pv=re.sub(r'<p[^>]*>\{\{crm\.business_name\}\}</p>','',pv)
+assert '##web_preview_url##' not in pv and 'contact.first_name' not in pv and 'crm.business_name' not in pv, 'leftover'
+pv=pv.replace('<title>','<meta name="robots" content="noindex"><title>',1)
+open('index.html','w').write(pv); print(len(html),len(pv))
