@@ -169,7 +169,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     .hnav table,.hright table{{margin:0 auto!important;float:none!important;}}
     .navi{{padding:0 6px!important;}} .navi a{{font-size:13px!important;}}
     .tk td{{display:block!important;width:100%!important;border-left:0!important;}}
-    .stack{{display:block!important;width:100%!important;}}
+    .stack{{display:block!important;width:100%!important;box-sizing:border-box!important;}}
     .it{{width:50%!important;max-width:50%!important;}}
     .empty{{display:none!important;}}
   }}
