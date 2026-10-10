@@ -208,7 +208,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   </td></tr>
 
   <!-- HERO（參考 Life360：大圖 → 大標題 → 描述 → CTA，留白充足）-->
-  <tr><td style="padding:28px 24px 0;background:{DK};">{a(CAT,f'<img src="{U}2026/10/2025-Halloween-banner-1_banner_banner-1024x478.jpg" width="632" alt="Halloween 萬聖節狂嘩套餐 2026" style="width:100%;max-width:100%;height:auto;border-radius:18px;display:block;">')}</td></tr>
+  <tr><td style="padding:22px 10px 0;background:{DK};">{a(CAT,f'<img src="{IMG}kv-framed.jpg" width="660" alt="Halloween 萬聖節狂嘩套餐 2026・10月23日至11月1日" style="width:100%;max-width:100%;height:auto;display:block;">')}</td></tr>
   <tr><td align="center" style="padding:34px 30px 0;background:{DK};">
     <img src="{IMG}title-halloween-2026.png" width="300" alt="HALLOWEEN 2026" style="width:300px;max-width:75%;height:auto;margin:0 auto;display:block;">
     <h1 class="h1" style="margin:16px 0 0;color:#ffffff;font-size:34px;line-height:44px;font-weight:900;letter-spacing:1px;">召集全城嘩鬼！<br><span style="color:{YEL};">萬聖節狂嘩套餐</span>登場</h1>
