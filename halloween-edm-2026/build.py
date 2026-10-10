@@ -5,7 +5,7 @@ CAT=f'https://aoaodelivery.com/product-category/halloween-set/?{UTM}'
 WA='https://wa.me/85269011987?text='+quote('你好，我想查詢 2026 萬聖節狂嘩套餐')
 BLOG=f'https://aoaodelivery.com/blog/halloween-catering-hong-kong/?{UTM}'
 OR='#FF7A1A';OR2='#FF5A00';YEL='#FFB347';PUR='#7b2fa8';DK='#1c1426';DK2='#2c1f3b';LAV='#b9a6d1';CREAM='#FFF6EE'
-HERO=[('2026/10/2026-Kitchen-AO-Halloween-catering_post-2-600x750.jpg','🎃','哈囉喂','「原個直送」日本南瓜海鮮意大利飯','可選配原個日本南瓜作器皿直送到會，賣相與味道同樣出色。'),
+HERO=[('2026/10/2026-Kitchen-AO-Halloween-catering_post-2-600x750.jpg','🎃','哈囉喂','「原個直送」日本南瓜海鮮意大利飯','可以選配原個日本南瓜作器皿直送到會，南瓜蓉融入每顆米粒，配以彈牙海鮮，賣相與味道同樣出色。'),
 ('2026/10/2026-Kitchen-AO-Halloween-catering_post-3-600x750.jpg','👁️','惡魔的眼睛','開心果醬荔枝藍苺酥盒','荔枝及藍莓砌成「惡魔眼睛」，甜而不膩，一口一件。'),
 ('2026/10/2026-Kitchen-AO-Halloween-catering_post-1-600x750.jpg','💉','血淋淋科學怪人','香濃蕃茄手指腸仔','形似「斷指」的腸仔，嚇人之餘又惹味，小朋友最愛。'),
 ('2026/10/2025-Halloween-burger-1-600x750.jpg','👻','萬聖節','迷你芝士手打牛肉漢堡','皇牌手打牛肉漢堡換上萬聖節造型，迷你尺寸方便拿取。'),
@@ -26,28 +26,43 @@ def sect_title(eyb,title,sub='',dark=True,bg=DK):
     s=f'<p style="margin:0 0 8px;color:{YEL if dark else "#C24E00"};font-size:13px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">{eyb}</p>' if eyb else ''
     sub=f'<p style="margin:8px 0 0;color:{LAV if dark else "#7A7268"};font-size:14.5px;line-height:21px;">{sub}</p>' if sub else ''
     return f'''<tr><td align="center" style="padding:34px 30px 6px;background:{bg};">{s}<p style="margin:0;color:{c};font-size:23px;font-weight:800;letter-spacing:1px;line-height:30px;">{title}</p>{sub}<div style="width:44px;height:3px;background:{OR};margin:12px auto 0;border-radius:3px;"></div></td></tr>'''
-# 5 大菜式 slider (swipe strip; stacks in clients without overflow support)
-hero_cards=''.join(f'''<td valign="top" style="padding:0 6px;"><div class="slide" style="display:inline-block;width:250px;vertical-align:top;white-space:normal;">
-  <table role="presentation" width="250" cellpadding="0" cellspacing="0" style="width:250px;background:{DK2};border:1px solid #4a3463;border-radius:16px;overflow:hidden;">
-    <tr><td style="font-size:0;line-height:0;"><img src="{U}{img}" width="250" alt="{b}" style="width:250px;height:auto;display:block;"></td></tr>
-    <tr><td style="padding:12px 14px 14px;">
-      <p style="margin:0 0 3px;color:{LAV};font-size:13px;font-weight:bold;">{ic} {sm}</p>
-      <p style="margin:0 0 6px;color:{YEL};font-size:16px;font-weight:800;line-height:21px;">{b}</p>
-      <p style="margin:0;color:#E2D8EE;font-size:13px;line-height:19px;">{d}</p>
-    </td></tr></table></div></td>''' for img,ic,sm,b,d in HERO)
-def strip(cards,bg):
-    return f'''<tr><td style="padding:14px 0 6px;background:{bg};">
-  <div class="swipe" style="overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;padding:0 14px 10px;scroll-snap-type:x mandatory;">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;"><tr>{cards}</tr></table>
-  </div></td></tr>'''
-def hint(bg,col):
-    return f'<tr><td align="center" style="padding:0 0 4px;background:{bg};"><p style="margin:0;color:{col};font-size:13px;font-weight:bold;letter-spacing:1px;">← 左右滑動 睇更多 →</p></td></tr>'
+# 5 大菜式：主打橫向大卡 + 其餘 2x2 格（固定闊度）
+def dish_card(img,ic,sm,b,d):
+    return f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid #4a3463;border-radius:16px;overflow:hidden;">
+      <tr><td style="font-size:0;line-height:0;"><img src="{U}{img}" width="300" alt="{b}" style="width:100%;height:auto;display:block;"></td></tr>
+      <tr><td height="120" valign="top" style="padding:12px 14px 14px;height:120px;">
+        <p style="margin:0 0 3px;color:{LAV};font-size:13px;font-weight:bold;">{ic} {sm}</p>
+        <p style="margin:0 0 6px;color:{YEL};font-size:16px;font-weight:800;line-height:21px;">{b}</p>
+        <p style="margin:0;color:#E2D8EE;font-size:13px;line-height:19px;">{d}</p>
+      </td></tr></table>"""
+h0=HERO[0]
+hero_block=f"""<tr><td style="padding:16px 20px 0;background:{DK};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:2px solid {OR};border-radius:16px;overflow:hidden;"><tr>
+    <td class="stack" width="50%" valign="top" style="font-size:0;line-height:0;"><img src="{U}{h0[0]}" width="318" alt="{h0[3]}" style="width:100%;height:auto;display:block;"></td>
+    <td class="stack" width="50%" valign="middle" style="padding:20px 22px;">
+      <p style="margin:0 0 10px;"><span style="display:inline-block;padding:4px 12px;border-radius:20px;background:{OR};color:{DK};font-size:12.5px;font-weight:900;letter-spacing:1px;">今年主打</span></p>
+      <p style="margin:0 0 4px;color:{LAV};font-size:14px;font-weight:bold;">{h0[1]} {h0[2]}</p>
+      <p style="margin:0 0 10px;color:{YEL};font-size:21px;font-weight:800;line-height:28px;">{h0[3]}</p>
+      <p style="margin:0;color:#E2D8EE;font-size:14.5px;line-height:22px;">{h0[4]}</p>
+    </td></tr></table></td></tr>
+<tr><td style="padding:10px 14px 0;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[1])}</td><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[2])}</td></tr>
+  <tr><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[3])}</td><td width="50%" valign="top" style="padding:6px;">{dish_card(*HERO[4])}</td></tr>
+</table></td></tr>"""
 item_rows=''
+def item_cell(img,n):
+    return f"""<td class="col3" width="33.33%" valign="top" style="padding:6px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #F0E2D2;border-radius:14px;overflow:hidden;">
+        <tr><td style="font-size:0;line-height:0;"><img src="{U}{img}" width="196" alt="{n}" style="width:100%;height:auto;display:block;"></td></tr>
+        <tr><td height="46" valign="middle" align="center" style="padding:8px;height:46px;color:{DK};font-size:13.5px;font-weight:bold;line-height:18px;">{n}</td></tr>
+      </table></td>"""
 for cat,lst in ITEMS.items():
-    cards=''.join(f'''<td valign="top" style="padding:0 5px;"><div style="display:inline-block;width:150px;vertical-align:top;white-space:normal;">
-  <img src="{U}{img}" width="150" height="150" alt="{n}" style="width:150px;height:150px;border-radius:12px;display:block;object-fit:cover;background:#eee;">
-  <p style="margin:7px 2px 0;color:{DK};font-size:13px;font-weight:bold;line-height:17px;">{n}</p></div></td>''' for img,n in lst)
-    item_rows+=f'''<tr><td style="padding:18px 24px 0;background:{CREAM};"><p style="margin:0;color:#C24E00;font-size:16px;font-weight:800;">{cat}<span style="color:#9a8f7e;font-size:13px;font-weight:normal;">　{len(lst)} 款</span></p></td></tr>'''+strip(cards,CREAM)
+    rows=''
+    for r in range(0,len(lst),3):
+        chunk=lst[r:r+3]; cells=''.join(item_cell(*x) for x in chunk)+''.join('<td class="col3 empty" width="33.33%" style="padding:6px;"></td>' for _ in range(3-len(chunk)))
+        rows+=f'<tr>{cells}</tr>'
+    item_rows+=f"""<tr><td style="padding:22px 24px 4px;background:{CREAM};"><p style="margin:0;color:#C24E00;font-size:17px;font-weight:800;">{cat}<span style="color:#9a8f7e;font-size:13px;font-weight:normal;">　共 {len(lst)} 款</span></p></td></tr>
+<tr><td style="padding:4px 18px 0;background:{CREAM};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table></td></tr>"""
 set_cells=''
 for i,(p,rp,pr,img) in enumerate(SETS):
     slug=('ao-'+p+'pax'+SLUG)
@@ -72,14 +87,15 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   body{{margin:0;padding:0;background:#140e1c;-webkit-text-size-adjust:100%;}}
   img{{border:0;outline:none;text-decoration:none;}}
   table{{border-collapse:collapse;}}
-  .swipe::-webkit-scrollbar{{height:6px;}} .swipe::-webkit-scrollbar-thumb{{background:{OR};border-radius:6px;}}
-  .slide{{scroll-snap-align:start;}}
   @media only screen and (max-width:600px){{
     .container{{width:100%!important;}}
     .h1{{font-size:23px!important;line-height:31px!important;}}
     .stack3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
     .hlogo{{width:150px!important;}}
     .tk td{{display:block!important;width:100%!important;border-left:0!important;}}
+    .stack{{display:block!important;width:100%!important;}}
+    .col3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
+    .empty{{display:none!important;}}
   }}
 </style>
 </head>
@@ -129,7 +145,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 
   <!-- intro + offers -->
   <tr><td align="center" style="padding:20px 34px 4px;background:{DK};">
-    <p style="margin:0 0 14px;color:#E2D8EE;font-size:16px;line-height:25px;">今年推出 <b style="color:{YEL};">5 款全新搞鬼主打菜式</b>，造型要搞鬼，味道要認真！5 至 40 人均有合適套餐，家庭派對、朋友聚會、公司 Halloween Party 都啱。</p>
+    <p style="margin:0 0 14px;color:#E2D8EE;font-size:16px;line-height:25px;">今年推出 <b style="color:{YEL};">5 款全新搞鬼主打菜式</b>，造型要搞鬼，味道要認真！5 至 40 人均有合適套餐，無論家庭派對、朋友聚會或公司 Halloween Party 都同樣適合。</p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid #4a3463;border-radius:14px;"><tr><td align="left" style="padding:14px 18px;color:#EDE3F7;font-size:15px;line-height:27px;">
       <span style="color:{OR};font-weight:900;">✓</span> <b style="color:{YEL};">10 月 22 日前預訂</b>・即享 <b style="color:{YEL};">92 折</b><br>
       <span style="color:{OR};font-weight:900;">✓</span> 各區<b style="color:{YEL};">免費送遞</b>（滿 $1,450）<br>
@@ -139,12 +155,12 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <tr><td align="center" style="padding:20px 30px 6px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT)}</td></tr>
 
   <!-- 5 大主打菜式 SLIDE -->
-  {sect_title("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真，每個套餐都包括以下主打")}
-  {strip(hero_cards,DK)}
-  {hint(DK,LAV)}
+  {sect_title("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真，每個套餐均包括以下主打菜式")}
+  {hero_block}
+  <tr><td style="padding:0 0 14px;background:{DK};"></td></tr>
 
   <!-- 按人數揀套餐 -->
-  {sect_title("Choose by Guests","按人數揀套餐","由 5 人到 40 人，按圖即可揀菜式落單")}
+  {sect_title("Choose by Guests","按人數選擇套餐","由 5 人至 40 人，按圖即可選擇菜式及下單")}
   <tr><td style="padding:12px 16px 4px;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{set_cells}</table>
     <p style="margin:8px 6px 0;color:#8a7f95;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
   <tr><td align="center" style="padding:20px 30px 30px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT,300)}
@@ -152,9 +168,9 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   </td></tr>
 
   <!-- 套餐單品 CAROUSEL（無連結）-->
-  {sect_title("Mix & Match","🍽️ 套餐內仲可以揀","除 5 大主打外，套餐可按人數自選以下人氣菜式",dark=False,bg=CREAM)}
+  {sect_title("Mix & Match","🍽️ 套餐內更可自選","除 5 大主打菜式外，套餐可按人數自選以下人氣菜式",dark=False,bg=CREAM)}
   {item_rows}
-  <tr><td align="center" style="padding:6px 0 30px;background:{CREAM};"><p style="margin:0;color:#C24E00;font-size:13px;font-weight:bold;letter-spacing:1px;">← 左右滑動 睇更多 →</p></td></tr>
+  <tr><td style="padding:0 0 30px;background:{CREAM};"></td></tr>
 
   <!-- BLOG -->
   <tr><td style="padding:30px 24px;background:{DK2};">
@@ -162,7 +178,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
       <td width="120" valign="middle" style="padding-right:16px;"><img src="{U}2026/10/2026-Kitchen-AO-Halloween-catering_post-2-600x750.jpg" width="120" alt="" style="width:120px;height:auto;border-radius:12px;display:block;"></td>
       <td valign="middle"><p style="margin:0 0 6px;color:{YEL};font-size:13px;font-weight:bold;letter-spacing:2px;">BLOG</p>
         <p style="margin:0 0 8px;color:#ffffff;font-size:17px;font-weight:800;line-height:23px;">萬聖節由來 + Halloween Party 攻略</p>
-        <p style="margin:0 0 10px;color:{LAV};font-size:14px;line-height:20px;">在家派對 4 步、公司 Halloween Party 份量點計，一篇睇晒。</p>
+        <p style="margin:0 0 10px;color:{LAV};font-size:14px;line-height:20px;">在家派對 4 步攻略、公司 Halloween Party 份量計算，一文看清。</p>
         {a(BLOG,"閱讀全文 →",f"color:{OR};font-size:15px;font-weight:bold;")}</td>
     </tr></table>
   </td></tr>
@@ -175,7 +191,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- 大量訂購 -->
   <tr><td align="center" style="padding:32px 40px;background:{DK};">
     <p style="margin:0 0 6px;color:{YEL};font-size:13px;font-weight:bold;letter-spacing:3px;">CORPORATE HALLOWEEN PARTY</p>
-    <p style="margin:0 0 16px;color:#ffffff;font-size:17px;line-height:24px;">公司萬聖節派對 / 大量訂購？</p>
+    <p style="margin:0 0 16px;color:#ffffff;font-size:17px;line-height:24px;">公司萬聖節派對或大量訂購？</p>
     <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" bgcolor="{OR}" style="border-radius:40px;background:{OR};">{a('https://wa.me/85269011987?text='+quote('企業及商務到會服務查詢'),"📱 WhatsApp 聯絡企業客戶專員",f"display:inline-block;padding:13px 26px;color:{DK};font-size:16px;font-weight:bold;text-decoration:none;border-radius:40px;")}</td></tr></table>
     <p style="margin:14px 0 0;font-size:15px;">{a(f"https://aoaodelivery.com/catering-quote-enquiry/?{UTM}","或填免費報價查詢 →",f"color:{OR};")}</p>
   </td></tr>
@@ -183,7 +199,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- Social -->
   <tr><td align="center" style="padding:30px 40px 34px;background:{DK2};">
     <p style="margin:0 0 6px;color:{YEL};font-size:14px;font-weight:bold;letter-spacing:3px;">TRUSTED BY</p>
-    <p style="margin:0 0 10px;color:#ffffff;font-size:20px;font-weight:bold;">大品牌活動都揀 Kitchen AO</p>
+    <p style="margin:0 0 10px;color:#ffffff;font-size:20px;font-weight:bold;">大品牌活動都選擇 Kitchen AO</p>
     <p style="margin:0 0 16px;color:{OR};font-size:17px;font-weight:bold;">★★★★★　4.8 / 5　Google 評價</p>
     <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" style="border:1px solid {OR};border-radius:40px;">{a("https://www.instagram.com/kitchen.ao/","＋ 追蹤 @kitchen.ao",f"display:inline-block;padding:11px 28px;color:{OR};font-size:16px;font-weight:bold;text-decoration:none;border-radius:40px;")}</td></tr></table>
   </td></tr>
