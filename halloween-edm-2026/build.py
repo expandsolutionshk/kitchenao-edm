@@ -79,19 +79,18 @@ hero_fb=f"""{a(CAT,f'<img src="{U}{HERO[0][0]}" width="480" alt="{HERO[0][3]}" s
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">{hero_list}</table>"""
 hero_block=carousel('hwd',dish_slides,hero_fb,DK)+note(DK,LAV)
 item_rows=''
-def item_cell(img,n):
-    return f"""<td class="col3" width="33.33%" valign="top" style="padding:6px;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #F0E2D2;border-radius:14px;overflow:hidden;">
+def item_card(img,n):
+    return f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #F0E2D2;border-radius:14px;overflow:hidden;">
         <tr><td style="font-size:0;line-height:0;"><img src="{U}{img}" width="196" alt="{n}" style="width:100%;height:auto;display:block;"></td></tr>
-        <tr><td height="46" valign="middle" align="center" style="padding:8px;height:46px;color:{DK};font-size:13.5px;font-weight:bold;line-height:18px;">{n}</td></tr>
-      </table></td>"""
+        <tr><td height="46" valign="middle" align="center" style="padding:8px;height:46px;color:{DK};font-size:13.5px;font-weight:bold;line-height:18px;font-family:Arial,'PingFang HK','Microsoft JhengHei',sans-serif;">{n}</td></tr></table>"""
 for cat,lst in ITEMS.items():
-    rows=''
-    for r in range(0,len(lst),3):
-        chunk=lst[r:r+3]; cells=''.join(item_cell(*x) for x in chunk)+''.join('<td class="col3 empty" width="33.33%" style="padding:6px;"></td>' for _ in range(3-len(chunk)))
-        rows+=f'<tr>{cells}</tr>'
+    cells='<!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><![endif]-->'
+    for i,(img,n) in enumerate(lst):
+        cells+=f'<!--[if mso]><td width="33%" valign="top"><![endif]--><div class="it" style="display:inline-block;width:33.33%;max-width:33.33%;vertical-align:top;box-sizing:border-box;padding:6px;font-size:14px;">{item_card(img,n)}</div><!--[if mso]></td><![endif]-->'
+        if (i+1)%3==0 and i+1<len(lst): cells+='<!--[if mso]></tr><tr><![endif]-->'
+    cells+='<!--[if mso]></tr></table><![endif]-->'
     item_rows+=f"""<tr><td style="padding:22px 24px 4px;background:{YEL};"><p style="margin:0;"><span style="display:inline-block;padding:6px 16px;border-radius:20px;background:{DK};color:{YEL};font-size:16px;font-weight:800;">{cat}<span style="color:{LAV};font-size:12.5px;font-weight:normal;">　共 {len(lst)} 款</span></span></p></td></tr>
-<tr><td style="padding:4px 18px 0;background:{YEL};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table></td></tr>"""
+<tr><td style="padding:4px 18px 0;background:{YEL};"><div style="font-size:0;line-height:0;text-align:left;">{cells}</div></td></tr>"""
 set_cells=''
 for i,(p,rp,pr,img) in enumerate(SETS):
     slug=('ao-'+p+'pax'+SLUG)
@@ -155,7 +154,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     .navi{{padding:0 6px!important;}} .navi a{{font-size:13px!important;}}
     .tk td{{display:block!important;width:100%!important;border-left:0!important;}}
     .stack{{display:block!important;width:100%!important;}}
-    .col3{{display:inline-block!important;width:50%!important;box-sizing:border-box;}}
+    .it{{width:50%!important;max-width:50%!important;}}
     .empty{{display:none!important;}}
   }}
 </style>
@@ -206,7 +205,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <tr><td style="padding:16px 20px 0;background:{DK};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{YEL});border-radius:14px;">
       <tr>
-      <td align="center" valign="middle" width="44%" style="padding:16px 8px;color:{DK};font-size:17px;font-weight:800;white-space:nowrap;"><span style="display:inline-block;width:12px;height:12px;border-radius:6px;background:#1fbf4a;box-shadow:0 0 0 5px rgba(31,191,74,.28);vertical-align:1px;margin-right:10px;"></span>即日接受訂購</td>
+      <td align="center" valign="middle" width="44%" style="padding:16px 8px;color:{DK};font-size:17px;font-weight:800;white-space:nowrap;">即日接受訂購</td>
       <td width="22" valign="top" style="padding:0;font-size:0;line-height:0;">
         <div style="width:22px;height:11px;background:{DK};border-radius:0 0 11px 11px;"></div>
         <div style="width:0;height:52px;margin:3px auto;border-left:2px dashed rgba(28,20,38,.4);"></div>
