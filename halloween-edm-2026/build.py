@@ -137,7 +137,7 @@ set_cards=[f'''<table role="presentation" width="100%" cellpadding="0" cellspaci
 hero_grid=grid(dish_cards,DK,align='center')
 set_grid=grid(set_cards,DK)
 
-LOGO=a(f"https://aoaodelivery.com/?{UTM}",f'<span style="display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;"><img src="{U}2023/08/kitchenAO_logo_horizontal.png" width="112" alt="Kitchen AO" style="width:112px;height:auto;display:block;"></span>')
+LOGO=a(f"https://aoaodelivery.com/?{UTM}",f'<img src="{IMG}logo-header-pill.png" width="146" alt="Kitchen AO" style="width:146px;height:auto;display:block;">')
 NS="color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:.5px;text-decoration:none;white-space:nowrap;"
 FIRE='<sup style="font-size:11px;line-height:0;vertical-align:8px;margin-left:1px;">🔥</sup>'
 NAVITEMS=[('快速選擇套餐',QUICK,''),('萬聖節套餐',CAT,''),('美食派對',GOURMET,FIRE),('網站首頁',f"https://aoaodelivery.com/?{UTM}",'')]
@@ -159,10 +159,11 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
 <title>Kitchen AO 萬聖節狂嘩套餐 2026</title>
 <style>
+  :root{{color-scheme:light only;supported-color-schemes:light only;}}
   body{{margin:0;padding:0;background:#140e1c;-webkit-text-size-adjust:100%;}}
   img{{border:0;outline:none;text-decoration:none;}}
   table{{border-collapse:collapse;}}
@@ -352,7 +353,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 
   <!-- FOOTER -->
   <tr><td align="center" style="padding:22px 30px;background:#0f0a16;">
-    <img src="{U}2026/07/kitchenAO_logo-white.png" width="110" alt="Kitchen AO" style="width:110px;height:auto;margin:0 auto 10px;display:block;">
+    <img src="{IMG}logo-footer-plate.png" width="120" alt="Kitchen AO" style="width:120px;height:auto;margin:0 auto 10px;display:block;">
     <p style="margin:0 0 6px;color:{LAV};font-size:14px;line-height:18px;">WhatsApp +852 6901 1987 ｜ {a("https://www.instagram.com/kitchen.ao/","IG @kitchen.ao",f"color:{LAV};")} ｜ {a("https://www.facebook.com/Kitchen.ao.official/","Facebook",f"color:{LAV};")}</p>
     <p style="margin:0 0 6px;color:#7d6f8c;font-size:12px;line-height:17px;">Kitchen AO 美食到會 ｜ {a(f"https://aoaodelivery.com/?{UTM}","回到網站主頁",f"color:#7d6f8c;text-decoration:underline;")}</p>
   </td></tr>
