@@ -67,7 +67,7 @@ def car_css(cid,n):
     return ''.join(f'#{cid}{i+1}:checked ~ .hwwrap .hws{i+1}{{max-height:1600px!important;overflow:visible!important;}}' for i in range(n))
 dish_slides=[f"""<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:2px solid {OR};border-radius:16px;overflow:hidden;">
   <tr><td style="font-size:0;line-height:0;">{a(CAT,f'<img src="{U}{img}" width="600" alt="{b}" style="width:100%;height:auto;display:block;">')}</td></tr>
-  <tr><td style="padding:14px 18px 16px;"><p style="margin:0 0 3px;color:{LAV};font-size:13.5px;font-weight:bold;">{ic} {sm}　<span style="color:#8a7f95;font-weight:normal;">{i+1} / 5</span></p>
+  <tr><td style="padding:14px 18px 16px;"><p style="margin:0 0 3px;color:{LAV};font-size:13.5px;font-weight:bold;">{ic} {sm}　<span style="color:#a99cbd;font-weight:normal;">{i+1} / 5</span></p>
   <p style="margin:0 0 6px;color:{YEL};font-size:19px;font-weight:800;line-height:25px;">{b}</p><p style="margin:0;color:#E2D8EE;font-size:14px;line-height:21px;">{d}</p></td></tr></table>""" for i,(img,ic,sm,b,d) in enumerate(HERO)]
 
 # 5 大菜式：主打橫向大卡 + 其餘 2x2 格（固定闊度）
@@ -208,8 +208,8 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- 頂部「瀏覽網頁版」連結 -->
   <tr><td style="padding:8px 16px;background:#0f0a16;">
     <table width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td class="hide-m" valign="middle" style="color:#8a7f95;font-size:12px;line-height:16px;">🎃 萬聖節狂嘩套餐｜10/22 前預訂 92 折</td>
-      <td valign="middle" align="right" style="color:#8a7f95;font-size:12px;line-height:16px;white-space:nowrap;">電郵顯示不正常？<a href="{WEBV}" target="_blank" style="color:{OR};font-weight:bold;text-decoration:underline;">瀏覽網頁版 View in browser</a></td>
+      <td class="hide-m" valign="middle" style="color:#a99cbd;font-size:12px;line-height:16px;">🎃 萬聖節狂嘩套餐｜10/22 前預訂 92 折</td>
+      <td valign="middle" align="right" style="color:#a99cbd;font-size:12px;line-height:16px;white-space:nowrap;">電郵顯示不正常？<a href="{WEBV}" target="_blank" style="color:{OR};font-weight:bold;text-decoration:underline;">瀏覽網頁版 View in browser</a></td>
     </tr></table>
   </td></tr>
   <!-- HEADER：desktop 一行（logo｜導覽｜WhatsApp + IG）；mobile 兩行 -->
@@ -279,7 +279,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- 按人數揀套餐 -->
   {sect_hl("Choose by Guests","👥 按人數選擇套餐","由 5 人至 40 人<br>按圖即可選擇菜式及下單")}
   @@SETS@@
-  <tr><td style="padding:8px 16px 4px;background:{DK};"><p style="margin:0;color:#8a7f95;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
+  <tr><td style="padding:8px 16px 4px;background:{DK};"><p style="margin:0;color:#a99cbd;font-size:12px;text-align:center;">* 價錢為網站現時優惠價，以下單頁面顯示為準</p></td></tr>
   <tr><td align="center" style="padding:20px 20px 30px;background:{DK};">{btn("🎃 立即預訂萬聖節套餐",CAT,300)}
     <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:12px auto 0;width:100%;max-width:300px;border-collapse:separate;"><tr><td align="center" bgcolor="#25D366" style="border-radius:40px;background:#25D366;box-shadow:0 6px 16px rgba(37,211,102,.3);">{a(WA,'<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" width="22" height="22" alt="" style="width:22px;height:22px;vertical-align:-5px;display:inline-block;margin-right:8px;border-radius:5px;">WhatsApp 查詢',"display:block;padding:13px 20px;color:#ffffff;font-size:17px;font-weight:bold;text-decoration:none;border-radius:40px;text-align:center;")}</td></tr></table>
   </td></tr>
@@ -355,7 +355,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <tr><td align="center" style="padding:22px 30px;background:#0f0a16;">
     <img src="{IMG}logo-footer-plate.png" width="120" alt="Kitchen AO" style="width:120px;height:auto;margin:0 auto 10px;display:block;">
     <p style="margin:0 0 6px;color:{LAV};font-size:14px;line-height:18px;">WhatsApp +852 6901 1987 ｜ {a("https://www.instagram.com/kitchen.ao/","IG @kitchen.ao",f"color:{LAV};")} ｜ {a("https://www.facebook.com/Kitchen.ao.official/","Facebook",f"color:{LAV};")}</p>
-    <p style="margin:0 0 6px;color:#7d6f8c;font-size:12px;line-height:17px;">Kitchen AO 美食到會 ｜ {a(f"https://aoaodelivery.com/?{UTM}","回到網站主頁",f"color:#7d6f8c;text-decoration:underline;")}</p>
+    <p style="margin:0 0 6px;color:#a99cbd;font-size:12px;line-height:17px;">Kitchen AO 美食到會 ｜ {a(f"https://aoaodelivery.com/?{UTM}","回到網站主頁",f"color:#a99cbd;text-decoration:underline;")}</p>
   </td></tr>
 
 </table>
