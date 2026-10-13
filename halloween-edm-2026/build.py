@@ -190,7 +190,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     .tk td{{display:block!important;width:100%!important;border-left:0!important;}}
     .stack{{display:block!important;width:100%!important;box-sizing:border-box!important;}}
     .it{{width:50%!important;max-width:50%!important;}}
-    .dtx{{height:168px!important;}}
+    .dtx{{height:142px!important;}}
     .empty{{display:none!important;}}
   }}
 </style>
@@ -221,7 +221,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <!--[if !mso]><!-->
     <div class="mob" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#000000;">
-        <tr><td valign="middle" style="padding:12px 14px 8px;">{LOGO}</td><td valign="middle" align="right" style="padding:12px 14px 8px;">{ICONS}</td></tr>
+        <tr><td width="60%" valign="middle" style="padding:12px 14px 8px;">{LOGO}</td><td width="40%" valign="middle" align="right" style="padding:12px 14px 8px;">{ICONS}</td></tr>
         <tr><td colspan="2" style="padding:4px 6px 12px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>{NAVM}</tr></table></td></tr>
       </table>
     </div>
@@ -345,10 +345,10 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <p style="margin:0 0 8px;color:#ffffff;font-size:21px;font-weight:800;letter-spacing:1px;">Instagram 精選</p>
     <div style="width:44px;height:3px;background:{OR};margin:0 auto;border-radius:3px;"></div>
   </td></tr>
-  <tr><td style="padding:18px 30px 4px;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-    <tr><td width="50%" valign="bottom" style="padding:8px 8px 0;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="100%" alt="李寧跑步活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td><td width="50%" valign="bottom" style="padding:8px 8px 0;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="100%" alt="Lululemon K11 空中花園活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td></tr>
+  <tr><td style="padding:18px 30px 4px;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
+    <tr><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="100%" alt="李寧跑步活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="100%" alt="Lululemon K11 空中花園活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td></tr>
     <tr><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">李寧跑步活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">Lululemon K11 空中花園活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr>
-    <tr><td width="50%" valign="bottom" style="padding:8px 8px 0;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<img src="{U}2026/07/kitchen-ao-catering-McLaren-private-event.png" width="100%" alt="McLaren 私人活動｜廚師及侍應服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td><td width="50%" valign="bottom" style="padding:8px 8px 0;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<img src="{U}2026/07/kitchen-ao-catering-UGG-Event.jpg" width="100%" alt="UGG 品牌活動｜全套到會服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td></tr>
+    <tr><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<img src="{U}2026/07/kitchen-ao-catering-McLaren-private-event.png" width="100%" alt="McLaren 私人活動｜廚師及侍應服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<img src="{U}2026/07/kitchen-ao-catering-UGG-Event.jpg" width="100%" alt="UGG 品牌活動｜全套到會服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td></tr>
     <tr><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">McLaren 私人活動｜廚師及侍應服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">UGG 品牌活動｜全套到會服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr>
   </table></td></tr>
   <tr><td align="center" style="padding:14px 40px 36px;background:{DK};">
@@ -375,6 +375,12 @@ def proc(html):
   html=re.sub(r'(<table[^>]*style=")([^"]*border-radius[^"]*)"',lambda m:m.group(1)+('border-collapse:separate;border-spacing:0;' if 'border-collapse' not in m.group(2) else '')+m.group(2)+'"',html)
   html=re.sub(r'>\s+<','><',html).replace(' rel="noopener noreferrer"','').replace(' role="presentation"','').replace(' cellpadding="0" cellspacing="0"',' cellpadding="0" cellspacing="0"')
   html=re.sub(r'\n\s+',' ',html)
+  def _w(m):
+      tag=m.group(0); w=re.search(r' width="(\d+%)"',tag).group(1)
+      if re.search(r'style="[^"]*(?<![-a-z])width:',tag): return tag
+      if 'style="' in tag: return tag.replace('style="','style="width:'+w+';',1)
+      return tag[:-1]+' style="width:'+w+';">'
+  html=re.sub(r'<(?:table|td)\b[^>]*\swidth="\d+%"[^>]*>',_w,html)
   return html
 def _utm(m):
     u=m.group(1)
