@@ -250,13 +250,13 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <tr><td style="padding:0 20px 0;background:{DK};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{YEL});border-radius:14px;">
       <tr>
-      <td align="center" valign="middle" width="44%" style="padding:16px 8px;color:{DK};font-size:17px;font-weight:800;white-space:nowrap;">即日接受訂購</td>
+      <td align="center" valign="middle" width="44%" style="padding:16px 8px;color:{DK};font-size:17px;font-weight:800;">即日接受訂購</td>
       <td width="22" valign="top" style="padding:0;font-size:0;line-height:0;">
         <div style="width:22px;height:11px;background:{DK};border-radius:0 0 11px 11px;"></div>
         <div style="width:0;height:52px;margin:3px auto;border-left:2px dashed rgba(28,20,38,.4);"></div>
         <div style="width:22px;height:11px;background:{DK};border-radius:11px 11px 0 0;"></div>
       </td>
-      <td valign="middle" style="padding:12px 16px;color:{DK};"><span style="font-size:13px;font-weight:bold;opacity:.75;">送貨日期</span><br><span style="font-size:21px;font-weight:900;white-space:nowrap;">10月23日 – 11月1日</span></td>
+      <td valign="middle" style="padding:12px 16px;color:{DK};"><span style="font-size:13px;font-weight:bold;opacity:.75;">送貨日期</span><br><span style="font-size:18px;font-weight:900;white-space:nowrap;">10月23日 – 11月1日</span></td>
       </tr>
     </table>
   </td></tr>
@@ -271,7 +271,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   </td></tr>
 
   <!-- 5 大主打菜式 SLIDE -->
-  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真<br>每個套餐均包括以下 5 大主打菜式<br>及 MIX &amp; MATCH 自選人氣菜式")}
+  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真<br>每個套餐均包括<br>以下 5 大主打菜式<br>及 MIX &amp; MATCH<br>自選人氣菜式")}
   @@HERO@@
   <tr><td style="padding:0 0 14px;background:{DK};"></td></tr>
 
@@ -287,12 +287,12 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- 套餐自選：橙色 Halloween 區 + 卡通元素 -->
   <tr><td bgcolor="#FFB347" style="padding:0;background:{YEL};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#FFB347" style="background:{YEL};">
   <tr><td style="padding:22px 16px 0;background:{ORBG};background-image:linear-gradient(180deg,#FF8A1F,{YEL});">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td align="left" valign="bottom" width="22%"><img src="{IMG}el-ghost1.png" width="70" alt="" style="width:70px;height:auto;display:block;"></td>
-      <td align="center" valign="top" width="18%" style="padding-top:2px;"><img src="{IMG}el-candy.png" width="80" alt="" style="width:80px;height:auto;display:inline-block;"></td>
-      <td align="center" valign="bottom" width="20%"><img src="{IMG}el-moon.png" width="70" alt="" style="width:70px;height:auto;display:inline-block;"></td>
-      <td align="center" valign="top" width="18%"><img src="{IMG}el-lollipop.png" width="54" alt="" style="width:54px;height:auto;display:inline-block;"></td>
-      <td align="right" valign="bottom" width="22%"><img src="{IMG}el-coffin.png" width="66" alt="" style="width:66px;height:auto;display:inline-block;"></td>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;"><tr>
+      <td align="left" valign="bottom" width="22%"><img src="{IMG}el-ghost1.png" width="70" alt="" style="width:70px;height:auto;max-width:100%;display:block;"></td>
+      <td align="center" valign="top" width="18%" style="padding-top:2px;"><img src="{IMG}el-candy.png" width="80" alt="" style="width:80px;height:auto;max-width:100%;display:inline-block;"></td>
+      <td align="center" valign="bottom" width="20%"><img src="{IMG}el-moon.png" width="70" alt="" style="width:70px;height:auto;max-width:100%;display:inline-block;"></td>
+      <td align="center" valign="top" width="18%"><img src="{IMG}el-lollipop.png" width="54" alt="" style="width:54px;height:auto;max-width:100%;display:inline-block;"></td>
+      <td align="right" valign="bottom" width="22%"><img src="{IMG}el-coffin.png" width="66" alt="" style="width:66px;height:auto;max-width:100%;display:inline-block;"></td>
     </tr></table>
   </td></tr>
   <tr><td align="center" style="padding:14px 30px 4px;background:{YEL};">
@@ -345,12 +345,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <p style="margin:0 0 8px;color:#ffffff;font-size:21px;font-weight:800;letter-spacing:1px;">Instagram 精選</p>
     <div style="width:44px;height:3px;background:{OR};margin:0 auto;border-radius:3px;"></div>
   </td></tr>
-  <tr><td style="padding:18px 30px 4px;background:{DK};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
-    <tr><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="100%" alt="李寧跑步活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="100%" alt="Lululemon K11 空中花園活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td></tr>
-    <tr><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">李寧跑步活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">Lululemon K11 空中花園活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr>
-    <tr><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<img src="{U}2026/07/kitchen-ao-catering-McLaren-private-event.png" width="100%" alt="McLaren 私人活動｜廚師及侍應服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td><td width="50%" valign="top" style="padding:8px 8px 0;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<img src="{U}2026/07/kitchen-ao-catering-UGG-Event.jpg" width="100%" alt="UGG 品牌活動｜全套到會服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;">',"display:block;")}</td></tr>
-    <tr><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">McLaren 私人活動｜廚師及侍應服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px 8px 10px;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<p style="margin:0 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">UGG 品牌活動｜全套到會服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr>
-  </table></td></tr>
+  <tr><td style="padding:18px 22px 4px;background:{DK};"><div style="font-size:0;line-height:0;text-align:left;"><div style="display:inline-block;width:50%;max-width:50%;vertical-align:top;box-sizing:border-box;padding:8px;font-size:14px;text-align:left;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="280" alt="李寧跑步活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">李寧跑步活動</p><p style="margin:0 0 6px;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;display:block;")}</div><div style="display:inline-block;width:50%;max-width:50%;vertical-align:top;box-sizing:border-box;padding:8px;font-size:14px;text-align:left;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="280" alt="Lululemon K11 空中花園活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">Lululemon K11 空中花園活動</p><p style="margin:0 0 6px;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;display:block;")}</div><div style="display:inline-block;width:50%;max-width:50%;vertical-align:top;box-sizing:border-box;padding:8px;font-size:14px;text-align:left;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<img src="{U}2026/07/kitchen-ao-catering-McLaren-private-event.png" width="280" alt="McLaren 私人活動｜廚師及侍應服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">McLaren 私人活動｜廚師及侍應服務</p><p style="margin:0 0 6px;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;display:block;")}</div><div style="display:inline-block;width:50%;max-width:50%;vertical-align:top;box-sizing:border-box;padding:8px;font-size:14px;text-align:left;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<img src="{U}2026/07/kitchen-ao-catering-UGG-Event.jpg" width="280" alt="UGG 品牌活動｜全套到會服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:19px;">UGG 品牌活動｜全套到會服務</p><p style="margin:0 0 6px;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;display:block;")}</div></div></td></tr>
   <tr><td align="center" style="padding:14px 40px 36px;background:{DK};">
     <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" bgcolor="#C13584" style="background:#C13584;background-image:linear-gradient(45deg,#F58529,#DD2A7B 45%,#8134AF);border-radius:40px;box-shadow:0 6px 18px rgba(221,42,123,.35);">{a("https://www.instagram.com/kitchen.ao/",f'<table cellpadding="0" cellspacing="0" align="center"><tr><td valign="middle" style="padding-right:10px;font-size:0;line-height:0;"><img src="{IMG}icon-ig-white.png" width="24" height="24" alt="Instagram" style="width:24px;height:24px;display:block;"></td><td valign="middle" style="color:#ffffff;font-size:16px;font-weight:bold;white-space:nowrap;">追蹤 @kitchen.ao</td></tr></table>',"display:block;padding:12px 30px;text-decoration:none;border-radius:40px;")}</td></tr></table>
   </td></tr>
@@ -377,6 +372,8 @@ def proc(html):
   html=re.sub(r'\n\s+',' ',html)
   def _w(m):
       tag=m.group(0); w=re.search(r' width="(\d+%)"',tag).group(1)
+      if w=='100%' and tag.startswith('<table') and 'max-width' not in tag and 'min-width' not in tag:
+          tag=tag.replace('style="','style="min-width:100%;',1) if 'style="' in tag else tag[:-1]+' style="min-width:100%;">'
       if re.search(r'style="[^"]*(?<![-a-z])width:',tag): return tag
       if 'style="' in tag: return tag.replace('style="','style="width:'+w+';',1)
       return tag[:-1]+' style="width:'+w+';">'
