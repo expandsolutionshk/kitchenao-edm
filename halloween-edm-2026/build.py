@@ -95,8 +95,7 @@ for cat,lst in ITEMS.items():
         cells+=f'<!--[if mso]><td width="33%" valign="top"><![endif]--><div class="it" style="display:inline-block;width:33.33%;max-width:33.33%;vertical-align:top;box-sizing:border-box;padding:6px;font-size:14px;">{item_card(img,n)}</div><!--[if mso]></td><![endif]-->'
         if (i+1)%3==0 and i+1<len(lst): cells+='<!--[if mso]></tr><tr><![endif]-->'
     cells+='<!--[if mso]></tr></table><![endif]-->'
-    item_rows+=f"""<tr><td align="center" style="padding:22px 24px 4px;background:{YEL};"><p style="margin:0;text-align:center;"><span style="display:inline-block;padding:6px 16px;border-radius:20px;background:{DK};color:{YEL};font-size:16px;font-weight:800;">{cat}<span style="color:{LAV};font-size:12.5px;font-weight:normal;">　共 {len(lst)} 款</span></span></p></td></tr>
-<tr><td style="padding:4px 18px 0;background:{YEL};"><div style="font-size:0;line-height:0;text-align:left;">{cells}</div></td></tr>"""
+    item_rows+=f"""<tr><td align="center" bgcolor="#FFB347" style="padding:22px 24px 0;background:{YEL};"><p style="margin:0;text-align:center;"><span style="display:inline-block;padding:6px 16px;border-radius:20px;background:{DK};color:{YEL};font-size:16px;font-weight:800;">{cat}<span style="color:{LAV};font-size:12.5px;font-weight:normal;">　共 {len(lst)} 款</span></span></p><div style="font-size:0;line-height:0;text-align:left;padding:8px 0 0;margin:0 -6px;">{cells}</div></td></tr>"""
 set_cells=''
 for i,(p,rp,pr,img) in enumerate(SETS):
     slug=('ao-'+p+'pax'+SLUG)
@@ -244,14 +243,14 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
   <!-- 優惠 -->
   <tr><td style="padding:14px 20px 6px;background:{DK};">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid #4a3463;border-radius:14px;"><tr><td align="left" style="padding:14px 18px;color:#EDE3F7;font-size:15px;line-height:27px;">
-      <span style="color:{OR};font-weight:900;">✓</span> <b style="color:{YEL};">10 月 22 日前預訂</b>・即享 <b style="color:{YEL};">92 折</b><br>
+      <span style="color:{OR};font-weight:900;">✓</span>&nbsp; <b style="color:{YEL};">10 月 22 日前預訂</b>・即享 <b style="color:{YEL};">92 折</b><br>
       <span style="color:{OR};font-weight:900;">✓</span> 各區<b style="color:{YEL};">免費送遞</b>（滿 $1,450）<br>
       <span style="color:{OR};font-weight:900;">✓</span> 可使用會員優惠現金券（其他優惠碼不適用）
     </td></tr></table>
   </td></tr>
 
   <!-- 5 大主打菜式 SLIDE -->
-  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真<br>每個套餐均包括以下主打菜式")}
+  {sect_hl("5 Signature Dishes","👻 5 大主打菜式","造型搞鬼・味道認真<br>每個套餐均包括以下 5 大主打菜式<br>及 MIX &amp; MATCH 自選人氣菜式")}
   {hero_block}
   <tr><td style="padding:0 0 14px;background:{DK};"></td></tr>
 
@@ -293,7 +292,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
       <td class="stack" align="center" valign="middle" style="padding:24px 18px;text-align:center;">
         <p style="margin:0 0 6px;color:{OR};font-size:12.5px;font-weight:bold;letter-spacing:3px;">BLOG</p>
         <p style="margin:0 0 10px;color:#ffffff;font-size:22px;font-weight:800;line-height:29px;">萬聖節由來<br>Halloween Party 攻略</p>
-        <p style="margin:0 0 16px;color:{LAV};font-size:13.5px;line-height:20px;">在家派對 4 步攻略<br>公司 Halloween Party 份量計算<br>一文看清。</p>
+        <p style="margin:0 0 16px;color:{LAV};font-size:13.5px;line-height:20px;">在家派對 4 步攻略<br>公司 Halloween Party 份量計算</p>
         <table cellpadding="0" cellspacing="0" align="center" style="border-collapse:separate;"><tr><td bgcolor="{OR}" style="background:{OR};border-radius:30px;">{a(BLOG,"閱讀全文 →",f"display:inline-block;padding:9px 22px;color:{DK};font-size:14px;font-weight:bold;text-decoration:none;border-radius:30px;")}</td></tr></table>
       </td>
     </tr></table>
@@ -327,13 +326,14 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     <tr><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/p/DXd_1nDGtUX/?img_index=2",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-li-ning.png" width="100%" alt="李寧跑步活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">李寧跑步活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/reel/DW3TE0tt7ob/",f'<img src="{U}2026/07/kitchen-ao-corporate-event-catering-lululemon.png" width="100%" alt="Lululemon K11 空中花園活動" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">Lululemon K11 空中花園活動</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr><tr><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/p/C9RU4gISzIS/",f'<img src="{U}2026/07/kitchen-ao-catering-McLaren-private-event.png" width="100%" alt="McLaren 私人活動｜廚師及侍應服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">McLaren 私人活動｜廚師及侍應服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td><td width="50%" valign="top" style="padding:8px;">{a("https://www.instagram.com/reel/DWqVUpjtRbA/",f'<img src="{U}2026/07/kitchen-ao-catering-UGG-Event.jpg" width="100%" alt="UGG 品牌活動｜全套到會服務" style="width:100%;height:auto;border-radius:14px;background:#333;display:block;"><p style="margin:8px 0 2px;color:#ffffff;font-size:14.5px;font-weight:bold;line-height:17px;">UGG 品牌活動｜全套到會服務</p><p style="margin:0;color:{OR};font-size:15px;font-weight:bold;">睇 Reels →</p>',"text-decoration:none;")}</td></tr>
   </table></td></tr>
   <tr><td align="center" style="padding:14px 40px 36px;background:{DK};">
-    <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" style="border:1px solid {OR};border-radius:40px;">{a("https://www.instagram.com/kitchen.ao/","＋ 追蹤 @kitchen.ao",f"display:inline-block;padding:11px 28px;color:{OR};font-size:16px;font-weight:bold;text-decoration:none;border-radius:40px;")}</td></tr></table>
+    <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td align="center" bgcolor="#C13584" style="background:#C13584;background-image:linear-gradient(45deg,#F58529,#DD2A7B 45%,#8134AF);border-radius:40px;box-shadow:0 6px 18px rgba(221,42,123,.35);">{a("https://www.instagram.com/kitchen.ao/",f'<table cellpadding="0" cellspacing="0" align="center"><tr><td valign="middle" style="padding-right:10px;font-size:0;line-height:0;"><img src="{IMG}icon-ig-white.png" width="24" height="24" alt="Instagram" style="width:24px;height:24px;display:block;"></td><td valign="middle" style="color:#ffffff;font-size:16px;font-weight:bold;white-space:nowrap;">追蹤 @kitchen.ao</td></tr></table>',"display:block;padding:12px 30px;text-decoration:none;border-radius:40px;")}</td></tr></table>
   </td></tr>
 
   <!-- FOOTER -->
   <tr><td align="center" style="padding:22px 30px;background:#0f0a16;">
     <img src="{U}2026/07/kitchenAO_logo-white.png" width="110" alt="Kitchen AO" style="width:110px;height:auto;margin:0 auto 10px;display:block;">
     <p style="margin:0 0 6px;color:{LAV};font-size:14px;line-height:18px;">WhatsApp +852 6901 1987 ｜ {a("https://www.instagram.com/kitchen.ao/","IG @kitchen.ao",f"color:{LAV};")} ｜ {a("https://www.facebook.com/Kitchen.ao.official/","Facebook",f"color:{LAV};")}</p>
+    <p style="margin:0 0 6px;color:#7d6f8c;font-size:12px;line-height:17px;">Kitchen AO 美食到會 ｜ {a(f"https://aoaodelivery.com/?{UTM}","回到網站主頁",f"color:#7d6f8c;text-decoration:underline;")}</p>
     <p style="margin:0;color:#7d6f8c;font-size:13px;line-height:17px;">{{{{crm.business_name}}}}</p>
   </td></tr>
 
@@ -348,6 +348,11 @@ import re
 html=re.sub(r'(<table[^>]*style=")([^"]*border-radius[^"]*)"',lambda m:m.group(1)+('border-collapse:separate;border-spacing:0;' if 'border-collapse' not in m.group(2) else '')+m.group(2)+'"',html)
 html=re.sub(r'>\s+<','><',html).replace(' rel="noopener noreferrer"','').replace(' role="presentation"','').replace(' cellpadding="0" cellspacing="0"',' cellpadding="0" cellspacing="0"')
 html=re.sub(r'\n\s+',' ',html)
+def _utm(m):
+    u=m.group(1)
+    if 'utm_' in u or u.startswith(('mailto:','tel:','#','https://wa.me','##')) or 'github.io' in u or '{{' in u: return m.group(0)
+    return 'href="'+u+('&' if '?' in u else '?')+UTM.replace('&','&amp;' if '&amp;' in u else '&')+'"'
+html=re.sub(r'href="([^"]+)"',_utm,html)
 # ---- email 版（FluentCRM 用）----
 open('email.html','w').write(html)
 # ---- preview 版（GitHub 預覽用）：刪走招呼語、頂部「瀏覽網頁版」、slider 下面提示、CRM 代碼 ----
