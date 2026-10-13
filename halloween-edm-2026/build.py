@@ -118,23 +118,23 @@ set_fb=f'<img src="{U}2026/10/{SETS[2][3]}-600x600.jpg" width="320" alt="萬聖�
 set_block=carousel('hws6',set_slides,set_fb,DK)+note(DK,LAV)
 
 # ---- email 版：唔用 slider，改用卡片格（desktop 3 個一行・mobile 2 個一行）----
-def grid(cards,bg,pad='16px 14px 0'):
+def grid(cards,bg,pad='16px 14px 0',align='left'):
     cells='<!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><![endif]-->'
     for i,c in enumerate(cards):
-        cells+=f'<!--[if mso]><td width="33%" valign="top"><![endif]--><div class="it" style="display:inline-block;width:33.33%;max-width:33.33%;vertical-align:top;box-sizing:border-box;padding:6px;font-size:14px;">{c}</div><!--[if mso]></td><![endif]-->'
+        cells+=f'<!--[if mso]><td width="33%" valign="top"><![endif]--><div class="it" style="display:inline-block;width:33.33%;max-width:33.33%;vertical-align:top;box-sizing:border-box;padding:6px;font-size:14px;text-align:left;">{c}</div><!--[if mso]></td><![endif]-->'
         if (i+1)%3==0 and i+1<len(cards): cells+='<!--[if mso]></tr><tr><![endif]-->'
     cells+='<!--[if mso]></tr></table><![endif]-->'
-    return f'<tr><td bgcolor="{bg}" style="padding:{pad};background:{bg};"><div style="font-size:0;line-height:0;text-align:left;">{cells}</div></td></tr>'
+    return f'<tr><td bgcolor="{bg}" align="{align}" style="padding:{pad};background:{bg};"><div style="font-size:0;line-height:0;text-align:{align};">{cells}</div></td></tr>'
 dish_cards=[f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid {OR};border-radius:14px;overflow:hidden;">
   <tr><td style="font-size:0;line-height:0;">{a(CAT,f'<img src="{U}{img}" width="200" alt="{b}" style="width:100%;height:auto;display:block;">')}</td></tr>
-  <tr><td valign="top" style="padding:10px 10px 12px;"><p style="margin:0 0 3px;color:{LAV};font-size:12px;font-weight:bold;line-height:16px;">{ic} {sm}</p>
-  <p style="margin:0 0 5px;color:{YEL};font-size:14.5px;font-weight:800;line-height:19px;">{b}</p><p style="margin:0;color:#E2D8EE;font-size:12.5px;line-height:18px;">{d}</p></td></tr></table>''' for (img,ic,sm,b,d) in HERO]
+  <tr><td class="dtx" height="132" valign="top" style="padding:10px 10px 12px;height:132px;"><p style="margin:0 0 3px;color:{LAV};font-size:12px;font-weight:bold;line-height:16px;">{ic} {sm}</p>
+  <p style="margin:0 0 5px;color:{YEL};font-size:14.5px;font-weight:800;line-height:19px;">{b}</p><p style="margin:0;color:#E2D8EE;font-size:{'10.5' if k==0 else '12.5'}px;line-height:{'15' if k==0 else '18'}px;">{d}</p></td></tr></table>''' for k,(img,ic,sm,b,d) in enumerate(HERO)]
 set_cards=[f'''<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{DK2};border:1px solid {OR};border-radius:14px;overflow:hidden;">
   <tr><td style="font-size:0;line-height:0;">{a(f"https://aoaodelivery.com/product/ao-{p}pax{SLUG}?{UTM}",f'<img src="{U}2026/10/{img}-600x600.jpg" width="200" alt="萬聖節狂嘩套餐 {p} 人" style="width:100%;height:auto;display:block;">')}</td></tr>
   <tr><td align="center" style="padding:10px 8px 12px;"><p style="margin:0;color:#ffffff;font-size:16px;font-weight:800;line-height:21px;">{p} 人套餐</p>
   <p style="margin:2px 0 8px;color:{LAV};font-size:12.5px;line-height:20px;"><s>${rp}</s>&nbsp; <span style="color:{YEL};font-size:16px;font-weight:800;">${pr}</span></p>
-  <table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td bgcolor="{OR}" style="background:{OR};border-radius:30px;">{a(f"https://aoaodelivery.com/product/ao-{p}pax{SLUG}?{UTM}","查看套餐 →",f"display:inline-block;padding:7px 14px;color:{DK};font-size:13.5px;font-weight:bold;text-decoration:none;white-space:nowrap;border-radius:30px;")}</td></tr></table></td></tr></table>''' for (p,rp,pr,img) in SETS]
-hero_grid=grid(dish_cards,DK)
+  <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="border-collapse:separate;max-width:150px;"><tr><td align="center" bgcolor="{OR}" style="background:{OR};background-image:linear-gradient(135deg,#FF8A1F,{OR2});border-radius:30px;box-shadow:0 6px 16px rgba(255,122,26,.45);">{a(f"https://aoaodelivery.com/product/ao-{p}pax{SLUG}?{UTM}","查看套餐",f"display:block;padding:11px 18px;color:{DK};font-size:15px;font-weight:bold;text-decoration:none;white-space:nowrap;border-radius:30px;text-align:center;")}</td></tr></table></td></tr></table>''' for (p,rp,pr,img) in SETS]
+hero_grid=grid(dish_cards,DK,align='center')
 set_grid=grid(set_cards,DK)
 
 LOGO=a(f"https://aoaodelivery.com/?{UTM}",f'<span style="display:inline-block;background:#ffffff;border-radius:10px;padding:6px 10px;"><img src="{U}2023/08/kitchenAO_logo_horizontal.png" width="112" alt="Kitchen AO" style="width:112px;height:auto;display:block;"></span>')
@@ -190,6 +190,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
     .tk td{{display:block!important;width:100%!important;border-left:0!important;}}
     .stack{{display:block!important;width:100%!important;box-sizing:border-box!important;}}
     .it{{width:50%!important;max-width:50%!important;}}
+    .dtx{{height:168px!important;}}
     .empty{{display:none!important;}}
   }}
 </style>
