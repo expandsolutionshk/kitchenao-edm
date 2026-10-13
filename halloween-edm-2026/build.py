@@ -264,6 +264,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 
   <!-- 套餐單品 CAROUSEL（無連結）-->
   <!-- 套餐自選：橙色 Halloween 區 + 卡通元素 -->
+  <tr><td bgcolor="#FFB347" style="padding:0;background:{YEL};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#FFB347" style="background:{YEL};">
   <tr><td style="padding:22px 16px 0;background:{ORBG};background-image:linear-gradient(180deg,#FF8A1F,{YEL});">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
       <td align="left" valign="bottom" width="22%"><img src="{IMG}el-ghost1.png" width="70" alt="" style="width:70px;height:auto;display:block;"></td>
@@ -284,6 +285,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
       <td align="left" valign="bottom"><img src="{IMG}el-witch.png" width="96" alt="" style="width:96px;height:auto;display:block;"></td>
       <td align="right" valign="bottom"><img src="{IMG}el-mug.png" width="96" alt="" style="width:96px;height:auto;display:inline-block;"></td>
   </tr></table></td></tr>
+  </table></td></tr>
 
   <!-- BLOG（卡片：左圓形圖・右置中標題＋描述＋細掣）-->
   <tr><td style="padding:30px 20px;background:{DK};">
