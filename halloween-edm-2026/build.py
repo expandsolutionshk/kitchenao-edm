@@ -198,7 +198,7 @@ Landing: /product-category/halloween-set/   UTM campaign: halloween2026
 </head>
 <body class="body" style="margin:0;padding:0;background:#140e1c;">
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#140e1c;">
-🎃 萬聖節狂嘩套餐登場｜5 款搞鬼主打菜式・5 至 40 人・10/22 前預訂 92 折
+🎃 原個日本南瓜海鮮意大利飯、迷你萬聖節漢堡…10 月 22 日前預訂享 92 折。&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
 </div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#140e1c;">
 <tr><td align="center" style="padding:16px 6px;">
