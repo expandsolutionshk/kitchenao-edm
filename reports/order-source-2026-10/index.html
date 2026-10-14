@@ -78,7 +78,7 @@ td.n,th.n{text-align:right;white-space:nowrap}
 <div class="kpis" id="kpis"></div>
 
 <div class="card"><h2>廣告回報 ROAS（GA4 追蹤）</h2><div class="kpis rk" id="roasK"></div><div style="overflow-x:auto"><table id="roasT"></table></div></div>
-<div class="card rm"><h2>Remark｜廣告平台報告數據</h2><div class="kpis rk" id="platK"></div><div style="overflow-x:auto"><table id="platT"></table></div></div>
+<div class="card rm"><h2>VS｜廣告平台報告數據</h2><div class="kpis rk" id="platK"></div><div style="overflow-x:auto"><table id="platT"></table></div><h3 class="sub">Google Ads 各廣告活動</h3><div style="overflow-x:auto"><table id="gcT"></table></div></div>
 <div class="card top"><h2>重點發現</h2><div class="ins" id="ins"></div>
   <h3 class="sub">Meta 廣告的社交影響</h3>
   <div class="fun" id="fun"></div>
@@ -146,7 +146,7 @@ $('#camp').innerHTML='<tr><th>渠道</th><th>廣告活動</th><th class="n">訂�
 const F=D.first.map(x=>x.ch),S=D.session.map(x=>x.ch).filter(c=>D.cross.some(z=>z.s==c));const mxc=Math.max(...D.cross.map(z=>z.orders));
 $('#heat').innerHTML='<tr><th>首次 ↓　下單 →</th>'+S.map(s=>`<th style="font-size:12.5px">${s}</th>`).join('')+'</tr>'+F.map(f=>'<tr><td style="white-space:nowrap"><b>'+f+'</b></td>'+S.map(s=>{const z=D.cross.find(q=>q.f==f&&q.s==s);if(!z)return'<td></td>';const t=z.orders/mxc;return `<td style="background:rgba(200,162,74,${.12+t*.88});color:${t>.5?'#fff':'#3f3a33'}">${z.orders}</td>`}).join('')+'</tr>').join('');
 // ROAS
-const SP={'Google 廣告':56830,'Meta 廣告':53314.81},PLAT={'Google 廣告':223439.51,'Meta 廣告':685107};
+const SP={'Google 廣告':56830.45,'Meta 廣告':53314.81},PLAT={'Google 廣告':223439.51,'Meta 廣告':685107};
 const spT=SP['Google 廣告']+SP['Meta 廣告'],rv=(a,c)=>(a.find(x=>x.ch==c)||{rev:0,orders:0});
 const ro=v=>v.toFixed(2)+'x',cls=v=>v>=1?'good':'bad';
 const gS=rv(D.session,'Google 廣告'),mS=rv(D.session,'Meta 廣告'),gF=rv(D.first,'Google 廣告'),mF=rv(D.first,'Meta 廣告');
@@ -180,6 +180,12 @@ const days=k=>{const [y,m]=k.split('-').map(Number);let s=new Date(y,m-1,1),e=ne
 const MS=D.months.session;const share=(m,c)=>m.ch[c]?m.ch[c].rev/m.rev:0;
 $('#mo').innerHTML='<tr><th>月份</th><th class="n">日數</th><th class="n">訂單</th><th class="n">銷售額</th><th class="n">每日平均銷售額</th><th class="n">平均每單</th><th class="n">Google 廣告 %</th><th class="n">Meta 廣告 %</th><th class="n">直接進入 %</th></tr>'+
  MS.map(m=>{const d=days(m.k);return `<tr><td style="white-space:nowrap"><b>${MN[m.k]||m.k}</b>（${md(new Date(Math.max(new Date(m.k+'-01'),dmin)))}–${md(new Date(Math.min(new Date(+m.k.slice(0,4),+m.k.slice(5),0),dmax)))}）</td><td class="n">${d}</td><td class="n">${m.orders}</td><td class="n">${fm(m.rev)}</td><td class="n"><b>${fm(m.rev/d)}</b></td><td class="n">${fm(m.rev/m.orders)}</td><td class="n">${pc(share(m,'Google 廣告'),1)}</td><td class="n">${pc(share(m,'Meta 廣告'),1)}</td><td class="n">${pc(share(m,'直接進入'),1)}</td></tr>`}).join('');
+// google campaigns (platform vs GA4)
+const GC=[['Sales-Performance Max-5 #2',26703.36,527.78,101005.90],['Sales KitchenAo (2nd set of KW)',11394.23,298.67,67898.57],['Sales KitchenAo',18732.86,245.56,54535.04]];
+const gaC=n=>D.camps.find(c=>c.ch=='Google 廣告'&&c.camp==n)||{orders:0,rev:0};
+$('#gcT').innerHTML='<tr><th>廣告活動</th><th class="n">廣告費</th><th class="n">平台轉換</th><th class="n">平台轉換價值</th><th class="n">平台 ROAS</th><th class="n">GA4 訂單</th><th class="n">GA4 銷售額</th><th class="n">GA4 ROAS</th></tr>'+
+ GC.map(([n,c,cv,v])=>{const g=gaC(n);return `<tr><td><span class="dot" style="background:${COL['Google 廣告']}"></span><b>${n}</b></td><td class="n">${fm(c)}</td><td class="n">${cv.toFixed(0)}</td><td class="n">${fm(v)}</td><td class="n ${cls(v/c)}">${ro(v/c)}</td><td class="n">${g.orders}</td><td class="n">${fm(g.rev)}</td><td class="n ${cls(g.rev/c)}">${ro(g.rev/c)}</td></tr>`}).join('')+
+ (()=>{const c=GC.reduce((s,x)=>s+x[1],0),cv=GC.reduce((s,x)=>s+x[2],0),v=GC.reduce((s,x)=>s+x[3],0),o=GC.reduce((s,x)=>s+gaC(x[0]).orders,0),r=GC.reduce((s,x)=>s+gaC(x[0]).rev,0);return `<tr style="background:#FAF6EE"><td><b>合計</b></td><td class="n"><b>${fm(c)}</b></td><td class="n"><b>${cv.toFixed(0)}</b></td><td class="n"><b>${fm(v)}</b></td><td class="n ${cls(v/c)}">${ro(v/c)}</td><td class="n"><b>${o}</b></td><td class="n"><b>${fm(r)}</b></td><td class="n ${cls(r/c)}">${ro(r/c)}</td></tr>`})();
 // insights
 const META={reach:526577,clicks:13957,link:6898,lpv:4007,atc:244,ic:77,pur:153,msg:187,inter:1099,save:197,share:128};
 const soc=['IG / Threads 自然','Meta 廣告','Facebook 自然'].reduce((s,c)=>{const z=rv(D.session,c);return {orders:s.orders+z.orders,rev:s.rev+z.rev}},{orders:0,rev:0});
