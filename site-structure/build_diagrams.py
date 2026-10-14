@@ -32,9 +32,10 @@ D['全站總覽'] = dict(dir='LR', nodes=[
  N('B1', '船河', '/catering/boat-party/', 'new'), N('B2', '素食', '/catering/vegetarian/', 'new'), N('B3', '生日會', '/catering/birthday-party/', 'new'),
  N('B4', '公司午餐', '/catering/corporate-lunch/', 'new'), N('B5', '學校飯盒', '/catering/school-lunch-box/', 'new'), N('B6', '中秋節', '/catering/mid-autumn/', 'new'),
  N('B7', '萬聖節', '/catering/halloween/', 'new'), N('B8', '訂製食物', '/catering/custom-printed-food/', 'new'),
+ N('B9', '野餐', '/catering/picnic/', 'new'), N('B10', '聖誕節', '/catering/christmas/', 'new'),
  N('P1', '派對套餐', '/product-category/party/'), N('P2', '人數選餐', '/product-category/party-set-by-people/'), N('P3', '單點', '/product-category/a-la-carte/'),
  N('P4', '商務活動', '/product-category/商務活動/'), N('P5', '配菜', '/product-category/配菜/'), N('P6', '派對用品', '/product-category/party-supplies/'),
- N('P7', '中秋套餐（slug 帶年份）', '/product-category/中秋佳節團圓套餐-2026/', 'old'),
+ N('P7', '中秋套餐（slug 帶年份）', '/product-category/中秋佳節團圓套餐-2026/', 'old'), N('P8', '萬聖節狂嘩套餐', '/product-category/halloween-set/'), N('P9', 'Chill一下野餐盒', '/product-category/party/chill-box/'),
  N('BL', 'Blog（13 篇）', '/blog/'), N('D', '地區 hub（要補內容）', '/地區到會分類/', 'old'),
  N('S1', '送貨需知', '/delivery/'), N('S2', '購買流程', '/foodbook/'), N('S3', '常見問題', '/常見問題/'), N('S4', '聯絡我們', '/contacts/'), N('S5', '報價查詢', '/catering-quote-enquiry/'),
  N('T1', '關於 Kitchen AO', '/about-kitchenao/'), N('T2', '客人好評', '/客人好評/'), N('T3', '合作夥伴', '/合作伙伴/'), N('T4', '精選圖庫', '/精選圖庫/'),
@@ -42,7 +43,7 @@ D['全站總覽'] = dict(dir='LR', nodes=[
  N('V4', '服務概覽（幾乎空白）', '/服務概覽/', 'old'), N('V5', '飲品及雞尾酒服務', '/飲品及雞尾酒服務/'),
  N('X1', '船河舊 landing', '/boat-trip-bldg/', 'old'), N('X2', '派對舊 landing', '/partyfood-bldg/', 'old'), N('X3', '小食舊 landing', '/snacks-bldg/', 'old'),
  N('X4', '範例頁面（刪除）', '/sample-page/', 'bad'), N('HK1', '⚠️ 被入侵頁面', '/ba620e385336-htm/', 'bad'), N('HK2', '⚠️ 被入侵頁面', '/66695d0f41db-htm/', 'bad'),
-], edges=['H --> C', 'C --> B1 & B2 & B3 & B4 & B5 & B6 & B7 & B8', 'H --> P1 & P2 & P3 & P4 & P5 & P6 & P7', 'H --> BL', 'H --> D',
+], edges=['H --> C', 'C --> B1 & B2 & B3 & B4 & B5 & B6 & B7 & B8 & B9 & B10', 'H --> P1 & P2 & P3 & P4 & P5 & P6 & P7 & P8', 'P1 --> P9', 'H --> BL', 'H --> D',
           'H --> S1 & S2 & S3 & S4 & S5', 'H --> T1 & T2 & T3 & T4', 'H --> V1 & V2 & V3 & V4 & V5', 'H -.-> X1 & X2 & X3', 'H -.-> X4 & HK1 & HK2'])
 
 # ---------- 船河 ----------
@@ -107,9 +108,31 @@ D['中秋節'] = dict(dir='LR', nodes=[
 
 # ---------- 萬聖節 ----------
 D['萬聖節'] = dict(dir='LR', nodes=[
- N('H', '首頁', '/'), N('L', '萬聖節 landing（新）', '/catering/halloween/', 'new'), N('N1', '萬聖節套餐（未有）', '', 'new'),
- N('C1', '美食派對（暫代）', '/product-category/party/foot-party/'), N('B1', '萬聖節 blog（H1 要修正）', '/blog/halloween-catering-hong-kong/', 'old'),
-], edges=['H --> L', 'L --> N1 & C1', 'L <--> B1'])
+ N('H', '首頁', '/'), N('L', '萬聖節 landing（新・每年沿用）', '/catering/halloween/', 'new'),
+ N('C1', '萬聖節狂嘩套餐分類', '/product-category/halloween-set/'),
+ N('PR1', '5–6 人', '/product/ao-5-6pax-halloween萬聖節狂嘩套餐/'), N('PR2', '8–10 人', '/product/ao-8-10pax-halloween萬聖節狂嘩套餐/'),
+ N('PR3', '12–16 人', '/product/ao-12-16pax-halloween萬聖節狂嘩套餐/'), N('PR4', '18–22 人', '/product/ao-18-22pax-halloween萬聖節狂嘩套餐/'),
+ N('PR5', '26–30 人', '/product/ao-26-30pax-halloween萬聖節狂嘩套餐/'), N('PR6', '35–40 人', '/product/ao-35-40pax-halloween萬聖節狂嘩套餐/'),
+ N('B1', '萬聖節到會 blog', '/blog/halloween-catering-hong-kong/'),
+], edges=['H --> L', 'H --> C1', 'L --> C1', 'C1 --> PR1 & PR2 & PR3 & PR4 & PR5 & PR6', 'L <--> B1', 'B1 --> C1'])
+
+# ---------- 聖誕節 ----------
+D['聖誕節'] = dict(dir='LR', nodes=[
+ N('H', '首頁', '/'), N('L', '聖誕 landing（新・每年沿用）', '/catering/christmas/', 'new'),
+ N('N1', '聖誕套餐分類（未有）', '', 'new'), N('C2', '人數選餐', '/product-category/party-set-by-people/'),
+ N('C3', '美食派對 Gourmet', '/product-category/party/foot-party/'), N('C4', '派對用品', '/product-category/party-supplies/'),
+ N('V1', '公司到會（公司聖誕派對）', '/corporate-catering-hk/'), N('Q', '報價查詢', '/catering-quote-enquiry/'),
+ N('B1', '聖誕到會 blog（建議新增）', '', 'new'),
+], edges=['H --> L', 'L --> N1', 'L --> C2 & C3 & C4', 'L --> V1', 'V1 --> Q', 'L <--> B1', 'B1 --> N1'])
+
+# ---------- 野餐 ----------
+D['野餐'] = dict(dir='LR', nodes=[
+ N('H', '首頁', '/'), N('L', '野餐 landing（新）', '/catering/picnic/', 'new'),
+ N('C1', 'Chill一下野餐盒分類', '/product-category/party/chill-box/'),
+ N('PR1', 'Chill一下野餐盒（大）4–6 人', '/product/chill一picnic-big-for-4-6-persons/'), N('PR2', 'Chill一下野餐盒（細）', '/product/chill一picnic-small/'),
+ N('S1', '惹味小食（單品）', '/product-category/a-la-carte/snacks/'), N('S2', '餐具及暖貼加配', '/product-category/party-supplies/thin-crust-pizza/'),
+ N('BG', 'Blog 1：香港野餐好去處（地點搜尋工具・計劃中）', '', 'new'), N('DL', '送貨需知：公園入口交收', '/delivery/'),
+], edges=['H --> L', 'L --> C1', 'C1 --> PR1 & PR2', 'L --> S1 & S2', 'L <--> BG', 'BG --> C1', 'L --> DL'])
 
 # ---------- 訂製食物 ----------
 D['訂製食物'] = dict(dir='LR', nodes=[
@@ -161,26 +184,35 @@ header{background:#1A1A1A;color:#F7CE46;padding:18px 24px}header h1{margin:0;fon
 nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px 24px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
 nav button{border:1.5px solid #1A1A1A;background:#fff;border-radius:30px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer}
 nav button.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
+.dd{position:relative}.dd>button:after{content:' ▾'}.dd .menu{display:none;position:absolute;top:110%;left:0;background:#fff;border:1.5px solid #1A1A1A;border-radius:14px;padding:6px;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:9}.dd.open .menu{display:block}.dd .menu button{display:block;width:100%;text-align:left;border:0;border-radius:10px;margin:2px 0}.dd .menu button.on{background:#C8A24A}
 section{display:none;padding:20px 24px 60px}section.on{display:block}
 .card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.05);overflow:auto}
 .legend{font-size:13px;color:#6b6252;margin:0 0 12px}.legend span{display:inline-block;padding:2px 10px;border-radius:8px;margin-right:6px}
 .new{background:#E3F4E8}.old{background:#FFF4D6}.bad{background:#FDE2E1}.ok{background:#E3F1FB}
 .mermaid .nodeLabel,.mermaid .nodeLabel *{font-size:16px!important;line-height:1.35}.mermaid .nodeLabel b{font-size:17px!important}.mermaid .u{font-size:13px!important;color:#444;word-break:break-all}.mermaid .node{cursor:pointer}.mermaid .t{display:inline-block;font-size:13px!important;font-weight:700;color:#fff!important;background:#1A1A1A;border-radius:10px;padding:2px 9px;margin-bottom:4px}.mermaid .grp .t{background:#C8A24A;color:#1A1A1A!important}
 </style></head><body>
-<header><h1>Kitchen AO 網站架構圖（Site Structure）</h1><p>每個格子顯示完整 URL，按一下可打開該頁｜由主表整理，2026-10-03</p></header>
+<header><h1>Kitchen AO 網站架構圖（Site Structure）</h1><p>每個格子顯示完整 URL，按一下可打開該頁｜由主表整理，2026-10-14 更新</p></header>
 <nav id="nav"></nav><div id="views"></div>
 <script>
 const V = __V__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
-const nav=document.getElementById('nav'),views=document.getElementById('views');let i=0;
+const nav=document.getElementById('nav'),views=document.getElementById('views');
+const GROUPS={'Seasonal':['中秋節','萬聖節','聖誕節']};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
+const made={};let first=null;
+function show(b,s,top){document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
 for(const [k,code] of Object.entries(V)){
-  const b=document.createElement('button');b.textContent=k;nav.appendChild(b);
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
   s.querySelector('pre').textContent=code;views.appendChild(s);
-  b.onclick=async()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');s.classList.add('on');const pre=s.querySelector('pre');if(!pre.dataset.done){await mermaid.run({nodes:[pre]});pre.dataset.done=1;}};
-  if(i++===0)setTimeout(()=>b.click(),0);
+  const b=document.createElement('button');b.textContent=k;let top=null;
+  const g=inGrp[k];
+  if(g){if(!made[g]){const d=document.createElement('div');d.className='dd';const t=document.createElement('button');t.textContent=g;t.onclick=e=>{e.stopPropagation();d.classList.toggle('open');};const m=document.createElement('div');m.className='menu';d.append(t,m);nav.appendChild(d);made[g]={d,t,m};}
+    made[g].m.appendChild(b);top=made[g].t;}
+  else nav.appendChild(b);
+  b.onclick=e=>{e.stopPropagation();show(b,s,top);};
+  if(!first){first=1;setTimeout(()=>b.click(),0);}
 }
+document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
 </script></body></html>'''
 (HERE / 'index.html').write_text(html.replace('__V__', json.dumps(V, ensure_ascii=False)), encoding='utf-8')
 (HERE / 'diagrams.json').write_text(json.dumps(V, ensure_ascii=False), encoding='utf-8')
