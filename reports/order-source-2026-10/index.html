@@ -62,6 +62,13 @@ td.n,th.n{text-align:right;white-space:nowrap}
 .jr div b{display:block;color:var(--dk);font-size:16px;margin-bottom:4px}
 .jr div:not(:last-child):after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--gold);font-weight:900;background:#fff}
 @media(max-width:860px){.eng{grid-template-columns:1fr 1fr}.fun div:after,.jr div:after{display:none}}
+.plan{border:2px solid var(--dk)}
+.pl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;counter-reset:p}
+.pl li{counter-increment:p;position:relative;background:#FAF6EE;border-radius:14px;padding:14px 16px 14px 58px;font-size:15px;line-height:1.55}
+.pl li:before{content:counter(p);position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:16px;background:var(--dk);color:var(--or);font-weight:900;display:flex;align-items:center;justify-content:center}
+.pl li b{display:block;font-size:16.5px;color:var(--dk);margin-bottom:2px}
+.pl li.hot{background:#FFF1DC;border:2px solid var(--or)}
+@media(max-width:860px){.pl{grid-template-columns:1fr}}
 .ins{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .ins div{background:#FFF8EA;border:1px solid #F3E2BF;border-radius:14px;padding:16px;font-size:15px;line-height:1.6}
 .ins b{display:block;font-size:16px;color:var(--dk);margin-bottom:4px}
@@ -79,6 +86,7 @@ td.n,th.n{text-align:right;white-space:nowrap}
   <h3 class="sub">社交媒體帶動的客人旅程</h3>
   <div class="jr" id="jr"></div>
 </div>
+<div class="card plan"><h2>Lucas 建議｜下一步策略</h2><div class="kpis rk" id="budK"></div><ol class="pl" id="plan"></ol></div>
 
 <div class="card">
   <h2>各渠道佔比</h2>
@@ -185,6 +193,18 @@ $('#jr').innerHTML=[
  ['③ 回來',`「直接進入」${pc(dir.rev,D.rev)}・自然搜尋 ${pc(org.rev,D.rev)}`],
  ['④ 下單',`計入「直接進入」或搜尋`]
 ].map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join('');
+// plan
+const mon=D.rev/2,cur=spT/D.rev;
+$('#budK').innerHTML=[['現時廣告費佔銷售額',pc(spT,D.rev)],['目標佔比','8–10%'],['10 月廣告預算目標','$35,000'],['10 月銷售額目標（ROAS 10x）','$350,000']].map(k=>`<div class="kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}</div></div>`).join('');
+$('#plan').innerHTML=[
+ ['','每月廣告預算降至銷售額 8–10%',`現時約 ${pc(spT,D.rev)}（每月約 ${fm(spT/2)}）。節日檔期可額外增加，全年額外預算控制在 6% 內。`],
+ ['','集中推有銷售潛力的檔期','萬聖節小推、聖誕大推；日常貼文改善創意內容及影片。'],
+ ['','Retargeting 為主','8–10 月已累積大量受眾（Meta 觸及 '+nf(META.reach)+' 人），集中再推廣給曾到訪網站及 FB / IG 互動的人。'],
+ ['','EDM / WhatsApp 推廣','直接接觸舊客及會員，成本低，並加 UTM 追蹤成效。'],
+ ['','增加日常貼文 / Reels','IG / Threads 自然流量已佔 '+pc(rv(D.session,'IG / Threads 自然').rev,D.rev)+' 銷售額，持續增加曝光。'],
+ ['','集中火力做 SEO 及網站改版','提升自然搜尋（現佔 '+pc(org.rev,D.rev)+'）及網站轉換率。'],
+ ['hot','10 月 24 日前完成聖誕計劃','包括套餐、廣告排期、EDM 及貼文內容。']
+].map(x=>`<li class="${x[0]}"><b>${x[1]}</b>${x[2]}</li>`).join('');
 const srt=(a,k)=>a.slice().sort((x,y)=>y[k]-x[k]);const s1=srt(D.session,'rev'),f1=srt(D.first,'rev');
 const nonDirect=s1.filter(x=>x.ch!='直接進入')[0];const ai=D.session.find(x=>/AI/.test(x.ch));
 const hiAov=D.session.filter(x=>x.orders>=5).sort((a,b)=>b.rev/b.orders-a.rev/a.orders)[0];
