@@ -22,7 +22,7 @@
     apply();
   });});
   var rs=root.querySelector('#pkReset'); if(rs) rs.addEventListener('click',function(){st={r:'all',car:false,pet:false,cats:[]};chips.forEach(function(x){x.classList.toggle('on',x.dataset.f==='r'&&x.dataset.v==='all');});apply();});
-  // 實時車位（運輸署開放數據；如瀏覽器封鎖跨域，就開新分頁顯示原始數據）
+  // 實時車位（運輸署開放數據；如瀏覽器封鎖跨域，則開新分頁顯示原始數據）
   root.querySelectorAll('.pk-vac').forEach(function(b){b.addEventListener('click',function(){
     var out=b.nextElementSibling; out.textContent='讀取中…';
     fetch(b.dataset.src).then(function(r){return r.json();}).then(function(j){
@@ -30,5 +30,12 @@
       out.textContent=(v===null||v===undefined)?'暫無數據':(v<0?'暫無數據':'空位：'+v);
     }).catch(function(){out.innerHTML='<a href="'+b.dataset.src+'" target="_blank" rel="noopener">開啟數據</a>';});
   });});
+  // 寵物共享範圍地圖 pop up
+  var md=root.querySelector('#pkModal');
+  if(md){var img=md.querySelector('img'),tt=md.querySelector('.pk-mt');
+    root.querySelectorAll('.pk-mapbtn').forEach(function(b){b.addEventListener('click',function(){img.src=b.dataset.img;tt.textContent=b.dataset.t;md.hidden=false;});});
+    function cl(){md.hidden=true;img.removeAttribute('src');}
+    md.querySelector('.pk-mx').addEventListener('click',cl);md.addEventListener('click',function(e){if(e.target===md)cl();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!md.hidden)cl();});}
   apply();
 })();

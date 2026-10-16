@@ -85,3 +85,14 @@
   .pk-tool{position:static;padding:12px;}.pk-lab{flex-basis:100%;}
   .pk-chip{padding:5px 11px;font-size:13px;}
 }
+
+.pk-h1note{margin:-14px 0 18px!important;font-size:13px;color:#9a8f7e}
+.ao-article button.pk-mapbtn{margin:0 0 10px;border:1.5px solid #3F9D5A;background:#F4FBF3;color:#2C6E49;border-radius:30px;padding:6px 14px;font-size:13.5px;font-weight:800;cursor:pointer;align-self:flex-start}
+.ao-article button.pk-mapbtn:hover{background:#3F9D5A;color:#fff}
+.pk-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:18px}
+.pk-modal[hidden]{display:none}
+.pk-mbox{position:relative;background:#fff;border-radius:16px;padding:18px;max-width:900px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.pk-mbox img{display:block;width:100%;height:auto;border-radius:10px}
+.pk-mt{margin:0 40px 10px 0!important;font-weight:800;color:#1A1A1A}
+.pk-msrc{margin:8px 0 0!important;font-size:13px;color:#7A7268;text-align:right}
+.ao-article button.pk-mx{position:absolute;right:12px;top:10px;border:0;background:#F1EBDF;width:34px;height:34px;border-radius:17px;font-size:15px;cursor:pointer}

@@ -5,7 +5,7 @@ P = b.P; CATS = b.CATS
 GEO = {'tamar':(22.282,114.166),'sysmp':(22.290,114.142),'cyber':(22.261,114.130),'vpark':(22.282,114.188),'peak':(22.271,114.146),'hkpark':(22.277,114.161),'mtdavis':(22.275,114.119),
 'wkcd':(22.301,114.158),'ktap':(22.330,114.200),'ktct':(22.306,114.214),'shingfung':(22.318,114.206),'jvp':(22.323,114.219),'ktprom':(22.310,114.222),'ckl':(22.302,114.229),'klnpark':(22.300,114.170),'namcheong':(22.326,114.155),'lokfu':(22.339,114.188),
 'penfold':(22.401,114.204),'tpwp':(22.452,114.183),'velo':(22.316,114.263),'mospark':(22.426,114.231),'saisha':(22.432,114.241),'ngongping':(22.408,114.258),'taitamtun':(22.287,114.293),'tapmun':(22.471,114.360),'yuentun':(22.394,114.093),'tyipark':(22.358,114.106),'tyiwf':(22.350,114.098),'howo':(22.375,113.966),'tmpark':(22.392,113.976),'namsang':(22.465,114.030),'tswpark':(22.457,114.005),'ylpark':(22.440,114.017),
-'inspire':(22.313,114.042),'db':(22.296,114.020)}
+'inspire':(22.313,114.042),'db':(22.296,114.020),'ktsky':(22.3335,114.1960),'ktsq':(22.3300,114.1990),'csw':(22.3335,114.1505)}
 LNG0, LNG1, LAT0, LAT1 = 113.86, 114.40, 22.19, 22.53
 W, Hh = 540, 360
 def xy(lat, lng): return ((lng-LNG0)/(LNG1-LNG0)*W, (LAT1-lat)/(LAT1-LAT0)*Hh)
@@ -16,15 +16,16 @@ LAND = {
  'tsingyi':[(114.085,22.34),(114.105,22.365),(114.12,22.35),(114.10,22.33)],
  'tapmun':[(114.352,22.465),(114.365,22.478),(114.37,22.466),(114.36,22.458)]}
 land = ''.join(f'<polygon points="{" ".join(f"{x:.1f},{y:.1f}" for x,y in (xy(la,ln) for ln,la in pts))}"/>' for pts in LAND.values())
-RN = {'hk':'港島','kln':'九龍','nt':'新界','is':'離島'}
-RC = {'hk':'#E8743B','kln':'#3F9D5A','nt':'#1E5BD8','is':'#8E44AD'}
+RN = {'hk':'港島','kln':'九龍','nt':'新界'}
+RC = {'hk':'#E8743B','kln':'#3F9D5A','nt':'#1E5BD8'}
+IC = lambda p: CATS[p['cats'][0]][0] if p['cats'] else '📍'
 def attrs(p): return f'data-id="{p["id"]}" data-r="{p["r"]}" data-car="{1 if p["car"] else 0}" data-pet="{p["pet"]}" data-cats="{" ".join(p["cats"])}"'
 def cars(p): return '、'.join(n for n,_ in p['car']) or p.get('carnote','—')
 # E map pins
 pins = ''
 for p in P:
     x, y = xy(*GEO[p['id']])
-    pins += f'<a class="pin" href="#b-{p["id"]}" {attrs(p)} style="left:{x/W*100:.2f}%;top:{y/Hh*100:.2f}%;--c:{RC[p["r"]]}"><span><b>{CATS[p["cats"][0]][0]}</b></span><i>{p["name"]}</i></a>'
+    pins += f'<a class="pin" href="#b-{p["id"]}" {attrs(p)} style="left:{x/W*100:.2f}%;top:{y/Hh*100:.2f}%;--c:{RC[p["r"]]}"><span><b>{IC(p)}</b></span><i>{p["name"]}</i></a>'
 # D table
 ck = lambda v: '<b class="y">✓</b>' if v else '<span class="n">·</span>'
 CK = list(CATS)
@@ -37,7 +38,7 @@ for p in P:
     items += f'''<article class="b-row" id="b-{p['id']}" {attrs(p)}>
   <div class="b-top"><div class="ph">📷</div><div class="b-hd"><h3>{p['name']}</h3><span class="rg" style="background:{RC[p['r']]}">{RN[p['r']]}</span><div class="tg">{b.tags(p)}</div></div></div>
   <p class="in">{p['intro']}</p>
-  <p class="s">🚇 {p['tr']}</p><p class="s">🐶 {p['petnote']}</p>
+  <p class="s">🚇 {p['tr']}</p><p class="s">🐶 {p['petnote']}</p>{('<button class="mapbtn" data-img="'+p['petmap']+'" data-t="'+p['name']+'｜寵物共享公園範圍">🗺️ 查看寵物共享範圍地圖</button>') if p.get('petmap') else ''}
   <div class="car"><b>鄰近停車場</b><ul>{carl}</ul></div>
   <a class="back" href="#hk-map">↑ 返回地圖</a>
 </article>'''
@@ -87,6 +88,10 @@ mark{background:none;color:inherit}
 .back{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:#9A7B2E;text-decoration:none}
 .empty{display:none;padding:14px;text-align:center;background:#FFF4F2;border-radius:12px;font-size:13px}
 .off{display:none!important}
+.mapbtn{margin:2px 0 8px;border:1.5px solid #3F9D5A;background:#F4FBF3;color:#2C6E49;border-radius:20px;padding:5px 12px;font-size:12.5px;font-weight:800}
+.mdl{position:fixed;inset:0;z-index:999;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
+.mbox{position:relative;background:#fff;border-radius:14px;padding:14px;max-width:420px;width:100%;max-height:90vh;overflow:auto}.mbox img{width:100%;height:auto;border-radius:8px;display:block}
+.mt{margin:0 36px 8px 0;font-weight:800;font-size:14px}.msrc{margin:6px 0 0;font-size:12px;color:#7A7268;text-align:right}.mx{position:absolute;right:10px;top:8px;border:0;background:#F1EBDF;width:30px;height:30px;border-radius:15px}
 '''
 JS = '''
 var LM=null,LMK={};
@@ -97,13 +102,16 @@ function go(h){var t=document.querySelector(h);if(!t)return;t.scrollIntoView({be
 function ok(e){if(st.r!=='all'&&e.dataset.r!==st.r)return false;if(st.car&&e.dataset.car!=='1')return false;if(st.pet&&e.dataset.pet!=='Y')return false;var c=e.dataset.cats.split(' ');return st.cats.every(function(x){return c.indexOf(x)>-1})}
 function apply(){var n=0;els.forEach(function(e){var o=ok(e);e.classList.toggle('off',!o);if(o&&e.classList.contains('b-row'))n++;});
 document.getElementById('cnt').textContent=(n===35?'全部 ':'符合：')+n+' 個地點';document.getElementById('empty').style.display=n?'none':'block';
-if(LM){var vis=[];document.querySelectorAll('.b-row').forEach(function(e){var mk=LMK[e.dataset.id];if(!mk)return;if(e.classList.contains('off')){LM.removeLayer(mk)}else{mk.addTo(LM);vis.push(mk.getLatLng())}});if(vis.length&&vis.length<35)LM.fitBounds(L.latLngBounds(vis).pad(0.3),{maxZoom:14});}var pins=document.querySelectorAll('.pin:not(.off)');pins.forEach(function(p){p.classList.toggle('lbl',pins.length<=6)});}
+if(LM){var vis=[];document.querySelectorAll('.b-row').forEach(function(e){var mk=LMK[e.dataset.id];if(!mk)return;if(e.classList.contains('off')){LM.removeLayer(mk)}else{mk.addTo(LM);vis.push(mk.getLatLng())}});if(vis.length&&vis.length<PTS.length)LM.fitBounds(L.latLngBounds(vis).pad(0.3),{maxZoom:14});}var pins=document.querySelectorAll('.pin:not(.off)');pins.forEach(function(p){p.classList.toggle('lbl',pins.length<=6)});}
 document.querySelectorAll('.ch').forEach(function(b){b.onclick=function(){var f=b.dataset.f,v=b.dataset.v;
 if(f==='r'){st.r=v;document.querySelectorAll('.ch[data-f=r]').forEach(function(x){x.classList.toggle('on',x===b)})}
 else if(f==='car'){st.car=!st.car;b.classList.toggle('on')}else if(f==='pet'){st.pet=!st.pet;b.classList.toggle('on')}
 else{var i=st.cats.indexOf(v);if(i>-1)st.cats.splice(i,1);else st.cats.push(v);b.classList.toggle('on')}apply();}});
 document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();};
 document.querySelectorAll('a[href^="#b-"]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(a.getAttribute('href'));}});
+var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
+document.querySelectorAll('.mapbtn').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mt.textContent=b.dataset.t;md.hidden=false;}});
+function mcl(){md.hidden=true;mi.removeAttribute('src');}md.querySelector('.mx').onclick=mcl;md.onclick=function(e){if(e.target===md)mcl();};
 apply();})();
 '''
 html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>野餐地點搜尋器 Mobile Demo（D＋E＋B）</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><style>{CSS}</style></head><body><div class="phone">
@@ -113,9 +121,10 @@ html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="frow"><span class="lab">② 條件</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button></div>
 <div class="frow"><span class="lab">③ 類別</span>{chips_c}</div>
 <div class="cnt"><span id="cnt"></span><button id="rst">重設</button></div></div>
-<div class="sec" id="hk-map"><h2>📍 地圖<small>撳 pin 跳去地點介紹</small></h2><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，非真實比例</span></div>
-<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>pin 內 icon＝主要類別</span></div></div>
-<div class="sec"><h2>📊 一覽比較表<small>撳地點名跳去介紹</small></h2><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></div>
-<div class="sec"><h2>📝 地點介紹</h2><p class="empty" id="empty">冇符合條件嘅地點，試吓減少篩選條件。</p>{items}</div>
-</div><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><script>var PTS={json.dumps([dict(id=p["id"],n=p["name"],lat=GEO[p["id"]][0],lng=GEO[p["id"]][1],c=RC[p["r"]],ic=CATS[p["cats"][0]][0]) for p in P],ensure_ascii=False)};</script><script>{JS}</script></body></html>'''
+<div class="sec" id="hk-map"><h2>📍 地圖<small>點擊地圖標記查看地點介紹</small></h2><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
+<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span></div></div>
+<div class="sec"><h2>📊 一覽比較表<small>點擊地點名稱查看介紹</small></h2><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></div>
+<div class="sec"><h2>📝 地點介紹</h2><p class="empty" id="empty">沒有符合條件的地點，請嘗試減少篩選條件。</p>{items}</div>
+<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" aria-label="關閉">✕</button><p class="mt"></p><img alt="寵物共享公園範圍地圖"><p class="msrc">地圖來源︰康文署</p></div></div>
+</div><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><script>var PTS={json.dumps([dict(id=p["id"],n=p["name"],lat=GEO[p["id"]][0],lng=GEO[p["id"]][1],c=RC[p["r"]],ic=IC(p)) for p in P],ensure_ascii=False)};</script><script>{JS}</script></body></html>'''
 open('combo-mobile.html','w').write(html); print(len(html))
