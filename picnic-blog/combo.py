@@ -329,11 +329,11 @@ FILTER = f"""<div class="flt">
 <div class="frow f2"><span class="lab">② 條件及類別（可多選）</span><button class="mf" type="button" aria-expanded="false">＋ 更多篩選</button><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
-    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<small>點擊地圖標記查看地點介紹</small></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
-<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span><span class="mhint">👆 用兩隻手指移動及縮放地圖</span></div></div>"""
+    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖</{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
+<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span class="mhint">👆 用兩隻手指移動及縮放地圖</span></div></div>"""
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
-<details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><p class="thint">點擊地點名稱，即可查看該地點介紹。</p><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
+<details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
 POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p><p class="swh">← 左右滑動查看 5 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
 <div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
