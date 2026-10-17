@@ -7,7 +7,7 @@ CATS = {
  'sea':    ('🌊', '海景'),
  'euro':   ('🏛️', '特色園林'),
 }
-REGIONS = [('hk', '港島', '港島野餐'), ('kln', '九龍', '九龍野餐'), ('nt', '新界', '新界野餐地點')]
+REGIONS = [('nt', '新界', '新界野餐地點'), ('kln', '九龍', '九龍野餐'), ('hk', '港島', '港島野餐')]
 LCSD = 'https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/'
 D = dict
 P = [
@@ -147,3 +147,10 @@ P = [
    intro='郊野公園山坡草地，海景開揚，適合放風箏。',
    tr='港鐵鑽石山站乘搭九巴 91 號，再步行前往', petnote='可與狗狗在草地野餐。'),
 ]
+
+# ---- 2026-10-17：地點排序（地區：新界 → 九龍 → 港島；區內按推介熱門程度）----
+ORDER = ['tpwp','taitamtun','tapmun','velo','penfold','ngongping','namsang','inspire','db','yuentun','tyiwf','mospark','ylpark','tmpark','tswpark','tyipark',
+         'wkcd','ktct','ktprom','jvp','ktsky','ckl','lokfu','shingfung','ktsq','namcheong','csw',
+         'tamar','cyber','sysmp','mtdavis','vpark','peak']
+assert sorted(ORDER) == sorted(p['id'] for p in P), set(ORDER) ^ {p['id'] for p in P}
+P.sort(key=lambda p: ORDER.index(p['id']))
