@@ -96,7 +96,7 @@ P = [
    tr='港鐵火炭站 C 出口步行約 10 分鐘', petnote='廣闊草地，可與狗狗一同野餐；賽馬日暫停開放。'),
  D(id='tpwp', r='nt', name='大埔海濱公園', en='Tai Po Waterfront Park', cats=['lawn','sea'], pet='N', kw='大埔海濱公園野餐',
    car=[('廣福停車場（大埔大華街，由公園西側入口前往較直接）','vacancy_tdstt118.json')], petmap=LCSD+'TP/2609_map.jpg',
-   intro='坐擁海景及大草坪，還可以放風箏，<mark class="kw">大埔海濱公園野餐</mark>一家大小都適合。',
+   intro='坐擁海景及大草坪，更可放風箏，一家大小到<mark class="kw">大埔海濱公園野餐</mark>最適合不過。',
    tr='港鐵站轉乘巴士 71K，或港鐵接駁巴士 K17／K18', petnote='寵物共享範圍位於海濱長廊一帶，狗狗不可踏上大草坪。'),
  D(id='ngongping', r='nt', name='馬鞍山昂坪高原', en='Ngong Ping Plateau, Ma On Shan', cats=['lawn','hidden'], pet='Y', kw='昂坪野餐',
    car=[], carnote='沒有直達停車場，須由馬鞍山村或大水坑步行上山',
