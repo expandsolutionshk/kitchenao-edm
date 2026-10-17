@@ -65,7 +65,7 @@
 .ao-faq summary{cursor:pointer;font-weight:700;color:#1A1A1A;padding:12px 0;}
 .ao-faq .a{padding:0 0 14px;}
 /* products */
-.pk-prod{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0;}
+.pk-prod{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0;}
 .ao-article a.pk-pcard{display:flex;flex-direction:column;border:2px solid #C8A24A;border-radius:16px;overflow:hidden;background:#fff;text-decoration:none;color:#3f3a33;}
 .pk-pcard img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .pk-pcard div{padding:12px 14px;}
@@ -99,14 +99,16 @@
 .pk-msrc{margin:8px 0 0!important;font-size:13px;color:#7A7268;text-align:right}
 .ao-article button.pk-mx{position:absolute;right:12px;top:10px;border:0;background:#F1EBDF;width:34px;height:34px;border-radius:17px;font-size:15px;cursor:pointer}
 
+.t-ok{background:#1A1A1A;color:#F7CE46;}
+
 </style>
 
-<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">38 個大草地／海景／隱世公園推介 × 懶人野餐全攻略</p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
+<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">34 個大草地／海景／隱世公園推介 × 懶人野餐全攻略</p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
 
 
 <div class="ao-introcard">
 <p class="ao-q">🧺 想找香港野餐好去處？</p>
-<p class="ao-intro">香港地方雖小，但也有不少野餐好去處：無敵海景、大片真草地、隱世野餐地點及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 38 個香港野餐地點，按港島、九龍及新界分類，並可按「可泊車」「寵物友善」及地點類別篩選；每個地點均列出鄰近停車場，方便駕車野餐。</p>
+<p class="ao-intro">香港地方雖小，但也有不少野餐好去處：無敵海景、大片真草地、隱世野餐地點及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 34 個香港野餐地點，按港島、九龍及新界分類，並可按「可泊車」「寵物友善」及地點類別篩選；每個地點均列出鄰近停車場，方便駕車野餐。</p>
 </div>
 
 <div class="ao-tagsec"><span class="lbl">此文章相關 Tag</span><div class="ao-tags"><span>野餐好去處</span><span>香港野餐</span><span>狗狗野餐</span><span>野餐泊車</span><span>野餐盒</span></div></div>
@@ -126,19 +128,19 @@
   <div class="pk-row"><span class="pk-lab">① 地區</span><button type="button" class="pk-chip on" data-f="r" data-v="all">全部</button><button type="button" class="pk-chip" data-f="r" data-v="hk">港島</button><button type="button" class="pk-chip" data-f="r" data-v="kln">九龍</button><button type="button" class="pk-chip" data-f="r" data-v="nt">新界</button></div>
   <div class="pk-row"><span class="pk-lab">② 條件</span><button type="button" class="pk-chip" data-f="car" data-v="1">🚗 可泊車</button><button type="button" class="pk-chip" data-f="pet" data-v="Y">🐶 寵物友善</button></div>
   <div class="pk-row"><span class="pk-lab">③ 類別</span><button type="button" class="pk-chip" data-f="cat" data-v="lawn">🌳 大草地</button><button type="button" class="pk-chip" data-f="cat" data-v="hidden">🌿 秘境</button><button type="button" class="pk-chip" data-f="cat" data-v="sea">🌊 海景</button><button type="button" class="pk-chip" data-f="cat" data-v="euro">🏛️ 特色園林</button></div>
-  <div class="pk-foot"><span id="pkCount">顯示全部 38 個地點</span><button type="button" class="pk-reset" id="pkReset">重設</button></div>
+  <div class="pk-foot"><span id="pkCount">顯示全部 34 個地點</span><button type="button" class="pk-reset" id="pkReset">重設</button></div>
   <div class="pk-legend"><span>🌳 大草地</span><span>🌿 秘境</span><span>🌊 海景</span><span>🏛️ 特色園林</span><span>🚗 可泊車</span><span>🐶 寵物友善</span><span>🐾 寵物指定範圍</span></div>
 </div>
 <p class="pk-empty" id="pkEmpty" hidden>沒有符合條件的地點，請嘗試減少篩選條件。</p>
 
 <section class="pk-region" data-region="hk">
-  <h2 class="ao-h2" id="r-hk">一、港島野餐（7 個地點）</h2>
-  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】港島野餐可以去哪裡？以下 7 個地點已按可泊車、寵物友善及地點類別標示。</p>
+  <h2 class="ao-h2" id="r-hk">一、港島野餐（6 個地點）</h2>
+  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】港島野餐可以去哪裡？以下 6 個地點已按可泊車、寵物友善及地點類別標示。</p>
   <div class="pk-grid"><article class="pk-card" id="pk-tamar" data-r="hk" data-car="1" data-pet="N" data-cats="lawn sea">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">添馬公園 <small>Tamar Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
     
     <p class="pk-intro">中環海旁標誌性大草坪，正對維港海景，設施完善，是市區中環野餐首選。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵金鐘站 A／E2 出口步行約 5 至 10 分鐘</p>
@@ -150,7 +152,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">中山紀念公園 <small>Sun Yat Sen Memorial Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">西營盤海濱圓形大草坪，四周設有蓋迴廊，樹蔭眾多，遮陰效果良好。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵西營盤站 A2 出口步行約 5 分鐘</p>
@@ -162,7 +164,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">數碼港海濱公園 <small>Cyberport Waterfront Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">港島南區臨海大草坪，視野開揚，充滿度假感。</p>
     <p class="pk-tr"><b>🚇 交通：</b>乘搭巴士 30X 或 970 前往數碼港</p>
@@ -174,7 +176,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">維多利亞公園 <small>Victoria Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">銅鑼灣市中心大草坪，交通最方便。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵天后站 B 出口／銅鑼灣站 E 出口步行</p>
@@ -186,7 +188,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">山頂花園 <small>Victoria Peak Garden</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-cat">🏛️ 特色園林</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">前港督別墅花園，保留古典涼亭及石階，彷如置身英式莊園。</p>
     <p class="pk-tr"><b>🚇 交通：</b>乘搭山頂纜車或巴士到山頂，再步行約 15 分鐘</p>
@@ -194,23 +196,11 @@
     
     <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ 山頂廣場停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc21p1.json">查看實時車位</button><span class="pk-vres"></span></li><li><span class="nm">🅿️ 山頂公園露天停車場</span></li></ul></div>
   </div>
-</article><article class="pk-card" id="pk-hkpark" data-r="hk" data-car="1" data-pet="N" data-cats="">
-  <div class="pk-ph"><span>📷 相片待補</span></div>
-  <div class="pk-body">
-    <h3 class="pk-h3">香港公園 <small>Hong Kong Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span></div>
-    
-    <p class="pk-intro">金鐘鬧市中的綠洲，樹蔭眾多，以石櫈、涼亭輕食為主。</p>
-    <p class="pk-tr"><b>🚇 交通：</b>港鐵金鐘站 C1 出口經太古廣場到達</p>
-    <p class="pk-pet"><b>🐶 寵物：</b>並非寵物共享公園。</p>
-    
-    <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ 太古廣場停車場</span></li><li><span class="nm">🅿️ 花園道停車場</span></li></ul></div>
-  </div>
 </article><article class="pk-card" id="pk-mtdavis" data-r="hk" data-car="1" data-pet="N" data-cats="lawn hidden sea">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">摩星嶺配水庫臨時花園 <small>Mount Davis Service Reservoir Temporary Garden</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-cat">🌊 海景</span></div>
     
     <p class="pk-intro">半山隱世綠洲，人流較少，可遠眺南區海景。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵堅尼地城站轉乘專線小巴 54 號</p>
@@ -220,13 +210,13 @@
   </div>
 </article></div>
 </section><section class="pk-region" data-region="kln">
-  <h2 class="ao-h2" id="r-kln">二、九龍野餐（13 個地點）</h2>
-  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】九龍野餐可以去哪裡？以下 13 個地點已按可泊車、寵物友善及地點類別標示。</p>
+  <h2 class="ao-h2" id="r-kln">二、九龍野餐（11 個地點）</h2>
+  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】九龍野餐可以去哪裡？以下 11 個地點已按可泊車、寵物友善及地點類別標示。</p>
   <div class="pk-grid"><article class="pk-card" id="pk-wkcd" data-r="kln" data-car="1" data-pet="Y" data-cats="lawn sea">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">西九文化區 <small>West Kowloon Cultural District</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">維港海旁大草坪，海景與草地兼備，附近有多個大型停車場，適合駕車野餐。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵九龍站或柯士甸站 E 出口步行</p>
@@ -234,23 +224,11 @@
     
     <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ 藝術公園停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc17p2.json">查看實時車位</button><span class="pk-vres"></span></li><li><span class="nm">🅿️ M+ 停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc52p1.json">查看實時車位</button><span class="pk-vres"></span></li><li><span class="nm">🅿️ 香港故宮文化博物館停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc117p1.json">查看實時車位</button><span class="pk-vres"></span></li><li><span class="nm">🅿️ 圓方停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc8p10.json">查看實時車位</button><span class="pk-vres"></span></li></ul></div>
   </div>
-</article><article class="pk-card" id="pk-ktap" data-r="kln" data-car="1" data-pet="Y" data-cats="lawn">
-  <div class="pk-ph"><span>📷 相片待補</span></div>
-  <div class="pk-body">
-    <h3 class="pk-h3">啟德大道公園 <small>Kai Tak Avenue Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span></div>
-    
-    <p class="pk-intro">啟德新發展區大型公園，鄰近 AIRSIDE。</p>
-    <p class="pk-tr"><b>🚇 交通：</b>港鐵啟德站出口即達</p>
-    <p class="pk-pet"><b>🐶 寵物：</b>園內設有露天廣場草坪，可與狗狗一同野餐。</p>
-    
-    <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ AIRSIDE 停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc121p1.json">查看實時車位</button><span class="pk-vres"></span></li></ul></div>
-  </div>
 </article><article class="pk-card" id="pk-ktsky" data-r="kln" data-car="1" data-pet="Y" data-cats="sea">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">啟德空中花園 <small>Kai Tak Sky Garden</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">全港首個建於波浪形隔音屏障及行車道上的大型空中花園，可眺望維港及九龍東的開揚天際線。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵黃大仙站 C2 出口步行約 5 至 8 分鐘</p>
@@ -262,7 +240,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">承豐道公園 <small>Shing Fung Road Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">可眺望舊啟德機場跑道、九龍灣內海及鯉魚門一帶景色。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵啟德站轉乘城巴 22D 號</p>
@@ -274,7 +252,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">啟德車站廣場 <small>Kai Tak Station Square</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">都市中的綠洲，並設有兒童遊樂場供小朋友玩樂。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵啟德站 A 或 D 出口步行</p>
@@ -286,7 +264,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">啟德郵輪碼頭公園 <small>Kai Tak Cruise Terminal Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">全港最大空中花園之一，天台設中央草坪及有蓋位置，是雨天或烈日下的後備之選。</p>
     <p class="pk-tr"><b>🚇 交通：</b>乘搭專線小巴 86 號到郵輪碼頭</p>
@@ -298,7 +276,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">佐敦谷公園 <small>Jordan Valley Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">九龍東中央低窪大草坪，環境舒適。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵彩虹站轉乘巴士 27 號、29M 號或專線小巴</p>
@@ -310,7 +288,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">觀塘海濱花園 <small>Kwun Tong Promenade</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet2">🐾 寵物指定範圍</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet2">🐾 寵物指定範圍</span></div>
     
     <p class="pk-intro">東九龍沿海草地長廊，可遠眺維港及鯉魚門。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵牛頭角站 B6 出口步行約 10 分鐘</p>
@@ -322,7 +300,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">茶果嶺海濱公園 <small>Cha Kwo Ling Promenade</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet2">🐾 寵物指定範圍</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet2">🐾 寵物指定範圍</span></div>
     
     <p class="pk-intro">以「好玩自然」為設計概念，一家大小都可盡興。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵觀塘站或藍田站步行</p>
@@ -330,23 +308,11 @@
     <button type="button" class="pk-mapbtn" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KT/2985_3p.jpg" data-t="茶果嶺海濱公園｜寵物共享公園範圍">🗺️ 查看寵物共享範圍地圖</button>
     <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ 麗港城停車場</span></li></ul></div>
   </div>
-</article><article class="pk-card" id="pk-klnpark" data-r="kln" data-car="1" data-pet="N" data-cats="">
-  <div class="pk-ph"><span>📷 相片待補</span></div>
-  <div class="pk-body">
-    <h3 class="pk-h3">九龍公園 <small>Kowloon Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span></div>
-    
-    <p class="pk-intro">雖然欠缺草地，但可在樹蔭下、長椅、涼亭或水池旁的石桌椅輕食野餐。</p>
-    <p class="pk-tr"><b>🚇 交通：</b>港鐵尖沙咀站 A1 出口步行</p>
-    <p class="pk-pet"><b>🐶 寵物：</b>並非寵物共享公園。</p>
-    
-    <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ 九龍公園停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc51p1.json">查看實時車位</button><span class="pk-vres"></span></li></ul></div>
-  </div>
 </article><article class="pk-card" id="pk-namcheong" data-r="kln" data-car="1" data-pet="N" data-cats="lawn">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">南昌公園 <small>Nam Cheong Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">深水埗大型草坪，鄰近港鐵站。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵南昌站 A 出口步行</p>
@@ -358,7 +324,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">樂富配水庫休憩花園 <small>Lok Fu Service Reservoir Rest Garden</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span></div>
     
     <p class="pk-intro">配水庫上蓋的隱世大草地，人流較少，可近距離仰望獅子山。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵樂富站 A 出口步行</p>
@@ -370,7 +336,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">長沙灣海濱花園 <small>Cheung Sha Wan Promenade</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">鬧市中的小草地，可忙裡偷閒欣賞海景。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵南昌站 B 出口步行</p>
@@ -380,13 +346,13 @@
   </div>
 </article></div>
 </section><section class="pk-region" data-region="nt">
-  <h2 class="ao-h2" id="r-nt">三、新界野餐（18 個地點）</h2>
-  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】新界野餐地點可以去哪裡？以下 18 個地點已按可泊車、寵物友善及地點類別標示。</p>
+  <h2 class="ao-h2" id="r-nt">三、新界野餐（17 個地點）</h2>
+  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】新界野餐地點可以去哪裡？以下 17 個地點已按可泊車、寵物友善及地點類別標示。</p>
   <div class="pk-grid"><article class="pk-card" id="pk-inspire" data-r="nt" data-car="1" data-pet="N" data-cats="lawn euro">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">迪欣湖活動中心 <small>Inspiration Lake Recreation Centre</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
     
     <p class="pk-intro">全港最大人工湖之一，湖畔草地配歐陸風建築，還可踩水上單車。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵欣澳站轉乘巴士 R8</p>
@@ -398,7 +364,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">愉景灣中央公園 <small>Discovery Bay Central Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">環境清幽，不論一家人玩樂或一個人放空都適合。</p>
     <p class="pk-tr"><b>🚇 交通：</b>中環 3 號碼頭乘船，或於欣澳轉乘巴士</p>
@@ -410,7 +376,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">彭福公園 <small>Penfold Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">擁有大草地之餘，還設寵物專區讓狗狗自由奔跑，是沙田野餐熱點。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵火炭站 C 出口步行約 10 分鐘</p>
@@ -422,7 +388,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">大埔海濱公園 <small>Tai Po Waterfront Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
     
     <p class="pk-intro">坐擁海景及大草坪，還可以放風箏。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵站轉乘巴士 71K，或港鐵接駁巴士 K17／K18</p>
@@ -434,7 +400,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">馬鞍山昂坪高原 <small>Ngong Ping Plateau, Ma On Shan</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">郊野高原大草地，可遠眺西貢海，屬行山加野餐路線。</p>
     <p class="pk-tr"><b>🚇 交通：</b>由馬鞍山村步行上山</p>
@@ -442,23 +408,11 @@
     
     <div class="pk-car pk-car--none"><p class="lbl">鄰近停車場</p><p>⚠️ 沒有直達停車場，須由馬鞍山村或大水坑步行上山</p></div>
   </div>
-</article><article class="pk-card" id="pk-saisha" data-r="nt" data-car="1" data-pet="Y" data-cats="">
-  <div class="pk-ph"><span>📷 相片待補</span></div>
-  <div class="pk-body">
-    <h3 class="pk-h3">馬鞍山西沙路花園 <small>Sai Sha Road Garden</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
-    
-    <p class="pk-intro">寵物共享公園，場地較細，適合帶狗散步及輕食。</p>
-    <p class="pk-tr"><b>🚇 交通：</b>港鐵馬鞍山站 A 或 B 出口步行</p>
-    <p class="pk-pet"><b>🐶 寵物：</b>草地範圍不大，較適合與狗狗活動。</p>
-    
-    <div class="pk-car"><p class="lbl">鄰近停車場</p><ul><li><span class="nm">🅿️ 迎海停車場</span></li><li><span class="nm">🅿️ 馬鞍山游泳池停車場</span><button type="button" class="pk-vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc63p2.json">查看實時車位</button><span class="pk-vres"></span></li></ul></div>
-  </div>
 </article><article class="pk-card" id="pk-mospark" data-r="nt" data-car="1" data-pet="N" data-cats="lawn">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">馬鞍山公園 <small>Ma On Shan Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">馬鞍山市中心公園，鄰近海濱長廊。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵馬鞍山站 A1 出口步行</p>
@@ -470,7 +424,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">香港單車館公園 <small>Velodrome Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet2">🐾 寵物指定範圍</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-pet2">🐾 寵物指定範圍</span></div>
     
     <p class="pk-intro">將軍澳中央草坪，環境開揚，並設有兒童遊樂場。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵坑口站 A1 或 B1 出口，或將軍澳站 A1 出口步行</p>
@@ -482,7 +436,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">圓墩村草地 <small>Yuen Tun Lawn</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">荃灣郊野草地，環境清幽。</p>
     <p class="pk-tr"><b>🚇 交通：</b>荃灣乘搭專線小巴 96 或 96M 號</p>
@@ -494,7 +448,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">青衣公園 <small>Tsing Yi Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
     
     <p class="pk-intro">歐陸風人工湖，秋冬可欣賞落羽松轉紅。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵青衣站 B 或 C 出口步行</p>
@@ -506,7 +460,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">青衣海濱公園 <small>Tsing Yi Promenade</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">青衣沿海長廊，休閒小憩之選。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵青衣站 A2 出口步行</p>
@@ -518,7 +472,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">屯門浩和街 <small>Ho Wo Street, Tuen Mun</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">有「港版邁阿密」之稱，擁海堤及棕櫚樹，視野開揚，還可觀看飛機升降。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵屯門站乘搭巴士 K52 或 K52A</p>
@@ -530,7 +484,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">屯門公園 <small>Tuen Mun Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">屯門市中心的大型公園。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵屯門站 B 出口步行</p>
@@ -542,7 +496,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">南生圍 <small>Nam Sang Wai</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">元朗濕地秘境，可欣賞蘆葦及魚塘景色，日落尤其美麗。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵元朗站轉乘專線小巴 611 號，再轉乘橫水渡</p>
@@ -554,7 +508,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">天水圍公園 <small>Tin Shui Wai Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span></div>
     
     <p class="pk-intro">天水圍社區大型公園，可進行輕食野餐或小休。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵天水圍站 E1 出口步行</p>
@@ -566,7 +520,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">元朗公園 <small>Yuen Long Park</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🏛️ 特色園林</span></div>
     
     <p class="pk-intro">元朗市區公園，野餐之餘還可到訪百鳥塔。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵朗屏站轉乘港鐵接駁巴士 K68</p>
@@ -578,7 +532,7 @@
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
     <h3 class="pk-h3">塔門 <small>Tap Mun</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-cat">🌊 海景</span></div>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-cat">🌊 海景</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">高原草地坐擁 360 度無遮擋海景，記得做足防曬。</p>
     <p class="pk-tr"><b>🚇 交通：</b>西貢市中心乘搭九巴 94 號到黃石碼頭，再轉乘街渡</p>
@@ -589,8 +543,8 @@
 </article><article class="pk-card" id="pk-taitamtun" data-r="nt" data-car="1" data-pet="Y" data-cats="lawn hidden">
   <div class="pk-ph"><span>📷 相片待補</span></div>
   <div class="pk-body">
-    <h3 class="pk-h3">清水灣大坑墩草地 <small>Tai Hang Tun, Clear Water Bay</small></h3>
-    <div class="pk-tags"><span class="pk-tag t-car">🚗 可泊車</span><span class="pk-tag t-pet">🐶 寵物友善</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span></div>
+    <h3 class="pk-h3">清水灣大坑墩草地 / 清水灣郊野公園 <small>Tai Hang Tun, Clear Water Bay</small></h3>
+    <div class="pk-tags"><span class="pk-tag t-ok">🧺 適合野餐</span><span class="pk-tag t-cat">🌳 大草地</span><span class="pk-tag t-cat">🌿 秘境</span><span class="pk-tag t-pet">🐶 寵物友善</span></div>
     
     <p class="pk-intro">郊野公園山坡草地，海景開揚，適合放風箏。</p>
     <p class="pk-tr"><b>🚇 交通：</b>港鐵鑽石山站乘搭九巴 91 號，再步行前往</p>
@@ -619,10 +573,12 @@
 
 <!-- ===== 產品（最後才介紹）===== -->
 <h2 class="ao-h2" id="chill">🍱 Kitchen AO 野餐盒，惹味小食推介</h2>
-<p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒及小食拼盤主打乾爽一口食、免餐具，送到公園附近可停車位置交收，野餐食物哪裡買一次解決。</p>
+<p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒、小食拼盤及二人套餐主打乾爽一口食、免餐具，送到公園附近可停車位置交收，野餐食物哪裡買一次解決。</p>
 <div class="pk-prod">
   <a class="pk-pcard" href="https://aoaodelivery.com/product/chill%e4%b8%80picnic-big-for-4-6-persons/?ao_ref=picnic_blog1"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x400.jpeg" alt="Chill一下野餐盒（大）4–6 人" loading="lazy"><div><p class="pn">Chill一下野餐盒（大）</p><p class="pp">4–6 人份　<b>$628</b></p><p class="pd">9 款小食：迷你芝士手打牛肉漢堡、千島汁蜜桃大蝦沙律杯、九層塔香酥雞等</p></div></a>
   <a class="pk-pcard" href="https://aoaodelivery.com/product/5-people-self-selected-platter/?ao_ref=picnic_blog1"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600-1.png" alt="5 人自選拼盤" loading="lazy"><div><p class="pn">5 人自選拼盤</p><p class="pp">5 人份　<b>$498</b></p><p class="pd">自選小食組合，適合多人野餐</p></div></a>
+  <a class="pk-pcard" href="https://aoaodelivery.com/product/small-but-special-package-for-two/?ao_ref=picnic_blog1"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/202308-2pax-thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600.jpg" alt="二人小確幸套餐" loading="lazy"><div><p class="pn">二人小確幸套餐</p><p class="pp">2 人份　<b>$438</b></p><p class="pd">二人享樂拼盤、清新沙律、意大利麵及惹味主食，適合二人野餐</p></div></a>
+  <a class="pk-pcard" href="https://aoaodelivery.com/product/luxury-ceremony-up-package-for-two/?ao_ref=picnic_blog1"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/202308-2pax-thumbnail-02-600x600.jpg" alt="二人豪華儀式感UP!套餐" loading="lazy"><div><p class="pn">二人豪華儀式感UP!套餐</p><p class="pp">2 人份　<b>$588</b></p><p class="pd">升級版二人套餐，拼盤、沙律、意大利麵及主食選擇更豐富</p></div></a>
 </div>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="https://aoaodelivery.com/product-category/party/chill-box/?ao_ref=picnic_blog1">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="https://api.whatsapp.com/send?phone=85269011987&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%20Chill%E4%B8%80%E4%B8%8B%E9%87%8E%E9%A4%90%E7%9B%92" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 <p class="pk-note">※ 交收安排：送到公園附近可停車位置於車邊交收；消費滿 $1,450 免運費。</p>

@@ -88,6 +88,7 @@ mark{background:none;color:inherit}
 .back{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:#9A7B2E;text-decoration:none}
 .empty{display:none;padding:14px;text-align:center;background:#FFF4F2;border-radius:12px;font-size:13px}
 .off{display:none!important}
+.t-ok{background:#1A1A1A;color:#F7CE46}
 .mapbtn{margin:2px 0 8px;border:1.5px solid #3F9D5A;background:#F4FBF3;color:#2C6E49;border-radius:20px;padding:5px 12px;font-size:12.5px;font-weight:800}
 .mdl{position:fixed;inset:0;z-index:999;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
 .mbox{position:relative;background:#fff;border-radius:14px;padding:14px;max-width:420px;width:100%;max-height:90vh;overflow:auto}.mbox img{width:100%;height:auto;border-radius:8px;display:block}

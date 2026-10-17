@@ -63,7 +63,7 @@
 .ao-faq summary{cursor:pointer;font-weight:700;color:#1A1A1A;padding:12px 0;}
 .ao-faq .a{padding:0 0 14px;}
 /* products */
-.pk-prod{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0;}
+.pk-prod{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0;}
 .ao-article a.pk-pcard{display:flex;flex-direction:column;border:2px solid #C8A24A;border-radius:16px;overflow:hidden;background:#fff;text-decoration:none;color:#3f3a33;}
 .pk-pcard img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .pk-pcard div{padding:12px 14px;}
@@ -96,3 +96,5 @@
 .pk-mt{margin:0 40px 10px 0!important;font-weight:800;color:#1A1A1A}
 .pk-msrc{margin:8px 0 0!important;font-size:13px;color:#7A7268;text-align:right}
 .ao-article button.pk-mx{position:absolute;right:12px;top:10px;border:0;background:#F1EBDF;width:34px;height:34px;border-radius:17px;font-size:15px;cursor:pointer}
+
+.t-ok{background:#1A1A1A;color:#F7CE46;}

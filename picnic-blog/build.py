@@ -11,6 +11,10 @@ UTM = 'ao_ref=picnic_blog1'
 CHILL = 'https://aoaodelivery.com/product-category/party/chill-box/?' + UTM
 BIG = 'https://aoaodelivery.com/product/chill%e4%b8%80picnic-big-for-4-6-persons/?' + UTM
 PLATTER = 'https://aoaodelivery.com/product/5-people-self-selected-platter/?' + UTM
+C2A = 'https://aoaodelivery.com/product/small-but-special-package-for-two/?' + UTM
+C2B = 'https://aoaodelivery.com/product/luxury-ceremony-up-package-for-two/?' + UTM
+IMG_C2A = 'https://aoaodelivery.com/wp-content/uploads/2023/10/202308-2pax-thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600.jpg'
+IMG_C2B = 'https://aoaodelivery.com/wp-content/uploads/2023/10/202308-2pax-thumbnail-02-600x600.jpg'
 WA = 'https://api.whatsapp.com/send?phone=85269011987&text=' + quote('你好，我想查詢 Chill一下野餐盒')
 IMG_CHILL = 'https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x400.jpeg'
 IMG_PLATTER = 'https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600-1.png'
@@ -18,11 +22,11 @@ VAC = 'https://resource.data.one.gov.hk/td/carpark/'
 N = len(P)
 
 def tags(p):
-    t = []
-    if p['car']: t.append('<span class="pk-tag t-car">🚗 可泊車</span>')
+    # 2026-10-17：第一個 tag 為「適合野餐」；只顯示 Y 的類別；寵物只在 Y／指定範圍時顯示
+    t = ['<span class="pk-tag t-ok">🧺 適合野餐</span>']
+    for c in p['cats']: t.append(f'<span class="pk-tag t-cat">{CATS[c][0]} {CATS[c][1]}</span>')
     if p['pet'] == 'Y': t.append('<span class="pk-tag t-pet">🐶 寵物友善</span>')
     elif p['pet'] == 'P': t.append('<span class="pk-tag t-pet2">🐾 寵物指定範圍</span>')
-    for c in p['cats']: t.append(f'<span class="pk-tag t-cat">{CATS[c][0]} {CATS[c][1]}</span>')
     return ''.join(t)
 
 def petmap_btn(p):
@@ -137,10 +141,12 @@ BODY = f'''<div class="ao-article ao-picnic">
 
 <!-- ===== 產品（最後才介紹）===== -->
 <h2 class="ao-h2" id="chill">🍱 Kitchen AO <mark class="kw">野餐盒</mark>，惹味小食推介</h2>
-<p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒及小食拼盤主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
+<p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒、小食拼盤及二人套餐主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
 <div class="pk-prod">
   <a class="pk-pcard" href="{BIG}"><img src="{IMG_CHILL}" alt="Chill一下野餐盒（大）4–6 人" loading="lazy"><div><p class="pn">Chill一下野餐盒（大）</p><p class="pp">4–6 人份　<b>$628</b></p><p class="pd">9 款小食：迷你芝士手打牛肉漢堡、千島汁蜜桃大蝦沙律杯、九層塔香酥雞等</p></div></a>
   <a class="pk-pcard" href="{PLATTER}"><img src="{IMG_PLATTER}" alt="5 人自選拼盤" loading="lazy"><div><p class="pn">5 人自選拼盤</p><p class="pp">5 人份　<b>$498</b></p><p class="pd">自選小食組合，適合多人野餐</p></div></a>
+  <a class="pk-pcard" href="{C2A}"><img src="{IMG_C2A}" alt="二人小確幸套餐" loading="lazy"><div><p class="pn">二人小確幸套餐</p><p class="pp">2 人份　<b>$438</b></p><p class="pd">二人享樂拼盤、清新沙律、意大利麵及惹味主食，適合二人野餐</p></div></a>
+  <a class="pk-pcard" href="{C2B}"><img src="{IMG_C2B}" alt="二人豪華儀式感UP!套餐" loading="lazy"><div><p class="pn">二人豪華儀式感UP!套餐</p><p class="pp">2 人份　<b>$588</b></p><p class="pd">升級版二人套餐，拼盤、沙律、意大利麵及主食選擇更豐富</p></div></a>
 </div>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="{CHILL}">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 <p class="pk-note">※ 交收安排：送到公園附近可停車位置於車邊交收；消費滿 $1,450 免運費。</p>
