@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>地點介紹 B 款（列表＋詳情）Demo｜添馬公園</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
+.vt{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:6px;padding:10px;background:#E9E5DC}
+.vt button{border:0;border-radius:30px;padding:9px 22px;font-size:14px;font-weight:800;background:#fff;color:#7a6a45;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.vt button.on{background:#1A1A1A;color:#fff}
+.stage{container-type:inline-size;max-width:1080px;margin:0 auto;background:#fff;min-height:100vh;padding:0 0 30px;transition:max-width .25s;box-shadow:0 0 30px rgba(0,0,0,.1)}
+.stage.m{max-width:430px}
+.hd{padding:16px 24px;background:linear-gradient(135deg,#3F9D5A,#2C6E49);color:#fff}
+.hd p{margin:0;font-size:12px;opacity:.85}.hd h1{margin:4px 0 0;font-size:20px}
+.list{padding:20px 24px 0}
+
+/* ===== B 款：列表行 ===== */
+.row{border:1px solid #E7E0D2;border-radius:18px;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.05);overflow:hidden}
+.row+.row{margin-top:14px}
+.sum{display:grid;grid-template-columns:220px minmax(0,1fr) auto;gap:20px;align-items:stretch;padding:16px}
+.thumb{position:relative;border-radius:14px;overflow:hidden;background:#DDEBD9;aspect-ratio:4/3}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .rg{position:absolute;left:8px;top:8px;background:#E8743B;color:#fff;font-size:12px;font-weight:800;border-radius:20px;padding:3px 10px}
+.info{min-width:0;display:flex;flex-direction:column;gap:10px;padding:2px 0}
+.ttl{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
+.ttl h2{margin:0;font-size:22px;color:#1A1A1A;line-height:1.3}.ttl small{font-size:13px;color:#9A8f7e;font-weight:600}
+.tg{display:flex;flex-wrap:wrap;gap:8px}
+.t{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:20px;border:1.5px solid transparent}
+.t.on{background:#F4FBF3;color:#2C6E49;border-color:#CFE8CD}
+.t.pet.on{background:#FFF0E0;color:#C24E00;border-color:#F7D3AE}
+.t.off{background:#F6F4EF;color:#B9B1A2;border-color:#EEE9DF}
+.t.off .ic{filter:grayscale(1);opacity:.55}
+.in{margin:0;font-size:15px;line-height:1.8;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.quick{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;font-size:13.5px;color:#5a5348}
+.quick span{white-space:nowrap}
+.act{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:10px}
+.dbtn{border:0;border-radius:30px;padding:11px 20px;font-size:14px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.dbtn .ar{transition:transform .2s}.row.open .dbtn .ar{transform:rotate(180deg)}
+.mapl{font-size:13px;font-weight:700;color:#9A7B2E;text-decoration:none;white-space:nowrap}
+
+/* ===== 詳情（展開） ===== */
+.det{display:none;border-top:1px dashed #E4D9C2;padding:20px 16px 22px}
+.row.open .det{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.gal{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#DDEBD9}
+.gal .tr{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal .tr::-webkit-scrollbar{display:none}
+.gal figure{flex:0 0 100%;margin:0;scroll-snap-align:start;position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:10px;bottom:36px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:700;border-radius:8px;padding:3px 8px}
+.gal .src{position:absolute;right:8px;top:8px;background:rgba(255,255,255,.88);font-size:11px;border-radius:6px;padding:2px 7px;color:#555}
+.dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
+.dots i{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.6);box-shadow:0 1px 3px rgba(0,0,0,.25)}.dots i.on{background:#fff;width:16px}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:17px;border:0;background:rgba(255,255,255,.9);font-size:18px;font-weight:900;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.nav.p{left:8px}.nav.n{right:8px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 4px}
+.facts div{background:#FAF7F1;border-radius:12px;padding:11px 13px;font-size:13.5px;line-height:1.6}.facts b{display:block;font-size:12px;color:#7a6a45;margin-bottom:4px}
+.sec{padding:14px 0;border-top:1px dashed #E4D9C2}.sec:first-of-type{border-top:0}
+.sec h3{margin:0 0 10px;font-size:14.5px;color:#1A1A1A}
+.fac{display:flex;flex-wrap:wrap;gap:8px}.fac span{font-size:12.5px;background:#F4FBF3;border:1px solid #CFE8CD;color:#2C6E49;border-radius:16px;padding:4px 11px}
+.pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.75}
+.car{background:#F6F8FB;border:1px solid #E2E8F2;border-radius:12px;padding:11px 14px;font-size:13.5px}
+.car ul{margin:0;padding:0}.car li{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:2px 0}
+.vac{border:1px solid #1E5BD8;background:#fff;color:#1E5BD8;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;cursor:pointer}.vres{font-weight:800;color:#2C6E49;font-size:12.5px}
+.more summary{cursor:pointer;font-weight:800;font-size:14.5px;color:#1A1A1A;list-style:none}.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:" ▾";color:#3F9D5A}.more[open] summary::after{content:" ▴"}
+.more p{margin:10px 0 0;font-size:14px;line-height:1.85;color:#5a5348}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:0;border-radius:30px;padding:12px 14px;min-height:46px;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap}
+.b1{background:#1A1A1A;color:#fff}.b2{background:#F4FBF3;color:#2C6E49;border:1.5px solid #3F9D5A}.b3{flex:1 1 100%;background:#3F9D5A;color:#fff}
+
+/* ===== 手機（容器 ≤ 640px）===== */
+@container (max-width:640px){
+  .list{padding:14px 12px 0}
+  .sum{grid-template-columns:104px minmax(0,1fr);gap:12px;padding:12px}
+  .thumb{aspect-ratio:1/1;align-self:start}
+  .ttl h2{font-size:18px}.ttl small{font-size:12px;width:100%}
+  .tg{gap:6px}.t{font-size:12px;padding:3px 9px}
+  .in{font-size:14px;line-height:1.7}
+  .quick{font-size:12.5px;gap:4px 12px}
+  .act{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}
+  .dbtn{flex:1;justify-content:center}
+  .row.open .det{grid-template-columns:1fr;gap:16px;padding:16px 12px 18px}
+  .facts{gap:8px}.facts div{padding:10px 11px;font-size:13px}
+  .btns{display:grid;grid-template-columns:1fr 1fr}.b3{grid-column:1/-1}
+}
+.srcs{margin:24px 24px 0;padding-top:14px;border-top:1px solid #E7E0D2;font-size:13px;color:#7a6a45}
+.srcs h3{margin:0 0 8px;font-size:14px;color:#1A1A1A}.srcs ul{margin:0;padding-left:18px;line-height:1.9}.srcs a{color:#9A7B2E}
+.legend{margin:16px 24px 0;font-size:12.5px;color:#7a6a45;line-height:1.8;background:#FFF8EA;border-radius:10px;padding:10px 14px}
+@container (max-width:640px){.srcs,.legend{margin-left:12px;margin-right:12px}}
+.mdl{position:fixed;inset:0;z-index:99;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
+.mbox{position:relative;background:#fff;border-radius:14px;padding:14px;max-width:860px;width:100%;max-height:90vh;overflow:auto}.mbox img{width:100%;height:auto;border-radius:8px;display:block}
+.mt{margin:0 36px 8px 0;font-weight:800;font-size:14px}.ms{margin:6px 0 0;font-size:12px;color:#7A7268;text-align:right}.mx{position:absolute;right:10px;top:8px;border:0;background:#F1EBDF;width:30px;height:30px;border-radius:15px;cursor:pointer}
+</style></head><body>
+<div class="vt" role="tablist"><button data-v="m" role="tab">📱 手機版</button><button class="on" data-v="d" role="tab">💻 電腦版</button></div>
+<div class="stage" id="stage">
+<div class="hd"><p>Kitchen AO・地點介紹 B 款（列表＋詳情）Demo</p><h1>🧺 港島野餐</h1></div>
+
+<div class="list">
+<article class="row" id="b-tamar">
+  <div class="sum">
+    <div class="thumb"><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1l.jpg" alt="添馬公園草坪"><span class="rg">港島</span></div>
+    <div class="info">
+      <div class="ttl"><h2>添馬公園</h2><small>Tamar Park</small></div>
+      <div class="tg">
+        <span class="t on"><span class="ic">🌳</span>大草地</span>
+        <span class="t off"><span class="ic">🌿</span>秘境</span>
+        <span class="t on"><span class="ic">🌊</span>海景</span>
+        <span class="t off"><span class="ic">🏛️</span>特色園林</span>
+        <span class="t pet off"><span class="ic">🐶</span>寵物</span>
+      </div>
+      <p class="in">中環海旁標誌性大草坪，正對維港海景，設施完善，是市區中環野餐首選。</p>
+      <p class="quick"><span>🕒 24 小時開放</span><span>🚇 金鐘站 A 出口</span><span>🅿️ 1 個鄰近停車場</span></p>
+    </div>
+    <div class="act">
+      <button class="dbtn" type="button" aria-expanded="false">詳情 <span class="ar">▾</span></button>
+      <a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B7%BB%E9%A6%AC%E5%85%AC%E5%9C%92%20%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">📍 Google Map</a>
+    </div>
+  </div>
+
+  <div class="det">
+    <div>
+      <div class="gal">
+        <div class="tr">
+          <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/tp_banner.jpg" alt="添馬公園" loading="lazy"><figcaption>添馬公園</figcaption></figure>
+          <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1l.jpg" alt="綠地毯草坪" loading="lazy"><figcaption>綠地毯（草坪）</figcaption></figure>
+          <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/3l.jpg" alt="特色水景" loading="lazy"><figcaption>特色水景</figcaption></figure>
+          <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/4l.jpg" alt="觀景台" loading="lazy"><figcaption>觀景台</figcaption></figure>
+        </div>
+        <span class="src">圖片來源：康文署</span>
+        <button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button>
+        <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="facts" style="margin-top:14px">
+        <div><b>📍 地址</b>香港金鐘夏慤道</div>
+        <div><b>🕒 開放時間</b>每日 24 小時開放</div>
+        <div><b>🚇 港鐵</b>金鐘站 A 出口，步行約 5 至 10 分鐘</div>
+        <div><b>📐 面積</b>約 1.76 公頃，2011 年開放</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec"><h3>🌿 主要設施</h3><div class="fac"><span>綠地毯（草坪）</span><span>園景花園</span><span>露天劇場</span><span>觀景台</span><span>特色水景</span><span>添馬角</span><span>添馬茶座</span><span>洗手間及育嬰間</span><span>無障礙設施</span></div></div>
+      <div class="sec"><h3>🐶 寵物</h3><div class="pet">除寵物空間外，公園範圍包括大草坪均不能帶狗進入。寵物共享空間位於中西區海濱長廊（中環段）。</div></div>
+      <div class="sec"><h3>🅿️ 鄰近停車場</h3><div class="car"><ul><li>🅿️ 金鐘道政府合署停車場<button class="vac" type="button" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc95p1.json">查看實時車位</button><span class="vres"></span></li></ul></div></div>
+      <div class="sec"><details class="more"><summary>📖 官方簡介</summary><p>添馬公園位於香港金鐘夏慤道，屬添馬艦發展工程的一部分，佔地約 1.76 公頃，毗鄰新政府總部及立法會綜合大樓，並自 2011 年 10 月 10 日起開放供市民使用。公園設計簡約雅致，景觀開揚，維港美景盡入眼簾。園內多片綠油油的草坪，猶如「綠地毯」，供遊人散步或閒坐。其他設施有園景花園、特色水景、觀景台、添馬角、露天劇場及添馬茶座等。公園連接中西區海濱長廊（中環段），市民可經公園前往中環碼頭及天星碼頭。</p></details></div>
+      <div class="btns">
+        <button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/map_l.jpg" data-t="添馬公園｜公園平面圖">🗺️ 公園平面圖</button>
+        <button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2311_cw02a.jpg" data-t="添馬公園｜寵物共享公園範圍">🐾 寵物共享範圍</button>
+        <a class="btn b2" href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">🏛️ 康文署網頁</a>
+        <a class="btn b3" href="https://aoaodelivery.com/product-category/party/chill-box/?ao_ref=picnic_card_tamar">🧺 預訂野餐盒・送到附近可停車位置</a>
+      </div>
+    </div>
+  </div>
+</article>
+</div>
+
+<section class="srcs"><h3>資料來源</h3><ul>
+<li><a href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">康樂及文化事務署 — 添馬公園（簡介、設施、公園平面圖、如何前往、開放時間）</a></li>
+<li><a href="https://www.lcsd.gov.hk/tc/facilities/otherinfo/petpark.html" target="_blank" rel="noopener">康樂及文化事務署 — 「寵物共享公園」及寵物共享範圍地圖</a></li>
+<li><a href="https://data.gov.hk/tc-data/dataset/hk-td-tis_5-real-time-parking-vacancy-data" target="_blank" rel="noopener">運輸署 — 實時停車場空位資料（資料一線通）</a></li>
+<li><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google 地圖</a></li>
+<li>相片：康樂及文化事務署</li>
+<li>核對日期：2026-10-17</li>
+</ul></section>
+<div class="legend"><b>Demo 說明</b><br>B 款：一行一個地點，先顯示相片、5 個標籤（大草地、秘境、海景、特色園林、寵物；適用的以顏色顯示，不適用的以灰色顯示）、簡介及重點資料；按「詳情」才展開完整版。<br>電腦版詳情分左右兩欄（左：相片及基本資料；右：設施、寵物、停車場、官方簡介及按鈕）；手機版改為上下排列。</div>
+
+<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="ms">圖片來源︰康文署</p></div></div>
+</div>
+<script>
+(function(){
+var st=document.getElementById('stage');
+document.querySelectorAll('.vt button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.vt button').forEach(function(x){x.classList.toggle('on',x===b)});st.classList.toggle('m',b.dataset.v==='m');}});
+document.querySelectorAll('.row').forEach(function(r){
+  var d=r.querySelector('.dbtn');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);d.firstChild.textContent=o?'收起 ':'詳情 ';};
+  var tr=r.querySelector('.tr'),ds=r.querySelectorAll('.dots i');
+  if(tr){tr.addEventListener('scroll',function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);ds.forEach(function(x,k){x.classList.toggle('on',k===i)})});
+    r.querySelector('.nav.p').onclick=function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'})};
+    r.querySelector('.nav.n').onclick=function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'})};}
+});
+var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
+document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.hidden=false}});
+function cl(){md.hidden=true;mi.removeAttribute('src')}md.querySelector('.mx').onclick=cl;md.onclick=function(e){if(e.target===md)cl()};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
+document.querySelectorAll('.vac').forEach(function(b){b.onclick=function(){var o=b.nextElementSibling;o.textContent='讀取中…';
+fetch(b.dataset.src).then(function(r){return r.json()}).then(function(j){var v=null;try{j.car_park[0].vehicle_type.forEach(function(t){if(t.type==='P')v=t.service_category[0].vacancy})}catch(e){}o.textContent=(v==null||v<0)?'暫無數據':'空位：'+v})
+.catch(function(){o.innerHTML='<a href="'+b.dataset.src+'" target="_blank" rel="noopener">開啟數據</a>'})}});
+})();
+</script></body></html>

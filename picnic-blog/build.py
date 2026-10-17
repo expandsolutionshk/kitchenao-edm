@@ -77,7 +77,7 @@ FAQ = [
  ('可以帶狗去野餐嗎？', '可以，但須選擇寵物共享公園或准許寵物進入的草地，並以狗帶牽引。本文每個地點均有「🐶 寵物友善」標示，部分地點更附有康文署寵物共享範圍地圖。'),
  ('哪個野餐地點有停車場？', '可在上方搜尋器選擇「🚗 可泊車」，每個地點底部均列出鄰近停車場，部分更可即時查看實時車位。'),
  ('下雨天可以去哪裡野餐？', '可考慮設有上蓋的空中花園，例如啟德郵輪碼頭公園，或樹蔭較多的中山紀念公園及九龍公園。'),
- ('野餐食物哪裡買？', '如不想自行準備，可預訂 Kitchen AO「Chill一下野餐盒」，乾爽一口食，直送公園入口交收。'),
+ ('野餐食物哪裡買？', '如不想自行準備，可預訂 Kitchen AO「Chill一下野餐盒」，乾爽一口食，送到公園附近可停車位置交收。'),
 ]
 faq_html = ''.join(f'<details class="ao-faq"><summary><mark class="paa">{q}</mark></summary><div class="a">{a}</div></details>' for q, a in FAQ)
 faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}, ensure_ascii=False)
@@ -137,13 +137,13 @@ BODY = f'''<div class="ao-article ao-picnic">
 
 <!-- ===== 產品（最後才介紹）===== -->
 <h2 class="ao-h2" id="chill">🍱 Kitchen AO <mark class="kw">野餐盒</mark>，惹味小食推介</h2>
-<p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒及小食拼盤主打乾爽一口食、免餐具，送到公園入口交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
+<p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒及小食拼盤主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
 <div class="pk-prod">
   <a class="pk-pcard" href="{BIG}"><img src="{IMG_CHILL}" alt="Chill一下野餐盒（大）4–6 人" loading="lazy"><div><p class="pn">Chill一下野餐盒（大）</p><p class="pp">4–6 人份　<b>$628</b></p><p class="pd">9 款小食：迷你芝士手打牛肉漢堡、千島汁蜜桃大蝦沙律杯、九層塔香酥雞等</p></div></a>
   <a class="pk-pcard" href="{PLATTER}"><img src="{IMG_PLATTER}" alt="5 人自選拼盤" loading="lazy"><div><p class="pn">5 人自選拼盤</p><p class="pp">5 人份　<b>$498</b></p><p class="pd">自選小食組合，適合多人野餐</p></div></a>
 </div>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="{CHILL}">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
-<p class="pk-note">※ 公園入口交收安排（待確認）：消費滿 $1,450 免運費，交收地點有待確認。</p>
+<p class="pk-note">※ 交收安排：送到公園附近可停車位置於車邊交收；消費滿 $1,450 免運費。</p>
 
 <div class="ao-related"><p class="ao-related-t">📖 延伸閱讀</p>
 <a href="#">【駕車野餐好去處】香港野餐泊車地圖（Blog 2，待撰寫）→</a>

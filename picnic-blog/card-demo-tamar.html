@@ -42,8 +42,55 @@ h2{margin:4px 0 2px;font-size:21px;color:#1A1A1A}h2 small{display:block;font-siz
 .mdl{position:fixed;inset:0;z-index:99;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
 .mbox{position:relative;background:#fff;border-radius:14px;padding:14px;max-width:420px;width:100%;max-height:90vh;overflow:auto}.mbox img{width:100%;height:auto;border-radius:8px;display:block}
 .mt{margin:0 36px 8px 0;font-weight:800;font-size:14px}.ms{margin:6px 0 0;font-size:12px;color:#7A7268;text-align:right}.mx{position:absolute;right:10px;top:8px;border:0;background:#F1EBDF;width:30px;height:30px;border-radius:15px}
-</style></head><body><div class="phone">
-<div class="hd"><p>Kitchen AO・地點介紹卡 Demo（舊資料＋官方資料）</p><h1>🧺 添馬公園</h1></div>
+.vt{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:6px;padding:10px;background:#E9E5DC}
+.vt button{border:0;border-radius:30px;padding:9px 22px;font-size:14px;font-weight:800;background:#fff;color:#7a6a45;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.vt button.on{background:#1A1A1A;color:#fff}
+.phone{transition:max-width .25s}
+/* ===== 電腦版 ===== */
+body.desk .phone{max-width:1080px}
+body.desk .hd{padding:18px 28px}body.desk .hd h1{font-size:22px}
+body.desk .card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"g b" "d b";margin:22px 26px;border-radius:22px}
+body.desk .gal{grid-area:g;aspect-ratio:4/3;align-self:start}
+body.desk .bd{grid-area:b;padding:20px 26px 22px}
+body.desk h2{font-size:28px}
+body.desk .in{font-size:16px}
+body.desk .facts{grid-template-columns:1fr 1fr}
+body.desk .btns{grid-template-columns:1fr 1fr 1fr 1fr}body.desk .b3{grid-column:1/5}
+body.desk .legend{margin:0 26px}
+body.desk .mbox{max-width:860px}
+
+/* ===== UI/UX 改善 ===== */
+.gal .dots{position:absolute;left:0;right:0;bottom:12px;padding:0;z-index:2}
+.gal .dots i{background:rgba(255,255,255,.6);box-shadow:0 1px 3px rgba(0,0,0,.25)}.gal .dots i.on{background:#fff}
+.gal figcaption{bottom:30px}
+.bd{padding:16px 18px 20px}
+h2{margin:0 0 4px;font-size:22px;line-height:1.3}h2 small{margin-top:4px;font-size:13px}
+.tg{gap:8px;margin:12px 0 14px}.t{font-size:12.5px;padding:4px 11px}
+.in{margin:0 0 16px;font-size:15.5px;line-height:1.85;letter-spacing:.2px}
+.facts{gap:10px;margin:0 0 6px}.facts div{padding:11px 13px;font-size:13.5px;line-height:1.6}.facts b{margin-bottom:4px}
+.sec{padding:14px 0}.sec h3{margin:0 0 10px;font-size:14.5px}
+.fac{gap:8px}.fac span{padding:4px 11px}
+.pet{padding:12px 14px;line-height:1.75}.car{padding:11px 14px}
+.more p{margin:10px 0 0;line-height:1.85}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.btn{white-space:nowrap;padding:12px 14px;font-size:14px;min-height:46px}
+.srcs{margin:18px 12px 0;padding:14px 16px;border-top:1px solid #E7E0D2;font-size:13px;color:#7a6a45}
+.srcs h3{margin:0 0 8px;font-size:14px;color:#1A1A1A}.srcs ul{margin:0;padding-left:18px;line-height:1.9}.srcs a{color:#9A7B2E}
+/* 電腦版 */
+body.desk .card{grid-template-areas:"g b";grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+body.desk .gal{position:relative;aspect-ratio:4/3;border-radius:0}
+body.desk .bd{padding:28px 32px 30px}
+body.desk h2{font-size:30px}
+body.desk .in{font-size:16.5px}
+body.desk .facts div{font-size:14px}
+body.desk .btns{display:flex;flex-wrap:wrap;gap:10px}
+body.desk .btn{flex:1 1 auto}
+body.desk .b3{flex:1 1 100%}
+body.desk .srcs{margin:22px 26px 0}
+body.desk .gal .dots{padding:0;bottom:12px}
+.gal figcaption{bottom:36px}
+</style></head><body><div class="vt" role="tablist"><button class="on" data-v="m" role="tab">📱 手機版</button><button data-v="d" role="tab">💻 電腦版</button></div><div class="phone">
+<div class="hd"><p>Kitchen AO・地點介紹卡 Demo（舊資料＋官方資料）<span id="vlabel">｜手機版</span></p><h1>🧺 添馬公園</h1></div>
 
 <article class="card" id="b-tamar">
   <div class="gal">
@@ -54,12 +101,12 @@ h2{margin:4px 0 2px;font-size:21px;color:#1A1A1A}h2 small{display:block;font-siz
       <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/4l.jpg" alt="添馬公園觀景台" loading="lazy"><figcaption>觀景台</figcaption></figure>
     </div>
     <span class="rg">港島</span><span class="src">圖片來源：康文署</span>
+    <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
   </div>
-  <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
 
   <div class="bd">
     <h2>添馬公園<small>Tamar Park</small></h2>
-    <div class="tg"><span class="t t-car">🚗 可泊車</span><span class="t t-cat">🌳 大草地</span><span class="t t-cat">🌊 海景</span><span class="t t-24">🕒 24 小時開放</span><span class="t t-no">🐶 大草坪不准寵物進入</span></div>
+    <div class="tg"><span class="t t-car">🚗 可泊車</span><span class="t t-cat">🌳 大草地</span><span class="t t-cat">🌊 海景</span></div>
 
     <p class="in">中環海旁標誌性大草坪，正對維港海景，設施完善，是市區中環野餐首選。</p>
 
@@ -83,19 +130,27 @@ h2{margin:4px 0 2px;font-size:21px;color:#1A1A1A}h2 small{display:block;font-siz
       <button class="btn b2" data-img="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/map_l.jpg" data-t="添馬公園｜公園平面圖">🗺️ 公園平面圖</button>
       <button class="btn b2" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2311_cw02a.jpg" data-t="添馬公園｜寵物共享公園範圍">🐾 寵物共享範圍</button>
       <a class="btn b2" href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">🏛️ 康文署網頁</a>
-      <a class="btn b3" href="https://aoaodelivery.com/product-category/party/chill-box/?ao_ref=picnic_card_tamar">🧺 預訂野餐盒・送到公園入口</a>
+      <a class="btn b3" href="https://aoaodelivery.com/product-category/party/chill-box/?ao_ref=picnic_card_tamar">🧺 預訂野餐盒・送到附近可停車位置</a>
     </div>
 
-    <p class="srcl">資料來源：<a href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">康樂及文化事務署 — 添馬公園</a>（簡介、設施、平面圖、如何前往、開放時間）；寵物共享範圍地圖來源︰康文署；實時車位：運輸署資料一線通。核對日期：2026-10-17。</p>
   </div>
 </article>
 
+<section class="srcs"><h3>資料來源</h3><ul>
+<li><a href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">康樂及文化事務署 — 添馬公園（簡介、設施、公園平面圖、如何前往、開放時間）</a></li>
+<li><a href="https://www.lcsd.gov.hk/tc/facilities/otherinfo/petpark.html" target="_blank" rel="noopener">康樂及文化事務署 — 「寵物共享公園」及寵物共享範圍地圖</a></li>
+<li><a href="https://data.gov.hk/tc-data/dataset/hk-td-tis_5-real-time-parking-vacancy-data" target="_blank" rel="noopener">運輸署 — 實時停車場空位資料（資料一線通）</a></li>
+<li><a href="https://www.google.com/maps" target="_blank" rel="noopener">Google 地圖</a></li>
+<li>相片：康樂及文化事務署</li>
+<li>核對日期：2026-10-17</li>
+</ul></section>
 <div class="legend"><b>Demo 說明</b><br>舊資料：Kitchen AO 簡介、標籤、寵物說明、停車場及實時車位、寵物共享範圍地圖。<br>新加入官方資料：相片（4 張，可左右滑動）、地址、開放時間、面積、主要設施、官方簡介、公園平面圖、Google Map 及康文署網頁連結。</div>
 
 <div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="ms">圖片來源︰康文署</p></div></div>
 </div>
 <script>
 (function(){
+document.querySelectorAll('.vt button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.vt button').forEach(function(x){x.classList.toggle('on',x===b)});var d=b.dataset.v==='d';document.body.classList.toggle('desk',d);document.getElementById('vlabel').textContent=d?'｜電腦版':'｜手機版';document.getElementById('tr').scrollLeft=0;}});
 var tr=document.getElementById('tr'),ds=document.querySelectorAll('#dots i');
 tr.addEventListener('scroll',function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);ds.forEach(function(d,k){d.classList.toggle('on',k===i)})});
 var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
