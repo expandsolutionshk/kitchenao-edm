@@ -69,7 +69,7 @@ AIO = {
 regions = ''
 for i, (rid, rname, rkw) in enumerate(REGIONS):
     ps = [p for p in P if p['r'] == rid]
-    cards = ''.join(C.card(p, kw=True) for p in ps)
+    cards = ''.join(C.card(p) for p in ps)
     regions += f'''<section class="pk-region" data-region="{rid}">
   <h2 class="ao-h2" id="r-{rid}">{"一二三"[i]}、{rname}野餐（{len(ps)} 個地點）</h2>
   <p class="ao-aio">{AIO[rid]}</p>

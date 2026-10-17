@@ -159,7 +159,7 @@ O={
  map='https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/t/tap-mun/map-guide/tc-tap-mun.pdf',
  img=['https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/t/tap-mun/tap-mun-01.jpg','https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/t/tap-mun/tap-mun-02.jpg'],
  src='https://www.discoverhongkong.com/tc/place-to-go/travel.guide-tap-mun.html',note='島上有野牛，應提醒讀者保持距離；平面圖為 PDF。'),
-'清水灣大坑墩草地':dict(mg='漁農自然護理署（漁護署）',url='https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cou/cou_vis_cou_cwb/cou_vis_cou_cwb.html',addr='清水灣郊野公園大坑墩（清水灣道盡頭）',open='郊野公園；遊客中心 09:30–16:30（逢星期二休息）',
+'清水灣大坑墩草地':dict(mg='漁農自然護理署（漁護署）',url='https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cou/cou_vis_cou_cwb/cou_vis_cou_cwb.html',addr='清水灣郊野公園大坑墩（清水灣道盡頭）',open='郊野公園，全日 24 小時開放（請留意入黑後會關閉街燈）；遊客中心 09:30–16:30（逢星期二休息）',
  intro='遊人可在清水灣道末端的大坑墩起步，這裏可以較舒適地漫步，連學步的幼童也可跟隨大人同行，是全家郊遊、燒烤、野餐的理想地點。這裏經常吹強勁清風，不少市民專程來放風箏。大坑墩位於釣魚翁山與大嶺峒之間的山坳，臨海、視野廣闊。（資料來源︰漁護署）',
  fac='大坑墩燒烤區、清水灣郊野公園遊客中心、無障礙洗手間、清水灣樹木研習徑',mtr='九巴 91 號至大坳門，沿清水灣道步行約 1 公里；專線小巴 16、103、103M',
  map='https://www.afcd.gov.hk/tc_chi/country/cou_lea/cou_lea_ven/images/v_cwb_map.gif',img=['https://www.afcd.gov.hk/tc_chi/country/cou_lea/cou_lea_ven/images/cwbvc_n01.jpg'],

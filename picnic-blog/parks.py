@@ -108,7 +108,7 @@ P = [
    tr='港鐵馬鞍山站 A1 出口步行', petnote='並非寵物共享公園。'),
  D(id='velo', r='nt', name='香港單車館公園', en='Velodrome Park', cats=['lawn'], pet='P', kw='單車館公園野餐',
    car=[('香港單車館停車場','vacancy_tdc374p1.json')], petmap=LCSD+'SK/2904_Map.jpg',
-   intro='將軍澳中央草坪，環境開揚，並設有兒童遊樂場，<mark class="kw">單車館公園野餐</mark>適合一家大小。',
+   intro='<mark class="kw">單車館公園</mark>設中央草坪，環境開揚，並設有兒童遊樂場，適合一家大小野餐。',
    tr='港鐵坑口站 A1 或 B1 出口，或將軍澳站 A1 出口步行', petnote='狗隻須在指定範圍內活動。'),
  D(id='yuentun', r='nt', name='圓墩村草地', en='Yuen Tun Lawn', cats=['lawn','hidden'], pet='Y', kw='荃灣野餐',
    car=[('大欖郊野公園停車場',None)],
