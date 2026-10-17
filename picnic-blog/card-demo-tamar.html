@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>地點介紹卡 Demo｜添馬公園</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
+.phone{max-width:430px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 30px rgba(0,0,0,.12);padding-bottom:30px}
+.hd{padding:14px 16px;background:linear-gradient(135deg,#3F9D5A,#2C6E49);color:#fff}
+.hd p{margin:0;font-size:12px;opacity:.85}.hd h1{margin:4px 0 0;font-size:18px}
+.card{margin:14px 12px;border:1px solid #E7E0D2;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+/* 相片 */
+.gal{position:relative;aspect-ratio:16/10;background:#DDEBD9;overflow:hidden}
+.gal .tr{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal .tr::-webkit-scrollbar{display:none}
+.gal figure{flex:0 0 100%;margin:0;scroll-snap-align:start;position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:700;border-radius:8px;padding:3px 8px}
+.gal .src{position:absolute;right:8px;top:8px;background:rgba(255,255,255,.85);font-size:11px;border-radius:6px;padding:2px 7px;color:#555}
+.gal .rg{position:absolute;left:10px;top:10px;background:#E8743B;color:#fff;font-size:12px;font-weight:800;border-radius:20px;padding:3px 10px}
+.dots{display:flex;justify-content:center;gap:6px;padding:8px 0 0}.dots i{width:7px;height:7px;border-radius:4px;background:#D6CFC0}.dots i.on{background:#3F9D5A;width:16px}
+.bd{padding:10px 16px 16px}
+h2{margin:4px 0 2px;font-size:21px;color:#1A1A1A}h2 small{display:block;font-size:12.5px;color:#9A8f7e;font-weight:600;margin-top:2px}
+.tg{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.t{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
+.t-car{background:#E6F0FF;color:#1E5BD8}.t-no{background:#F3F1EC;color:#8a8170}.t-cat{background:#F4FBF3;color:#2C6E49}.t-24{background:#FFF4E0;color:#B06A00}
+.in{margin:0 0 12px;font-size:15px;line-height:1.75}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
+.facts div{background:#FAF7F1;border-radius:12px;padding:9px 11px;font-size:13px;line-height:1.5}.facts b{display:block;font-size:12px;color:#7a6a45;margin-bottom:2px}
+.sec{border-top:1px dashed #E4D9C2;padding:11px 0}.sec h3{margin:0 0 6px;font-size:14px;color:#1A1A1A}
+.sec p{margin:0;font-size:14px;line-height:1.7}
+.fac{display:flex;flex-wrap:wrap;gap:6px}.fac span{font-size:12.5px;background:#F4FBF3;border:1px solid #CFE8CD;color:#2C6E49;border-radius:16px;padding:3px 10px}
+.pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.65}
+.car{background:#F6F8FB;border:1px solid #E2E8F2;border-radius:12px;padding:10px 12px;font-size:13.5px}
+.car li{list-style:none;margin:2px 0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}.car ul{margin:0;padding:0}
+.vac{border:1px solid #1E5BD8;background:#fff;color:#1E5BD8;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:700}.vres{font-weight:800;color:#2C6E49;font-size:12.5px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:0;border-radius:30px;padding:11px 8px;font-size:13.5px;font-weight:800;cursor:pointer}
+.b1{background:#1A1A1A;color:#fff}.b2{background:#F4FBF3;color:#2C6E49;border:1.5px solid #3F9D5A}.b3{grid-column:1/3;background:#3F9D5A;color:#fff}
+.more summary{cursor:pointer;font-weight:800;font-size:14px;color:#1A1A1A;list-style:none}.more summary::after{content:" ▾";color:#3F9D5A}.more[open] summary::after{content:" ▴"}
+.more p{margin:8px 0 0;font-size:13.5px;line-height:1.75;color:#5a5348}
+.srcl{margin:12px 0 0;font-size:12px;color:#9A8f7e;line-height:1.6}.srcl a{color:#9A7B2E}
+.legend{margin:6px 14px 0;font-size:12px;color:#7a6a45;line-height:1.7;background:#FFF8EA;border-radius:10px;padding:8px 12px}
+.mdl{position:fixed;inset:0;z-index:99;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
+.mbox{position:relative;background:#fff;border-radius:14px;padding:14px;max-width:420px;width:100%;max-height:90vh;overflow:auto}.mbox img{width:100%;height:auto;border-radius:8px;display:block}
+.mt{margin:0 36px 8px 0;font-weight:800;font-size:14px}.ms{margin:6px 0 0;font-size:12px;color:#7A7268;text-align:right}.mx{position:absolute;right:10px;top:8px;border:0;background:#F1EBDF;width:30px;height:30px;border-radius:15px}
+</style></head><body><div class="phone">
+<div class="hd"><p>Kitchen AO・地點介紹卡 Demo（舊資料＋官方資料）</p><h1>🧺 添馬公園</h1></div>
+
+<article class="card" id="b-tamar">
+  <div class="gal">
+    <div class="tr" id="tr">
+      <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/tp_banner.jpg" alt="添馬公園"><figcaption>添馬公園</figcaption></figure>
+      <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1l.jpg" alt="添馬公園綠地毯草坪" loading="lazy"><figcaption>綠地毯（草坪）</figcaption></figure>
+      <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/3l.jpg" alt="添馬公園特色水景" loading="lazy"><figcaption>特色水景</figcaption></figure>
+      <figure><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/4l.jpg" alt="添馬公園觀景台" loading="lazy"><figcaption>觀景台</figcaption></figure>
+    </div>
+    <span class="rg">港島</span><span class="src">圖片來源：康文署</span>
+  </div>
+  <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
+
+  <div class="bd">
+    <h2>添馬公園<small>Tamar Park</small></h2>
+    <div class="tg"><span class="t t-car">🚗 可泊車</span><span class="t t-cat">🌳 大草地</span><span class="t t-cat">🌊 海景</span><span class="t t-24">🕒 24 小時開放</span><span class="t t-no">🐶 大草坪不准寵物進入</span></div>
+
+    <p class="in">中環海旁標誌性大草坪，正對維港海景，設施完善，是市區中環野餐首選。</p>
+
+    <div class="facts">
+      <div><b>📍 地址</b>香港金鐘夏慤道</div>
+      <div><b>🕒 開放時間</b>每日 24 小時開放</div>
+      <div><b>🚇 港鐵</b>金鐘站 A 出口，步行約 5 至 10 分鐘</div>
+      <div><b>📐 面積</b>約 1.76 公頃，2011 年開放</div>
+    </div>
+
+    <div class="sec"><h3>🌿 主要設施</h3><div class="fac"><span>綠地毯（草坪）</span><span>園景花園</span><span>露天劇場</span><span>觀景台</span><span>特色水景</span><span>添馬角</span><span>添馬茶座</span><span>洗手間及育嬰間</span><span>無障礙設施</span></div></div>
+
+    <div class="sec"><h3>🐶 寵物</h3><div class="pet">除寵物空間外，公園範圍包括大草坪均不能帶狗進入。寵物共享空間位於中西區海濱長廊（中環段）。</div></div>
+
+    <div class="sec"><h3>🅿️ 鄰近停車場</h3><div class="car"><ul><li>🅿️ 金鐘道政府合署停車場<button class="vac" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc95p1.json">查看實時車位</button><span class="vres"></span></li></ul></div></div>
+
+    <div class="sec"><details class="more"><summary>📖 官方簡介</summary><p>添馬公園位於香港金鐘夏慤道，屬添馬艦發展工程的一部分，佔地約 1.76 公頃，毗鄰新政府總部及立法會綜合大樓，並自 2011 年 10 月 10 日起開放供市民使用。公園設計簡約雅致，景觀開揚，維港美景盡入眼簾。園內多片綠油油的草坪，猶如「綠地毯」，供遊人散步或閒坐。其他設施有園景花園、特色水景、觀景台、添馬角、露天劇場及添馬茶座等。公園連接中西區海濱長廊（中環段），市民可經公園前往中環碼頭及天星碼頭。</p></details></div>
+
+    <div class="btns">
+      <a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B7%BB%E9%A6%AC%E5%85%AC%E5%9C%92%20%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">📍 Google Map</a>
+      <button class="btn b2" data-img="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/map_l.jpg" data-t="添馬公園｜公園平面圖">🗺️ 公園平面圖</button>
+      <button class="btn b2" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2311_cw02a.jpg" data-t="添馬公園｜寵物共享公園範圍">🐾 寵物共享範圍</button>
+      <a class="btn b2" href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">🏛️ 康文署網頁</a>
+      <a class="btn b3" href="https://aoaodelivery.com/product-category/party/chill-box/?ao_ref=picnic_card_tamar">🧺 預訂野餐盒・送到公園入口</a>
+    </div>
+
+    <p class="srcl">資料來源：<a href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">康樂及文化事務署 — 添馬公園</a>（簡介、設施、平面圖、如何前往、開放時間）；寵物共享範圍地圖來源︰康文署；實時車位：運輸署資料一線通。核對日期：2026-10-17。</p>
+  </div>
+</article>
+
+<div class="legend"><b>Demo 說明</b><br>舊資料：Kitchen AO 簡介、標籤、寵物說明、停車場及實時車位、寵物共享範圍地圖。<br>新加入官方資料：相片（4 張，可左右滑動）、地址、開放時間、面積、主要設施、官方簡介、公園平面圖、Google Map 及康文署網頁連結。</div>
+
+<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="ms">圖片來源︰康文署</p></div></div>
+</div>
+<script>
+(function(){
+var tr=document.getElementById('tr'),ds=document.querySelectorAll('#dots i');
+tr.addEventListener('scroll',function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);ds.forEach(function(d,k){d.classList.toggle('on',k===i)})});
+var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
+document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.hidden=false}});
+function cl(){md.hidden=true;mi.removeAttribute('src')}md.querySelector('.mx').onclick=cl;md.onclick=function(e){if(e.target===md)cl()};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
+document.querySelectorAll('.vac').forEach(function(b){b.onclick=function(){var o=b.nextElementSibling;o.textContent='讀取中…';
+fetch(b.dataset.src).then(function(r){return r.json()}).then(function(j){var v=null;try{j.car_park[0].vehicle_type.forEach(function(t){if(t.type==='P')v=t.service_category[0].vacancy})}catch(e){}o.textContent=(v==null||v<0)?'暫無數據':'空位：'+v})
+.catch(function(){o.innerHTML='<a href="'+b.dataset.src+'" target="_blank" rel="noopener">開啟數據</a>'})}});
+})();
+</script></body></html>
