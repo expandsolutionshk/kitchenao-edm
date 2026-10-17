@@ -37,9 +37,12 @@ FEAT = '<p class="feat">可泊車、寵物友善野餐地點　一鍵搜尋</p>'
 import base64
 import io
 from PIL import Image as _Im
-_b = io.BytesIO(); _Im.open(os.path.join(HERE, '..', 'halloween-edm-2026', 'img', 'logo-header-pill.png')).crop((42, 23, 506, 97)).save(_b, 'PNG')  # 只保留 ▲● KITCHEN AO 字樣
-_LG = 'data:image/png;base64,' + base64.b64encode(_b.getvalue()).decode()
-LOGOH = f'<span class="logo2"><img src="{_LG}" alt="Kitchen AO"></span>'
+_src = _Im.open(os.path.join(HERE, '..', 'halloween-edm-2026', 'img', 'logo-header-pill.png'))
+def _crop(box):
+    b = io.BytesIO(); _src.crop(box).save(b, 'PNG'); return 'data:image/png;base64,' + base64.b64encode(b.getvalue()).decode()
+_LG_ICON = _crop((42, 23, 188, 97))     # ▲●
+_LG_TEXT = _crop((218, 40, 506, 88))    # KITCHEN AO
+LOGOH = f'<span class="logo2" aria-label="Kitchen AO"><img class="li" src="{_LG_ICON}" alt=""><img class="lt" src="{_LG_TEXT}" alt="Kitchen AO"></span>'
 def rg(r, name):
     return f'<span class="rgp" style="--c:{RC[r]}"><i class="mpin" style="--c:{RC[r]}"><b>📍</b></i>{name} {cnt[r]} 個</span>'
 
@@ -253,7 +256,7 @@ CSS = '''
 .boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
 .boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
 
-.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;box-sizing:border-box;display:inline-flex;align-items:center;height:3.6cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:0 1.8cqw 0 3cqw}.logo2 img{display:block;height:1.95cqw;width:auto}
+.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;box-sizing:border-box;display:inline-flex;align-items:center;height:3.6cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:0 1.7cqw 0 2.9cqw}.logo2 img{display:block;width:auto}.logo2 .li{height:1.9cqw}.logo2 .lt{height:1.7cqw;margin-left:.85cqw}
 .logo2 .tri{width:0;height:0;border-left:1.05cqw solid transparent;border-right:1.05cqw solid transparent;border-bottom:1.8cqw solid #1A1A1A}
 .logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#F39A2B;margin-left:-.35cqw}
 .logo2 b{margin-left:.6cqw;font-family:"Avenir Next Condensed","DIN Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:2.2cqw;letter-spacing:.05cqw;color:#1A1A1A;line-height:1}
@@ -279,11 +282,22 @@ CSS = '''
 .k6 .tblock{position:absolute;left:47%;top:3.5cqw;color:#fff}
 .k6 .ui{left:47%;top:27cqw;width:32cqw}
 /* G：標題及篩選框在左，拍立得在右上 */
-.k7 .tblock{position:absolute;left:4cqw;top:3.5cqw;color:#fff}
+.k7 .tblock{position:absolute;left:4cqw;top:2.6cqw;color:#fff}
 .k7 .ui{left:4cqw;top:27cqw;width:34cqw}
 .k7 .pola{left:54.5%;top:10cqw;width:46%;height:30cqw}
 .k7 .pola figure{width:14.5cqw}.k7 .pola figcaption{font-size:1.2cqw;white-space:nowrap}
 .k7 .p1{left:0;top:2.5cqw;transform:rotate(-5deg)}.k7 .p2{left:14.8cqw;top:0;transform:rotate(2deg);z-index:1}.k7 .p3{left:29.4cqw;top:3cqw;transform:rotate(6deg)}
+
+/* G：除標題外放大 20%，地圖放大 30% */
+.k7 .logo2{transform:scale(1.2);transform-origin:top right}
+.k7 .pill{font-size:2.28cqw;padding:.6cqw 2cqw;margin-bottom:1cqw}
+.k7 .sub{font-size:2.76cqw}.k7 .sub2{font-size:2.28cqw;padding:.72cqw 1.92cqw}
+.k7 .ui{top:28.6cqw;width:37cqw;transform:scale(1.2);transform-origin:top left}.k7 .flt{padding:1.1cqw 1.4cqw}.k7 .chips{margin-bottom:.7cqw}.k7 .lab{margin-bottom:.35cqw}.k7 .act{padding-top:.8cqw}
+.k7 .pola{left:51.5%;top:9cqw}
+.k7 .pola figure{width:16.2cqw;padding:.96cqw .96cqw 0}.k7 .pola figcaption{font-size:1.44cqw;padding:.72cqw 0 .96cqw}
+.k7 .pola .mpin.big{width:4.3cqw;height:4.3cqw;margin-left:-2.15cqw;top:-2.6cqw}.k7 .pola .mpin.big b{font-size:2cqw}
+.k7 .p1{left:0}.k7 .p2{left:15.3cqw}.k7 .p3{left:30.6cqw}
+.k7 .minimap{transform:rotate(2deg) scale(1.3);transform-origin:bottom right}
 '''
 html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（7 款）</title><style>{CSS}</style></head><body><div class="wrap">
 <h1>🧺 Blog 1 KV 方案（7 款，1600 × 900）</h1>
