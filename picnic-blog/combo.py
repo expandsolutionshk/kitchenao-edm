@@ -42,7 +42,7 @@ for p in P:
 # ---------- 一覽比較表 ----------
 ck = lambda v: '<b class="y">✓</b>' if v else '<span class="n">·</span>'
 CK = list(CATS)
-thead = '<tr><th class="st">地點</th><th title="可泊車">🚗</th><th title="寵物">🐶</th>' + ''.join(f'<th title="{CATS[k][1]}">{CATS[k][0]}<small>{CATS[k][1]}</small></th>' for k in CK) + '</tr>'
+thead = '<tr><th class="st">地點</th><th title="可泊車">🚗<small>可泊車</small></th><th title="寵物">🐶<small>寵物</small></th>' + ''.join(f'<th title="{CATS[k][1]}">{CATS[k][0]}<small>{CATS[k][1]}</small></th>' for k in CK) + '</tr>'
 trs = ''.join(f'<tr {attrs(p)}><td class="st"><a href="#b-{p["id"]}">{p["name"]}</a><small>{RN[p["r"]]}</small></td><td>{ck(p["car"])}</td><td>{"<b class=y>✓</b>" if p["pet"]=="Y" else ("<b class=p>指定</b>" if p["pet"]=="P" else "<span class=n>·</span>")}</td>' + ''.join(f'<td>{ck(k in p["cats"])}</td>' for k in CK) + '</tr>' for p in P)
 
 # ---------- B 款地點卡 ----------
@@ -129,12 +129,7 @@ srcs = [('康樂及文化事務署 — 公園及動植物公園','https://www.lc
         ('康樂及文化事務署 — 「寵物共享公園」及寵物共享範圍地圖','https://www.lcsd.gov.hk/tc/facilities/otherinfo/petpark.html'),
         ('運輸署 — 實時停車場空位資料（資料一線通）','https://data.gov.hk/tc-data/dataset/hk-td-tis_5-real-time-parking-vacancy-data'),
         ('漁農自然護理署 — 郊野公園','https://www.afcd.gov.hk/tc_chi/country/cou_lea/the_facts.html')]
-seen = {u for _, u in srcs}
-for p in P:
-    u = off(p).get('src')
-    if u and u not in seen:
-        seen.add(u); srcs.append((p['name'], u))
-srcs_h = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener">{esc(n)}</a></li>' for n, u in srcs) + '<li>地圖：OpenStreetMap；相片：各官方網頁</li><li>核對日期：2026-10-17</li>'
+srcs_h = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener">{esc(n)}</a></li>' for n, u in srcs) + '<li>各地點的官方資料，請參閱地點卡內「🏛️ 官方網頁」按鈕</li><li>地圖：地政總署地圖 API（香港地理空間數據共享平台）；相片：各官方網頁</li><li>核對日期：2026-10-17</li>'
 
 chips_r = '<button class="ch on" data-f="r" data-v="all">全部</button>' + ''.join(f'<button class="ch" data-f="r" data-v="{k}"><i style="background:{RC[k]}"></i>{v}</button>' for k,v in RN.items())
 chips_c = ''.join(f'<button class="ch" data-f="cat" data-v="{k}">{v[0]} {v[1]}</button>' for k,v in CATS.items())
@@ -149,6 +144,7 @@ CSS = '''
 .flt{margin:12px;padding:12px;border:2px solid #3F9D5A;border-radius:16px;background:#fff}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 8px}.lab{flex:0 0 100%;font-size:12px;font-weight:800;color:#2C6E49}
 .ch{flex:0 0 auto;border:1.5px solid #CFE8CD;background:#F4FBF3;color:#2C6E49;border-radius:20px;padding:5px 11px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:5px;cursor:pointer}
 .ch i{width:9px;height:9px;border-radius:5px;display:inline-block}.ch.on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}
+.go{display:block;width:100%;margin:6px 0 10px;border:0;border-radius:30px;padding:12px;font-size:15px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer}.go.pd{background:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
 .cnt{display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;padding-top:2px}.cnt button{border:0;background:none;color:#9A7B2E;font-weight:700;text-decoration:underline;padding:0;cursor:pointer}
 .sec{padding:14px 12px 4px}.sec h2{margin:0 0 8px;font-size:16px;color:#1A1A1A}.sec h2 small{font-weight:600;color:#9A8f7e;font-size:12px;margin-left:4px}
 #lmap{height:340px;border-radius:14px;display:none}#lmap.on{display:block}.lpin{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:14px;background:#fff;border:2.5px solid var(--c);box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:14px}.leaflet-tooltip{font-weight:800;font-size:12px}
@@ -245,7 +241,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 '''
 JS = '''
 var LM=null,LMK={};
-(function(){if(!window.L)return;var m=document.getElementById('lmap');m.classList.add('on');document.getElementById('svgmap').style.display='none';LM=L.map(m,{scrollWheelZoom:false}).setView([22.36,114.13],10);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(LM);PTS.forEach(function(p){var mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:'<div class="lpin" style="--c:'+p.c+'">'+p.ic+'</div>',iconSize:[28,28],iconAnchor:[14,14]})}).addTo(LM).bindTooltip(p.n);mk.on('click',function(){go('#b-'+p.id)});LMK[p.id]=mk;});})();
+(function(){if(!window.L)return;var m=document.getElementById('lmap');m.classList.add('on');document.getElementById('svgmap').style.display='none';LM=L.map(m,{scrollWheelZoom:false}).setView([22.36,114.13],10);var GB='https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/';L.tileLayer(GB+'basemap/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9,attribution:'<a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank" rel="noopener">© 地政總署地圖</a>'}).addTo(LM);L.tileLayer(GB+'label/hk/tc/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9}).addTo(LM);PTS.forEach(function(p){var mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:'<div class="lpin" style="--c:'+p.c+'">'+p.ic+'</div>',iconSize:[28,28],iconAnchor:[14,14]})}).addTo(LM).bindTooltip(p.n);mk.on('click',function(){go('#b-'+p.id)});LMK[p.id]=mk;});})();
 function go(h){var t=document.querySelector(h);if(!t)return;t.scrollIntoView({behavior:'smooth',block:'start'});t.classList.add('hit');setTimeout(function(){t.classList.remove('hit')},1800);}
 (function(){
 var ph=document.getElementById('phone');
@@ -260,8 +256,10 @@ var pins=document.querySelectorAll('.pin:not(.off)');pins.forEach(function(p){p.
 document.querySelectorAll('.ch').forEach(function(b){b.onclick=function(){var f=b.dataset.f,v=b.dataset.v;
 if(f==='r'){st.r=v;document.querySelectorAll('.ch[data-f=r]').forEach(function(x){x.classList.toggle('on',x===b)})}
 else if(f==='car'){st.car=!st.car;b.classList.toggle('on')}else if(f==='pet'){st.pet=!st.pet;b.classList.toggle('on')}
-else{var i=st.cats.indexOf(v);if(i>-1)st.cats.splice(i,1);else st.cats.push(v);b.classList.toggle('on')}apply();}});
-document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();};
+else{var i=st.cats.indexOf(v);if(i>-1)st.cats.splice(i,1);else st.cats.push(v);b.classList.toggle('on')}pend(true);}});
+function pend(x){var g=document.getElementById('go');g.classList.toggle('pd',x);if(x)document.getElementById('cnt').textContent='已更改條件，請按「確定搜尋」';}
+document.getElementById('go').onclick=function(){apply();pend(false);var t=document.getElementById('hk-map');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
+document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();pend(false);};
 document.querySelectorAll('a[href^="#b-"]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(a.getAttribute('href'));}});
 document.querySelectorAll('.prow').forEach(function(r){
   var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};
@@ -286,8 +284,8 @@ html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="hd"><p>Kitchen AO・Blog 1 搜尋器 Demo</p><h1>🧺 全港野餐地點搜尋器（{N} 個地點）</h1></div>
 <div class="flt">
 <div class="frow"><span class="lab">① 地區</span>{chips_r}</div>
-<div class="frow"><span class="lab">② 條件</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button></div>
-<div class="frow"><span class="lab">③ 類別</span>{chips_c}</div>
+<div class="frow"><span class="lab">② 條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
+<button class="go" id="go" type="button">🔍 確定搜尋</button>
 <div class="cnt"><span id="cnt"></span><button id="rst">重設</button></div></div>
 <div class="sec" id="hk-map"><h2>📍 地圖<small>點擊地圖標記查看地點介紹</small></h2><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
 <div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span></div></div>
