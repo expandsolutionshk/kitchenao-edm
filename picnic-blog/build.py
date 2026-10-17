@@ -117,7 +117,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 
 <div class="ao-introcard">
 <p class="ao-q">🧺 想找<mark class="kw">香港野餐好去處</mark>？</p>
-<p class="ao-intro">香港地方雖小，但也有不少<mark class="kw">野餐好去處</mark>：無敵海景、大片真草地、<mark class="kw">隱世野餐地點</mark>及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 {N} 個<mark class="kw">香港野餐地點</mark>，按新界、九龍及港島分類，並可按「可泊車」「寵物友善」及地點類別篩選；每個地點均列出鄰近停車場，方便<mark class="kw">駕車野餐</mark>。</p>
+<p class="ao-intro">香港地方雖小，但也有不少<mark class="kw">野餐好去處</mark>：無敵海景、大片真草地、<mark class="kw">隱世野餐地點</mark>及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 {N} 個<mark class="kw">香港野餐地點</mark>，按新界、九龍及港島分類，並可按「可泊車」、「寵物友善」及公園特色等類別篩選；每個地點均列出鄰近停車場，想尋找理想位置<mark class="kw">駕車野餐</mark>，一按即可找到。</p>
 </div>
 
 <nav class="ao-toc"><div class="t">目錄</div><ul>
