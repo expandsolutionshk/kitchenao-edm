@@ -103,3 +103,10 @@
 @media(max-width:640px){.pk-kv-f{gap:6px}.pk-kv-f span{font-size:12.5px;padding:4px 10px}}
 .pk-kv>div{position:relative;z-index:1}
 @media(max-width:640px){.pk-kv:after{font-size:70px;opacity:.35;right:12px;bottom:8px}}
+.ao-h3{margin:22px 0 8px;font-size:18px;color:#1A1A1A}
+.pk-ship{margin:16px 0 0;padding:14px 18px;border-radius:0 12px 12px 0;background:#F4FBF3;border-left:4px solid #3F9D5A;font-size:14.5px;line-height:1.8}.pk-ship p{margin:0!important}
+.ao-fb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:28px 0 18px;padding:14px 16px;border-radius:14px;background:#FAF7F1;font-size:14.5px}
+.ao-fb button{border:1.5px solid #E4D9C2;background:#fff;border-radius:30px;padding:7px 14px;font-size:14px;font-weight:700;cursor:pointer;color:#3f3a33}
+.ao-fb .ao-fb-copy{margin-right:auto}.ao-fb .on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}.ao-fb button:disabled{cursor:default}
+.ao-fb-q{font-weight:700}.ao-fb-msg{color:#2C6E49;font-weight:700}
+@media(max-width:640px){.ao-fb .ao-fb-copy{margin-right:0;flex:1 1 100%}}

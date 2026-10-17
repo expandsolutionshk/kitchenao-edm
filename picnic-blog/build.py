@@ -81,12 +81,17 @@ FAQ = [
  ('香港的公園可以野餐嗎？', '大部分康文署公園的草地均可野餐，但部分草坪會輪流開放或進行保養，出發前建議先查閱康文署網頁。'),
  ('可以帶狗去野餐嗎？', '可以，但須選擇寵物共享公園或准許寵物進入的草地，並以狗帶牽引。本文每個地點均有「🐶 寵物友善」標示，部分地點更附有康文署寵物共享範圍地圖。'),
  ('哪個野餐地點有停車場？', '可在上方搜尋器選擇「🚗 可泊車」，每個地點底部均列出鄰近停車場，部分更可即時查看實時車位。'),
- ('下雨天可以去哪裡野餐？', '可考慮設有上蓋的空中花園，例如啟德郵輪碼頭公園，或樹蔭較多的中山紀念公園及九龍公園。'),
+ ('下雨天可以去哪裡野餐？', '雨天不宜在草地野餐，可考慮設有上蓋或樹蔭較多的地點，例如中山紀念公園；出發前亦應留意天文台天氣預報及草地開放安排。'),
  ('野餐食物哪裡買？', '如不想自行準備，可預訂 Kitchen AO「Chill一下野餐盒」，乾爽一口食，送到公園附近可停車位置交收。'),
+ ('公園野餐可以燒烤嗎？', '大部分康文署公園均不准燒烤或使用明火，只可在指定燒烤場地進行；出發前請先查閱場地守則。'),
+ ('野餐盒可以送到公園嗎？', '可以。Kitchen AO 會將野餐盒送到公園附近可停車位置，於車邊交收。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價。'),
+ ('野餐食物如何保鮮？', '海鮮、沙律及甜品等須以保冷袋連冰種存放，並於 2 小時內食用；炸物及一口小食則宜選乾爽、不漏汁的款式，方便攜帶。'),
+ ('公眾假期去野餐要注意甚麼？', '熱門草地於假日人流較多，建議提早到達佔位，並盡量乘搭公共交通工具；如需駕車，可先在本文查看鄰近停車場及實時車位。'),
 ]
 faq_html = ''.join(f'<details class="ao-faq"><summary><mark class="paa">{q}</mark></summary><div class="a">{a}</div></details>' for q, a in FAQ)
 faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}, ensure_ascii=False)
 
+FBJS = "<script>(function(){var f=document.getElementById('aoFb');if(!f)return;var m=f.querySelector('.ao-fb-msg');\nf.querySelector('.ao-fb-copy').onclick=function(){var u=location.href.split('#')[0];(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){m.textContent='已複製連結'}).catch(function(){m.textContent=u})};\nf.querySelectorAll('.ao-fb-b').forEach(function(b){b.onclick=function(){f.querySelectorAll('.ao-fb-b').forEach(function(x){x.disabled=true;x.classList.toggle('on',x===b)});m.textContent='多謝你的意見！';(window.dataLayer=window.dataLayer||[]).push({event:'article_feedback',feedback:b.dataset.v,article:'picnic-blog1'})}})})();</script>"
 BODY = f'''<div class="ao-article ao-picnic">
 <style>
 {CSS}
@@ -100,8 +105,6 @@ BODY = f'''<div class="ao-article ao-picnic">
 <p class="ao-intro">香港地方雖小，但也有不少<mark class="kw">野餐好去處</mark>：無敵海景、大片真草地、<mark class="kw">隱世野餐地點</mark>及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 {N} 個<mark class="kw">香港野餐地點</mark>，按新界、九龍及港島分類，並可按「可泊車」「寵物友善」及地點類別篩選；每個地點均列出鄰近停車場，方便<mark class="kw">駕車野餐</mark>。</p>
 </div>
 
-<div class="ao-tagsec"><span class="lbl">此文章相關 Tag</span><div class="ao-tags"><span>野餐好去處</span><span>香港野餐</span><span>狗狗野餐</span><span>野餐泊車</span><span>野餐盒</span></div></div>
-
 <nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#pk-tool">全港野餐地點搜尋器</a></li>
 {''.join(f'<li><a href="#r-{rid}">{"一二三"[i]}、{rn}野餐</a></li>' for i, (rid, rn, _) in enumerate(REGIONS))}
@@ -109,6 +112,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 <li><a href="#food">野餐食物及物資清單</a></li>
 <li><a href="#faq">野餐常見問題</a></li>
 <li><a href="#chill">Kitchen AO 野餐盒推介</a></li>
+<li><a href="#tips">編輯總結｜野餐注意事項</a></li>
 </ul></nav>
 
 <h2 class="ao-h2" id="pk-tool">🔍 全港野餐地點搜尋器</h2>
@@ -140,14 +144,31 @@ BODY = f'''<div class="ao-article ao-picnic">
 <!-- ===== 產品（最後才介紹）===== -->
 <h2 class="ao-h2" id="chill">🧺 Kitchen AO <mark class="kw">野餐盒</mark>｜送到附近可停車位置</h2>
 <p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒、小食拼盤及二人套餐主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
-<p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。消費滿 $1,450 免運費，於地面可停車位置車邊交收。</p>
+<p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p>
 <div class="pgrid">{C.pcards_for("?"+UTM)}</div>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="{CHILL}">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
-<p class="pk-note">※ 交收安排：送到公園附近可停車位置於車邊交收；消費滿 $1,450 免運費。</p>
+<div class="pk-ship"><p><b>訂購野餐盒 免運費須知：</b>單一訂單滿 HK$1,450 即享全港免運費（離島及邊境禁區等不派送地區除外）；單一訂單滿 HK$700，九龍指定區域免運費，港島及新界區運費半價。標準派送時段為上午 11:00 至晚上 8:30，時段外派送需另收附加費。食物會送到公園附近可停車位置於車邊交收；惡劣天氣改期、派送失敗等安排，請於下單前參閱<a href="https://aoaodelivery.com/delivery/" target="_blank" rel="noopener">「重要送貨須知」</a>。</p></div>
+
+<h2 class="ao-h2" id="tips">📝 編輯總結｜野餐注意事項：天氣、草地開放、場地守則及垃圾處理</h2>
+<p>揀好地點、準備好食物後，出發前不妨再檢視以下幾項<mark class="kw">野餐注意事項</mark>，讓整個野餐玩得開心亦玩得安心。</p>
+<h3 class="ao-h3">出發前留意天氣及草地開放安排</h3>
+<p>出發前一天應留意香港天文台的天氣預報；康文署部分草坪會輪流開放或進行保養，出發前宜先查閱場地網頁，以免白行一趟。</p>
+<h3 class="ao-h3">防曬、防蚊及補充水分</h3>
+<p>草地大多缺乏遮蔭，宜帶備防曬用品、帽子及足夠食水；黃昏時分蚊蟲較多，記得預備驅蚊用品。</p>
+<h3 class="ao-h3">遵守場地守則</h3>
+<p>大部分公園不准燒烤或使用明火，寵物亦只可進入指定範圍；放風箏、踏單車等活動，亦應先了解各場地規定。</p>
+<h3 class="ao-h3">垃圾處理：全部帶走</h3>
+<p>預備足夠垃圾袋，將廚餘、膠樽及包裝全部帶走，保持草地清潔，讓下一位野餐人士同樣可以享受。</p>
+<p>一次成功的野餐，往往取決於出發前的準備。只要按本文搜尋器揀選合適地點，再配合合適的食物及交收安排，便能輕鬆享受一個悠閒的下午。如希望省卻準備功夫，歡迎選擇 Kitchen AO 的<a href="{CHILL}">Chill一下野餐盒</a>。</p>
+
+<div class="ao-fb" id="aoFb"><button type="button" class="ao-fb-copy">🔗 複製文章連結</button><span class="ao-fb-q">呢篇文章有冇幫到你？</span><button type="button" class="ao-fb-b" data-v="yes">👍 有用</button><button type="button" class="ao-fb-b" data-v="no">👎 一般</button><span class="ao-fb-msg" aria-live="polite"></span></div>
+
+<div class="ao-tagsec"><span class="lbl">此文章相關 Tag</span><div class="ao-tags"><span>野餐好去處</span><span>香港野餐</span><span>狗狗野餐</span><span>野餐泊車</span><span>野餐盒</span></div></div>
 
 <div class="ao-related"><p class="ao-related-t">📖 延伸閱讀</p>
-<a href="#">【駕車野餐好去處】香港野餐泊車地圖（Blog 2，待撰寫）→</a>
+<a href="https://aoaodelivery.com/blog/boat-party-catering-guide/">船P必備清單 2026｜遊船河準備、食物飲品份量懶人包 →</a>
 <a href="https://aoaodelivery.com/blog/kids-birthday-party-catering/">【香港家長必讀】小朋友生日會到會挑選指南 →</a>
+<a href="https://aoaodelivery.com/blog/company-event-catering-guide/">香港公司活動到會攻略 2026｜Budget、餐單、服務全指南 →</a>
 </div>
 
 {C.SRCS}
@@ -155,6 +176,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 </div>
 <script type="application/ld+json">{faq_ld}</script>
 {C.LEAF_CSS}{C.SCRIPTS}
+{FBJS}
 '''
 
 prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>【2026香港野餐好去處】港九新界海景、大草地及隱世公園野餐地點推介</title></head><body style="margin:0;padding:24px 14px;background:#fff">

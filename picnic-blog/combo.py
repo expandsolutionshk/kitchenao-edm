@@ -323,7 +323,7 @@ def MAP(hx='h2'):
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><p class="thint">點擊地點名稱，即可查看該地點介紹。</p><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
-POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。消費滿 $1,450 免運費，於地面可停車位置車邊交收。</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
+POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
 <div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
 LEAF_CSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">'
