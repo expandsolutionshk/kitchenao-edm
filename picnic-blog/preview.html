@@ -121,6 +121,22 @@
 .pk-sn b{font-size:15px;color:#1A1A1A}.pk-sn .sn-b span{font-size:13px;color:#7a6a45}.pk-sn i{font-style:normal;display:block;margin-top:6px;text-align:center;background:#3F9D5A;color:#fff;font-size:13.5px;font-weight:800;border-radius:30px;padding:8px 10px}.ao-article a.pk-sn:hover i{background:#2C6E49}
 .pk-snall{text-align:center;margin:4px 0 0!important}.ao-article .pk-snall a{color:#9A7B2E;font-weight:800;text-decoration:none}
 @media(max-width:640px){.pk-sngrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pk-sn b{font-size:14px}.pk-sn .sn-b{padding:8px 10px 10px}}
+.ao-article.ao-picnic>.pgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:640px){.ao-article.ao-picnic>.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+/* ===== 2026-10-17 字體統一：內文 = 引言字體（電腦 16.5px／手機 15.5px），標題分級 H2 > H3 > H4 > 內文 ===== */
+.ao-article.ao-picnic .ao-aio,.ao-article.ao-picnic .tseo,.ao-article.ao-picnic .kin,.ao-article.ao-picnic .pet,
+.ao-article.ao-picnic .more p,.ao-article.ao-picnic .psub,.ao-article.ao-picnic .pk-ship,.ao-article.ao-picnic .ao-why li,
+.ao-article.ao-picnic .pk-check,.ao-article.ao-picnic .ao-faq .a,.ao-article.ao-picnic>p{font-size:16.5px;line-height:1.85}
+.ao-article.ao-picnic .kin{-webkit-line-clamp:2}
+.ao-article.ao-picnic .ao-h3,.ao-article.ao-picnic .sec .sh,.ao-article.ao-picnic .ttl h3{font-size:20px;line-height:1.4}
+.ao-article.ao-picnic .dsec h4,.ao-article.ao-picnic .more summary,.ao-article.ao-picnic .ao-faq summary{font-size:17.5px}
+@media(max-width:640px){
+.ao-article.ao-picnic .ao-aio,.ao-article.ao-picnic .tseo,.ao-article.ao-picnic .kin,.ao-article.ao-picnic .pet,
+.ao-article.ao-picnic .more p,.ao-article.ao-picnic .psub,.ao-article.ao-picnic .pk-ship,.ao-article.ao-picnic .ao-why li,
+.ao-article.ao-picnic .pk-check,.ao-article.ao-picnic .ao-faq .a,.ao-article.ao-picnic>p{font-size:15.5px}
+.ao-article.ao-picnic .ao-h3,.ao-article.ao-picnic .sec .sh,.ao-article.ao-picnic .ttl h3{font-size:18px}
+.ao-article.ao-picnic .dsec h4,.ao-article.ao-picnic .more summary,.ao-article.ao-picnic .ao-faq summary{font-size:16.5px}
+}
 
 /* ===== 搜尋器＋地圖＋比較表＋B 款地點卡（由 combo.py 生成）===== */
 .ao-picnic .pk-cmb{container-type:inline-size}
@@ -202,8 +218,8 @@
 .ao-picnic .ttl{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 10px}
 .ao-picnic .ttl h3{margin:0;font-size:20px;color:#1A1A1A;line-height:1.3}
 .ao-picnic .ttl small{font-size:13px;color:#9A8f7e;font-weight:600}
-.ao-picnic .tg{display:flex;flex-wrap:wrap;gap:7px}
-.ao-picnic .t{display:inline-flex;align-items:center;gap:4px;font-size:13px;line-height:1.4;white-space:nowrap;font-weight:700;padding:4px 11px;border-radius:20px;border:1.5px solid transparent}
+.ao-picnic .tg{display:flex;flex-wrap:wrap;gap:6px}
+.ao-picnic .t{display:inline-flex;align-items:center;gap:3px;font-size:12px;line-height:1.35;white-space:nowrap;font-weight:700;padding:2px 9px;border-radius:20px;border:1px solid transparent}
 .ao-picnic .t.ok{background:#1A1A1A;color:#F7CE46}
 .ao-picnic .t.on{background:#F4FBF3;color:#2C6E49;border-color:#CFE8CD}
 .ao-picnic .t.pet{background:#FFF0E0;color:#C24E00;border-color:#F7D3AE}
@@ -266,7 +282,7 @@
 .ao-picnic .ttl h3{font-size:17px}
 .ao-picnic .ttl small{font-size:12px;width:100%}
 .ao-picnic .tg{gap:5px}
-.ao-picnic .t{font-size:12px;padding:3px 8px}
+.ao-picnic .t{font-size:11.5px;padding:2px 8px}
 .ao-picnic .kin{font-size:14.5px;line-height:1.7}
 .ao-picnic .quick{font-size:13px;gap:3px 10px}
 .ao-picnic .act{grid-column:1/-1}
