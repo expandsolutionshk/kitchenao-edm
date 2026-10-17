@@ -318,12 +318,7 @@ apply();})();
 from collections import Counter
 _cc = Counter(c for p in P for c in p['cats']); _rc = Counter(p['r'] for p in P)
 NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y'); NPETP = sum(1 for p in P if p['pet'] == 'P')
-TBL_SEO = (f'想找香港野餐好去處，卻不知從何入手？我們將全港 {N} 個野餐地點整理成一覽表：'
-           '新界草地最遼闊，大埔海濱公園及清水灣大坑墩都是一家大小放風箏的熱門之選；'
-           '九龍以海濱草地見稱，在西九文化區或啟德郵輪碼頭公園野餐，可同時欣賞維港景色；'
-           '港島則有添馬公園，身處中環也能偷閒野餐。'
-           '計劃駕車野餐的話，大部分地點附近均設有停車場；想帶狗狗同行，亦可留意表中的寵物標示。'
-           '展開下表，即可按泊車、寵物及地點類別逐一比較，揀選最適合你的野餐地點。')
+TBL_SEO = (f'想找香港野餐好去處？下表整理了全港 {N} 個野餐地點：新界有大埔海濱公園及清水灣大坑墩等大草地，九龍有西九文化區等海濱草地，港島則有添馬公園。展開下表，即可按泊車、寵物及類別逐一比較。')
 FILTER = f"""<div class="flt">
 <div class="frow"><span class="lab">① 地區</span>{chips_r}</div>
 <div class="frow f2"><span class="lab">② 條件及類別（可多選）</span><button class="mf" type="button" aria-expanded="false">＋ 更多篩選</button><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
