@@ -60,13 +60,18 @@ def card(p):
   </div>
 </article>'''
 
+AIO = {
+ 'nt': '<mark class="kw">新界野餐地點</mark>以草地遼闊見稱：大埔海濱公園及清水灣大坑墩適合放風箏，塔門及南生圍則有海景與秘境風光；當中多個地點寵物友善，並設有鄰近停車場，最適合一家大小駕車前往。',
+ 'kln': '<mark class="kw">九龍野餐</mark>首選海濱草地：西九文化區及啟德郵輪碼頭公園可飽覽維港景色，觀塘及茶果嶺海濱設有寵物指定範圍；佐敦谷公園及樂富配水庫休憩花園則有大片草坪，交通方便。',
+ 'hk': '<mark class="kw">港島野餐</mark>地點集中在海旁：添馬公園及中山紀念公園正對維港，數碼港海濱公園寵物友善兼易泊車；想避開人潮，可前往摩星嶺配水庫臨時花園，享受秘境草地與海景。',
+}
 regions = ''
 for i, (rid, rname, rkw) in enumerate(REGIONS):
     ps = [p for p in P if p['r'] == rid]
     cards = ''.join(C.card(p, kw=True) for p in ps)
     regions += f'''<section class="pk-region" data-region="{rid}">
   <h2 class="ao-h2" id="r-{rid}">{"一二三"[i]}、{rname}野餐（{len(ps)} 個地點）</h2>
-  <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】<mark class="kw">{rkw}</mark>可以去哪裡？以下 {len(ps)} 個地點已按可泊車、寵物友善及地點類別標示。</p>
+  <p class="ao-aio">{AIO[rid]}</p>
   <div class="pk-list">{cards}</div>
 </section>'''
 
@@ -110,8 +115,8 @@ BODY = f'''<div class="ao-article ao-picnic">
 {''.join(f'<li><a href="#r-{rid}">{"一二三"[i]}、{rn}野餐</a></li>' for i, (rid, rn, _) in enumerate(REGIONS))}
 <li><a href="#dog">帶狗狗野餐須知</a></li>
 <li><a href="#food">野餐食物及物資清單</a></li>
-<li><a href="#faq">野餐常見問題</a></li>
 <li><a href="#chill">Kitchen AO 野餐盒推介</a></li>
+<li><a href="#faq">野餐常見問題</a></li>
 <li><a href="#tips">編輯總結｜野餐注意事項</a></li>
 </ul></nav>
 
@@ -126,7 +131,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 </div>
 
 <h2 class="ao-h2" id="dog">🐶 帶狗狗野餐須知</h2>
-<p class="ao-aio">【AIO 直接解答｜待撰寫】<mark class="kw">狗狗野餐</mark>前，記得選擇准許寵物進入的草地，並遵守以下守則：</p>
+<p class="ao-aio"><mark class="kw">狗狗野餐</mark>應選擇寵物共享公園或准許寵物進入的草地，例如西九文化區、彭福公園及清水灣大坑墩；出發前宜先查看寵物共享範圍地圖，並遵守以下守則：</p>
 <div class="ao-why"><ul>
 <li><b>全程使用狗帶：</b>根據漁農自然護理署及康文署守則，絕大部分公眾地方及「寵物共享公園」內，所有狗隻必須時刻以狗帶（長度以不超逾 2 米為佳）牽引。</li>
 <li><b>不讓狗狗離開視線：</b>隨時留意狗狗動向，並觀察牠與其他狗狗的互動。</li>
@@ -135,11 +140,8 @@ BODY = f'''<div class="ao-article ao-picnic">
 </ul></div>
 
 <h2 class="ao-h2" id="food">🥪 戶外<mark class="kw">野餐食物</mark>應帶甚麼？物資清單與保存須知</h2>
-<p class="ao-aio">【AIO 直接解答｜待撰寫】<mark class="kw">野餐小食</mark>宜選一口份量、乾爽不漏汁；海鮮及沙律須以保冷袋存放，並於 2 小時內食用。</p>
+<p class="ao-aio"><mark class="kw">野餐小食</mark>宜選一口份量、乾爽不漏汁的款式，例如迷你漢堡、炸雞及串燒，方便單手取食；海鮮、沙律及甜品須以保冷袋連冰種存放，並於 2 小時內食用。</p>
 <div class="pk-check"><p><b>🧺 野餐用品清單</b></p><ul><li><mark class="kw">野餐墊</mark>（防水底）</li><li>保冷袋及冰種</li><li>濕紙巾、垃圾袋</li><li>防曬及驅蚊用品</li><li>寵物糧水（如帶同狗狗）</li></ul></div>
-
-<h2 class="ao-h2" id="faq">❓ 野餐常見問題 FAQ</h2>
-{faq_html}
 
 <!-- ===== 產品（最後才介紹）===== -->
 <h2 class="ao-h2" id="chill">🧺 Kitchen AO <mark class="kw">野餐盒</mark>｜送到附近可停車位置</h2>
@@ -148,6 +150,9 @@ BODY = f'''<div class="ao-article ao-picnic">
 <div class="pgrid">{C.pcards_for("?"+UTM)}</div>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="{CHILL}">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 <div class="pk-ship"><p><b>訂購野餐盒 免運費須知：</b>單一訂單滿 HK$1,450 即享全港免運費（離島及邊境禁區等不派送地區除外）；單一訂單滿 HK$700，九龍指定區域免運費，港島及新界區運費半價。標準派送時段為上午 11:00 至晚上 8:30，時段外派送需另收附加費。食物會送到公園附近可停車位置於車邊交收；惡劣天氣改期、派送失敗等安排，請於下單前參閱<a href="https://aoaodelivery.com/delivery/" target="_blank" rel="noopener">「重要送貨須知」</a>。</p></div>
+
+<h2 class="ao-h2" id="faq">❓ 野餐常見問題 FAQ</h2>
+{faq_html}
 
 <h2 class="ao-h2" id="tips">📝 編輯總結｜野餐注意事項：天氣、草地開放、場地守則及垃圾處理</h2>
 <p>揀好地點、準備好食物後，出發前不妨再檢視以下幾項<mark class="kw">野餐注意事項</mark>，讓整個野餐玩得開心亦玩得安心。</p>
