@@ -55,7 +55,10 @@ def ktags(p):
 def card(p, kw=False):
     o = off(p); imgs = o.get('img', []) or []
     thumb = o.get('thumb') or (imgs[1] if len(imgs) > 1 else (imgs[0] if imgs else ''))
-    thumb_h = f'<img src="{thumb}" alt="{esc(p["name"])}" loading="lazy">' if thumb else '<span class="noimg">📷</span>'
+    nm = esc(p['name'].split(' / ')[0])
+    # 圖片載入失敗（斷 link）→ 凈色底＋地點名稱
+    ERR = "onerror=\"this.onerror=null;this.parentNode.classList.add('ph');this.remove()\""
+    thumb_h = f'<img src="{thumb}" alt="{esc(p["name"])}" loading="lazy" referrerpolicy="no-referrer" {ERR}>' if thumb else ''
     opn = o.get('open', '') if not unk(o.get('open')) else ''
     quick = []
     if opn: quick.append(f'<span>🕒 {esc(opn.split("；")[0])}</span>')
@@ -63,12 +66,12 @@ def card(p, kw=False):
     quick.append(f'<span>🅿️ {len(p["car"])} 個鄰近停車場</span>' if p['car'] else f'<span>🅿️ {esc(p.get("carnote","沒有停車場資料"))}</span>')
     # gallery
     if imgs:
-        figs = ''.join(f'<figure><img src="{u}" alt="{esc(p["name"])}" loading="lazy"></figure>' for u in imgs)
+        figs = ''.join(f'<figure data-n="{nm}"><img src="{u}" alt="{esc(p["name"])}" loading="lazy" referrerpolicy="no-referrer" {ERR}></figure>' for u in imgs)
         nav = '<button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button>' if len(imgs) > 1 else ''
         dots = '<div class="dots">' + ''.join('<i class="on"></i>' if i == 0 else '<i></i>' for i in range(len(imgs))) + '</div>' if len(imgs) > 1 else ''
         gal = f'<div class="gal"><div class="tr">{figs}</div><span class="src">圖片來源：{o.get("imgsrc","官方網頁")}</span>{nav}{dots}</div>'
     else:
-        gal = '<div class="gal none"><span>📷 相片待補</span></div>'
+        gal = f'<div class="gal ph" data-n="{nm}"></div>'
     facts = []
     if not unk(o.get('addr')): facts.append(('📍 地址', o['addr']))
     if opn: facts.append(('🕒 開放時間', opn))
@@ -100,7 +103,7 @@ def card(p, kw=False):
     intro = '' if unk(o.get('intro')) else f'<div class="dsec s-more"><details class="more"><summary>📖 官方簡介</summary><p>{esc(o["intro"])}</p></details></div>'
     return f'''<article class="prow" id="b-{p['id']}" {attrs(p)}>
   <div class="sum">
-    <div class="thumb">{thumb_h}<span class="rg" style="background:{RC[p['r']]}">{RN[p['r']]}</span></div>
+    <div class="thumb{'' if thumb else ' ph'}" data-n="{nm}">{thumb_h}<span class="rg" style="background:{RC[p['r']]}">{RN[p['r']]}</span></div>
     <div class="info"><div class="ttl"><h3>{p['name']}</h3><small>{p['en']}</small></div><div class="tg">{ktags(p)}</div>{f'<p class="pk-kw">目標關鍵字：<mark class="kw">{p["kw"]}</mark></p>' if kw else ''}<p class="kin">{p['intro']}</p><p class="quick">{''.join(quick)}</p></div>
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
@@ -122,7 +125,9 @@ PROD = [('2 人','二人小確幸套餐','$438','https://aoaodelivery.com/produc
 ('2 人','Chill一下野餐盒（小）','$258','https://aoaodelivery.com/product/chill%e4%b8%80picnic-small/','https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg','主食 2 選 1＋小食 7 選 4＋甜品 4 選 2'),
 ('4–6 人','Chill一下野餐盒（大）','$628','https://aoaodelivery.com/product/chill%e4%b8%80picnic-big-for-4-6-persons/','https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg','沙律＋主食 3 選 1＋小食 8 選 6＋甜品 4 選 3'),
 ('5 人','5 人自選拼盤','$498','https://aoaodelivery.com/product/5-people-self-selected-platter/','https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600-1.png','20 款小食自選 6 款')]
-pcards = ''.join(f'<div class="pc"><div class="pim"><img src="{im}" alt="{n}" loading="lazy"><span class="ppl">👥 {ppl}</span></div><div class="pbd"><p class="pn">{n}</p><p class="pmenu">{menu}</p><div class="pft"><b class="pp">{pr}</b><a class="atc" href="{u}{UTM}" target="_blank" rel="noopener">🍱 揀選心水餐單</a></div></div></div>' for ppl,n,pr,u,im,menu in PROD)
+def pcards_for(utm):
+    return ''.join(f'<div class="pc"><div class="pim"><img src="{im}" alt="{n}" loading="lazy"><span class="ppl">👥 {ppl}</span></div><div class="pbd"><p class="pn">{n}</p><p class="pmenu">{menu}</p><div class="pft"><b class="pp">{pr}</b><a class="atc" href="{u}{utm}" target="_blank" rel="noopener">🍱 揀選心水餐單</a></div></div></div>' for ppl,n,pr,u,im,menu in PROD)
+pcards = pcards_for(UTM)
 
 # ---------- 資料來源（每行一個）----------
 srcs = [('康樂及文化事務署 — 公園及動植物公園','https://www.lcsd.gov.hk/tc/facilities/facilitieslist/parks.html'),
@@ -179,7 +184,9 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .prow.hit{border-color:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
 .sum{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:18px;padding:14px}
 .thumb{position:relative;border-radius:14px;overflow:hidden;background:#DDEBD9;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}.noimg{font-size:26px}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{background:#E3EFDF!important;display:flex;align-items:center;justify-content:center}.ph::after{content:attr(data-n);color:#2C6E49;font-weight:800;font-size:15px;text-align:center;padding:8px;line-height:1.4}
+.gal figure.ph,.gal.ph{display:flex}.gal.ph::after{font-size:20px}
 .thumb .rg{position:absolute;left:8px;top:8px;color:#fff;font-size:12px;font-weight:800;border-radius:20px;padding:3px 10px}
 .info{min-width:0;display:flex;flex-direction:column;gap:9px}
 .ttl{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 10px}.ttl h3{margin:0;font-size:20px;color:#1A1A1A;line-height:1.3}.ttl small{font-size:12.5px;color:#9A8f7e;font-weight:600}

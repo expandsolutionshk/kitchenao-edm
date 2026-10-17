@@ -138,14 +138,10 @@ BODY = f'''<div class="ao-article ao-picnic">
 {faq_html}
 
 <!-- ===== 產品（最後才介紹）===== -->
-<h2 class="ao-h2" id="chill">🍱 Kitchen AO <mark class="kw">野餐盒</mark>，惹味小食推介</h2>
+<h2 class="ao-h2" id="chill">🧺 Kitchen AO <mark class="kw">野餐盒</mark>｜送到附近可停車位置</h2>
 <p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒、小食拼盤及二人套餐主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
-<div class="pk-prod">
-  <a class="pk-pcard" href="{BIG}"><img src="{IMG_CHILL}" alt="Chill一下野餐盒（大）4–6 人" loading="lazy"><div><p class="pn">Chill一下野餐盒（大）</p><p class="pp">4–6 人份　<b>$628</b></p><p class="pd">9 款小食：迷你芝士手打牛肉漢堡、千島汁蜜桃大蝦沙律杯、九層塔香酥雞等</p></div></a>
-  <a class="pk-pcard" href="{PLATTER}"><img src="{IMG_PLATTER}" alt="5 人自選拼盤" loading="lazy"><div><p class="pn">5 人自選拼盤</p><p class="pp">5 人份　<b>$498</b></p><p class="pd">自選小食組合，適合多人野餐</p></div></a>
-  <a class="pk-pcard" href="{C2A}"><img src="{IMG_C2A}" alt="二人小確幸套餐" loading="lazy"><div><p class="pn">二人小確幸套餐</p><p class="pp">2 人份　<b>$438</b></p><p class="pd">二人享樂拼盤、清新沙律、意大利麵及惹味主食，適合二人野餐</p></div></a>
-  <a class="pk-pcard" href="{C2B}"><img src="{IMG_C2B}" alt="二人豪華儀式感UP!套餐" loading="lazy"><div><p class="pn">二人豪華儀式感UP!套餐</p><p class="pp">2 人份　<b>$588</b></p><p class="pd">升級版二人套餐，拼盤、沙律、意大利麵及主食選擇更豐富</p></div></a>
-</div>
+<p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。消費滿 $1,450 免運費，於地面可停車位置車邊交收。</p>
+<div class="pgrid">{C.pcards_for("?"+UTM)}</div>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="{CHILL}">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 <p class="pk-note">※ 交收安排：送到公園附近可停車位置於車邊交收；消費滿 $1,450 免運費。</p>
 
