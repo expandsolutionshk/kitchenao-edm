@@ -92,12 +92,12 @@ BODY = f'''<div class="ao-article ao-picnic">
 {CSS}
 </style>
 
-<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">{N} 個大草地／海景／隱世公園推介 × 懶人野餐全攻略</p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
+<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">{N} 個大草地／海景／隱世公園 × 全港野餐地點搜尋器</p><p class="pk-kv-f"><span>🔍 一鍵搜尋</span><span>🚗 鄰近泊車</span><span>🐶 寵物友善</span><span>🧺 懶人野餐盒</span></p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
 <p class="pk-h1note">H1：【香港野餐勝地大全】{N} 個大草地／海景／隱世公園推介 x 懶人野餐全攻略</p>
 
 <div class="ao-introcard">
 <p class="ao-q">🧺 想找<mark class="kw">香港野餐好去處</mark>？</p>
-<p class="ao-intro">香港地方雖小，但也有不少<mark class="kw">野餐好去處</mark>：無敵海景、大片真草地、<mark class="kw">隱世野餐地點</mark>及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 {N} 個<mark class="kw">香港野餐地點</mark>，按港島、九龍及新界分類，並可按「可泊車」「寵物友善」及地點類別篩選；每個地點均列出鄰近停車場，方便<mark class="kw">駕車野餐</mark>。</p>
+<p class="ao-intro">香港地方雖小，但也有不少<mark class="kw">野餐好去處</mark>：無敵海景、大片真草地、<mark class="kw">隱世野餐地點</mark>及特色園林應有盡有，更可與狗狗一同野餐。Kitchen AO 整合了全港 {N} 個<mark class="kw">香港野餐地點</mark>，按新界、九龍及港島分類，並可按「可泊車」「寵物友善」及地點類別篩選；每個地點均列出鄰近停車場，方便<mark class="kw">駕車野餐</mark>。</p>
 </div>
 
 <div class="ao-tagsec"><span class="lbl">此文章相關 Tag</span><div class="ao-tags"><span>野餐好去處</span><span>香港野餐</span><span>狗狗野餐</span><span>野餐泊車</span><span>野餐盒</span></div></div>

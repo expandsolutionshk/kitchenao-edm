@@ -98,3 +98,8 @@
 .ao-article button.pk-mx{position:absolute;right:12px;top:10px;border:0;background:#F1EBDF;width:34px;height:34px;border-radius:17px;font-size:15px;cursor:pointer}
 
 .t-ok{background:#1A1A1A;color:#F7CE46;}
+
+.pk-kv-f{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0!important}.pk-kv-f span{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.55);border-radius:30px;padding:5px 14px;font-size:14px;font-weight:800;line-height:1.4;white-space:nowrap}
+@media(max-width:640px){.pk-kv-f{gap:6px}.pk-kv-f span{font-size:12.5px;padding:4px 10px}}
+.pk-kv>div{position:relative;z-index:1}
+@media(max-width:640px){.pk-kv:after{font-size:70px;opacity:.35;right:12px;bottom:8px}}
