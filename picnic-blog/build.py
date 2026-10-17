@@ -7,6 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 _s = importlib.util.spec_from_file_location('parks', os.path.join(HERE, 'parks.py')); _m = importlib.util.module_from_spec(_s); _s.loader.exec_module(_m)
 CATS, REGIONS, P = _m.CATS, _m.REGIONS, _m.P
 _c = importlib.util.spec_from_file_location('combo', os.path.join(HERE, 'combo.py')); C = importlib.util.module_from_spec(_c); _c.loader.exec_module(C)  # 搜尋器、地圖、比較表、B 款地點卡
+_k = importlib.util.spec_from_file_location('kv', os.path.join(HERE, 'kv.py')); KVM = importlib.util.module_from_spec(_k); _k.loader.exec_module(KVM)  # KV 方案
 
 UTM = 'ao_ref=picnic_blog1'
 CHILL = 'https://aoaodelivery.com/product-category/party/chill-box/?' + UTM
@@ -62,7 +63,7 @@ def card(p):
 
 AIO = {
  'nt': '<mark class="kw">新界野餐地點</mark>以草地遼闊見稱：大埔海濱公園及清水灣大坑墩適合放風箏，塔門及南生圍則有海景與秘境風光；當中多個地點寵物友善，並設有鄰近停車場，最適合一家大小駕車前往。',
- 'kln': '<mark class="kw">九龍野餐</mark>首選海濱草地：西九文化區及啟德郵輪碼頭公園可飽覽維港景色，觀塘及茶果嶺海濱設有寵物指定範圍；佐敦谷公園及樂富配水庫休憩花園則有大片草坪，交通方便。',
+ 'kln': '<mark class="kw">九龍野餐好去處</mark>首選海濱草地：西九文化區及啟德郵輪碼頭公園可飽覽維港景色，觀塘及茶果嶺海濱設有寵物指定範圍；佐敦谷公園及樂富配水庫休憩花園則有大片草坪，交通方便。',
  'hk': '<mark class="kw">港島野餐</mark>地點集中在海旁：添馬公園及中山紀念公園正對維港，數碼港海濱公園寵物友善兼易泊車；想避開人潮，可前往摩星嶺配水庫臨時花園，享受秘境草地與海景。',
 }
 regions = ''
@@ -111,7 +112,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 {CSS}
 </style>
 
-<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">{N} 個大草地／海景／隱世公園推介<br>可泊車、寵物友善野餐地點一鍵搜尋</p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
+<div class="pk-kvg"><iframe srcdoc="{H.escape(KVM.KV_G_HTML, quote=True)}" title="香港野餐勝地大全 KV" scrolling="no"></iframe></div>
 <p class="pk-h1note">H1：【香港野餐勝地大全】{N} 個大草地／海景／隱世公園推介｜野餐泊車、寵物友善地點一鍵搜尋</p>
 
 <div class="ao-introcard">
@@ -140,7 +141,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 </div>
 
 <h2 class="ao-h2" id="dog">🐶 帶狗狗野餐須知</h2>
-<p class="ao-aio"><mark class="kw">狗狗野餐</mark>應選擇寵物共享公園或准許寵物進入的草地，例如西九文化區、彭福公園及清水灣大坑墩；出發前宜先查看寵物共享範圍地圖，並遵守以下守則：</p>
+<p class="ao-aio"><mark class="kw">狗狗野餐</mark>應選擇<mark class="kw">狗狗寵物公園</mark>（康文署「寵物共享公園」）或准許寵物進入的草地，例如西九文化區、彭福公園及清水灣大坑墩；出發前宜先查看寵物共享範圍地圖，並遵守以下守則：</p>
 <div class="ao-why"><ul>
 <li><b>全程使用狗帶：</b>根據漁農自然護理署及康文署守則，絕大部分公眾地方及「寵物共享公園」內，所有狗隻必須時刻以狗帶（長度以不超逾 2 米為佳）牽引。</li>
 <li><b>不讓狗狗離開視線：</b>隨時留意狗狗動向，並觀察牠與其他狗狗的互動。</li>

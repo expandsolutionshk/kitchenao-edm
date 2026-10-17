@@ -256,7 +256,7 @@ CSS = '''
 .boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
 .boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
 
-.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;box-sizing:border-box;display:inline-flex;align-items:center;height:3.6cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:0 1.7cqw 0 2.9cqw}.logo2 img{display:block;width:auto}.logo2 .li{height:1.9cqw}.logo2 .lt{height:1.7cqw;margin-left:.85cqw}
+.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;box-sizing:border-box;display:inline-flex;align-items:center;height:3.6cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:0 1.5cqw}.logo2 img{display:block;width:auto}.logo2 .li{height:1.9cqw}.logo2 .lt{height:1.7cqw;margin-left:.85cqw}
 .logo2 .tri{width:0;height:0;border-left:1.05cqw solid transparent;border-right:1.05cqw solid transparent;border-bottom:1.8cqw solid #1A1A1A}
 .logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#F39A2B;margin-left:-.35cqw}
 .logo2 b{margin-left:.6cqw;font-family:"Avenir Next Condensed","DIN Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:2.2cqw;letter-spacing:.05cqw;color:#1A1A1A;line-height:1}
@@ -304,5 +304,10 @@ html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <p>背景為官方實景相片（康文署／旅發局，僅作概念示意）；正式製作建議改用自家拍攝或已取得授權的高解像度相片。</p>
 {''.join(f'<section class="opt"><h3>{t}</h3><p>{d}</p>{h}</section>' for t, d, h in KV)}
 </div></body></html>'''
+# 選定方案 G → 單獨 KV 頁（供 blog mockup 以 iframe 嵌入）
+KV_G = [h for t, d, h in KV if t.startswith('G')][0]
+KV_G_HTML = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV（G）</title><style>{CSS}
+html,body{{margin:0;background:transparent}}.kv{{border-radius:0;box-shadow:none}}</style></head><body>{KV_G}</body></html>'''
 if __name__ == '__main__':
-    open(os.path.join(HERE, 'kv-options.html'), 'w').write(html); print('ok', len(KV))
+    open(os.path.join(HERE, 'kv-options.html'), 'w').write(html)
+    open(os.path.join(HERE, 'kv-g.html'), 'w').write(KV_G_HTML); print('ok', len(KV))
