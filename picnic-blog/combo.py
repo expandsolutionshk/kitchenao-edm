@@ -185,10 +185,10 @@ CSS = '''
 .cmp .tw{border-radius:12px}
 .tw{overflow-x:auto;border-radius:12px;border:1px solid #EFE8DA;max-height:520px;overflow-y:auto}
 table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}
-th{position:sticky;top:0;z-index:1;background:#1A1A1A;color:#fff;padding:6px 0;font-weight:700;font-size:13px}th small{display:block;font-size:11px;font-weight:600;opacity:.8}
-td{padding:6px 0;text-align:center;border-bottom:1px solid #F2ECE0}
-.st{text-align:left;width:34%;padding-left:6px!important;background:#fff}th.st{background:#1A1A1A}
-td.st a{color:#1A1A1A;font-weight:800;text-decoration:none;font-size:13px;line-height:1.3;display:block}td.st small{display:block;color:#9A8f7e;font-size:11px}
+th{position:sticky;top:0;z-index:1;background:#1A1A1A;color:#fff;padding:10px 2px;font-weight:700;font-size:13px}th small{display:block;font-size:11px;font-weight:600;opacity:.8}
+td{padding:11px 2px;text-align:center;vertical-align:middle;border-bottom:1px solid #F2ECE0}
+.st{text-align:left;width:34%;padding-left:14px!important;padding-right:8px!important;background:#fff}th.st{background:#1A1A1A}
+td.st a{color:#1A1A1A;font-weight:800;text-decoration:none;font-size:14px;line-height:1.4;display:block}td.st small{display:block;color:#9A8f7e;font-size:11px}
 tbody tr:nth-child(even) td{background:#FBF8F2}
 .y{color:#2C6E49;font-size:14px}.p{color:#B07A3A;font-size:11px}.n{color:#d3cbbb}
 .empty{display:none;padding:14px;text-align:center;background:#FFF4F2;border-radius:12px;font-size:13px}
@@ -240,7 +240,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .rc .s-more{margin-top:14px}
 @container (min-width:641px){#lmap{height:480px}}
 @container (max-width:640px){
-  .mhint{display:inline;color:#2C6E49;font-weight:700}
+  .mhint{display:inline-block;margin-left:10px;color:#2C6E49;font-weight:700;font-size:14.5px;vertical-align:middle}
 
   .ch{font-size:13.5px;padding:6px 12px}.flt{padding:14px 14px 12px}.frow{gap:7px;margin-bottom:14px}.tseo{font-size:14.5px}
   .sum{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px}
@@ -333,8 +333,8 @@ FILTER = f"""<div class="fbar"><button class="fbtn" type="button">⚙️ 篩選 
 <div class="frow f2"><span class="lab">② 條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
-    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖</{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
-<div class="lg"><span class="mhint">👆 用兩隻手指移動及縮放地圖</span></div></div>"""
+    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<span class="mhint">👆 用兩隻手指移動及縮放地圖</span></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
+</div>"""
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
