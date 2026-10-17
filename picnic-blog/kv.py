@@ -34,7 +34,7 @@ for p in P:
 MAP = f'<svg viewBox="0 0 {C.W} {C.Hh}" class="hkmap"><rect width="{C.W}" height="{C.Hh}" fill="#BFE0F0"/><g fill="#E8F1DD" stroke="#B9CDA4" stroke-width="1.2">{C.land}</g>{pins}</svg>'
 
 FEAT = '<p class="feat">可泊車、寵物友善野餐地點　一鍵搜尋</p>'
-LOGOH = f'<span class="logo"><img src="{LOGO}" alt="Kitchen AO"></span>'
+LOGOH = '<span class="logo2" aria-label="Kitchen AO"><i class="tri"></i><i class="dot"></i><b>KITCHEN AO</b></span>'
 def rg(r, name):
     return f'<span class="rgp" style="--c:{RC[r]}"><i class="mpin" style="--c:{RC[r]}"><b>📍</b></i>{name} {cnt[r]} 個</span>'
 
@@ -138,6 +138,49 @@ KV.append(('E｜拍立得＋野餐盒', '三張拍立得代表三個地區，右
   {LOGOH}
 </div>'''))
 
+
+# ---- F / G：以 E 為基礎（拍立得＋搜尋器篩選框＋右下角小地圖），背景光暗參考 C ----
+FLT = f'''<div class="flt">
+      <p class="lab">① 地區</p>
+      <div class="chips"><span class="ch">全部</span><span class="ch on"><i style="background:{RC['nt']}"></i>新界</span><span class="ch"><i style="background:{RC['kln']}"></i>九龍</span><span class="ch"><i style="background:{RC['hk']}"></i>港島</span></div>
+      <p class="lab">② 條件及類別</p>
+      <div class="chips"><span class="ch on">🚗 可泊車</span><span class="ch on">🐶 寵物友善</span><span class="ch">🌳 大草地</span><span class="ch">🌊 海景</span></div>
+      <div class="act"><span class="go">🔍 確定搜尋</span><span class="cnt">符合條件的地點一覽</span></div>
+    </div>'''
+MINIMAP = f'''<div class="minimap">{MAP}
+    <div class="mc c-nt"><span class="ph">{img('tpwp','')}</span><b style="--c:{RC['nt']}">大埔海濱公園</b></div>
+    <div class="mc c-kln"><span class="ph">{img('ktct','')}</span><b style="--c:{RC['kln']}">啟德郵輪碼頭公園</b></div>
+    <div class="mc c-hk"><span class="ph">{img('tamar','')}</span><b style="--c:{RC['hk']}">添馬公園</b></div>
+    <div class="lg"><span><i style="background:{RC['nt']}"></i>新界</span><span><i style="background:{RC['kln']}"></i>九龍</span><span><i style="background:{RC['hk']}"></i>港島</span></div>
+  </div>'''
+TTL = f'''<span class="pill">2026 香港野餐好去處</span>
+    <h2 class="ttl">全港野餐<span class="y">地點搜尋器</span></h2>
+    <p class="sub">{N} 個野餐地點 × 新界｜九龍｜港島</p>
+    <p class="sub2">可泊車、寵物友善野餐地點一鍵搜尋</p>'''
+POLA = f'''<figure class="p1"><i class="mpin big" style="--c:{RC['nt']}"><b>🌳</b></i>{img('cwb','')}<figcaption><b style="color:{RC['nt']}">新界</b>清水灣大坑墩</figcaption></figure>
+    <figure class="p2"><i class="mpin big" style="--c:{RC['kln']}"><b>🌊</b></i>{img('ktct','')}<figcaption><b style="color:{RC['kln']}">九龍</b>啟德郵輪碼頭公園</figcaption></figure>
+    <figure class="p3"><i class="mpin big" style="--c:{RC['hk']}"><b>🌳</b></i>{img('tamar','')}<figcaption><b style="color:{RC['hk']}">港島</b>添馬公園</figcaption></figure>'''
+KV.append(('F｜拍立得＋搜尋器（拍立得在左）', '以 E 為基礎：左邊三張拍立得代表三區；右邊標題下改放搜尋器篩選框；搜尋器地圖縮細放右下角。背景右側加深，光暗參考 C。', f'''
+<div class="kv kf k6">
+  {img('jvp')}
+  <div class="shadeR"></div>
+  <div class="pola">{POLA}</div>
+  <div class="tblock">{TTL}</div>
+  <div class="ui">{FLT}</div>
+  {MINIMAP}
+  {LOGOH}
+</div>'''))
+KV.append(('G｜搜尋器＋拍立得（拍立得在右）', '同一 brief 的另一排法：標題及篩選框放左邊（背景左側加深，與 C 相同）；三張拍立得在右上方展開；小地圖放右下角。', f'''
+<div class="kv kf k7">
+  {img('jvp')}
+  <div class="shadeL"></div>
+  <div class="tblock">{TTL}</div>
+  <div class="ui">{FLT}</div>
+  <div class="pola">{POLA}</div>
+  {MINIMAP}
+  {LOGOH}
+</div>'''))
+
 CSS = '''
 *{box-sizing:border-box}body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
 .wrap{max-width:1240px;margin:0 auto;padding:24px 16px 60px}.wrap>h1{font-size:22px;margin:0 0 4px}.wrap>p{margin:0 0 20px;color:#7a6a45;font-size:14px}
@@ -206,6 +249,37 @@ CSS = '''
 .k5 .right{position:absolute;right:4cqw;top:5cqw;width:38%;color:#fff}.k5 .ttl{font-size:7.4cqw}
 .boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
 .boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
+
+.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;display:inline-flex;align-items:center;gap:.5cqw;background:#fff;border:.28cqw solid #1A1A1A;border-radius:3cqw;padding:.45cqw 1.5cqw .45cqw 1.2cqw;box-shadow:0 .3cqw 1cqw rgba(0,0,0,.25)}
+.logo2 .tri{width:0;height:0;border-left:1.05cqw solid transparent;border-right:1.05cqw solid transparent;border-bottom:1.8cqw solid #1A1A1A}
+.logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#E0A53A;margin-left:-.35cqw}
+.logo2 b{margin-left:.5cqw;font-family:"Avenir Next Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:1.9cqw;letter-spacing:.12cqw;color:#1A1A1A;line-height:1}
+/* F / G */
+.kf .shadeR{position:absolute;inset:0;background:linear-gradient(270deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,0) 72%)}
+.kf .shadeL{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,0) 72%)}
+.kf .ttl{font-size:5.4cqw;white-space:nowrap}.kf .sub{font-size:2.2cqw;margin-top:1.2cqw}.kf .sub2{font-size:1.9cqw;margin-top:1cqw}
+.kf .flt{background:#fff;border-radius:1.8cqw;padding:1.6cqw 1.8cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
+.kf .lab{margin:0 0 .6cqw;font-size:1.25cqw;font-weight:800;color:#7a6a45}.kf .chips{margin-bottom:1cqw}
+.kf .act{display:flex;align-items:center;gap:1.2cqw;border-top:.1cqw solid #EFE8DA;padding-top:1cqw}.kf .cnt{font-size:1.25cqw;font-weight:700;color:#5a5348}
+.kf .ui{position:absolute;width:36cqw}
+.kf .pola{position:absolute}.kf .pola figure{width:17cqw;padding:.8cqw .8cqw 0}.kf .pola figcaption{font-size:1.35cqw;padding:.6cqw 0 .8cqw}
+.kf .pola .mpin.big{width:3.6cqw;height:3.6cqw;margin-left:-1.8cqw;top:-2.2cqw}.kf .pola .mpin.big b{font-size:1.7cqw}
+.minimap{position:absolute;right:2.2cqw;bottom:2.2cqw;width:22cqw;background:#fff;border-radius:1.2cqw;padding:.6cqw;box-shadow:0 .8cqw 2.4cqw rgba(0,0,0,.4);transform:rotate(2deg);z-index:3}
+.minimap .hkmap{border-radius:.8cqw}
+.mc{position:absolute;display:flex;align-items:center;gap:.3cqw}.mc .ph{width:3.4cqw;height:3.4cqw;border-radius:50%;overflow:hidden;border:.25cqw solid #fff;box-shadow:0 .2cqw .6cqw rgba(0,0,0,.35)}.mc .ph img{width:100%;height:100%;object-fit:cover}
+.mc b{background:var(--c);color:#fff;font-size:.85cqw;font-weight:900;padding:.2cqw .6cqw;border-radius:2cqw;white-space:nowrap}
+.minimap .c-nt{left:30%;top:-1.6cqw}.minimap .c-kln{left:50%;top:6.4cqw}.minimap .c-hk{left:3%;top:10cqw}
+.minimap .lg{position:absolute;left:1cqw;bottom:1cqw;display:flex;gap:.5cqw;background:rgba(255,255,255,.92);padding:.25cqw .6cqw;border-radius:1cqw;font-size:.75cqw;font-weight:800}.minimap .lg i{display:inline-block;width:.6cqw;height:.6cqw;border-radius:50%;margin-right:.25cqw}
+/* F：拍立得在左，標題及篩選框在右 */
+.k6 .pola{left:3cqw;top:4cqw;width:46%;height:50cqw}
+.k6 .p1{left:0;top:1cqw;transform:rotate(-7deg)}.k6 .p2{left:14cqw;top:9cqw;transform:rotate(4deg);z-index:1}.k6 .p3{left:3cqw;top:25cqw;transform:rotate(3deg)}
+.k6 .tblock{position:absolute;left:52%;top:4cqw;color:#fff}
+.k6 .ui{left:52%;top:25cqw;width:32cqw}
+/* G：標題及篩選框在左，拍立得在右上 */
+.k7 .tblock{position:absolute;left:4cqw;top:4cqw;color:#fff}
+.k7 .ui{left:4cqw;top:25cqw}
+.k7 .pola{left:56%;top:5cqw;width:42%;height:30cqw}
+.k7 .p1{left:0;top:2cqw;transform:rotate(-6deg)}.k7 .p2{left:12cqw;top:0;transform:rotate(3deg);z-index:1}.k7 .p3{left:24cqw;top:3cqw;transform:rotate(8deg)}
 '''
 html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（5 款）</title><style>{CSS}</style></head><body><div class="wrap">
 <h1>🧺 Blog 1 KV 方案（5 款，1600 × 900）</h1>
