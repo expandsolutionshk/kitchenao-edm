@@ -184,7 +184,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .info{min-width:0;display:flex;flex-direction:column;gap:9px}
 .ttl{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 10px}.ttl h3{margin:0;font-size:20px;color:#1A1A1A;line-height:1.3}.ttl small{font-size:12.5px;color:#9A8f7e;font-weight:600}
 .tg{display:flex;flex-wrap:wrap;gap:7px}
-.t{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;padding:4px 11px;border-radius:20px;border:1.5px solid transparent}
+.t{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;line-height:1.4;white-space:nowrap;font-weight:700;padding:4px 11px;border-radius:20px;border:1.5px solid transparent}
 .t.ok{background:#1A1A1A;color:#F7CE46}.t.on{background:#F4FBF3;color:#2C6E49;border-color:#CFE8CD}.t.pet{background:#FFF0E0;color:#C24E00;border-color:#F7D3AE}
 .kin{margin:0;font-size:14.5px;line-height:1.8;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .quick{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;font-size:13px;color:#5a5348}
