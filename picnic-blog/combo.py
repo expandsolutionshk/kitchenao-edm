@@ -262,6 +262,8 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .pft{display:flex;align-items:center;justify-content:space-between;gap:8px}.pp{font-size:18px;color:#C24E00}
 .atc{background:#3F9D5A;color:#fff;text-decoration:none;font-weight:800;font-size:13px;border-radius:30px;padding:8px 12px;white-space:nowrap}
 .pall{display:block;margin-top:14px;text-align:center;font-weight:800;color:#9A7B2E;text-decoration:none}
+.swh{display:none}
+@media(max-width:600px){#pmdl .mbox{padding:14px 0 16px}#pmdl .mt,#pmdl .psub,#pmdl .swh,#pmdl .pall{padding:0 14px}#pmdl .psub{margin-bottom:6px;font-size:13px}#pmdl .swh{display:block;margin:0 0 8px;font-size:12.5px;color:#9A7B2E;font-weight:700}#pmdl .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 14px 6px;scroll-padding:0 14px;scrollbar-width:none}#pmdl .pgrid::-webkit-scrollbar{display:none}#pmdl .pc{flex:0 0 74%;scroll-snap-align:start}#pmdl .pft{flex-direction:row;align-items:center}#pmdl .pall{display:block}}
 @media(max-width:520px){.pgrid{grid-template-columns:1fr 1fr}.pft{flex-direction:column;align-items:stretch}.atc{text-align:center}}
 .srcs{margin:18px 12px 0;padding-top:14px;border-top:1px solid #E7E0D2;font-size:13px;color:#7a6a45}
 .srcs h2{margin:0 0 8px;font-size:15px;color:#1A1A1A}.srcs ul{margin:0;padding-left:18px;line-height:1.9}.srcs a{color:#9A7B2E;word-break:break-all}
@@ -329,7 +331,7 @@ def MAP(hx='h2'):
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><p class="thint">點擊地點名稱，即可查看該地點介紹。</p><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
-POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
+POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p><p class="swh">← 左右滑動查看 5 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
 <div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
 LEAF_CSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">'
