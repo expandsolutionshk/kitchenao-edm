@@ -86,7 +86,7 @@
   .pk-chip{padding:5px 11px;font-size:13px;}
 }
 
-.pk-h1note{margin:-14px 0 18px!important;font-size:13px;color:#9a8f7e}
+.pk-h1note{margin:0 0 18px!important;font-size:13px;color:#9a8f7e}
 .ao-article button.pk-mapbtn{margin:0 0 10px;border:1.5px solid #3F9D5A;background:#F4FBF3;color:#2C6E49;border-radius:30px;padding:6px 14px;font-size:13.5px;font-weight:800;cursor:pointer;align-self:flex-start}
 .ao-article button.pk-mapbtn:hover{background:#3F9D5A;color:#fff}
 .pk-modal{position:fixed;inset:0;z-index:9999;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:18px}
@@ -134,3 +134,4 @@
 .ao-article.ao-picnic .dsec h4,.ao-article.ao-picnic .more summary,.ao-article.ao-picnic .ao-faq summary{font-size:16.5px}
 }
 .pk-kvg{position:relative;margin:0 0 8px;border-radius:18px;overflow:hidden;line-height:0}.pk-kvg iframe{display:block;width:100%;aspect-ratio:16/9;border:0}.pk-kvg .pk-kv-note{position:absolute;left:12px;bottom:10px;right:auto;top:auto;line-height:1.4}
+.pk-kvg+.pk-h1note{margin-top:18px!important}

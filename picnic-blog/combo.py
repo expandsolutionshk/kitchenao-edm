@@ -159,7 +159,7 @@ CSS = '''
 .cnt #rst{margin-left:auto}.go{display:inline-flex;align-items:center;gap:4px;width:auto;margin:0;border:0;border-radius:30px;padding:8px 20px;font-size:14px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer}.go.pd{background:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
 .cnt{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13.5px;font-weight:700;color:#5a5348;margin-top:2px;padding-top:14px;border-top:1px solid #EFE8DA}.cnt #rst{border:0;background:none;color:#9A7B2E;font-weight:700;text-decoration:underline;padding:0;cursor:pointer}
 .sec{padding:14px 12px 4px}.sec h2{margin:0 0 8px;font-size:18px;color:#1A1A1A}.sec h2 small{font-weight:600;color:#9A8f7e;font-size:12px;margin-left:4px}
-#lmap{height:340px;border-radius:14px;display:none}#lmap.on{display:block}.lpin{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:14px;background:#fff;border:2.5px solid var(--c);box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:14px}.leaflet-tooltip{font-weight:800;font-size:12px}
+#lmap{height:360px;border-radius:14px;display:none}.leaflet-touch .leaflet-bar a{width:40px;height:40px;line-height:40px;font-size:22px}.mhint{display:none}#lmap.on{display:block}.lpin{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:14px;background:#fff;border:2.5px solid var(--c);box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:14px}.leaflet-tooltip{font-weight:800;font-size:12px}
 .map{position:relative;width:100%;aspect-ratio:540/360;border-radius:14px;overflow:hidden;background:#BFE0F0}
 .map svg{position:absolute;inset:0;width:100%;height:100%}.map polygon{fill:#E8F1DD;stroke:#B9CDA4;stroke-width:1.2}.map .note{position:absolute;left:8px;bottom:6px;font-size:11px;color:#4d7b93;font-weight:700}
 .pin{position:absolute;transform:translate(-50%,-100%);text-decoration:none;z-index:2}
@@ -232,7 +232,9 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .btn{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:0;border-radius:30px;padding:11px 14px;min-height:44px;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap}
 .b1{background:#1A1A1A;color:#fff}.b2{background:#F4FBF3;color:#2C6E49;border:1.5px solid #3F9D5A}.b3{flex:1 1 100%;background:#3F9D5A;color:#fff}
 .rc .s-more{margin-top:14px}
+@container (min-width:641px){#lmap{height:480px}}
 @container (max-width:640px){
+  .mhint{display:inline;color:#2C6E49;font-weight:700}
   .ch{font-size:13.5px;padding:6px 12px}.flt{padding:14px 14px 12px}.frow{gap:7px;margin-bottom:14px}.tseo{font-size:14.5px}
   .sum{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px}
   .thumb{aspect-ratio:1/1;align-self:start}
@@ -264,8 +266,8 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .srcs h2{margin:0 0 8px;font-size:15px;color:#1A1A1A}.srcs ul{margin:0;padding-left:18px;line-height:1.9}.srcs a{color:#9A7B2E;word-break:break-all}
 '''
 JS = '''
-var LM=null,LMK={};
-(function(){if(!window.L)return;var m=document.getElementById('lmap');m.classList.add('on');document.getElementById('svgmap').style.display='none';LM=L.map(m,{scrollWheelZoom:false}).setView([22.36,114.13],10);var GB='https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/';L.tileLayer(GB+'basemap/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9,attribution:'<a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank" rel="noopener">© 地政總署地圖</a>'}).addTo(LM);L.tileLayer(GB+'label/hk/tc/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9}).addTo(LM);PTS.forEach(function(p){var mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:'<div class="lpin" style="--c:'+p.c+'">'+p.ic+'</div>',iconSize:[28,28],iconAnchor:[14,14]})}).addTo(LM).bindTooltip(p.n);mk.on('click',function(){go('#b-'+p.id)});LMK[p.id]=mk;});})();
+var LM=null,LMK={};function fitAll(){if(!LM)return;LM.fitBounds(L.latLngBounds(PTS.map(function(p){return [p.lat,p.lng]})),{padding:[24,24]});}
+(function(){if(!window.L)return;var m=document.getElementById('lmap');m.classList.add('on');document.getElementById('svgmap').style.display='none';var MOB=L.Browser.mobile;LM=L.map(m,{scrollWheelZoom:false,dragging:!MOB,tap:false,zoomSnap:.5}).setView([22.36,114.13],10);var GB='https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/';L.tileLayer(GB+'basemap/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9,attribution:'<a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank" rel="noopener">© 地政總署地圖</a>'}).addTo(LM);L.tileLayer(GB+'label/hk/tc/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9}).addTo(LM);PTS.forEach(function(p){var mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:'<div class="lpin" style="--c:'+p.c+'">'+p.ic+'</div>',iconSize:[28,28],iconAnchor:[14,14]})}).addTo(LM).bindTooltip(p.n);mk.on('click',function(){go('#b-'+p.id)});LMK[p.id]=mk;});})();
 function go(h){var t=document.querySelector(h);if(!t)return;t.scrollIntoView({behavior:'smooth',block:'start'});t.classList.add('hit');setTimeout(function(){t.classList.remove('hit')},1800);}
 (function(){
 var ph=document.getElementById('phone');
@@ -275,7 +277,7 @@ var st={r:'all',car:0,pet:0,cats:[]};var els=document.querySelectorAll('[data-id
 function ok(e){if(st.r!=='all'&&e.dataset.r!==st.r)return false;if(st.car&&e.dataset.car!=='1')return false;if(st.pet&&e.dataset.pet!=='Y')return false;var c=e.dataset.cats.split(' ');return st.cats.every(function(x){return c.indexOf(x)>-1})}
 function apply(){var n=0;els.forEach(function(e){var o=ok(e);e.classList.toggle('off',!o);if(o&&e.classList.contains('prow'))n++;});
 document.getElementById('cnt').textContent=(n===TOTAL?'全部 ':'符合：')+n+' 個地點';document.getElementById('empty').style.display=n?'none':'block';
-if(LM){var vis=[];document.querySelectorAll('.prow').forEach(function(e){var mk=LMK[e.dataset.id];if(!mk)return;if(e.classList.contains('off')){LM.removeLayer(mk)}else{mk.addTo(LM);vis.push(mk.getLatLng())}});if(vis.length&&vis.length<PTS.length)LM.fitBounds(L.latLngBounds(vis).pad(0.3),{maxZoom:14});else LM.setView([22.36,114.13],10);}
+if(LM){var vis=[];document.querySelectorAll('.prow').forEach(function(e){var mk=LMK[e.dataset.id];if(!mk)return;if(e.classList.contains('off')){LM.removeLayer(mk)}else{mk.addTo(LM);vis.push(mk.getLatLng())}});if(vis.length&&vis.length<PTS.length)LM.fitBounds(L.latLngBounds(vis).pad(0.3),{maxZoom:14});else fitAll();}
 document.querySelectorAll('.pk-region').forEach(function(g){g.style.display=g.querySelector('.prow:not(.off)')?'':'none'});var pins=document.querySelectorAll('.pin:not(.off)');pins.forEach(function(p){p.classList.toggle('lbl',pins.length<=6)});}
 document.querySelectorAll('.ch').forEach(function(b){b.onclick=function(){var f=b.dataset.f,v=b.dataset.v;
 if(f==='r'){st.r=v;document.querySelectorAll('.ch[data-f=r]').forEach(function(x){x.classList.toggle('on',x===b)})}
@@ -319,7 +321,7 @@ FILTER = f"""<div class="flt">
 <div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
     return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<small>點擊地圖標記查看地點介紹</small></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
-<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span></div></div>"""
+<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span><span class="mhint">👆 用兩隻手指移動及縮放地圖</span></div></div>"""
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><p class="thint">點擊地點名稱，即可查看該地點介紹。</p><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""

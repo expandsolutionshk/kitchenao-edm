@@ -153,7 +153,7 @@ FLT = f'''<div class="flt">
       <div class="chips"><span class="ch on">全部</span><span class="ch"><i style="background:{RC['nt']}"></i>新界</span><span class="ch"><i style="background:{RC['kln']}"></i>九龍</span><span class="ch"><i style="background:{RC['hk']}"></i>港島</span></div>
       <p class="lab">② 條件及類別（可多選）</p>
       <div class="chips"><span class="ch on">🚗 可泊車</span><span class="ch on">🐶 寵物友善</span><span class="ch on">🌳 大草地</span><span class="ch on">🌿 秘境</span><span class="ch on">🌊 海景</span><span class="ch on">🏛️ 特色園林</span></div>
-      <div class="act"><span class="go">🔍 確定搜尋</span><span class="cnt">全部 {N} 個地點</span><span class="rst">重設</span></div>
+      <div class="act"><span class="go">🔍 確定搜尋</span><span class="cnt">全部 {N} 個地點</span></div>
     </div>'''
 MINIMAP = f'''<div class="minimap">{MAP}
     <div class="mc c-nt"><span class="ph">{img('tpwp','')}</span><b style="--c:{RC['nt']}">大埔海濱公園</b></div>
@@ -183,7 +183,7 @@ KV.append(('G｜搜尋器＋拍立得（拍立得在右）', '同一 brief 的�
   <div class="tblock">{TTL}</div>
   <div class="ui">{FLT}</div>
   <div class="pola">{POLA}</div>
-  <div class="pcard"><img src="{BOX}" alt="Kitchen AO 酒店級野餐盒"><p><b>🧺 推介酒店級野餐盒</b>Kitchen AO<br>送到附近可停車位置</p></div>
+  <div class="pcard"><img src="{BOX}" alt="Kitchen AO 酒店級野餐盒"><p>⭐ 推介酒店級野餐盒</p></div>
   {MINIMAP}
   {LOGOH}
 </div>'''))
@@ -289,9 +289,9 @@ CSS = '''
 .k7 .pola figure{width:14.5cqw}.k7 .pola figcaption{font-size:1.2cqw;white-space:nowrap}
 .k7 .p1{left:0;top:2.5cqw;transform:rotate(-5deg)}.k7 .p2{left:14.8cqw;top:0;transform:rotate(2deg);z-index:1}.k7 .p3{left:29.4cqw;top:3cqw;transform:rotate(6deg)}
 
-.k7 .pcard{position:absolute;left:48.6cqw;bottom:3.4cqw;display:flex;align-items:center;gap:1cqw;background:#fff;border-radius:1.4cqw;padding:.7cqw 1.1cqw .7cqw .7cqw;box-shadow:0 .8cqw 2.4cqw rgba(0,0,0,.35);transform:rotate(-2deg);z-index:4}
-.k7 .pcard img{display:block;width:5.8cqw;height:5.8cqw;object-fit:cover;border-radius:.9cqw;font-size:0;background:#EEE}
-.k7 .pcard p{margin:0;font-size:1.05cqw;font-weight:700;color:#5a5348;line-height:1.5;white-space:nowrap}.k7 .pcard b{display:block;font-size:1.3cqw;font-weight:900;color:#2C6E49}
+.k7 .pcard{position:absolute;left:50.5cqw;bottom:3.2cqw;width:17cqw;background:#fff;border-radius:1.4cqw;overflow:hidden;box-shadow:0 .8cqw 2.4cqw rgba(0,0,0,.35);transform:rotate(-2deg);z-index:4}
+.k7 .pcard img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;font-size:0;background:#EEE}
+.k7 .pcard p{margin:0;padding:.8cqw 0 .9cqw;text-align:center;font-size:1.55cqw;font-weight:900;color:#2C6E49;line-height:1.3;white-space:nowrap}
 /* G：除標題外放大 20%，地圖放大 30% */
 .k7 .logo2{transform:scale(1.2);transform-origin:top right}
 .k7 .pill{font-size:2.28cqw;padding:.6cqw 2cqw;margin-bottom:1cqw}
