@@ -142,10 +142,10 @@ KV.append(('E｜拍立得＋野餐盒', '三張拍立得代表三個地區，右
 # ---- F / G：以 E 為基礎（拍立得＋搜尋器篩選框＋右下角小地圖），背景光暗參考 C ----
 FLT = f'''<div class="flt">
       <p class="lab">① 地區</p>
-      <div class="chips"><span class="ch">全部</span><span class="ch on"><i style="background:{RC['nt']}"></i>新界</span><span class="ch"><i style="background:{RC['kln']}"></i>九龍</span><span class="ch"><i style="background:{RC['hk']}"></i>港島</span></div>
-      <p class="lab">② 條件及類別</p>
-      <div class="chips"><span class="ch on">🚗 可泊車</span><span class="ch on">🐶 寵物友善</span><span class="ch">🌳 大草地</span><span class="ch">🌊 海景</span></div>
-      <div class="act"><span class="go">🔍 確定搜尋</span><span class="cnt">符合條件的地點一覽</span></div>
+      <div class="chips"><span class="ch on">全部</span><span class="ch"><i style="background:{RC['nt']}"></i>新界</span><span class="ch"><i style="background:{RC['kln']}"></i>九龍</span><span class="ch"><i style="background:{RC['hk']}"></i>港島</span></div>
+      <p class="lab">② 條件及類別（可多選）</p>
+      <div class="chips"><span class="ch on">🚗 可泊車</span><span class="ch on">🐶 寵物友善</span><span class="ch on">🌳 大草地</span><span class="ch on">🌿 秘境</span><span class="ch on">🌊 海景</span><span class="ch on">🏛️ 特色園林</span></div>
+      <div class="act"><span class="go">🔍 確定搜尋</span><span class="cnt">全部 {N} 個地點</span><span class="rst">重設</span></div>
     </div>'''
 MINIMAP = f'''<div class="minimap">{MAP}
     <div class="mc c-nt"><span class="ph">{img('tpwp','')}</span><b style="--c:{RC['nt']}">大埔海濱公園</b></div>
@@ -157,23 +157,21 @@ TTL = f'''<span class="pill">2026 香港野餐好去處</span>
     <h2 class="ttl">全港野餐<span class="y">地點搜尋器</span></h2>
     <p class="sub">{N} 個野餐地點 × 新界｜九龍｜港島</p>
     <p class="sub2">可泊車、寵物友善野餐地點一鍵搜尋</p>'''
-POLA = f'''<figure class="p1"><i class="mpin big" style="--c:{RC['nt']}"><b>🌳</b></i>{img('cwb','')}<figcaption><b style="color:{RC['nt']}">新界</b>清水灣大坑墩</figcaption></figure>
+POLA = f'''<figure class="p1"><i class="mpin big" style="--c:{RC['nt']}"><b>🌳</b></i>{img('tpwp','')}<figcaption><b style="color:{RC['nt']}">新界</b>大埔海濱公園</figcaption></figure>
     <figure class="p2"><i class="mpin big" style="--c:{RC['kln']}"><b>🌊</b></i>{img('ktct','')}<figcaption><b style="color:{RC['kln']}">九龍</b>啟德郵輪碼頭公園</figcaption></figure>
     <figure class="p3"><i class="mpin big" style="--c:{RC['hk']}"><b>🌳</b></i>{img('tamar','')}<figcaption><b style="color:{RC['hk']}">港島</b>添馬公園</figcaption></figure>'''
-KV.append(('F｜拍立得＋搜尋器（拍立得在左）', '以 E 為基礎：左邊三張拍立得代表三區；右邊標題下改放搜尋器篩選框；搜尋器地圖縮細放右下角。背景右側加深，光暗參考 C。', f'''
+KV.append(('F｜拍立得＋搜尋器（拍立得在左）', '以 E 為基礎：左邊三張拍立得代表三區；右邊標題下改放搜尋器篩選框；搜尋器地圖縮細放右下角。背景改用清水灣郊野公園實景，不加暗化效果。', f'''
 <div class="kv kf k6">
-  {img('jvp')}
-  <div class="shadeR"></div>
+  {img('cwb')}
   <div class="pola">{POLA}</div>
   <div class="tblock">{TTL}</div>
   <div class="ui">{FLT}</div>
   {MINIMAP}
   {LOGOH}
 </div>'''))
-KV.append(('G｜搜尋器＋拍立得（拍立得在右）', '同一 brief 的另一排法：標題及篩選框放左邊（背景左側加深，與 C 相同）；三張拍立得在右上方展開；小地圖放右下角。', f'''
+KV.append(('G｜搜尋器＋拍立得（拍立得在右）', '同一 brief 的另一排法：標題及篩選框放左邊（背景同樣不加暗化）；三張拍立得在右上方展開；小地圖放右下角。', f'''
 <div class="kv kf k7">
-  {img('jvp')}
-  <div class="shadeL"></div>
+  {img('cwb')}
   <div class="tblock">{TTL}</div>
   <div class="ui">{FLT}</div>
   <div class="pola">{POLA}</div>
@@ -250,17 +248,17 @@ CSS = '''
 .boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
 .boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
 
-.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;display:inline-flex;align-items:center;gap:.5cqw;background:#fff;border:.28cqw solid #1A1A1A;border-radius:3cqw;padding:.45cqw 1.5cqw .45cqw 1.2cqw;box-shadow:0 .3cqw 1cqw rgba(0,0,0,.25)}
+.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;display:inline-flex;align-items:center;gap:.5cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:.6cqw 1.8cqw .6cqw 1.4cqw}
 .logo2 .tri{width:0;height:0;border-left:1.05cqw solid transparent;border-right:1.05cqw solid transparent;border-bottom:1.8cqw solid #1A1A1A}
-.logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#E0A53A;margin-left:-.35cqw}
-.logo2 b{margin-left:.5cqw;font-family:"Avenir Next Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:1.9cqw;letter-spacing:.12cqw;color:#1A1A1A;line-height:1}
+.logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#F39A2B;margin-left:-.35cqw}
+.logo2 b{margin-left:.6cqw;font-family:"Avenir Next Condensed","DIN Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:2.2cqw;letter-spacing:.05cqw;color:#1A1A1A;line-height:1}
 /* F / G */
 .kf .shadeR{position:absolute;inset:0;background:linear-gradient(270deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,0) 72%)}
 .kf .shadeL{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,0) 72%)}
-.kf .ttl{font-size:4.8cqw;white-space:nowrap}.kf .sub{font-size:2.2cqw;margin-top:1.2cqw}.kf .sub2{font-size:1.9cqw;margin-top:1cqw}
-.kf .flt{background:#fff;border-radius:1.8cqw;padding:1.6cqw 1.8cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
-.kf .lab{margin:0 0 .6cqw;font-size:1.25cqw;font-weight:800;color:#7a6a45}.kf .chips{margin-bottom:1cqw}
-.kf .act{display:flex;align-items:center;gap:1.2cqw;border-top:.1cqw solid #EFE8DA;padding-top:1cqw}.kf .cnt{font-size:1.25cqw;font-weight:700;color:#5a5348}
+.kf .ttl{font-size:4.8cqw;white-space:nowrap}.kf .sub{font-size:2.3cqw;margin-top:1.2cqw;color:#1A1A1A;font-weight:900;-webkit-text-stroke:.45cqw #fff;paint-order:stroke fill;text-shadow:none}.kf .sub2{font-size:1.9cqw;margin-top:1cqw}
+.kf .flt{background:#fff;border-radius:1.8cqw;padding:1.4cqw 1.6cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
+.kf .ch{font-size:1.25cqw;padding:.35cqw .9cqw}.kf .lab{margin:0 0 .5cqw;font-size:1.2cqw;font-weight:800;color:#7a6a45}.kf .chips{margin-bottom:1cqw}
+.kf .rst{margin-left:auto;font-size:1.25cqw;font-weight:700;color:#9A7B2E;text-decoration:underline}.kf .act{display:flex;align-items:center;gap:1.2cqw;border-top:.1cqw solid #EFE8DA;padding-top:1cqw}.kf .cnt{font-size:1.25cqw;font-weight:700;color:#5a5348}
 .kf .ui{position:absolute;width:36cqw}
 .kf .pola{position:absolute}.kf .pola figure{width:17cqw;padding:.8cqw .8cqw 0}.kf .pola figcaption{font-size:1.35cqw;padding:.6cqw 0 .8cqw}
 .kf .pola .mpin.big{width:3.6cqw;height:3.6cqw;margin-left:-1.8cqw;top:-2.2cqw}.kf .pola .mpin.big b{font-size:1.7cqw}
@@ -273,11 +271,11 @@ CSS = '''
 /* F：拍立得在左，標題及篩選框在右 */
 .k6 .pola{left:3cqw;top:4cqw;width:46%;height:50cqw}
 .k6 .p1{left:0;top:1cqw;transform:rotate(-7deg)}.k6 .p2{left:14cqw;top:9cqw;transform:rotate(4deg);z-index:1}.k6 .p3{left:3cqw;top:25cqw;transform:rotate(3deg)}
-.k6 .tblock{position:absolute;left:47%;top:5cqw;color:#fff}
-.k6 .ui{left:47%;top:28.5cqw;width:32cqw}
+.k6 .tblock{position:absolute;left:47%;top:3.5cqw;color:#fff}
+.k6 .ui{left:47%;top:27cqw;width:32cqw}
 /* G：標題及篩選框在左，拍立得在右上 */
-.k7 .tblock{position:absolute;left:4cqw;top:4cqw;color:#fff}
-.k7 .ui{left:4cqw;top:28.5cqw}
+.k7 .tblock{position:absolute;left:4cqw;top:3.5cqw;color:#fff}
+.k7 .ui{left:4cqw;top:27cqw;width:34cqw}
 .k7 .pola{left:55%;top:9cqw;width:42%;height:30cqw}
 .k7 .p1{left:0;top:2cqw;transform:rotate(-6deg)}.k7 .p2{left:12cqw;top:0;transform:rotate(3deg);z-index:1}.k7 .p3{left:24cqw;top:3cqw;transform:rotate(8deg)}
 '''
