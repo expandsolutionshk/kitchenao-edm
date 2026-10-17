@@ -333,7 +333,7 @@ FILTER = f"""<div class="fbar"><button class="fbtn" type="button">⚙️ 篩選 
 <div class="frow f2"><span class="lab">② 條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
-    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<span class="mhint">👆 用兩隻手指移動及縮放地圖</span></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
+    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<span class="mhint">🤏 用兩隻手指移動及縮放地圖</span></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
 </div>"""
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
