@@ -1,11 +1,11 @@
 # 搜尋器整合版（篩選 + 地圖 + 一覽比較表 + B 款地點介紹）→ combo-mobile.html
 # 2026-10-17：地點卡改用 B 款（列表＋詳情），加入官方資料（official.py）、野餐盒 pop up、資料來源
-import importlib.util, json, os, html as H
+import importlib.util, json, os, re, html as H
 from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
 def _load(n):
     s = importlib.util.spec_from_file_location(n, os.path.join(HERE, n + '.py')); m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
-b = _load('build'); P = b.P; CATS = b.CATS
+_pk = _load('parks'); P = _pk.P; CATS = _pk.CATS
 O = _load('official').O
 def off(p):
     return O.get(p['name']) or O.get(p['name'].split(' / ')[0]) or {}
@@ -27,7 +27,7 @@ land = ''.join(f'<polygon points="{" ".join(f"{x:.1f},{y:.1f}" for x,y in (xy(la
 RN = {'hk':'港島','kln':'九龍','nt':'新界'}
 RC = {'hk':'#E8743B','kln':'#3F9D5A','nt':'#1E5BD8'}
 IC = lambda p: CATS[p['cats'][0]][0] if p['cats'] else '🧺'
-VAC = b.VAC
+VAC = 'https://resource.data.one.gov.hk/td/carpark/'
 UTM = '?ao_ref=picnic_search'
 def attrs(p): return f'data-id="{p["id"]}" data-r="{p["r"]}" data-car="{1 if p["car"] else 0}" data-pet="{p["pet"]}" data-cats="{" ".join(p["cats"])}"'
 def unk(v): return (not v) or str(v).startswith('未能確認')
@@ -52,9 +52,9 @@ def ktags(p):
     if p['pet'] == 'Y': t.append('<span class="t pet">🐶 寵物友善</span>')
     elif p['pet'] == 'P': t.append('<span class="t pet">🐾 寵物指定範圍</span>')
     return ''.join(t)
-def card(p):
+def card(p, kw=False):
     o = off(p); imgs = o.get('img', []) or []
-    thumb = (imgs[1] if len(imgs) > 1 else (imgs[0] if imgs else ''))
+    thumb = o.get('thumb') or (imgs[1] if len(imgs) > 1 else (imgs[0] if imgs else ''))
     thumb_h = f'<img src="{thumb}" alt="{esc(p["name"])}" loading="lazy">' if thumb else '<span class="noimg">📷</span>'
     opn = o.get('open', '') if not unk(o.get('open')) else ''
     quick = []
@@ -66,7 +66,7 @@ def card(p):
         figs = ''.join(f'<figure><img src="{u}" alt="{esc(p["name"])}" loading="lazy"></figure>' for u in imgs)
         nav = '<button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button>' if len(imgs) > 1 else ''
         dots = '<div class="dots">' + ''.join('<i class="on"></i>' if i == 0 else '<i></i>' for i in range(len(imgs))) + '</div>' if len(imgs) > 1 else ''
-        gal = f'<div class="gal"><div class="tr">{figs}</div><span class="src">圖片來源：官方網頁</span>{nav}{dots}</div>'
+        gal = f'<div class="gal"><div class="tr">{figs}</div><span class="src">圖片來源：{o.get("imgsrc","官方網頁")}</span>{nav}{dots}</div>'
     else:
         gal = '<div class="gal none"><span>📷 相片待補</span></div>'
     facts = []
@@ -101,7 +101,7 @@ def card(p):
     return f'''<article class="prow" id="b-{p['id']}" {attrs(p)}>
   <div class="sum">
     <div class="thumb">{thumb_h}<span class="rg" style="background:{RC[p['r']]}">{RN[p['r']]}</span></div>
-    <div class="info"><div class="ttl"><h3>{p['name']}</h3><small>{p['en']}</small></div><div class="tg">{ktags(p)}</div><p class="kin">{p['intro']}</p><p class="quick">{''.join(quick)}</p></div>
+    <div class="info"><div class="ttl"><h3>{p['name']}</h3><small>{p['en']}</small></div><div class="tg">{ktags(p)}</div>{f'<p class="pk-kw">目標關鍵字：<mark class="kw">{p["kw"]}</mark></p>' if kw else ''}<p class="kin">{p['intro']}</p><p class="quick">{''.join(quick)}</p></div>
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
@@ -128,7 +128,8 @@ pcards = ''.join(f'<div class="pc"><div class="pim"><img src="{im}" alt="{n}" lo
 srcs = [('康樂及文化事務署 — 公園及動植物公園','https://www.lcsd.gov.hk/tc/facilities/facilitieslist/parks.html'),
         ('康樂及文化事務署 — 「寵物共享公園」及寵物共享範圍地圖','https://www.lcsd.gov.hk/tc/facilities/otherinfo/petpark.html'),
         ('運輸署 — 實時停車場空位資料（資料一線通）','https://data.gov.hk/tc-data/dataset/hk-td-tis_5-real-time-parking-vacancy-data'),
-        ('漁農自然護理署 — 郊野公園','https://www.afcd.gov.hk/tc_chi/country/cou_lea/the_facts.html')]
+        ('漁農自然護理署 — 郊野公園','https://www.afcd.gov.hk/tc_chi/country/cou_lea/the_facts.html'),
+        ('香港旅遊發展局 — 摩星嶺、愉景灣中央公園及彭福公園相片','https://www.discoverhongkong.com/tc/place-to-go/travel.guide-penfold-park.html')]
 srcs_h = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener">{esc(n)}</a></li>' for n, u in srcs) + '<li>各地點的官方資料，請參閱地點卡內「🏛️ 官方網頁」按鈕</li><li>地圖：地政總署地圖 API（香港地理空間數據共享平台）；相片：各官方網頁</li><li>核對日期：2026-10-17</li>'
 
 chips_r = '<button class="ch on" data-f="r" data-v="all">全部</button>' + ''.join(f'<button class="ch" data-f="r" data-v="{k}"><i style="background:{RC[k]}"></i>{v}</button>' for k,v in RN.items())
@@ -156,6 +157,13 @@ CSS = '''
 .pin i{position:absolute;left:50%;top:-20px;transform:translateX(-50%);display:none;font-style:normal;font-size:11px;font-weight:800;color:#1A1A1A;background:#fff;border-radius:6px;padding:1px 6px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 .pin:hover i,.pin.lbl i{display:block}
 .lg{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px;font-size:11px;color:#7A7268}
+.sec .sh{margin:0 0 8px;font-size:16px;color:#1A1A1A}.sec .sh small{font-weight:600;color:#9A8f7e;font-size:12px;margin-left:4px}
+.tseo{margin:0 0 10px;font-size:14px;line-height:1.85;color:#5a5348}
+.cmp{border:1.5px solid #3F9D5A;border-radius:14px;background:#fff;overflow:hidden}
+.cmp summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 14px;font-weight:800;font-size:14.5px;color:#2C6E49;background:#F4FBF3}.cmp summary::-webkit-details-marker{display:none}
+.cmp .ar{transition:transform .2s}.cmp[open] .ar{transform:rotate(180deg)}
+.thint{margin:0;padding:8px 12px;font-size:12px;color:#9A8f7e}
+.cmp .tw{border:0;border-top:1px solid #EFE8DA;border-radius:0}
 .tw{overflow-x:auto;border-radius:12px;border:1px solid #EFE8DA;max-height:520px;overflow-y:auto}
 table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:12px}
 th{position:sticky;top:0;z-index:1;background:#1A1A1A;color:#fff;padding:6px 0;font-weight:700;font-size:13px}th small{display:block;font-size:9.5px;font-weight:600;opacity:.8}
@@ -252,7 +260,7 @@ function ok(e){if(st.r!=='all'&&e.dataset.r!==st.r)return false;if(st.car&&e.dat
 function apply(){var n=0;els.forEach(function(e){var o=ok(e);e.classList.toggle('off',!o);if(o&&e.classList.contains('prow'))n++;});
 document.getElementById('cnt').textContent=(n===TOTAL?'全部 ':'符合：')+n+' 個地點';document.getElementById('empty').style.display=n?'none':'block';
 if(LM){var vis=[];document.querySelectorAll('.prow').forEach(function(e){var mk=LMK[e.dataset.id];if(!mk)return;if(e.classList.contains('off')){LM.removeLayer(mk)}else{mk.addTo(LM);vis.push(mk.getLatLng())}});if(vis.length&&vis.length<PTS.length)LM.fitBounds(L.latLngBounds(vis).pad(0.3),{maxZoom:14});else LM.setView([22.36,114.13],10);}
-var pins=document.querySelectorAll('.pin:not(.off)');pins.forEach(function(p){p.classList.toggle('lbl',pins.length<=6)});}
+document.querySelectorAll('.pk-region').forEach(function(g){g.style.display=g.querySelector('.prow:not(.off)')?'':'none'});var pins=document.querySelectorAll('.pin:not(.off)');pins.forEach(function(p){p.classList.toggle('lbl',pins.length<=6)});}
 document.querySelectorAll('.ch').forEach(function(b){b.onclick=function(){var f=b.dataset.f,v=b.dataset.v;
 if(f==='r'){st.r=v;document.querySelectorAll('.ch[data-f=r]').forEach(function(x){x.classList.toggle('on',x===b)})}
 else if(f==='car'){st.car=!st.car;b.classList.toggle('on')}else if(f==='pet'){st.pet=!st.pet;b.classList.toggle('on')}
@@ -278,22 +286,63 @@ fetch(b.dataset.src).then(function(r){return r.json()}).then(function(j){var v=n
 .catch(function(){o.innerHTML='<a href="'+b.dataset.src+'" target="_blank" rel="noopener">開啟數據</a>'})}});
 apply();})();
 '''
-html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>全港野餐地點搜尋器 Demo（{N} 個地點）</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><style>{CSS}</style></head><body>
-<div class="vt" role="tablist"><button class="on" data-v="m" role="tab">📱 手機版</button><button data-v="d" role="tab">💻 電腦版</button></div>
-<div class="phone" id="phone">
-<div class="hd"><p>Kitchen AO・Blog 1 搜尋器 Demo</p><h1>🧺 全港野餐地點搜尋器（{N} 個地點）</h1></div>
-<div class="flt">
+
+# ---------- 共用片段（combo-mobile.html 及 blog preview 共用）----------
+from collections import Counter
+_cc = Counter(c for p in P for c in p['cats']); _rc = Counter(p['r'] for p in P)
+NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y'); NPETP = sum(1 for p in P if p['pet'] == 'P')
+TBL_SEO = (f'全港 {N} 個野餐地點一覽：港島 {_rc["hk"]} 個、九龍 {_rc["kln"]} 個、新界 {_rc["nt"]} 個。'
+           f'當中 {NCAR} 個鄰近設有停車場，適合駕車野餐；{NPET} 個屬寵物友善地點，另有 {NPETP} 個設寵物指定範圍，方便帶狗狗野餐。'
+           f'按地點類別劃分，大草地 {_cc["lawn"]} 個、海景 {_cc["sea"]} 個、秘境 {_cc["hidden"]} 個及特色園林 {_cc["euro"]} 個。'
+           '展開下表，即可一次比較各地點的泊車、寵物及類別資料。')
+FILTER = f"""<div class="flt">
 <div class="frow"><span class="lab">① 地區</span>{chips_r}</div>
 <div class="frow"><span class="lab">② 條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <button class="go" id="go" type="button">🔍 確定搜尋</button>
-<div class="cnt"><span id="cnt"></span><button id="rst">重設</button></div></div>
-<div class="sec" id="hk-map"><h2>📍 地圖<small>點擊地圖標記查看地點介紹</small></h2><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
-<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span></div></div>
-<div class="sec"><h2>📊 一覽比較表<small>點擊地點名稱查看介紹</small></h2><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></div>
+<div class="cnt"><span id="cnt"></span><button id="rst">重設</button></div></div>"""
+def MAP(hx='h2'):
+    return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<small>點擊地圖標記查看地點介紹</small></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
+<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span>標記內圖示＝主要類別</span></div></div>"""
+def TABLE(hx='h2'):
+    return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
+<details class="cmp"><summary><span>📊 展開一覽比較表（{N} 個地點）</span><b class="ar">▾</b></summary><p class="thint">點擊地點名稱，即可查看該地點介紹。</p><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
+POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。消費滿 $1,450 免運費，於地面可停車位置車邊交收。</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
+<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc">圖片來源︰官方網頁</p></div></div>"""
+SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
+LEAF_CSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">'
+SCRIPTS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><script>var PTS=' + json.dumps([dict(id=p["id"],n=p["name"],lat=GEO[p["id"]][0],lng=GEO[p["id"]][1],c=RC[p["r"]],ic=IC(p)) for p in P],ensure_ascii=False) + ';</script><script>' + JS + '</script>'
+PAGE_ONLY = ('*{', 'body{', '.vt', '.phone', '.hd')
+def scope_css(css, pre):
+    """將元件 CSS 加上前綴（供 WordPress 文章使用），略過 demo 頁面專用規則"""
+    out = []; i = 0; n = len(css)
+    def rules(block):
+        res = []
+        for m in re.finditer(r'([^{}]+)\{([^{}]*)\}', block):
+            sel, body = m.group(1).strip(), m.group(2)
+            parts = [x.strip() for x in sel.split(',')]
+            if any(x.startswith(PAGE_ONLY) for x in parts): continue
+            res.append(','.join(f'{pre} {x}' for x in parts) + '{' + body + '}')
+        return '\n'.join(res)
+    while i < n:
+        j = css.find('@', i)
+        if j < 0: out.append(rules(css[i:])); break
+        out.append(rules(css[i:j]))
+        k = css.index('{', j); depth = 1; e = k + 1
+        while depth:
+            depth += {'{': 1, '}': -1}.get(css[e], 0); e += 1
+        out.append(css[j:k] + '{' + rules(css[k+1:e-1]) + '}')
+        i = e
+    return '\n'.join(x for x in out if x)
+html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>全港野餐地點搜尋器 Demo（{N} 個地點）</title>{LEAF_CSS}<style>{CSS}</style></head><body>
+<div class="vt" role="tablist"><button class="on" data-v="m" role="tab">📱 手機版</button><button data-v="d" role="tab">💻 電腦版</button></div>
+<div class="phone" id="phone">
+<div class="hd"><p>Kitchen AO・Blog 1 搜尋器 Demo</p><h1>🧺 全港野餐地點搜尋器（{N} 個地點）</h1></div>
+{FILTER}
+{MAP()}
+{TABLE()}
 <div class="sec"><h2>📝 地點介紹</h2><p class="empty" id="empty">沒有符合條件的地點，請嘗試減少篩選條件。</p>{items}</div>
-<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>
-<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。消費滿 $1,450 免運費，於地面可停車位置車邊交收。</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
-<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc">圖片來源︰官方網頁</p></div></div>
-</div><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><script>var PTS={json.dumps([dict(id=p["id"],n=p["name"],lat=GEO[p["id"]][0],lng=GEO[p["id"]][1],c=RC[p["r"]],ic=IC(p)) for p in P],ensure_ascii=False)};</script><script>{JS}</script></body></html>'''
+{SRCS}
+{POPUPS}
+</div>{SCRIPTS}</body></html>'''
 if __name__ == '__main__':
     open(os.path.join(HERE, 'combo-mobile.html'), 'w').write(html); print(len(html), N)

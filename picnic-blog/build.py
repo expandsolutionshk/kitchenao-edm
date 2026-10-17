@@ -6,6 +6,7 @@ from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
 _s = importlib.util.spec_from_file_location('parks', os.path.join(HERE, 'parks.py')); _m = importlib.util.module_from_spec(_s); _s.loader.exec_module(_m)
 CATS, REGIONS, P = _m.CATS, _m.REGIONS, _m.P
+_c = importlib.util.spec_from_file_location('combo', os.path.join(HERE, 'combo.py')); C = importlib.util.module_from_spec(_c); _c.loader.exec_module(C)  # 搜尋器、地圖、比較表、B 款地點卡
 
 UTM = 'ao_ref=picnic_blog1'
 CHILL = 'https://aoaodelivery.com/product-category/party/chill-box/?' + UTM
@@ -62,11 +63,11 @@ def card(p):
 regions = ''
 for i, (rid, rname, rkw) in enumerate(REGIONS):
     ps = [p for p in P if p['r'] == rid]
-    cards = ''.join(card(p) for p in ps)
+    cards = ''.join(C.card(p, kw=True) for p in ps)
     regions += f'''<section class="pk-region" data-region="{rid}">
   <h2 class="ao-h2" id="r-{rid}">{"一二三"[i]}、{rname}野餐（{len(ps)} 個地點）</h2>
   <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】<mark class="kw">{rkw}</mark>可以去哪裡？以下 {len(ps)} 個地點已按可泊車、寵物友善及地點類別標示。</p>
-  <div class="pk-grid">{cards}</div>
+  <div class="pk-list">{cards}</div>
 </section>'''
 
 chips_r = ''.join(f'<button type="button" class="pk-chip" data-f="r" data-v="{rid}">{rn}</button>' for rid, rn, _ in REGIONS)
@@ -74,7 +75,7 @@ chips_c = ''.join(f'<button type="button" class="pk-chip" data-f="cat" data-v="{
 legend = ''.join(f'<span>{v[0]} {v[1]}</span>' for v in CATS.values())
 
 CSS = open(os.path.join(HERE, 'style.css')).read()
-JS = open(os.path.join(HERE, 'tool.js')).read()
+CSS += '\n/* ===== 搜尋器＋地圖＋比較表＋B 款地點卡（由 combo.py 生成）===== */\n.ao-picnic .pk-cmb{container-type:inline-size}\n.ao-picnic .pk-cmb *{box-sizing:border-box}\n' + C.scope_css(C.CSS, '.ao-picnic')
 FAQ = [
  ('野餐幾點到達最容易找到位置？', '建議上午 11 時 30 分前或下午 3 時 30 分後到達：早到可佔樹蔭位置，下午到達則可避開正午烈日，還可欣賞日落。'),
  ('香港的公園可以野餐嗎？', '大部分康文署公園的草地均可野餐，但部分草坪會輪流開放或進行保養，出發前建議先查閱康文署網頁。'),
@@ -112,16 +113,13 @@ BODY = f'''<div class="ao-article ao-picnic">
 
 <h2 class="ao-h2" id="pk-tool">🔍 全港野餐地點搜尋器</h2>
 <p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】先選擇地區，再以三個條件篩選：<mark class="kw">野餐泊車</mark>、<mark class="kw">狗狗野餐好去處</mark>，以及大草地、秘境、海景及特色園林等地點類別。</p>
-<div class="pk-tool" id="pkTool">
-  <div class="pk-row"><span class="pk-lab">① 地區</span><button type="button" class="pk-chip on" data-f="r" data-v="all">全部</button>{chips_r}</div>
-  <div class="pk-row"><span class="pk-lab">② 條件</span><button type="button" class="pk-chip" data-f="car" data-v="1">🚗 可泊車</button><button type="button" class="pk-chip" data-f="pet" data-v="Y">🐶 寵物友善</button></div>
-  <div class="pk-row"><span class="pk-lab">③ 類別</span>{chips_c}</div>
-  <div class="pk-foot"><span id="pkCount">顯示全部 {N} 個地點</span><button type="button" class="pk-reset" id="pkReset">重設</button></div>
-  <div class="pk-legend">{legend}<span>🚗 可泊車</span><span>🐶 寵物友善</span><span>🐾 寵物指定範圍</span></div>
-</div>
-<p class="pk-empty" id="pkEmpty" hidden>沒有符合條件的地點，請嘗試減少篩選條件。</p>
-
+<div class="pk-cmb">
+{C.FILTER}
+{C.MAP('h3')}
+{C.TABLE('h3')}
+<p class="empty" id="empty">沒有符合條件的地點，請嘗試減少篩選條件。</p>
 {regions}
+</div>
 
 <h2 class="ao-h2" id="dog">🐶 帶狗狗野餐須知</h2>
 <p class="ao-aio">【AIO 直接解答｜待撰寫】<mark class="kw">狗狗野餐</mark>前，記得選擇准許寵物進入的草地，並遵守以下守則：</p>
@@ -156,10 +154,11 @@ BODY = f'''<div class="ao-article ao-picnic">
 <a href="https://aoaodelivery.com/blog/kids-birthday-party-catering/">【香港家長必讀】小朋友生日會到會挑選指南 →</a>
 </div>
 
-<div class="pk-modal" id="pkModal" hidden><div class="pk-mbox"><button type="button" class="pk-mx" aria-label="關閉">✕</button><p class="pk-mt"></p><img alt="寵物共享公園範圍地圖"><p class="pk-msrc">地圖來源︰康文署</p></div></div>
+{C.SRCS}
+{C.POPUPS}
 </div>
 <script type="application/ld+json">{faq_ld}</script>
-<script>{JS}</script>
+{C.LEAF_CSS}{C.SCRIPTS}
 '''
 
 prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>【2026香港野餐好去處】港九新界海景、大草地及隱世公園野餐地點推介</title></head><body style="margin:0;padding:24px 14px;background:#fff">
