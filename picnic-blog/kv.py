@@ -188,6 +188,17 @@ KV.append(('G｜搜尋器＋拍立得（拍立得在右）', '同一 brief 的�
   {LOGOH}
 </div>'''))
 
+KV.append(('G-M｜G 手機版（1080 × 1350）', '手機版 KV（4:5，參考船P篇 1080 × 1350）：標題在上，三張拍立得一行排開，下面左邊搜尋卡、右邊小地圖及野餐盒推介。', f'''
+<div class="kv kf k8">
+  {img('cwb')}
+  <div class="tblock">{TTL}</div>
+  <div class="pola">{POLA}</div>
+  <div class="ui">{FLT}</div>
+  {MINIMAP}
+  <div class="pcard"><img src="{BOX}" alt="Kitchen AO 酒店級野餐盒"><p>⭐ 推介酒店級野餐盒</p></div>
+  {LOGOH}
+</div>'''))
+
 CSS = '''
 *{box-sizing:border-box}body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
 .wrap{max-width:1240px;margin:0 auto;padding:24px 16px 60px}.wrap>h1{font-size:22px;margin:0 0 4px}.wrap>p{margin:0 0 20px;color:#7a6a45;font-size:14px}
@@ -302,16 +313,37 @@ CSS = '''
 .k7 .pola .mpin.big{width:4.3cqw;height:4.3cqw;margin-left:-2.15cqw;top:-2.6cqw}.k7 .pola .mpin.big b{font-size:2cqw}
 .k7 .p1{left:0}.k7 .p2{left:15.3cqw}.k7 .p3{left:30.6cqw}
 .k7 .minimap{transform:rotate(2deg) scale(1.3);transform-origin:bottom right}
+
+/* G-M 手機版 4:5（1080 × 1350）*/
+.k8{aspect-ratio:4/5}
+.k8 .logo2{transform:scale(1.9);transform-origin:top right;right:4cqw;top:4cqw}
+.k8 .tblock{position:absolute;left:5cqw;top:13cqw;color:#fff}
+.k8 .pill{font-size:3.4cqw;padding:.9cqw 3cqw;margin-bottom:1.6cqw}
+.k8 .ttl{font-size:8.6cqw;white-space:nowrap;-webkit-text-stroke:.9cqw #1A1A1A;text-shadow:0 .8cqw 0 #1A1A1A}
+.k8 .sub{font-size:4.2cqw;margin-top:2cqw;-webkit-text-stroke:.7cqw #fff}
+.k8 .sub2{font-size:3.5cqw;padding:1.1cqw 2.8cqw;margin-top:1.8cqw;box-shadow:.7cqw .7cqw 0 #1A1A1A}
+.k8 .pola{left:5cqw;top:53cqw;width:90cqw;height:30cqw}
+.k8 .pola figure{width:27cqw;padding:1.3cqw 1.3cqw 0}.k8 .pola figcaption{font-size:2.1cqw;padding:1cqw 0 1.3cqw;white-space:nowrap}
+.k8 .pola .mpin.big{width:6cqw;height:6cqw;margin-left:-3cqw;top:-3.6cqw;border-width:.6cqw}.k8 .pola .mpin.big b{font-size:2.8cqw}
+.k8 .p1{left:0;top:2cqw;transform:rotate(-5deg)}.k8 .p2{left:31.5cqw;top:0;transform:rotate(2deg);z-index:1}.k8 .p3{left:63cqw;top:2.5cqw;transform:rotate(5deg)}
+.k8 .ui{left:5cqw;top:83cqw;width:33cqw;transform:scale(1.75);transform-origin:top left}
+.k8 .minimap{right:4.5cqw;bottom:auto;top:82cqw;width:22cqw;transform:rotate(2deg) scale(1.2);transform-origin:top right}
+.k8 .pcard{position:absolute;right:5cqw;bottom:3.5cqw;width:27cqw;background:#fff;border-radius:2.2cqw;overflow:hidden;box-shadow:0 1.2cqw 3.6cqw rgba(0,0,0,.35);transform:rotate(-2deg);z-index:4}
+.k8 .pcard img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;font-size:0;background:#EEE}
+.k8 .pcard p{margin:0;padding:1cqw 0 1.2cqw;text-align:center;font-size:2.35cqw;font-weight:900;color:#2C6E49;line-height:1.3;white-space:nowrap}
 '''
-html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（7 款）</title><style>{CSS}</style></head><body><div class="wrap">
-<h1>🧺 Blog 1 KV 方案（7 款，1600 × 900）</h1>
+html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案</title><style>{CSS}</style></head><body><div class="wrap">
+<h1>🧺 Blog 1 KV 方案（7 款＋G 手機版）</h1>
 <p>背景為官方實景相片（康文署／旅發局，僅作概念示意）；正式製作建議改用自家拍攝或已取得授權的高解像度相片。</p>
 {''.join(f'<section class="opt"><h3>{t}</h3><p>{d}</p>{h}</section>' for t, d, h in KV)}
 </div></body></html>'''
 # 選定方案 G → 單獨 KV 頁（供 blog mockup 以 iframe 嵌入）
-KV_G = [h for t, d, h in KV if t.startswith('G')][0]
+KV_G = [h for t, d, h in KV if t.startswith('G｜')][0]
+KV_GM = [h for t, d, h in KV if t.startswith('G-M')][0]
 KV_G_HTML = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV（G）</title><style>{CSS}
 html,body{{margin:0;background:transparent}}.kv{{border-radius:0;box-shadow:none}}</style></head><body>{KV_G}</body></html>'''
+KV_GM_HTML = KV_G_HTML.replace(KV_G, KV_GM).replace('Blog 1 KV（G）', 'Blog 1 KV（G 手機版）')
 if __name__ == '__main__':
     open(os.path.join(HERE, 'kv-options.html'), 'w').write(html)
-    open(os.path.join(HERE, 'kv-g.html'), 'w').write(KV_G_HTML); print('ok', len(KV))
+    open(os.path.join(HERE, 'kv-g.html'), 'w').write(KV_G_HTML)
+    open(os.path.join(HERE, 'kv-g-mobile.html'), 'w').write(KV_GM_HTML); print('ok', len(KV))
