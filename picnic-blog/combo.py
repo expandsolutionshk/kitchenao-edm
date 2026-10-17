@@ -30,6 +30,12 @@ IC = lambda p: CATS[p['cats'][0]][0] if p['cats'] else '🧺'
 VAC = 'https://resource.data.one.gov.hk/td/carpark/'
 UTM = '?ao_ref=picnic_search'
 def attrs(p): return f'data-id="{p["id"]}" data-r="{p["r"]}" data-car="{1 if p["car"] else 0}" data-pet="{p["pet"]}" data-cats="{" ".join(p["cats"])}"'
+AG = [('lcsd.gov.hk','康樂及文化事務署'),('afcd.gov.hk','漁農自然護理署'),('hiking.gov.hk','漁農自然護理署'),('info.gov.hk','政府新聞處'),
+      ('discoverhongkong.com','香港旅遊發展局'),('westk.hk','西九文化區管理局'),('cyberport.hk','數碼港'),('disney.com','香港迪士尼樂園'),('ccidahk.gov.hk','文化創意產業發展處')]
+def agency(u):
+    for d, n in AG:
+        if d in u: return n
+    return ''
 def unk(v): return (not v) or str(v).startswith('未能確認')
 def esc(v): return H.escape(str(v))
 
@@ -66,10 +72,10 @@ def card(p, kw=False):
     quick.append(f'<span>🅿️ {len(p["car"])} 個鄰近停車場</span>' if p['car'] else f'<span>🅿️ {esc(p.get("carnote","沒有停車場資料"))}</span>')
     # gallery
     if imgs:
-        figs = ''.join(f'<figure data-n="{nm}"><img src="{u}" alt="{esc(p["name"])}" loading="lazy" referrerpolicy="no-referrer" {ERR}></figure>' for u in imgs)
+        figs = ''.join(f'<figure data-n="{nm}"><span class="src">圖片來源：{agency(u)}</span><img src="{u}" alt="{esc(p["name"])}" loading="lazy" referrerpolicy="no-referrer" {ERR}></figure>' for u in imgs)
         nav = '<button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button>' if len(imgs) > 1 else ''
         dots = '<div class="dots">' + ''.join('<i class="on"></i>' if i == 0 else '<i></i>' for i in range(len(imgs))) + '</div>' if len(imgs) > 1 else ''
-        gal = f'<div class="gal"><div class="tr">{figs}</div><span class="src">圖片來源：{o.get("imgsrc","官方網頁")}</span>{nav}{dots}</div>'
+        gal = f'<div class="gal"><div class="tr">{figs}</div>{nav}{dots}</div>'
     else:
         gal = f'<div class="gal ph" data-n="{nm}"></div>'
     facts = []
@@ -96,9 +102,8 @@ def card(p, kw=False):
     mp = o.get('map', '')
     if mp:
         if mp.lower().endswith('.pdf'): btns.append(f'<a class="btn b2" href="{mp}" target="_blank" rel="noopener">🗺️ 平面圖（PDF）</a>')
-        else: btns.append(f'<button class="btn b2" type="button" data-img="{mp}" data-t="{esc(p["name"])}｜平面圖">🗺️ 公園平面圖</button>')
-    if p.get('petmap'): btns.append(f'<button class="btn b2" type="button" data-img="{p["petmap"]}" data-t="{esc(p["name"])}｜寵物共享公園範圍">🐾 寵物共享範圍</button>')
-    if o.get('url'): btns.append(f'<a class="btn b2" href="{o["url"]}" target="_blank" rel="noopener">🏛️ 官方網頁</a>')
+        else: btns.append(f'<button class="btn b2" type="button" data-img="{mp}" data-s="{agency(mp)}" data-t="{esc(p["name"])}｜平面圖">🗺️ 公園平面圖</button>')
+    if p.get('petmap'): btns.append(f'<button class="btn b2" type="button" data-img="{p["petmap"]}" data-s="{agency(p["petmap"])}" data-t="{esc(p["name"])}｜寵物共享公園範圍">🐾 寵物共享範圍</button>')
     btns.append('<button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button>')
     intro = '' if unk(o.get('intro')) else f'<div class="dsec s-more"><details class="more"><summary>📖 官方簡介</summary><p>{esc(o["intro"])}</p></details></div>'
     return f'''<article class="prow" id="b-{p['id']}" {attrs(p)}>
@@ -134,8 +139,9 @@ srcs = [('康樂及文化事務署 — 公園及動植物公園','https://www.lc
         ('康樂及文化事務署 — 「寵物共享公園」及寵物共享範圍地圖','https://www.lcsd.gov.hk/tc/facilities/otherinfo/petpark.html'),
         ('運輸署 — 實時停車場空位資料（資料一線通）','https://data.gov.hk/tc-data/dataset/hk-td-tis_5-real-time-parking-vacancy-data'),
         ('漁農自然護理署 — 郊野公園','https://www.afcd.gov.hk/tc_chi/country/cou_lea/the_facts.html'),
-        ('香港旅遊發展局 — 摩星嶺、愉景灣中央公園及彭福公園相片','https://www.discoverhongkong.com/tc/place-to-go/travel.guide-penfold-park.html')]
-srcs_h = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener">{esc(n)}</a></li>' for n, u in srcs) + '<li>各地點的官方資料，請參閱地點卡內「🏛️ 官方網頁」按鈕</li><li>地圖：地政總署地圖 API（香港地理空間數據共享平台）；相片：各官方網頁</li><li>核對日期：2026-10-17</li>'
+        ('香港旅遊發展局 — 摩星嶺、愉景灣中央公園、彭福公園及清水灣郊野公園相片','https://www.discoverhongkong.com/tc/place-to-go/travel.guide-penfold-park.html'),
+        ('文化創意產業發展處 — 樂富配水庫休憩花園相片','https://fpf.ccidahk.gov.hk/tc/location/detail.php?id=1792')]
+srcs_h = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener">{esc(n)}</a></li>' for n, u in srcs) + '<li>地圖：地政總署地圖 API（香港地理空間數據共享平台）；相片：康樂及文化事務署、漁農自然護理署、香港旅遊發展局等機構</li><li>核對日期：2026-10-17</li>'
 
 chips_r = '<button class="ch on" data-f="r" data-v="all">全部</button>' + ''.join(f'<button class="ch" data-f="r" data-v="{k}"><i style="background:{RC[k]}"></i>{v}</button>' for k,v in RN.items())
 chips_c = ''.join(f'<button class="ch" data-f="cat" data-v="{k}">{v[0]} {v[1]}</button>' for k,v in CATS.items())
@@ -203,7 +209,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .gal{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#DDEBD9}
 .gal.none{display:flex;align-items:center;justify-content:center;color:#7FA27D;font-weight:700}
 .gal .tr{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal .tr::-webkit-scrollbar{display:none}
-.gal figure{flex:0 0 100%;margin:0;scroll-snap-align:start}.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.gal figure{position:relative;flex:0 0 100%;margin:0;scroll-snap-align:start}.gal img{width:100%;height:100%;object-fit:cover;display:block}
 .gal .src{position:absolute;right:8px;top:8px;background:rgba(255,255,255,.88);font-size:11px;border-radius:6px;padding:2px 7px;color:#555}
 .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
 .dots i{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.6);box-shadow:0 1px 3px rgba(0,0,0,.25)}.dots i.on{background:#fff;width:16px}
@@ -283,7 +289,7 @@ document.querySelectorAll('.prow').forEach(function(r){
   var p=r.querySelector('.nav.p'),n=r.querySelector('.nav.n');if(p)p.onclick=function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'})};if(n)n.onclick=function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'})};
 });
 var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
-document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.hidden=false;}});
+document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.querySelector('.msrc').textContent=b.dataset.s?'圖片來源︰'+b.dataset.s:'';md.hidden=false;}});
 function mcl(){md.hidden=true;mi.removeAttribute('src');}md.querySelector('.mx').onclick=mcl;md.onclick=function(e){if(e.target===md)mcl();};
 var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
 function pcl(){pm.hidden=true}pm.querySelector('.mx').onclick=pcl;pm.onclick=function(e){if(e.target===pm)pcl()};
@@ -314,7 +320,7 @@ def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span>📊 展開一覽比較表（{N} 個地點）</span><b class="ar">▾</b></summary><p class="thint">點擊地點名稱，即可查看該地點介紹。</p><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
 POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。消費滿 $1,450 免運費，於地面可停車位置車邊交收。</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
-<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc">圖片來源︰官方網頁</p></div></div>"""
+<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
 LEAF_CSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">'
 SCRIPTS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><script>var PTS=' + json.dumps([dict(id=p["id"],n=p["name"],lat=GEO[p["id"]][0],lng=GEO[p["id"]][1],c=RC[p["r"]],ic=IC(p)) for p in P],ensure_ascii=False) + ';</script><script>' + JS + '</script>'

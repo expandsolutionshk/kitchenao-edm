@@ -181,3 +181,11 @@ for _k,_v in {'添馬公園': ['https://www.lcsd.gov.hk/en/parks/tp/common/graph
 # 啟德車站廣場：草地相片排第 1；清水灣：原圖為展覽室，非草地，改用凈色底
 _k='啟德車站廣場'; O[_k]['img']=[O[_k]['img'][2]]+O[_k]['img'][:2]; O[_k]['thumb']=O[_k]['img'][0]
 O['清水灣大坑墩草地']['img']=[]
+
+# 清水灣：改用香港旅遊發展局相片（用戶指定）
+_v=['https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-01.jpg', 'https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-05.jpg', 'https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-02.jpg', 'https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-03.jpg']
+O['清水灣大坑墩草地']['img']=_v; O['清水灣大坑墩草地']['thumb']=_v[0]; O['清水灣大坑墩草地']['imgsrc']='香港旅遊發展局'
+
+# 樂富配水庫休憩花園：文化創意產業發展處（電影推廣服務科拍攝場地）相片（用戶指定）
+_v=['https://fpf.ccidahk.gov.hk/common/images/location/01792/01792a.jpg', 'https://fpf.ccidahk.gov.hk/common/images/location/01792/01792d.jpg', 'https://fpf.ccidahk.gov.hk/common/images/location/01792/01792e.jpg', 'https://fpf.ccidahk.gov.hk/common/images/location/01792/01792g.jpg']
+O['樂富配水庫休憩花園']['img']=_v; O['樂富配水庫休憩花園']['thumb']=_v[0]
