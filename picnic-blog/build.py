@@ -96,6 +96,15 @@ FAQ = [
 faq_html = ''.join(f'<details class="ao-faq"><summary><mark class="paa">{q}</mark></summary><div class="a">{a}</div></details>' for q, a in FAQ)
 faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}, ensure_ascii=False)
 
+SNACKS = [
+ ('迷你芝士手打牛肉漢堡', '皇牌一口漢堡，大人小朋友都啱。', 'a0700-handmade-mini-cheeseburger', '2019/06/Posts-07-scaled-600x600.jpg'),
+ ('九層塔香酥雞', '乾身炸物，放涼後依然香脆。', 'a2800-crispy-basil-chicken-dice', '2023/12/KitchenAO_DEC2023-ALA-CARTE-03-600x600.jpg'),
+ ('香烤沙嗲串燒（豬雞）', '附竹籤，毋須餐具即可享用。', 'a0200-grilled-satay-skewer-pork-and-chicken', '2019/06/Posts-10-scaled-600x600.jpg'),
+ ('焗雙色芝士吞拿魚脆法包', '脆法包作底，方便單手取食。', 'a0100-baked-double-cheese-tuna-crostini', '2019/06/Posts-06-scaled-600x600.jpg'),
+ ('芝士海鮮牛角酥', '酥皮小食，賣相精緻適合打卡。', 'a1800-cheesy-seafood-and-pork-floss-croissant', '2023/10/KitchenAO_JUN2023-ALA-CARTE-04-600x600.png'),
+ ('蜜蜜燒雞翼配脆薯角', '人氣派對小食，一口一件。', 'a0500-honey-glazed-chicken-wings-w-potato-wedges', '2019/06/Posts-16-scaled-600x600.jpg'),
+]
+snack_html = ''.join(f'<a class="pk-sn" href="https://aoaodelivery.com/product/{slug}/?{UTM}" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/{img}" alt="{n}｜Kitchen AO 野餐小食" loading="lazy"><span class="sn-b"><b>{n}</b><span>{d}</span><i>查看單品 →</i></span></a>' for n, d, slug, img in SNACKS)
 FBJS = "<script>(function(){var f=document.getElementById('aoFb');if(!f)return;var m=f.querySelector('.ao-fb-msg');\nf.querySelector('.ao-fb-copy').onclick=function(){var u=location.href.split('#')[0];(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){m.textContent='已複製連結'}).catch(function(){m.textContent=u})};\nf.querySelectorAll('.ao-fb-b').forEach(function(b){b.onclick=function(){f.querySelectorAll('.ao-fb-b').forEach(function(x){x.disabled=true;x.classList.toggle('on',x===b)});m.textContent='多謝你的意見！';(window.dataLayer=window.dataLayer||[]).push({event:'article_feedback',feedback:b.dataset.v,article:'picnic-blog1'})}})})();</script>"
 BODY = f'''<div class="ao-article ao-picnic">
 <style>
@@ -148,6 +157,10 @@ BODY = f'''<div class="ao-article ao-picnic">
 <p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒、小食拼盤及二人套餐主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
 <p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p>
 <div class="pgrid">{C.pcards_for("?"+UTM)}</div>
+<h3 class="ao-h3">🍗 野餐單點小食推介</h3>
+<p>除了野餐盒，亦可按人數及口味加配單點小食。以下 6 款乾爽、一口份量、毋須餐具，最適合帶到草地享用。</p>
+<div class="pk-sngrid">{snack_html}</div>
+<p class="pk-snall"><a href="https://aoaodelivery.com/product-category/a-la-carte/snacks/?{UTM}" target="_blank" rel="noopener">查看全部惹味小食 →</a></p>
 <div class="ao-cta ao-cta--2"><a class="pk-btn" href="{CHILL}">🧺 瀏覽全部野餐盒</a><a class="pk-btn pk-btn--wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 <div class="pk-ship"><p><b>訂購野餐盒 免運費須知：</b>單一訂單滿 HK$1,450 即享全港免運費（離島及邊境禁區等不派送地區除外）；單一訂單滿 HK$700，九龍指定區域免運費，港島及新界區運費半價。標準派送時段為上午 11:00 至晚上 8:30，時段外派送需另收附加費。食物會送到公園附近可停車位置於車邊交收；惡劣天氣改期、派送失敗等安排，請於下單前參閱<a href="https://aoaodelivery.com/delivery/" target="_blank" rel="noopener">「重要送貨須知」</a>。</p></div>
 
