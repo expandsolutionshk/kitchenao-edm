@@ -116,10 +116,13 @@ def card(p, kw=False):
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
-    <div class="lc">{gal}<div class="facts">{facts_h}</div><div class="dsec s-car"><h4>🅿️ 鄰近停車場</h4>{car}</div></div>
-    <div class="rc">
+    <div class="lc">{gal}
       {f'<div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac">{fac}</div></div>' if fac else ''}
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">{p['petnote']}</div></div>
+    </div>
+    <div class="rc">
+      <div class="facts">{facts_h}</div>
+      <div class="dsec s-car"><h4>🅿️ 鄰近停車場</h4>{car}</div>
       <div class="btns">{''.join(btns)}</div>
       {intro}
     </div>
@@ -162,7 +165,7 @@ CSS = '''
 .cnt #rst{margin-left:auto}.go{display:inline-flex;align-items:center;gap:4px;width:auto;margin:0;border:0;border-radius:30px;padding:8px 20px;font-size:14px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer}.go.pd{background:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
 .cnt{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13.5px;font-weight:700;color:#5a5348;margin-top:2px;padding-top:14px;border-top:1px solid #EFE8DA}.cnt #rst{border:0;background:none;color:#9A7B2E;font-weight:700;text-decoration:underline;padding:0;cursor:pointer}
 .sec{padding:14px 12px 4px}.sec h2{margin:0 0 8px;font-size:18px;color:#1A1A1A}.sec h2 small{font-weight:600;color:#9A8f7e;font-size:12px;margin-left:4px}
-#lmap{height:360px;border-radius:14px;display:none}.leaflet-touch .leaflet-bar a{width:40px;height:40px;line-height:40px;font-size:22px}.mhint{display:none}.lclu{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:18px;background:#3F9D5A;color:#fff;font-weight:900;font-size:14px;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)}.mpop{display:flex;flex-direction:column;gap:6px;font-family:inherit}.mpop img{width:100%;height:110px;object-fit:cover;border-radius:8px}.mpop b{font-size:15px;color:#1A1A1A}.mpop .mt{font-size:12px;color:#5a5348;line-height:1.6}.mpbtn{border:0;border-radius:20px;background:#1A1A1A;color:#fff;font-weight:800;font-size:13px;padding:7px 12px;cursor:pointer}.mf{display:none}#lmap.on{display:block}.lpin{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:14px;background:#fff;border:2.5px solid var(--c);box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:14px}.leaflet-tooltip{font-weight:800;font-size:12px}
+#lmap{height:360px;border-radius:14px;display:none}.leaflet-touch .leaflet-bar a{width:40px;height:40px;line-height:40px;font-size:22px}.mhint{display:none}.leaflet-tile-container img.leaflet-tile{width:256.6px!important;height:256.6px!important;max-width:none!important}.lclu{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:18px;background:#3F9D5A;color:#fff;font-weight:900;font-size:14px;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)}.mpop{display:flex;flex-direction:column;gap:6px;font-family:inherit}.mpop img{width:100%;height:110px;object-fit:cover;border-radius:8px}.mpop b{font-size:15px;color:#1A1A1A}.mpop .mt{font-size:12px;color:#5a5348;line-height:1.6}.mpbtn{border:0;border-radius:20px;background:#1A1A1A;color:#fff;font-weight:800;font-size:13px;padding:7px 12px;cursor:pointer}.mf{display:none}#lmap.on{display:block}.lpin{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:14px;background:#fff;border:2.5px solid var(--c);box-shadow:0 2px 6px rgba(0,0,0,.3);font-size:14px}.leaflet-tooltip{font-weight:800;font-size:12px}
 .map{position:relative;width:100%;aspect-ratio:540/360;border-radius:14px;overflow:hidden;background:#BFE0F0}
 .map svg{position:absolute;inset:0;width:100%;height:100%}.map polygon{fill:#E8F1DD;stroke:#B9CDA4;stroke-width:1.2}.map .note{position:absolute;left:8px;bottom:6px;font-size:11px;color:#4d7b93;font-weight:700}
 .pin{position:absolute;transform:translate(-50%,-100%);text-decoration:none;z-index:2}
@@ -222,8 +225,8 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .facts div{background:#FAF7F1;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.6}.facts b{display:block;font-size:12.5px;color:#7a6a45;margin-bottom:3px}
 .dsec{padding:14px 0}.dsec h4{margin:0 0 9px;font-size:15px;color:#1A1A1A}
-.lc .s-car{padding-bottom:0}
-.rc{display:flex;flex-direction:column}.rc .dsec{border-top:1px dashed #E4D9C2}.rc>.dsec:first-child{border-top:0;padding-top:0}
+.lc .dsec{border-top:1px dashed #E4D9C2;margin-top:14px}.lc .s-pet{padding-bottom:0}.rc .facts{margin-top:0}.rc .s-car{padding-bottom:0}
+.rc{display:flex;flex-direction:column}.rc .dsec{border-top:1px dashed #E4D9C2;margin-top:14px}
 .fac{display:flex;flex-wrap:wrap;gap:7px}.fac span{font-size:13px;background:#F4FBF3;border:1px solid #CFE8CD;color:#2C6E49;border-radius:16px;padding:3px 10px}
 .s-pet .pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:11px 13px;font-size:15px;line-height:1.75}
 .kcar{background:#F6F8FB;border:1px solid #E2E8F2;border-radius:12px;padding:10px 13px;font-size:14px}.kcar.none{background:#FFF8EC;border-color:#F3E2BF}
@@ -249,7 +252,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
   .prow.open .det{grid-template-columns:1fr;gap:14px;padding:14px 12px 16px}
   .facts{gap:8px}.facts div{padding:9px 10px;font-size:13.5px}
   .btns{display:grid;grid-template-columns:1fr 1fr}.b3{grid-column:1/-1}.btn{white-space:normal;text-align:center}
-  .rc .btns{order:1;margin-top:0}.rc .s-more{order:2;margin-top:12px;border-top:0}.rc .s-fac{order:3;border-top:1px dashed #E4D9C2!important;padding-top:14px!important}.rc .s-pet{order:4}
+  .lc,.rc{display:contents}.det .gal{order:1}.det .facts{order:2;margin-top:0}.det .s-car{order:3}.det .btns{order:4}.det .s-fac{order:5}.det .s-pet{order:6}.det .dsec{margin-top:0}
 }
 /* pop up */
 .mdl{position:fixed;inset:0;z-index:99;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
@@ -273,7 +276,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 '''
 JS = '''
 var LM=null,LY=null,LMK={};function fitAll(){if(!LM)return;LM.fitBounds(L.latLngBounds(PTS.map(function(p){return [p.lat,p.lng]})),{padding:[24,24]});}
-(function(){if(!window.L)return;var m=document.getElementById('lmap');m.classList.add('on');document.getElementById('svgmap').style.display='none';var MOB=L.Browser.mobile;LM=L.map(m,{scrollWheelZoom:false,dragging:!MOB,tap:false,zoomSnap:.5}).setView([22.36,114.13],10);var GB='https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/';L.tileLayer(GB+'basemap/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9,attribution:'<a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank" rel="noopener">© 地政總署地圖</a>'}).addTo(LM);L.tileLayer(GB+'label/hk/tc/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9}).addTo(LM);LY=L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:38,disableClusteringAtZoom:13,showCoverageOnHover:false,spiderfyOnMaxZoom:true,iconCreateFunction:function(c){return L.divIcon({className:'',html:'<div class="lclu">'+c.getChildCount()+'</div>',iconSize:[36,36],iconAnchor:[18,18]})}}).addTo(LM):LM;PTS.forEach(function(p){var mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:'<div class="lpin" style="--c:'+p.c+'">'+p.ic+'</div>',iconSize:[28,28],iconAnchor:[14,14]})});mk.bindPopup('<div class="mpop">'+(p.img?'<img src="'+p.img+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<b>'+p.n+'</b><span class="mt">'+p.tg+'</span><button type="button" class="mpbtn" data-id="'+p.id+'">查看詳情 ↓</button></div>',{maxWidth:220,minWidth:200,autoPanPadding:[20,20]});if(!MOB)mk.bindTooltip(p.n);LY.addLayer(mk);LMK[p.id]=mk;});LM.on('popupopen',function(e){var b=e.popup.getElement().querySelector('.mpbtn');if(b)b.onclick=function(){openCard(b.dataset.id)}});})();
+(function(){if(!window.L)return;var m=document.getElementById('lmap');m.classList.add('on');document.getElementById('svgmap').style.display='none';var MOB=L.Browser.mobile;LM=L.map(m,{scrollWheelZoom:false,dragging:!MOB,tap:false,zoomSnap:1}).setView([22.36,114.13],10);var GB='https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/';L.tileLayer(GB+'basemap/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9,attribution:'<a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank" rel="noopener">© 地政總署地圖</a>'}).addTo(LM);L.tileLayer(GB+'label/hk/tc/WGS84/{z}/{x}/{y}.png',{maxZoom:19,minZoom:9}).addTo(LM);LY=L.markerClusterGroup?L.markerClusterGroup({maxClusterRadius:38,disableClusteringAtZoom:13,showCoverageOnHover:false,spiderfyOnMaxZoom:true,iconCreateFunction:function(c){return L.divIcon({className:'',html:'<div class="lclu">'+c.getChildCount()+'</div>',iconSize:[36,36],iconAnchor:[18,18]})}}).addTo(LM):LM;PTS.forEach(function(p){var mk=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:'<div class="lpin" style="--c:'+p.c+'">'+p.ic+'</div>',iconSize:[28,28],iconAnchor:[14,14]})});mk.bindPopup('<div class="mpop">'+(p.img?'<img src="'+p.img+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<b>'+p.n+'</b><span class="mt">'+p.tg+'</span><button type="button" class="mpbtn" data-id="'+p.id+'">查看詳情 ↓</button></div>',{maxWidth:220,minWidth:200,autoPanPadding:[20,20]});if(!MOB)mk.bindTooltip(p.n);LY.addLayer(mk);LMK[p.id]=mk;});LM.on('popupopen',function(e){var b=e.popup.getElement().querySelector('.mpbtn');if(b)b.onclick=function(){openCard(b.dataset.id)}});})();
 function openCard(id){var r=document.getElementById('b-'+id);if(!r)return;if(LM)LM.closePopup();if(!r.classList.contains('open')){var d=r.querySelector('.dbtn');if(d)d.click();}go('#b-'+id);}
 function go(h){var t=document.querySelector(h);if(!t)return;t.scrollIntoView({behavior:'smooth',block:'start'});t.classList.add('hit');setTimeout(function(){t.classList.remove('hit')},1800);}
 (function(){
@@ -325,7 +328,7 @@ FILTER = f"""<div class="flt">
 <div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
     return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖</{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
-<div class="lg">{''.join(f'<span><b style="color:{RC[k]}">●</b> {v}</span>' for k,v in RN.items())}<span class="mhint">👆 用兩隻手指移動及縮放地圖</span></div></div>"""
+<div class="lg"><span class="mhint">👆 用兩隻手指移動及縮放地圖</span></div></div>"""
 def TABLE(hx='h2'):
     return f"""<div class="sec" id="hk-table"><{hx} class="sh">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
