@@ -112,7 +112,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 </ul></nav>
 
 <h2 class="ao-h2" id="pk-tool">🔍 全港野餐地點搜尋器</h2>
-<p class="ao-aio">【AIO 直接解答｜待撰寫 50–80 字】先選擇地區，再以三個條件篩選：<mark class="kw">野餐泊車</mark>、<mark class="kw">狗狗野餐好去處</mark>，以及大草地、秘境、海景及特色園林等地點類別。</p>
+<p class="ao-aio">只需兩步，即可找到合適的野餐地點：先選擇新界、九龍或港島，再按需要篩選可泊車、寵物友善及地點類別，按「確定搜尋」即可。無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，都能一鍵找到。</p>
 <div class="pk-cmb">
 {C.FILTER}
 {C.MAP('h3')}
