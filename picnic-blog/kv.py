@@ -34,7 +34,9 @@ for p in P:
 MAP = f'<svg viewBox="0 0 {C.W} {C.Hh}" class="hkmap"><rect width="{C.W}" height="{C.Hh}" fill="#BFE0F0"/><g fill="#E8F1DD" stroke="#B9CDA4" stroke-width="1.2">{C.land}</g>{pins}</svg>'
 
 FEAT = '<p class="feat">可泊車、寵物友善野餐地點　一鍵搜尋</p>'
-LOGOH = '<span class="logo2" aria-label="Kitchen AO"><i class="tri"></i><i class="dot"></i><b>KITCHEN AO</b></span>'
+import base64
+_LG = 'data:image/png;base64,' + base64.b64encode(open(os.path.join(HERE, '..', 'halloween-edm-2026', 'img', 'logo-header-pill.png'), 'rb').read()).decode()
+LOGOH = f'<span class="logo2"><img src="{_LG}" alt="Kitchen AO"></span>'
 def rg(r, name):
     return f'<span class="rgp" style="--c:{RC[r]}"><i class="mpin" style="--c:{RC[r]}"><b>📍</b></i>{name} {cnt[r]} 個</span>'
 
@@ -248,7 +250,7 @@ CSS = '''
 .boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
 .boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
 
-.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;display:inline-flex;align-items:center;gap:.5cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:.6cqw 1.8cqw .6cqw 1.4cqw}
+.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;display:inline-flex;align-items:center;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:.35cqw 1.4cqw}.logo2 img{display:block;height:3cqw;width:auto}
 .logo2 .tri{width:0;height:0;border-left:1.05cqw solid transparent;border-right:1.05cqw solid transparent;border-bottom:1.8cqw solid #1A1A1A}
 .logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#F39A2B;margin-left:-.35cqw}
 .logo2 b{margin-left:.6cqw;font-family:"Avenir Next Condensed","DIN Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:2.2cqw;letter-spacing:.05cqw;color:#1A1A1A;line-height:1}
