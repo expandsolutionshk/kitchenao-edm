@@ -35,7 +35,10 @@ MAP = f'<svg viewBox="0 0 {C.W} {C.Hh}" class="hkmap"><rect width="{C.W}" height
 
 FEAT = '<p class="feat">可泊車、寵物友善野餐地點　一鍵搜尋</p>'
 import base64
-_LG = 'data:image/png;base64,' + base64.b64encode(open(os.path.join(HERE, '..', 'halloween-edm-2026', 'img', 'logo-header-pill.png'), 'rb').read()).decode()
+import io
+from PIL import Image as _Im
+_b = io.BytesIO(); _Im.open(os.path.join(HERE, '..', 'halloween-edm-2026', 'img', 'logo-header-pill.png')).crop((42, 23, 506, 97)).save(_b, 'PNG')  # 只保留 ▲● KITCHEN AO 字樣
+_LG = 'data:image/png;base64,' + base64.b64encode(_b.getvalue()).decode()
 LOGOH = f'<span class="logo2"><img src="{_LG}" alt="Kitchen AO"></span>'
 def rg(r, name):
     return f'<span class="rgp" style="--c:{RC[r]}"><i class="mpin" style="--c:{RC[r]}"><b>📍</b></i>{name} {cnt[r]} 個</span>'
@@ -250,7 +253,7 @@ CSS = '''
 .boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
 .boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
 
-.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;display:inline-flex;align-items:center;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:.35cqw 1.4cqw}.logo2 img{display:block;height:3cqw;width:auto}
+.logo2{position:absolute;right:1.8cqw;top:1.8cqw;z-index:5;box-sizing:border-box;display:inline-flex;align-items:center;height:3.6cqw;background:#fff;border:.22cqw solid #1A1A1A;border-radius:3cqw;padding:0 1.8cqw 0 3cqw}.logo2 img{display:block;height:1.95cqw;width:auto}
 .logo2 .tri{width:0;height:0;border-left:1.05cqw solid transparent;border-right:1.05cqw solid transparent;border-bottom:1.8cqw solid #1A1A1A}
 .logo2 .dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:#F39A2B;margin-left:-.35cqw}
 .logo2 b{margin-left:.6cqw;font-family:"Avenir Next Condensed","DIN Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:2.2cqw;letter-spacing:.05cqw;color:#1A1A1A;line-height:1}
@@ -278,8 +281,9 @@ CSS = '''
 /* G：標題及篩選框在左，拍立得在右上 */
 .k7 .tblock{position:absolute;left:4cqw;top:3.5cqw;color:#fff}
 .k7 .ui{left:4cqw;top:27cqw;width:34cqw}
-.k7 .pola{left:55%;top:9cqw;width:42%;height:30cqw}
-.k7 .p1{left:0;top:2cqw;transform:rotate(-6deg)}.k7 .p2{left:12cqw;top:0;transform:rotate(3deg);z-index:1}.k7 .p3{left:24cqw;top:3cqw;transform:rotate(8deg)}
+.k7 .pola{left:54.5%;top:10cqw;width:46%;height:30cqw}
+.k7 .pola figure{width:14.5cqw}.k7 .pola figcaption{font-size:1.2cqw;white-space:nowrap}
+.k7 .p1{left:0;top:2.5cqw;transform:rotate(-5deg)}.k7 .p2{left:14.8cqw;top:0;transform:rotate(2deg);z-index:1}.k7 .p3{left:29.4cqw;top:3cqw;transform:rotate(6deg)}
 '''
 html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（7 款）</title><style>{CSS}</style></head><body><div class="wrap">
 <h1>🧺 Blog 1 KV 方案（7 款，1600 × 900）</h1>

@@ -222,7 +222,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .lc .s-car{padding-bottom:0}
 .rc{display:flex;flex-direction:column}.rc .dsec{border-top:1px dashed #E4D9C2}.rc>.dsec:first-child{border-top:0;padding-top:0}
 .fac{display:flex;flex-wrap:wrap;gap:7px}.fac span{font-size:13px;background:#F4FBF3;border:1px solid #CFE8CD;color:#2C6E49;border-radius:16px;padding:3px 10px}
-.pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:11px 13px;font-size:15px;line-height:1.75}
+.s-pet .pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:11px 13px;font-size:15px;line-height:1.75}
 .kcar{background:#F6F8FB;border:1px solid #E2E8F2;border-radius:12px;padding:10px 13px;font-size:14px}.kcar.none{background:#FFF8EC;border-color:#F3E2BF}
 .kcar ul{margin:0;padding:0}.kcar li{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:3px 0}
 .vac{border:1px solid #1E5BD8;background:#fff;color:#1E5BD8;border-radius:20px;padding:3px 11px;font-size:12.5px;font-weight:700;cursor:pointer}.vres{font-weight:800;color:#2C6E49;font-size:12.5px}
