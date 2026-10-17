@@ -135,3 +135,4 @@
 }
 .pk-kvg{position:relative;margin:0 0 8px;border-radius:18px;overflow:hidden;line-height:0}.pk-kvg iframe{display:block;width:100%;aspect-ratio:16/9;border:0}.pk-kvg .pk-kv-note{position:absolute;left:12px;bottom:10px;right:auto;top:auto;line-height:1.4}
 .pk-kvg+.pk-h1note{margin-top:18px!important}
+.pk-kvg .km{display:none}@media(max-width:600px){.pk-kvg .kd{display:none}.pk-kvg .km{display:block;aspect-ratio:4/5}}

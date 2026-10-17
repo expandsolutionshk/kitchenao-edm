@@ -112,7 +112,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 {CSS}
 </style>
 
-<div class="pk-kvg"><iframe srcdoc="{H.escape(KVM.KV_G_HTML, quote=True)}" title="香港野餐勝地大全 KV" scrolling="no"></iframe></div>
+<div class="pk-kvg"><iframe class="kd" srcdoc="{H.escape(KVM.KV_G_HTML, quote=True)}" title="香港野餐勝地大全 KV" scrolling="no"></iframe><iframe class="km" srcdoc="{H.escape(KVM.KV_GM_HTML, quote=True)}" title="香港野餐勝地大全 KV（手機版）" scrolling="no"></iframe></div>
 <p class="pk-h1note">H1：【香港野餐勝地大全】{N} 個大草地／海景／隱世公園推介｜野餐泊車、寵物友善地點一鍵搜尋</p>
 
 <div class="ao-introcard">
