@@ -108,7 +108,7 @@ def card(p, kw=False):
         else: btns.append(f'<button class="btn b2" type="button" data-img="{mp}" data-s="{agency(mp)}" data-t="{esc(p["name"])}｜平面圖">🗺️ 公園平面圖</button>')
     if p.get('petmap'): btns.append(f'<button class="btn b2" type="button" data-img="{p["petmap"]}" data-s="{agency(p["petmap"])}" data-t="{esc(p["name"])}｜寵物共享公園範圍">🐾 寵物共享範圍</button>')
     btns.append('<button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button>')
-    intro = '' if unk(o.get('intro')) else f'<div class="dsec s-more"><details class="more"><summary>📖 官方簡介</summary><p>{esc(o["intro"])}</p></details></div>'
+    intro = ''  # 2026-10-18：移除「官方簡介」（官方內容不會同步更新）
     return f'''<article class="prow" id="b-{p['id']}" {attrs(p)}>
   <div class="sum">
     <div class="thumb{'' if thumb else ' ph'}" data-n="{nm}">{thumb_h}<span class="rg" style="background:{RC[p['r']]}">{RN[p['r']]}</span></div>
