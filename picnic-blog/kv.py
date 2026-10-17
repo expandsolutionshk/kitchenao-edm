@@ -257,7 +257,7 @@ CSS = '''
 /* F / G */
 .kf .shadeR{position:absolute;inset:0;background:linear-gradient(270deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,0) 72%)}
 .kf .shadeL{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,0) 72%)}
-.kf .ttl{font-size:5.4cqw;white-space:nowrap}.kf .sub{font-size:2.2cqw;margin-top:1.2cqw}.kf .sub2{font-size:1.9cqw;margin-top:1cqw}
+.kf .ttl{font-size:4.8cqw;white-space:nowrap}.kf .sub{font-size:2.2cqw;margin-top:1.2cqw}.kf .sub2{font-size:1.9cqw;margin-top:1cqw}
 .kf .flt{background:#fff;border-radius:1.8cqw;padding:1.6cqw 1.8cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
 .kf .lab{margin:0 0 .6cqw;font-size:1.25cqw;font-weight:800;color:#7a6a45}.kf .chips{margin-bottom:1cqw}
 .kf .act{display:flex;align-items:center;gap:1.2cqw;border-top:.1cqw solid #EFE8DA;padding-top:1cqw}.kf .cnt{font-size:1.25cqw;font-weight:700;color:#5a5348}
@@ -273,16 +273,16 @@ CSS = '''
 /* F：拍立得在左，標題及篩選框在右 */
 .k6 .pola{left:3cqw;top:4cqw;width:46%;height:50cqw}
 .k6 .p1{left:0;top:1cqw;transform:rotate(-7deg)}.k6 .p2{left:14cqw;top:9cqw;transform:rotate(4deg);z-index:1}.k6 .p3{left:3cqw;top:25cqw;transform:rotate(3deg)}
-.k6 .tblock{position:absolute;left:52%;top:4cqw;color:#fff}
-.k6 .ui{left:52%;top:25cqw;width:32cqw}
+.k6 .tblock{position:absolute;left:47%;top:5cqw;color:#fff}
+.k6 .ui{left:47%;top:28.5cqw;width:32cqw}
 /* G：標題及篩選框在左，拍立得在右上 */
 .k7 .tblock{position:absolute;left:4cqw;top:4cqw;color:#fff}
-.k7 .ui{left:4cqw;top:25cqw}
-.k7 .pola{left:56%;top:5cqw;width:42%;height:30cqw}
+.k7 .ui{left:4cqw;top:28.5cqw}
+.k7 .pola{left:55%;top:9cqw;width:42%;height:30cqw}
 .k7 .p1{left:0;top:2cqw;transform:rotate(-6deg)}.k7 .p2{left:12cqw;top:0;transform:rotate(3deg);z-index:1}.k7 .p3{left:24cqw;top:3cqw;transform:rotate(8deg)}
 '''
-html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（5 款）</title><style>{CSS}</style></head><body><div class="wrap">
-<h1>🧺 Blog 1 KV 方案（5 款，1600 × 900）</h1>
+html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（7 款）</title><style>{CSS}</style></head><body><div class="wrap">
+<h1>🧺 Blog 1 KV 方案（7 款，1600 × 900）</h1>
 <p>背景為官方實景相片（康文署／旅發局，僅作概念示意）；正式製作建議改用自家拍攝或已取得授權的高解像度相片。</p>
 {''.join(f'<section class="opt"><h3>{t}</h3><p>{d}</p>{h}</section>' for t, d, h in KV)}
 </div></body></html>'''
