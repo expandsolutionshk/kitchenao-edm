@@ -107,9 +107,12 @@ body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Micros
 .rc{display:flex;flex-direction:column}
 .rc .sec{border-top:1px dashed #E4D9C2}.rc .sec:first-child{border-top:0;padding-top:0}
 @container (max-width:640px){
-  .rc .s-car{order:1}.rc .s-more{order:2}.rc .s-fac{order:3}.rc .s-pet{order:4}.rc .btns{order:5}
-  .rc .s-car{border-top:0;padding-top:0}.rc .s-fac{border-top:1px dashed #E4D9C2!important;padding-top:14px!important}
+  .rc .btns{order:1}.rc .s-more{order:2}.rc .s-fac{order:3}.rc .s-pet{order:4}
+  .rc .btns{margin-top:0}.rc .s-more{border-top:0}.rc .s-fac{border-top:1px dashed #E4D9C2!important;padding-top:14px!important}
 }
+.lcar .sec{border-top:0;padding:14px 0 0}
+.rc .btns{margin:14px 0 0}
+.rc .s-more{margin-top:14px}
 </style></head><body>
 <div class="vt" role="tablist"><button data-v="m" role="tab">📱 手機版</button><button class="on" data-v="d" role="tab">💻 電腦版</button></div>
 <div class="stage" id="stage">
@@ -131,7 +134,6 @@ body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Micros
     </div>
     <div class="act">
       <button class="dbtn" type="button" aria-expanded="false">詳情 <span class="ar">▾</span></button>
-      <a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B7%BB%E9%A6%AC%E5%85%AC%E5%9C%92%20%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">📍 Google Map</a>
     </div>
   </div>
 
@@ -154,12 +156,11 @@ body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Micros
         <div><b>🚇 港鐵</b>金鐘站 A 出口，步行約 5 至 10 分鐘</div>
         <div><b>📐 面積</b>約 1.76 公頃，2011 年開放</div>
       </div>
+      <div class="lcar"><div class="sec s-car l"><h3>🅿️ 鄰近停車場</h3><div class="car"><ul><li>🅿️ 金鐘道政府合署停車場<button class="vac" type="button" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc95p1.json">查看實時車位</button><span class="vres"></span></li></ul></div></div></div>
     </div>
     <div class="rc">
       <div class="sec s-fac"><h3>🌿 主要設施</h3><div class="fac"><span>綠地毯（草坪）</span><span>園景花園</span><span>露天劇場</span><span>觀景台</span><span>特色水景</span><span>添馬角</span><span>添馬茶座</span><span>洗手間及育嬰間</span><span>無障礙設施</span></div></div>
       <div class="sec s-pet"><h3>🐶 寵物</h3><div class="pet">除寵物空間外，公園範圍包括大草坪均不能帶狗進入。寵物共享空間位於中西區海濱長廊（中環段）。</div></div>
-      <div class="sec s-car"><h3>🅿️ 鄰近停車場</h3><div class="car"><ul><li>🅿️ 金鐘道政府合署停車場<button class="vac" type="button" data-src="https://resource.data.one.gov.hk/td/carpark/vacancy_tdc95p1.json">查看實時車位</button><span class="vres"></span></li></ul></div></div>
-      <div class="sec s-more"><details class="more"><summary>📖 官方簡介</summary><p>添馬公園位於香港金鐘夏慤道，屬添馬艦發展工程的一部分，佔地約 1.76 公頃，毗鄰新政府總部及立法會綜合大樓，並自 2011 年 10 月 10 日起開放供市民使用。公園設計簡約雅致，景觀開揚，維港美景盡入眼簾。園內多片綠油油的草坪，猶如「綠地毯」，供遊人散步或閒坐。其他設施有園景花園、特色水景、觀景台、添馬角、露天劇場及添馬茶座等。公園連接中西區海濱長廊（中環段），市民可經公園前往中環碼頭及天星碼頭。</p></details></div>
       <div class="btns">
         <a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B7%BB%E9%A6%AC%E5%85%AC%E5%9C%92%20%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">📍 Google Map</a>
         <button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/map_l.jpg" data-t="添馬公園｜公園平面圖">🗺️ 公園平面圖</button>
@@ -167,6 +168,8 @@ body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Micros
         <a class="btn b2" href="https://www.lcsd.gov.hk/tc/parks/tp/index.html" target="_blank" rel="noopener">🏛️ 康文署網頁</a>
         <button class="btn b3" type="button" id="openP">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button>
       </div>
+      <div class="sec s-more"><details class="more"><summary>📖 官方簡介</summary><p>添馬公園位於香港金鐘夏慤道，屬添馬艦發展工程的一部分，佔地約 1.76 公頃，毗鄰新政府總部及立法會綜合大樓，並自 2011 年 10 月 10 日起開放供市民使用。公園設計簡約雅致，景觀開揚，維港美景盡入眼簾。園內多片綠油油的草坪，猶如「綠地毯」，供遊人散步或閒坐。其他設施有園景花園、特色水景、觀景台、添馬角、露天劇場及添馬茶座等。公園連接中西區海濱長廊（中環段），市民可經公園前往中環碼頭及天星碼頭。</p></details></div>
+      
     </div>
   </div>
 </article>
