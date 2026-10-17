@@ -1,0 +1,157 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV 方案（5 款）</title><style>
+*{box-sizing:border-box}body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
+.wrap{max-width:1240px;margin:0 auto;padding:24px 16px 60px}.wrap>h1{font-size:22px;margin:0 0 4px}.wrap>p{margin:0 0 20px;color:#7a6a45;font-size:14px}
+.opt{margin:0 0 34px}.opt h3{margin:0 0 4px;font-size:18px}.opt p{margin:0 0 10px;font-size:14px;color:#5a5348}
+.kv{position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;border-radius:12px;background:#2C6E49;box-shadow:0 6px 24px rgba(0,0,0,.15)}
+.kv img{display:block}.kv img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ttl{margin:0;font-weight:900;line-height:1.1;color:#fff;-webkit-text-stroke:.55cqw #1A1A1A;paint-order:stroke fill;text-shadow:0 .5cqw 0 #1A1A1A;letter-spacing:.2cqw}
+.y{color:#F7CE46}
+.pill{display:inline-block;background:#1A1A1A;color:#F7CE46;font-weight:900;font-size:1.9cqw;padding:.6cqw 1.8cqw;border-radius:4cqw;margin-bottom:1.2cqw}
+.tg{display:inline-flex;align-items:center;gap:.4cqw;font-weight:800;font-size:1.7cqw;padding:.55cqw 1.4cqw;border-radius:4cqw;border:.18cqw solid transparent;white-space:nowrap;line-height:1.3}
+.tg.ok{background:#1A1A1A;color:#F7CE46}.tg.on{background:#F4FBF3;color:#2C6E49;border-color:#CFE8CD}.tg.pet{background:#FFF0E0;color:#C24E00;border-color:#F7D3AE}.tg.car{background:#E6F0FF;color:#1E5BD8;border-color:#C7DAFB}
+.feat{position:absolute;left:0;right:0;bottom:3cqw;margin:0;text-align:center;color:#fff;font-weight:900;font-size:3cqw;-webkit-text-stroke:.3cqw #1A1A1A;paint-order:stroke fill;text-shadow:0 .3cqw 0 #1A1A1A}
+.sub2{margin:1.4cqw 0 0;display:inline-block;background:#F7CE46;color:#1A1A1A;font-weight:900;font-size:2cqw;padding:.6cqw 1.6cqw;box-shadow:.4cqw .4cqw 0 #1A1A1A}
+.feat2{display:flex;flex-wrap:wrap;gap:.8cqw;margin-top:1.6cqw}
+.logo{position:absolute;right:1.8cqw;top:1.8cqw;background:#fff;border-radius:1cqw;padding:.6cqw 1cqw;box-shadow:0 .3cqw 1cqw rgba(0,0,0,.2)}.logo img{height:3cqw;width:auto}
+.mpin{display:inline-flex;align-items:center;justify-content:center;width:2.4cqw;height:2.4cqw;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#fff;border:.25cqw solid var(--c)}.mpin b{transform:rotate(45deg);font-size:1.1cqw;font-weight:400}
+.mpin.big{width:4.4cqw;height:4.4cqw;border-width:.4cqw}.mpin.big b{font-size:2.1cqw}
+/* 1 */
+.k1 .tri{position:absolute;inset:0;display:flex;gap:.5cqw;background:#fff}.k1 .tri>div{position:relative;flex:1;overflow:hidden}.k1 .tri img{width:100%;height:100%;object-fit:cover}
+.k1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.45) 100%)}
+.k1 .rgp{position:absolute;left:1.4cqw;bottom:12.6cqw;display:inline-flex;align-items:center;gap:.6cqw;background:var(--c);color:#fff;font-weight:900;font-size:2cqw;padding:.5cqw 1.4cqw .5cqw .7cqw;border-radius:4cqw;box-shadow:0 .3cqw .8cqw rgba(0,0,0,.3)}
+.k1 em{position:absolute;left:1.6cqw;bottom:10.4cqw;color:#fff;font-style:normal;font-weight:800;font-size:1.5cqw;text-shadow:0 .15cqw .4cqw rgba(0,0,0,.7)}
+.k1 .top{position:absolute;left:0;right:0;top:3.4cqw;text-align:center}.k1 .ttl{font-size:8cqw}
+.rib{display:inline-block;margin:1.6cqw 0 0;background:#F7CE46;color:#1A1A1A;font-weight:900;font-size:2.6cqw;padding:.8cqw 2.4cqw;transform:rotate(-1.5deg);box-shadow:.5cqw .5cqw 0 #1A1A1A}
+/* 2 */
+.k2 .lpanel{position:absolute;left:0;top:0;bottom:0;width:46%;padding:5cqw 3.5cqw;background:linear-gradient(90deg,rgba(28,72,46,.95) 0%,rgba(28,72,46,.88) 75%,rgba(28,72,46,0) 100%);color:#fff}
+.k2 .ttl{font-size:6.6cqw}.sub{margin:1.6cqw 0 0;font-size:2.3cqw;font-weight:900;color:#fff;text-shadow:0 .2cqw .5cqw rgba(0,0,0,.5);line-height:1.35}
+.k2 .mapcard{position:absolute;right:3cqw;top:8cqw;width:50%;background:#fff;border-radius:2cqw;padding:1cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.35);transform:rotate(1.2deg)}
+.hkmap{display:block;width:100%;height:auto;border-radius:1.2cqw}
+.callout{position:absolute;display:flex;align-items:center;gap:.6cqw}.callout .ph{width:7cqw;height:7cqw;border-radius:50%;overflow:hidden;border:.45cqw solid #fff;box-shadow:0 .4cqw 1cqw rgba(0,0,0,.35)}.callout .ph img{width:100%;height:100%;object-fit:cover}
+.callout b{background:var(--c);color:#fff;font-size:1.5cqw;font-weight:900;padding:.4cqw 1cqw;border-radius:3cqw;white-space:nowrap}
+.c-nt{left:28%;top:-3cqw}.c-kln{left:52%;top:15cqw}.c-hk{left:4%;top:24cqw}
+.k2 .lg{position:absolute;left:2cqw;bottom:2cqw;display:flex;gap:1cqw;background:rgba(255,255,255,.92);padding:.5cqw 1cqw;border-radius:2cqw;font-size:1.3cqw;font-weight:800}.k2 .lg i{display:inline-block;width:1cqw;height:1cqw;border-radius:50%;margin-right:.4cqw}
+/* 3 */
+.k3 .lshade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.25) 45%,rgba(0,0,0,0) 70%)}
+.k3 .left{position:absolute;left:4cqw;top:6cqw;width:42%}.k3 .ttl{font-size:7cqw}
+.k3 .ui{position:absolute;right:3.5cqw;top:6cqw;width:40%;display:flex;flex-direction:column;gap:1.4cqw}
+.k3 .flt{background:#fff;border-radius:1.8cqw;padding:1.8cqw 2cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
+.k3 .lab{margin:0 0 .6cqw;font-size:1.3cqw;font-weight:800;color:#7a6a45}.chips{display:flex;flex-wrap:wrap;gap:.6cqw;margin-bottom:1.2cqw}
+.ch{display:inline-flex;align-items:center;gap:.4cqw;border:.15cqw solid #CFE8CD;background:#F4FBF3;color:#2C6E49;border-radius:3cqw;padding:.45cqw 1.1cqw;font-size:1.4cqw;font-weight:700}.ch i{width:.8cqw;height:.8cqw;border-radius:50%}
+.ch.on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}
+.k3 .act{display:flex;align-items:center;gap:1.2cqw;border-top:.1cqw solid #EFE8DA;padding-top:1.2cqw}.go{background:#1A1A1A;color:#fff;font-weight:800;font-size:1.4cqw;padding:.6cqw 1.6cqw;border-radius:3cqw}.k3 .cnt{font-size:1.3cqw;font-weight:700;color:#5a5348}
+.k3 .card{display:flex;gap:1.2cqw;background:#fff;border-radius:1.8cqw;padding:1.2cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3);transform:translateX(-3cqw) rotate(-1.5deg)}
+.k3 .th{flex:0 0 9cqw;height:9cqw;border-radius:1.2cqw;overflow:hidden}.k3 .th img{width:100%;height:100%;object-fit:cover}
+.k3 .nm{margin:0 0 .6cqw;font-size:2cqw;font-weight:900;color:#1A1A1A}.k3 .nm small{font-size:1.1cqw;color:#9A8f7e;font-weight:600}
+.k3 .tgs{display:flex;flex-wrap:wrap;gap:.5cqw}.k3 .tgs .tg{font-size:1.2cqw;padding:.35cqw .9cqw}.k3 .q{margin:.7cqw 0 0;font-size:1.25cqw;color:#5a5348}
+/* 4 */
+.k4{background:#fff}.k4 .grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.6cqw}
+.k4 .grid>div{position:relative;overflow:hidden}.k4 .grid img{width:100%;height:100%;object-fit:cover}
+.tagp{position:absolute;left:1.4cqw;top:1.4cqw;background:#fff;color:var(--c);border:.25cqw solid var(--c);font-weight:900;font-size:1.6cqw;padding:.35cqw 1.1cqw;border-radius:3cqw}
+.k4 .grid>div:nth-child(2) .tagp,.k4 .grid>div:nth-child(4) .tagp{left:auto;right:1.4cqw}
+.k4 .grid>div:nth-child(3) .tagp,.k4 .grid>div:nth-child(4) .tagp{top:auto;bottom:1.4cqw}
+.k4 .grid>div:nth-child(2) .tagp{top:7cqw}
+.k4 .band{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);background:rgba(26,26,26,.9);padding:1.6cqw 0 1.4cqw 17cqw;text-align:left}
+.k4 .ttl{font-size:6.2cqw;-webkit-text-stroke:.35cqw #1A1A1A;text-shadow:none}
+.rib2{margin:.8cqw 0 0;color:#fff;font-weight:800;font-size:2cqw}
+.badge{position:absolute;left:2.5cqw;top:50%;transform:translateY(-50%) rotate(-8deg);width:13cqw;height:13cqw;border-radius:50%;background:#F7CE46;border:.6cqw solid #1A1A1A;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 .6cqw 0 #1A1A1A}
+.badge b{font-size:6cqw;font-weight:900;line-height:1;color:#1A1A1A}.badge span{font-size:1.5cqw;font-weight:900;color:#1A1A1A}
+/* 5 */
+.k5 .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.1) 0%,rgba(20,60,38,.55) 55%,rgba(20,60,38,.9) 100%)}
+.pola{position:absolute;left:3cqw;top:4cqw;width:52%;height:88%}
+.pola figure{position:absolute;margin:0;background:#fff;padding:1cqw 1cqw 0;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.35);width:22cqw}
+.pola figure img{width:100%;aspect-ratio:4/3;object-fit:cover}.pola figcaption{padding:.8cqw 0 1cqw;font-size:1.7cqw;font-weight:900;color:#1A1A1A;text-align:center}.pola figcaption b{margin-right:.6cqw}
+.pola .mpin{position:absolute;left:50%;top:-2.6cqw;margin-left:-2.2cqw;z-index:2}
+.p1{left:0;top:2cqw;transform:rotate(-7deg)}.p2{left:17cqw;top:10cqw;transform:rotate(4deg);z-index:1}.p3{left:4cqw;top:27cqw;transform:rotate(3deg)}
+.k5 .right{position:absolute;right:4cqw;top:5cqw;width:38%;color:#fff}.k5 .ttl{font-size:7.4cqw}
+.boxw{display:flex;align-items:center;gap:1.2cqw;margin-top:1.8cqw;background:#fff;border-radius:1.6cqw;padding:1cqw;color:#1A1A1A;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.3)}
+.boxw img{width:10cqw;height:10cqw;object-fit:cover;border-radius:1cqw}.boxw p{margin:0;font-size:1.6cqw;font-weight:700;line-height:1.5}.boxw b{display:block;font-size:2cqw;color:#2C6E49}
+</style></head><body><div class="wrap">
+<h1>🧺 Blog 1 KV 方案（5 款，1600 × 900）</h1>
+<p>背景為官方實景相片（康文署／旅發局，僅作概念示意）；正式製作建議改用自家拍攝或已取得授權的高解像度相片。</p>
+<section class="opt"><h3>A｜三區拼貼</h3><p>新界、九龍、港島三張實景並排，每區標上地區色及地點數目，一眼看出「多地區」。</p>
+<div class="kv k1">
+  <div class="tri">
+    <div><img class="bg" src="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/gallery/05.jpg" alt="" referrerpolicy="no-referrer" ><span class="rgp" style="--c:#1E5BD8"><i class="mpin" style="--c:#1E5BD8"><b>📍</b></i>新界 16 個</span><em>大埔海濱公園</em></div>
+    <div><img class="bg" src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/01.jpg" alt="" referrerpolicy="no-referrer" ><span class="rgp" style="--c:#3F9D5A"><i class="mpin" style="--c:#3F9D5A"><b>📍</b></i>九龍 11 個</span><em>啟德郵輪碼頭公園</em></div>
+    <div><img class="bg" src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1.jpg" alt="" referrerpolicy="no-referrer" ><span class="rgp" style="--c:#E8743B"><i class="mpin" style="--c:#E8743B"><b>📍</b></i>港島 6 個</span><em>添馬公園</em></div>
+  </div>
+  <div class="shade"></div>
+  <div class="top"><span class="pill">2026 香港野餐好去處</span>
+  <h2 class="ttl">香港野餐勝地大全</h2>
+  <p class="rib">全港 33 個大草地／海景／隱世公園推介</p></div>
+  <p class="feat">可泊車、寵物友善野餐地點　一鍵搜尋</p><span class="logo"><img src="https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png" alt="Kitchen AO"></span>
+</div></section><section class="opt"><h3>B｜搜尋器地圖</h3><p>左邊大字標題，右邊直接用搜尋器地圖（地區色標記），三個代表地點以圓形實景相片標示。</p>
+<div class="kv k2">
+  <img class="bg" src="https://www.lcsd.gov.hk/en/parks/vp/common/graphics/slideshow/09.jpg" alt="" referrerpolicy="no-referrer" >
+  <div class="lpanel">
+    <span class="pill">2026 香港野餐好去處</span>
+    <h2 class="ttl y">全港野餐<br>地點搜尋器</h2>
+    <p class="sub">33 個野餐地點 × 新界｜九龍｜港島</p>
+    <p class="sub2">可泊車、寵物友善野餐地點一鍵搜尋</p>
+  </div>
+  <div class="mapcard"><svg viewBox="0 0 540 360" class="hkmap"><rect width="540" height="360" fill="#BFE0F0"/><g fill="#E8F1DD" stroke="#B9CDA4" stroke-width="1.2"><polygon points="40.0,180.0 70.0,116.5 120.0,52.9 170.0,26.5 240.0,5.3 340.0,0.0 440.0,31.8 470.0,84.7 430.0,127.1 470.0,169.4 440.0,264.7 400.0,243.5 360.0,241.4 320.0,247.8 300.0,246.7 285.0,222.4 240.0,190.6 190.0,180.0 130.0,171.5 90.0,185.3"/><polygon points="250.0,257.3 290.0,252.0 330.0,254.1 370.0,257.3 390.0,275.3 380.0,317.6 340.0,338.8 290.0,328.2 250.0,296.5"/><polygon points="10.0,317.6 50.0,264.7 120.0,243.5 190.0,220.2 210.0,243.5 170.0,301.8 90.0,333.5 30.0,333.5"/><polygon points="225.0,201.2 245.0,174.7 260.0,190.6 240.0,211.8"/><polygon points="492.0,68.8 505.0,55.1 510.0,67.8 500.0,76.2"/></g><g transform="translate(323.0,82.6)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(433.0,257.3)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(500.0,62.5)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(403.0,226.6)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(344.0,136.6)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(398.0,129.2)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(170.0,68.8)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(182.0,229.8)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(160.0,247.8)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(233.0,144.0)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(238.0,190.6)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌊</text></g><g transform="translate(371.0,110.1)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(157.0,95.3)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(116.0,146.1)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(145.0,77.3)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(246.0,182.1)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#1E5BD8" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🏛️</text></g><g transform="translate(298.0,242.5)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(354.0,237.2)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(362.0,232.9)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(359.0,219.2)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(336.0,208.1)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌊</text></g><g transform="translate(369.0,241.4)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(328.0,202.2)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(346.0,224.5)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌊</text></g><g transform="translate(339.0,211.8)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(295.0,216.0)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(290.5,208.1)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#3F9D5A" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌊</text></g><g transform="translate(306.0,262.6)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#E8743B" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(270.0,284.8)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#E8743B" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(282.0,254.1)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#E8743B" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(259.0,270.0)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#E8743B" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(328.0,262.6)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#E8743B" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g><g transform="translate(286.0,274.2)"><path d="M0,0 C-6,-8 -11,-12 -11,-19 A11,11 0 1 1 11,-19 C11,-12 6,-8 0,0Z" fill="#fff" stroke="#E8743B" stroke-width="2.6"/><text y="-15" font-size="11" text-anchor="middle">🌳</text></g></svg>
+    <div class="callout c-nt"><span class="ph"><img class="" src="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/gallery/05.jpg" alt="" referrerpolicy="no-referrer" ></span><b style="--c:#1E5BD8">大埔海濱公園</b></div>
+    <div class="callout c-kln"><span class="ph"><img class="" src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/01.jpg" alt="" referrerpolicy="no-referrer" ></span><b style="--c:#3F9D5A">啟德郵輪碼頭公園</b></div>
+    <div class="callout c-hk"><span class="ph"><img class="" src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1.jpg" alt="" referrerpolicy="no-referrer" ></span><b style="--c:#E8743B">添馬公園</b></div>
+    <div class="lg"><span><i style="background:#1E5BD8"></i>新界</span><span><i style="background:#3F9D5A"></i>九龍</span><span><i style="background:#E8743B"></i>港島</span></div>
+  </div>
+  <span class="logo"><img src="https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png" alt="Kitchen AO"></span>
+</div></section><section class="opt"><h3>C｜搜尋器介面</h3><p>一家人野餐實景做背景，右邊放搜尋器篩選框及地點卡，直接展示「揀地區、可泊車、寵物友善」的功能。</p>
+<div class="kv k3">
+  <img class="bg" src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/central-park/central-park-02-en.jpg" alt="" referrerpolicy="no-referrer" >
+  <div class="lshade"></div>
+  <div class="left">
+    <span class="pill">2026 香港野餐好去處</span>
+    <h2 class="ttl">野餐好去處<br><span class="y">33 個推介</span></h2>
+    <p class="sub">33 個大草地／海景／隱世公園<br>可泊車、寵物友善地點一鍵搜尋</p>
+  </div>
+  <div class="ui">
+    <div class="flt">
+      <p class="lab">① 地區</p>
+      <div class="chips"><span class="ch">全部</span><span class="ch on"><i style="background:#1E5BD8"></i>新界</span><span class="ch"><i style="background:#3F9D5A"></i>九龍</span><span class="ch"><i style="background:#E8743B"></i>港島</span></div>
+      <p class="lab">② 條件及類別</p>
+      <div class="chips"><span class="ch on">🚗 可泊車</span><span class="ch on">🐶 寵物友善</span><span class="ch">🌳 大草地</span><span class="ch">🌊 海景</span></div>
+      <div class="act"><span class="go">🔍 確定搜尋</span><span class="cnt">符合條件的地點一覽</span></div>
+    </div>
+    <div class="card">
+      <span class="th"><img class="" src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/p/penfold-park/penfold-park-02.jpg" alt="" referrerpolicy="no-referrer" ></span>
+      <div><p class="nm">彭福公園 <small>Penfold Park</small></p>
+      <div class="tgs"><span class="tg ok">🧺 適合野餐</span><span class="tg on">🌳 大草地</span><span class="tg pet">🐶 寵物友善</span></div>
+      <p class="q">🅿️ 鄰近停車場　🚆 港鐵馬場站</p></div>
+    </div>
+  </div>
+  <span class="logo"><img src="https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png" alt="Kitchen AO"></span>
+</div></section><section class="opt"><h3>D｜雜誌拼圖</h3><p>仿本地媒體常用的四格拼圖＋中間色帶大字，配圓形數字章及地圖標記，資訊量最大。</p>
+<div class="kv k4">
+  <div class="grid">
+    <div><img class="bg" src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-01.jpg" alt="" referrerpolicy="no-referrer" ><span class="tagp" style="--c:#1E5BD8">📍 清水灣大坑墩</span></div>
+    <div><img class="bg" src="https://www.lcsd.gov.hk/en/parks/ktp/common/graphics/fac/fac19.jpg" alt="" referrerpolicy="no-referrer" ><span class="tagp" style="--c:#3F9D5A">📍 觀塘海濱花園</span></div>
+    <div><img class="bg" src="https://www.lcsd.gov.hk/en/parks/vdp/common/graphics/slideshow/01.jpg" alt="" referrerpolicy="no-referrer" ><span class="tagp" style="--c:#1E5BD8">📍 香港單車館公園</span></div>
+    <div><img class="bg" src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1.jpg" alt="" referrerpolicy="no-referrer" ><span class="tagp" style="--c:#E8743B">📍 添馬公園</span></div>
+  </div>
+  <div class="band">
+    <h2 class="ttl y">香港野餐好去處大全</h2>
+    <p class="rib2">新界｜九龍｜港島　可泊車、寵物友善地點一鍵搜尋</p>
+  </div>
+  <div class="badge"><b>33</b><span>個野餐地點</span></div>
+  <span class="logo"><img src="https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png" alt="Kitchen AO"></span>
+</div></section><section class="opt"><h3>E｜拍立得＋野餐盒</h3><p>三張拍立得代表三個地區，右邊配 Kitchen AO 野餐盒及「送到附近可停車位置」，連結內容與產品。</p>
+<div class="kv k5">
+  <img class="bg" src="https://www.lcsd.gov.hk/en/parks/jvp/common/graphics/slideshow/01.jpg" alt="" referrerpolicy="no-referrer" >
+  <div class="veil"></div>
+  <div class="pola">
+    <figure class="p1"><i class="mpin big" style="--c:#1E5BD8"><b>🌳</b></i><img class="" src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-01.jpg" alt="" referrerpolicy="no-referrer" ><figcaption><b style="color:#1E5BD8">新界</b>清水灣大坑墩</figcaption></figure>
+    <figure class="p2"><i class="mpin big" style="--c:#3F9D5A"><b>🌊</b></i><img class="" src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/01.jpg" alt="" referrerpolicy="no-referrer" ><figcaption><b style="color:#3F9D5A">九龍</b>啟德郵輪碼頭公園</figcaption></figure>
+    <figure class="p3"><i class="mpin big" style="--c:#E8743B"><b>🌳</b></i><img class="" src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1.jpg" alt="" referrerpolicy="no-referrer" ><figcaption><b style="color:#E8743B">港島</b>添馬公園</figcaption></figure>
+  </div>
+  <div class="right">
+    <span class="pill">2026 香港野餐好去處</span>
+    <h2 class="ttl">懶人野餐<br><span class="y">全攻略</span></h2>
+    <p class="sub">33 個大草地／海景／秘境</p>
+    <div class="boxw"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg" alt="Kitchen AO 野餐盒"><p><b>🧺 Kitchen AO 野餐盒</b>送到附近可停車位置</p></div>
+    <p class="sub2">可泊車、寵物友善地點一鍵搜尋</p>
+  </div>
+  <span class="logo"><img src="https://aoaodelivery.com/wp-content/uploads/2023/08/kitchenAO_logo-1.png" alt="Kitchen AO"></span>
+</div></section>
+</div></body></html>

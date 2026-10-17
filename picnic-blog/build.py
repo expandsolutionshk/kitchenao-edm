@@ -104,15 +104,15 @@ SNACKS = [
  ('芝士海鮮牛角酥', '酥皮小食，賣相精緻適合打卡。', 'a1800-cheesy-seafood-and-pork-floss-croissant', '2023/10/KitchenAO_JUN2023-ALA-CARTE-04-600x600.png'),
  ('蜜蜜燒雞翼配脆薯角', '人氣派對小食，一口一件。', 'a0500-honey-glazed-chicken-wings-w-potato-wedges', '2019/06/Posts-16-scaled-600x600.jpg'),
 ]
-snack_html = ''.join(f'<a class="pk-sn" href="https://aoaodelivery.com/product/{slug}/?{UTM}" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/{img}" alt="{n}｜Kitchen AO 野餐小食" loading="lazy"><span class="sn-b"><b>{n}</b><span>{d}</span><i>查看單品 →</i></span></a>' for n, d, slug, img in SNACKS)
+snack_html = ''.join(f'<a class="pk-sn" href="https://aoaodelivery.com/product/{slug}/?{UTM}" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/{img}" alt="{n}｜Kitchen AO 野餐小食" loading="lazy"><span class="sn-b"><b>{n}</b><i>查看單點小食</i></span></a>' for n, d, slug, img in SNACKS)
 FBJS = "<script>(function(){var f=document.getElementById('aoFb');if(!f)return;var m=f.querySelector('.ao-fb-msg');\nf.querySelector('.ao-fb-copy').onclick=function(){var u=location.href.split('#')[0];(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){m.textContent='已複製連結'}).catch(function(){m.textContent=u})};\nf.querySelectorAll('.ao-fb-b').forEach(function(b){b.onclick=function(){f.querySelectorAll('.ao-fb-b').forEach(function(x){x.disabled=true;x.classList.toggle('on',x===b)});m.textContent='多謝你的意見！';(window.dataLayer=window.dataLayer||[]).push({event:'article_feedback',feedback:b.dataset.v,article:'picnic-blog1'})}})})();</script>"
 BODY = f'''<div class="ao-article ao-picnic">
 <style>
 {CSS}
 </style>
 
-<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">{N} 個大草地／海景／隱世公園 × 全港野餐地點搜尋器</p><p class="pk-kv-f"><span>🔍 一鍵搜尋</span><span>🚗 鄰近泊車</span><span>🐶 寵物友善</span><span>🧺 懶人野餐盒</span></p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
-<p class="pk-h1note">H1：【香港野餐勝地大全】{N} 個大草地／海景／隱世公園推介 x 懶人野餐全攻略</p>
+<div class="pk-kv"><div><p class="pk-kv-pill">2026 香港野餐好去處</p><p class="pk-kv-t">香港野餐勝地大全</p><p class="pk-kv-s">{N} 個大草地／海景／隱世公園推介<br>可泊車、寵物友善野餐地點一鍵搜尋</p></div><span class="pk-kv-note">KV 待製作（1600 × 900）</span></div>
+<p class="pk-h1note">H1：【香港野餐勝地大全】{N} 個大草地／海景／隱世公園推介｜野餐泊車、寵物友善地點一鍵搜尋</p>
 
 <div class="ao-introcard">
 <p class="ao-q">🧺 想找<mark class="kw">香港野餐好去處</mark>？</p>
