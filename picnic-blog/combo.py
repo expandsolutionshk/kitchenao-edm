@@ -185,10 +185,10 @@ CSS = '''
 .cmp .tw{border-radius:12px}
 .tw{overflow-x:auto;border-radius:12px;border:1px solid #EFE8DA;max-height:520px;overflow-y:auto}
 table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}
-th{position:sticky;top:0;z-index:1;background:#1A1A1A;color:#fff;padding:10px 2px;font-weight:700;font-size:13px}th small{display:block;font-size:11px;font-weight:600;opacity:.8}
+th{position:sticky;top:0;z-index:1;background:#1A1A1A;color:#fff;padding:10px 2px;font-weight:700;font-size:13px}th small{display:block;margin-top:3px;font-size:11.5px;font-weight:600;opacity:.85}
 td{padding:11px 2px;text-align:center;vertical-align:middle;border-bottom:1px solid #F2ECE0}
 .st{text-align:left;width:34%;padding-left:14px!important;padding-right:8px!important;background:#fff}th.st{background:#1A1A1A}
-td.st a{color:#1A1A1A;font-weight:800;text-decoration:none;font-size:14px;line-height:1.4;display:block}td.st small{display:block;color:#9A8f7e;font-size:11px}
+td.st a{color:#1A1A1A;font-weight:800;text-decoration:none;font-size:14px;line-height:1.4;display:block}td.st small{display:block;margin-top:3px;color:#9A8f7e;font-size:12px}
 tbody tr:nth-child(even) td{background:#FBF8F2}
 .y{color:#2C6E49;font-size:14px}.p{color:#B07A3A;font-size:11px}.n{color:#d3cbbb}
 .empty{display:none;padding:14px;text-align:center;background:#FFF4F2;border-radius:12px;font-size:13px}
