@@ -14,6 +14,9 @@ GEO = {'tamar':(22.282,114.166),'sysmp':(22.290,114.142),'cyber':(22.261,114.130
 'wkcd':(22.301,114.158),'ktct':(22.306,114.214),'shingfung':(22.318,114.206),'jvp':(22.323,114.219),'ktprom':(22.310,114.222),'ckl':(22.302,114.229),'namcheong':(22.326,114.155),'lokfu':(22.339,114.188),
 'penfold':(22.401,114.204),'tpwp':(22.452,114.183),'velo':(22.316,114.263),'mospark':(22.426,114.231),'ngongping':(22.408,114.258),'taitamtun':(22.287,114.293),'tapmun':(22.471,114.360),'yuentun':(22.394,114.093),'tyipark':(22.358,114.106),'tyiwf':(22.350,114.098),'howo':(22.375,113.966),'tmpark':(22.392,113.976),'namsang':(22.465,114.030),'tswpark':(22.457,114.005),'ylpark':(22.440,114.017),
 'inspire':(22.313,114.042),'db':(22.296,114.020),'ktsky':(22.3335,114.1960),'ktsq':(22.3300,114.1990),'csw':(22.3335,114.1505)}
+# 2026-10-18：改用官方座標（地政總署地名搜尋 HK1980 → WGS84；愉景灣用旅發局座標），來源見 geo_official.json
+_GO = json.load(open(os.path.join(HERE, 'geo_official.json')))
+GEO.update({k: (v['lat'], v['lng']) for k, v in _GO.items()})
 LNG0, LNG1, LAT0, LAT1 = 113.86, 114.40, 22.19, 22.53
 W, Hh = 540, 360
 def xy(lat, lng): return ((lng-LNG0)/(LNG1-LNG0)*W, (LAT1-lat)/(LAT1-LAT0)*Hh)
@@ -97,7 +100,7 @@ def card(p, kw=False):
         car = f'<div class="kcar none">⚠️ {esc(p.get("carnote","暫無停車場資料"))}</div>'
     fac = '' if unk(o.get('fac')) else ''.join(f'<span>{esc(x.strip())}</span>' for x in str(o['fac']).replace('，','、').replace(',', '、').replace('；','、').split('、') if x.strip())
     # buttons
-    g = 'https://www.google.com/maps/search/?api=1&amp;query=' + quote(p['name'].split(' / ')[0] + ' 香港')
+    g = 'https://www.google.com/maps/search/?api=1&amp;query=' + f"{GEO[p['id']][0]:.6f},{GEO[p['id']][1]:.6f}"  # 以官方座標開啟精確位置
     btns = [f'<a class="btn b1" href="{g}" target="_blank" rel="noopener">📍 Google Map</a>']
     mp = o.get('map', '')
     if mp:

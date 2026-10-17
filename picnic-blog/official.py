@@ -94,7 +94,7 @@ O={
  intro='沙田馬場中央的彭福公園由香港賽馬會撥款興建及管理，自1979年起開放予各界訪客。馬會於2023年2月展開兩階段改善工程，新設小馬區及兒童遊樂設施、翻新洗手間、分隔寵物區與非寵物區，目標是把公園發展成共融公園。（沙田區議會文件）',
  fac='小馬區、兒童遊樂設施、寵物區、洗手間、座椅',mtr='未能確認',map='',img=[],
  src='https://www.districtcouncils.gov.hk/st/doc/2024_2027/tc/dc_meetings_doc/27649/st_2024_43_tc.pdf',note='賽馬日關閉未能從官方確認，建議提醒讀者查閱馬會賽期表。'),
-'大埔海濱公園':dict(mg=LCSD,url=L+'/tc/parks/tpwp/index.html',addr='出入口設於大喜街及大景街（官方未列門牌地址）',open='全日 24 小時（個別設施另計）',
+'大埔海濱公園':dict(mg=LCSD,url=L+'/tc/parks/tpwp/index.html',addr='大埔大發街',open='全日 24 小時（個別設施另計）',
  intro='大埔海濱公園佔地約22公頃。公園斥資二億一千萬元興建，提供多項體育設施，並設有昆蟲屋和多個主題花園，動靜皆宜。園內亦設香港回歸紀念塔，遊人登塔，吐露港迷人景致盡收眼底。',
  fac='風箏放飛區、香港回歸紀念塔、海濱長廊、露天劇場、兒童遊樂場、花海、西式花園、昆蟲屋、寵物公園、洗手間、無障礙設施',mtr='大埔墟站 B 出口（步行約 30 分鐘）或港鐵接駁巴士 K17',
  map=L+'/en/parks/tpwp/common/graphics/map-01.jpg',img=[L+'/en/parks/tpwp/common/graphics/tpwp_banner.jpg',L+'/en/parks/tpwp/common/graphics/facilities/outdoor/03.jpg',L+'/en/parks/tpwp/common/graphics/facilities/outdoor/14.jpg'],
