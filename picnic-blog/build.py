@@ -282,7 +282,7 @@ BODY_HERO = BODY_HERO.replace('</style><section class="pk-hero"', """
 .ao-picnic .rpanel{display:none}.ao-picnic .rpanel.on{display:block}
 .ao-picnic .rpanel .cmp>summary,.ao-picnic .rpanel .tclose{display:none!important}.ao-picnic .rpanel #hk-table{border-bottom:0;padding-bottom:0}.ao-picnic .rpanel #hk-table .ao-h2{margin-top:6px!important}
 @media(max-width:640px){.ao-picnic .rtabs button{font-size:13.5px;padding:9px 4px}.ao-picnic .rmod{margin-left:0}}
-@media(max-width:640px){.ao-article.ao-picnic{width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:0!important;padding-left:10px!important;padding-right:10px!important;box-sizing:border-box!important}}
+@media(max-width:640px){.ao-article.ao-picnic{width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:0!important;padding-left:18px!important;padding-right:18px!important;box-sizing:border-box!important}}
 </style><section class="pk-hero" """.rstrip(), 1)
 prev_hero = prev.replace(BODY, BODY_HERO)
 if __name__ == '__main__':
