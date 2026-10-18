@@ -197,7 +197,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .off{display:none!important}
 /* ===== B 款地點卡 ===== */
 .prow{border:1px solid #E7E0D2;border-radius:18px;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.05);overflow:hidden;margin:0 0 14px;scroll-margin-top:60px;transition:box-shadow .3s,border-color .3s}
-.prow.hit{border-color:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}.prow.open{border:2px solid #3F9D5A;box-shadow:0 8px 26px rgba(44,110,73,.18)}.dhd{grid-column:1/-1;display:flex;align-items:center;gap:6px;margin:0 0 2px;padding:9px 14px;border-radius:10px;background:#F4FBF3;color:#2C6E49;font-weight:800;font-size:15px}.dclose{grid-column:1/-1;display:block;width:100%;margin-top:4px;border:1.5px solid #3F9D5A;background:#fff;color:#2C6E49;border-radius:30px;padding:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+.prow.hit{border-color:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}.prow.open{border:2px solid #3F9D5A;box-shadow:0 8px 26px rgba(44,110,73,.18)}.dhd{grid-column:1/-1;display:flex;align-items:center;gap:6px;margin:0 0 2px;padding:9px 14px;border-radius:10px;background:#F4FBF3;color:#2C6E49;font-weight:800;font-size:15px}.tclose{display:block;width:100%;margin-top:12px;border:1.5px solid #3F9D5A;background:#fff;color:#2C6E49;border-radius:30px;padding:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}.dclose{grid-column:1/-1;display:block;width:100%;margin-top:4px;border:1.5px solid #3F9D5A;background:#fff;color:#2C6E49;border-radius:30px;padding:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
 .sum{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:18px;padding:14px}
 .thumb{position:relative;border-radius:14px;overflow:hidden;background:#DDEBD9;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
@@ -307,6 +307,7 @@ document.querySelectorAll('.vt button').forEach(function(b){b.addEventListener('
 document.getElementById('go').onclick=function(){closeS();apply();pend(false);var t=document.getElementById('hk-map');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
 document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();pend(false);};
 document.querySelectorAll('a[href^="#b-"]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(a.getAttribute('href'));}});
+document.querySelectorAll('.tclose').forEach(function(b){b.onclick=function(){var dt=b.closest('details');dt.open=false;var t=document.getElementById('hk-table');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}});
 document.querySelectorAll('.prow').forEach(function(r){
   var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};var dc=r.querySelector('.dclose');if(dc)dc.onclick=function(){d.click();r.scrollIntoView({behavior:'smooth',block:'start'})};
   var tr=r.querySelector('.tr');if(!tr)return;var ds=r.querySelectorAll('.dots i');
@@ -340,7 +341,7 @@ def MAP(hx='h2'):
 </div>"""
 def TABLE(hx='h2', hcls='sh'):
     return f"""<div class="sec" id="hk-table"><{hx} class="{hcls}">📊 全港野餐地點一覽比較表</{hx}><p class="tseo">{TBL_SEO}</p>
-<details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div></details></div>"""
+<details class="cmp"><summary><span class="o">📊 展開比較表（{N} 個地點）</span><span class="c">📊 收起比較表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div><button class="tclose" type="button">收起比較表 ▲</button></details></div>"""
 POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p><p class="swh">← 左右滑動查看 5 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
 <div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
