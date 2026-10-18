@@ -116,6 +116,7 @@ def card(p, kw=False):
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 {p['name'].split(' / ')[0]}詳情</div>
     <div class="lc">{gal}
       {f'<div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac">{fac}</div></div>' if fac else ''}
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">{p['petnote']}</div></div>
@@ -126,6 +127,7 @@ def card(p, kw=False):
       <div class="btns">{''.join(btns)}</div>
       {intro}
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article>'''
 items = ''.join(card(p) for p in P)
@@ -195,7 +197,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .off{display:none!important}
 /* ===== B 款地點卡 ===== */
 .prow{border:1px solid #E7E0D2;border-radius:18px;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.05);overflow:hidden;margin:0 0 14px;scroll-margin-top:60px;transition:box-shadow .3s,border-color .3s}
-.prow.hit{border-color:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
+.prow.hit{border-color:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}.prow.open{border:2px solid #3F9D5A;box-shadow:0 8px 26px rgba(44,110,73,.18)}.dhd{grid-column:1/-1;display:flex;align-items:center;gap:6px;margin:0 0 2px;padding:9px 14px;border-radius:10px;background:#F4FBF3;color:#2C6E49;font-weight:800;font-size:15px}.dclose{grid-column:1/-1;display:block;width:100%;margin-top:4px;border:1.5px solid #3F9D5A;background:#fff;color:#2C6E49;border-radius:30px;padding:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
 .sum{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:18px;padding:14px}
 .thumb{position:relative;border-radius:14px;overflow:hidden;background:#DDEBD9;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
@@ -253,7 +255,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
   .prow.open .det{grid-template-columns:1fr;gap:14px;padding:14px 12px 16px}
   .facts{gap:8px}.facts div{padding:9px 10px;font-size:13.5px}
   .btns{display:grid;grid-template-columns:1fr 1fr}.b3{grid-column:1/-1}.btn{white-space:normal;text-align:center}
-  .lc,.rc{display:contents}.det .gal{order:1}.det .facts{order:2;margin-top:0}.det .s-car{order:3}.det .btns{order:4}.det .s-fac{order:5}.det .s-pet{order:6}.det .dsec{margin-top:0}
+  .lc,.rc{display:contents}.det .dhd{order:0}.det .dclose{order:99}.det .gal{order:1}.det .facts{order:2;margin-top:0}.det .s-car{order:3}.det .btns{order:4}.det .s-fac{order:5}.det .s-pet{order:6}.det .dsec{margin-top:0}
 }
 /* pop up */
 .mdl{position:fixed;inset:0;z-index:99;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
@@ -306,7 +308,7 @@ document.getElementById('go').onclick=function(){closeS();apply();pend(false);va
 document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();pend(false);};
 document.querySelectorAll('a[href^="#b-"]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(a.getAttribute('href'));}});
 document.querySelectorAll('.prow').forEach(function(r){
-  var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};
+  var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};var dc=r.querySelector('.dclose');if(dc)dc.onclick=function(){d.click();r.scrollIntoView({behavior:'smooth',block:'start'})};
   var tr=r.querySelector('.tr');if(!tr)return;var ds=r.querySelectorAll('.dots i');
   tr.addEventListener('scroll',function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);ds.forEach(function(x,k){x.classList.toggle('on',k===i)})});
   var p=r.querySelector('.nav.p'),n=r.querySelector('.nav.n');if(p)p.onclick=function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'})};if(n)n.onclick=function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'})};

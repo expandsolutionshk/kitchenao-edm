@@ -233,6 +233,9 @@
 .ao-picnic /* ===== B 款地點卡 ===== */
 .prow{border:1px solid #E7E0D2;border-radius:18px;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.05);overflow:hidden;margin:0 0 14px;scroll-margin-top:60px;transition:box-shadow .3s,border-color .3s}
 .ao-picnic .prow.hit{border-color:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
+.ao-picnic .prow.open{border:2px solid #3F9D5A;box-shadow:0 8px 26px rgba(44,110,73,.18)}
+.ao-picnic .dhd{grid-column:1/-1;display:flex;align-items:center;gap:6px;margin:0 0 2px;padding:9px 14px;border-radius:10px;background:#F4FBF3;color:#2C6E49;font-weight:800;font-size:15px}
+.ao-picnic .dclose{grid-column:1/-1;display:block;width:100%;margin-top:4px;border:1.5px solid #3F9D5A;background:#fff;color:#2C6E49;border-radius:30px;padding:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
 .ao-picnic .sum{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:18px;padding:14px}
 .ao-picnic .thumb{position:relative;border-radius:14px;overflow:hidden;background:#DDEBD9;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
 .ao-picnic .thumb img{width:100%;height:100%;object-fit:cover;display:block}
@@ -336,6 +339,8 @@
 .ao-picnic .b3{grid-column:1/-1}
 .ao-picnic .btn{white-space:normal;text-align:center}
 .ao-picnic .lc,.ao-picnic .rc{display:contents}
+.ao-picnic .det .dhd{order:0}
+.ao-picnic .det .dclose{order:99}
 .ao-picnic .det .gal{order:1}
 .ao-picnic .det .facts{order:2;margin-top:0}
 .ao-picnic .det .s-car{order:3}
@@ -742,6 +747,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 大埔海濱公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="大埔海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/gallery/05.jpg" alt="大埔海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="大埔海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/slideshow/01.jpg" alt="大埔海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="大埔海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/slideshow/03.jpg" alt="大埔海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>風箏放飛區</span><span>香港回歸紀念塔</span><span>海濱長廊</span><span>露天劇場</span><span>兒童遊樂場</span><span>花海</span><span>西式花園</span><span>昆蟲屋</span><span>寵物公園</span><span>洗手間</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">寵物共享範圍位於海濱長廊一帶，狗狗不可踏上大草坪。</div></div>
@@ -752,6 +758,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.452943,114.178380" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/map-01.jpg" data-s="康樂及文化事務署" data-t="大埔海濱公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/TP/2609_map.jpg" data-s="康樂及文化事務署" data-t="大埔海濱公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-taitamtun" data-id="taitamtun" data-r="nt" data-car="1" data-pet="Y" data-cats="lawn hidden sea">
   <div class="sum">
@@ -760,6 +767,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 清水灣大坑墩草地詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="清水灣大坑墩草地"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-01.jpg" alt="清水灣大坑墩草地 / 清水灣郊野公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="清水灣大坑墩草地"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-05.jpg" alt="清水灣大坑墩草地 / 清水灣郊野公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="清水灣大坑墩草地"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-02.jpg" alt="清水灣大坑墩草地 / 清水灣郊野公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="清水灣大坑墩草地"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/clearwater-bay-country-park/clearwater-bay-country-park-03.jpg" alt="清水灣大坑墩草地 / 清水灣郊野公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>大坑墩燒烤區</span><span>清水灣郊野公園遊客中心</span><span>無障礙洗手間</span><span>清水灣樹木研習徑</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">可與狗狗在草地野餐。</div></div>
@@ -770,6 +778,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.289516,114.299900" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.afcd.gov.hk/tc_chi/country/cou_lea/cou_lea_ven/images/v_cwb_map.gif" data-s="漁農自然護理署" data-t="清水灣大坑墩草地 / 清水灣郊野公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-tapmun" data-id="tapmun" data-r="nt" data-car="0" data-pet="Y" data-cats="lawn hidden sea">
   <div class="sum">
@@ -778,6 +787,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 塔門詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="塔門"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/t/tap-mun/tap-mun-01.jpg" alt="塔門" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="塔門"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/t/tap-mun/tap-mun-02.jpg" alt="塔門" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>大草坪</span><span>觀海亭</span><span>龍景亭</span><span>海鮮餐廳及商店</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">戶外草地，可與寵物野餐。</div></div>
@@ -788,6 +798,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.476944,114.360833" target="_blank" rel="noopener">📍 Google Map</a><a class="btn b2" href="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/t/tap-mun/map-guide/tc-tap-mun.pdf" target="_blank" rel="noopener">🗺️ 平面圖（PDF）</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-velo" data-id="velo" data-r="nt" data-car="1" data-pet="P" data-cats="lawn">
   <div class="sum">
@@ -796,6 +807,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 香港單車館公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="香港單車館公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vdp/common/graphics/slideshow/01.jpg" alt="香港單車館公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="香港單車館公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vdp/common/graphics/slideshow/02.jpg" alt="香港單車館公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="香港單車館公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vdp/common/graphics/slideshow/03.jpg" alt="香港單車館公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="香港單車館公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vdp/common/graphics/slideshow/07.jpg" alt="香港單車館公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>中央草坪</span><span>人工湖</span><span>極限運動場</span><span>露天劇場</span><span>緩跑徑</span><span>運動攀登牆</span><span>兒童遊樂場</span><span>模型船池</span><span>洗手間</span><span>收費停車場</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">狗隻須在指定範圍內活動。</div></div>
@@ -806,6 +818,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.313644,114.261429" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/vdp/images/2015/01/map_org.jpg" data-s="康樂及文化事務署" data-t="香港單車館公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/SK/2904_Map.jpg" data-s="康樂及文化事務署" data-t="香港單車館公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-penfold" data-id="penfold" data-r="nt" data-car="1" data-pet="Y" data-cats="lawn">
   <div class="sum">
@@ -814,6 +827,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 彭福公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="彭福公園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/p/penfold-park/penfold-park-02.jpg" alt="彭福公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="彭福公園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/p/penfold-park/penfold-park-01.jpg" alt="彭福公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="彭福公園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/p/penfold-park/penfold-park-03.jpg" alt="彭福公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>小馬區</span><span>兒童遊樂設施</span><span>寵物區</span><span>洗手間</span><span>座椅</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">廣闊草地，可與狗狗一同野餐；賽馬日暫停開放。</div></div>
@@ -824,6 +838,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.399896,114.207106" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ngongping" data-id="ngongping" data-r="nt" data-car="0" data-pet="Y" data-cats="lawn hidden">
   <div class="sum">
@@ -832,6 +847,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 馬鞍山昂坪高原詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="馬鞍山昂坪高原"><span class="src">圖片來源：漁農自然護理署</span><img src="https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/images/camp22.jpg" alt="馬鞍山昂坪高原" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>昂平營地（燒烤爐</span><span>檯</span><span>櫈</span><span>旱廁）</span><span>昂平觀景台</span><span>水源為季節性溪澗</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">郊野公園範圍，可與寵物野餐。</div></div>
@@ -842,6 +858,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.392341,114.250979" target="_blank" rel="noopener">📍 Google Map</a><a class="btn b2" href="https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cam/cou_vis_cam_cam/files/m22.pdf" target="_blank" rel="noopener">🗺️ 平面圖（PDF）</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-namsang" data-id="namsang" data-r="nt" data-car="0" data-pet="Y" data-cats="lawn hidden">
   <div class="sum">
@@ -850,6 +867,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 南生圍詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="南生圍"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/n/nam-sang-wai/nam-sang-wai-01.jpg" alt="南生圍" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="南生圍"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/n/nam-sang-wai/nam-sang-wai-02.jpg" alt="南生圍" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>單車徑</span><span>橫渡錦田河小船</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">戶外空間，可與寵物野餐。</div></div>
@@ -860,6 +878,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.461947,114.038049" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-inspire" data-id="inspire" data-r="nt" data-car="1" data-pet="N" data-cats="lawn euro">
   <div class="sum">
@@ -868,6 +887,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 迪欣湖活動中心詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="迪欣湖活動中心"><span class="src">圖片來源：香港迪士尼樂園</span><img src="https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/630/354/75/vision-dam/digital/hkdl-platform/hkdl-standard-assets/tac/zh-hk-intl/system/images/hkdl-des-inspiration-lake-hero-01.jpg" alt="迪欣湖活動中心" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>人工湖</span><span>植物園（草地可野餐）</span><span>腳踏遊覽車出租</span><span>小食店</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -878,6 +898,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.323449,114.037308" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-db" data-id="db" data-r="nt" data-car="1" data-pet="Y" data-cats="lawn sea">
   <div class="sum">
@@ -886,6 +907,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 愉景灣中央公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="愉景灣中央公園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/central-park/central-park-01.jpg" alt="愉景灣中央公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="愉景灣中央公園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/central-park/central-park-02-en.jpg" alt="愉景灣中央公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="愉景灣中央公園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/c/central-park/central-park-03.jpg" alt="愉景灣中央公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i></div></div>
       
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">歡迎狗狗在此野餐及放電。</div></div>
@@ -896,6 +918,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.304858,114.013401" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-yuentun" data-id="yuentun" data-r="nt" data-car="1" data-pet="Y" data-cats="lawn hidden">
   <div class="sum">
@@ -904,6 +927,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 圓墩村草地詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="圓墩村草地"><span class="src">圖片來源：漁農自然護理署</span><img src="https://www.hiking.gov.hk/console/public/uploads/trail/watermark/5d64dd00a4099.jpg" alt="圓墩村草地" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="圓墩村草地"><span class="src">圖片來源：漁農自然護理署</span><img src="https://www.hiking.gov.hk/console/public/uploads/trail/watermark/5d64dd0187ed1.jpg" alt="圓墩村草地" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>圓墩博物館</span><span>草地野餐設施未能確認</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">郊野公園範圍，可與寵物野餐。</div></div>
@@ -914,6 +938,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.370188,114.044282" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-tyiwf" data-id="tyiwf" data-r="nt" data-car="1" data-pet="Y" data-cats="sea">
   <div class="sum">
@@ -922,6 +947,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 青衣海濱公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="青衣海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KWT/2323_01.jpg" alt="青衣海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="青衣海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KWT/2323_02.jpg" alt="青衣海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>狗糞收集箱（寵物共享指定位置）</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">寵物共享空間有限，較適合與狗狗散步。</div></div>
@@ -932,6 +958,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.357504,114.108846" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KWT/2323_KwT64.JPG" data-s="康樂及文化事務署" data-t="青衣海濱公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-mospark" data-id="mospark" data-r="nt" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -940,6 +967,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 馬鞍山公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="馬鞍山公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/mosp/common/graphics/slideshow/04.jpg" alt="馬鞍山公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="馬鞍山公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/mosp/common/graphics/slideshow/02.jpg" alt="馬鞍山公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="馬鞍山公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/mosp/common/graphics/slideshow/03.jpg" alt="馬鞍山公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="馬鞍山公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/mosp/common/graphics/slideshow/05.jpg" alt="馬鞍山公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>中央草坪</span><span>海洋廣場</span><span>太極場</span><span>迷宮</span><span>共融遊樂設施</span><span>長者健體站</span><span>足健徑</span><span>採礦歷史展覽</span><span>洗手間</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -950,6 +978,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.427225,114.231173" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/mosp/common/graphics/layout.jpg" data-s="康樂及文化事務署" data-t="馬鞍山公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ylpark" data-id="ylpark" data-r="nt" data-car="1" data-pet="N" data-cats="lawn euro">
   <div class="sum">
@@ -958,6 +987,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 元朗公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="元朗公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ylp/common/graphics/slideshow/41.jpg" alt="元朗公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="元朗公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ylp/common/graphics/gallery/11.jpg" alt="元朗公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="元朗公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ylp/common/graphics/slideshow/38.jpg" alt="元朗公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>大草坪</span><span>百鳥塔</span><span>瀑布</span><span>人工湖</span><span>蝴蝶閣</span><span>兒童遊樂場</span><span>噴泉廣場</span><span>山頂廣場</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -968,6 +998,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.442454,114.018926" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/ylp/common/graphics/map_c.jpg" data-s="康樂及文化事務署" data-t="元朗公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-tmpark" data-id="tmpark" data-r="nt" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -976,6 +1007,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 屯門公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="屯門公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tmp/common/graphics/slideshow/01.jpg" alt="屯門公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="屯門公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tmp/common/graphics/slideshow/02.jpg" alt="屯門公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="屯門公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tmp/common/graphics/slideshow/10.jpg" alt="屯門公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>人工湖</span><span>人工瀑布</span><span>爬蟲館</span><span>模型船池</span><span>露天劇場</span><span>涼亭</span><span>兒童遊樂場</span><span>主題花園</span><span>快餐亭</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -986,6 +1018,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.393242,113.973758" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/tmp/common/graphics/en/tmp_map.jpg" data-s="康樂及文化事務署" data-t="屯門公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-tswpark" data-id="tswpark" data-r="nt" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -994,6 +1027,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 天水圍公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="天水圍公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tswp/common/graphics/slideshow/05.jpg" alt="天水圍公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="天水圍公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tswp/common/graphics/gallery/04.jpg" alt="天水圍公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="天水圍公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tswp/common/graphics/slideshow/02.jpg" alt="天水圍公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="天水圍公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tswp/common/graphics/gallery/01.jpg" alt="天水圍公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>人工湖</span><span>噴泉廣場</span><span>涼亭</span><span>太極場</span><span>兒童遊樂場</span><span>網球場</span><span>籃球場</span><span>滑板場</span><span>模型船區</span><span>洗手間</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">只容許寵物於指定位置活動，不包括主要草地範圍。</div></div>
@@ -1004,6 +1038,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.455614,114.003454" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/tswp/common/graphics/map.jpg" data-s="康樂及文化事務署" data-t="天水圍公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/YL/3192_03.jpg" data-s="康樂及文化事務署" data-t="天水圍公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-tyipark" data-id="tyipark" data-r="nt" data-car="1" data-pet="N" data-cats="euro">
   <div class="sum">
@@ -1012,6 +1047,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 青衣公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="青衣公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/typ/common/graphics/slideshow/01.jpg" alt="青衣公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="青衣公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/typ/common/graphics/slideshow/03.jpg" alt="青衣公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="青衣公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/typ/common/graphics/gallery/04.jpg" alt="青衣公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="青衣公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/typ/common/graphics/gallery/07.jpg" alt="青衣公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>野餐區</span><span>大休憩草坪</span><span>人工湖</span><span>大型瀑布</span><span>觀景台</span><span>露天劇場</span><span>兒童遊樂場</span><span>棕櫚園</span><span>桃花園</span><span>芳香花園</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -1022,6 +1058,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.355985,114.105565" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/typ/common/graphics/park_map_l.jpg" data-s="康樂及文化事務署" data-t="青衣公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article></div>
 </section><section class="pk-region" data-region="kln">
@@ -1034,6 +1071,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 西九文化區詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="西九文化區"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/a/art-park/art-park-01.jpg" alt="西九文化區" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="西九文化區"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/a/art-park/art-park-02-new.jpg" alt="西九文化區" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>戶外草坪</span><span>公共休憩空間</span><span>海濱長廊</span><span>餐廳及咖啡廳</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">除寵物俱樂部可讓狗狗自由奔跑外，其餘範圍狗狗必須繫上牽繩。</div></div>
@@ -1044,6 +1082,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.299757,114.157067" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ktct" data-id="ktct" data-r="kln" data-car="1" data-pet="Y" data-cats="lawn sea">
   <div class="sum">
@@ -1052,6 +1091,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 啟德郵輪碼頭公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="啟德郵輪碼頭公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/01.jpg" alt="啟德郵輪碼頭公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="啟德郵輪碼頭公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/04.jpg" alt="啟德郵輪碼頭公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="啟德郵輪碼頭公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/02.jpg" alt="啟德郵輪碼頭公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="啟德郵輪碼頭公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/03.jpg" alt="啟德郵輪碼頭公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>中央草坪</span><span>觀景草坪</span><span>水景花園</span><span>噴泉廣場</span><span>升旗平台</span><span>觀景平台</span><span>休憩處</span><span>洗手間及育嬰室</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">天台公園設有中央草坪，可與狗狗一同野餐。</div></div>
@@ -1062,6 +1102,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.305940,114.213482" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/ktctp/images/2015/01/layoutmap.jpg" data-s="康樂及文化事務署" data-t="啟德郵輪碼頭公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ktprom" data-id="ktprom" data-r="kln" data-car="1" data-pet="P" data-cats="lawn sea">
   <div class="sum">
@@ -1070,6 +1111,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 觀塘海濱花園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="觀塘海濱花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktp/common/graphics/fac/fac19.jpg" alt="觀塘海濱花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="觀塘海濱花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktp/common/graphics/fac/fac20.jpg" alt="觀塘海濱花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="觀塘海濱花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktp/common/graphics/fac/fac01.jpg" alt="觀塘海濱花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="觀塘海濱花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ktp/common/graphics/fac/fac02.jpg" alt="觀塘海濱花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>休憩草坪</span><span>1000米海濱步道</span><span>音樂噴泉及嬉水區</span><span>表演場地</span><span>兒童遊樂場</span><span>感官花園</span><span>觀景亭</span><span>小食亭</span><span>洗手間</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">只限指定寵物共享區的草地。</div></div>
@@ -1080,6 +1122,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.309786,114.219131" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/ktp/common/graphics/en/layout.jpg" data-s="康樂及文化事務署" data-t="觀塘海濱花園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KT/2696_03.jpg" data-s="康樂及文化事務署" data-t="觀塘海濱花園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-jvp" data-id="jvp" data-r="kln" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -1088,6 +1131,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 佐敦谷公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="佐敦谷公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/jvp/common/graphics/slideshow/01.jpg" alt="佐敦谷公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="佐敦谷公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/jvp/common/graphics/slideshow/02.jpg" alt="佐敦谷公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="佐敦谷公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/jvp/common/graphics/slideshow/03.jpg" alt="佐敦谷公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="佐敦谷公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/jvp/common/graphics/slideshow/04.jpg" alt="佐敦谷公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>中央草坪</span><span>遙控模型賽車場</span><span>四季花園</span><span>簕杜鵑園</span><span>迷宮花園</span><span>緩跑徑</span><span>兒童遊樂場</span><span>社區園圃</span><span>收費停車場（42個車位）</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -1098,6 +1142,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.329879,114.221156" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/jvp/common/graphics/map_large_2.jpg" data-s="康樂及文化事務署" data-t="佐敦谷公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ktsky" data-id="ktsky" data-r="kln" data-car="1" data-pet="Y" data-cats="sea">
   <div class="sum">
@@ -1106,6 +1151,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 啟德空中花園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="啟德空中花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KC/2639_image122.png" alt="啟德空中花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="啟德空中花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KC/2639_image123.png" alt="啟德空中花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>狗糞收集箱</span><span>寵物共享公園</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">雖屬寵物共享公園，但沒有大型草地供野餐，較適合輕食小休。</div></div>
@@ -1116,6 +1162,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.312868,114.206651" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ckl" data-id="ckl" data-r="kln" data-car="1" data-pet="P" data-cats="lawn sea">
   <div class="sum">
@@ -1124,6 +1171,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 茶果嶺海濱公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="茶果嶺海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KT/2985_1.JPG" alt="茶果嶺海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="茶果嶺海濱公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KT/2985_2.JPG" alt="茶果嶺海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>狗糞收集箱（寵物共享指定位置）</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">只限指定寵物共享區的草地。</div></div>
@@ -1134,6 +1182,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.305486,114.223944" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KT/2985_3p.jpg" data-s="康樂及文化事務署" data-t="茶果嶺海濱公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-lokfu" data-id="lokfu" data-r="kln" data-car="1" data-pet="N" data-cats="lawn hidden">
   <div class="sum">
@@ -1142,6 +1191,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 樂富配水庫休憩花園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="樂富配水庫休憩花園"><span class="src">圖片來源：文化創意產業發展處</span><img src="https://fpf.ccidahk.gov.hk/common/images/location/01792/01792a.jpg" alt="樂富配水庫休憩花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="樂富配水庫休憩花園"><span class="src">圖片來源：文化創意產業發展處</span><img src="https://fpf.ccidahk.gov.hk/common/images/location/01792/01792d.jpg" alt="樂富配水庫休憩花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="樂富配水庫休憩花園"><span class="src">圖片來源：文化創意產業發展處</span><img src="https://fpf.ccidahk.gov.hk/common/images/location/01792/01792e.jpg" alt="樂富配水庫休憩花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="樂富配水庫休憩花園"><span class="src">圖片來源：文化創意產業發展處</span><img src="https://fpf.ccidahk.gov.hk/common/images/location/01792/01792g.jpg" alt="樂富配水庫休憩花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -1152,6 +1202,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.335836,114.184611" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-shingfung" data-id="shingfung" data-r="kln" data-car="1" data-pet="Y" data-cats="sea">
   <div class="sum">
@@ -1160,6 +1211,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 承豐道公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="承豐道公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KC/3133_1.jpg" alt="承豐道公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="承豐道公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KC/3133_2.jpg" alt="承豐道公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>狗糞收集箱</span><span>洗手間</span><span>寵物共享公園</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">寵物共享公園，設有野餐草坪。</div></div>
@@ -1170,6 +1222,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.319688,114.200563" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-ktsq" data-id="ktsq" data-r="kln" data-car="1" data-pet="Y" data-cats="lawn">
   <div class="sum">
@@ -1178,6 +1231,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 啟德車站廣場詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="啟德車站廣場"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/KC/2637_image118.png" alt="啟德車站廣場" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="啟德車站廣場"><span class="src">圖片來源：政府新聞處</span><img src="https://gia.info.gov.hk/general/202312/14/P2023121400543_photo_1258591.jpg" alt="啟德車站廣場" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="啟德車站廣場"><span class="src">圖片來源：政府新聞處</span><img src="https://gia.info.gov.hk/general/202312/14/P2023121400543_photo_1258592.jpg" alt="啟德車站廣場" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>露天廣場</span><span>草坪</span><span>水景設施</span><span>兩個兒童遊樂場</span><span>健身設備</span><span>太極廣場</span><span>草地滾球場</span><span>洗手間</span><span>寵物公園</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">設有草地，可與狗狗一同野餐。</div></div>
@@ -1188,6 +1242,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.331391,114.200404" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-namcheong" data-id="namcheong" data-r="kln" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -1196,6 +1251,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 南昌公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="南昌公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/ncp/common/graphics/ncp05.jpg" alt="南昌公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>草地</span><span>兒童遊樂場</span><span>兒童三輪車遊樂區</span><span>健身設施</span><span>足健徑</span><span>緩跑徑</span><span>洗手間</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -1206,6 +1262,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.324248,114.157112" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/ncp/common/graphics/map.jpg" data-s="康樂及文化事務署" data-t="南昌公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-csw" data-id="csw" data-r="kln" data-car="1" data-pet="Y" data-cats="sea">
   <div class="sum">
@@ -1214,6 +1271,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 長沙灣海濱花園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="長沙灣海濱花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/SSP/2872_1.jpg" alt="長沙灣海濱花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="長沙灣海濱花園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/SSP/2872_2.jpg" alt="長沙灣海濱花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>海濱長廊</span><span>草坪</span><span>園景區</span><span>蔭棚</span><span>座椅</span><span>狗糞收集箱</span><span>洗手設施</span><span>飲水設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">設有小草地，可與狗狗一同野餐。</div></div>
@@ -1224,6 +1282,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.327498,114.147638" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article></div>
 </section><section class="pk-region" data-region="hk">
@@ -1236,6 +1295,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 添馬公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="添馬公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/1.jpg" alt="添馬公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="添馬公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/2.jpg" alt="添馬公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="添馬公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/3.jpg" alt="添馬公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="添馬公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/4.jpg" alt="添馬公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>綠地毯（草坪）</span><span>園景花園</span><span>露天劇場</span><span>添馬角</span><span>觀景台</span><span>特色水景</span><span>添馬茶座</span><span>洗手間及育嬰間</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">除寵物空間外，公園範圍包括大草坪均不能帶狗進入。</div></div>
@@ -1246,6 +1306,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.280378,114.165686" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/tp/common/graphics/map_l.jpg" data-s="康樂及文化事務署" data-t="添馬公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2311_cw02a.jpg" data-s="康樂及文化事務署" data-t="添馬公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-cyber" data-id="cyber" data-r="hk" data-car="1" data-pet="Y" data-cats="lawn sea">
   <div class="sum">
@@ -1254,6 +1315,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 數碼港海濱公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="數碼港海濱公園"><span class="src">圖片來源：數碼港</span><img src="https://cpx.cyberport.hk/media/2024/11/park-banner.jpg" alt="數碼港海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="數碼港海濱公園"><span class="src">圖片來源：數碼港</span><img src="https://www.cyberport.hk/wp-content/uploads/waterfront-1.png" alt="數碼港海濱公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>日落草坪</span><span>緩跑徑（約1</span><span>500米）</span><span>海濱長廊</span><span>餐飲</span><span>寵物友善空間</span><span>遊樂設施</span><span>免費 Wi-Fi</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">草地可與寵物野餐，惟此場地不在康文署寵物共享公園名單內。</div></div>
@@ -1264,6 +1326,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.259123,114.129597" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://cpx.cyberport.hk/media/2025/03/map.jpg" data-s="數碼港" data-t="數碼港海濱公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-sysmp" data-id="sysmp" data-r="hk" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -1272,6 +1335,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 中山紀念公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="中山紀念公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/sysmp/common/graphics/fac/reflecting.jpg" alt="中山紀念公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="中山紀念公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/sysmp/common/graphics/fac/clocktower.jpg" alt="中山紀念公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="中山紀念公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/sysmp/common/graphics/fac/fourwall.jpg" alt="中山紀念公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="中山紀念公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/sysmp/common/graphics/fac/playground.jpg" alt="中山紀念公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>七人足球場（人造草）</span><span>籃球場</span><span>鐘樓</span><span>四大寇庭院</span><span>水景廣場</span><span>兒童遊樂場</span><span>洗手間</span><span>收費停車場</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">圓形野餐草坪不屬准許寵物進入的範圍。</div></div>
@@ -1282,6 +1346,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.289611,114.144639" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/sysmp/common/graphics/b5/layout.jpg" data-s="康樂及文化事務署" data-t="中山紀念公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2555_CW07.jpeg.JPG" data-s="康樂及文化事務署" data-t="中山紀念公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-mtdavis" data-id="mtdavis" data-r="hk" data-car="1" data-pet="N" data-cats="lawn hidden sea">
   <div class="sum">
@@ -1290,6 +1355,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 摩星嶺配水庫臨時花園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="摩星嶺配水庫臨時花園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/intl/plan/guided-tour/explore-hong-kong-tour/mt-davis-military-history-tour/IC5E2268_640x480.jpg" alt="摩星嶺配水庫臨時花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="摩星嶺配水庫臨時花園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/intl/plan/guided-tour/explore-hong-kong-tour/mt-davis-military-history-tour/IC5E2378_hero_640x480.jpg" alt="摩星嶺配水庫臨時花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="摩星嶺配水庫臨時花園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/intl/plan/guided-tour/explore-hong-kong-tour/mt-davis-military-history-tour/DSC_5869_640x480.jpg" alt="摩星嶺配水庫臨時花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="摩星嶺配水庫臨時花園"><span class="src">圖片來源：香港旅遊發展局</span><img src="https://www.discoverhongkong.com/content/dam/dhk/intl/plan/guided-tour/explore-hong-kong-tour/mt-davis-military-history-tour/IC5E2276_640x480.jpg" alt="摩星嶺配水庫臨時花園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">並非寵物共享公園。</div></div>
@@ -1300,6 +1366,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.274130,114.122771" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-vpark" data-id="vpark" data-r="hk" data-car="1" data-pet="N" data-cats="lawn">
   <div class="sum">
@@ -1308,6 +1375,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 維多利亞公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="維多利亞公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vp/common/graphics/slideshow/09.jpg" alt="維多利亞公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="維多利亞公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vp/common/graphics/gallery/10.jpg" alt="維多利亞公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="維多利亞公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vp/common/graphics/slideshow/01.jpg" alt="維多利亞公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="維多利亞公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/en/parks/vp/common/graphics/slideshow/02.jpg" alt="維多利亞公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>中央草坪</span><span>網球場</span><span>草地滾球場</span><span>足球場</span><span>籃球場</span><span>健身站及緩跑徑</span><span>兒童遊樂場</span><span>模型船池</span><span>滾軸溜冰場</span><span>音樂亭</span><span>卵石路步行徑</span><span>無障礙設施</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">狗狗只容許進入維園山丘涼亭一帶，不能進入大草地。</div></div>
@@ -1318,6 +1386,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.282519,114.188227" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/en/parks/vp/common/graphics/layout-b.jpg" data-s="康樂及文化事務署" data-t="維多利亞公園｜平面圖">🗺️ 公園平面圖</button><button class="btn b2" type="button" data-img="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/WC/2670_01.jpg" data-s="康樂及文化事務署" data-t="維多利亞公園｜寵物共享公園範圍">🐾 寵物共享範圍</button><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article><article class="prow" id="b-peak" data-id="peak" data-r="hk" data-car="1" data-pet="Y" data-cats="lawn hidden euro">
   <div class="sum">
@@ -1326,6 +1395,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
     <div class="act"><button class="dbtn" type="button" aria-expanded="false"><span class="lb">詳情</span> <span class="ar">▾</span></button></div>
   </div>
   <div class="det">
+    <div class="dhd">📋 山頂公園詳情</div>
     <div class="lc"><div class="gal"><div class="tr"><figure data-n="山頂公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2293_CW_Victoria_Peak_Garden_1_rev.jpg" alt="山頂公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure><figure data-n="山頂公園"><span class="src">圖片來源：康樂及文化事務署</span><img src="https://www.lcsd.gov.hk/file_upload_clpss/leisure_facilities/en/common/images/photo/facilities/CW/2293_CW_Victoria_Peak_Garden_2_rev.jpg" alt="山頂公園" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentNode.classList.add('ph');this.remove()"></figure></div><button class="nav p" type="button" aria-label="上一張">‹</button><button class="nav n" type="button" aria-label="下一張">›</button><div class="dots"><i class="on"></i><i></i></div></div>
       <div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac"><span>洗手間（設暢通易達洗手間）</span><span>狗廁所</span><span>寵物共享公園</span></div></div>
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">寵物共享草地，可與狗狗一同欣賞古典英式園亭景緻。</div></div>
@@ -1336,6 +1406,7 @@ html,body{margin:0;background:transparent}.kv{border-radius:0;box-shadow:none}&l
       <div class="btns"><a class="btn b1" href="https://www.google.com/maps/search/?api=1&amp;query=22.274217,114.144253" target="_blank" rel="noopener">📍 Google Map</a><button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button></div>
       
     </div>
+    <button class="dclose" type="button">收起詳情 ▲</button>
   </div>
 </article></div>
 </section>
@@ -1427,7 +1498,7 @@ document.getElementById('go').onclick=function(){closeS();apply();pend(false);va
 document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();pend(false);};
 document.querySelectorAll('a[href^="#b-"]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(a.getAttribute('href'));}});
 document.querySelectorAll('.prow').forEach(function(r){
-  var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};
+  var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};var dc=r.querySelector('.dclose');if(dc)dc.onclick=function(){d.click();r.scrollIntoView({behavior:'smooth',block:'start'})};
   var tr=r.querySelector('.tr');if(!tr)return;var ds=r.querySelectorAll('.dots i');
   tr.addEventListener('scroll',function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);ds.forEach(function(x,k){x.classList.toggle('on',k===i)})});
   var p=r.querySelector('.nav.p'),n=r.querySelector('.nav.n');if(p)p.onclick=function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'})};if(n)n.onclick=function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'})};
