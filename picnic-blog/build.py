@@ -208,7 +208,7 @@ prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta na
 _IM = KVM.IMG
 HERO = f"""<section class="pk-hero" aria-label="全港野餐地點搜尋器">
 <img class="hbg" src="{_IM['cwb']}" alt="清水灣郊野公園" referrerpolicy="no-referrer" fetchpriority="high" loading="eager" decoding="async" width="960" height="720">
-<span class="hlogo"><img src="{KVM._LG_ICON}" alt=""><img class="lt" src="{KVM._LG_TEXT}" alt="Kitchen AO"></span>
+<span class="hlogo"><img src="{KVM._LG_ICON}" alt="" width="43" height="22" style="display:block!important;width:43px!important;height:22px!important;max-width:none!important;margin:0!important;border:0!important;box-shadow:none!important"><img class="lt" src="{KVM._LG_TEXT}" alt="Kitchen AO" width="114" height="19" style="display:block!important;width:114px!important;height:19px!important;max-width:none!important;margin:0!important;border:0!important;box-shadow:none!important"></span>
 <div class="hgrid">
  <div class="hl">
   <p class="hpill">2026 香港野餐好去處</p>
@@ -247,7 +247,7 @@ HERO_CSS = """<style>
  .ao-picnic .hr{order:-1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
  .ao-picnic .hp{position:static;width:auto;padding:5px 5px 0}.ao-picnic .hp figcaption{font-size:11px}.ao-picnic .hp figcaption b{display:block;margin:0}
  .ao-picnic .hbox{display:none}
- .ao-picnic .hlogo{right:12px;top:12px;height:36px;padding:0 12px}.ao-picnic .hlogo img{height:18px}.ao-picnic .hlogo .lt{height:15px}
+ .ao-picnic .hlogo{right:12px;top:12px;height:36px;padding:0 12px}.ao-picnic .hlogo img{width:35px!important;height:18px!important}.ao-picnic .hlogo .lt{width:90px!important;height:15px!important}
 }
 </style>"""
 import re as _re
