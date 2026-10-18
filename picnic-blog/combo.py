@@ -151,7 +151,10 @@ PROD = [('2 人','二人小確幸套餐','$438','https://aoaodelivery.com/produc
 ('2 人','二人豪華儀式感UP!套餐','$588','https://aoaodelivery.com/product/luxury-ceremony-up-package-for-two/','https://aoaodelivery.com/wp-content/uploads/2023/10/202308-2pax-thumbnail-02-600x600.jpg','升級版：二人享樂拼盤＋清新沙律＋意大利麵＋惹味主食'),
 ('2 人','Chill一下野餐盒（小）','$258','https://aoaodelivery.com/product/chill%e4%b8%80picnic-small/','https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg','主食 2 選 1＋小食 7 選 4＋甜品 4 選 2'),
 ('4–6 人','Chill一下野餐盒（大）','$628','https://aoaodelivery.com/product/chill%e4%b8%80picnic-big-for-4-6-persons/','https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg','沙律＋主食 3 選 1＋小食 8 選 6＋甜品 4 選 3'),
-('5 人','5 人自選拼盤','$498','https://aoaodelivery.com/product/5-people-self-selected-platter/','https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600-1.png','20 款小食自選 6 款')]
+('5 人','5 人自選拼盤','$498','https://aoaodelivery.com/product/5-people-self-selected-platter/','https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-600x600-1.png','20 款小食自選 6 款'),
+('5 人起','派對大快樂兒童餐','$600 起','https://aoaodelivery.com/product/party-big-happy-kids-meal-select-the-number-of-people-5-people-or-more/','https://aoaodelivery.com/wp-content/uploads/2023/10/202308-KIDS-thumbnail-02-600x600.jpg','歡樂小食 15 選 7＋特色甜品 3 選 1'),
+('8–10 人','美食派對 Gourmet Set（8–10 人）','$1,988','https://aoaodelivery.com/product/ao-8-10pax-gourmet-set/','https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-600x600.jpg','前菜 3 款＋沙律 1 款＋意粉／飯 2 款＋主菜 2 款'),
+('12–16 人','美食派對 Gourmet Set（12–16 人）','$2,988','https://aoaodelivery.com/product/ao-12-16pax-gourmet-set/','https://aoaodelivery.com/wp-content/uploads/2026/03/12-16_101-X-KITCHENAO-03-03-03-03-600x600.jpg','前菜 4 款＋沙律 2 款＋意粉／飯 2 款＋主菜 3 款')]
 def pcards_for(utm):
     return ''.join(f'<div class="pc"><div class="pim"><img src="{im}" alt="{n}" loading="lazy"><span class="ppl">👥 {ppl}</span></div><div class="pbd"><p class="pn">{n}</p><p class="pmenu">{menu}</p><div class="pft"><b class="pp">{pr}</b><a class="atc" href="{u}{utm}" target="_blank" rel="noopener">🍱 揀選心水餐單</a></div></div></div>' for ppl,n,pr,u,im,menu in PROD)
 pcards = pcards_for(UTM)
@@ -367,7 +370,7 @@ def MAP(hx='h2'):
 def TABLE(hx='h2', hcls='sh'):
     return f"""<div class="sec" id="hk-table"><{hx} class="{hcls}">📊 野餐地點一覽表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開一覽表（{N} 個地點）</span><span class="c">📊 收起一覽表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div><button class="tclose" type="button">收起一覽表 ▲</button></details></div>"""
-POPUPS = f"""<div class="mdl wp-exclude-emoji" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="swh">← 左右滑動查看 5 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
+POPUPS = f"""<div class="mdl wp-exclude-emoji" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="swh">← 左右滑動查看 {len(PROD)} 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
 <div class="mdl wp-exclude-emoji" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
 LEAF_CSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">'
