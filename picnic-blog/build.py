@@ -107,7 +107,7 @@ SNACKS = [
 ]
 snack_html = ''.join(f'<a class="pk-sn" href="https://aoaodelivery.com/product/{slug}/?{UTM}" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/{img}" alt="{n}｜Kitchen AO 野餐小食" loading="lazy"><span class="sn-b"><b>{n}</b><i>查看單點小食</i></span></a>' for n, d, slug, img in SNACKS)
 FBJS = "<script>(function(){var f=document.getElementById('aoFb');if(!f)return;var m=f.querySelector('.ao-fb-msg');\nvar U=function(){return location.href.split('#')[0]},T='香港野餐好去處｜全港野餐地點搜尋器（可泊車、寵物友善）';f.querySelector('.ao-fb-wa').onclick=function(){window.open('https://wa.me/?text='+encodeURIComponent(T+' '+U()),'_blank','noopener');(window.dataLayer=window.dataLayer||[]).push({event:'share_article',method:'whatsapp'})};f.querySelector('.ao-fb-fbk').onclick=function(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(U()),'_blank','noopener');(window.dataLayer=window.dataLayer||[]).push({event:'share_article',method:'facebook'})};f.querySelector('.ao-fb-copy').onclick=function(){var u=location.href.split('#')[0];(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){m.textContent='已複製連結'}).catch(function(){m.textContent=u})};\nf.querySelectorAll('.ao-fb-b').forEach(function(b){b.onclick=function(){f.querySelectorAll('.ao-fb-b').forEach(function(x){x.disabled=true;x.classList.toggle('on',x===b)});m.textContent='多謝你的意見！';(window.dataLayer=window.dataLayer||[]).push({event:'article_feedback',feedback:b.dataset.v,article:'picnic-blog1'})}})})();</script>"
-BODY = f'''<div class="ao-article ao-picnic">
+BODY = f'''<div class="ao-article ao-picnic wp-exclude-emoji">
 <style>
 {CSS}
 </style>
