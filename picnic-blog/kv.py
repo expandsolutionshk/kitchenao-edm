@@ -387,7 +387,60 @@ K8ALT = ".k8 .alt{position:absolute;left:5cqw;top:84cqw;width:41cqw;transform:sc
 KV_G1 = KV_G.replace(G_UI, ALT['G1'][2]); KV_GM1 = KV_GM.replace(G_UI, ALT['G1'][2])
 KV_G_HTML = KV_G_HTML.replace(KV_G, KV_G1).replace('</style>', ALT_CSS + K8ALT + '</style>', 1)
 KV_GM_HTML = KV_G_HTML.replace(KV_G1, KV_GM1).replace('Blog 1 KV（G）', 'Blog 1 KV（G 手機版）')
+
+# ==== 2026-10-18：封面／分享用新 KV（3 款，冇假篩選框）→ kv-new-options.html ====
+TICKS = '<ul class="tks"><li><i>✔</i>可泊車：附鄰近停車場實時車位</li><li><i>✔</i>寵物友善：附寵物共享範圍地圖</li><li><i>✔</i>大草地、海景、秘境及特色園林</li></ul>'
+RIB = f'<div class="rib3"><img src="{BOX}" alt="Kitchen AO 野餐盒"><span>⭐ 推介酒店級野餐盒</span></div>'
+TT3 = f'<span class="pill">2026 香港野餐好去處</span><h2 class="ttl">全港 {N} 個<span class="y">野餐地點</span></h2><p class="sub">大草地、海景及隱世公園一鍵搜尋</p>'
+NEWKV = {
+ 'N1': ('N1｜實景主角', '清水灣實景做主角，左邊標題＋三個黃色剔，右下三張拍立得同野餐盒絲帶卡；畫面最乾淨。', f"""<div class="kv kn n1">{img('cwb')}{LOGOH}
+  <div class="tb">{TT3}{TICKS}</div>
+  <div class="pr"><figure class="q1">{img('tpwp','')}<figcaption><b style="color:{RC['nt']}">新界</b>大埔海濱公園</figcaption></figure><figure class="q2">{img('ktct','')}<figcaption><b style="color:{RC['kln']}">九龍</b>啟德郵輪碼頭公園</figcaption></figure><figure class="q3">{img('tamar','')}<figcaption><b style="color:{RC['hk']}">港島</b>添馬公園</figcaption></figure></div>
+  {RIB}</div>"""),
+ 'N2': ('N2｜地圖主視覺', '右邊用真實搜尋器地圖（33 個地區色標記）配三個圓形實景相，左邊標題＋三個剔；一眼睇出「全港地點搜尋」。', f"""<div class="kv kn n2">{img('cwb')}{LOGOH}
+  <div class="tb">{TT3}{TICKS}</div>
+  <div class="mapc">{MAP}
+   <div class="cc c-nt"><span class="ph">{img('tpwp','')}</span><b style="--c:{RC['nt']}">新界</b></div>
+   <div class="cc c-kln"><span class="ph">{img('ktct','')}</span><b style="--c:{RC['kln']}">九龍</b></div>
+   <div class="cc c-hk"><span class="ph">{img('tamar','')}</span><b style="--c:{RC['hk']}">港島</b></div></div>
+  {RIB}</div>"""),
+ 'N3': ('N3｜三區拼貼＋橫帶', '新界、九龍、港島三張實景並排，中間黑色橫帶放標題同三個剔，右下野餐盒絲帶卡；雜誌封面感最強。', f"""<div class="kv kn n3">
+  <div class="tri3"><div>{img('tpwp')}<span class="rl" style="background:{RC['nt']}">新界</span></div><div>{img('ktct')}<span class="rl" style="background:{RC['kln']}">九龍</span></div><div>{img('tamar')}<span class="rl" style="background:{RC['hk']}">港島</span></div></div>
+  {LOGOH}<div class="band3"><div>{TT3}</div>{TICKS}</div>{RIB}</div>"""),
+}
+NEW_CSS = """
+.kn .tb{position:absolute;left:4.5cqw;top:4.5cqw;color:#fff;z-index:2}
+.kn .ttl{font-size:6.4cqw}.kn .sub{margin:1.4cqw 0 0;font-size:2.6cqw;font-weight:900;color:#1A1A1A;-webkit-text-stroke:.5cqw #fff;paint-order:stroke fill;text-shadow:none}
+.tks{list-style:none;margin:2cqw 0 0;padding:1.4cqw 2cqw;background:#fff;border-radius:1.6cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3);display:inline-block}
+.tks li{display:flex;align-items:center;gap:1cqw;font-size:1.9cqw;font-weight:900;color:#1A1A1A;padding:.6cqw 0}.tks li+li{border-top:.12cqw dashed #E4D9C2}
+.tks i{font-style:normal;font-size:2.6cqw;line-height:1;color:#F7CE46;-webkit-text-stroke:.22cqw #1A1A1A;paint-order:stroke fill;text-shadow:.2cqw .2cqw 0 #1A1A1A}
+.rib3{position:absolute;right:4cqw;bottom:4cqw;width:20cqw;background:#fff;border-radius:1.4cqw;padding:.4cqw .4cqw 4.4cqw;box-shadow:0 1.2cqw 2.8cqw rgba(0,0,0,.35);transform:rotate(-2deg);z-index:3}
+.rib3 img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:1cqw}
+.rib3 span{position:absolute;left:-1.4cqw;right:-1.4cqw;bottom:.9cqw;padding:.7cqw .4cqw;text-align:center;font-size:1.6cqw;font-weight:900;color:#1A1A1A;background:#F7CE46;box-shadow:0 .4cqw 1cqw rgba(0,0,0,.3)}
+/* N1 */
+.n1 .pr{position:absolute;left:47%;top:10cqw;width:30cqw;height:40cqw}
+.n1 .pr figure{position:absolute;margin:0;width:17cqw;background:#fff;padding:.9cqw .9cqw 0;box-shadow:0 .8cqw 2cqw rgba(0,0,0,.35)}
+.n1 .pr img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.n1 .pr figcaption{padding:.6cqw 0 .9cqw;font-size:1.35cqw;font-weight:900;color:#1A1A1A;text-align:center;white-space:nowrap}.n1 .pr b{margin-right:.5cqw}
+.n1 .q1{left:0;top:0;transform:rotate(-6deg)}.n1 .q2{left:15cqw;top:2cqw;transform:rotate(4deg);z-index:1}.n1 .q3{left:5cqw;top:20cqw;transform:rotate(3deg);z-index:2}
+/* N2 */
+.n2 .mapc{position:absolute;right:4cqw;top:9cqw;width:46cqw;background:#fff;border-radius:1.8cqw;padding:.8cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.35);transform:rotate(1.5deg)}
+.n2 .cc{position:absolute;display:flex;align-items:center;gap:.5cqw}.n2 .cc .ph{width:7cqw;height:7cqw;border-radius:50%;overflow:hidden;border:.45cqw solid #fff;box-shadow:0 .4cqw 1cqw rgba(0,0,0,.35)}.n2 .cc .ph img{width:100%;height:100%;object-fit:cover}
+.n2 .cc b{background:var(--c);color:#fff;font-size:1.5cqw;font-weight:900;padding:.3cqw 1cqw;border-radius:3cqw}
+.n2 .c-nt{left:30%;top:-3cqw}.n2 .c-kln{left:60%;top:14cqw}.n2 .c-hk{left:5%;top:22cqw}
+.n2 .rib3{right:auto;left:52%;bottom:3cqw;width:16cqw}
+/* N3 */
+.n3{background:#fff}.n3 .tri3{position:absolute;inset:0;display:flex;gap:.5cqw}.n3 .tri3>div{position:relative;flex:1;overflow:hidden}.n3 .tri3 img{width:100%;height:100%;object-fit:cover}
+.n3 .rl{position:absolute;left:1.4cqw;top:1.4cqw;color:#fff;font-weight:900;font-size:1.8cqw;padding:.4cqw 1.4cqw;border-radius:3cqw}
+.n3 .band3{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:3cqw;padding:2.2cqw 4.5cqw;background:rgba(26,26,26,.88)}
+.n3 .band3 .ttl{font-size:5.6cqw}.n3 .band3 .sub{-webkit-text-stroke:0;color:#F7CE46}.n3 .band3 .tks{margin:0}
+.n3 .logo2{top:auto;bottom:2cqw;right:auto;left:2cqw}
+"""
+NEW_PAGE = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>封面／分享 KV：3 款新設計</title><style>{CSS}{NEW_CSS}</style></head><body><div class="wrap">
+<h1>🧺 封面／分享 KV：3 款新設計（1600 × 900）</h1><p>文章頂部已改用真實搜尋器，所以封面圖唔再放篩選框；三款都用相同文字：2026 香港野餐好去處、全港 {N} 個野餐地點、三個賣點剔。</p>
+{''.join(f'<section class="opt"><h3>{t}</h3><p>{d}</p>{h}</section>' for t, d, h in NEWKV.values())}
+</div></body></html>'''
 if __name__ == '__main__':
+    open(os.path.join(HERE, 'kv-new-options.html'), 'w').write(NEW_PAGE)
     open(os.path.join(HERE, 'kv-options.html'), 'w').write(html)
     open(os.path.join(HERE, 'kv-g.html'), 'w').write(KV_G_HTML)
     open(os.path.join(HERE, 'kv-g-mobile.html'), 'w').write(KV_GM_HTML)
