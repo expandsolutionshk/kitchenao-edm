@@ -60,6 +60,7 @@ def ktags(p):
     t += [f'<span class="t on">{CATS[c][0]} {CATS[c][1]}</span>' for c in p['cats']]
     if p['pet'] == 'Y': t.append('<span class="t pet">🐶 寵物友善</span>')
     elif p['pet'] == 'P': t.append('<span class="t pet">🐾 寵物指定範圍</span>')
+    if p['car']: t.append('<span class="t car">🚗 可泊車</span>')
     return ''.join(t)
 def card(p, kw=False):
     o = off(p); imgs = o.get('img', []) or []
@@ -98,7 +99,17 @@ def card(p, kw=False):
         car = f'<div class="kcar"><ul>{lis}</ul></div>'
     else:
         car = f'<div class="kcar none">⚠️ {esc(p.get("carnote","暫無停車場資料"))}</div>'
-    fac = '' if unk(o.get('fac')) else ''.join(f'<span>{esc(x.strip())}</span>' for x in str(o['fac']).replace('，','、').replace(',', '、').replace('；','、').split('、') if x.strip())
+    fac, facnote = '', ''
+    if not unk(o.get('fac')):
+        main, _, note = str(o['fac']).partition('；')          # 「；」後為補充說明
+        items, buf, depth = [], '', 0
+        for ch in main.replace('，', '、'):                       # 只拆括號以外的「、」
+            depth += ch in '（(' ; depth -= ch in '）)'
+            if ch == '、' and depth == 0: items.append(buf); buf = ''
+            else: buf += ch
+        items.append(buf)
+        fac = ''.join(f'<span>{esc(x.strip())}</span>' for x in items if x.strip())
+        facnote = f'<p class="facn">ℹ️ {esc(note.strip())}</p>' if note.strip() else ''
     # buttons
     g = 'https://www.google.com/maps/search/?api=1&amp;query=' + f"{GEO[p['id']][0]:.6f},{GEO[p['id']][1]:.6f}"  # 以官方座標開啟精確位置
     btns = [f'<a class="btn b1" href="{g}" target="_blank" rel="noopener">📍 Google Map</a>']
@@ -118,7 +129,7 @@ def card(p, kw=False):
   <div class="det">
     <div class="dhd">📋 {p['name'].split(' / ')[0]}詳情</div>
     <div class="lc">{gal}
-      {f'<div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac">{fac}</div></div>' if fac else ''}
+      {f'<div class="dsec s-fac"><h4>🌿 主要設施</h4><div class="fac">{fac}</div>{facnote}</div>' if fac else ''}
       <div class="dsec s-pet"><h4>🐶 寵物</h4><div class="pet">{p['petnote']}</div></div>
     </div>
     <div class="rc">
@@ -208,7 +219,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .ttl{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 10px}.ttl h3{margin:0;font-size:20px;color:#1A1A1A;line-height:1.3}.ttl small{font-size:13px;color:#9A8f7e;font-weight:600}
 .tg{display:flex;flex-wrap:wrap;gap:6px}
 .t{display:inline-flex;align-items:center;gap:3px;font-size:12px;line-height:1.35;white-space:nowrap;font-weight:700;padding:2px 9px;border-radius:20px;border:1px solid transparent}
-.t.ok{background:#FFF6D6;color:#8A6A00;border-color:#F0DC9A}.t.on{background:#F4FBF3;color:#2C6E49;border-color:#CFE8CD}.t.pet{background:#FFF0E0;color:#C24E00;border-color:#F7D3AE}
+.t.ok{background:#FFF6D6;color:#8A6A00;border-color:#F0DC9A}.t.on{background:#F4FBF3;color:#2C6E49;border-color:#CFE8CD}.t.car{background:#E6F0FF;color:#1E5BD8;border-color:#C7DAFB}.t.pet{background:#FFF0E0;color:#C24E00;border-color:#F7D3AE}
 .kin{margin:0;font-size:15.5px;line-height:1.8;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .quick{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;font-size:13.5px;color:#5a5348}
 .act{display:flex;align-items:center}
@@ -229,7 +240,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .dsec{padding:14px 0}.dsec h4{margin:0 0 9px;font-size:15px;color:#1A1A1A}
 .lc .dsec{border-top:1px dashed #E4D9C2;margin-top:14px}.lc .s-pet{padding-bottom:0}.rc .facts{margin-top:0}.rc .s-car{padding-bottom:0}
 .rc{display:flex;flex-direction:column}.rc .dsec{border-top:1px dashed #E4D9C2;margin-top:14px}
-.fac{display:flex;flex-wrap:wrap;gap:7px}.fac span{font-size:13px;background:#F4FBF3;border:1px solid #CFE8CD;color:#2C6E49;border-radius:16px;padding:3px 10px}
+.facn{margin:8px 0 0;font-size:13px;color:#7a6a45;line-height:1.6}.fac{display:flex;flex-wrap:wrap;gap:7px}.fac span{font-size:13px;background:#F4FBF3;border:1px solid #CFE8CD;color:#2C6E49;border-radius:16px;padding:3px 10px}
 .s-pet .pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:11px 13px;font-size:15px;line-height:1.75}
 .kcar{background:#F6F8FB;border:1px solid #E2E8F2;border-radius:12px;padding:10px 13px;font-size:14px}.kcar.none{background:#FFF8EC;border-color:#F3E2BF}
 .kcar ul{margin:0;padding:0}.kcar li{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:3px 0}

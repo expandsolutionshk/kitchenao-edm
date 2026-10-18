@@ -342,8 +342,49 @@ KV_G = [h for t, d, h in KV if t.startswith('G｜')][0]
 KV_GM = [h for t, d, h in KV if t.startswith('G-M')][0]
 KV_G_HTML = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Blog 1 KV（G）</title><style>{CSS}
 html,body{{margin:0;background:transparent}}.kv{{border-radius:0;box-shadow:none}}</style></head><body>{KV_G}</body></html>'''
+
+# ---- G 左下區替代方案（避免似真實搜尋工具）→ kv-g-ui-options.html ----
+NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y')
+ALT = {
+ 'G1': ('G1｜功能重點清單', '改為資訊卡：用圖示＋文字列出搜尋器三大功能，冇按鈕、冇篩選掣，一睇就知係介紹而唔係工具。',
+  '<div class="alt a1"><p class="at">一個搜尋器，三樣一次睇清：</p>'
+  '<div class="ar"><i>🅿️</i><div><b>鄰近停車場</b><span>附實時車位資訊，駕車野餐更方便</span></div></div>'
+  '<div class="ar"><i>🐶</i><div><b>寵物友善地點</b><span>附康文署寵物共享範圍地圖</span></div></div>'
+  '<div class="ar"><i>🌳</i><div><b>大草地／海景／秘境</b><span>按地區及公園特色分類一覽</span></div></div></div>'),
+ 'G2': ('G2｜數字資訊圖', '改為三格數字：用大數字強調地點數量，似雜誌資訊圖，完全唔似可以撳嘅介面。',
+  f'<div class="alt a2"><div class="st"><b>{N}</b><span>個野餐地點</span></div><div class="st"><b>{NCAR}</b><span>個地點可泊車</span></div><div class="st"><b>{NPET}</b><span>個寵物友善地點</span></div>'
+  '<p class="cap">✔ 新界・九龍・港島　✔ 大草地・海景・秘境・特色園林</p></div>'),
+ 'G3': ('G3｜貼紙標籤', '改為傾斜貼紙：六個類別變成散落嘅彩色貼紙，有白邊同陰影，屬裝飾風格，唔會被誤以為係篩選掣。',
+  '<div class="alt a3"><span class="sk s1">🚗 可泊車</span><span class="sk s2">🐶 寵物友善</span><span class="sk s3">🌳 大草地</span>'
+  '<span class="sk s4">🌊 海景</span><span class="sk s5">🌿 秘境</span><span class="sk s6">🏛️ 特色園林</span></div>'),
+}
+G_UI = '<div class="ui">' + FLT + '</div>'
+assert G_UI in KV_G
+ALT_CSS = """
+.k7 .alt{position:absolute;left:4cqw;top:28.6cqw;width:42cqw}
+.a1{background:#fff;border-radius:1.8cqw;padding:1.5cqw 2cqw 1.2cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
+.a1 .at{margin:0 0 .8cqw;font-size:1.75cqw;font-weight:900;color:#2C6E49}
+.a1 .ar{display:flex;align-items:center;gap:1.2cqw;padding:.9cqw 0;border-top:.12cqw dashed #E4D9C2}
+.a1 .ar i{flex:0 0 4cqw;height:4cqw;border-radius:50%;background:#F4FBF3;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:2.1cqw}
+.a1 .ar b{display:block;font-size:1.75cqw;color:#1A1A1A;line-height:1.3}.a1 .ar span{display:block;font-size:1.3cqw;color:#5a5348;line-height:1.4}
+.a2{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw}
+.a2 .st{background:#fff;border-radius:1.6cqw;padding:1.6cqw .6cqw 1.3cqw;text-align:center;box-shadow:0 .8cqw 2.4cqw rgba(0,0,0,.3);border-top:.6cqw solid #3F9D5A}
+.a2 .st:nth-child(2){border-top-color:#1E5BD8}.a2 .st:nth-child(3){border-top-color:#E8743B}
+.a2 .st b{display:block;font-size:5.6cqw;font-weight:900;line-height:1;color:#1A1A1A}.a2 .st span{display:block;margin-top:.6cqw;font-size:1.45cqw;font-weight:800;color:#5a5348}
+.a2 .cap{grid-column:1/-1;margin:.4cqw 0 0;display:inline-block;justify-self:start;background:#1A1A1A;color:#F7CE46;font-size:1.4cqw;font-weight:800;padding:.6cqw 1.4cqw;border-radius:3cqw}
+.a3{height:24cqw}
+.a3 .sk{position:absolute;display:inline-flex;align-items:center;gap:.4cqw;font-size:2cqw;font-weight:900;padding:.8cqw 1.8cqw;border-radius:3cqw;border:.45cqw solid #fff;box-shadow:0 .6cqw 1.6cqw rgba(0,0,0,.35);white-space:nowrap}
+.a3 .s1{left:0;top:1cqw;background:#F7CE46;color:#1A1A1A;transform:rotate(-6deg)}.a3 .s2{left:15cqw;top:0;background:#FFE1C7;color:#C24E00;transform:rotate(4deg)}
+.a3 .s3{left:31cqw;top:2cqw;background:#3F9D5A;color:#fff;transform:rotate(-3deg)}.a3 .s4{left:2cqw;top:9.5cqw;background:#D7E8FF;color:#1E5BD8;transform:rotate(3deg)}
+.a3 .s5{left:15.5cqw;top:10cqw;background:#E7F5E2;color:#2C6E49;transform:rotate(-4deg)}.a3 .s6{left:27cqw;top:10.5cqw;background:#fff;color:#7a6a45;transform:rotate(5deg)}
+"""
+ALT_PAGE = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>KV G 左下區替代方案（3 款）</title><style>{CSS}{ALT_CSS}</style></head><body><div class="wrap">
+<h1>KV G：左下區替代方案（3 款）</h1><p>其他內容不變，只替換左下篩選框，避免被誤以為係真實搜尋工具。</p>
+{''.join(f'<section class="opt"><h3>{t}</h3><p>{d}</p>{KV_G.replace(G_UI, h)}</section>' for t, d, h in ALT.values())}
+</div></body></html>'''
 KV_GM_HTML = KV_G_HTML.replace(KV_G, KV_GM).replace('Blog 1 KV（G）', 'Blog 1 KV（G 手機版）')
 if __name__ == '__main__':
     open(os.path.join(HERE, 'kv-options.html'), 'w').write(html)
     open(os.path.join(HERE, 'kv-g.html'), 'w').write(KV_G_HTML)
-    open(os.path.join(HERE, 'kv-g-mobile.html'), 'w').write(KV_GM_HTML); print('ok', len(KV))
+    open(os.path.join(HERE, 'kv-g-mobile.html'), 'w').write(KV_GM_HTML)
+    open(os.path.join(HERE, 'kv-g-ui-options.html'), 'w').write(ALT_PAGE); print('ok', len(KV))
