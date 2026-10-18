@@ -158,7 +158,7 @@ BODY = f'''<div class="ao-article ao-picnic wp-exclude-emoji">
 <!-- ===== 產品（最後才介紹）===== -->
 <h2 class="ao-h2" id="chill">🧺 Kitchen AO <mark class="kw">野餐盒</mark>｜送到附近可停車位置</h2>
 <p class="ao-aio">不想花 4 小時準備食物再搬到公園？Kitchen AO 野餐盒、小食拼盤及二人套餐主打乾爽一口食、免餐具，送到公園附近可停車位置交收，<mark class="kw">野餐食物哪裡買</mark>一次解決。</p>
-<p class="psub">選擇人數及套餐，按「揀選心水餐單」後於網站揀選菜式並完成訂購。滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，於地面可停車位置車邊交收。</p>
+
 <div class="pgrid">{C.pcards_for("?"+UTM)}</div>
 <h3 class="ao-h3">🍗 野餐單點小食推介</h3>
 <p>除了野餐盒，亦可按人數及口味加配單點小食。以下 6 款乾爽、一口份量、毋須餐具，最適合帶到草地享用。</p>
