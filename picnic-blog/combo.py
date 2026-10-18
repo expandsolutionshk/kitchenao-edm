@@ -159,7 +159,7 @@ CSS = '''
 .phone{container-type:inline-size;max-width:430px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 30px rgba(0,0,0,.12);transition:max-width .25s;padding-bottom:30px}
 .phone.d{max-width:1080px}
 .hd{padding:16px 16px 12px;background:linear-gradient(135deg,#3F9D5A,#2C6E49);color:#fff}.hd p{margin:0;font-size:12px;opacity:.85}.hd h1{margin:4px 0 0;font-size:21px}
-.flt{margin:12px;padding:18px 20px 16px;border:1.5px solid #CFE8CD;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(44,110,73,.08)}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}.lab{flex:0 0 100%;margin-bottom:2px;font-size:13px;font-weight:800;color:#7a6a45;letter-spacing:.5px}
+.flt{margin:12px;padding:18px 20px 16px;border:1.5px solid #CFE8CD;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(44,110,73,.08)}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}.frow.f1{}.lab{flex:0 0 100%;margin-bottom:2px;font-size:13px;font-weight:800;color:#7a6a45;letter-spacing:.5px}
 .ch{flex:0 0 auto;border:1.5px solid #CFE8CD;background:#F4FBF3;color:#2C6E49;border-radius:22px;padding:7px 14px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:5px;cursor:pointer;transition:background .15s,border-color .15s}.ch:hover{border-color:#3F9D5A}
 .ch i{width:9px;height:9px;border-radius:5px;display:inline-block}.ch.on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}
 .cnt #rst{margin-left:auto}.go{display:inline-flex;align-items:center;gap:4px;width:auto;margin:0;border:0;border-radius:30px;padding:8px 20px;font-size:14px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer}.go.pd{background:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
@@ -240,6 +240,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .rc .s-more{margin-top:14px}
 @container (min-width:641px){#lmap{height:480px}}
 @container (max-width:640px){
+  .flt{padding:14px 12px 12px}.frow{display:grid;gap:8px;margin-bottom:14px}.frow .lab{grid-column:1/-1;margin:0}.f1{grid-template-columns:repeat(4,1fr)}.f2{grid-template-columns:repeat(3,1fr)}.frow .ch{justify-content:center;padding:9px 4px;font-size:13.5px;border-radius:12px;min-height:42px;white-space:nowrap}.f1 .ch{border-radius:22px}.cnt{display:flex;flex-wrap:wrap;gap:10px 12px;padding-top:12px}.cnt #cnt{order:1}.cnt #rst{order:2;margin-left:auto}.cnt .go{order:3;flex:1 1 100%;justify-content:center;padding:12px 16px;font-size:15px}
   .mhint{display:inline-block;margin-left:10px;color:#2C6E49;font-weight:700;font-size:14.5px;vertical-align:middle}
 
   .ch{font-size:13.5px;padding:6px 12px}.flt{padding:14px 14px 12px}.frow{gap:7px;margin-bottom:14px}.tseo{font-size:14.5px}
@@ -296,7 +297,7 @@ else{var i=st.cats.indexOf(v);if(i>-1)st.cats.splice(i,1);else st.cats.push(v);b
 function pend(x){var g=document.getElementById('go');g.classList.toggle('pd',x);if(x)document.getElementById('cnt').textContent='已更改條件，請按「確定搜尋」';}
 var FL=document.querySelector('.flt'),FH=FL.parentNode,FN=FL.nextSibling,FB=document.querySelector('.fbar'),BG=document.createElement('div');BG.className='fbg';
 function CT(){return document.querySelector('.pk-cmb')||document.getElementById('phone')}
-function mode(){var c=CT(),m=!!c&&c.clientWidth<=640;if(c)c.classList.toggle('msheet',m);if(!m)closeS();}
+function mode(){var c=CT(),m=false;/* 2026-10-18：手機版改回直接顯示篩選框（底部彈出面板停用，改 m 條件即可恢復） */if(c)c.classList.toggle('msheet',m);if(!m)closeS();}
 function openS(){var h=document.querySelector('.ao-picnic')||document.body;h.appendChild(BG);h.appendChild(FL);FL.classList.add('sheet');document.body.style.overflow='hidden';requestAnimationFrame(function(){requestAnimationFrame(function(){BG.classList.add('on');FL.classList.add('on')})})}
 function closeS(){if(!FL.classList.contains('sheet'))return;FL.classList.remove('on','sheet');BG.classList.remove('on');FH.insertBefore(FL,FN);if(BG.parentNode)BG.parentNode.removeChild(BG);document.body.style.overflow=''}
 FB.querySelector('.fbtn').onclick=openS;BG.onclick=closeS;FL.querySelector('.sx').onclick=closeS;window.addEventListener('resize',mode);mode();
@@ -329,7 +330,7 @@ NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y'
 TBL_SEO = (f'想找香港野餐好去處？下表整理了全港 {N} 個野餐地點：新界有大埔海濱公園及清水灣大坑墩等大草地，九龍有西九文化區等海濱草地，港島則有添馬公園。展開下表，即可按泊車、寵物及類別逐一比較。')
 FILTER = f"""<div class="fbar"><button class="fbtn" type="button">⚙️ 篩選 <span class="fbd" hidden></span></button><span class="fsum"></span></div>
 <div class="flt"><div class="shd"><i class="grab"></i><b>篩選野餐地點</b><button class="sx" type="button" aria-label="關閉">✕</button></div>
-<div class="frow"><span class="lab">① 地區</span>{chips_r}</div>
+<div class="frow f1"><span class="lab">① 地區</span>{chips_r}</div>
 <div class="frow f2"><span class="lab">② 條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
