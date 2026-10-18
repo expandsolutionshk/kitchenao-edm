@@ -1,0 +1,46 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>野餐盒 CTA 按鈕樣式 Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 16px 60px}h1{font-size:22px;margin:0 0 4px}.lead{margin:0 0 22px;color:#7a6a45;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:22px}
+.opt{background:#fff;border-radius:18px;padding:18px;border:2px solid #3F9D5A;box-shadow:0 6px 20px rgba(44,110,73,.12)}
+.opt h2{margin:0 0 4px;font-size:16px}.opt p.d{margin:0 0 14px;font-size:13px;color:#5a5348;line-height:1.6}
+.ctx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.b2{display:flex;align-items:center;justify-content:center;gap:6px;border:1.5px solid #3F9D5A;background:#F4FBF3;color:#2C6E49;border-radius:30px;padding:10px;min-height:44px;font-size:13.5px;font-weight:800}
+a{text-decoration:none}
+/* 現時 */
+.c0{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;background:#3F9D5A;color:#fff;border-radius:30px;padding:12px 14px;min-height:46px;font-weight:800;font-size:14px}
+/* A 金色硬幣風（配合步驟編號） */
+.cA{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:radial-gradient(circle at 30% 20%,#FFE58A,#F7CE46 60%,#E7B42F);color:#1A1A1A;border:2px solid #1A1A1A;border-radius:30px;padding:12px 14px;min-height:48px;font-weight:900;font-size:14.5px;box-shadow:3px 3px 0 #1A1A1A;transition:transform .1s,box-shadow .1s}
+.cA:active{transform:translate(3px,3px);box-shadow:none}.cA .ar{margin-left:auto}
+/* B 產品卡式按鈕 */
+.cB{display:flex;align-items:center;gap:12px;width:100%;background:#fff;border:2px solid #3F9D5A;border-radius:16px;padding:8px 14px 8px 8px;box-shadow:0 4px 14px rgba(44,110,73,.15)}
+.cB .im{flex:0 0 56px;height:56px;border-radius:10px;background:#E8F1DD url(https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg) center/cover}
+.cB .tx{flex:1;min-width:0}.cB b{display:block;font-size:15px;color:#1A1A1A;font-weight:900}.cB span{display:block;font-size:12.5px;color:#2C6E49;font-weight:700;margin-top:2px}
+.cB .go{flex:0 0 34px;height:34px;border-radius:50%;background:#3F9D5A;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+/* C 黑底雙行＋優惠標籤 */
+.cC{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;background:#1A1A1A;color:#fff;border-radius:16px;padding:12px 16px;min-height:56px}
+.cC b{display:block;font-size:15px;font-weight:900;color:#F7CE46}.cC span{display:block;font-size:12.5px;color:#EDE6D6;margin-top:2px}
+.cC .ar{flex:0 0 auto;font-size:18px;font-weight:900;color:#F7CE46}
+.cC .tag{position:absolute;right:12px;top:-10px;background:#E8743B;color:#fff;font-size:11.5px;font-weight:800;border-radius:10px;padding:2px 9px}
+</style></head><body><div class="wrap">
+<h1>🧺 地點卡「預訂野餐盒」按鈕：現時＋3 款新樣式</h1>
+<p class="lead">每款都放喺地點詳情嘅按鈕區（上面兩粒係原有嘅次要按鈕），方便比較；按鈕撳落會彈出野餐盒選擇視窗。</p>
+<div class="grid">
+<section class="opt"><h2>現時｜綠色膠囊</h2><p class="d">同上面「Google Map」等按鈕形狀一樣，較難突出係主要行動。</p>
+<div class="ctx"><span class="b2">🗺️ 公園平面圖</span><span class="b2">🐾 寵物共享範圍</span></div>
+<a class="c0" href="#">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</a></section>
+
+<section class="opt"><h2>A｜金色硬幣風</h2><p class="d">用同「三步找到心水野餐地點」硬幣編號一樣嘅金色、黑邊、立體陰影，撳落有按下效果；同全站風格統一，最搶眼。</p>
+<div class="ctx"><span class="b2">🗺️ 公園平面圖</span><span class="b2">🐾 寵物共享範圍</span></div>
+<a class="cA" href="#">🧺 預訂野餐盒・送到附近可停車位置<span class="ar">→</span></a></section>
+
+<section class="opt"><h2>B｜產品卡式</h2><p class="d">左邊放野餐盒相片，右邊兩行字＋綠色箭咀；似一張迷你產品卡，讀者一眼知道係食物、唔係地圖功能。</p>
+<div class="ctx"><span class="b2">🗺️ 公園平面圖</span><span class="b2">🐾 寵物共享範圍</span></div>
+<a class="cB" href="#"><i class="im"></i><span class="tx"><b>預訂 Kitchen AO 野餐盒</b><span>🚗 送到附近可停車位置</span></span><i class="go">→</i></a></section>
+
+<section class="opt"><h2>C｜黑底雙行＋優惠標籤</h2><p class="d">黑底黃字兩行（標題＋送貨說明），右上角加橙色小標籤提示免運優惠，增加撳嘅誘因。</p>
+<div class="ctx"><span class="b2">🗺️ 公園平面圖</span><span class="b2">🐾 寵物共享範圍</span></div>
+<a class="cC" href="#"><span class="tag">滿 $700 九龍免運</span><span><b>🧺 預訂 Kitchen AO 野餐盒</b><span>送到附近可停車位置，車邊交收</span></span><span class="ar">→</span></a></section>
+</div></div></body></html>
