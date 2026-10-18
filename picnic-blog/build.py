@@ -121,6 +121,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 </div>
 
 <nav class="ao-toc"><div class="t">目錄</div><ul>
+<li><a href="#hk-table">全港野餐地點一覽比較表</a></li>
 <li><a href="#pk-tool">全港野餐地點搜尋器</a></li>
 {''.join(f'<li><a href="#r-{rid}">{"一二三"[i]}、{rn}野餐</a></li>' for i, (rid, rn, _) in enumerate(REGIONS))}
 <li><a href="#dog">帶狗狗野餐須知</a></li>
@@ -130,12 +131,13 @@ BODY = f'''<div class="ao-article ao-picnic">
 <li><a href="#tips">編輯總結｜野餐注意事項</a></li>
 </ul></nav>
 
+{C.TABLE("h2", "ao-h2")}
+
 <h2 class="ao-h2" id="pk-tool">🔍 全港野餐地點搜尋器</h2>
 <p class="ao-aio">只需兩步，即可找到合適的野餐地點：先選擇新界、九龍或港島，再按需要篩選可泊車、寵物友善及地點類別，按「確定搜尋」即可。無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，都能一鍵找到。</p>
 <div class="pk-cmb">
 {C.FILTER}
 {C.MAP('h3')}
-{C.TABLE('h3')}
 <p class="empty" id="empty">沒有符合條件的地點，請嘗試減少篩選條件。</p>
 {regions}
 </div>
