@@ -71,7 +71,7 @@ for i, (rid, rname, rkw) in enumerate(REGIONS):
     ps = [p for p in P if p['r'] == rid]
     cards = ''.join(C.card(p) for p in ps)
     regions += f'''<section class="pk-region" data-region="{rid}">
-  <h2 class="ao-h2" id="r-{rid}">{"一二三"[i]}、{rname}野餐（{len(ps)} 個地點）</h2>
+  <div class="rhd"><h2 class="ao-h2" id="r-{rid}">{rkw}</h2><span class="rcount" data-r="{rid}" data-t="{len(ps)}">{len(ps)} 個地點</span></div>
   <p class="ao-aio">{AIO[rid]}</p>
   <div class="pk-list">{cards}</div>
 </section>'''
@@ -123,7 +123,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 <nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#hk-table">全港野餐地點一覽比較表</a></li>
 <li><a href="#pk-tool">全港野餐地點搜尋器</a></li>
-{''.join(f'<li><a href="#r-{rid}">{"一二三"[i]}、{rn}野餐</a></li>' for i, (rid, rn, _) in enumerate(REGIONS))}
+{''.join(f'<li><a href="#r-{rid}">{rkw}</a></li>' for rid, rn, rkw in REGIONS)}
 <li><a href="#dog">帶狗狗野餐須知</a></li>
 <li><a href="#food">野餐食物及物資清單</a></li>
 <li><a href="#chill">Kitchen AO 野餐盒推介</a></li>
@@ -264,6 +264,7 @@ _tbl = C.TABLE("h2", "ao-h2")
 BODY_HERO = BODY_HERO.replace(_tbl, '', 1)
 _i = BODY_HERO.index('<h2 class="ao-h2" id="pk-tool">'); _j = BODY_HERO.index('</p>', BODY_HERO.index('<p class="ao-aio">', _i)) + 4
 BODY_HERO = BODY_HERO[:_i] + f'''<h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
+<p class="ao-aio">以下按地區列出搜尋結果，無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，均可在上方搜尋器篩選。</p>
 <div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span></div>
 <div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 比較表</button></div>''' + BODY_HERO[_j:]
 _map = C.MAP('h3')
