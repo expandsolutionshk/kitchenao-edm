@@ -272,13 +272,13 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
   .lc,.rc{display:contents}.det .dhd{order:0}.det .dclose{order:99}.det .gal{order:1}.det .facts{order:2;margin-top:0}.det .s-car{order:3}.det .btns{order:4}.det .s-fac{order:5}.det .s-pet{order:6}.det .dsec{margin-top:0}
 }
 /* pop up */
-.mdl{position:fixed;inset:0;z-index:2147483000!important;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
+.mdl{position:fixed;inset:0;z-index:2147483000!important;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33;line-height:1.5;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}.mdl[hidden]{display:none}
 .mbox{position:relative;background:#fff;border-radius:14px;padding:16px;max-width:860px;width:100%;max-height:90vh;overflow:auto}.mbox img{width:100%;height:auto;border-radius:8px;display:block}
 .mt{margin:0 36px 8px 0;font-weight:800;font-size:14.5px}.msrc{margin:6px 0 0;font-size:12px;color:#7A7268;text-align:right}.mx{position:absolute;right:10px;top:8px;border:0;background:#F1EBDF;width:30px;height:30px;border-radius:15px;cursor:pointer}
 .psub{margin:0 0 14px;font-size:13.5px;color:#5a5348;line-height:1.7}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
 .pc{border:1px solid #E7E0D2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.pim{position:relative;aspect-ratio:1/1;background:#F4FBF3}.pim img{width:100%;height:100%;object-fit:cover;display:block;border-radius:0}
+.pim{position:relative;aspect-ratio:1/1;background:#F4FBF3;overflow:hidden}.pim img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;display:block;border-radius:0!important;margin:0!important}
 .ppl{position:absolute;left:8px;top:8px;background:#1A1A1A;color:#F7CE46;font-size:12.5px;font-weight:800;border-radius:20px;padding:3px 10px}
 .pbd{padding:12px;display:flex;flex-direction:column;flex:1;gap:6px}.pn{margin:0;font-weight:800;color:#1A1A1A;font-size:15px;line-height:1.4}
 .pmenu{margin:0;font-size:13px;color:#7a6a45;line-height:1.6;flex:1}
@@ -286,7 +286,9 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .atc{background:#3F9D5A;color:#fff;text-decoration:none;font-weight:800;font-size:13px;border-radius:30px;padding:8px 12px;white-space:nowrap}
 .pall{display:block;margin-top:14px;text-align:center;font-weight:800;color:#9A7B2E;text-decoration:none}
 .swh{display:none}
-@media(max-width:600px){#pmdl .mbox{padding:14px 0 16px}#pmdl .mt,#pmdl .psub,#pmdl .swh,#pmdl .pall{padding:0 14px}#pmdl .psub{margin-bottom:6px;font-size:13px}#pmdl .swh{display:block;margin:0 0 8px;font-size:12.5px;color:#9A7B2E;font-weight:700}#pmdl .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 14px 6px;scroll-padding:0 14px;scrollbar-width:none}#pmdl .pgrid::-webkit-scrollbar{display:none}#pmdl .pc{flex:0 0 64%;scroll-snap-align:start}#pmdl .pim{aspect-ratio:4/3}#pmdl .mbox{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px)}#pmdl .pft{flex-direction:row;align-items:center}#pmdl .pall{display:block}}
+#pmdl .pmenu{display:none!important}#pmdl .pn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}#pmdl .pbd{padding:10px 12px;gap:6px}#pmdl .pim{aspect-ratio:16/10}#pmdl .pall{margin-top:10px}
+
+@media(max-width:600px){#pmdl .mbox{padding:14px 0 16px}#pmdl .mt,#pmdl .psub,#pmdl .swh,#pmdl .pall{padding:0 14px}#pmdl .psub{margin-bottom:6px;font-size:13px}#pmdl .swh{display:block;margin:0 0 8px;font-size:12.5px;color:#9A7B2E;font-weight:700}#pmdl .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 14px 6px;scroll-padding:0 14px;scrollbar-width:none}#pmdl .pgrid::-webkit-scrollbar{display:none}#pmdl .pc{flex:0 0 64%;scroll-snap-align:start}#pmdl .mbox{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px)}#pmdl .pft{flex-direction:row;align-items:center}#pmdl .pall{display:block}}
 @media(max-width:520px){.pgrid{grid-template-columns:1fr 1fr}.pft{flex-direction:column;align-items:stretch}.atc{text-align:center}}
 .srcs{margin:18px 12px 0;padding-top:14px;border-top:1px solid #E7E0D2;font-size:13px;color:#7a6a45}
 .srcs h2{margin:0 0 8px;font-size:15px;color:#1A1A1A}.srcs ul{margin:0;padding-left:18px;line-height:1.9}.srcs a{color:#9A7B2E;word-break:break-all}
@@ -338,7 +340,7 @@ document.querySelectorAll('.prow').forEach(function(r){
 var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
 document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.querySelector('.msrc').textContent=b.dataset.s?'圖片來源︰'+b.dataset.s:'';md.hidden=false;}});
 function mcl(){md.hidden=true;mi.removeAttribute('src');}md.querySelector('.mx').onclick=mcl;md.onclick=function(e){if(e.target===md)mcl();};
-var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
+['pmdl','mdl'].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==document.body)document.body.appendChild(e)});var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
 function pcl(){pm.hidden=true}pm.querySelector('.mx').onclick=pcl;pm.onclick=function(e){if(e.target===pm)pcl()};
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){mcl();pcl()}});
 document.querySelectorAll('.vac').forEach(function(b){b.onclick=function(){var o=b.nextElementSibling;o.textContent='讀取中…';
@@ -365,8 +367,8 @@ def MAP(hx='h2'):
 def TABLE(hx='h2', hcls='sh'):
     return f"""<div class="sec" id="hk-table"><{hx} class="{hcls}">📊 野餐地點一覽表</{hx}><p class="tseo">{TBL_SEO}</p>
 <details class="cmp"><summary><span class="o">📊 展開一覽表（{N} 個地點）</span><span class="c">📊 收起一覽表</span><b class="ar">▾</b></summary><div class="tw"><table><thead>{thead}</thead><tbody>{trs}</tbody></table></div><button class="tclose" type="button">收起一覽表 ▲</button></details></div>"""
-POPUPS = f"""<div class="mdl" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="swh">← 左右滑動查看 5 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
-<div class="mdl" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
+POPUPS = f"""<div class="mdl wp-exclude-emoji" id="pmdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt">🧺 Kitchen AO 野餐盒｜送到附近可停車位置</p><p class="swh">← 左右滑動查看 5 款套餐 →</p><div class="pgrid">{pcards}</div><a class="pall" href="https://aoaodelivery.com/product-category/party/chill-box/{UTM}" target="_blank" rel="noopener">瀏覽全部野餐盒 →</a></div></div>
+<div class="mdl wp-exclude-emoji" id="mdl" hidden><div class="mbox"><button class="mx" type="button" aria-label="關閉">✕</button><p class="mt"></p><img alt=""><p class="msrc"></p></div></div>"""
 SRCS = f'<section class="srcs"><h2>資料來源</h2><ul>{srcs_h}</ul></section>'
 LEAF_CSS = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">'
 SCRIPTS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script><script>var PTS=' + json.dumps([dict(id=p["id"],n=p["name"],lat=GEO[p["id"]][0],lng=GEO[p["id"]][1],c=RC[p["r"]],ic=IC(p),img=(off(p).get("thumb") or ((off(p).get("img") or [""])[0])),tg="　".join([CATS[c][0]+" "+CATS[c][1] for c in p["cats"]]+(["🐶 寵物友善"] if p["pet"]=="Y" else (["🐾 寵物指定範圍"] if p["pet"]=="P" else []))+(["🅿️ 可泊車"] if p["car"] else []))) for p in P],ensure_ascii=False) + ';</script><script>' + JS + '</script>'
