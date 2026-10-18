@@ -233,7 +233,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .gal{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#DDEBD9}
 .gal.none{display:flex;align-items:center;justify-content:center;color:#7FA27D;font-weight:700}
 .gal .tr{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal .tr::-webkit-scrollbar{display:none}
-.gal figure{position:relative;flex:0 0 100%;margin:0;scroll-snap-align:start}.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.gal figure{position:relative;flex:0 0 100%;margin:0;scroll-snap-align:start}.gal img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;display:block;margin:0!important;border-radius:0!important}.gal figure{height:100%}
 .gal .src{position:absolute;right:8px;top:8px;background:rgba(255,255,255,.88);font-size:11px;border-radius:6px;padding:2px 7px;color:#555}
 .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
 .dots i{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.6);box-shadow:0 1px 3px rgba(0,0,0,.25)}.dots i.on{background:#fff;width:16px}
