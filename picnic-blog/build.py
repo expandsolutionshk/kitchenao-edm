@@ -266,8 +266,7 @@ _i = BODY_HERO.index('<h2 class="ao-h2" id="pk-tool">'); _j = BODY_HERO.index('<
 BODY_HERO = BODY_HERO[:_i] + f'''<div class="rshare"><span>分享：</span><button type="button" class="rs-wa" aria-label="WhatsApp 分享" title="WhatsApp 分享"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></button><button type="button" class="rs-fb" aria-label="Facebook 分享" title="Facebook 分享"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#fff" d="M15.12 5.32H17V2.14A26.11 26.11 0 0 0 14.26 2c-2.72 0-4.58 1.66-4.58 4.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.03.28-1.73 1.76-1.73Z"/></svg></button></div>
 <h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
 <p class="ao-aio">我們精選全港 {N} 個熱門野餐地點，按新界、九龍及港島分區列出，每個地點均附鄰近停車場及寵物資料；無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，都可以一目了然。</p>
-<div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span></div>
-<div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 野餐地點一覽表</button></div>''' + BODY_HERO[_j:]
+<div class="rtabs" id="results" role="tablist"><button type="button" class="on" data-tab="map">搜尋結果：野餐地點（共 {N} 個）</button><button type="button" data-tab="table">📊 野餐地點一覽表</button></div>''' + BODY_HERO[_j:]
 _map = C.MAP('h3')
 BODY_HERO = BODY_HERO.replace(_map, '<div class="rpanel on" data-tab="map">' + _map, 1)
 _r = BODY_HERO.index(regions) + len(regions)
@@ -278,12 +277,13 @@ BODY_HERO = BODY_HERO.replace('</style><section class="pk-hero"', """
 .ao-picnic .rbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 12px;padding:12px 16px;border-radius:14px;background:#F4FBF3;border:1.5px solid #CFE8CD}
 .ao-picnic .rcnt{font-size:16px;font-weight:900;color:#1A1A1A}.ao-picnic .rfil{font-size:14px;font-weight:700;color:#2C6E49}
 .ao-picnic .rmod{margin-left:auto;border:2px solid #1A1A1A;background:#fff;color:#1A1A1A;border-radius:30px;padding:6px 14px;font-weight:800;font-size:13.5px;cursor:pointer;box-shadow:2px 2px 0 #1A1A1A;font-family:inherit}.ao-picnic .rmod:active{transform:translate(2px,2px);box-shadow:none}
-.ao-picnic .rtabs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 14px}
-.ao-picnic .rtabs button{border:2px solid #2C6E49;background:#fff;color:#2C6E49;border-radius:12px;padding:10px 6px;font-weight:900;font-size:15px;cursor:pointer;box-shadow:2px 2px 0 #2C6E49;font-family:inherit;transition:transform .08s,box-shadow .08s}
-.ao-picnic .rtabs button.on{background:#3F9D5A;color:#fff;transform:translate(2px,2px);box-shadow:none}
+.ao-picnic .rtlbl{margin:0 0 6px!important;font-size:12.5px;font-weight:800;color:#9A7B2E;letter-spacing:1px}
+.rtabs{display:flex;background:#E9E3D6;border-radius:40px;padding:4px;margin:0 0 14px}
+.ao-picnic .rtabs button{flex:1;line-height:1.3!important;border:0!important;background:none!important;color:#7a6a45!important;border-radius:40px!important;padding:10px 6px!important;margin:0!important;font-weight:800;font-size:15px!important;cursor:pointer;font-family:inherit;box-shadow:none!important;transition:background .15s,color .15s}
+.ao-picnic .rtabs button.on{background:#fff!important;color:#1A1A1A!important;box-shadow:0 2px 6px rgba(0,0,0,.15)!important}
 .ao-picnic .rpanel{display:none}.ao-picnic .rpanel.on{display:block}
 .ao-picnic .rpanel .cmp>summary,.ao-picnic .rpanel .tclose{display:none!important}.ao-picnic .rpanel #hk-table{border-bottom:0;padding-bottom:0}.ao-picnic .rpanel #hk-table .ao-h2{margin-top:6px!important}
-@media(max-width:640px){.ao-picnic .rtabs button{font-size:13.5px;padding:9px 4px}.ao-picnic .rmod{margin-left:0}}
+@media(max-width:640px){.ao-picnic .rtabs button{font-size:13.5px!important;padding:9px 4px!important}.ao-picnic .rmod{margin-left:0}}
 @media(max-width:640px){.ao-article.ao-picnic{width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:0!important;padding-left:18px!important;padding-right:18px!important;box-sizing:border-box!important}}
 </style><section class="pk-hero" """.rstrip(), 1)
 prev_hero = prev.replace(BODY, BODY_HERO)
