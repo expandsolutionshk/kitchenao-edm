@@ -382,7 +382,11 @@ ALT_PAGE = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><me
 <h1>KV G：左下區替代方案（3 款）</h1><p>其他內容不變，只替換左下篩選框，避免被誤以為係真實搜尋工具。</p>
 {''.join(f'<section class="opt"><h3>{t}</h3><p>{d}</p>{KV_G.replace(G_UI, h)}</section>' for t, d, h in ALT.values())}
 </div></body></html>'''
-KV_GM_HTML = KV_G_HTML.replace(KV_G, KV_GM).replace('Blog 1 KV（G）', 'Blog 1 KV（G 手機版）')
+# 2026-10-18：最新 KV 採用 G1（功能重點清單）取代篩選框
+K8ALT = ".k8 .alt{position:absolute;left:5cqw;top:84cqw;width:41cqw;transform:scale(1.45);transform-origin:top left}.k8 .a1 .ar b{white-space:normal}"
+KV_G1 = KV_G.replace(G_UI, ALT['G1'][2]); KV_GM1 = KV_GM.replace(G_UI, ALT['G1'][2])
+KV_G_HTML = KV_G_HTML.replace(KV_G, KV_G1).replace('</style>', ALT_CSS + K8ALT + '</style>', 1)
+KV_GM_HTML = KV_G_HTML.replace(KV_G1, KV_GM1).replace('Blog 1 KV（G）', 'Blog 1 KV（G 手機版）')
 if __name__ == '__main__':
     open(os.path.join(HERE, 'kv-options.html'), 'w').write(html)
     open(os.path.join(HERE, 'kv-g.html'), 'w').write(KV_G_HTML)

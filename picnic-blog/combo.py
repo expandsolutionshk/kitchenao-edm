@@ -120,7 +120,7 @@ def card(p, kw=False):
         if mp.lower().endswith('.pdf'): btns.append(f'<a class="btn b2" href="{mp}" target="_blank" rel="noopener">🗺️ 平面圖（PDF）</a>')
         else: btns.append(f'<button class="btn b2" type="button" data-img="{mp}" data-s="{agency(mp)}" data-t="{esc(p["name"])}｜平面圖">🗺️ 公園平面圖</button>')
     if p.get('petmap'): btns.append(f'<button class="btn b2" type="button" data-img="{p["petmap"]}" data-s="{agency(p["petmap"])}" data-t="{esc(p["name"])}｜寵物共享公園範圍">🐾 寵物共享範圍</button>')
-    btns.append('<button class="btn b3 openP" type="button">🧺 預訂Kitchen AO野餐盒・送到附近可停車位置</button>')
+    btns.append('<button class="btn b3 openP" type="button"><i class="bim"></i><span class="btx"><b>預訂 Kitchen AO 野餐盒</b><span>🚗 送到附近可停車位置</span></span><span class="bar">→</span></button>')
     intro = ''  # 2026-10-18：移除「官方簡介」（官方內容不會同步更新）
     return f'''<article class="prow" id="b-{p['id']}" {attrs(p)}>
   <div class="sum">
@@ -174,9 +174,9 @@ CSS = '''
 .phone{container-type:inline-size;max-width:430px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 30px rgba(0,0,0,.12);transition:max-width .25s;padding-bottom:30px}
 .phone.d{max-width:1080px}
 .hd{padding:16px 16px 12px;background:linear-gradient(135deg,#3F9D5A,#2C6E49);color:#fff}.hd p{margin:0;font-size:12px;opacity:.85}.hd h1{margin:4px 0 0;font-size:21px}
-.flt{margin:12px;padding:18px 20px 16px;border:1.5px solid #CFE8CD;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(44,110,73,.08)}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}.frow.f1{}.lab{flex:0 0 100%;display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:14.5px;font-weight:800;color:#1A1A1A;letter-spacing:.3px}.fhd{margin:0 0 12px;font-size:15.5px;font-weight:900;color:#2C6E49}.flt .frow+.frow,.flt .fhd+.frow{border-top:1px dashed #E4D9C2;padding-top:14px}.no{position:relative;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE58A,#F7CE46 55%,#D9A21B);color:#1A1A1A;font-style:normal;font-weight:900;font-size:14px;border:2px solid #1A1A1A;box-shadow:2px 2px 0 #1A1A1A}.go .no{width:24px;height:24px;font-size:13px;margin-right:6px;border-color:#F7CE46;box-shadow:none}
+.flt{margin:12px;padding:18px 20px 16px;border:1.5px solid #CFE8CD;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(44,110,73,.08)}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}.frow.f1{}.lab{flex:0 0 100%;display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:14.5px;font-weight:800;color:#1A1A1A;letter-spacing:.3px}.flt .ch{border-color:#2C6E49;box-shadow:2px 2px 0 #2C6E49;transition:transform .08s,box-shadow .08s,background .15s}.flt .ch:active,.flt .ch.on{transform:translate(2px,2px);box-shadow:0 0 0 #2C6E49}.flt .go{box-shadow:3px 3px 0 #E7B42F;transition:transform .08s,box-shadow .08s}.flt .go:active{transform:translate(3px,3px);box-shadow:none}.fhd{margin:0 0 12px;font-size:15.5px;font-weight:900;color:#2C6E49}.flt .frow+.frow,.flt .fhd+.frow{border-top:1px dashed #E4D9C2;padding-top:14px}.no{position:relative;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE58A,#F7CE46 55%,#D9A21B);color:#1A1A1A;font-style:normal;font-weight:900;font-size:14px;border:2px solid #1A1A1A;box-shadow:2px 2px 0 #1A1A1A}.go .no{width:24px;height:24px;font-size:13px;margin-right:6px;border-color:#F7CE46;box-shadow:none}
 .ch{flex:0 0 auto;border:1.5px solid #CFE8CD;background:#F4FBF3;color:#2C6E49;border-radius:22px;padding:7px 14px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:5px;cursor:pointer;transition:background .15s,border-color .15s}.ch:hover{border-color:#3F9D5A}
-.ch i{width:9px;height:9px;border-radius:5px;display:inline-block}.ch.on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}
+.ch i{width:9px;height:9px;border-radius:5px;display:inline-block}.ch.on i{box-shadow:0 0 0 2px #fff}.ch.on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}
 .cnt #rst{margin-left:auto}.go{display:inline-flex;align-items:center;gap:4px;width:auto;margin:0;border:0;border-radius:30px;padding:8px 20px;font-size:14px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer}.go.pd{background:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
 .cnt{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13.5px;font-weight:700;color:#5a5348;margin-top:2px;padding-top:14px;border-top:1px solid #EFE8DA}.cnt #rst{border:0;background:none;color:#9A7B2E;font-weight:700;text-decoration:underline;padding:0;cursor:pointer}
 .sec{padding:14px 12px 4px}.sec h2{margin:0 0 8px;font-size:18px;color:#1A1A1A}.sec h2 small{font-weight:600;color:#9A8f7e;font-size:12px;margin-left:4px}
@@ -251,7 +251,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .more summary::after{content:" ▾";color:#3F9D5A}.more[open] summary::after{content:" ▴"}.more p{margin:10px 0 0;font-size:15px;line-height:1.85;color:#5a5348}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
 .btn{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:0;border-radius:30px;padding:11px 14px;min-height:44px;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap}
-.b1{background:#1A1A1A;color:#fff}.b2{background:#F4FBF3;color:#2C6E49;border:1.5px solid #3F9D5A}.b3{flex:1 1 100%;background:#3F9D5A;color:#fff}
+.b1{background:#1A1A1A;color:#fff}.b2{background:#F4FBF3;color:#2C6E49;border:1.5px solid #3F9D5A}.b3{flex:1 1 100%;justify-content:flex-start!important;gap:12px!important;padding:8px 16px 8px 8px!important;text-align:left!important;background:radial-gradient(circle at 30% 20%,#FFE58A,#F7CE46 60%,#E7B42F);color:#1A1A1A;border:2px solid #1A1A1A!important;border-radius:18px!important;box-shadow:3px 3px 0 #1A1A1A;transition:transform .1s,box-shadow .1s}.b3:active{transform:translate(3px,3px);box-shadow:none}.b3 .bim{flex:0 0 54px;height:54px;border-radius:12px;border:2px solid #1A1A1A;background:#fff url(https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.18-PM-600x600.jpeg) center/cover}.b3 .btx{flex:1;min-width:0;white-space:normal}.b3 .btx b{display:block;font-size:15px;font-weight:900;line-height:1.35}.b3 .btx span{display:block;font-size:12.5px;font-weight:700;margin-top:2px}.b3 .bar{flex:0 0 auto;font-size:20px;font-weight:900}
 .rc .s-more{margin-top:14px}
 @container (min-width:641px){#lmap{height:480px}}
 @container (max-width:640px){
@@ -346,7 +346,7 @@ NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y'
 TBL_SEO = (f'想找香港野餐好去處？下表整理了全港 {N} 個野餐地點：新界有大埔海濱公園及清水灣大坑墩等大草地，九龍有西九文化區等海濱草地，港島則有添馬公園。展開下表，即可按泊車、寵物及類別逐一比較。')
 FILTER = f"""<div class="fbar"><button class="fbtn" type="button">⚙️ 篩選 <span class="fbd" hidden></span></button><span class="fsum"></span></div>
 <div class="flt"><div class="shd"><i class="grab"></i><b>篩選野餐地點</b><button class="sx" type="button" aria-label="關閉">✕</button></div>
-<p class="fhd">🔍 三步找到心水野餐地點</p>
+<p class="fhd">🔍 3 Steps 快速搜尋</p>
 <div class="frow f1"><span class="lab"><i class="no">1</i>揀選地區</span>{chips_r}</div>
 <div class="frow f2"><span class="lab"><i class="no">2</i>揀選條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <div class="cnt"><button class="go" id="go" type="button"><i class="no">3</i>🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
