@@ -205,3 +205,13 @@ _FAC = {
 }
 for _k, _v in _FAC.items():
     O[_k]['fac'] = _v
+
+# 2026-10-18：添馬公園改用康文署大圖（fac/1l.jpg 等，約 2016×1512）
+O['添馬公園']['img']=[L.replace('/tc','')+'' if False else 'https://www.lcsd.gov.hk/en/parks/tp/common/graphics/fac/%sl.jpg'%n for n in '1234']; O['添馬公園']['thumb']=O['添馬公園']['img'][0]
+
+# 2026-10-18：低解像相片換成較高解像來源
+_D = 'https://www.discoverhongkong.com/content/dam/dhk/data/poi/media/k/kwun-tong-promenade/kwun-tong-promenade-0%s.jpg'
+O['觀塘海濱花園']['img'] = [_D % n for n in '123']; O['觀塘海濱花園']['thumb'] = O['觀塘海濱花園']['img'][0]
+_G = 'https://gia.info.gov.hk/general/202105/21/P2021052000587_photo_%s.jpg'
+O['啟德空中花園']['img'] = [_G % n for n in ('1191604', '1191596', '1191601')]; O['啟德空中花園']['thumb'] = O['啟德空中花園']['img'][0]
+_q = O['啟德車站廣場']['img']; O['啟德車站廣場']['img'] = [u for u in _q if 'gia.info' in u] + [u for u in _q if 'gia.info' not in u]; O['啟德車站廣場']['thumb'] = O['啟德車站廣場']['img'][0]

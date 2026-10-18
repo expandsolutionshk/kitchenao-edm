@@ -259,12 +259,35 @@ _i = BODY_HERO.index('<p class="pk-h1note">'); _j = BODY_HERO.index('</nav>', _i
 _blk = BODY_HERO[_i:_j]; BODY_HERO = BODY_HERO[:_i] + BODY_HERO[_j:]
 _k = BODY_HERO.index('<h2 class="ao-h2" id="dog">')
 BODY_HERO = BODY_HERO[:_k] + _blk + '\n\n' + BODY_HERO[_k:]
+# ---- 搜尋結果分頁：地圖／地點列表／比較表 ----
+_tbl = C.TABLE("h2", "ao-h2")
+BODY_HERO = BODY_HERO.replace(_tbl, '', 1)
+_i = BODY_HERO.index('<h2 class="ao-h2" id="pk-tool">'); _j = BODY_HERO.index('</p>', BODY_HERO.index('<p class="ao-aio">', _i)) + 4
+BODY_HERO = BODY_HERO[:_i] + f'''<h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
+<div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span><button type="button" class="rmod">✏️ 修改搜尋 ↑</button></div>
+<div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 比較表</button></div>''' + BODY_HERO[_j:]
+_map = C.MAP('h3')
+BODY_HERO = BODY_HERO.replace(_map, '<div class="rpanel on" data-tab="map">' + _map, 1)
+_r = BODY_HERO.index(regions) + len(regions)
+BODY_HERO = BODY_HERO[:_r] + '</div><div class="rpanel" data-tab="table">' + _tbl.replace('<details class="cmp">', '<details class="cmp" open>', 1) + '</div>' + BODY_HERO[_r:]
+BODY_HERO = BODY_HERO.replace('</style><section class="pk-hero"', """
+.ao-picnic .rh{margin-top:28px!important}
+.ao-picnic .rbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 12px;padding:12px 16px;border-radius:14px;background:#F4FBF3;border:1.5px solid #CFE8CD}
+.ao-picnic .rcnt{font-size:16px;font-weight:900;color:#1A1A1A}.ao-picnic .rfil{font-size:14px;font-weight:700;color:#2C6E49}
+.ao-picnic .rmod{margin-left:auto;border:2px solid #1A1A1A;background:#fff;color:#1A1A1A;border-radius:30px;padding:6px 14px;font-weight:800;font-size:13.5px;cursor:pointer;box-shadow:2px 2px 0 #1A1A1A;font-family:inherit}.ao-picnic .rmod:active{transform:translate(2px,2px);box-shadow:none}
+.ao-picnic .rtabs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 14px}
+.ao-picnic .rtabs button{border:2px solid #2C6E49;background:#fff;color:#2C6E49;border-radius:12px;padding:10px 6px;font-weight:900;font-size:15px;cursor:pointer;box-shadow:2px 2px 0 #2C6E49;font-family:inherit;transition:transform .08s,box-shadow .08s}
+.ao-picnic .rtabs button.on{background:#3F9D5A;color:#fff;transform:translate(2px,2px);box-shadow:none}
+.ao-picnic .rpanel{display:none}.ao-picnic .rpanel.on{display:block}
+.ao-picnic .rpanel .cmp>summary,.ao-picnic .rpanel .tclose{display:none!important}.ao-picnic .rpanel #hk-table{border-bottom:0;padding-bottom:0}.ao-picnic .rpanel #hk-table .ao-h2{margin-top:6px!important}
+@media(max-width:640px){.ao-picnic .rtabs button{font-size:13.5px;padding:9px 4px}.ao-picnic .rmod{margin-left:0}}
+</style><section class="pk-hero" """.rstrip(), 1)
 prev_hero = prev.replace(BODY, BODY_HERO)
 if __name__ == '__main__':
-    open(os.path.join(HERE, 'preview.html'), 'w').write(prev)
-    open(os.path.join(HERE, 'preview-hero.html'), 'w').write(prev_hero)
-    open(os.path.join(HERE, 'index.html'), 'w').write(prev)
-    wp = re.sub(r'<mark class="(?:kw|paa)">(.*?)</mark>', r'\1', BODY)
+    # 2026-10-18：正式版改用 Hero 搜尋區＋分頁版本
+    open(os.path.join(HERE, 'preview.html'), 'w').write(prev_hero)
+    open(os.path.join(HERE, 'index.html'), 'w').write(prev_hero)
+    wp = re.sub(r'<mark class="(?:kw|paa)">(.*?)</mark>', r'\1', BODY_HERO)
     wp = re.sub(r'<p class="pk-kw">.*?</p>', '', wp)
     wp = re.sub(r'<p class="pk-h1note">.*?</p>', '', wp)
     open(os.path.join(HERE, 'blog-picnic-WORDPRESS.html'), 'w').write(wp)
