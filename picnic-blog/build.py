@@ -254,6 +254,11 @@ import re as _re
 _m = _re.search(r'<div class="pk-kvg">.*?</iframe></div>', BODY, _re.S)
 BODY_HERO = BODY.replace(C.FILTER, '', 1)
 BODY_HERO = BODY_HERO.replace(_m.group(0), HERO_CSS + HERO, 1)
+# H1 說明、引言卡及目錄移到搜尋結果（地點介紹）之後
+_i = BODY_HERO.index('<p class="pk-h1note">'); _j = BODY_HERO.index('</nav>', _i) + len('</nav>')
+_blk = BODY_HERO[_i:_j]; BODY_HERO = BODY_HERO[:_i] + BODY_HERO[_j:]
+_k = BODY_HERO.index('<h2 class="ao-h2" id="dog">')
+BODY_HERO = BODY_HERO[:_k] + _blk + '\n\n' + BODY_HERO[_k:]
 prev_hero = prev.replace(BODY, BODY_HERO)
 if __name__ == '__main__':
     open(os.path.join(HERE, 'preview.html'), 'w').write(prev)
