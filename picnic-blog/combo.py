@@ -95,6 +95,8 @@ def card(p, kw=False):
             btn = ''
             if f and f not in seen:
                 seen.add(f); btn = f'<button class="vac" type="button" data-src="{VAC}{f}">查看實時車位</button><span class="vres"></span>'
+            elif not f:
+                btn = '<span class="nodata">（運輸署未有提供實時車位數據）</span>'
             lis += f'<li>🅿️ {esc(n)}{btn}</li>'
         car = f'<div class="kcar"><ul>{lis}</ul></div>'
     else:
@@ -244,7 +246,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .s-pet .pet{background:#FFF8EC;border:1px solid #F3E2BF;border-radius:12px;padding:11px 13px;font-size:15px;line-height:1.75}
 .kcar{background:#F6F8FB;border:1px solid #E2E8F2;border-radius:12px;padding:10px 13px;font-size:14px}.kcar.none{background:#FFF8EC;border-color:#F3E2BF}
 .kcar ul{margin:0;padding:0}.kcar li{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:3px 0}
-.vac{border:1px solid #1E5BD8;background:#fff;color:#1E5BD8;border-radius:20px;padding:3px 11px;font-size:12.5px;font-weight:700;cursor:pointer}.vres{font-weight:800;color:#2C6E49;font-size:12.5px}
+.vac{border:1px solid #1E5BD8;background:#fff;color:#1E5BD8;border-radius:20px;padding:3px 11px;font-size:12.5px;font-weight:700;cursor:pointer}.nodata{font-size:12px;color:#9A8f7e;font-weight:600}.vres{font-weight:800;color:#2C6E49;font-size:12.5px}
 .more summary{cursor:pointer;font-weight:800;font-size:15px;color:#1A1A1A;list-style:none}.more summary::-webkit-details-marker{display:none}
 .more summary::after{content:" ▾";color:#3F9D5A}.more[open] summary::after{content:" ▴"}.more p{margin:10px 0 0;font-size:15px;line-height:1.85;color:#5a5348}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
