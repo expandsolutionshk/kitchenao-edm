@@ -120,6 +120,7 @@ def card(p, kw=False):
         if mp.lower().endswith('.pdf'): btns.append(f'<a class="btn b2" href="{mp}" target="_blank" rel="noopener">🗺️ 平面圖（PDF）</a>')
         else: btns.append(f'<button class="btn b2" type="button" data-img="{mp}" data-s="{agency(mp)}" data-t="{esc(p["name"])}｜平面圖">🗺️ 公園平面圖</button>')
     if p.get('petmap'): btns.append(f'<button class="btn b2" type="button" data-img="{p["petmap"]}" data-s="{agency(p["petmap"])}" data-t="{esc(p["name"])}｜寵物共享公園範圍">🐾 寵物共享範圍</button>')
+    btns.append(f'<button class="btn b2 shr" type="button" data-pid="{p["id"]}" data-n="{esc(p["name"].split(" / ")[0])}">📤 分享此地點</button>')
     btns.append('<button class="btn b3 openP" type="button"><i class="bim"></i><span class="btx"><b>預訂 Kitchen AO 野餐盒</b><span>🚗 送到附近可停車位置</span></span></button>')
     intro = ''  # 2026-10-18：移除「官方簡介」（官方內容不會同步更新）
     return f'''<article class="prow" id="b-{p['id']}" {attrs(p)}>
@@ -320,12 +321,16 @@ function closeS(){if(!FL.classList.contains('sheet'))return;FL.classList.remove(
 FB.querySelector('.fbtn').onclick=openS;BG.onclick=closeS;FL.querySelector('.sx').onclick=closeS;window.addEventListener('resize',mode);mode();
 document.querySelectorAll('.vt button').forEach(function(b){b.addEventListener('click',function(){setTimeout(mode,320)})});
 (function(){var tg=document.querySelector('.pk-hero')||document.querySelector('.flt');if(!tg)return;var b=document.createElement('button');b.type='button';b.className='backs';b.innerHTML='🔍 返回搜尋器';(document.querySelector('.ao-picnic')||document.body).appendChild(b);b.onclick=function(){(document.querySelector('.pk-hero')||document.querySelector('.flt')).scrollIntoView({behavior:'smooth',block:'start'})};function chk(){var t=document.querySelector('.pk-hero')||document.querySelector('.flt');if(!t)return;var r=t.getBoundingClientRect();b.classList.toggle('on',r.bottom<0)}window.addEventListener('scroll',chk,{passive:true});chk();})();
+function shareLink(u,t){if(navigator.share){navigator.share({title:t,text:t,url:u}).catch(function(){});return}window.open('https://wa.me/?text='+encodeURIComponent(t+' '+u),'_blank','noopener')}
+window.aoShare=shareLink;
+document.querySelectorAll('.shr').forEach(function(b){b.onclick=function(){var u=location.href.split('#')[0]+'#b-'+b.dataset.pid;shareLink(u,b.dataset.n+'｜香港野餐好去處・全港野餐地點搜尋器');(window.dataLayer=window.dataLayer||[]).push({event:'share_place',place:b.dataset.pid})}});
+function deep(){var h=location.hash;if(/^#b-[a-z]+$/.test(h)&&document.querySelector(h)){setTimeout(function(){openCard(h.slice(3))},300)}}window.addEventListener('hashchange',deep);setTimeout(deep,0);
 document.getElementById('go').onclick=function(){closeS();apply();pend(false);var t=document.getElementById('results')||document.getElementById('hk-map');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
 document.getElementById('rst').onclick=function(){st={r:'all',car:0,pet:0,cats:[]};document.querySelectorAll('.ch').forEach(function(x){x.classList.toggle('on',x.dataset.v==='all')});apply();pend(false);};
 document.querySelectorAll('a[href^="#b-"]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(a.getAttribute('href'));}});
 document.querySelectorAll('.tclose').forEach(function(b){b.onclick=function(){var dt=b.closest('details');dt.open=false;var t=document.getElementById('hk-table');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}});
 document.querySelectorAll('.prow').forEach(function(r){
-  var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';};var dc=r.querySelector('.dclose');if(dc)dc.onclick=function(){d.click();r.scrollIntoView({behavior:'smooth',block:'start'})};
+  var d=r.querySelector('.dbtn'),lb=d.querySelector('.lb');d.onclick=function(){var o=r.classList.toggle('open');d.setAttribute('aria-expanded',o);lb.textContent=o?'收起':'詳情';if(o&&history.replaceState)history.replaceState(null,'','#'+r.id);};var dc=r.querySelector('.dclose');if(dc)dc.onclick=function(){d.click();r.scrollIntoView({behavior:'smooth',block:'start'})};
   var tr=r.querySelector('.tr');if(!tr)return;var ds=r.querySelectorAll('.dots i');
   tr.addEventListener('scroll',function(){var i=Math.round(tr.scrollLeft/tr.clientWidth);ds.forEach(function(x,k){x.classList.toggle('on',k===i)})});
   var p=r.querySelector('.nav.p'),n=r.querySelector('.nav.n');if(p)p.onclick=function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'})};if(n)n.onclick=function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'})};
