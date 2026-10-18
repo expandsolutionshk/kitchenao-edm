@@ -200,7 +200,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 {FBJS}
 '''
 
-prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>【2026香港野餐好去處】港九新界海景、大草地及隱世公園野餐地點推介</title></head><body style="margin:0;padding:24px 14px;background:#fff">
+prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>【2026香港野餐好去處】港九新界海景、大草地及隱世公園野餐地點推介</title></head><body style="margin:0;padding:24px 20px;background:#fff">
 <div class="pk-demo-bar">DEMO｜<mark class="kw">黃色</mark>＝目標關鍵字／PAA　<label><input type="checkbox" id="hlToggle" checked> 顯示 highlight</label></div>
 ''' + BODY + '''<script>document.getElementById('hlToggle').onchange=function(){document.body.classList.toggle('no-hl',!this.checked)};</script></body></html>'''
 
