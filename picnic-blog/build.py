@@ -264,7 +264,7 @@ _tbl = C.TABLE("h2", "ao-h2")
 BODY_HERO = BODY_HERO.replace(_tbl, '', 1)
 _i = BODY_HERO.index('<h2 class="ao-h2" id="pk-tool">'); _j = BODY_HERO.index('</p>', BODY_HERO.index('<p class="ao-aio">', _i)) + 4
 BODY_HERO = BODY_HERO[:_i] + f'''<h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
-<div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span><button type="button" class="rmod">✏️ 修改搜尋 ↑</button></div>
+<div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span></div>
 <div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 比較表</button></div>''' + BODY_HERO[_j:]
 _map = C.MAP('h3')
 BODY_HERO = BODY_HERO.replace(_map, '<div class="rpanel on" data-tab="map">' + _map, 1)
