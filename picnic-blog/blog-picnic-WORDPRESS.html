@@ -158,7 +158,7 @@
 .ao-picnic .fhd{margin:0 0 12px;font-size:15.5px;font-weight:900;color:#2C6E49}
 .ao-picnic .flt .frow+.frow,.ao-picnic .flt .fhd+.frow{border-top:1px dashed #E4D9C2;padding-top:14px}
 .ao-picnic .no{position:relative;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE58A,#F7CE46 55%,#D9A21B);color:#1A1A1A;font-style:normal;font-weight:900;font-size:14px;border:2px solid #1A1A1A;box-shadow:2px 2px 0 #1A1A1A}
-.ao-picnic .go .no{width:24px;height:24px;font-size:13px;margin-right:6px;border-color:#F7CE46;box-shadow:none}
+.ao-picnic .gow{display:inline-flex;align-items:center;gap:10px}
 .ao-picnic .ch{flex:0 0 auto;border:1.5px solid #CFE8CD;background:#F4FBF3;color:#2C6E49;border-radius:22px;padding:7px 14px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:5px;cursor:pointer;transition:background .15s,border-color .15s}
 .ao-picnic .ch:hover{border-color:#3F9D5A}
 .ao-picnic .ch i{width:9px;height:9px;border-radius:5px;display:inline-block}
@@ -340,7 +340,8 @@
 .ao-picnic .cnt{display:flex;flex-wrap:wrap;gap:10px 12px;padding-top:12px}
 .ao-picnic .cnt #cnt{order:1}
 .ao-picnic .cnt #rst{order:2;margin-left:auto}
-.ao-picnic .cnt .go{order:3;flex:1 1 100%;justify-content:center;padding:12px 16px;font-size:15px}
+.ao-picnic .cnt .gow{order:3;flex:1 1 100%}
+.ao-picnic .cnt .go{flex:1;justify-content:center;padding:12px 16px;font-size:15px}
 .ao-picnic .mhint{display:inline-block;margin-left:10px;color:#2C6E49;font-weight:700;font-size:14.5px;vertical-align:middle}
 .ao-picnic .ch{font-size:13.5px;padding:6px 12px}
 .ao-picnic .flt{padding:14px 14px 12px}
@@ -461,7 +462,7 @@
 <p class="fhd">🔍 3 Steps 快速搜尋</p>
 <div class="frow f1"><span class="lab"><i class="no">1</i>揀選地區</span><button class="ch on" data-f="r" data-v="all">全部</button><button class="ch" data-f="r" data-v="nt"><i style="background:#1E5BD8"></i>新界</button><button class="ch" data-f="r" data-v="kln"><i style="background:#3F9D5A"></i>九龍</button><button class="ch" data-f="r" data-v="hk"><i style="background:#E8743B"></i>港島</button></div>
 <div class="frow f2"><span class="lab"><i class="no">2</i>揀選條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button><button class="ch" data-f="cat" data-v="lawn">🌳 大草地</button><button class="ch" data-f="cat" data-v="hidden">🌿 秘境</button><button class="ch" data-f="cat" data-v="sea">🌊 海景</button><button class="ch" data-f="cat" data-v="euro">🏛️ 特色園林</button></div>
-<div class="cnt"><button class="go" id="go" type="button"><i class="no">3</i>🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>
+<div class="cnt"><span class="gow"><i class="no">3</i><button class="go" id="go" type="button">🔍 確定搜尋</button></span><span id="cnt"></span><button id="rst">重設</button></div></div>
  </div>
  <div class="hr">
   <figure class="hp p1"><img src="https://www.lcsd.gov.hk/en/parks/tpwp/common/graphics/gallery/05.jpg" alt="大埔海濱公園" referrerpolicy="no-referrer" loading="lazy"><figcaption><b style="color:#1E5BD8">新界</b>大埔海濱公園</figcaption></figure>
@@ -476,7 +477,7 @@
 
 
 <h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
-<p class="ao-aio">以下按地區列出搜尋結果，無論想找野餐泊車地點，還是狗狗野餐好去處，均可在上方搜尋器篩選。</p>
+<p class="ao-aio">搜尋結果按新界、九龍及港島分區列出，每個地點均附鄰近停車場及寵物資料；無論想找野餐泊車地點，還是狗狗野餐好去處，都可以一目了然。</p>
 <div class="rbar" id="results"><span class="rcnt">📍 全部 33 個地點</span><span class="rfil">未設條件</span></div>
 <div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 野餐地點一覽表</button></div>
 <div class="pk-cmb">

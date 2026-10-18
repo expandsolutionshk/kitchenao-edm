@@ -264,7 +264,7 @@ _tbl = C.TABLE("h2", "ao-h2")
 BODY_HERO = BODY_HERO.replace(_tbl, '', 1)
 _i = BODY_HERO.index('<h2 class="ao-h2" id="pk-tool">'); _j = BODY_HERO.index('</p>', BODY_HERO.index('<p class="ao-aio">', _i)) + 4
 BODY_HERO = BODY_HERO[:_i] + f'''<h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
-<p class="ao-aio">以下按地區列出搜尋結果，無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，均可在上方搜尋器篩選。</p>
+<p class="ao-aio">搜尋結果按新界、九龍及港島分區列出，每個地點均附鄰近停車場及寵物資料；無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，都可以一目了然。</p>
 <div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span></div>
 <div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 野餐地點一覽表</button></div>''' + BODY_HERO[_j:]
 _map = C.MAP('h3')
