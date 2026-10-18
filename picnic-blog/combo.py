@@ -278,7 +278,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .psub{margin:0 0 14px;font-size:13.5px;color:#5a5348;line-height:1.7}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
 .pc{border:1px solid #E7E0D2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.pim{position:relative;aspect-ratio:1/1;background:#F4FBF3;overflow:hidden}.pim img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;display:block;border-radius:0!important;margin:0!important}
+.pim{position:relative;aspect-ratio:1/1;background:#F4FBF3;overflow:hidden}.pim img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;display:block;border-radius:0!important;margin:0!important}
 .ppl{position:absolute;left:8px;top:8px;background:#1A1A1A;color:#F7CE46;font-size:12.5px;font-weight:800;border-radius:20px;padding:3px 10px}
 .pbd{padding:12px;display:flex;flex-direction:column;flex:1;gap:6px}.pn{margin:0;font-weight:800;color:#1A1A1A;font-size:15px;line-height:1.4}
 .pmenu{margin:0;font-size:13px;color:#7a6a45;line-height:1.6;flex:1}
@@ -286,7 +286,7 @@ tbody tr:nth-child(even) td{background:#FBF8F2}
 .atc{background:#3F9D5A;color:#fff;text-decoration:none;font-weight:800;font-size:13px;border-radius:30px;padding:8px 12px;white-space:nowrap}
 .pall{display:block;margin-top:14px;text-align:center;font-weight:800;color:#9A7B2E;text-decoration:none}
 .swh{display:none}
-#pmdl .pmenu{display:none!important}#pmdl .pn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}#pmdl .pbd{padding:10px 12px;gap:6px}#pmdl .pim{aspect-ratio:16/10}#pmdl .pall{margin-top:10px}
+#pmdl .pmenu{display:none!important}#pmdl .pn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}#pmdl .pbd{padding:10px 12px;gap:6px}#pmdl .pall{margin-top:10px}
 
 @media(max-width:600px){#pmdl .mbox{padding:14px 0 16px}#pmdl .mt,#pmdl .psub,#pmdl .swh,#pmdl .pall{padding:0 14px}#pmdl .psub{margin-bottom:6px;font-size:13px}#pmdl .swh{display:block;margin:0 0 8px;font-size:12.5px;color:#9A7B2E;font-weight:700}#pmdl .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 14px 6px;scroll-padding:0 14px;scrollbar-width:none}#pmdl .pgrid::-webkit-scrollbar{display:none}#pmdl .pc{flex:0 0 64%;scroll-snap-align:start}#pmdl .mbox{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px)}#pmdl .pft{flex-direction:row;align-items:center}#pmdl .pall{display:block}}
 @media(max-width:520px){.pgrid{grid-template-columns:1fr 1fr}.pft{flex-direction:column;align-items:stretch}.atc{text-align:center}}
@@ -340,7 +340,7 @@ document.querySelectorAll('.prow').forEach(function(r){
 var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
 document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.querySelector('.msrc').textContent=b.dataset.s?'圖片來源︰'+b.dataset.s:'';md.hidden=false;}});
 function mcl(){md.hidden=true;mi.removeAttribute('src');}md.querySelector('.mx').onclick=mcl;md.onclick=function(e){if(e.target===md)mcl();};
-['pmdl','mdl'].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==document.body)document.body.appendChild(e)});var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
+(function(){var W=document.createElement('div');W.className='ao-picnic pk-mwrap wp-exclude-emoji';['pmdl','mdl'].forEach(function(i){var e=document.getElementById(i);if(e)W.appendChild(e)});document.body.appendChild(W)})();var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
 function pcl(){pm.hidden=true}pm.querySelector('.mx').onclick=pcl;pm.onclick=function(e){if(e.target===pm)pcl()};
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){mcl();pcl()}});
 document.querySelectorAll('.vac').forEach(function(b){b.onclick=function(){var o=b.nextElementSibling;o.textContent='讀取中…';

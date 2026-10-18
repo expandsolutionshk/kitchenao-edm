@@ -392,7 +392,7 @@
 .ao-picnic .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
 .ao-picnic .pc{border:1px solid #E7E0D2;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .ao-picnic .pim{position:relative;aspect-ratio:1/1;background:#F4FBF3;overflow:hidden}
-.ao-picnic .pim img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;display:block;border-radius:0!important;margin:0!important}
+.ao-picnic .pim img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;display:block;border-radius:0!important;margin:0!important}
 .ao-picnic .ppl{position:absolute;left:8px;top:8px;background:#1A1A1A;color:#F7CE46;font-size:12.5px;font-weight:800;border-radius:20px;padding:3px 10px}
 .ao-picnic .pbd{padding:12px;display:flex;flex-direction:column;flex:1;gap:6px}
 .ao-picnic .pn{margin:0;font-weight:800;color:#1A1A1A;font-size:15px;line-height:1.4}
@@ -405,7 +405,6 @@
 .ao-picnic #pmdl .pmenu{display:none!important}
 .ao-picnic #pmdl .pn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}
 .ao-picnic #pmdl .pbd{padding:10px 12px;gap:6px}
-.ao-picnic #pmdl .pim{aspect-ratio:16/10}
 .ao-picnic #pmdl .pall{margin-top:10px}
 @media(max-width:600px){.ao-picnic #pmdl .mbox{padding:14px 0 16px}
 .ao-picnic #pmdl .mt,.ao-picnic #pmdl .psub,.ao-picnic #pmdl .swh,.ao-picnic #pmdl .pall{padding:0 14px}
@@ -1299,7 +1298,7 @@ document.querySelectorAll('.prow').forEach(function(r){
 var md=document.getElementById('mdl'),mi=md.querySelector('img'),mt=md.querySelector('.mt');
 document.querySelectorAll('[data-img]').forEach(function(b){b.onclick=function(){mi.src=b.dataset.img;mi.alt=b.dataset.t;mt.textContent=b.dataset.t;md.querySelector('.msrc').textContent=b.dataset.s?'圖片來源︰'+b.dataset.s:'';md.hidden=false;}});
 function mcl(){md.hidden=true;mi.removeAttribute('src');}md.querySelector('.mx').onclick=mcl;md.onclick=function(e){if(e.target===md)mcl();};
-['pmdl','mdl'].forEach(function(i){var e=document.getElementById(i);if(e&&e.parentNode!==document.body)document.body.appendChild(e)});var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
+(function(){var W=document.createElement('div');W.className='ao-picnic pk-mwrap wp-exclude-emoji';['pmdl','mdl'].forEach(function(i){var e=document.getElementById(i);if(e)W.appendChild(e)});document.body.appendChild(W)})();var pm=document.getElementById('pmdl');document.querySelectorAll('.openP').forEach(function(b){b.onclick=function(){pm.hidden=false}});
 function pcl(){pm.hidden=true}pm.querySelector('.mx').onclick=pcl;pm.onclick=function(e){if(e.target===pm)pcl()};
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){mcl();pcl()}});
 document.querySelectorAll('.vac').forEach(function(b){b.onclick=function(){var o=b.nextElementSibling;o.textContent='讀取中…';
