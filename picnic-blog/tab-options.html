@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>搜尋結果分頁：3 款顯示方法</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F6F4EF;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 16px 60px}h1{font-size:22px;margin:0 0 4px}.lead{margin:0 0 22px;color:#7a6a45;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:22px}
+.opt{background:#fff;border-radius:16px;padding:18px;border:1px solid #E7E1D4}
+.opt h2{margin:0 0 4px;font-size:16px}.opt p.d{margin:0 0 14px;font-size:13px;color:#5a5348;line-height:1.6;min-height:62px}
+button{font-family:inherit;cursor:pointer}
+.pn{display:none;font-size:13px;color:#5a5348}.pn.on{display:block}
+.pn .mock{height:110px;border-radius:10px;background:#E3EFE6;display:flex;align-items:center;justify-content:center;font-weight:800;color:#2C6E49}
+.pn.t .mock{background:#FFF8E1;color:#9A7B2E}
+/* 現時 */
+.t0{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.t0 button{border:2px solid #2C6E49;background:#fff;color:#2C6E49;border-radius:12px;padding:10px 6px;font-weight:900;font-size:14px;box-shadow:2px 2px 0 #2C6E49}
+.t0 button.on{background:#3F9D5A;color:#fff;transform:translate(2px,2px);box-shadow:none}
+/* A 分段切換 */
+.tA{display:flex;background:#E9E3D6;border-radius:40px;padding:4px;margin-bottom:12px}
+.tA button{flex:1;border:0;background:none;border-radius:40px;padding:10px 6px;font-weight:800;font-size:14px;color:#7a6a45;transition:background .15s}
+.tA button.on{background:#fff;color:#1A1A1A;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+/* B 文件夾分頁 */
+.tB{display:flex;gap:6px;border-bottom:3px solid #2C6E49;padding:0 6px}
+.tB button{flex:1;border:2px solid #CFC6B3;border-bottom:0;background:#F3EFE6;color:#7a6a45;border-radius:12px 12px 0 0;padding:10px 6px;font-weight:800;font-size:14px;margin-bottom:0;position:relative;top:0}
+.tB button.on{background:#2C6E49;border-color:#2C6E49;color:#fff;padding-top:13px;margin-top:-3px}
+.bodyB{border:3px solid #2C6E49;border-top:0;border-radius:0 0 14px 14px;padding:12px}
+/* C 底線分頁＋說明 */
+.tC{display:flex;border-bottom:1px solid #E2DCD0;margin-bottom:12px}
+.tC button{flex:1;border:0;background:none;padding:10px 6px 12px;text-align:center;border-bottom:4px solid transparent;margin-bottom:-1px;color:#9a917f}
+.tC b{display:block;font-size:15px;font-weight:900}.tC small{display:block;font-size:11.5px;margin-top:2px;font-weight:600}
+.tC button.on{border-bottom-color:#F7CE46;color:#1A1A1A}.tC button.on small{color:#2C6E49}
+.lbl{font-size:12.5px;font-weight:800;color:#9A7B2E;margin:0 0 6px;letter-spacing:1px}
+</style></head><body><div class="wrap">
+<h1>📑 搜尋結果「地圖／一覽表」分頁：現時＋3 款新方法</h1>
+<p class="lead">每款都可以撳嚟試；下面淺色框代表分頁內容。</p>
+<div class="grid">
+<section class="opt"><h2>現時｜兩粒綠色按鈕</h2><p class="d">兩粒都係按鈕樣，選中只係變實色，睇落似兩個獨立功能，唔似分頁。</p>
+<div class="t0 tabs"><button class="on" data-t="m">🗺️ 地圖及地點列表</button><button data-t="t">📊 野餐地點一覽表</button></div>
+<div class="pn on" data-t="m"><div class="mock">地圖＋地點卡</div></div><div class="pn t" data-t="t"><div class="mock">一覽表</div></div></section>
+
+<section class="opt"><h2>A｜分段切換（Segmented）</h2><p class="d">米色長條軌道，選中嗰格變白色浮起；似 iPhone 設定入面嘅切換掣，一睇就知「二揀一」。</p>
+<p class="lbl">切換顯示方式</p>
+<div class="tA tabs"><button class="on" data-t="m">🗺️ 地圖及地點列表</button><button data-t="t">📊 野餐地點一覽表</button></div>
+<div class="pn on" data-t="m"><div class="mock">地圖＋地點卡</div></div><div class="pn t" data-t="t"><div class="mock">一覽表</div></div></section>
+
+<section class="opt"><h2>B｜文件夾分頁</h2><p class="d">分頁頂部圓角、底部同內容框連埋一齊，選中嗰頁變深綠；似文件夾標籤，最清楚表達「下面內容屬於呢一頁」。</p>
+<div class="tB tabs"><button class="on" data-t="m">🗺️ 地圖及地點列表</button><button data-t="t">📊 野餐地點一覽表</button></div>
+<div class="bodyB"><div class="pn on" data-t="m"><div class="mock">地圖＋地點卡</div></div><div class="pn t" data-t="t"><div class="mock">一覽表</div></div></div></section>
+
+<section class="opt"><h2>C｜底線分頁＋小說明</h2><p class="d">無框無底色，選中嗰頁下面一條金色粗底線；每個分頁加一行小字說明內容，似 App 頂部分頁，簡潔又易明。</p>
+<div class="tC tabs"><button class="on" data-t="m"><b>🗺️ 地圖及地點列表</b><small>地圖＋33 張地點卡</small></button><button data-t="t"><b>📊 野餐地點一覽表</b><small>泊車、寵物、類別比較</small></button></div>
+<div class="pn on" data-t="m"><div class="mock">地圖＋地點卡</div></div><div class="pn t" data-t="t"><div class="mock">一覽表</div></div></section>
+</div></div>
+<script>document.querySelectorAll('.opt').forEach(function(o){o.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){o.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x===b)});o.querySelectorAll('.pn').forEach(function(p){p.classList.toggle('on',p.dataset.t===b.dataset.t)})}})})</script>
+</body></html>
