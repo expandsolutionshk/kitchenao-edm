@@ -347,7 +347,7 @@ html,body{{margin:0;background:transparent}}.kv{{border-radius:0;box-shadow:none
 NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y')
 ALT = {
  'G1': ('G1｜功能重點清單', '改為資訊卡：用圖示＋文字列出搜尋器三大功能，冇按鈕、冇篩選掣，一睇就知係介紹而唔係工具。',
-  '<div class="alt a1"><p class="at">✨ 一個搜尋器，滿足你三個願望</p>'
+  '<div class="alt a1"><p class="at">🔍 一個搜尋器，滿足你三個願望</p>'
   '<div class="ar"><i class="no">1</i><div><b>🅿️ 鄰近停車場</b></div></div>'
   '<div class="ar"><i class="no">2</i><div><b>🐶 寵物友善地點</b></div></div>'
   '<div class="ar"><i class="no">3</i><div><b>🌳 大草地／🌊 海景／🌿 秘境／🏛️ 特色園林</b></div></div></div>'),

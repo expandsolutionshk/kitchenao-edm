@@ -346,7 +346,7 @@ NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y'
 TBL_SEO = (f'想找香港野餐好去處？下表整理了全港 {N} 個野餐地點：新界有大埔海濱公園及清水灣大坑墩等大草地，九龍有西九文化區等海濱草地，港島則有添馬公園。展開下表，即可按泊車、寵物及類別逐一比較。')
 FILTER = f"""<div class="fbar"><button class="fbtn" type="button">⚙️ 篩選 <span class="fbd" hidden></span></button><span class="fsum"></span></div>
 <div class="flt"><div class="shd"><i class="grab"></i><b>篩選野餐地點</b><button class="sx" type="button" aria-label="關閉">✕</button></div>
-<p class="fhd">✨ 三步找到心水野餐地點</p>
+<p class="fhd">🔍 三步找到心水野餐地點</p>
 <div class="frow f1"><span class="lab"><i class="no">1</i>揀選地區</span>{chips_r}</div>
 <div class="frow f2"><span class="lab"><i class="no">2</i>揀選條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
 <div class="cnt"><button class="go" id="go" type="button"><i class="no">3</i>🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
