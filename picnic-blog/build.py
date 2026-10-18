@@ -203,8 +203,61 @@ BODY = f'''<div class="ao-article ao-picnic">
 prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>【2026香港野餐好去處】港九新界海景、大草地及隱世公園野餐地點推介</title></head><body style="margin:0;padding:24px 14px;background:#fff">
 <div class="pk-demo-bar">DEMO｜<mark class="kw">黃色</mark>＝目標關鍵字／PAA　<label><input type="checkbox" id="hlToggle" checked> 顯示 highlight</label></div>
 ''' + BODY + '''<script>document.getElementById('hlToggle').onchange=function(){document.body.classList.toggle('no-hl',!this.checked)};</script></body></html>'''
+
+# ---- 試做：文章頂部 Hero 搜尋區（真實篩選器放入 KV 位置）→ preview-hero.html ----
+_IM = KVM.IMG
+HERO = f"""<section class="pk-hero" aria-label="全港野餐地點搜尋器">
+<img class="hbg" src="{_IM['cwb']}" alt="清水灣郊野公園" referrerpolicy="no-referrer">
+<span class="hlogo"><img src="{KVM._LG_ICON}" alt=""><img class="lt" src="{KVM._LG_TEXT}" alt="Kitchen AO"></span>
+<div class="hgrid">
+ <div class="hl">
+  <p class="hpill">2026 香港野餐好去處</p>
+  <p class="httl">全港野餐<span>地點搜尋器</span></p>
+  <p class="hsub">{N} 個野餐地點 × 新界｜九龍｜港島</p>
+  <p class="hsub2">可泊車、寵物友善野餐地點一鍵搜尋</p>
+  {C.FILTER}
+ </div>
+ <div class="hr">
+  <figure class="hp p1"><img src="{_IM['tpwp']}" alt="大埔海濱公園" referrerpolicy="no-referrer" loading="lazy"><figcaption><b style="color:{C.RC['nt']}">新界</b>大埔海濱公園</figcaption></figure>
+  <figure class="hp p2"><img src="{_IM['ktct']}" alt="啟德郵輪碼頭公園" referrerpolicy="no-referrer" loading="lazy"><figcaption><b style="color:{C.RC['kln']}">九龍</b>啟德郵輪碼頭公園</figcaption></figure>
+  <figure class="hp p3"><img src="{_IM['tamar']}" alt="添馬公園" referrerpolicy="no-referrer" loading="lazy"><figcaption><b style="color:{C.RC['hk']}">港島</b>添馬公園</figcaption></figure>
+  <button type="button" class="hbox openP"><img src="{KVM.BOX}" alt="Kitchen AO 酒店級野餐盒" loading="lazy"><span>⭐ 推介酒店級野餐盒</span></button>
+ </div>
+</div>
+</section>"""
+HERO_CSS = """<style>
+.ao-picnic .pk-hero{position:relative;container-type:inline-size;margin:0 0 20px;border-radius:18px;overflow:hidden;background:#3F6E4B;line-height:1.5}
+.ao-picnic .pk-hero img{font-size:0}.ao-picnic .pk-hero .hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ao-picnic .hlogo{position:absolute;right:18px;top:16px;z-index:3;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;background:#fff;border:2px solid #1A1A1A;border-radius:30px}.ao-picnic .hlogo img{display:block;height:22px;width:auto}.ao-picnic .hlogo .lt{height:19px}
+.ao-picnic .hgrid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;padding:26px 26px 26px}
+.ao-picnic .hpill{display:inline-block;margin:0 0 10px!important;background:#1A1A1A;color:#F7CE46;font-weight:900;font-size:15px;padding:5px 16px;border-radius:30px}
+.ao-picnic .httl{margin:0!important;font-size:46px;font-weight:900;line-height:1.15;color:#fff;-webkit-text-stroke:6px #1A1A1A;paint-order:stroke fill;text-shadow:0 5px 0 #1A1A1A;letter-spacing:1px}.ao-picnic .httl span{color:#F7CE46}
+.ao-picnic .hsub{margin:10px 0 0!important;font-size:19px;font-weight:900;color:#1A1A1A;-webkit-text-stroke:5px #fff;paint-order:stroke fill}
+.ao-picnic .hsub2{display:inline-block;margin:12px 0 14px!important;background:#F7CE46;color:#1A1A1A;font-weight:900;font-size:16px;padding:6px 14px;box-shadow:4px 4px 0 #1A1A1A}
+.ao-picnic .pk-hero .flt{margin:0;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.ao-picnic .hr{position:relative;min-height:420px}
+.ao-picnic .hp{position:absolute;margin:0;width:46%;background:#fff;padding:8px 8px 0;box-shadow:0 8px 20px rgba(0,0,0,.35)}.ao-picnic .hp img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#E3EFDF}
+.ao-picnic .hp figcaption{padding:6px 0 8px;font-size:13px;font-weight:900;color:#1A1A1A;text-align:center;line-height:1.3}.ao-picnic .hp figcaption b{margin-right:6px}
+.ao-picnic .hp.p1{left:0;top:40px;transform:rotate(-5deg)}.ao-picnic .hp.p2{right:0;top:58px;transform:rotate(4deg)}.ao-picnic .hp.p3{left:8%;top:205px;transform:rotate(3deg);z-index:1}
+.ao-picnic .hbox{position:absolute;right:2%;bottom:0;width:44%;padding:0;border:2px solid #1A1A1A;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 30% 20%,#FFE58A,#F7CE46 60%,#E7B42F);box-shadow:4px 4px 0 #1A1A1A;transform:rotate(-2deg);cursor:pointer;transition:transform .1s,box-shadow .1s;font-family:inherit}
+.ao-picnic .hbox:active{transform:rotate(-2deg) translate(4px,4px);box-shadow:none}.ao-picnic .hbox img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}.ao-picnic .hbox span{display:block;padding:7px 4px 8px;font-size:14px;font-weight:900;color:#1A1A1A}
+@container (max-width:760px){
+ .ao-picnic .hgrid{grid-template-columns:1fr;gap:14px;padding:64px 14px 16px}
+ .ao-picnic .httl{font-size:34px;-webkit-text-stroke:5px #1A1A1A;text-shadow:0 4px 0 #1A1A1A}.ao-picnic .hsub{font-size:16px}.ao-picnic .hsub2{font-size:14px}
+ .ao-picnic .hr{order:-1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+ .ao-picnic .hp{position:static;width:auto;padding:5px 5px 0}.ao-picnic .hp figcaption{font-size:11px}.ao-picnic .hp figcaption b{display:block;margin:0}
+ .ao-picnic .hbox{display:none}
+ .ao-picnic .hlogo{right:12px;top:12px;height:36px;padding:0 12px}.ao-picnic .hlogo img{height:18px}.ao-picnic .hlogo .lt{height:15px}
+}
+</style>"""
+import re as _re
+_m = _re.search(r'<div class="pk-kvg">.*?</iframe></div>', BODY, _re.S)
+BODY_HERO = BODY.replace(C.FILTER, '', 1)
+BODY_HERO = BODY_HERO.replace(_m.group(0), HERO_CSS + HERO, 1)
+prev_hero = prev.replace(BODY, BODY_HERO)
 if __name__ == '__main__':
     open(os.path.join(HERE, 'preview.html'), 'w').write(prev)
+    open(os.path.join(HERE, 'preview-hero.html'), 'w').write(prev_hero)
     open(os.path.join(HERE, 'index.html'), 'w').write(prev)
     wp = re.sub(r'<mark class="(?:kw|paa)">(.*?)</mark>', r'\1', BODY)
     wp = re.sub(r'<p class="pk-kw">.*?</p>', '', wp)
