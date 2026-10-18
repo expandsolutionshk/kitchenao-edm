@@ -121,7 +121,7 @@ BODY = f'''<div class="ao-article ao-picnic">
 </div>
 
 <nav class="ao-toc"><div class="t">目錄</div><ul>
-<li><a href="#hk-table">全港野餐地點一覽比較表</a></li>
+<li><a href="#hk-table">野餐地點一覽表</a></li>
 <li><a href="#pk-tool">全港野餐地點搜尋器</a></li>
 {''.join(f'<li><a href="#r-{rid}">{rkw}</a></li>' for rid, rn, rkw in REGIONS)}
 <li><a href="#dog">帶狗狗野餐須知</a></li>
@@ -239,8 +239,8 @@ HERO_CSS = """<style>
 .ao-picnic .hp{position:absolute;margin:0;width:46%;background:#fff;padding:8px 8px 0;box-shadow:0 8px 20px rgba(0,0,0,.35)}.ao-picnic .hp img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#E3EFDF}
 .ao-picnic .hp figcaption{padding:6px 0 8px;font-size:13px;font-weight:900;color:#1A1A1A;text-align:center;line-height:1.3}.ao-picnic .hp figcaption b{margin-right:6px}
 .ao-picnic .hp.p1{left:0;top:40px;transform:rotate(-5deg)}.ao-picnic .hp.p2{right:0;top:58px;transform:rotate(4deg)}.ao-picnic .hp.p3{left:8%;top:205px;transform:rotate(3deg);z-index:1}
-.ao-picnic .hbox{position:absolute;right:2%;bottom:0;width:44%;padding:0;border:2px solid #1A1A1A;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 30% 20%,#FFE58A,#F7CE46 60%,#E7B42F);box-shadow:4px 4px 0 #1A1A1A;transform:rotate(-2deg);cursor:pointer;transition:transform .1s,box-shadow .1s;font-family:inherit}
-.ao-picnic .hbox:active{transform:rotate(-2deg) translate(4px,4px);box-shadow:none}.ao-picnic .hbox img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}.ao-picnic .hbox span{display:block;padding:7px 4px 8px;font-size:14px;font-weight:900;color:#1A1A1A}
+.ao-picnic .hbox{position:absolute;right:4%;bottom:6px;width:42%;padding:4px 4px 46px;border:0;border-radius:14px;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.35);transform:rotate(-2deg);cursor:pointer;font-family:inherit;transition:transform .1s}
+.ao-picnic .hbox:active{transform:rotate(-2deg) translateY(2px)}.ao-picnic .hbox img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px}.ao-picnic .hbox span{position:absolute;left:-14px;right:-14px;bottom:9px;display:block;padding:7px 6px;text-align:center;font-size:14px;font-weight:900;color:#1A1A1A;background:#F7CE46;box-shadow:0 4px 10px rgba(0,0,0,.3)}.ao-picnic .hbox span::before,.ao-picnic .hbox span::after{content:'';position:absolute;bottom:-8px;border-top:8px solid #B8901E}.ao-picnic .hbox span::before{left:0;border-left:14px solid transparent}.ao-picnic .hbox span::after{right:0;border-right:14px solid transparent}
 @container (max-width:760px){
  .ao-picnic .hgrid{grid-template-columns:1fr;gap:14px;padding:64px 14px 16px}
  .ao-picnic .httl{font-size:34px;-webkit-text-stroke:5px #1A1A1A;text-shadow:0 4px 0 #1A1A1A}.ao-picnic .hsub{font-size:16px}.ao-picnic .hsub2{font-size:14px}
@@ -266,7 +266,7 @@ _i = BODY_HERO.index('<h2 class="ao-h2" id="pk-tool">'); _j = BODY_HERO.index('<
 BODY_HERO = BODY_HERO[:_i] + f'''<h2 class="ao-h2 rh" id="pk-tool">🔍 全港野餐地點搜尋結果</h2>
 <p class="ao-aio">以下按地區列出搜尋結果，無論想找<mark class="kw">野餐泊車</mark>地點，還是<mark class="kw">狗狗野餐好去處</mark>，均可在上方搜尋器篩選。</p>
 <div class="rbar" id="results"><span class="rcnt">📍 全部 {N} 個地點</span><span class="rfil">未設條件</span></div>
-<div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 比較表</button></div>''' + BODY_HERO[_j:]
+<div class="rtabs" role="tablist"><button type="button" class="on" data-tab="map">🗺️ 地圖及地點列表</button><button type="button" data-tab="table">📊 野餐地點一覽表</button></div>''' + BODY_HERO[_j:]
 _map = C.MAP('h3')
 BODY_HERO = BODY_HERO.replace(_map, '<div class="rpanel on" data-tab="map">' + _map, 1)
 _r = BODY_HERO.index(regions) + len(regions)
