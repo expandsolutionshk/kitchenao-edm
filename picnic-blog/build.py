@@ -207,7 +207,7 @@ prev = '''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta na
 # ---- 試做：文章頂部 Hero 搜尋區（真實篩選器放入 KV 位置）→ preview-hero.html ----
 _IM = KVM.IMG
 HERO = f"""<section class="pk-hero" aria-label="全港野餐地點搜尋器">
-<img class="hbg" src="{_IM['cwb']}" alt="清水灣郊野公園" referrerpolicy="no-referrer">
+<img class="hbg" src="{_IM['cwb']}" alt="清水灣郊野公園" referrerpolicy="no-referrer" fetchpriority="high" loading="eager" decoding="async" width="960" height="720">
 <span class="hlogo"><img src="{KVM._LG_ICON}" alt=""><img class="lt" src="{KVM._LG_TEXT}" alt="Kitchen AO"></span>
 <div class="hgrid">
  <div class="hl">
@@ -231,8 +231,8 @@ HERO_CSS = """<style>
 .ao-picnic .hlogo{position:absolute;right:18px;top:16px;z-index:3;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;background:#fff;border:2px solid #1A1A1A;border-radius:30px}.ao-picnic .hlogo img{display:block;height:22px;width:auto}.ao-picnic .hlogo .lt{height:19px}
 .ao-picnic .hgrid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;padding:26px 26px 26px}
 .ao-picnic .hpill{display:inline-block;margin:0 0 10px!important;background:#1A1A1A;color:#F7CE46;font-weight:900;font-size:15px;padding:5px 16px;border-radius:30px}
-.ao-picnic .httl{margin:0!important;font-size:46px;font-weight:900;line-height:1.15;color:#fff;-webkit-text-stroke:6px #1A1A1A;paint-order:stroke fill;text-shadow:0 5px 0 #1A1A1A;letter-spacing:1px}.ao-picnic .httl span{color:#F7CE46}
-.ao-picnic .hsub{margin:10px 0 0!important;font-size:19px;font-weight:900;color:#1A1A1A;-webkit-text-stroke:5px #fff;paint-order:stroke fill}
+.ao-picnic .httl{margin:0!important;font-size:46px;font-weight:900;line-height:1.15;color:#fff;-webkit-text-stroke:6px #1A1A1A!important;paint-order:stroke fill;text-shadow:0 5px 0 #1A1A1A;letter-spacing:1px}.ao-picnic .httl span{color:#F7CE46}
+.ao-picnic .hsub{margin:10px 0 0!important;font-size:19px;font-weight:900;color:#1A1A1A;-webkit-text-stroke:5px #fff!important;paint-order:stroke fill}
 .ao-picnic .hsub2{display:inline-block;margin:12px 0 14px!important;background:#F7CE46;color:#1A1A1A;font-weight:900;font-size:16px;padding:6px 14px;box-shadow:4px 4px 0 #1A1A1A}
 .ao-picnic .pk-hero .flt{margin:0;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .ao-picnic .hr{position:relative;min-height:420px}
@@ -243,7 +243,7 @@ HERO_CSS = """<style>
 .ao-picnic .hbox:active{transform:rotate(-2deg) translateY(2px)}.ao-picnic .hbox img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px}.ao-picnic .hbox span{position:absolute;left:-14px;right:-14px;bottom:9px;display:block;padding:7px 6px;text-align:center;font-size:14px;font-weight:900;color:#1A1A1A;background:#F7CE46;box-shadow:0 4px 10px rgba(0,0,0,.3)}.ao-picnic .hbox span::before,.ao-picnic .hbox span::after{content:'';position:absolute;bottom:-8px;border-top:8px solid #B8901E}.ao-picnic .hbox span::before{left:0;border-left:14px solid transparent}.ao-picnic .hbox span::after{right:0;border-right:14px solid transparent}
 @container (max-width:760px){
  .ao-picnic .hgrid{grid-template-columns:1fr;gap:14px;padding:64px 14px 16px}
- .ao-picnic .httl{font-size:34px;-webkit-text-stroke:5px #1A1A1A;text-shadow:0 4px 0 #1A1A1A}.ao-picnic .hsub{font-size:16px}.ao-picnic .hsub2{font-size:14px}
+ .ao-picnic .httl{font-size:34px;-webkit-text-stroke:5px #1A1A1A!important;text-shadow:0 4px 0 #1A1A1A}.ao-picnic .hsub{font-size:16px}.ao-picnic .hsub2{font-size:14px}
  .ao-picnic .hr{order:-1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
  .ao-picnic .hp{position:static;width:auto;padding:5px 5px 0}.ao-picnic .hp figcaption{font-size:11px}.ao-picnic .hp figcaption b{display:block;margin:0}
  .ao-picnic .hbox{display:none}
