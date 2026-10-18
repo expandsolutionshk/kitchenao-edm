@@ -347,10 +347,10 @@ html,body{{margin:0;background:transparent}}.kv{{border-radius:0;box-shadow:none
 NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y')
 ALT = {
  'G1': ('G1｜功能重點清單', '改為資訊卡：用圖示＋文字列出搜尋器三大功能，冇按鈕、冇篩選掣，一睇就知係介紹而唔係工具。',
-  '<div class="alt a1"><p class="at">一個搜尋器，三樣一次睇清：</p>'
-  '<div class="ar"><i>🅿️</i><div><b>鄰近停車場</b><span>附實時車位資訊，駕車野餐更方便</span></div></div>'
-  '<div class="ar"><i>🐶</i><div><b>寵物友善地點</b><span>附康文署寵物共享範圍地圖</span></div></div>'
-  '<div class="ar"><i>🌳</i><div><b>大草地／海景／秘境</b><span>按地區及公園特色分類一覽</span></div></div></div>'),
+  '<div class="alt a1"><p class="at">✨ 一個搜尋器，滿足你三個願望</p>'
+  '<div class="ar"><i class="no">1</i><div><b>🅿️ 鄰近停車場</b></div></div>'
+  '<div class="ar"><i class="no">2</i><div><b>🐶 寵物友善地點</b></div></div>'
+  '<div class="ar"><i class="no">3</i><div><b>🌳 大草地／🌊 海景／🌿 秘境／🏛️ 特色園林</b></div></div></div>'),
  'G2': ('G2｜數字資訊圖', '改為三格數字：用大數字強調地點數量，似雜誌資訊圖，完全唔似可以撳嘅介面。',
   f'<div class="alt a2"><div class="st"><b>{N}</b><span>個野餐地點</span></div><div class="st"><b>{NCAR}</b><span>個地點可泊車</span></div><div class="st"><b>{NPET}</b><span>個寵物友善地點</span></div>'
   '<p class="cap">✔ 新界・九龍・港島　✔ 大草地・海景・秘境・特色園林</p></div>'),
@@ -365,8 +365,8 @@ ALT_CSS = """
 .a1{background:#fff;border-radius:1.8cqw;padding:1.5cqw 2cqw 1.2cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3)}
 .a1 .at{margin:0 0 .8cqw;font-size:1.75cqw;font-weight:900;color:#2C6E49}
 .a1 .ar{display:flex;align-items:center;gap:1.2cqw;padding:.9cqw 0;border-top:.12cqw dashed #E4D9C2}
-.a1 .ar i{flex:0 0 4cqw;height:4cqw;border-radius:50%;background:#F4FBF3;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:2.1cqw}
-.a1 .ar b{display:block;font-size:1.75cqw;color:#1A1A1A;line-height:1.3}.a1 .ar span{display:block;font-size:1.3cqw;color:#5a5348;line-height:1.4}
+.a1 .ar i{flex:0 0 4cqw;height:4cqw;border-radius:50%;background:#F4FBF3;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:2.1cqw}.a1 .ar i.no{position:relative;background:radial-gradient(circle at 35% 30%,#FFE58A,#F7CE46 55%,#D9A21B);color:#1A1A1A;font-weight:900;font-size:2.2cqw;border:.3cqw solid #1A1A1A;box-shadow:.3cqw .3cqw 0 #1A1A1A}
+.a1 .ar b{display:block;white-space:nowrap;font-size:1.65cqw;color:#1A1A1A;line-height:1.3}.a1 .ar span{display:block;font-size:1.3cqw;color:#5a5348;line-height:1.4}
 .a2{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw}
 .a2 .st{background:#fff;border-radius:1.6cqw;padding:1.6cqw .6cqw 1.3cqw;text-align:center;box-shadow:0 .8cqw 2.4cqw rgba(0,0,0,.3);border-top:.6cqw solid #3F9D5A}
 .a2 .st:nth-child(2){border-top-color:#1E5BD8}.a2 .st:nth-child(3){border-top-color:#E8743B}

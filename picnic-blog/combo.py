@@ -174,7 +174,7 @@ CSS = '''
 .phone{container-type:inline-size;max-width:430px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 30px rgba(0,0,0,.12);transition:max-width .25s;padding-bottom:30px}
 .phone.d{max-width:1080px}
 .hd{padding:16px 16px 12px;background:linear-gradient(135deg,#3F9D5A,#2C6E49);color:#fff}.hd p{margin:0;font-size:12px;opacity:.85}.hd h1{margin:4px 0 0;font-size:21px}
-.flt{margin:12px;padding:18px 20px 16px;border:1.5px solid #CFE8CD;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(44,110,73,.08)}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}.frow.f1{}.lab{flex:0 0 100%;margin-bottom:2px;font-size:13px;font-weight:800;color:#7a6a45;letter-spacing:.5px}
+.flt{margin:12px;padding:18px 20px 16px;border:1.5px solid #CFE8CD;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(44,110,73,.08)}.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}.frow.f1{}.lab{flex:0 0 100%;display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:14.5px;font-weight:800;color:#1A1A1A;letter-spacing:.3px}.fhd{margin:0 0 12px;font-size:15.5px;font-weight:900;color:#2C6E49}.flt .frow+.frow,.flt .fhd+.frow{border-top:1px dashed #E4D9C2;padding-top:14px}.no{position:relative;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE58A,#F7CE46 55%,#D9A21B);color:#1A1A1A;font-style:normal;font-weight:900;font-size:14px;border:2px solid #1A1A1A;box-shadow:2px 2px 0 #1A1A1A}.go .no{width:24px;height:24px;font-size:13px;margin-right:6px;border-color:#F7CE46;box-shadow:none}
 .ch{flex:0 0 auto;border:1.5px solid #CFE8CD;background:#F4FBF3;color:#2C6E49;border-radius:22px;padding:7px 14px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:5px;cursor:pointer;transition:background .15s,border-color .15s}.ch:hover{border-color:#3F9D5A}
 .ch i{width:9px;height:9px;border-radius:5px;display:inline-block}.ch.on{background:#3F9D5A;border-color:#3F9D5A;color:#fff}
 .cnt #rst{margin-left:auto}.go{display:inline-flex;align-items:center;gap:4px;width:auto;margin:0;border:0;border-radius:30px;padding:8px 20px;font-size:14px;font-weight:800;background:#1A1A1A;color:#fff;cursor:pointer}.go.pd{background:#3F9D5A;box-shadow:0 0 0 4px rgba(63,157,90,.25)}
@@ -346,9 +346,10 @@ NCAR = sum(1 for p in P if p['car']); NPET = sum(1 for p in P if p['pet'] == 'Y'
 TBL_SEO = (f'想找香港野餐好去處？下表整理了全港 {N} 個野餐地點：新界有大埔海濱公園及清水灣大坑墩等大草地，九龍有西九文化區等海濱草地，港島則有添馬公園。展開下表，即可按泊車、寵物及類別逐一比較。')
 FILTER = f"""<div class="fbar"><button class="fbtn" type="button">⚙️ 篩選 <span class="fbd" hidden></span></button><span class="fsum"></span></div>
 <div class="flt"><div class="shd"><i class="grab"></i><b>篩選野餐地點</b><button class="sx" type="button" aria-label="關閉">✕</button></div>
-<div class="frow f1"><span class="lab">① 地區</span>{chips_r}</div>
-<div class="frow f2"><span class="lab">② 條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
-<div class="cnt"><button class="go" id="go" type="button">🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
+<p class="fhd">✨ 三步找到心水野餐地點</p>
+<div class="frow f1"><span class="lab"><i class="no">1</i>揀選地區</span>{chips_r}</div>
+<div class="frow f2"><span class="lab"><i class="no">2</i>揀選條件及類別（可多選）</span><button class="ch" data-f="car" data-v="1">🚗 可泊車</button><button class="ch" data-f="pet" data-v="Y">🐶 寵物友善</button>{chips_c}</div>
+<div class="cnt"><button class="go" id="go" type="button"><i class="no">3</i>🔍 確定搜尋</button><span id="cnt"></span><button id="rst">重設</button></div></div>"""
 def MAP(hx='h2'):
     return f"""<div class="sec" id="hk-map"><{hx} class="sh">📍 地圖<span class="mhint">🤏 用兩隻手指移動及縮放地圖</span></{hx}><div id="lmap"></div><div class="map" id="svgmap"><svg viewBox="0 0 {W} {Hh}" preserveAspectRatio="none">{land}</svg>{pins}<span class="note">示意地圖，並非真實比例</span></div>
 </div>"""
