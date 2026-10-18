@@ -378,7 +378,7 @@
 .ao-picnic .det .s-pet{order:6}
 .ao-picnic .det .dsec{margin-top:0}}
 .ao-picnic /* pop up */
-.mdl{position:fixed;inset:0;z-index:99;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}
+.mdl{position:fixed;inset:0;z-index:2147483000!important;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:14px}
 .ao-picnic .mdl[hidden]{display:none}
 .ao-picnic .mbox{position:relative;background:#fff;border-radius:14px;padding:16px;max-width:860px;width:100%;max-height:90vh;overflow:auto}
 .ao-picnic .mbox img{width:100%;height:auto;border-radius:8px;display:block}
@@ -405,7 +405,9 @@
 .ao-picnic #pmdl .swh{display:block;margin:0 0 8px;font-size:12.5px;color:#9A7B2E;font-weight:700}
 .ao-picnic #pmdl .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 14px 6px;scroll-padding:0 14px;scrollbar-width:none}
 .ao-picnic #pmdl .pgrid::-webkit-scrollbar{display:none}
-.ao-picnic #pmdl .pc{flex:0 0 74%;scroll-snap-align:start}
+.ao-picnic #pmdl .pc{flex:0 0 64%;scroll-snap-align:start}
+.ao-picnic #pmdl .pim{aspect-ratio:4/3}
+.ao-picnic #pmdl .mbox{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px)}
 .ao-picnic #pmdl .pft{flex-direction:row;align-items:center}
 .ao-picnic #pmdl .pall{display:block}}
 @media(max-width:520px){.ao-picnic .pgrid{grid-template-columns:1fr 1fr}
