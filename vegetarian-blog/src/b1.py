@@ -1,0 +1,82 @@
+# -*- coding: utf-8 -*-
+from common import *
+PID='B1'
+body=f'''
+<p class="ao-intro">派對上有素食朋友，主辦人最常遇到三個難題：不知道對方吃哪一類素、怕素菜份量不夠，以及不知道哪裡有可靠的{k('素食到會推介')}。本文由賓客飲食需要、菜式配搭、份量預算到預訂流程逐一整理，並附 Kitchen AO「素」味人生套餐的價目及菜式標示，讓你安排一場人人吃得安心的{k('派對素食')}聚會。</p>
+<nav class="ao-toc"><div class="t">目錄</div><ul>
+<li><a href="#arrange">派對有素食朋友，食物應該怎樣安排？</a></li>
+<li><a href="#choose">揀素食到會 5 個重點</a></li>
+<li><a href="#set">Kitchen AO「素」味人生套餐推介</a></li>
+<li><a href="#price">素食到會多少錢一位？價目及份量</a></li>
+<li><a href="#order">預訂流程、送貨及免運費</a></li>
+<li><a href="#faq">常見問題</a></li></ul></nav>
+
+<h2 class="ao-h2" id="arrange">派對有素食朋友，食物應該怎樣安排？</h2>
+<div class="ao-qa"><p class="t">快速答案</p><p>先問清楚賓客屬哪一類素食（蛋奶素、全素、五辛素等），再按素食人數準備足夠的{k('素食派對食物')}，把素菜與肉類分開擺放並附上標示，最後預留專用食物夾，避免交叉接觸。</p></div>
+<h3 class="ao-h3">第 1 步：問清楚素食類型</h3>
+<p>「素食」並非單一種類。按衞生署衞生防護中心的分類，素食可分為蛋奶素、蛋素、奶素及全素四大類；全素者連蜜糖及燕窩也不會進食。部分宗教素食者亦會戒吃蔥、蒜等「五辛」。發出邀請時加一句「有沒有飲食限制？」，便可避免準備錯誤。各類素食的詳細分別，可參考{link('B2','《素食種類全攻略》')}。</p>
+<h3 class="ao-h3">第 2 步：素菜份量要「夠所有人吃」</h3>
+<p>素菜往往很受非素食賓客歡迎，若只按素食者人數預備，素食者到場時可能已所剩無幾。較穩妥的做法，是讓素菜份量足夠全場賓客分享，或為素食者另備一份獨立套餐。</p>
+<h3 class="ao-h3">第 3 步：分開擺放，清楚標示</h3>
+<ul><li>✅ 素菜放在餐桌一端，與肉類、海鮮分開。</li><li>✅ 每款菜式放一張小卡，寫明「蛋奶素」「全素」「含蒜」等資料。</li><li>✅ 素菜使用專用食物夾，避免沾上肉汁。</li></ul>
+<h3 class="ao-h3">第 4 步：留意隱藏的動物成分</h3>
+<p>蠔油、魚露、雞粉、上湯及部分芝士（凝乳酶可能來自動物）都是常見的「隱藏成分」。訂購{k('派對素食')}時，可直接向到會公司查詢每道菜的成分。</p>
+
+<h2 class="ao-h2" id="choose">揀素食到會 5 個重點</h2>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>重點</th><th>要問到會公司的問題</th></tr></thead><tbody>
+<tr><td><b>1. 素食類型</b></td><td>每道菜是否含蛋、奶、蜜糖？有沒有全素選擇？</td></tr>
+<tr><td><b>2. 五辛</b></td><td>菜式有沒有用蔥、蒜、洋蔥？可否走五辛？</td></tr>
+<tr><td><b>3. 份量</b></td><td>套餐建議幾多人食用？菜式數目多少？</td></tr>
+<tr><td><b>4. 預訂時間</b></td><td>需要提早幾日預訂？可否指定送達時段？</td></tr>
+<tr><td><b>5. 送貨及餐具</b></td><td>送貨範圍、運費、是否附餐具及食物夾？</td></tr>
+</tbody></table></div>
+
+<h2 class="ao-h2" id="set">Kitchen AO「素」味人生套餐推介</h2>
+<p>Kitchen AO「素」味人生是專為素食賓客設計的<a href="{C1}">素食到會套餐</a>，由惹味小食、沙律、意粉／意大利飯到主菜一應俱全，適合家庭聚會、公司活動及朋友派對。以 6–8 人套餐為例，可揀選 1 款小食、1 款沙律、1 款意粉／意大利飯及 2 款主菜。</p>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類別</th><th>菜式</th><th>飲食標示</th></tr></thead><tbody>
+<tr><td>小食</td><td>A66 法式蛋沙律酥盒</td><td><span class="ao-tag w">含蛋</span><span class="ao-tag">蛋奶素</span></td></tr>
+<tr><td>小食</td><td>A67 素食大菇迷你漢堡</td><td><span class="ao-tag w">成分待確認</span></td></tr>
+<tr><td>小食</td><td>A68 意大利普羅旺斯燴菜三文治</td><td><span class="ao-tag w">成分待確認</span></td></tr>
+<tr><td>小食</td><td>A69 酥炸芋頭香菇粟米丸</td><td><span class="ao-tag w">成分待確認</span></td></tr>
+<tr><td>沙律</td><td>S12 青蘋果芒果薯仔沙律／S13 法式紅酒醋法邊豆甜豆黑水欖沙律／S14 黑醋火龍果泰蘆筍粟米車厘茄沙律</td><td><span class="ao-tag w">醬汁成分待確認</span></td></tr>
+<tr><td>意粉／飯</td><td>P19 香辣榨菜意大利飯配香煎雞髀菇／P20 黑松露牛肝菌美國蘆筍意大利麵／P21 蕃茄羅勒葉意粉配香烤南瓜粒</td><td><span class="ao-tag w">成分待確認</span></td></tr>
+<tr><td>主菜</td><td>MV01 日式咖喱素菜配芝士焗椰菜花</td><td><span class="ao-tag w">含奶（芝士）</span></td></tr>
+<tr><td>主菜</td><td>MV02 天然蜂板香草焗紅菜頭粟米配蒜蓉炒翠玉瓜</td><td><span class="ao-tag r">含蜂蜜</span><span class="ao-tag r">含蒜（五辛）</span></td></tr>
+<tr><td>主菜</td><td>MV03 鮮百合炒秋葵雲耳蓮藕片配燴冬瓜</td><td><span class="ao-tag w">成分待確認</span></td></tr>
+<tr><td>主菜</td><td>MV04 香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒</td><td><span class="ao-tag w">成分待確認</span></td></tr>
+</tbody></table></div>
+<p class="ao-tcap">⚠️ Mockup 備註：「成分待確認」需由廚房確認是否含蛋、奶、蜂蜜及五辛，確認後改為「全素」「蛋奶素」「五辛素可食」等標籤。</p>
+
+<h2 class="ao-h2" id="price">素食到會多少錢一位？價目及份量</h2>
+<div class="ao-qa"><p class="t">快速答案</p><p>按 Kitchen AO「素」味人生現時價目，人均約 $146 至 $231，人數愈多，人均價錢愈低。</p></div>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>套餐</th><th>建議人數</th><th>價錢</th><th>人均（約）</th></tr></thead><tbody>
+<tr><td><a href="{B}/product/ao-6-8pax-vegetarian-life/">「素」味人生 6–8 人</a></td><td>6–8 人</td><td>$1,388</td><td>$174–$231</td></tr>
+<tr><td><a href="{B}/product/ao-10-12pax-vegetarian-life/">「素」味人生 10–12 人</a></td><td>10–12 人</td><td>$1,988</td><td>$166–$199</td></tr>
+<tr><td><a href="{B}/product/ao-16-19pax-vegetarian-life/">「素」味人生 16–19 人</a></td><td>16–19 人</td><td>$2,988</td><td>$157–$187</td></tr>
+<tr><td><a href="{B}/product/ao-22-26pax-vegetarian-life/">「素」味人生 22–26 人</a></td><td>22–26 人</td><td>$3,788</td><td>$146–$172</td></tr>
+</tbody></table></div>
+<p class="ao-tcap">價錢以 2026 年 10 月網站價目計算，以網站最新資料為準。</p>
+<div class="ao-tip">💡 <b>混合派對怎樣選？</b>若素食者只佔少數，可訂一般派對套餐，再加一份「素」味人生小份量套餐；若素食者佔多數，可直接以「素」味人生為主，再加單點肉類小食。</div>
+
+<h2 class="ao-h2" id="order">預訂流程、送貨及免運費</h2>
+<ol><li>瀏覽 <a href="{LP}">Kitchen AO 素食到會</a>或<a href="{C1}">「素」味人生套餐</a>，按人數揀選套餐。</li>
+<li>在產品頁揀選小食、沙律、意粉及主菜。</li>
+<li>選擇送貨日期及時段，完成付款。<b>請最少提早三日預訂。</b></li>
+<li>如有特別飲食要求（例如全素、走五辛），可於落單前 WhatsApp 查詢。</li></ol>
+<p>送貨方面，滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，詳情請參閱<a href="{B}/delivery/">送貨需知</a>。</p>
+<div class="ao-ctabox"><h3>🌱 為素食朋友準備一份安心之選</h3><p>「素」味人生素食到會套餐，6 至 26 人均有選擇，最少提早三日預訂。</p><a class="btn" href="{LP}">了解素食到會</a><a class="btn" href="{C1}">揀選「素」味人生套餐</a></div>
+'''
+faqs=[
+('素食到會多少錢一位？','以 Kitchen AO「素」味人生為例，6–8 人套餐 $1,388、10–12 人 $1,988、16–19 人 $2,988、22–26 人 $3,788，人均約 $146 至 $231。'),
+('素食到會需要提早多久預訂？','「素」味人生套餐需最少提早三日預訂；節日及週末較繁忙，建議更早落單。'),
+('派對有素食朋友，食物應該怎樣安排？','先問清楚對方屬哪類素食，讓素菜份量足夠全場分享，並與肉類分開擺放、清楚標示及使用專用食物夾。'),
+('「素」味人生適合全素（Vegan）人士嗎？','部分菜式含蛋、奶或蜂蜜，並非全部適合全素人士。如需全素安排，請於落單前查詢。'),
+('有沒有五辛素（不含蔥蒜）的選擇？','部分菜式含蒜，例如 MV02 蒜蓉炒翠玉瓜。如需五辛素安排，請於落單前查詢可替換的菜式。'),
+('素食到會送貨範圍包括哪些地區？','送貨範圍覆蓋港島、九龍及新界大部分地區，運費及免運費門檻請參閱送貨需知頁面。'),
+]
+srcs=[SRC['chp'],SRC['ao_set'],SRC['ao_68'],SRC['ao_del']]
+open(HERE.parent/'b1-vegetarian-catering.html','w',encoding='utf-8').write(page(PID,
+ '素食到會推介 2026｜派對有素食朋友點安排？「素」味人生價目及菜式｜Kitchen AO',
+ '派對有素食朋友點安排？素食到會推介 2026：揀選 5 大重點、「素」味人生 6–26 人套餐價目（人均約 $146 起）、菜式蛋奶及五辛標示、預訂及免運費須知。',
+ ['素食到會推介','派對素食','素食派對食物'],'素食到會推介 2026','由賓客飲食需要、菜式標示到價目份量，一篇看清派對素食安排。',body,faqs,srcs,['B2','B3','B4']))
+print('b1 ok')

@@ -66,9 +66,14 @@ D['素食'] = dict(dir='LR', nodes=[
  N('C2', '素食單品（新分類）', '/product-category/a-la-carte/vegetarian/', 'new'),
  N('I1', '惹味蒜香焗茄子', '/product/a3900-grilled-garlic-eggplant/', 'old'), N('I2', '蒜香炒翠玉瓜', '/product/a62-stir-fried-zucchini-with-garlic-1-pounds/', 'old'),
  N('I3', '忌廉白汁菠菜', '/product/a59-spinach-with-cream-sauce-1-pounds/', 'old'), N('I4', '手壓香濃薯蓉', '/product/a61-hand-pressed-sweet-potato-puree-1-pounds/', 'old'),
- N('BG', '素食到會 blog（要更新）', '/blog/vegetarian-catering-hong-kong/', 'old'),
+ N('BG', 'Blog 1 素食到會推介（更新舊文）', '/blog/vegetarian-catering-hong-kong/', 'old'),
+ N('B2', 'Blog 2 素食種類全攻略（支柱）', '/blog/vegetarian-types-guide/', 'new'),
+ N('B3', 'Blog 3 初一十五食齋懶人包', '/blog/chu-yat-sap-ng-vegetarian-guide/', 'new'),
+ N('B4', 'Blog 4 吃素好處與營養', '/blog/vegetarian-nutrition-protein/', 'new'),
+ N('B5', 'Blog 5 一週素食菜單', '/blog/weekly-vegetarian-menu/', 'new'),
+ N('B6', 'Blog 6 Vegan／Vegetarian 中文', '/blog/vegan-vegetarian-meaning/', 'new'),
  N('T1', '舊 tag（已 301）', '/tag/素食到會/'), N('T2', 'Blog tag 頁（建議 noindex）', '/blog/tag/素食到會/', 'old'),
-], edges=['H --> L', 'L --> C1', 'C1 --> V1 & V2 & V3 & V4', 'L --> C2', 'C2 --> I1 & I2 & I3 & I4', 'L <--> BG', 'T1 -.-> C1', 'BG -.-> T2'])
+], edges=['H --> L', 'L --> C1', 'C1 --> V1 & V2 & V3 & V4', 'L --> C2', 'C2 --> I1 & I2 & I3 & I4', 'L <--> BG', 'BG --> B2', 'B2 --> B3 & B4 & B6', 'B4 --> B5', 'B3 & B5 -.-> L', 'B5 -.-> C2', 'T1 -.-> C1', 'BG -.-> T2'])
 
 # ---------- 生日會 ----------
 D['生日會'] = dict(dir='LR', nodes=[
@@ -191,23 +196,24 @@ section{display:none;padding:20px 24px 60px}section.on{display:block}
 .new{background:#E3F4E8}.old{background:#FFF4D6}.bad{background:#FDE2E1}.ok{background:#E3F1FB}
 .mermaid .nodeLabel,.mermaid .nodeLabel *{font-size:16px!important;line-height:1.35}.mermaid .nodeLabel b{font-size:17px!important}.mermaid .u{font-size:13px!important;color:#444;word-break:break-all}.mermaid .node{cursor:pointer}.mermaid .t{display:inline-block;font-size:13px!important;font-weight:700;color:#fff!important;background:#1A1A1A;border-radius:10px;padding:2px 9px;margin-bottom:4px}.mermaid .grp .t{background:#C8A24A;color:#1A1A1A!important}
 </style></head><body>
-<header><h1>Kitchen AO 網站架構圖（Site Structure）</h1><p>每個格子顯示完整 URL，按一下可打開該頁｜由主表整理，2026-10-14 更新</p></header>
+<header><h1>Kitchen AO 網站架構圖（Site Structure）</h1><p>每個格子顯示完整 URL，按一下可打開該頁｜由主表整理，2026-10-19 更新（素食加入 6 篇 Blog 及 KW 分配頁）</p></header>
 <nav id="nav"></nav><div id="views"></div>
 <script>
 const V = __V__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
-const GROUPS={'Seasonal':['中秋節','萬聖節','聖誕節']};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
+const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（6 篇 Blog）','vegetarian-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
 const made={};let first=null;
 function show(b,s,top){document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
 for(const [k,code] of Object.entries(V)){
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
   s.querySelector('pre').textContent=code;views.appendChild(s);
-  const b=document.createElement('button');b.textContent=k;let top=null;
+  const b=document.createElement('button');b.textContent=LABEL[k]||k;let top=null;
   const g=inGrp[k];
   if(g){if(!made[g]){const d=document.createElement('div');d.className='dd';const t=document.createElement('button');t.textContent=g;t.onclick=e=>{e.stopPropagation();d.classList.toggle('open');};const m=document.createElement('div');m.className='menu';d.append(t,m);nav.appendChild(d);made[g]={d,t,m};}
-    made[g].m.appendChild(b);top=made[g].t;}
+    made[g].m.appendChild(b);top=made[g].t;
+    (LINKS[g]||[]).forEach(([t,u])=>{if(made[g]['l'+u])return;const a=document.createElement('button');a.textContent=t;a.onclick=e=>{e.stopPropagation();location.href=u;};made[g].m.appendChild(a);made[g]['l'+u]=1;});}
   else nav.appendChild(b);
   b.onclick=e=>{e.stopPropagation();show(b,s,top);};
   if(!first){first=1;setTimeout(()=>b.click(),0);}
