@@ -2,12 +2,11 @@
 from common import *
 PID='B1'
 body=f'''
-<p class="ao-intro">派對上有素食朋友，主辦人最常遇到三個難題：不知道對方吃哪一類素、怕素菜份量不夠，以及不知道哪裡有可靠的{k('素食到會推介')}。本文由賓客飲食需要、菜式配搭、份量預算到預訂流程逐一整理，並附 Kitchen AO「素」味人生套餐的價目及菜式標示，讓你安排一場人人吃得安心的{k('派對素食')}聚會。</p>
+<p class="ao-intro">派對上有素食朋友，主辦人最常遇到三個難題：不知道對方吃哪一類素、怕素菜份量不夠，以及不知道哪裡有可靠的{k('素食到會')}。本文整理{k('香港素食到會推介')}，由賓客飲食需要、菜式配搭、份量預算到預訂流程逐一說明，並附 Kitchen AO「素」味人生套餐的價目及菜式標示。無論是公司活動、家庭聚會，還是節日的{k('齋菜到會')}，都可以安排一場人人吃得安心的{k('派對素食')}聚會。</p>
 <nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#arrange">派對有素食朋友，食物應該怎樣安排？</a></li>
 <li><a href="#choose">揀素食到會 5 個重點</a></li>
-<li><a href="#set">Kitchen AO「素」味人生套餐推介</a></li>
-<li><a href="#price">素食到會多少錢一位？價目及份量</a></li>
+<li><a href="#set">Kitchen AO「素」味人生套餐推介：價目、份量及菜式</a></li>
 <li><a href="#order">預訂流程、送貨及免運費</a></li>
 <li><a href="#faq">常見問題</a></li></ul></nav>
 
@@ -23,6 +22,7 @@ body=f'''
 <p>蠔油、魚露、雞粉、上湯及部分芝士（凝乳酶可能來自動物）都是常見的「隱藏成分」。訂購{k('派對素食')}時，可直接向到會公司查詢每道菜的成分。</p>
 
 <h2 class="ao-h2" id="choose">揀素食到會 5 個重點</h2>
+<p>坊間的{k('派對到會推介')}很多，但並非每間都有完善的素食選擇。揀選素食或{k('健康到會')}時，可以先問清楚以下五點：</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>重點</th><th>要問到會公司的問題</th></tr></thead><tbody>
 <tr><td><b>1. 素食類型</b></td><td>每道菜是否含蛋、奶、蜜糖？有沒有全素選擇？</td></tr>
 <tr><td><b>2. 五辛</b></td><td>菜式有沒有用蔥、蒜、洋蔥？可否走五辛？</td></tr>
@@ -31,33 +31,28 @@ body=f'''
 <tr><td><b>5. 送貨及餐具</b></td><td>送貨範圍、運費、是否附餐具及食物夾？</td></tr>
 </tbody></table></div>
 
-<h2 class="ao-h2" id="set">Kitchen AO「素」味人生套餐推介</h2>
-<p>Kitchen AO「素」味人生是專為素食賓客設計的<a href="{C1}">素食到會套餐</a>，由惹味小食、沙律、意粉／意大利飯到主菜一應俱全，適合家庭聚會、公司活動及朋友派對。以 6–8 人套餐為例，可揀選 1 款小食、1 款沙律、1 款意粉／意大利飯及 2 款主菜。</p>
-<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類別</th><th>菜式</th><th>飲食標示</th></tr></thead><tbody>
-<tr><td>小食</td><td>A66 法式蛋沙律酥盒</td><td><span class="ao-tag w">含蛋</span><span class="ao-tag">蛋奶素</span></td></tr>
-<tr><td>小食</td><td>A67 素食大菇迷你漢堡</td><td><span class="ao-tag w">成分待確認</span></td></tr>
-<tr><td>小食</td><td>A68 意大利普羅旺斯燴菜三文治</td><td><span class="ao-tag w">成分待確認</span></td></tr>
-<tr><td>小食</td><td>A69 酥炸芋頭香菇粟米丸</td><td><span class="ao-tag w">成分待確認</span></td></tr>
-<tr><td>沙律</td><td>S12 青蘋果芒果薯仔沙律／S13 法式紅酒醋法邊豆甜豆黑水欖沙律／S14 黑醋火龍果泰蘆筍粟米車厘茄沙律</td><td><span class="ao-tag w">醬汁成分待確認</span></td></tr>
-<tr><td>意粉／飯</td><td>P19 香辣榨菜意大利飯配香煎雞髀菇／P20 黑松露牛肝菌美國蘆筍意大利麵／P21 蕃茄羅勒葉意粉配香烤南瓜粒</td><td><span class="ao-tag w">成分待確認</span></td></tr>
-<tr><td>主菜</td><td>MV01 日式咖喱素菜配芝士焗椰菜花</td><td><span class="ao-tag w">含奶（芝士）</span></td></tr>
-<tr><td>主菜</td><td>MV02 天然蜂板香草焗紅菜頭粟米配蒜蓉炒翠玉瓜</td><td><span class="ao-tag r">含蜂蜜</span><span class="ao-tag r">含蒜（五辛）</span></td></tr>
-<tr><td>主菜</td><td>MV03 鮮百合炒秋葵雲耳蓮藕片配燴冬瓜</td><td><span class="ao-tag w">成分待確認</span></td></tr>
-<tr><td>主菜</td><td>MV04 香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒</td><td><span class="ao-tag w">成分待確認</span></td></tr>
-</tbody></table></div>
-<div class="ao-friline">🎉 <b>星期五落單優惠：</b>逢星期五落單，<a href="{C1}">「素」味人生套餐</a>自動享 <b>95 折</b>，毋須輸入優惠碼（以網站結帳時顯示的價錢為準）。星期五落單，剛好趕及下星期一送到，方便公司或家庭計劃 Green Monday「一週一素」。</div>
-<p class="ao-tcap">⚠️ Mockup 備註：「成分待確認」需由廚房確認是否含蛋、奶、蜂蜜及五辛，確認後改為「全素」「蛋奶素」「五辛素可食」等標籤。</p>
-
-<h2 class="ao-h2" id="price">素食到會多少錢一位？價目及份量</h2>
+<h2 class="ao-h2" id="set">Kitchen AO「素」味人生套餐推介：價目、份量及菜式</h2>
+<p>Kitchen AO「素」味人生是專為素食賓客設計的<a href="{C1}">素食到會套餐</a>，一份套餐已包括惹味小食、清新沙律、意粉或意大利飯及主菜，毋須逐款配搭，適合家庭聚會、公司活動及朋友派對。套餐按人數分為四款，菜式可在每個類別內自選。</p>
+<h3 class="ao-h3">素食到會多少錢一位？四款套餐價目</h3>
 <div class="ao-qa"><p class="t">快速答案</p><p>按 Kitchen AO「素」味人生現時價目，人均約 $146 至 $231，人數愈多，人均價錢愈低；逢星期五落單更自動享 95 折。</p></div>
-<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>套餐</th><th>建議人數</th><th>價錢</th><th>星期五落單 95 折</th><th>人均（約）</th></tr></thead><tbody>
-<tr><td><a href="{B}/product/ao-6-8pax-vegetarian-life/">「素」味人生 6–8 人</a></td><td>6–8 人</td><td>$1,388</td><td>$1,318.6</td><td>$174–$231</td></tr>
-<tr><td><a href="{B}/product/ao-10-12pax-vegetarian-life/">「素」味人生 10–12 人</a></td><td>10–12 人</td><td>$1,988</td><td>$1,888.6</td><td>$166–$199</td></tr>
-<tr><td><a href="{B}/product/ao-16-19pax-vegetarian-life/">「素」味人生 16–19 人</a></td><td>16–19 人</td><td>$2,988</td><td>$2,838.6</td><td>$157–$187</td></tr>
-<tr><td><a href="{B}/product/ao-22-26pax-vegetarian-life/">「素」味人生 22–26 人</a></td><td>22–26 人</td><td>$3,788</td><td>$3,598.6</td><td>$146–$172</td></tr>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>套餐</th><th>建議人數</th><th>附餐具</th><th>價錢</th><th>星期五落單 95 折</th><th>人均（約）</th></tr></thead><tbody>
+<tr><td><a href="{B}/product/ao-6-8pax-vegetarian-life/">「素」味人生 6–8 人</a></td><td>6–8 人</td><td>8 份</td><td>$1,388</td><td>$1,318.6</td><td>$174–$231</td></tr>
+<tr><td><a href="{B}/product/ao-10-12pax-vegetarian-life/">「素」味人生 10–12 人</a></td><td>10–12 人</td><td>12 份</td><td>$1,988</td><td>$1,888.6</td><td>$166–$199</td></tr>
+<tr><td><a href="{B}/product/ao-16-19pax-vegetarian-life/">「素」味人生 16–19 人</a></td><td>16–19 人</td><td>18 份</td><td>$2,988</td><td>$2,838.6</td><td>$157–$187</td></tr>
+<tr><td><a href="{B}/product/ao-22-26pax-vegetarian-life/">「素」味人生 22–26 人</a></td><td>22–26 人</td><td>26 份</td><td>$3,788</td><td>$3,598.6</td><td>$146–$172</td></tr>
 </tbody></table></div>
 <p class="ao-tcap">價錢以 2026 年 10 月網站價目計算；人均按原價計算。星期五落單的 95 折由網站自動計算，以結帳時顯示的價錢為準。</p>
-<div class="ao-tip">💡 <b>混合派對怎樣選？</b>若素食者只佔少數，可訂一般派對套餐，再加一份「素」味人生小份量套餐；若素食者佔多數，可直接以「素」味人生為主，並按人數選擇合適的套餐大小。</div>
+<div class="ao-friline">🎉 <b>星期五落單優惠：</b>逢星期五落單，<a href="{C1}">「素」味人生套餐</a>自動享 <b>95 折</b>，毋須輸入優惠碼。套餐需最少提早三日預訂，星期五落單剛好趕及下星期一送到，方便公司或家庭計劃 Green Monday「一週一素」。</div>
+<h3 class="ao-h3">套餐包括甚麼菜式？</h3>
+<p>每款套餐都包括以下四類菜式，可在每類中自選；可選的款數及份量按套餐人數而定，詳情請參閱各套餐頁面。</p>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類別</th><th>可選菜式</th><th>飲食標示</th></tr></thead><tbody>
+<tr><td><b>惹味小食</b></td><td>法式蛋沙律酥盒、素食大菇迷你漢堡、意大利普羅旺斯燴菜三文治、酥炸芋頭香菇粟米丸</td><td><span class="ao-tag w">蛋沙律酥盒含蛋</span><span class="ao-tag w">其餘待確認</span></td></tr>
+<tr><td><b>清新沙律</b></td><td>青蘋果芒果薯仔沙律、法式紅酒醋法邊豆甜豆黑水欖沙律、黑醋火龍果泰蘆筍粟米車厘茄沙律</td><td><span class="ao-tag w">醬汁成分待確認</span></td></tr>
+<tr><td><b>意粉／意大利飯</b></td><td>香辣榨菜意大利飯配香煎雞髀菇、黑松露牛肝菌美國蘆筍意大利麵、蕃茄羅勒葉意粉配香烤南瓜粒</td><td><span class="ao-tag w">待確認</span></td></tr>
+<tr><td><b>主菜</b></td><td>日式咖喱素菜配芝士焗椰菜花、天然蜂板香草焗紅菜頭粟米配蒜蓉炒翠玉瓜、鮮百合炒秋葵雲耳蓮藕片配燴冬瓜、香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒</td><td><span class="ao-tag w">咖喱椰菜花含芝士</span><span class="ao-tag r">紅菜頭一款含蜂蜜及蒜</span></td></tr>
+</tbody></table></div>
+<p class="ao-tcap">⚠️ Mockup 備註：「待確認」需由廚房確認是否含蛋、奶、蜂蜜及五辛，確認後改為「全素」「蛋奶素」「五辛素可食」等標籤。</p>
+<div class="ao-tip">💡 <b>混合派對怎樣選？</b>若素食者只佔少數，可訂一般派對套餐，再加一份人數較少的「素」味人生套餐；若素食者佔多數，可直接以「素」味人生為主，並按人數選擇合適的套餐大小。</div>
 
 <h2 class="ao-h2" id="order">預訂流程、送貨及免運費</h2>
 <ol><li>瀏覽 <a href="{LP}">Kitchen AO 素食到會</a>或<a href="{C1}">「素」味人生套餐</a>，按人數揀選套餐。</li>
@@ -73,12 +68,12 @@ faqs=[
 ('素食到會需要提早多久預訂？','「素」味人生套餐需最少提早三日預訂；節日及週末較繁忙，建議更早落單。'),
 ('派對有素食朋友，食物應該怎樣安排？','先問清楚對方屬哪類素食，讓素菜份量足夠全場分享，並與肉類分開擺放、清楚標示及使用專用食物夾。'),
 ('「素」味人生適合全素（Vegan）人士嗎？','部分菜式含蛋、奶或蜂蜜，並非全部適合全素人士。如需全素安排，請於落單前查詢。'),
-('有沒有五辛素（不含蔥蒜）的選擇？','部分菜式含蒜，例如 MV02 蒜蓉炒翠玉瓜。如需五辛素安排，請於落單前查詢可替換的菜式。'),
+('有沒有五辛素（不含蔥蒜）的選擇？','套餐內部分菜式含蒜，例如紅菜頭主菜配蒜蓉炒翠玉瓜。如需五辛素安排，請於落單前查詢。'),
 ('素食到會送貨範圍包括哪些地區？','送貨範圍覆蓋港島、九龍及新界大部分地區，運費及免運費門檻請參閱送貨需知頁面。'),
 ]
 srcs=[SRC['chp'],SRC['ao_set'],SRC['ao_68'],SRC['ao_del']]
 open(HERE.parent/'b1-vegetarian-catering.html','w',encoding='utf-8').write(page(PID,
- '素食到會推介 2026｜派對有素食朋友點安排？「素」味人生價目及菜式｜Kitchen AO',
- '派對有素食朋友點安排？素食到會推介 2026：揀選 5 大重點、「素」味人生 6–26 人套餐價目（人均約 $146 起，星期五落單 95 折）、菜式蛋奶及五辛標示、預訂及免運費須知。',
- ['素食到會推介','派對素食','素食派對食物'],'素食到會推介 2026','由賓客飲食需要、菜式標示到價目份量，一篇看清派對素食安排。',body,faqs,srcs,['B2','B3','B4']))
+ '香港素食到會推介 2026｜派對有素食朋友點安排？「素」味人生價目及菜式',
+ '香港素食到會推介 2026：派對有素食朋友點安排？素食到會 5 大揀選重點、「素」味人生 6–26 人套餐價目（人均約 $146 起，星期五落單 95 折）、齋菜到會菜式標示及預訂須知。',
+ ['素食到會','香港素食到會推介','齋菜到會','健康到會','派對素食'],'香港素食到會推介 2026','由賓客飲食需要、菜式標示到價目份量，一篇看清派對素食安排。',body,faqs,srcs,['B2','B3','B4']))
 print('b1 ok')
