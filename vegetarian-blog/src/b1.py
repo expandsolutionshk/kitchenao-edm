@@ -45,29 +45,31 @@ body=f'''
 <tr><td>主菜</td><td>MV03 鮮百合炒秋葵雲耳蓮藕片配燴冬瓜</td><td><span class="ao-tag w">成分待確認</span></td></tr>
 <tr><td>主菜</td><td>MV04 香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒</td><td><span class="ao-tag w">成分待確認</span></td></tr>
 </tbody></table></div>
+<div class="ao-friline">🎉 <b>星期五優惠：</b>逢星期五，<a href="{C1}">「素」味人生套餐</a>自動享 <b>95 折</b>，毋須輸入優惠碼（以網站結帳時顯示的價錢為準）。</div>
 <p class="ao-tcap">⚠️ Mockup 備註：「成分待確認」需由廚房確認是否含蛋、奶、蜂蜜及五辛，確認後改為「全素」「蛋奶素」「五辛素可食」等標籤。</p>
 
 <h2 class="ao-h2" id="price">素食到會多少錢一位？價目及份量</h2>
-<div class="ao-qa"><p class="t">快速答案</p><p>按 Kitchen AO「素」味人生現時價目，人均約 $146 至 $231，人數愈多，人均價錢愈低。</p></div>
-<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>套餐</th><th>建議人數</th><th>價錢</th><th>人均（約）</th></tr></thead><tbody>
-<tr><td><a href="{B}/product/ao-6-8pax-vegetarian-life/">「素」味人生 6–8 人</a></td><td>6–8 人</td><td>$1,388</td><td>$174–$231</td></tr>
-<tr><td><a href="{B}/product/ao-10-12pax-vegetarian-life/">「素」味人生 10–12 人</a></td><td>10–12 人</td><td>$1,988</td><td>$166–$199</td></tr>
-<tr><td><a href="{B}/product/ao-16-19pax-vegetarian-life/">「素」味人生 16–19 人</a></td><td>16–19 人</td><td>$2,988</td><td>$157–$187</td></tr>
-<tr><td><a href="{B}/product/ao-22-26pax-vegetarian-life/">「素」味人生 22–26 人</a></td><td>22–26 人</td><td>$3,788</td><td>$146–$172</td></tr>
+<div class="ao-qa"><p class="t">快速答案</p><p>按 Kitchen AO「素」味人生現時價目，人均約 $146 至 $231，人數愈多，人均價錢愈低；逢星期五更自動享 95 折。</p></div>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>套餐</th><th>建議人數</th><th>價錢</th><th>星期五 95 折</th><th>人均（約）</th></tr></thead><tbody>
+<tr><td><a href="{B}/product/ao-6-8pax-vegetarian-life/">「素」味人生 6–8 人</a></td><td>6–8 人</td><td>$1,388</td><td>$1,318.6</td><td>$174–$231</td></tr>
+<tr><td><a href="{B}/product/ao-10-12pax-vegetarian-life/">「素」味人生 10–12 人</a></td><td>10–12 人</td><td>$1,988</td><td>$1,888.6</td><td>$166–$199</td></tr>
+<tr><td><a href="{B}/product/ao-16-19pax-vegetarian-life/">「素」味人生 16–19 人</a></td><td>16–19 人</td><td>$2,988</td><td>$2,838.6</td><td>$157–$187</td></tr>
+<tr><td><a href="{B}/product/ao-22-26pax-vegetarian-life/">「素」味人生 22–26 人</a></td><td>22–26 人</td><td>$3,788</td><td>$3,598.6</td><td>$146–$172</td></tr>
 </tbody></table></div>
-<p class="ao-tcap">價錢以 2026 年 10 月網站價目計算，以網站最新資料為準。</p>
+<p class="ao-tcap">價錢以 2026 年 10 月網站價目計算；人均按原價計算。星期五 95 折由網站自動計算，以結帳時顯示的價錢為準。</p>
 <div class="ao-tip">💡 <b>混合派對怎樣選？</b>若素食者只佔少數，可訂一般派對套餐，再加一份「素」味人生小份量套餐；若素食者佔多數，可直接以「素」味人生為主，再加單點肉類小食。</div>
 
 <h2 class="ao-h2" id="order">預訂流程、送貨及免運費</h2>
 <ol><li>瀏覽 <a href="{LP}">Kitchen AO 素食到會</a>或<a href="{C1}">「素」味人生套餐</a>，按人數揀選套餐。</li>
 <li>在產品頁揀選小食、沙律、意粉及主菜。</li>
-<li>選擇送貨日期及時段，完成付款。<b>請最少提早三日預訂。</b></li>
+<li>選擇送貨日期及時段，完成付款。<b>請最少提早三日預訂。</b>逢星期五「素」味人生套餐自動享 95 折。</li>
 <li>如有特別飲食要求（例如全素、走五辛），可於落單前 WhatsApp 查詢。</li></ol>
 <p>送貨方面，滿 $1,450 全港免運費；滿 $700 九龍指定區域免運費，港島及新界區運費半價，詳情請參閱<a href="{B}/delivery/">送貨需知</a>。</p>
 <div class="ao-ctabox"><h3>🌱 為素食朋友準備一份安心之選</h3><p>「素」味人生素食到會套餐，6 至 26 人均有選擇，最少提早三日預訂。</p><a class="btn" href="{LP}">了解素食到會</a><a class="btn" href="{C1}">揀選「素」味人生套餐</a></div>
 '''
 faqs=[
-('素食到會多少錢一位？','以 Kitchen AO「素」味人生為例，6–8 人套餐 $1,388、10–12 人 $1,988、16–19 人 $2,988、22–26 人 $3,788，人均約 $146 至 $231。'),
+('素食到會多少錢一位？','以 Kitchen AO「素」味人生為例，6–8 人套餐 $1,388、10–12 人 $1,988、16–19 人 $2,988、22–26 人 $3,788，人均約 $146 至 $231；逢星期五更自動享 95 折。'),
+('素食到會有沒有優惠？','逢星期五，Kitchen AO「素」味人生套餐自動享 95 折，毋須輸入優惠碼，以網站結帳時顯示的價錢為準。'),
 ('素食到會需要提早多久預訂？','「素」味人生套餐需最少提早三日預訂；節日及週末較繁忙，建議更早落單。'),
 ('派對有素食朋友，食物應該怎樣安排？','先問清楚對方屬哪類素食，讓素菜份量足夠全場分享，並與肉類分開擺放、清楚標示及使用專用食物夾。'),
 ('「素」味人生適合全素（Vegan）人士嗎？','部分菜式含蛋、奶或蜂蜜，並非全部適合全素人士。如需全素安排，請於落單前查詢。'),
@@ -77,6 +79,6 @@ faqs=[
 srcs=[SRC['chp'],SRC['ao_set'],SRC['ao_68'],SRC['ao_del']]
 open(HERE.parent/'b1-vegetarian-catering.html','w',encoding='utf-8').write(page(PID,
  '素食到會推介 2026｜派對有素食朋友點安排？「素」味人生價目及菜式｜Kitchen AO',
- '派對有素食朋友點安排？素食到會推介 2026：揀選 5 大重點、「素」味人生 6–26 人套餐價目（人均約 $146 起）、菜式蛋奶及五辛標示、預訂及免運費須知。',
+ '派對有素食朋友點安排？素食到會推介 2026：揀選 5 大重點、「素」味人生 6–26 人套餐價目（人均約 $146 起，逢星期五 95 折）、菜式蛋奶及五辛標示、預訂及免運費須知。',
  ['素食到會推介','派對素食','素食派對食物'],'素食到會推介 2026','由賓客飲食需要、菜式標示到價目份量，一篇看清派對素食安排。',body,faqs,srcs,['B2','B3','B4']))
 print('b1 ok')
