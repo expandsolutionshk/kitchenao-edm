@@ -19,7 +19,7 @@ mark{background:#FFF176;padding:0 3px;border-radius:3px}
 .note{font-size:12.5px;color:#4A4238;line-height:1.6;margin:0 0 8px}.lns{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}.ln{font-size:11.5px;background:#EEF4FB;border-radius:20px;padding:2px 8px}
 .mock{display:block;text-align:center;background:#F7CE46;color:#1A1A1A;font-weight:800;border-radius:30px;padding:6px 12px;margin:auto 0 8px;text-decoration:none;font-size:13px}.more{border:1.5px solid #1A1A1A;background:#fff;border-radius:30px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}.tools select,.tools input{font:inherit;font-size:14px;padding:6px 10px;border:1.5px solid #1A1A1A;border-radius:30px}
-table{border-collapse:collapse;width:100%;font-size:13.5px}th,td{padding:7px 9px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}th{background:#1A1A1A;color:#F7CE46;position:sticky;top:0}td.n{text-align:right;white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:13.5px}th,td{padding:7px 9px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}th{background:#1A1A1A;color:#F7CE46;position:sticky;top:0}th.s{cursor:pointer;user-select:none;white-space:nowrap}th.s i{font-style:normal;opacity:.55;font-size:11px}th.s.on i{opacity:1}th.s:hover{background:#333}td.n{text-align:right;white-space:nowrap}
 .tabs{display:flex;gap:8px;margin:0 0 10px}.tabs button{border:1.5px solid #1A1A1A;background:#fff;border-radius:30px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}.tabs button.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
 .rule{background:#fff;border-left:5px solid #C8A24A;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.7}
 </style></head><body>
@@ -103,12 +103,16 @@ const D={"rows": [{"kw": "素食", "typ": "主要", "cl": "素食通用／英文
 mermaid.initialize({startOnLoad:true,securityLevel:'loose',flowchart:{htmlLabels:true}});
 const sel=document.getElementById('pg');Object.entries(D.pages).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=k+' '+v;sel.appendChild(o)});
 let mode='kw';const f=n=>n==null||n===''?'':Number(n).toLocaleString();
+const sk={kw:null,paa:null},sd={kw:1,paa:1},NUM=['kp','ks','gsc'];
+function th(m,k,t){const on=sk[m]===k;return `<th class="s${on?' on':''}" data-m="${m}" data-k="${k}">${t} <i>${on?(sd[m]>0?'▲':'▼'):'⇅'}</i></th>`}
+function srt(rs,k,d){const n=NUM.includes(k);rs.sort((a,b)=>{let x=a[k],y=b[k];if(n){if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;return (x-y)*d}return String(x||'').localeCompare(String(y||''),'zh-HK')*d})}
 function draw(){const pg=sel.value,q=document.getElementById('q').value.trim().toLowerCase();let h,rs;
-if(mode==='kw'){rs=D.rows.filter(r=>(!pg||r.pg===pg)&&(!q||r.kw.toLowerCase().includes(q)));rs.sort((a,b)=>(b.kp||0)-(a.kp||0)||(b.ks||0)-(a.ks||0));
-h='<tr><th>關鍵字</th><th>頁面</th><th>類型</th><th>主題群</th><th>KP</th><th>KS</th><th>GSC 曝光</th><th>用法</th></tr>'+rs.map(r=>`<tr><td><mark>${r.kw}</mark></td><td>${r.pg}</td><td>${r.typ}</td><td>${r.cl}</td><td class=n>${f(r.kp)}</td><td class=n>${f(r.ks)}</td><td class=n>${f(r.gsc)}</td><td>${r.use}</td></tr>`).join('');}
+if(mode==='kw'){rs=D.rows.filter(r=>(!pg||r.pg===pg)&&(!q||r.kw.toLowerCase().includes(q)));if(sk.kw)srt(rs,sk.kw,sd.kw);else rs.sort((a,b)=>(b.kp||0)-(a.kp||0)||(b.ks||0)-(a.ks||0));
+h='<tr>'+th('kw','kw','關鍵字')+th('kw','pg','頁面')+th('kw','typ','類型')+th('kw','cl','主題群')+th('kw','kp','KP')+th('kw','ks','KS')+th('kw','gsc','GSC 曝光')+th('kw','use','用法')+'</tr>'+rs.map(r=>`<tr><td><mark>${r.kw}</mark></td><td>${r.pg}</td><td>${r.typ}</td><td>${r.cl}</td><td class=n>${f(r.kp)}</td><td class=n>${f(r.ks)}</td><td class=n>${f(r.gsc)}</td><td>${r.use}</td></tr>`).join('');}
 else{rs=D.paa.filter(r=>(!pg||r.pg===pg)&&(!q||r.q.toLowerCase().includes(q)));
-h='<tr><th>PAA／AI Overview 問題</th><th>頁面</th><th>類型</th><th>配對關鍵字</th><th>KP</th><th>建議用法</th></tr>'+rs.map(r=>`<tr><td>${r.q}</td><td>${r.pg}</td><td>${r.typ}</td><td><mark>${r.kw}</mark></td><td class=n>${f(r.kp)}</td><td>${r.use}</td></tr>`).join('');}
-document.getElementById('tb').innerHTML=h;document.getElementById('cnt').textContent=rs.length+' 項';}
+if(sk.paa)srt(rs,sk.paa,sd.paa);
+h='<tr>'+th('paa','q','PAA／AI Overview 問題')+th('paa','pg','頁面')+th('paa','typ','類型')+th('paa','kw','配對關鍵字')+th('paa','kp','KP')+th('paa','use','建議用法')+'</tr>'+rs.map(r=>`<tr><td>${r.q}</td><td>${r.pg}</td><td>${r.typ}</td><td><mark>${r.kw}</mark></td><td class=n>${f(r.kp)}</td><td>${r.use}</td></tr>`).join('');}
+document.getElementById('tb').innerHTML=h;document.querySelectorAll('#tb th.s').forEach(t=>t.onclick=()=>{const m=t.dataset.m,k=t.dataset.k;if(sk[m]===k)sd[m]=-sd[m];else{sk[m]=k;sd[m]=NUM.includes(k)?-1:1}draw()});document.getElementById('cnt').textContent=rs.length+' 項';}
 sel.onchange=draw;document.getElementById('q').oninput=draw;
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));mode=b.dataset.t;draw()});
 document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{sel.value=b.dataset.pg;draw();document.getElementById('all').scrollIntoView({behavior:'smooth'})});
