@@ -69,11 +69,11 @@ def sources_html(srcs):
     return '<section class="ao-src"><h2>資料來源</h2><ol>' + ''.join(f'<li><span class="g">{g}</span>{n}：<a href="{u}" target="_blank" rel="noopener">{u}</a></li>' for g, n, u in srcs) + '</ol><p style="margin:8px 0 0!important;font-size:12.5px;color:#7a6a45">資料於 2026 年 10 月查閱。健康及營養資料只供一般參考，如有個別需要，請諮詢醫生或註冊營養師。</p></section>'
 def rel_html(ids):
     return '<div class="ao-rel">' + ''.join(f'<a href="{BLOGS[i][1]}">{BLOGS[i][0].split("｜")[0]}<small>{BLOGS[i][0].split("｜")[1] if "｜" in BLOGS[i][0] else ""}</small></a>' for i in ids) + '</div>'
-FRI_NOTE='逢星期五，「素」味人生套餐自動享 95 折（以網站結帳時顯示的價錢為準）'
+FRI_NOTE='逢星期五落單，「素」味人生套餐自動享 95 折（以網站結帳時顯示的價錢為準）'
 def page(pid, meta_title, meta_desc, kwlist, kv_tag, kv_sub, body, faqs, srcs, rel):
     title, url = BLOGS[pid]
     bar = f'<div class="mk-bar"><span><b>MOCKUP {pid}</b>　{html.escape(title)}</span><span>目標 URL：<a href="{url}" target="_blank">{url.replace(B, "")}</a></span><span>主攻：{"、".join(kwlist)}</span><button onclick="document.body.classList.toggle(\'no-hl\');this.textContent=document.body.classList.contains(\'no-hl\')?\'顯示關鍵字\':\'隱藏關鍵字\'">隱藏關鍵字</button></div>'
-    body = body.replace('<div class="ao-ctabox"><h3>', '<div class="ao-ctabox"><span class="ao-fri">🎉 逢星期五「素」味人生自動 95 折</span><h3>')
+    body = body.replace('<div class="ao-ctabox"><h3>', '<div class="ao-ctabox"><span class="ao-fri">🎉 逢星期五落單「素」味人生自動 95 折</span><h3>')
     kv = f'<div class="ao-kv"><span class="k">{kv_tag}</span><h1>{html.escape(title)}</h1><p>{kv_sub}</p></div>'
     doc = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>{html.escape(meta_title)}</title><meta name="description" content="{html.escape(meta_desc)}">
