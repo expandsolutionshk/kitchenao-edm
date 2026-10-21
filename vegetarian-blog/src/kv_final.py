@@ -11,7 +11,7 @@ CREDIT = ('<!-- 相片來源（Pexels 免費授權，可商用、毋須標示）
           '紫豆角 https://www.pexels.com/photo/5202092/；紫羽衣甘藍 https://www.pexels.com/photo/5755657/；'
           '套餐相為 Kitchen AO 自家產品相 -->')
 def kv(src1600, src800):
-  return (CREDIT + f'<div class="kv fr f1 vkv"><img class="bg" src="{src1600}" srcset="{src800} 800w, {src1600} 1600w" sizes="100vw" alt="派對素食到會：粟米、番茄、蘑菇、紫豆角等新鮮蔬菜"><div class="shade"></div>{LOGO}'
+  return (CREDIT + f'<div class="kv fr f1 vkv"><style>.vkv .bgd{{background-image:url({src1600})}}@media(max-width:640px){{.vkv .bgd{{background-image:url({src800})}}}}</style><div class="bgd" aria-hidden="true"></div><div class="shade"></div>{LOGO}'
         f'<div class="tb">{TAG}{TTL}<p class="pl2">素食，都可以豐富又滿足。</p>{KWS}</div>'
         f'<div class="rib3"><img src="{SET}" alt="Kitchen AO「素」味人生素食到會套餐"><span>⭐「素」味人生套餐</span></div></div>')
 CSS = FRESH + '''
@@ -19,6 +19,7 @@ CSS = FRESH + '''
 .kw{margin:1.6cqw 0 0;display:flex;flex-wrap:wrap;gap:.8cqw}.kw span{font-size:1.7cqw;font-weight:700;color:#2C6E49;background:rgba(255,255,255,.9);border:.15cqw solid #CFE8CD;border-radius:3cqw;padding:.35cqw 1.2cqw}
 .fr .tb{top:50%;transform:translateY(-50%)}
 .vkv{border-radius:0;box-shadow:none}
+.vkv .bgd{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(1.15) saturate(1.08)}
 .vkv .shade{background:linear-gradient(90deg,rgba(248,251,244,.83) 0%,rgba(248,251,244,.70) 42%,rgba(248,251,244,0) 66%)}
 @media(max-width:640px){
 .vkv{aspect-ratio:4/5}

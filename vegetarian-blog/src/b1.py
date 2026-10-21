@@ -45,14 +45,13 @@ body=f'''
 <div class="ao-friline">🎉 <b>星期五落單優惠：</b>逢星期五落單，<a href="{C1}">「素」味人生套餐</a>自動享 <b>95 折</b>，毋須輸入優惠碼。套餐需最少提早三日預訂，星期五落單剛好趕及下星期一送到，方便公司或家庭計劃 Green Monday「一週一素」。</div>
 <h3 class="ao-h3">套餐包括甚麼菜式？</h3>
 <p>每款套餐都包括以下四類菜式，可在每類中自選；可選的款數及份量按套餐人數而定，詳情請參閱各套餐頁面。</p>
-<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類別</th><th>可選菜式</th><th>飲食標示</th></tr></thead><tbody>
-<tr><td><b>惹味小食</b></td><td>法式蛋沙律酥盒、素食大菇迷你漢堡、意大利普羅旺斯燴菜三文治、酥炸芋頭香菇粟米丸</td><td><span class="ao-tag w">蛋沙律酥盒含蛋</span><span class="ao-tag w">其餘待確認</span></td></tr>
-<tr><td><b>清新沙律</b></td><td>青蘋果芒果薯仔沙律、法式紅酒醋法邊豆甜豆黑水欖沙律、黑醋火龍果泰蘆筍粟米車厘茄沙律</td><td><span class="ao-tag w">醬汁成分待確認</span></td></tr>
-<tr><td><b>意粉／意大利飯</b></td><td>香辣榨菜意大利飯配香煎雞髀菇、黑松露牛肝菌美國蘆筍意大利麵、蕃茄羅勒葉意粉配香烤南瓜粒</td><td><span class="ao-tag w">待確認</span></td></tr>
-<tr><td><b>主菜</b></td><td>日式咖喱素菜配芝士焗椰菜花、天然蜂板香草焗紅菜頭粟米配蒜蓉炒翠玉瓜、鮮百合炒秋葵雲耳蓮藕片配燴冬瓜、香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒</td><td><span class="ao-tag w">咖喱椰菜花含芝士</span><span class="ao-tag r">紅菜頭一款含蜂蜜及蒜</span></td></tr>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類別</th><th>可選菜式</th></tr></thead><tbody>
+<tr><td><b>惹味小食</b></td><td>法式蛋沙律酥盒、素食大菇迷你漢堡、意大利普羅旺斯燴菜三文治、酥炸芋頭香菇粟米丸</td></tr>
+<tr><td><b>清新沙律</b></td><td>青蘋果芒果薯仔沙律、法式紅酒醋法邊豆甜豆黑水欖沙律、黑醋火龍果泰蘆筍粟米車厘茄沙律</td></tr>
+<tr><td><b>意粉／意大利飯</b></td><td>香辣榨菜意大利飯配香煎雞髀菇、黑松露牛肝菌美國蘆筍意大利麵、蕃茄羅勒葉意粉配香烤南瓜粒</td></tr>
+<tr><td><b>主菜</b></td><td>日式咖喱素菜配芝士焗椰菜花、天然蜂板香草焗紅菜頭粟米配蒜蓉炒翠玉瓜、鮮百合炒秋葵雲耳蓮藕片配燴冬瓜、香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒</td></tr>
 </tbody></table></div>
-<p class="ao-tcap">⚠️ Mockup 備註：「待確認」需由廚房確認是否含蛋、奶、蜂蜜及五辛，確認後改為「全素」「蛋奶素」「五辛素可食」等標籤。</p>
-<div class="ao-tip">💡 <b>混合派對怎樣選？</b>若素食者只佔少數，可訂一般派對套餐，再加一份人數較少的「素」味人生套餐；若素食者佔多數，可直接以「素」味人生為主，並按人數選擇合適的套餐大小。</div>
+<div class="ao-tip">💡 <b>混合派對怎樣選？</b>若素食者只佔少數，可選 Kitchen AO 其他派對套餐，例如<a href="{B}/product-category/party/foot-party/">美食派對 Gourmet</a>，再加一份人數較少的「素」味人生套餐，讓素食賓客有獨立的一份素食；若素食者佔多數，可直接以「素」味人生為主，並按人數選擇合適的套餐大小。更多選擇可參閱<a href="{B}/product-category/party/">派對到會套餐</a>。</div>
 
 <h2 class="ao-h2" id="order">預訂流程、送貨及免運費</h2>
 <ol><li>瀏覽 <a href="{LP}">Kitchen AO 素食到會</a>或<a href="{C1}">「素」味人生套餐</a>，按人數揀選套餐。</li>
