@@ -33,8 +33,11 @@ body=f'''
 <div class="ao-tip">💡 <b>有特別要求？</b>如賓客要求全素、走五辛或有其他飲食限制，建議落單前<a href="https://api.whatsapp.com/send?phone=85269011987">WhatsApp 聯絡客服</a>，確認可否特別安排。</div>
 
 <h2 class="ao-h2" id="tips">Kitchen AO 小貼士：由「素食星期一」開始，輕鬆實踐彈性素</h2>
-<div class="ao-qa"><p class="t">來自 Kitchen AO 的建議</p><p>素食不一定要「全素」或「長期」。近年香港愈來愈多人選擇<b>彈性素</b>：平日照常飲食，但每星期安排一兩餐以植物性食物為主。根據柏堡活動策劃 2023 年的<a href="https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf" target="_blank" rel="noopener">問卷調查</a>，五年內開始素食的受訪者之中，近七成屬於彈性素，可見這是最容易入手的方式。</p></div>
-<p><a href="https://www.chp.gov.hk/tc/static/90050.html" target="_blank" rel="noopener">衞生署衞生防護中心</a>指出，大部分植物性食物含豐富膳食纖維、屬低脂及低熱量，而且不含膽固醇；適量進食蔬果和豆類，有助減低患上高血壓、心臟病和糖尿病等慢性疾病的機會。不過，素食並非必然健康，關鍵仍在於飲食均衡，例如多選全穀類、豆類及不同顏色的蔬果，並減少油、鹽、糖。</p>
+<div class="ao-qa"><p class="t">來自 Kitchen AO 的建議</p>
+<p><b>多吃一餐素，比想像中更重要。</b>香港人外出用餐多，飯局、派對往往以肉類和煎炸食物為主，蔬菜、豆類和全穀類反而吃得不夠。每星期刻意安排一兩餐素食，正好為身體「減一減負擔」：植物性食物纖維較多、飽和脂肪較少，長遠有助維持心臟健康、血糖及體重。美國營養與飲食學會（Academy of Nutrition and Dietetics）的<a href="https://digitalcommons.andrews.edu/pubs/648" target="_blank" rel="noopener">立場文件</a>亦指出，素食者患缺血性心臟病、2 型糖尿病、高血壓及肥胖等的風險較低。</p>
+<p><b>不必全素，多一點植物性食物已有分別。</b>好處並非全素人士獨有，關鍵在於把餐桌上的比例調整過來：多一點蔬菜、全穀類、豆類和堅果，少一點紅肉和加工肉。哈佛大學公共衞生學院的<a href="https://nutritionsource.hsph.harvard.edu/2016/06/14/healthy-plant-based-diet-linked-with-substantially-lower-type-2-diabetes-risk/" target="_blank" rel="noopener">研究</a>亦發現，這種飲食模式與 2 型糖尿病風險明顯下降有關。</p>
+<p><b>所以我們建議由彈性素開始，慢慢習慣。</b>平日照常飲食，每星期先安排一兩餐以植物性食物為主，毋須一下子戒口，也不用改變全家人的習慣，最容易持之以恆。對想控制食量、吃得清淡一點的人來說，這亦是一個好開始，讓餐桌不再只依賴「大魚大肉」。事實上，這亦是不少香港人的選擇：本地<a href="https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf" target="_blank" rel="noopener">調查</a>顯示，素食受訪者之中約六成半屬彈性素。</p></div>
+<p>要吃得健康，關鍵仍在於均衡。<a href="https://www.chp.gov.hk/tc/static/90050.html" target="_blank" rel="noopener">衞生署衞生防護中心</a>提醒，素食並非必然健康，應多選全穀類、豆類及不同顏色的蔬果，並減少油、鹽、糖；全素人士亦要留意維生素 B12 的攝取。</p>
 <h3 class="ao-h3">為甚麼是「星期五落單 95 折」？</h3>
 <p>因為我們鼓勵大家實踐 <b>Green Monday（素食星期一）</b>：每逢星期一，全日或其中一餐吃素，為新一週來個健康開始。「素」味人生套餐需最少提早三日預訂，星期五落單剛好趕及下星期一送到，方便公司、家庭或朋友一起實踐「一週一素」。</p>
 <div class="ao-tip">💡 <b>實踐小貼士：</b><ul style="margin:6px 0 0;padding-left:20px"><li>由每星期一餐開始，不必一下子改變全部飲食習慣。</li><li>公司可將星期一的午餐會議或下午茶改為素食，人人一齊參與。</li><li>家庭聚會可以一半素食、一半肉類，讓長輩和小朋友慢慢適應。</li><li>素食同樣要注意蛋白質，可多選豆類、豆腐、堅果及蛋奶類（蛋奶素人士適用）。</li></ul></div>
@@ -78,7 +81,7 @@ faqs=[
 ('有沒有五辛素（不含蔥蒜）的選擇？','套餐內部分菜式含蒜，例如紅菜頭主菜配蒜蓉炒翠玉瓜。如需五辛素安排，請於落單前查詢。'),
 ('素食到會送貨範圍包括哪些地區？','送貨範圍覆蓋港島、九龍、新界及東涌／機場，離島及邊境禁區不設派送。單一訂單滿 $700，九龍指定區域免運費，港島及新界區運費半價；滿 $1,450 即享全港免運費，系統自動計算，毋須輸入優惠碼。各區運費詳情請參閱<a href="https://aoaodelivery.com/delivery/">送貨需知及免運費優惠</a>。'),
 ]
-srcs=[SRC['chp'],('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['ao_set'],SRC['ao_68'],SRC['ao_del']]
+srcs=[SRC['chp'],('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),('機構','Academy of Nutrition and Dietetics — Position of the Academy of Nutrition and Dietetics: Vegetarian Diets（J Acad Nutr Diet 2016;116(12):1970–1980）','https://digitalcommons.andrews.edu/pubs/648'),('大學','Harvard T.H. Chan School of Public Health, The Nutrition Source — Healthy plant-based diet linked with substantially lower type 2 diabetes risk','https://nutritionsource.hsph.harvard.edu/2016/06/14/healthy-plant-based-diet-linked-with-substantially-lower-type-2-diabetes-risk/'),SRC['ao_set'],SRC['ao_68'],SRC['ao_del']]
 open(HERE.parent/'b1-vegetarian-catering.html','w',encoding='utf-8').write(page(PID,
  '派對有素食朋友點安排？素食到會揀選全攻略｜香港素食到會推介 2026',
  '派對有素食朋友點安排？由問清楚素食類型、素食分開擺放到揀選素食到會，一篇看清。附「素」味人生 6–26 人套餐價目（人均約 $146 起）、星期五落單 95 折及免運費優惠。',
