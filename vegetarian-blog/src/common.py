@@ -24,6 +24,12 @@ EXTRA = '''<style>
 .ao-tbl td.c{text-align:center;font-weight:800}.y{color:#2C6E49}.n{color:#C0392B}.m{color:#9A7B2E}
 .ao-tag{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:1px 8px;margin:2px 4px 2px 0;background:#EEF6ED;color:#2C6E49;white-space:nowrap}
 .ao-tag.w{background:#FFF4D6;color:#9A7B2E}.ao-tag.r{background:#FDE2E1;color:#B03A2E}
+.ao-adv{background:#F4FBF3;border:1.5px solid #CFE8CD;border-radius:14px;padding:14px 18px 6px;margin:14px 0 20px}
+.ao-adv .t{font-size:12px;font-weight:800;letter-spacing:2px;color:#2C6E49;margin:0 0 4px!important}
+.ao-adv .r{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed #CFE8CD}.ao-adv .t+.r{border-top:0}
+.ao-adv .n{flex:0 0 34px;height:34px;border-radius:50%;background:#fff;border:1.5px solid #CFE8CD;display:flex;align-items:center;justify-content:center;font-size:18px}
+.ao-adv b{display:block;color:#1F5A3A;font-size:16.5px;line-height:1.5}.ao-adv p{margin:2px 0 0!important;font-size:15.5px;line-height:1.7}
+.ao-adv small{display:block;margin-top:3px;font-size:12.5px;color:#7a6a45;line-height:1.6}.ao-adv small a{color:#7a6a45!important;font-weight:600!important}
 .ao-tip{background:#F4FBF3;border:1.5px solid #CFE8CD;border-radius:12px;padding:10px 14px;margin:16px 0;font-size:16px}
 .ao-warn{background:#FFF8E6;border:1.5px solid #F2D58A;border-radius:12px;padding:12px 16px;margin:16px 0;font-size:15px}
 .ao-faqs details{border:1px solid #EBE3D2;border-radius:12px;margin:0 0 10px;background:#fff}
