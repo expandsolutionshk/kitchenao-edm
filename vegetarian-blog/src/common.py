@@ -72,9 +72,23 @@ EXTRA = '''<style>
 .ao-tw{margin:12px 0 6px}.ao-tbl{font-size:14px}.ao-tbl th,.ao-tbl td{padding:9px 10px}
 .ao-ctabox{padding:18px 16px 150px!important}
 .ao-faqs summary{padding:11px 14px}.ao-faqs details>div{padding:0 14px 10px;font-size:15px}
-.ao-src{padding:14px 14px!important}
+.ao-src{padding:14px 14px!important;font-size:12px!important}.ao-src li{font-size:12px!important}.ao-src h2{font-size:15px!important}
 }
 /* end mobile */
+/* desktop type */
+@media(min-width:641px){
+.ao-article{font-size:18px!important;line-height:1.85!important}
+.ao-article p:not(.pl2):not(.kw):not(.t),.ao-article li,.ao-intro,.ao-toc a{font-size:18px!important;line-height:1.85!important}
+.ao-h2{font-size:28px!important;line-height:1.35!important}
+.ao-h3{font-size:21px!important;line-height:1.4!important}
+.ao-adv .r p{font-size:17px!important;line-height:1.75!important}.ao-adv .r b{font-size:18px!important}.ao-adv small{font-size:13.5px!important}
+.ao-tip,.ao-friline{font-size:17px!important;line-height:1.8!important}.ao-tip li{font-size:17px!important}
+.ao-tbl{font-size:16px!important}.ao-tbl td{line-height:1.7!important}
+.ao-faqs summary{font-size:18px!important}.ao-faqs details p{font-size:17px!important;line-height:1.8!important}
+.ao-src{font-size:13px!important}.ao-src li{font-size:13px!important;line-height:1.7!important}.ao-src h2{font-size:15px!important}
+.ao-ctabox p{font-size:17px!important}
+}
+/* end desktop */
 </style>'''
 B = 'https://aoaodelivery.com'
 BLOGS = {

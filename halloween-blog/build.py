@@ -8,7 +8,7 @@ DISH=[
  ('2026-Kitchen-AO-Halloween-catering_post-2-scaled.jpg','🎃','哈囉喂','「原個直送」日本南瓜海鮮意大利飯','可以選配原個日本南瓜作器皿直送到會，南瓜蓉融入每顆米粒，配以彈牙海鮮，賣相與味道同樣出色。'),
  ('2026-Kitchen-AO-Halloween-catering_post-3-scaled.jpg','👁️','惡魔的眼睛','開心果醬荔枝藍苺酥盒','牛油酥盒釀入開心果醬，再以荔枝及藍莓砌成一隻隻「惡魔眼睛」，甜而不膩，一口一件，最適合派對享用。'),
  ('2026-Kitchen-AO-Halloween-catering_post-1-scaled.jpg','🩸','血淋淋科學怪人','香濃蕃茄手指腸仔','形似「斷指」的腸仔，淋上香濃蕃茄醬營造血淋淋效果，嚇人之餘又惹味，最受小朋友歡迎。'),
- ('2025-Halloween-burger-1-600x750.jpg','🍔','萬聖節','迷你芝士手打牛肉漢堡','皇牌手打牛肉漢堡換上萬聖節造型新裝，迷你尺寸方便拿取，大人小孩都適合。'),
+ ('2025-Halloween-burger-1-600x750.jpg','🍔','萬聖節','迷你芝士手打漢堡','皇牌手打豬肉及牛肉漢堡換上萬聖節造型新裝，迷你尺寸方便拿取，大人小孩都適合。'),
  ('2026-halloween-story-_post-4-scaled.jpg','🦇','小蝙蝠','墨汁雞翼','以墨魚汁染成漆黑的雞翼，嫩滑多汁，是餐桌上最搶眼的「小蝙蝠」。'),
 ]
 cards=''.join(f'''
@@ -119,7 +119,7 @@ HTML=f'''<div class="ao-article ao-hw26">
 <ul class="ao-hw-menu">
 <li><span class="ao-hw-ico">👁️</span><span><small>惡魔的眼睛</small><b>開心果醬荔枝藍苺酥盒</b></span></li>
 <li><span class="ao-hw-ico">💉</span><span><small>血淋淋科學怪人</small><b>香濃蕃茄手指腸仔</b></span></li>
-<li><span class="ao-hw-ico">👻</span><span><small>萬聖節</small><b>迷你芝士手打牛肉漢堡</b></span></li>
+<li><span class="ao-hw-ico">👻</span><span><small>萬聖節</small><b>迷你芝士手打漢堡</b></span></li>
 <li><span class="ao-hw-ico">🦇</span><span><small>小蝙蝠</small><b>墨汁雞翼</b></span></li>
 <li><span class="ao-hw-ico">🎃</span><span><small>哈囉喂</small><b>「原個直送」日本南瓜海鮮意大利飯</b></span></li>
 </ul>

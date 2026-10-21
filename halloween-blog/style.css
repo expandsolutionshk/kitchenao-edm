@@ -188,3 +188,24 @@
 .ao-hw-sets{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 .ao-article a.ao-hw-cta,.ao-article a.ao-hw-wa{display:block;width:100%;min-width:0;box-sizing:border-box;}
 }
+
+/* ===== 2026-10-22 字體標準（同素食篇 B1／野餐篇）：電腦版內文 18px、H2 28px、FAQ 18/17px、卡片內文 17px；手機版不變 ===== */
+@media(min-width:601px){
+.ao-article{font-size:18px!important;line-height:1.85!important}
+.ao-article>p,.ao-article .ao-intro,.ao-toc a,.ao-toc li{font-size:18px!important;line-height:1.85!important}
+.ao-h2{font-size:28px!important;line-height:1.35!important}
+.ao-q{font-size:21px!important}
+.ao-hw-fact .fd,.ao-hw-step .sd,.ao-article .ao-hw-step ul.sl,.ao-hw-corpbox p,.ao-article .ao-hw-corpbox ul,.ao-menucard .desc,.ao-why li{font-size:17px!important;line-height:1.8!important}
+.ao-hw-fact .ft,.ao-hw-step .st,.ao-hw-corpbox .ct,.ao-menucard .name{font-size:19px!important}
+.ao-menucard--hero .name{font-size:23px!important}
+.ao-hw-quote p{font-size:18px!important}
+.ao-article .ao-hw-terms li{font-size:16.5px!important}.ao-hw-terms-t{font-size:18px!important}
+.ao-faq summary{font-size:18px!important}.ao-faq .a{font-size:17px!important;line-height:1.8!important}
+.ao-hw-portion span{font-size:15px!important}.ao-hw-portion b{font-size:16px!important}
+.ao-related-t{font-size:18px!important}.ao-related a{font-size:17px!important}
+}
+
+/* 2026-10-22 主打菜式相：唔再裁切貼邊，四邊留位、圓角完整顯示 */
+.ao-menucard--hero .ph{aspect-ratio:auto!important;display:flex;align-items:center;justify-content:center;padding:16px;background:#1c1426;line-height:0}
+.ao-article .ao-menucard--hero .ph img{position:static!important;top:auto!important;left:auto!important;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;border-radius:12px!important;box-shadow:0 8px 20px rgba(0,0,0,.35)!important}
+@media(max-width:600px){.ao-menucard--hero .ph{padding:12px 12px 0}}
