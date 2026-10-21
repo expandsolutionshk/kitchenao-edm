@@ -1,6 +1,7 @@
 # B1 KV 定稿：A1-e（提亮＋白霧＋Punch line＋關鍵字），去五辛相片，responsive（桌面 16:9／手機 4:5）
 import os, html as H
-from kv_fresh import LOGO, IMG, TAG, TTL, CSS as FRESH
+from kv_fresh import LOGO, IMG, TAG, CSS as FRESH
+TTL = '<h2 class="ttl">派對有<span class="y">素食朋友</span>點安排？<br>素食到會揀選全攻略</h2>'
 HERE = os.path.dirname(os.path.abspath(__file__))
 JS = open(os.path.join(HERE, 'veg_bg.js'), encoding='utf-8').read()
 SET = 'https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481.jpg'
@@ -38,7 +39,7 @@ prev = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <style>body{{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}}.w{{max-width:1240px;margin:0 auto;padding:24px 16px 60px}}h1{{font-size:22px;margin:0 0 4px}}p.d{{margin:0 0 18px;color:#7a6a45;font-size:14px}}h3{{margin:26px 0 8px;font-size:16px}}
 iframe{{border:0;display:block;background:#fff}}.dkw{{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;box-shadow:0 6px 24px rgba(0,0,0,.15)}}.dk{{position:absolute;left:0;top:0;width:1200px;height:675px;transform-origin:0 0}}.mb{{width:390px;height:487.5px;box-shadow:0 6px 24px rgba(0,0,0,.15)}}</style></head><body><div class="w">
 <h1>🥗 B1 KV 定稿：A1-e（Punch line＋關鍵字）</h1>
-<p class="d">同一段 HTML，闊度 640px 或以下自動轉為手機版 4:5。背景：保留原本蔬菜（去五辛：抹走青蔥、蒜頭換成番茄），少量加入紫豆角及紫羽衣甘藍（，頁面載入時以 Canvas 即時處理，約 1–2 秒）。</p>
+<p class="d">同一段 HTML，闊度 640px 或以下自動轉為手機版 4:5。背景：保留原本蔬菜（去五辛：抹走青蔥、蒜頭換成番茄），少量加入紫豆角及紫羽衣甘藍（頁面載入時以 Canvas 即時處理，約 1–2 秒）。</p>
 <h3>桌面版（16:9）</h3><div class="dkw"><iframe class="dk" srcdoc="{SRCDOC}" title="B1 KV 桌面版（1200px 闊）" scrolling="no"></iframe></div>
 <h3>手機版（390px 闊，4:5）</h3><iframe class="mb" srcdoc="{SRCDOC}" title="B1 KV 手機版" scrolling="no"></iframe>
 </div><script>function fit(){{document.querySelectorAll('.dkw').forEach(w=>w.firstChild.style.transform='scale('+(w.clientWidth/1200)+')')}}fit();addEventListener('resize',fit)</script></body></html>'''
