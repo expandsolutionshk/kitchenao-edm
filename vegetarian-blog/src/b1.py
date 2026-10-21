@@ -53,7 +53,7 @@ body=f'''
 <div class="ao-friline">🎉 <b>星期五落單優惠：</b>逢星期五落單，<a href="{C1}">「素」味人生套餐</a>自動享 <b>95 折</b>，毋須輸入優惠碼。套餐需最少提早三日預訂，星期五落單剛好趕及下星期一送到，方便公司或家庭計劃 Green Monday「一週一素」。</div>
 <h3 class="ao-h3">套餐包括甚麼菜式？</h3>
 <p>每款套餐都包括以下四類菜式，可在每類中自選；可選的款數及份量按套餐人數而定，詳情請參閱各套餐頁面。</p>
-<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類別</th><th>可選菜式</th></tr></thead><tbody>
+<div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>類別</th><th>可選菜式</th></tr></thead><tbody>
 <tr><td><b>惹味小食</b></td><td>法式蛋沙律酥盒、素食大菇迷你漢堡、意大利普羅旺斯燴菜三文治、酥炸芋頭香菇粟米丸</td></tr>
 <tr><td><b>清新沙律</b></td><td>青蘋果芒果薯仔沙律、法式紅酒醋法邊豆甜豆黑水欖沙律、黑醋火龍果泰蘆筍粟米車厘茄沙律</td></tr>
 <tr><td><b>意粉／意大利飯</b></td><td>香辣榨菜意大利飯配香煎雞髀菇、黑松露牛肝菌美國蘆筍意大利麵、蕃茄羅勒葉意粉配香烤南瓜粒</td></tr>

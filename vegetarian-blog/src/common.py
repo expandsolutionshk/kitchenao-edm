@@ -22,6 +22,7 @@ EXTRA = '''<style>
 .ao-tbl td{padding:10px 12px;border-top:1px solid #F0EADF;vertical-align:top;line-height:1.6}
 .ao-tbl tr:nth-child(even) td{background:#FBF8F2}
 .ao-tbl td.c{text-align:center;font-weight:800}.ao-tbl .y{color:#2C6E49}.ao-tbl .n{color:#C0392B}.ao-tbl .m{color:#9A7B2E}
+.ao-tbl.ao-tbl-wrap{min-width:0!important}.ao-tbl-wrap th:first-child,.ao-tbl-wrap td:first-child{width:5em}
 .ao-tag{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:1px 8px;margin:2px 4px 2px 0;background:#EEF6ED;color:#2C6E49;white-space:nowrap}
 .ao-tag.w{background:#FFF4D6;color:#9A7B2E}.ao-tag.r{background:#FDE2E1;color:#B03A2E}
 .ao-adv{background:#F4FBF3;border:1.5px solid #CFE8CD;border-radius:14px;padding:14px 18px 6px;margin:14px 0 20px}
