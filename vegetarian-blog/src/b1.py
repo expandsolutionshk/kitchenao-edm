@@ -84,4 +84,8 @@ open(HERE.parent/'b1-vegetarian-catering.html','w',encoding='utf-8').write(page(
  '派對有素食朋友點安排？由問清楚素食類型、素食分開擺放到揀選素食到會，一篇看清。附「素」味人生 6–26 人套餐價目（人均約 $146 起）、星期五落單 95 折及免運費優惠。',
  ['素食到會','香港素食到會推介','齋菜到會','健康到會','派對素食'],'香港素食到會推介 2026','由賓客飲食需要、菜式標示到價目份量，一篇看清派對素食安排。',body,faqs,srcs,[],
  kv_html=KVB.block('img/veg-b1-kv-bg-1600.jpg','img/veg-b1-kv-bg-800.jpg','h1')))
+WP_DIR='https://aoaodelivery.com/wp-content/uploads/2026/10/'
+open(HERE.parent/'b1-vegetarian-catering-WORDPRESS.html','w',encoding='utf-8').write(
+ '<!-- B1 WordPress 版：貼入 Custom HTML／WPBakery Raw HTML。文章標題（H1）：派對有素食朋友點安排？素食到會揀選全攻略 -->\n'
+ + wp_page(PID, body, faqs, srcs, [], KVB.block(WP_DIR+'veg-b1-kv-bg-1600.jpg', WP_DIR+'veg-b1-kv-bg-800.jpg', 'div')))
 print('b1 ok')

@@ -21,7 +21,7 @@ EXTRA = '''<style>
 .ao-tbl th{background:#1A1A1A;color:#F7CE46;font-weight:800;padding:10px 12px;text-align:left;white-space:nowrap}
 .ao-tbl td{padding:10px 12px;border-top:1px solid #F0EADF;vertical-align:top;line-height:1.6}
 .ao-tbl tr:nth-child(even) td{background:#FBF8F2}
-.ao-tbl td.c{text-align:center;font-weight:800}.y{color:#2C6E49}.n{color:#C0392B}.m{color:#9A7B2E}
+.ao-tbl td.c{text-align:center;font-weight:800}.ao-tbl .y{color:#2C6E49}.ao-tbl .n{color:#C0392B}.ao-tbl .m{color:#9A7B2E}
 .ao-tag{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:1px 8px;margin:2px 4px 2px 0;background:#EEF6ED;color:#2C6E49;white-space:nowrap}
 .ao-tag.w{background:#FFF4D6;color:#9A7B2E}.ao-tag.r{background:#FDE2E1;color:#B03A2E}
 .ao-adv{background:#F4FBF3;border:1.5px solid #CFE8CD;border-radius:14px;padding:14px 18px 6px;margin:14px 0 20px}
@@ -117,3 +117,21 @@ SRC = {
  'ao_68': ('Kitchen AO', 'AO 6-8pax「素」味人生（菜式選擇及預訂須知）', 'https://aoaodelivery.com/product/ao-6-8pax-vegetarian-life/'),
  'ao_del': ('Kitchen AO', '送貨需知及免運費優惠', 'https://aoaodelivery.com/delivery/'),
 }
+
+def wp_page(pid, body, faqs, srcs, rel, kv_html=''):
+    """WordPress 版：無 mockup bar、無 H1（文章標題即 H1）、關鍵字不高亮、CSS 壓成一行（避免 WordPress 在 <style> 內插入 <br />）"""
+    import re as _re
+    def one_line(block):
+        def f(m):
+            css = _re.sub(r'/\*.*?\*/', '', m.group(1), flags=_re.S)
+            css = ' '.join(l.strip() for l in css.splitlines() if l.strip())
+            css = _re.sub(r'\.no-hl[^{]*\{[^}]*\}', '', css)
+            css = _re.sub(r'\.mk-bar[^{]*\{[^}]*\}', '', css)
+            return '<style>' + css + '</style>'
+        return _re.sub(r'<style>(.*?)</style>', f, block, flags=_re.S)
+    body = body.replace('<div class="ao-ctabox"><h3>', '<div class="ao-ctabox"><span class="ao-fri">🎉 逢星期五落單「素」味人生自動 95 折</span><h3>')
+    body = _re.sub(r'<mark class="kw">(.*?)</mark>', r'\1', body)
+    rel_html = (('<h2 class="ao-h2">延伸閱讀</h2>' + rel_html(rel)) if rel else '') if False else ''
+    out = (f'<div class="ao-article wp-exclude-emoji">\n{one_line(BOAT)}\n{one_line(EXTRA)}\n{kv_html}\n{body}\n'
+           f'<h2 class="ao-h2" id="faq">常見問題</h2>\n{faq_html(faqs)}\n{sources_html(srcs)}\n</div>\n{faq_ld(faqs)}')
+    return out
