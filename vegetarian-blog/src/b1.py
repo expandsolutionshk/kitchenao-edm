@@ -7,6 +7,7 @@ body=f'''
 <nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#arrange">派對有素食朋友，食物應該怎樣安排？</a></li>
 <li><a href="#choose">揀素食到會要注意甚麼？</a></li>
+<li><a href="#tips">Kitchen AO 小貼士：由「素食星期一」開始，輕鬆實踐彈性素</a></li>
 <li><a href="#set">Kitchen AO「素」味人生套餐推介：價目、份量及菜式</a></li>
 <li><a href="#order">預訂流程、送貨及免運費</a></li>
 <li><a href="#faq">常見問題</a></li></ul></nav>
@@ -30,6 +31,13 @@ body=f'''
 <tr><td><b>4. 預訂時間</b></td><td>需要提早幾日預訂？</td></tr>
 </tbody></table></div>
 <div class="ao-tip">💡 <b>有特別要求？</b>如賓客要求全素、走五辛或有其他飲食限制，建議落單前<a href="https://api.whatsapp.com/send?phone=85269011987">WhatsApp 聯絡客服</a>，確認可否特別安排。</div>
+
+<h2 class="ao-h2" id="tips">Kitchen AO 小貼士：由「素食星期一」開始，輕鬆實踐彈性素</h2>
+<div class="ao-qa"><p class="t">來自 Kitchen AO 的建議</p><p>素食不一定要「全素」或「長期」。近年香港愈來愈多人選擇<b>彈性素</b>：平日照常飲食，但每星期安排一兩餐以植物性食物為主。根據柏堡活動策劃 2023 年的<a href="https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf" target="_blank" rel="noopener">問卷調查</a>，五年內開始素食的受訪者之中，近七成屬於彈性素，可見這是最容易入手的方式。</p></div>
+<p><a href="https://www.chp.gov.hk/tc/static/90050.html" target="_blank" rel="noopener">衞生署衞生防護中心</a>指出，大部分植物性食物含豐富膳食纖維、屬低脂及低熱量，而且不含膽固醇；適量進食蔬果和豆類，有助減低患上高血壓、心臟病和糖尿病等慢性疾病的機會。不過，素食並非必然健康，關鍵仍在於飲食均衡，例如多選全穀類、豆類及不同顏色的蔬果，並減少油、鹽、糖。</p>
+<h3 class="ao-h3">為甚麼是「星期五落單 95 折」？</h3>
+<p>因為我們鼓勵大家實踐 <b>Green Monday（素食星期一）</b>：每逢星期一，全日或其中一餐吃素，為新一週來個健康開始。「素」味人生套餐需最少提早三日預訂，星期五落單剛好趕及下星期一送到，方便公司、家庭或朋友一起實踐「一週一素」。</p>
+<div class="ao-tip">💡 <b>實踐小貼士：</b><ul style="margin:6px 0 0;padding-left:20px"><li>由每星期一餐開始，不必一下子改變全部飲食習慣。</li><li>公司可將星期一的午餐會議或下午茶改為素食，人人一齊參與。</li><li>家庭聚會可以一半素食、一半肉類，讓長輩和小朋友慢慢適應。</li><li>素食同樣要注意蛋白質，可多選豆類、豆腐、堅果及蛋奶類（蛋奶素人士適用）。</li></ul></div>
 
 <h2 class="ao-h2" id="set">Kitchen AO「素」味人生套餐推介：價目、份量及菜式</h2>
 <p>Kitchen AO「素」味人生是專為素食賓客設計的<a href="{C1}">素食到會套餐</a>，一份套餐已包括惹味小食、清新沙律、意粉或意大利飯及主菜，毋須逐款配搭，適合家庭聚會、公司活動及朋友派對。套餐按人數分為四款，菜式可在每個類別內自選。</p>
