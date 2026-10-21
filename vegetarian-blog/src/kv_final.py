@@ -10,9 +10,10 @@ KWS = '<p class="kw">' + ''.join(f'<span>#{w}</span>' for w in ['素食到會', 
 CREDIT = ('<!-- 相片來源（Pexels 免費授權，可商用、毋須標示）：背景 https://www.pexels.com/photo/5418661/（保留原本食物，抹走青蔥、蒜頭換成番茄）；'
           '紫豆角 https://www.pexels.com/photo/5202092/；紫羽衣甘藍 https://www.pexels.com/photo/5755657/；'
           '套餐相為 Kitchen AO 自家產品相 -->')
-def kv(src1600, src800):
+def kv(src1600, src800, pill=None, ttl=None, punch='素食，都可以豐富又滿足。', kws=None):
+  pill = pill or TAG; ttl = ttl or TTL; kwh = KWS if kws is None else '<p class="kw">' + ''.join(f'<span>#{w}</span>' for w in kws) + '</p>'
   return (CREDIT + f'<div class="kv fr f1 vkv"><style>.vkv .bgd{{background-image:url({src1600})}}@media(max-width:640px){{.vkv .bgd{{background-image:url({src800})}}}}</style><div class="bgd" aria-hidden="true"></div><div class="shade"></div>{LOGO}'
-        f'<div class="tb">{TAG}{TTL}<p class="pl2">素食，都可以豐富又滿足。</p>{KWS}</div>'
+        f'<div class="tb">{pill}{ttl}<p class="pl2">{punch}</p>{kwh}</div>'
         f'<div class="rib3"><img src="{SET}" alt="Kitchen AO「素」味人生素食到會套餐"><span>⭐「素」味人生套餐</span></div></div>')
 CSS = FRESH + '''
 .pl2{margin:2.2cqw 0 0;font-size:2.6cqw;font-weight:800;color:#2C6E49;letter-spacing:.15cqw}
@@ -82,8 +83,8 @@ def scope(css, pre='.ao-vegkv '):
     out.append(rules(css[i:]))
     return ''.join(out).replace('\n', '')
 css1 = '.ao-vegkv *{box-sizing:border-box}' + scope(CSS)
-def block(src1600, src800, tag='div'):
-    k = kv(src1600, src800).replace('<h2 class="ttl">', f'<{tag} class="ttl">').replace('</h2>', f'</{tag}>')
+def block(src1600, src800, tag='div', **kw):
+    k = kv(src1600, src800, **kw).replace('<h2 class="ttl">', f'<{tag} class="ttl">').replace('</h2>', f'</{tag}>')
     return ('<div class="ao-vegkv"><style>.ao-vegkv{margin:0 0 22px;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif}.ao-vegkv h1.ttl{margin:0!important;padding:0!important;border:0!important}' + css1 + '</style>' + k + '</div>')
 wp = ('<!-- B1 KV（WordPress Custom HTML／WPBakery Raw HTML）：先把 veg-b1-kv-bg-1600.jpg 及 veg-b1-kv-bg-800.jpg 上載到媒體庫，'
       '如網址不是 ' + WP_DIR + '…，請把下面兩個圖片網址改成媒體庫的網址 -->\n'
