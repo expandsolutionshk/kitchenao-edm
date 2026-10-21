@@ -2,10 +2,13 @@
 import os, html as H
 from kv_fresh import LOGO, IMG, TAG, TTL, CSS as FRESH
 HERE = os.path.dirname(os.path.abspath(__file__))
-JS = open(os.path.join(HERE, 'no5.js'), encoding='utf-8').read()
+JS = open(os.path.join(HERE, 'veg_bg.js'), encoding='utf-8').read()
 SET = 'https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481.jpg'
 KWS = '<p class="kw">' + ''.join(f'<span>#{w}</span>' for w in ['素食到會', '健康到會', '齋菜到會', '派對素食']) + '</p>'
-KV = (f'<div class="kv fr f1 vkv"><img class="bg" data-no5 src="{IMG["veg"]}" alt="" style="opacity:0;transition:opacity .4s"><div class="shade"></div>{LOGO}'
+CREDIT = ('<!-- 相片來源（Pexels 免費授權，可商用、毋須標示）：背景 https://www.pexels.com/photo/5418661/（保留原本食物，抹走青蔥、蒜頭換成番茄）；'
+          '紫豆角 https://www.pexels.com/photo/5202092/；紫羽衣甘藍 https://www.pexels.com/photo/5755657/；'
+          '套餐相為 Kitchen AO 自家產品相 -->')
+KV = (CREDIT + f'<div class="kv fr f1 vkv"><img class="bg" data-vegbg src="{IMG["veg"]}" alt="" style="opacity:0;transition:opacity .4s"><div class="shade"></div>{LOGO}'
       f'<div class="tb">{TAG}{TTL}<p class="pl2">素食，都可以豐富又滿足。</p>{KWS}</div>'
       f'<div class="rib3"><img src="{SET}" alt="Kitchen AO「素」味人生素食到會套餐"><span>⭐「素」味人生套餐</span></div></div>')
 CSS = FRESH + '''
@@ -34,7 +37,7 @@ prev = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <style>body{{margin:0;background:#E9E5DC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}}.w{{max-width:1240px;margin:0 auto;padding:24px 16px 60px}}h1{{font-size:22px;margin:0 0 4px}}p.d{{margin:0 0 18px;color:#7a6a45;font-size:14px}}h3{{margin:26px 0 8px;font-size:16px}}
 iframe{{border:0;display:block;background:#fff}}.dkw{{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;box-shadow:0 6px 24px rgba(0,0,0,.15)}}.dk{{position:absolute;left:0;top:0;width:1200px;height:675px;transform-origin:0 0}}.mb{{width:390px;height:487.5px;box-shadow:0 6px 24px rgba(0,0,0,.15)}}</style></head><body><div class="w">
 <h1>🥗 B1 KV 定稿：A1-e（Punch line＋關鍵字）</h1>
-<p class="d">同一段 HTML，闊度 640px 或以下自動轉為手機版 4:5。背景相已去五辛：青蔥抹走、蒜頭換成番茄（頁面載入時以 Canvas 即時處理）。</p>
+<p class="d">同一段 HTML，闊度 640px 或以下自動轉為手機版 4:5。背景：保留原本蔬菜（去五辛：抹走青蔥、蒜頭換成番茄），少量加入紫豆角及紫羽衣甘藍（，頁面載入時以 Canvas 即時處理，約 1–2 秒）。</p>
 <h3>桌面版（16:9）</h3><div class="dkw"><iframe class="dk" srcdoc="{SRCDOC}" title="B1 KV 桌面版（1200px 闊）" scrolling="no"></iframe></div>
 <h3>手機版（390px 闊，4:5）</h3><iframe class="mb" srcdoc="{SRCDOC}" title="B1 KV 手機版" scrolling="no"></iframe>
 </div><script>function fit(){{document.querySelectorAll('.dkw').forEach(w=>w.firstChild.style.transform='scale('+(w.clientWidth/1200)+')')}}fit();addEventListener('resize',fit)</script></body></html>'''

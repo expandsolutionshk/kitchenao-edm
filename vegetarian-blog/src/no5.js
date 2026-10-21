@@ -22,7 +22,7 @@ const fm=document.createElement('canvas');fm.width=W;fm.height=H;const fx2=fm.ge
 const id=x.getImageData(0,0,W,H);const d=id.data;
 for(let i=0;i<W*H*4;i+=4){const a=Math.min(1,fd[i]/255*1.8);if(a<=0.01)continue;const n=(Math.random()-.5)*5;for(let j=0;j<3;j++)d[i+j]=d[i+j]*(1-a)+(bd[i+j]+n)*a}
 x.putImageData(id,0,0);
-const srcT=S(116,240),R=56*2.381*k,sc=.62,D=R*sc;const t=document.createElement('canvas');t.width=t.height=Math.ceil(D*2);const tx=t.getContext('2d');
+const srcT=S(116,240),R=56*2.381*k,sc2=.62,D=R*sc2;const t=document.createElement('canvas');t.width=t.height=Math.ceil(D*2);const tx=t.getContext('2d');
 tx.drawImage(c,srcT[0]-R,srcT[1]-R+4*k,R*2,R*2,0,0,D*2,D*2);tx.globalCompositeOperation='destination-in';const gr=tx.createRadialGradient(D,D,D*.8,D,D,D*.98);gr.addColorStop(0,'#000');gr.addColorStop(1,'rgba(0,0,0,0)');tx.fillStyle=gr;tx.fillRect(0,0,D*2,D*2);
 x.drawImage(t,g[0]-D,g[1]-D+4*k);
 return c.toDataURL('image/jpeg',.9)}
