@@ -1,0 +1,37 @@
+# B1「有特別要求？」提示框：4 款設計（參考之前 blog）→ ../tip-options.html
+import pathlib
+HERE = pathlib.Path(__file__).parent
+WA = 'https://api.whatsapp.com/send?phone=85269011987&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E3%80%8C%E7%B4%A0%E3%80%8D%E5%91%B3%E4%BA%BA%E7%94%9F%E5%A5%97%E9%A4%90%E7%9A%84%E7%89%B9%E5%88%A5%E9%A3%B2%E9%A3%9F%E5%AE%89%E6%8E%92%E3%80%82'
+T1 = ('有特別要求？', '如賓客要求全素、走五辛或有其他飲食限制，建議落單前 WhatsApp 聯絡客服，確認可否特別安排。', True)
+T2 = ('混合派對怎樣選？', '若素食者只佔少數，可訂一般派對套餐，再加一份人數較少的「素」味人生套餐；若素食者佔多數，可直接以「素」味人生為主，並按人數選擇合適的套餐大小。', False)
+def A(t):  # 黑底 callout（雷射包 blog「想食多啲？」）
+    h, b, wa = t
+    btn = f'<a class="wa" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢 6901 1987</a>' if wa else ''
+    return f'<div class="tA"><p class="k">{h}</p><p class="b">{b}</p>{btn}</div>'
+def B(t):  # 編輯式上下細線（產品頁「延伸閱讀」）
+    h, b, wa = t
+    if wa: b = b.replace('WhatsApp 聯絡客服', f'<a href="{WA}" target="_blank" rel="noopener">WhatsApp 聯絡客服</a>')
+    return f'<div class="tB"><p class="k">{h}</p><p class="b">{b}</p></div>'
+def C(t, cls, em):  # 同「星期五落單優惠」框：淺色底＋圓角邊框＋emoji 粗體標題接正文
+    h, b, wa = t
+    if wa: b = b.replace('WhatsApp 聯絡客服', f'<a href="{WA}" target="_blank" rel="noopener">WhatsApp 聯絡客服</a>')
+    return f'<div class="tC {cls}">{em} <b>{h}</b>{b}</div>'
+CSS = '''body{margin:0;background:#FBF6EC;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#3f3a33}
+.w{max-width:820px;margin:0 auto;padding:24px 16px 60px}h1{font-size:20px}.lab{display:inline-block;background:#1A1A1A;color:#F7CE46;font-weight:800;font-size:13px;border-radius:6px;padding:2px 10px;margin:34px 0 6px}.d{font-size:13px;color:#7a6a45;margin:0 0 4px}
+.tA{background:#1A1A1A;border-radius:14px;padding:20px 24px;margin:20px 0;color:#EDE6D6;font-size:16px;line-height:1.9}.tA .k{color:#F7CE46;font-weight:800;font-size:16px;margin:0 0 6px}.tA .b{margin:0}.tA .wa{display:inline-block;margin-top:12px;background:#25D366;color:#fff;font-weight:700;text-decoration:none;padding:8px 18px;border-radius:40px;font-size:15px}
+.tB{border-top:1px solid #1A1A1A;border-bottom:1px solid #E4DCCB;padding:14px 0;margin:20px 0;font-size:16px;line-height:1.9}.tB .k{margin:0 0 4px;font-size:12px;letter-spacing:2px;color:#9A7B2E;font-weight:700}.tB .b{margin:0;color:#3f3a33}.tB a{color:#1A1A1A;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#C8A24A}
+.tC{border-radius:12px;padding:10px 14px;margin:16px 0;font-size:16px;line-height:1.9}.tC b{color:#1A1A1A}.tC a{color:#9A7B2E;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.tC.g{background:#F4FBF3;border:1.5px solid #CFE8CD}.tC.g a{color:#2C6E49}
+.tC.y{background:#FFF8E6;border:1.5px solid #F2D58A}'''
+html = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>B1 提示框 4 款設計</title><style>{CSS}</style></head><body><div class="w">
+<h1>B1 提示框：4 款設計</h1>
+<span class="lab">選項 A｜黑底提示框</span><p class="d">沿用雷射包 blog「想食多啲？」的黑底黃字框；有特別要求的一款加 WhatsApp 綠色按鈕。</p>
+{A(T1)}{A(T2)}
+<span class="lab">選項 B｜編輯式上下細線</span><p class="d">沿用產品頁「延伸閱讀」的做法：上黑線、下米色線、金色小標題，沒有底色和圖示；WhatsApp 只做文字連結。</p>
+{B(T1)}{B(T2)}
+<span class="lab">選項 C｜淺綠框（同星期五優惠框款式）</span><p class="d">與「星期五落單優惠」同一款式：淺色底、圓角細邊框、emoji＋粗體標題接正文；顏色改淺綠，配合素食主題，與橙色優惠框分得開。</p>
+{C(T1,'g','🌱')}{C(T2,'g','🥗')}
+<span class="lab">選項 D｜淺黃框（同星期五優惠框款式）</span><p class="d">同一款式，顏色改淺黃，與網站金色連結相襯；較中性，似「小貼士」。</p>
+{C(T1,'y','💬')}{C(T2,'y','💡')}
+</div></body></html>'''
+(HERE.parent / 'tip-options.html').write_text(html, encoding='utf-8'); print('ok')

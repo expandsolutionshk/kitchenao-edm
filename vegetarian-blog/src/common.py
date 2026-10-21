@@ -88,8 +88,7 @@ def page(pid, meta_title, meta_desc, kwlist, kv_tag, kv_sub, body, faqs, srcs, r
 {body}
 <h2 class="ao-h2" id="faq">常見問題</h2>
 {faq_html(faqs)}
-<h2 class="ao-h2">延伸閱讀</h2>
-{rel_html(rel)}
+{('<h2 class="ao-h2">延伸閱讀</h2>' + rel_html(rel)) if rel else ''}
 {sources_html(srcs)}
 </div>
 {faq_ld(faqs)}
