@@ -13,7 +13,7 @@ KV2=dict(pill='<span class="pill">素食新手入門 2026</span>',
 Y='<td class="c y">✓</td>';N='<td class="c n">✗</td>';M='<td class="c m">△</td>'
 body=f'''
 <p class="ao-intro">朋友說自己吃{k('素食')}，背後可以有好幾種意思：{k('蛋奶素')}會吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}卻可以吃蔥、蒜等{k('五辛')}。再加上{k('蔬食')}、彈性素、鍋邊素等說法，難怪不少人一頭霧水。這些名稱其實出自不同地方：香港衞生署的分類、台灣的食品標示法規，以及歐美的英文用語。本文由定義、分類到吃得與吃不得逐一拆解，最後附上聚會訂餐時要問清楚的重點。</p>
-<div class="ao-qa"><p class="t">30 秒看懂</p><p>香港衞生署按「可否吃蛋、奶」把素食分為<b>蛋奶素、蛋素、奶素及全素（純素）</b>四大類，並沒有提及五辛。「<b>五辛素</b>」及「全素或純素不含五辛」的界定，則來自<b>台灣</b>的素食標示法規；英文的 Vegan、Flexitarian（彈性素）、Pescatarian（海鮮素）則是<b>歐美</b>用語；Vegan 一般譯作「純素」，但與香港及台灣所說的純素不盡相同，例如可否吃五辛。由於同一個名稱在不同地方意思未必一樣，訂餐時最好直接說明「要不要蛋奶」及「要不要走五辛」。</p></div>
+<div class="ao-qa"><p class="t">30 秒看懂</p><p>香港衞生署按「可否吃蛋、奶」把素食分為<b>蛋奶素、蛋素、奶素及全素（純素）</b>四大類，並沒有提及五辛。「<b>五辛素</b>」及「全素或純素不含五辛」的界定，則來自<b>台灣</b>的素食標示法規。由於同一個名稱在不同地方意思未必一樣，訂餐時最好直接說明「要不要蛋奶」及「要不要走五辛」。</p></div>
 <style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style><nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#def">素食是甚麼？食素、素菜、蔬食、無肉有甚麼分別</a></li>
 <li><a href="#table">素食分類一覽表：一表看清 10 種吃法及出處</a></li>
