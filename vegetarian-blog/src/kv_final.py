@@ -13,7 +13,8 @@ CREDIT = ('<!-- 相片來源（Pexels 免費授權，可商用、毋須標示）
 def kv(src1600, src800, pill=None, ttl=None, punch='素食，都可以豐富又滿足。', kws=None, cols=None):
   pill = pill or TAG; ttl = ttl or TTL; kwh = KWS if kws is None else '<p class="kw">' + ''.join(f'<span>#{w}</span>' for w in kws) + '</p>'
   if cols:
-    ch = ''.join(f'<div class="col" style="background-image:url({u})"><span>{lab}<small>{sub}</small></span></div>' for u, lab, sub in cols)
+    NX='<i class="nx" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#E5383B" stroke-width="9"/><line x1="21" y1="79" x2="79" y2="21" stroke="#E5383B" stroke-width="9" stroke-linecap="round"/></svg></i>'
+    ch = ''.join(f'<div class="col{" no" if len(c)>3 and c[3] else ""}" style="background-image:url({c[0]})">{NX if len(c)>3 and c[3] else ""}<span>{c[1]}<small>{c[2]}</small></span></div>' for c in cols)
     return (f'<div class="kv fr f1 vkv c3"><div class="cols3">{ch}</div>{LOGO}'
             f'<div class="tb">{pill}{ttl}<p class="pl2">{punch}</p>{kwh}</div></div>')
   return (CREDIT + f'<div class="kv fr f1 vkv"><style>.vkv .bgd{{background-image:url({src1600})}}@media(max-width:640px){{.vkv .bgd{{background-image:url({src800})}}}}</style><div class="bgd" aria-hidden="true"></div><div class="shade"></div>{LOGO}'
@@ -31,6 +32,8 @@ CSS = FRESH + '''
 .vkv .cols3 .col span small{display:block;font-size:1.1cqw;font-weight:700;color:#5a7a63}
 .vkv .fade3{position:absolute;top:0;bottom:0;right:45%;width:6%;background:linear-gradient(90deg,rgba(244,248,239,0),#F4F8EF);transform:translateX(100%);pointer-events:none}
 .vkv.c3 .ttl{font-size:3.5cqw}
+.vkv .cols3 .col.no:before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.18)}
+.vkv .cols3 .col .nx{position:absolute;left:50%;top:42%;width:72%;max-width:16cqw;transform:translate(-50%,-50%);filter:drop-shadow(0 .4cqw .8cqw rgba(0,0,0,.35))}.vkv .cols3 .col .nx svg{display:block;width:100%;height:auto}
 .vkv img{max-width:none!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;border-radius:0}
 .vkv .logo2{box-sizing:border-box!important;line-height:0}
 .vkv .logo2 .li{height:2.3cqw!important;width:auto!important;display:block!important}
