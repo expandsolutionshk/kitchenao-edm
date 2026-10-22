@@ -7,7 +7,7 @@ CLR = ['#E9A400', '#3C8FCB', '#E8743B', '#2F8F4E']   # 蛋奶素 黃／奶素 �
 CSS = '''
 .ao-mkv{margin:0 0 22px;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif}
 .ao-mkv *{box-sizing:border-box}
-.ao-mkv .kv{position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:#FBFAF6}
+.ao-mkv .kv{border:4px solid #CFE8CD;border-radius:6px;position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:#FBFAF6}
 .ao-mkv .g{position:absolute;top:0;right:0;bottom:0;width:45%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.5cqw;background:#fff}
 .ao-mkv .g>div{position:relative;background-size:cover;background-position:center}
 .ao-mkv .g span{position:absolute;left:.6cqw;bottom:1.4cqw;transform:rotate(-2deg);white-space:nowrap;background:none no-repeat center/100% 100%;padding:.9cqw 3.6cqw 1cqw 3.2cqw;color:#fff;line-height:1.25;filter:drop-shadow(0 .3cqw .5cqw rgba(0,0,0,.18))}
