@@ -285,7 +285,7 @@ BODY_HERO = BODY_HERO.replace('</style><section class="pk-hero"', """
 .ao-picnic .rpanel{display:none}.ao-picnic .rpanel.on{display:block}
 .ao-picnic .rpanel .cmp>summary,.ao-picnic .rpanel .tclose{display:none!important}.ao-picnic .rpanel #hk-table{border-bottom:0;padding-bottom:0}.ao-picnic .rpanel #hk-table .ao-h2{margin-top:6px!important}
 @media(max-width:640px){.ao-picnic .rtabs button{font-size:13.5px!important;padding:9px 4px!important}.ao-picnic .rmod{margin-left:0}}
-body:has(.ao-picnic) #lafka_page_title .inner{padding-top:40px!important;padding-bottom:20px!important}body:has(.ao-picnic) #content>.inner{padding-top:0!important}body:has(.ao-picnic) .lafka_post_data_holder{padding-top:16px!important}@media(max-width:640px){body:has(.ao-picnic) #lafka_page_title .inner{padding-top:20px!important;padding-bottom:14px!important}body:has(.ao-picnic) .lafka_post_data_holder{padding-top:10px!important}}
+body:has(.ao-picnic) #lafka_page_title .inner{padding-bottom:20px!important}body:has(.ao-picnic) #content>.inner{padding-top:0!important}body:has(.ao-picnic) .lafka_post_data_holder{padding-top:16px!important}@media(max-width:640px){body:has(.ao-picnic) #lafka_page_title .inner{padding-bottom:14px!important}body:has(.ao-picnic) .lafka_post_data_holder{padding-top:10px!important}}
 @media(max-width:640px){.ao-article.ao-picnic{width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:0!important;padding-left:18px!important;padding-right:18px!important;box-sizing:border-box!important}}
 </style><section class="pk-hero" """.rstrip(), 1)
 prev_hero = prev.replace(BODY, BODY_HERO)
