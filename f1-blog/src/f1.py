@@ -27,6 +27,7 @@ S = {
  'gpl':  ('媒體', 'GRANDPRIX247／Reuters — Leclerc supports Hamilton but not going vegan himself（2019 年 10 月）', 'https://www.grandprix247.com/formula-1-news/leclerc-supports-hamilton-but-not-going-vegan-himself'),
  'gpb':  ('媒體', 'GPblog — Verstappen reveals his training week and diet（2021 年 9 月）', 'https://www.gpblog.com/en/news/verstappen-reveals-his-training-week-and-diet.html'),
  'gpf':  ('媒體', 'GPFans — Inside the diet of an F1 driver: Private chefs, blood tests and NO fish（2025 年 11 月）', 'https://www.gpfans.com/en/f1-news/1066611/diet-f1-driver-lando-norris-private-chef/'),
+ 'lec':  ('Instagram', '勒克萊爾（@charles_leclerc）及 LEC 雪糕（@lec）Instagram 帖文', 'https://www.instagram.com/lec/'),
  'f1t':  ('官方', 'Formula 1 — Official Grand Prix start times for 2026 F1 season confirmed', 'https://www.formula1.com/en/latest/article/official-grand-prix-start-times-for-2026-f1-season-confirmed.2UgPfArqH76tzlOYh21jSG'),
  'scmp': ('香港媒體', 'South China Morning Post（STYLE）— What did vegan racing driver Lewis Hamilton eat to fuel his fifth F1 world title?', 'https://www.scmp.com/magazines/style/people-events/article/2175510/what-did-vegan-racing-driver-lewis-hamilton-eat-fuel'),
  'hksi': ('香港機構', '香港體育學院運動營養監控中心《運動營養教育系列手冊 XXII：運動營養補充品應用》（2020 年 5 月）', 'https://hksi.org.hk/f/page/509/S22.%20%E9%81%8B%E5%8B%95%E7%87%9F%E9%A4%8A%E8%A3%9C%E5%85%85%E5%93%81%E6%87%89%E7%94%A8.pdf'),
@@ -66,6 +67,7 @@ body = f'''
 <tr><td><b>晚餐</b></td><td>番茄湯，再配烤魚、番薯及沙律；甜品是乳酪</td><td>6 時 30 分：當日第一份肉或魚——烤鯖魚配小份焗番薯及沙律；甜品是乳酪配莓果</td></tr>
 <tr><td><b>宵夜</b></td><td>—</td><td>9 時：薄脆餅配 Marmite 及水果；10 時就寢</td></tr>
 </tbody></table></div>
+<div class="ao-ph"><div>📷 相片位置 1<br><small>Kitchen AO 重現早餐：燕麥粥配莓果、香蕉、果仁</small></div><div>📷 相片位置 2<br><small>Kitchen AO 重現午餐：沙律配雞胸及番茄莎莎</small></div><div>📷 相片位置 3<br><small>Kitchen AO 重現晚餐：烤魚配番薯及沙律</small></div></div>
 <p class="ao-tcap">資料來源：Red Bull（2024 年）、Business Insider 轉載 McLaren 餐單（2017 年）。不同車手及車隊的餐單各有不同，僅供參考。</p>
 
 <h2 class="ao-h2" id="nutri">三大營養重點：碳水化合物、蛋白質、水分</h2>
@@ -96,24 +98,27 @@ body = f'''
 </tbody></table></div>
 <p class="ao-tcap">以上為車手在不同年份的公開說法，飲食習慣或已改變。</p>
 
-<h3 class="ao-h3">咸美頓：植物性飲食的代表</h3>
+<h3 class="ao-h3">咸美頓（Lewis Hamilton）：植物性飲食的代表</h3>
 <p>七屆世界冠軍咸美頓（現效力法拉利）約於 2017 年轉吃植物性飲食。他接受 Men's Health 訪問時說，早上會吃牛油果多士，每天喝兩至三次加入植物蛋白的果昔，午餐是多牛油果的沙律，晚餐愛吃植物性咖喱，平日以果仁及純素蛋白棒補充能量。鷹嘴豆蓉更是他的日常小食：</p>
-<blockquote class="ao-quote">「我以前看到鷹嘴豆蓉就想：『我絕對不會吃！』現在我很愛吃，每天都吃。」<cite>——咸美頓接受《Vanity Fair》訪問（Vegan Food &amp; Living 轉述，2022 年）</cite></blockquote>
+<blockquote class="ao-quote">「我以前看到鷹嘴豆蓉就想：『我絕對不會吃！』現在我很愛吃，每天都吃。」<cite>——咸美頓（Lewis Hamilton）接受《Vanity Fair》訪問（Vegan Food &amp; Living 轉述，2022 年）</cite></blockquote>
 <p>醫生曾警告他吃純素難以攝取足夠蛋白質，他的回應是：「轉吃植物性飲食後，我再贏了五次世界冠軍，表現比以往更穩定。」據《南華早報》報道，他更曾在<b>香港找到一款素漢堡，還請人送到日本，比賽期間每天吃</b>。不過，報道亦引述曾與 McLaren 及法拉利合作的運動生化學家 Rob Child 提醒，純素運動員要仔細規劃飲食，例如攝取足夠的健康脂肪。如果派對上有素食朋友，可參考{a(AO + '/blog/vegetarian-catering-hong-kong/', '素食到會安排攻略')}。</p>
 
-<h3 class="ao-h3">維特爾：試過純素，最後「少肉多菜」</h3>
-<blockquote class="ao-quote">「這個實驗維持了大約六個星期，我從中學到很多……世上沒有一種『正確』的飲食，因為每個人都不同。」<cite>——維特爾接受瑞士《Blick》訪問（GRANDPRIX247 轉載，2019 年）</cite></blockquote>
+<h3 class="ao-h3">維特爾（Sebastian Vettel）：試過純素，最後「少肉多菜」</h3>
+<blockquote class="ao-quote">「這個實驗維持了大約六個星期，我從中學到很多……世上沒有一種『正確』的飲食，因為每個人都不同。」<cite>——維特爾（Sebastian Vettel）接受瑞士《Blick》訪問（GRANDPRIX247 轉載，2019 年）</cite></blockquote>
 <p>四屆世界冠軍維特爾表示，雖然最終恢復吃肉，但現在吃少了肉，碟上的蔬菜也多了。</p>
 
-<h3 class="ao-h3">勒克萊爾：喜歡牛肉，但願意嘗試</h3>
-<blockquote class="ao-quote">「我不是純素食者，但我一直在研究這些方法……我喜歡牛肉，但也想多往（植物性飲食）那個方向試試。」<cite>——勒克萊爾接受路透社訪問（GRANDPRIX247 轉載，2019 年）</cite></blockquote>
+<h3 class="ao-h3">勒克萊爾（Charles Leclerc）：喜歡牛肉，但願意嘗試</h3>
+<blockquote class="ao-quote">「我不是純素食者，但我一直在研究這些方法……我喜歡牛肉，但也想多往（植物性飲食）那個方向試試。」<cite>——勒克萊爾（Charles Leclerc）接受路透社訪問（GRANDPRIX247 轉載，2019 年）</cite></blockquote>
+<p>不過，勒克萊爾也懂得「健康地放縱」：他推出了自家雪糕品牌 LEC，據品牌在 Instagram 的說法，LEC 以減少脂肪和糖來降低熱量，每桶最多 399 千卡。</p>
+<div class="ao-ig"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/charles_leclerc/reel/DM-tfGhIics/" data-instgrm-version="14" style="max-width:420px;min-width:280px;width:100%;margin:0 auto;border:0"><a href="https://www.instagram.com/charles_leclerc/reel/DM-tfGhIics/" target="_blank" rel="noopener">在 Instagram 查看勒克萊爾（@charles_leclerc）的帖文</a></blockquote></div>
 
-<h3 class="ao-h3">韋斯塔潘：吃得夠，比吃得少更重要</h3>
-<blockquote class="ao-quote">「體重在賽車中十分重要，所以我的飲食經過仔細管理。這是一項很耗體力的運動，我一定確保自己吃得夠。」<cite>——韋斯塔潘接受 Men's Health 訪問（GPblog 轉述，2021 年）</cite></blockquote>
+
+<h3 class="ao-h3">韋斯塔潘（Max Verstappen）：吃得夠，比吃得少更重要</h3>
+<blockquote class="ao-quote">「體重在賽車中十分重要，所以我的飲食經過仔細管理。這是一項很耗體力的運動，我一定確保自己吃得夠。」<cite>——韋斯塔潘（Max Verstappen）接受 Men's Health 訪問（GPblog 轉述，2021 年）</cite></blockquote>
 <p>他補充，飲食會因應比賽地點和天氣調整，在潮濕天氣下消耗的熱量，與在賽道上不相伯仲。</p>
 
-<h3 class="ao-h3">諾里斯：不吃魚，靠私人廚師補營養</h3>
-<blockquote class="ao-quote">「我的飲食頗嚴格，由廚師負責我所有食物。我經常驗血，看看自己缺少甚麼；因為我不吃魚，奧米加 3 通常很低，廚師就會煮針對性的食物，補充鐵、鎂、奧米加 3 等。」<cite>——諾里斯接受米芝蓮二星廚師 Sidney Schutte 訪問（GPFans 轉述，2025 年）</cite></blockquote>
+<h3 class="ao-h3">諾里斯（Lando Norris）：不吃魚，靠私人廚師補營養</h3>
+<blockquote class="ao-quote">「我的飲食頗嚴格，由廚師負責我所有食物。我經常驗血，看看自己缺少甚麼；因為我不吃魚，奧米加 3 通常很低，廚師就會煮針對性的食物，補充鐵、鎂、奧米加 3 等。」<cite>——諾里斯（Lando Norris）接受米芝蓮二星廚師 Sidney Schutte 訪問（GPFans 轉述，2025 年）</cite></blockquote>
 <p>有趣的是，他賽後通常會吃一個漢堡：「這不算作弊，是體能教練給我的！」可見車手並非完全戒口，而是把「放縱餐」安排在適當時候。</p>
 
 <h2 class="ao-h2" id="comfort">車手也有「放縱餐」</h2>
@@ -143,6 +148,7 @@ body = f'''
 </div>
 <p>Kitchen AO 的{a(AO + '/product-category/party/foot-party/', '美食派對 Gourmet 套餐')}適合阿布達比站等晚餐派對；{a(AO + '/product-category/party/refreshment-set/', '輕食宴會套餐')}及{a(AO + '/product-category/party/platter/', '手指食物拼盤')}適合深夜場；另可{a(AO + '/product-category/a-la-carte/salad/', '單點沙律')}增加蔬菜份量。素食朋友可選{a(AO + '/product-category/party/vegetarians-set/', '「素」味人生素食到會')}；公司舉辦 F1 主題活動，可參考{a(AO + '/business-event/', '商務活動到會')}或{a(AO + '/catering-quote-enquiry/', '索取報價')}。送貨範圍及免運費優惠，請參閱{a(AO + '/delivery/', '送貨需知')}。</p>
 {CTA}
+<script async src="https://www.instagram.com/embed.js"></script>
 '''
 
 faqs = [
@@ -154,9 +160,9 @@ faqs = [
  ('在家觀賽需要喝運動飲品嗎？', '一般不需要。香港體育學院指運動飲品適合超過 90 分鐘的運動，或炎熱環境下超過 60 分鐘的高強度運動；坐着觀賽喝清水已足夠，過量飲用反而增加熱量。'),
  ('F1 觀賽派對到會怎樣安排？', '先看比賽的香港開始時間：晚上的分站可吃正餐，深夜或凌晨的分站宜選輕食及拼盤。菜式可參考車手原則——多蔬果、選烤肉海鮮、主食適量，並照顧素食朋友的需要。'),
 ]
-srcs = [S[x] for x in ['rb', 'rbtw', 'bi', 'rn', 'fr', 'vfl', 'gpv', 'gpl', 'gpb', 'gpf', 'f1t', 'scmp', 'hksi', 'ao', 'del']]
+srcs = [S[x] for x in ['rb', 'rbtw', 'bi', 'rn', 'fr', 'vfl', 'gpv', 'gpl', 'gpb', 'gpf', 'lec', 'f1t', 'scmp', 'hksi', 'ao', 'del']]
 
-QCSS = '<style>.ao-quote{margin:14px 0 16px!important;padding:12px 18px!important;background:#FAF7F1;border-left:4px solid #C8A24A;border-radius:0 12px 12px 0;font-size:16.5px;line-height:1.8;color:#3f3a33}.ao-quote cite{display:block;margin-top:6px;font-style:normal;font-size:13px;color:#7a6a45}.ao-tbl small{color:#7a6a45;font-size:12px}</style>'
+QCSS = '<style>.ao-ig{margin:14px 0 18px}.ao-ph{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 6px}.ao-ph>div{aspect-ratio:1/1;border:2px dashed #C8A24A;border-radius:12px;background:#FFF8E6;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;color:#9A7B2E;padding:8px;font-size:15px}.ao-ph small{font-weight:600;font-size:12.5px;color:#7a6a45}@media(max-width:640px){.ao-ph{grid-template-columns:1fr}}.ao-quote{margin:14px 0 16px!important;padding:12px 18px!important;background:#FAF7F1;border-left:4px solid #C8A24A;border-radius:0 12px 12px 0;font-size:16.5px;line-height:1.8;color:#3f3a33}.ao-quote cite{display:block;margin-top:6px;font-style:normal;font-size:13px;color:#7a6a45}.ao-tbl small{color:#7a6a45;font-size:12px}</style>'
 body = QCSS + body
 FRI = '<span class="ao-fri">🎉 逢星期五落單「素」味人生自動 95 折</span>'
 KV = f'<style>.ao-kv.f1kv:after{{content:"🏎️🏁"}}</style><div class="ao-kv f1kv"><span class="k">F1 車手飲食 × 觀賽派對 2026</span><h1>{TITLE}</h1><p>咸美頓吃素、勒克萊爾愛牛肉、諾里斯不吃魚——看車手餐單，學辦一場健康又滿足的觀賽派對。</p></div>'

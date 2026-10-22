@@ -15,7 +15,7 @@ body=f'''
 <p class="ao-intro">{k('素食')}並不只有「不吃肉」一種。{k('蛋奶素')}可以吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}則可以吃蔥、蒜等{k('五辛')}；再加上{k('蔬食')}、彈性素、鍋邊素等說法，難怪不少人分不清。原來這些名稱來自不同地方：有香港衞生署的分類，有台灣的食品標示法規，也有歐美的英文用語。本文逐一整理它們的出處及分別，並列出訂餐時要問清楚的重點。</p>
 <div class="ao-qa"><p class="t">30 秒看懂</p><p>香港衞生署按「可否吃蛋、奶」把素食分為<b>蛋奶素、蛋素、奶素及全素（純素）</b>四大類，並沒有提及五辛。「<b>五辛素</b>」及「全素或純素不含五辛」的界定，則來自<b>台灣</b>的素食標示法規；Vegan、Flexitarian、Pescatarian 等則是<b>歐美</b>用語。由於同一個名稱在不同地方意思未必一樣，訂餐時最好直接說明「要不要蛋奶」及「要不要走五辛」。</p></div>
 <style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style><nav class="ao-toc"><div class="t">目錄</div><ul>
-<li><a href="#def">素食是甚麼？素食、蔬食、無肉有甚麼分別</a></li>
+<li><a href="#def">素食是甚麼？食素、素菜、蔬食、無肉有甚麼分別</a></li>
 <li><a href="#table">素食分類一覽表：一表看清 10 種吃法及出處</a></li>
 <li><a href="#types">衞生署四大分類：蛋奶素、蛋素、奶素、全素</a></li>
 <li><a href="#vegan-wuxin">全素／純素可以吃五辛嗎？</a></li>
@@ -27,14 +27,17 @@ body=f'''
 <li><a href="#party">朋友吃素，聚會訂餐要問清楚甚麼？</a></li>
 <li><a href="#faq">常見問題</a></li></ul></nav>
 
-<h2 class="ao-h2" id="def">素食是甚麼？素食、蔬食、無肉有甚麼分別</h2>
+<h2 class="ao-h2" id="def">素食是甚麼？食素、素菜、蔬食、無肉有甚麼分別</h2>
 <p>根據衞生署衞生防護中心的說法，{k('素食')}泛指<b>以植物為主要食糧，不進食部分或所有動物的肉、內臟及其製品</b>的飲食模式。至於蛋、奶、蜜糖等動物來源食品吃不吃，就視乎屬哪一類素食。廣東話常說的「{k('食素')}」「食齋」，都屬於這個範圍。</p>
 <div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>說法</th><th>一般意思</th></tr></thead><tbody>
 <tr><td><b>素食</b></td><td>統稱，包括蛋奶素、全素及宗教齋食；不吃肉類及海鮮。</td></tr>
 <tr><td><b>蔬食</b></td><td>以蔬菜及植物為主的飲食，較強調健康及環保理念，未必嚴守宗教戒律（例如可能用蔥蒜）。</td></tr>
+<tr><td><b>葷食</b></td><td>日常指含肉類、海鮮等動物性食物的飲食，與素食相對；佛教所說的「葷」，原本另指五辛等氣味濃烈的蔬菜（見下文五葷）。</td></tr>
 <tr><td><b>無肉</b></td><td>只強調「不吃肉」，一般仍會吃蛋和奶；嚴格程度因人而異。</td></tr>
 </tbody></table></div>
-<p>{k('素食主義')}（Vegetarianism）是指奉行素食的生活理念，背後原因可以是健康、宗教、環保或動物權益。至於日常說的{k('素菜')}，一般是指不含肉的菜式，但未必符合所有素食者的要求，例如可能用了蠔油或雞湯調味。</p>
+<h3 class="ao-h3">素食主義是甚麼？素食主義者有哪些類型？</h3>
+<p>{k('素食主義')}（Vegetarianism）是指奉行素食的生活理念，背後原因可以是健康、宗教、環保或動物權益；奉行的人稱為{k('素食主義者')}（Vegetarian）。按吃不吃蛋、奶，素食主義者又可分為蛋奶素、蛋素、奶素及全素（純素）等，即下文的素食分類。不少宗教亦有素食傳統，例如漢傳佛教的出家人一般茹素，道教信眾則多在齋期或特定日子吃素。</p>
+<p>至於日常說的{k('素菜')}，一般是指不含肉的菜式，但未必符合所有素食者的要求，例如可能用了蠔油或雞湯調味。</p>
 
 <h2 class="ao-h2" id="table">素食分類一覽表：一表看清 10 種吃法及出處</h2>
 <p>下表整理香港常見的 10 種吃法，並註明每個名稱的出處。✓＝可以吃，✗＝不吃，△＝視乎個人、宗教團體或採用的定義。</p>
@@ -99,6 +102,8 @@ body=f'''
 <p>海鮮素（Pescatarian）是歐美用語，指不吃肉類，但會吃魚及海鮮。由於仍會進食動物，<b>並不屬於素食</b>，也不應視作彈性素；為素食朋友準備食物時，不應以海鮮代替肉類。</p>
 
 <h2 class="ao-h2" id="cancan">吃素可以吃甚麼？不可以吃甚麼？</h2>
+<h3 class="ao-h3">素食食物有哪些？</h3>
+<p>常見的{k('素食食物')}包括穀物、蔬菜、水果、豆腐及豆類、堅果和菇菌類；如果是全素（純素），一份{k('純素餐')}就不能有蛋、奶、蜜糖等動物來源食品，連魚露、蠔油、雞粉等調味料也要避開。</p>
 <p>「{k('素食吃什麼')}」視乎所屬類型。以下按常見食物整理：</p>
 <div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>食物</th><th>蛋奶素</th><th>全素／純素</th><th>五辛素</th><th>純素（不含五辛）</th></tr></thead><tbody>
 <tr><td>穀物、蔬果、豆腐、堅果</td>{Y}{Y}{Y}{Y}</tr>
@@ -138,6 +143,7 @@ faqs=[
 ('純素可以吃五辛嗎？','視乎採用哪個定義。香港衞生署的定義沒有提及五辛；台灣法規的「全素或純素」列明不含五辛；歐美的 Vegan 則一般可以吃蔥蒜。訂餐時宜直接說明是否需要走五辛。'),
 ('五辛素是什麼意思？','五辛素是指不吃肉類與海鮮，但可以食用五種特定辛香植物的蔬食方式。在台灣的食品標示法規中，正式名稱為「植物五辛素」。'),
 ('植物五辛素是素食嗎？','是。按台灣的食品標示法規，植物五辛素是五種素食標示之一，指食用植物性的食物，並可含蔥、蒜、韭、蕎及興渠等五辛。'),
+('五辛是什麼？','五辛是指五種氣味濃烈的辛香植物。按台灣法規，五辛是蔥、蒜、韭、蕎（薤）及興渠；部分素食者因宗教原因不吃五辛，五辛素則可以吃。'),
 ('五辛是指哪五種食物？','台灣法規列明的五辛是蔥、蒜、韭、蕎（薤）及興渠；佛教典籍所列的五葷大致相同，但不同宗派的名單略有不同，不少素食者亦把洋蔥視作五辛。'),
 ('五辛素可以吃蛋奶嗎？','按台灣法規，植物五辛素可以含奶或蛋，但須在內容物名稱內說明，所以要視乎個人習慣或產品標示。'),
 ('辣椒是五辛嗎？','不是。辣椒、薑及胡椒都不屬五辛。'),
@@ -147,7 +153,7 @@ faqs=[
 ]
 srcs=[SRC['chp'],SRC['chp_en'],SRC['shs'],('政府','台灣行政院衞生署公告〈包裝食品宣稱為素食之標示規定〉（衞署食字第 0970402575 號，2008 年）','https://www.bsmi.gov.tw/wSite/public/Data/f1247018671891.pdf'),('政府','台灣衞生福利部〈素食五標示 7/1 貼心上路〉','https://mohw.gov.tw/cp-16-27546-1.html'),('辭典','Merriam-Webster — flexitarian','https://www.merriam-webster.com/dictionary/flexitarian'),('辭典','Oxford Learner’s Dictionaries — flexitarian','https://www.oxfordlearnersdictionaries.com/definition/american_english/flexitarian'),('媒體','Healthline — The Flexitarian Diet: A Detailed Beginner’s Guide','https://www.healthline.com/nutrition/flexitarian-diet-guide'),('政府','USDA FAS — Food and Agricultural Import Regulations and Standards Country Report: Taiwan (2022)','https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Food+and+Agricultural+Import+Regulations+and+Standards+Country+Report_Taipei_Taiwan_TW2022-0059'),('機構','The Vegan Society — Definition of veganism','https://www.vegansociety.com/go-vegan/definition-veganism'),('媒體','食力 foodNEXT〈到底什麼是純素主義？東、西方素食定義大不同！〉','https://www.foodnext.net/column/columnist/paper/5357549999'),('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['hku'],SRC['zdic']]
 open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(page(PID,
- '素食種類全攻略｜蛋奶素、五辛素、純素、蔬食有甚麼分別？素食分類一覽表',
+ '素食分類天書｜素食種類一覽：蛋奶素、五辛素、純素、蔬食有甚麼分別？',
  '素食分類一表看清：蛋奶素、蛋素、奶素、全素（純素）、五辛素有甚麼分別？哪些分類來自香港衞生署、台灣法規或歐美用語？純素可以吃五辛嗎、訂餐要問清楚甚麼，全面整理。',
  ['素食','蛋奶素','五辛','純素','蔬食'],'素食分類天書','以衞生署官方分類為基礎，一篇看清 9 種素食吃法、五辛定義及吃得與吃不得。',body,faqs,srcs,['B1'],
  kv_html=kv_mag.block(MCOLS,'h1')))

@@ -40,7 +40,7 @@ body=f'''
 <tr><td>蜜糖</td><td class="c m">△</td><td class="c n">✗</td></tr>
 <tr><td>皮革、羊毛等用品</td><td class="c m">不一定</td><td class="c m">奉行純素主義者多會避免</td></tr>
 </tbody></table></div>
-<p>簡單來說，Vegan 是 Vegetarian 中最嚴格的一種。各類素食的中文定義及分別，可參考{link('B2','《素食種類全攻略》')}。</p>
+<p>簡單來說，Vegan 是 Vegetarian 中最嚴格的一種。各類素食的中文定義及分別，可參考{link('B2','《素食分類天書》')}。</p>
 
 <h2 class="ao-h2" id="flex">Flexitarian 彈性素食是甚麼？</h2>
 <p>Flexitarian 由 flexible（彈性）及 vegetarian 組成，中文譯作「{k('彈性素食者')}」，指以植物性飲食為主、間中吃肉的人。香港推廣的 Green Monday「一週一素」便屬{k('彈性素食')}的一種，詳見{link('B4','《吃素好處與營養》')}。</p>

@@ -94,7 +94,7 @@ EXTRA = '''<style>
 B = 'https://aoaodelivery.com'
 BLOGS = {
  'B1': ('派對有素食朋友點安排？素食到會揀選全攻略', B + '/blog/vegetarian-catering-hong-kong/'),
- 'B2': ('素食種類全攻略：蛋奶素、五辛素、純素點分？', B + '/blog/vegetarian-types-guide/'),
+ 'B2': ('素食分類天書：蛋奶素、五辛素、純素點分？', B + '/blog/vegetarian-types-guide/'),
  'B3': ('初一十五食齋懶人包｜可以吃蛋嗎？食齋禁忌及 2026–2027 日子一覽', B + '/blog/chu-yat-sap-ng-vegetarian-guide/'),
  'B4': ('吃素好處與營養｜素食者怎樣補充蛋白質？Green Monday 一週一素入門', B + '/blog/vegetarian-nutrition-protein/'),
  'B5': ('一週素食菜單｜簡易素食食譜，不想煮可以點？', B + '/blog/weekly-vegetarian-menu/'),
