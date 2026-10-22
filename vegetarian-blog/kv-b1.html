@@ -75,6 +75,10 @@
 .vkv .rib3 img{width:100%!important;height:auto!important;aspect-ratio:1/1;object-fit:cover;border-radius:1cqw!important}
 .vkv .bgd{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(1.15) saturate(1.08)}
 .vkv .shade{background:linear-gradient(90deg,rgba(248,251,244,.83) 0%,rgba(248,251,244,.70) 42%,rgba(248,251,244,0) 66%)}
+/* 2x2 四格 */
+.vkv.g4 .cols3{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.5cqw}
+.vkv.g4 .cols3 .col span{bottom:2cqw;font-size:1.7cqw;padding:.45cqw 1.4cqw}.vkv.g4 .cols3 .col span small{font-size:1.05cqw}
+.vkv.c3 .tb{max-width:48cqw}.vkv.c3 .pl2{font-size:2.1cqw;line-height:1.5;white-space:normal}
 @media(max-width:640px){
 .vkv{aspect-ratio:4/5}
 .vkv .shade{background:linear-gradient(180deg,rgba(248,251,244,.85) 0%,rgba(248,251,244,.78) 48%,rgba(248,251,244,0) 72%)}
@@ -86,6 +90,7 @@
 .vkv .kw{gap:1.6cqw;margin-top:2.6cqw}.vkv .kw span{font-size:3.1cqw;padding:.7cqw 2.4cqw;border-width:.3cqw}
 .vkv .rib3{width:44cqw;right:6cqw;bottom:6cqw;padding:.9cqw .9cqw 8.6cqw;border-radius:2.4cqw}
 .vkv .cols3{top:auto;left:0;width:100%;height:46%}.vkv .fade3{display:none}.vkv .cols3 .col span{font-size:3.2cqw;bottom:4cqw;padding:1cqw 2.4cqw;border-width:.4cqw}.vkv .cols3 .col span small{font-size:2.2cqw}.vkv.c3 .ttl{font-size:6.3cqw}
+.vkv.c3 .tb{max-width:none}.vkv.c3 .pl2{font-size:3.8cqw}.vkv.g4 .cols3 .col span{font-size:3cqw;bottom:2.6cqw;padding:.8cqw 2.2cqw}.vkv.g4 .cols3 .col span small{font-size:2cqw}
 .vkv .rib3 span{font-size:3.3cqw;bottom:1.8cqw;left:-2.4cqw;right:-2.4cqw;padding:1.3cqw .6cqw}
 }
 

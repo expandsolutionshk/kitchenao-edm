@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 from common import *
 import kv_final as KVB
+import kv_mag
 PID='B2'
 _PX='https://images.pexels.com/photos/{0}/pexels-photo-{0}.jpeg?auto=compress&cs=tinysrgb&w=700'
-IMGS={'egg':_PX.format(7118901),'wx':_PX.format(17140078),'vg':_PX.format(6157094)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
-KV2=dict(pill='<span class="pill">素食新手入門｜素食種類 2026</span>',
- ttl='<h2 class="ttl">朋友說<span class="y">「我吃素」</span>，<br>你知道是哪一種嗎？</h2>',
- punch='素食不只 4 大類，新手一表看清 10 種吃法！', kws=['素食種類','蛋奶素','奶素','五辛素','純素'],
- cols=[(IMGS['egg'],'🥚 蛋奶素','吃蛋、奶'),(IMGS['wx'],'🧄 五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'🌱 純素','只吃植物')])
+IMGS={'egg':_PX.format(7118901),'milk':_PX.format(36183642),'wx':_PX.format(17140078),'vg':_PX.format(6157094)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
+MCOLS=[(IMGS['egg'],'蛋奶素','吃蛋、奶'),(IMGS['milk'],'奶素','吃奶、不吃蛋'),(IMGS['wx'],'五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'純素','只吃植物')]
+KV2=dict(pill='<span class="pill">素食新手入門 2026</span>',
+ ttl='<h2 class="ttl">聚會有朋友吃素？<br>新手一表看懂<span class="y">素食種類</span></h2>',
+ punch='蛋奶素、奶素、五辛素、純素……<br>10 種吃法一次看清！', kws=['素食種類','蛋奶素','奶素','五辛素','純素'],
+ cols=[(IMGS['egg'],'🥚 蛋奶素','吃蛋、奶'),(IMGS['milk'],'🥛 奶素','吃奶、不吃蛋'),(IMGS['wx'],'🧄 五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'🌱 純素','只吃植物')])
 Y='<td class="c y">✓</td>';N='<td class="c n">✗</td>';M='<td class="c m">△</td>'
 body=f'''
 <p class="ao-intro">{k('素食')}並不只有「不吃肉」一種。{k('蛋奶素')}可以吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}則可以吃蔥、蒜等{k('五辛')}；再加上{k('蔬食')}、彈性素、鍋邊素等說法，難怪不少人分不清。原來這些名稱來自不同地方：有香港衞生署的分類，有台灣的食品標示法規，也有歐美的英文用語。本文逐一整理它們的出處及分別，並列出訂餐時要問清楚的重點。</p>
@@ -149,9 +151,9 @@ open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(pa
  '素食種類全攻略｜蛋奶素、五辛素、純素、蔬食有甚麼分別？素食分類一覽表',
  '素食分類一表看清：蛋奶素、蛋素、奶素、全素（純素）、五辛素有甚麼分別？哪些分類來自香港衞生署、台灣法規或歐美用語？純素可以吃五辛嗎、訂餐要問清楚甚麼，全面整理。',
  ['素食','蛋奶素','五辛','純素','蔬食'],'素食分類天書','以衞生署官方分類為基礎，一篇看清 9 種素食吃法、五辛定義及吃得與吃不得。',body,faqs,srcs,['B1'],
- kv_html=KVB.block('img/veg-b1-kv-bg-1600.jpg','img/veg-b1-kv-bg-800.jpg','h1',**KV2)))
+ kv_html=kv_mag.block(MCOLS,'h1')))
 WP_DIR='https://aoaodelivery.com/wp-content/uploads/2026/10/'
 open(HERE.parent/'b2-vegetarian-types-guide-WORDPRESS.html','w',encoding='utf-8').write(
  '<!-- B2 WordPress 版：貼入 WPBakery Raw HTML。文章標題（H1）：'+BLOGS[PID][0]+' -->\n'
- + wp_page(PID, body, faqs, srcs, [], KVB.block(WP_DIR+'veg-b1-kv-bg-1600.jpg', WP_DIR+'veg-b1-kv-bg-800.jpg', 'div', **KV2)))
+ + wp_page(PID, body, faqs, srcs, [], kv_mag.block(MCOLS,'div')))
 print('b2 ok')
