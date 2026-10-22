@@ -12,8 +12,8 @@ KV2=dict(pill='<span class="pill">素食新手入門 2026</span>',
  cols=[(IMGS['egg'],'🥚 蛋奶素','吃蛋、奶'),(IMGS['milk'],'🥛 奶素','吃奶、不吃蛋'),(IMGS['wx'],'🧄 五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'🌱 純素','只吃植物')])
 Y='<td class="c y">✓</td>';N='<td class="c n">✗</td>';M='<td class="c m">△</td>'
 body=f'''
-<p class="ao-intro">{k('素食')}並不只有「不吃肉」一種。{k('蛋奶素')}可以吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}則可以吃蔥、蒜等{k('五辛')}；再加上{k('蔬食')}、彈性素、鍋邊素等說法，難怪不少人分不清。原來這些名稱來自不同地方：有香港衞生署的分類，有台灣的食品標示法規，也有歐美的英文用語。本文逐一整理它們的出處及分別，並列出訂餐時要問清楚的重點。</p>
-<div class="ao-qa"><p class="t">30 秒看懂</p><p>香港衞生署按「可否吃蛋、奶」把素食分為<b>蛋奶素、蛋素、奶素及全素（純素）</b>四大類，並沒有提及五辛。「<b>五辛素</b>」及「全素或純素不含五辛」的界定，則來自<b>台灣</b>的素食標示法規；Vegan、Flexitarian、Pescatarian 等則是<b>歐美</b>用語。由於同一個名稱在不同地方意思未必一樣，訂餐時最好直接說明「要不要蛋奶」及「要不要走五辛」。</p></div>
+<p class="ao-intro">朋友說自己吃{k('素食')}，背後可以有好幾種意思：{k('蛋奶素')}會吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}卻可以吃蔥、蒜等{k('五辛')}。再加上{k('蔬食')}、彈性素、鍋邊素等說法，難怪不少人一頭霧水。這些名稱其實出自不同地方：香港衞生署的分類、台灣的食品標示法規，以及歐美的英文用語。本文由定義、分類到吃得與吃不得逐一拆解，最後附上聚會訂餐時要問清楚的重點。</p>
+<div class="ao-qa"><p class="t">30 秒看懂</p><p>香港衞生署按「可否吃蛋、奶」把素食分為<b>蛋奶素、蛋素、奶素及全素（純素）</b>四大類，並沒有提及五辛。「<b>五辛素</b>」及「全素或純素不含五辛」的界定，則來自<b>台灣</b>的素食標示法規；純素（Vegan）、彈性素（Flexitarian）、海鮮素（Pescatarian）等則是<b>歐美</b>用語。由於同一個名稱在不同地方意思未必一樣，訂餐時最好直接說明「要不要蛋奶」及「要不要走五辛」。</p></div>
 <style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style><nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#def">素食是甚麼？食素、素菜、蔬食、無肉有甚麼分別</a></li>
 <li><a href="#table">素食分類一覽表：一表看清 10 種吃法及出處</a></li>
@@ -56,7 +56,7 @@ body=f'''
 <div class="ao-adv"><p class="t">這些分類從哪裡來？</p>
 <div class="r"><span class="n">🇭🇰</span><div><b>香港衞生署：按「可否吃蛋、奶」分四類</b><p>衞生防護中心分為蛋奶素食、蛋素食、奶素食及全素食；學生健康服務則稱為乳蛋素食、蛋素食、乳素食及純素食。兩者都沒有把五辛列入分類。</p></div></div>
 <div class="r"><span class="n">📜</span><div><b>台灣法規：包裝食品的五種素食標示</b><p>台灣衞生署 2008 年公告，宣稱素食的包裝食品須標示「全素或純素」「蛋素」「奶素」「奶蛋素」或「植物五辛素」。法規列明全素或純素不含五辛，植物五辛素則可含五辛。</p></div></div>
-<div class="r"><span class="n">🌍</span><div><b>歐美用語：Vegan、Flexitarian、Pescatarian</b><p>Vegan 一詞源自英國的 The Vegan Society，指不吃一切動物來源食品；西方沒有五辛的概念，所以 Vegan 一般可以吃蔥蒜。</p></div></div>
+<div class="r"><span class="n">🌍</span><div><b>歐美用語：純素（Vegan）、彈性素（Flexitarian）、海鮮素（Pescatarian）</b><p>Vegan 一詞源自英國的 The Vegan Society，指不吃一切動物來源食品；西方沒有五辛的概念，所以 Vegan 一般可以吃蔥蒜。</p></div></div>
 <div class="r"><span class="n">📊</span><div><b>香港調查用語：彈性素、純素（不含五辛）</b><p>香港的素食問卷調查把素食者分為彈性素、蛋奶素、純素及純素（不含五辛）四類，可見本地人會把「純素」和「不含五辛」分開理解。</p></div></div>
 </div>
 
@@ -151,7 +151,7 @@ faqs=[
 ('彈性素是間中吃肉，還是間中吃素？','按 Merriam-Webster、Oxford 等字典的解釋，彈性素（Flexitarian）是以素為主、間中吃肉或魚。不過歐美沒有官方標準，提出彈性素食法的營養師 Dawn Jackson Blatner 把入門級定為每星期兩天不吃肉，所以由每星期「間中吃素」開始，同樣屬於彈性素。'),
 ('海鮮素算不算素食？','不算。海鮮素（Pescatarian）仍會進食魚及海鮮等動物，因此並不屬於素食。'),
 ]
-srcs=[SRC['chp'],SRC['chp_en'],SRC['shs'],('政府','台灣行政院衞生署公告〈包裝食品宣稱為素食之標示規定〉（衞署食字第 0970402575 號，2008 年）','https://www.bsmi.gov.tw/wSite/public/Data/f1247018671891.pdf'),('政府','台灣衞生福利部〈素食五標示 7/1 貼心上路〉','https://mohw.gov.tw/cp-16-27546-1.html'),('辭典','Merriam-Webster — flexitarian','https://www.merriam-webster.com/dictionary/flexitarian'),('辭典','Oxford Learner’s Dictionaries — flexitarian','https://www.oxfordlearnersdictionaries.com/definition/american_english/flexitarian'),('媒體','Healthline — The Flexitarian Diet: A Detailed Beginner’s Guide','https://www.healthline.com/nutrition/flexitarian-diet-guide'),('政府','USDA FAS — Food and Agricultural Import Regulations and Standards Country Report: Taiwan (2022)','https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Food+and+Agricultural+Import+Regulations+and+Standards+Country+Report_Taipei_Taiwan_TW2022-0059'),('機構','The Vegan Society — Definition of veganism','https://www.vegansociety.com/go-vegan/definition-veganism'),('媒體','食力 foodNEXT〈到底什麼是純素主義？東、西方素食定義大不同！〉','https://www.foodnext.net/column/columnist/paper/5357549999'),('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['hku'],SRC['zdic']]
+srcs=[SRC['chp'],SRC['chp_en'],SRC['shs'],('政府','台灣行政院衞生署公告〈包裝食品宣稱為素食之標示規定〉（衞署食字第 0970402575 號，2008 年）','https://www.bsmi.gov.tw/wSite/public/Data/f1247018671891.pdf'),('政府','台灣衞生福利部〈素食五標示 7/1 貼心上路〉','https://mohw.gov.tw/cp-16-27546-1.html'),('辭典','Merriam-Webster：flexitarian','https://www.merriam-webster.com/dictionary/flexitarian'),('辭典','Oxford Learner’s Dictionaries：flexitarian','https://www.oxfordlearnersdictionaries.com/definition/american_english/flexitarian'),('媒體','Healthline：The Flexitarian Diet: A Detailed Beginner’s Guide','https://www.healthline.com/nutrition/flexitarian-diet-guide'),('政府','USDA FAS：Food and Agricultural Import Regulations and Standards Country Report: Taiwan (2022)','https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Food+and+Agricultural+Import+Regulations+and+Standards+Country+Report_Taipei_Taiwan_TW2022-0059'),('機構','The Vegan Society：Definition of veganism','https://www.vegansociety.com/go-vegan/definition-veganism'),('媒體','食力 foodNEXT〈到底什麼是純素主義？東、西方素食定義大不同！〉','https://www.foodnext.net/column/columnist/paper/5357549999'),('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['hku'],SRC['zdic']]
 open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(page(PID,
  '素食分類天書｜素食種類一覽：蛋奶素、五辛素、純素、蔬食有甚麼分別？',
  '素食分類一表看清：蛋奶素、蛋素、奶素、全素（純素）、五辛素有甚麼分別？哪些分類來自香港衞生署、台灣法規或歐美用語？純素可以吃五辛嗎、訂餐要問清楚甚麼，全面整理。',
@@ -159,6 +159,6 @@ open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(pa
  kv_html=kv_mag.block(MCOLS,'h1',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>')))
 WP_DIR='https://aoaodelivery.com/wp-content/uploads/2026/10/'
 open(HERE.parent/'b2-vegetarian-types-guide-WORDPRESS.html','w',encoding='utf-8').write(
- '<!-- B2 WordPress 版：貼入 WPBakery Raw HTML。文章標題（H1）：'+BLOGS[PID][0]+' -->\n'
+ ''
  + wp_page(PID, body, faqs, srcs, [], kv_mag.block(MCOLS,'div',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>')))
 print('b2 ok')
