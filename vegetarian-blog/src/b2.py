@@ -2,9 +2,12 @@
 from common import *
 import kv_final as KVB
 PID='B2'
+_PX='https://images.pexels.com/photos/{0}/pexels-photo-{0}.jpeg?auto=compress&cs=tinysrgb&w=700'
+IMGS={'egg':_PX.format(7118898),'wx':_PX.format(34973888),'vg':_PX.format(7420982)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
 KV2=dict(pill='<span class="pill">素食種類全攻略 2026</span>',
  ttl='<h2 class="ttl"><span class="y">素食種類</span>全攻略：<br>蛋奶素、五辛素、純素點分？</h2>',
- punch='一表看清 9 種素食吃法。', kws=['素食種類','蛋奶素','五辛素','純素'])
+ punch='一表看清 9 種素食吃法。', kws=['素食種類','蛋奶素','五辛素','純素'],
+ cols=[(IMGS['egg'],'🥚 蛋奶素','吃蛋、奶'),(IMGS['wx'],'🥬 五辛素','戒蔥、蒜、韭'),(IMGS['vg'],'🌱 純素','只吃植物')])
 Y='<td class="c y">✓</td>';N='<td class="c n">✗</td>';M='<td class="c m">△</td>'
 body=f'''
 <p class="ao-intro">{k('素食')}並不只有「不吃肉」一種。{k('蛋奶素')}可以吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}則連蔥、蒜也要戒口；再加上{k('蔬食')}、鍋邊素、彈性素食等說法，難怪不少人分不清。本文以衞生署的官方分類為基礎，整理香港常見的{k('素食分類')}、{k('五辛')}定義、各類素食可以吃甚麼，以及容易忽略的隱藏動物成分，是一本可以收藏的素食分類天書。</p>

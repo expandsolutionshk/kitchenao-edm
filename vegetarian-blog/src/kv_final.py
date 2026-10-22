@@ -10,8 +10,12 @@ KWS = '<p class="kw">' + ''.join(f'<span>#{w}</span>' for w in ['素食到會', 
 CREDIT = ('<!-- 相片來源（Pexels 免費授權，可商用、毋須標示）：背景 https://www.pexels.com/photo/5418661/（保留原本食物，抹走青蔥、蒜頭換成番茄）；'
           '紫豆角 https://www.pexels.com/photo/5202092/；紫羽衣甘藍 https://www.pexels.com/photo/5755657/；'
           '套餐相為 Kitchen AO 自家產品相 -->')
-def kv(src1600, src800, pill=None, ttl=None, punch='素食，都可以豐富又滿足。', kws=None):
+def kv(src1600, src800, pill=None, ttl=None, punch='素食，都可以豐富又滿足。', kws=None, cols=None):
   pill = pill or TAG; ttl = ttl or TTL; kwh = KWS if kws is None else '<p class="kw">' + ''.join(f'<span>#{w}</span>' for w in kws) + '</p>'
+  if cols:
+    ch = ''.join(f'<div class="col" style="background-image:url({u})"><span>{lab}<small>{sub}</small></span></div>' for u, lab, sub in cols)
+    return (f'<div class="kv fr f1 vkv c3"><div class="cols3">{ch}</div>{LOGO}'
+            f'<div class="tb">{pill}{ttl}<p class="pl2">{punch}</p>{kwh}</div></div>')
   return (CREDIT + f'<div class="kv fr f1 vkv"><style>.vkv .bgd{{background-image:url({src1600})}}@media(max-width:640px){{.vkv .bgd{{background-image:url({src800})}}}}</style><div class="bgd" aria-hidden="true"></div><div class="shade"></div>{LOGO}'
         f'<div class="tb">{pill}{ttl}<p class="pl2">{punch}</p>{kwh}</div>'
         f'<div class="rib3"><img src="{SET}" alt="Kitchen AO「素」味人生素食到會套餐"><span>⭐「素」味人生套餐</span></div></div>')
@@ -20,6 +24,13 @@ CSS = FRESH + '''
 .kw{margin:1.6cqw 0 0;display:flex;flex-wrap:wrap;gap:.8cqw}.kw span{font-size:1.7cqw;font-weight:700;color:#2C6E49;background:rgba(255,255,255,.9);border:.15cqw solid #CFE8CD;border-radius:3cqw;padding:.35cqw 1.2cqw}
 .fr .tb{top:50%;transform:translateY(-50%)}
 .vkv{border-radius:0;box-shadow:none}
+.vkv.c3{background:#F4F8EF}
+.vkv .cols3{position:absolute;top:0;right:0;bottom:0;width:45%;display:flex;gap:.5cqw;background:#fff}
+.vkv .cols3 .col{position:relative;flex:1;background-size:cover;background-position:center;filter:brightness(1.06) saturate(1.05)}
+.vkv .cols3 .col span{position:absolute;left:50%;bottom:4cqw;transform:translateX(-50%);white-space:nowrap;background:#fff;color:#1F5A3A;font-weight:900;font-size:1.9cqw;line-height:1.3;padding:.6cqw 1.6cqw;border-radius:3cqw;border:.25cqw solid #3F9D5A;box-shadow:0 .6cqw 1.4cqw rgba(0,0,0,.25);text-align:center}
+.vkv .cols3 .col span small{display:block;font-size:1.1cqw;font-weight:700;color:#5a7a63}
+.vkv .fade3{position:absolute;top:0;bottom:0;right:45%;width:6%;background:linear-gradient(90deg,rgba(244,248,239,0),#F4F8EF);transform:translateX(100%);pointer-events:none}
+.vkv.c3 .ttl{font-size:3.5cqw}
 .vkv img{max-width:none!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;border-radius:0}
 .vkv .logo2{box-sizing:border-box!important;line-height:0}
 .vkv .logo2 .li{height:2.3cqw!important;width:auto!important;display:block!important}
@@ -37,6 +48,7 @@ CSS = FRESH + '''
 .vkv .pl2{font-size:4.4cqw;margin-top:3.4cqw}
 .vkv .kw{gap:1.6cqw;margin-top:2.6cqw}.vkv .kw span{font-size:3.1cqw;padding:.7cqw 2.4cqw;border-width:.3cqw}
 .vkv .rib3{width:44cqw;right:6cqw;bottom:6cqw;padding:.9cqw .9cqw 8.6cqw;border-radius:2.4cqw}
+.vkv .cols3{top:auto;left:0;width:100%;height:46%}.vkv .fade3{display:none}.vkv .cols3 .col span{font-size:3.2cqw;bottom:4cqw;padding:1cqw 2.4cqw;border-width:.4cqw}.vkv .cols3 .col span small{font-size:2.2cqw}.vkv.c3 .ttl{font-size:6.3cqw}
 .vkv .rib3 span{font-size:3.3cqw;bottom:1.8cqw;left:-2.4cqw;right:-2.4cqw;padding:1.3cqw .6cqw}
 }
 '''
