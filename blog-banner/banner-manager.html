@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Kitchen AO Blog Banner 管理</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F3F1EA;font:15px/1.6 -apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;color:#2b2b2b}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 80px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:19px;margin:34px 0 10px;padding-top:6px;border-top:2px solid #E2DCCB}
+.lead{color:#6b6250;margin:0 0 6px}
+.steps{background:#fff;border:1px solid #E2DCCB;border-radius:12px;padding:12px 16px;margin:12px 0}.steps ol{margin:0;padding-left:20px}
+.bn{display:grid;grid-template-columns:1fr 300px 300px;gap:16px;background:#fff;border:1px solid #E2DCCB;border-radius:14px;padding:16px;margin:0 0 14px;align-items:start}
+.bn .f label{display:block;font-size:12.5px;font-weight:700;color:#6b6250;margin:6px 0 2px}
+.bn .f input,.bn .f select{width:100%;padding:6px 9px;border:1px solid #D8D0BC;border-radius:8px;font:inherit;font-size:14px}
+.bn .f .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bn .hd{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px}.bn .hd input{width:auto}
+.pv small{display:block;font-size:12px;color:#8a8170;margin:0 0 4px;font-weight:700}
+.mx{overflow-x:auto;background:#fff;border:1px solid #E2DCCB;border-radius:14px}
+.mx table{border-collapse:collapse;width:100%;min-width:720px}.mx th,.mx td{padding:8px 10px;border-bottom:1px solid #EFEADF;text-align:left;font-size:14px}
+.mx th{background:#1A1A1A;color:#F7CE46;position:sticky;top:0}.mx td.c,.mx th.c{text-align:center}.mx td small{color:#8a8170;display:block;font-size:12px}
+.mx tr.all td{background:#FFF8E6;font-weight:700}.mx input[type=checkbox]{width:18px;height:18px;cursor:pointer}
+.mx tr.new td:first-child:after{content:"未發布";margin-left:6px;font-size:11px;background:#E8743B;color:#fff;border-radius:6px;padding:0 6px}
+textarea{width:100%;min-height:220px;font:12.5px/1.5 Menlo,Consolas,monospace;border:1px solid #D8D0BC;border-radius:10px;padding:10px}
+.btn{display:inline-block;border:0;border-radius:24px;padding:9px 18px;font:inherit;font-weight:800;cursor:pointer;background:#2C6E49;color:#fff;margin:8px 8px 0 0}.btn.y{background:#F7CE46;color:#1A1A1A}
+.ok{color:#2C6E49;font-weight:700;margin-left:6px}
+.addrow{display:flex;gap:8px;margin:10px 0 0}.addrow input{flex:1;padding:6px 9px;border:1px solid #D8D0BC;border-radius:8px;font:inherit}
+</style>
+<style id="aob-css"></style>
+</head><body><div class="wrap">
+<h1>Kitchen AO Blog Banner 管理</h1>
+<p class="lead">桌面版：文章左右兩旁的直幅 banner（螢幕闊度 1360px 或以上才出現，最闊 300×600）。手機及細螢幕：文章內一個 300×250 banner。每個 banner 可剔選放在哪幾篇文章；多於一個 banner 時會自動輪播。</p>
+<div class="steps"><b>使用步驟</b><ol>
+<li>修改下面 banner 的文字、圖片網址及連結（右邊即時預覽）。</li>
+<li>在「放在哪篇文章」表格剔選。</li>
+<li>按「產生程式碼」→「複製」。</li>
+<li>WordPress 後台 → <b>Code Snippets（WPCode）</b> → 打開「Kitchen AO Blog Banner」snippet（第一次就 Add Snippet → HTML Snippet）→ 全部貼上覆蓋 → Insert Method：Auto Insert，Location：<b>Site Wide Footer</b> → Active → Update。</li>
+<li>日後更新：把 WPCode 內現有程式碼貼到最底「載入舊設定」，改完再產生一次。</li>
+</ol></div>
+
+<h2>1. Banner 內容</h2>
+<div id="banners"></div>
+<button class="btn y" id="addBn">＋ 新增 banner</button>
+
+<h2>2. 放在哪篇文章（剔選）</h2>
+<div class="mx"><table id="mx"></table></div>
+<div class="addrow"><input id="newSlug" placeholder="新增文章：貼上文章網址，例如 https://aoaodelivery.com/blog/xxxx/"><input id="newName" placeholder="文章名稱（自己認得就可以）"><button class="btn" id="addPost" style="margin:0">加入</button></div>
+
+<h2>3. 產生 WPCode 程式碼</h2>
+<button class="btn" id="gen">產生程式碼</button><button class="btn y" id="copy">複製</button><span class="ok" id="msg"></span>
+<textarea id="out" readonly placeholder="按「產生程式碼」"></textarea>
+
+<h2>4. 載入舊設定（日後更新用）</h2>
+<textarea id="old" placeholder="把 WPCode 內現有的整段程式碼貼在這裡，再按「載入」"></textarea>
+<button class="btn" id="load">載入</button>
+</div>
+
+<script>
+const IMG='https://aoaodelivery.com/wp-content/uploads/';
+let S={
+ banners:[
+  {id:'gourmet',on:true,pill:'美食派對 Gourmet',title:'派對到會<br>一站搞掂',sub:'5 至 85 人套餐｜$1,388 起',cta:'揀選套餐',url:'https://aoaodelivery.com/product-category/party/foot-party/',img:IMG+'2025/04/0b8a92bf-19e3-42c0-a3dc-aec46d7c0a95.jpg',color:'#E8743B',all:true,posts:[]},
+  {id:'vegetarian',on:true,pill:'「素」味人生',title:'素食朋友<br>一樣食得開心',sub:'6 至 26 人素食到會｜逢星期五 95 折',cta:'睇素食套餐',url:'https://aoaodelivery.com/product-category/party/vegetarians-set/',img:IMG+'2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg',color:'#3F9D5A',all:false,posts:['vegetarian-catering-hong-kong','vegetarian-types-guide','f1-driver-diet-watch-party']},
+  {id:'corporate',on:true,pill:'公司到會・商務餐盒',title:'會議、活動<br>餐飲交給我們',sub:'行政餐盒、九宮格小食、公司派對',cta:'索取報價',url:'https://aoaodelivery.com/business-event/',img:IMG+'2026/04/PHOTO-2026-02-02-10-13-45-scaled.jpg',color:'#1F4E79',all:false,posts:['company-event-catering-guide','hong-kong-company-catering-how-to-choose','catering-pitfalls-guide','christmas-catering-hong-kong','hongkong-catering-2026-e9-a6-99-e6-b8-af-e5-88-b0-e6-9c-83-e9-82-8a-e9-96-93-e5-a5-bd']}
+ ],
+ posts:[
+  ['vegetarian-catering-hong-kong','素食到會攻略（B1）'],
+  ['vegetarian-types-guide','素食分類天書（B2）',1],
+  ['f1-driver-diet-watch-party','F1 車手飲食 × 觀賽派對',1],
+  ['halloween-catering-hong-kong','萬聖節到會'],
+  ['hong-kong-picnic-spots-picnic-box','野餐好去處＋野餐盒'],
+  ['laser-printed-food-party','鐳射打印食物派對'],
+  ['boat-party-catering-guide','船河派對到會'],
+  ['mothers-day-catering-hong-kong','母親節到會'],
+  ['mid-autumn-catering-hong-kong','中秋到會'],
+  ['hongkong-catering-2026-e9-a6-99-e6-b8-af-e5-88-b0-e6-9c-83-e9-82-8a-e9-96-93-e5-a5-bd','香港到會邊間好 2026'],
+  ['kids-birthday-party-catering','兒童生日派對到會'],
+  ['company-event-catering-guide','公司活動到會指南'],
+  ['catering-pitfalls-guide','到會避雷指南'],
+  ['christmas-catering-hong-kong','聖誕到會'],
+  ['cny-reunion-dinner-guide','團年飯攻略'],
+  ['hong-kong-company-catering-how-to-choose','公司到會點揀']
+ ]
+};
+
+/* ===== 前台 banner 的 CSS 及 JS（產生程式碼時原文放入 WPCode）===== */
+const FRONT_CSS=`.aob-rail{--w:clamp(160px,calc((100vw - 1000px)/2 - 48px),300px);position:fixed;top:calc(50% + 40px);transform:translateY(-50%);z-index:990;width:var(--w);display:none;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}.aob-rail.show{opacity:1;visibility:visible}
+.aob-rail.l{left:calc((100vw - 980px)/4 - var(--w)/2)}.aob-rail.r{right:calc((100vw - 980px)/4 - var(--w)/2)}
+@media(min-width:1360px){.aob-rail{display:block}.aob-inline{display:none!important}}
+.aob-x{position:absolute;top:-10px;right:-10px;z-index:3;width:24px;height:24px;border-radius:50%;border:0;background:#1A1A1A;color:#fff;font:700 14px/24px Arial;cursor:pointer;padding:0}
+.aob-st{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.18);background:#fff}
+.aob-st .aob-c{display:none}.aob-st .aob-c.on{display:block;animation:aobF .5s}
+@keyframes aobF{from{opacity:0}to{opacity:1}}
+.aob-c{text-decoration:none!important;color:#1A1A1A!important;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",Arial,sans-serif;container-type:inline-size}
+.aob-t{aspect-ratio:1/2;display:flex;flex-direction:column}
+.aob-t .im{flex:0 0 54%;background-size:cover;background-position:center;position:relative}
+.aob-t .im:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(transparent,var(--c))}
+.aob-t .tx{flex:1;background:var(--c);color:#fff;padding:5cqw 8cqw 9cqw;display:flex;flex-direction:column}
+.aob-c .pl{align-self:flex-start;display:inline-block;background:#1A1A1A;color:#F7CE46;font-weight:900;border-radius:30px;line-height:1.3}
+.aob-t .pl{font-size:5.4cqw;padding:1.6cqw 5cqw;margin:0 0 4cqw}
+.aob-c b{display:block;font-weight:900;line-height:1.25;color:#fff}
+.aob-t b{font-size:10.5cqw;margin:0 0 3cqw}
+.aob-c small{display:block;color:rgba(255,255,255,.92);font-weight:700;line-height:1.45}
+.aob-t small{font-size:5.6cqw}
+.aob-c .ct{align-self:flex-start;margin-top:auto;display:inline-block;background:#F7CE46;color:#1A1A1A;font-weight:900;border-radius:30px;box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.aob-t .ct{font-size:6cqw;padding:2.6cqw 7cqw}
+.aob-m{aspect-ratio:6/5;position:relative;background-size:cover;background-position:center}
+.aob-m:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 22%,var(--c) 68%)}
+.aob-m .tx{position:absolute;left:0;right:0;bottom:0;padding:0 6cqw 6cqw;color:#fff}
+.aob-m .pl{font-size:4.2cqw;padding:1cqw 3.6cqw;margin:0 0 2cqw}
+.aob-m b{font-size:7.6cqw;margin:0 0 1.4cqw}.aob-m b br{display:none}
+.aob-m small{font-size:4.3cqw;margin:0 0 3cqw}
+.aob-m .ct{font-size:4.6cqw;padding:1.8cqw 5cqw}
+.aob-dots{position:absolute;left:0;right:0;bottom:6px;display:flex;justify-content:center;gap:6px;z-index:2;pointer-events:none}
+.aob-rail .aob-dots{bottom:auto;top:8px}
+.aob-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.15)}.aob-dots i.on{background:#fff}
+.aob-inline{width:300px;max-width:100%;margin:22px auto!important}
+.aob-inline .aob-lb{display:block;text-align:right;font-size:11px;color:#9a917e;margin:4px 2px 0}`;
+
+const FRONT_JS=function(){
+ var C=window.AOB;if(!C||!document.body.classList.contains('single-post'))return;
+ var seg=location.pathname.split('/').filter(Boolean),slug=decodeURIComponent(seg[seg.length-1]||'').toLowerCase();
+ var L=C.banners.filter(function(b){return b.on&&(b.all||b.posts.indexOf(slug)>-1)});if(!L.length)return;
+ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+ function href(b){return b.url+(b.url.indexOf('?')>-1?'&':'?')+'utm_source=blog&utm_medium=banner&utm_campaign='+b.id+'&utm_content='+encodeURIComponent(slug)}
+ function card(b,tall){var t=esc(b.title).replace(/&lt;br&gt;/g,'<br>');
+  return tall?'<a class="aob-c" href="'+href(b)+'" style="--c:'+b.color+'"><div class="aob-t"><div class="im" style="background-image:url(\''+b.img+'\')"></div><div class="tx"><span class="pl">'+esc(b.pill)+'</span><b>'+t+'</b><small>'+esc(b.sub)+'</small><span class="ct">'+esc(b.cta)+' →</span></div></div></a>'
+  :'<a class="aob-c" href="'+href(b)+'" style="--c:'+b.color+'"><div class="aob-m" style="background-image:url(\''+b.img+'\')"><div class="tx"><span class="pl">'+esc(b.pill)+'</span><b>'+t+'</b><small>'+esc(b.sub)+'</small><span class="ct">'+esc(b.cta)+' →</span></div></div></a>'}
+ function stack(list,tall,start){var d=document.createElement('div');d.className='aob-st';
+  d.innerHTML=list.map(function(b){return card(b,tall)}).join('')+(list.length>1?'<div class="aob-dots">'+list.map(function(){return'<i></i>'}).join('')+'</div>':'');
+  var cs=d.querySelectorAll('.aob-c'),ds=d.querySelectorAll('.aob-dots i'),i=start%list.length,h=false;
+  function show(){for(var k=0;k<cs.length;k++){cs[k].classList.toggle('on',k===i);if(ds[k])ds[k].classList.toggle('on',k===i)}}
+  show();if(list.length>1){d.onmouseenter=function(){h=true};d.onmouseleave=function(){h=false};setInterval(function(){if(!h){i=(i+1)%list.length;show()}},6000)}
+  return d}
+ function rail(side,start){var a=document.createElement('aside');a.className='aob-rail '+side;a.setAttribute('aria-label','Kitchen AO 推介');
+  var x=document.createElement('button');x.className='aob-x';x.type='button';x.setAttribute('aria-label','關閉');x.textContent='×';x.onclick=function(){a.remove()};
+  a.appendChild(stack(L,true,start));a.appendChild(x);document.body.appendChild(a)}
+ var art=document.querySelector('.ao-article')||document.querySelector('.entry-content')||document.querySelector('.wpb-content-wrapper');
+ if(L.length>1)rail('l',0);rail('r',L.length>1?1:0);
+ var RS=document.querySelectorAll('.aob-rail');function vis(){var b=art?art.getBoundingClientRect():{top:0,bottom:1e9};var on=b.top<160&&b.bottom>innerHeight*0.75;for(var k=0;k<RS.length;k++)RS[k].classList.toggle('show',on)}addEventListener('scroll',vis,{passive:true});addEventListener('resize',vis);vis();
+ if(art){var hs=art.querySelectorAll('h2'),ref=hs[1]||hs[0];var w=document.createElement('div');w.className='aob-inline';w.appendChild(stack(L,false,0));
+  var lb=document.createElement('span');lb.className='aob-lb';lb.textContent='Kitchen AO 推介';w.appendChild(lb);
+  if(ref)ref.parentNode.insertBefore(w,ref);else art.appendChild(w)}
+};
+
+/* ===== 管理介面 ===== */
+const $=s=>document.querySelector(s);
+document.getElementById('aob-css').textContent=FRONT_CSS.replace(/\.aob-rail\{position:fixed[^}]*\}/,'');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function cardHTML(b,tall){const t=esc(b.title).replace(/&lt;br&gt;/g,'<br>');
+ return tall?`<div class="aob-st"><a class="aob-c on" style="--c:${b.color};display:block"><div class="aob-t"><div class="im" style="background-image:url('${b.img}')"></div><div class="tx"><span class="pl">${esc(b.pill)}</span><b>${t}</b><small>${esc(b.sub)}</small><span class="ct">${esc(b.cta)} →</span></div></div></a></div>`
+ :`<div class="aob-st"><a class="aob-c on" style="--c:${b.color};display:block"><div class="aob-m" style="background-image:url('${b.img}')"><div class="tx"><span class="pl">${esc(b.pill)}</span><b>${t}</b><small>${esc(b.sub)}</small><span class="ct">${esc(b.cta)} →</span></div></div></a></div>`}
+const F=[['pill','標籤（黑底黃字）'],['title','標題（用 &lt;br&gt; 換行）'],['sub','副題'],['cta','按鈕文字'],['url','連結網址'],['img','圖片網址（媒體庫）']];
+function renderBanners(){
+ $('#banners').innerHTML=S.banners.map((b,i)=>`<div class="bn" data-i="${i}"><div class="f">
+  <div class="hd"><input type="checkbox" data-k="on" ${b.on?'checked':''}> Banner ${i+1}｜<input data-k="id" value="${esc(b.id)}" style="width:150px;font-weight:700" title="英文代號（用於追蹤 UTM）"></div>
+  ${F.map(([k,l])=>`<label>${l}</label><input data-k="${k}" value="${esc(b[k])}">`).join('')}
+  <div class="row"><div><label>主色</label><input type="color" data-k="color" value="${b.color}" style="height:36px;padding:2px"></div><div><label>&nbsp;</label><button class="btn" data-del style="margin:0;background:#B03A2E">刪除此 banner</button></div></div>
+ </div><div class="pv"><small>桌面直幅（最闊 300×600）</small><div style="width:240px">${cardHTML(b,true)}</div></div>
+ <div class="pv"><small>手機／文章內 300×250</small><div style="width:300px">${cardHTML(b,false)}</div></div></div>`).join('');
+ document.querySelectorAll('.bn').forEach(el=>{const i=+el.dataset.i;
+  el.querySelectorAll('[data-k]').forEach(inp=>inp.oninput=()=>{const k=inp.dataset.k;S.banners[i][k]=inp.type==='checkbox'?inp.checked:inp.value;
+   if(k!=='on'&&k!=='id'){const p=el.querySelectorAll('.pv>div');p[0].innerHTML=cardHTML(S.banners[i],true);p[1].innerHTML=cardHTML(S.banners[i],false)}if(k==='id'||k==='on')renderMx()});
+  el.querySelector('[data-del]').onclick=()=>{if(confirm('刪除 Banner '+(i+1)+'？')){S.banners.splice(i,1);renderAll()}}});
+}
+function renderMx(){
+ const B=S.banners;
+ let h='<tr><th>文章</th>'+B.map((b,i)=>`<th class="c">Banner ${i+1}<br><small style="color:#EDE6D6">${esc(b.pill)}</small></th>`).join('')+'</tr>';
+ h+='<tr class="all"><td>✅ 全部文章（包括日後新文章）</td>'+B.map((b,i)=>`<td class="c"><input type="checkbox" data-all="${i}" ${b.all?'checked':''}></td>`).join('')+'</tr>';
+ h+=S.posts.map(([s,n,nw],r)=>`<tr class="${nw?'new':''}"><td>${esc(n)}<small>/blog/${esc(s.length>40?s.slice(0,40)+'…':s)}/</small></td>`+B.map((b,i)=>`<td class="c"><input type="checkbox" data-p="${i}" data-s="${esc(s)}" ${b.all||b.posts.includes(s)?'checked':''} ${b.all?'disabled':''}></td>`).join('')+'</tr>').join('');
+ $('#mx').innerHTML=h;
+ document.querySelectorAll('[data-all]').forEach(c=>c.onchange=()=>{S.banners[+c.dataset.all].all=c.checked;renderMx()});
+ document.querySelectorAll('[data-p]').forEach(c=>c.onchange=()=>{const b=S.banners[+c.dataset.p],s=c.dataset.s;b.posts=b.posts.filter(x=>x!==s);if(c.checked)b.posts.push(s)});
+}
+function renderAll(){renderBanners();renderMx()}
+$('#addBn').onclick=()=>{S.banners.push({id:'banner'+(S.banners.length+1),on:true,pill:'新推介',title:'標題<br>第二行',sub:'副題',cta:'了解更多',url:'https://aoaodelivery.com/',img:'',color:'#2C6E49',all:false,posts:[]});renderAll()};
+$('#addPost').onclick=()=>{let u=$('#newSlug').value.trim();if(!u)return;const seg=u.split('?')[0].split('/').filter(Boolean);const s=decodeURIComponent(seg[seg.length-1]).toLowerCase();
+ if(!S.posts.some(p=>p[0]===s))S.posts.push([s,$('#newName').value.trim()||s]);$('#newSlug').value=$('#newName').value='';renderMx()};
+$('#gen').onclick=()=>{
+ const cfg={banners:S.banners,posts:S.posts};
+ const code=`<!-- Kitchen AO Blog Banner｜由 banner-manager.html 產生（${new Date().toISOString().slice(0,10)}）｜請勿手動修改，改用管理頁再產生 -->
+<script>window.AOB=${JSON.stringify(cfg)};<\/script>
+<style>${FRONT_CSS.replace(/\n/g,'')}</style>
+<script>(${FRONT_JS.toString()})();<\/script>`;
+ $('#out').value=code;$('#msg').textContent='已產生 ✓';};
+$('#copy').onclick=()=>{if(!$('#out').value)$('#gen').click();$('#out').select();document.execCommand('copy');navigator.clipboard&&navigator.clipboard.writeText($('#out').value);$('#msg').textContent='已複製 ✓'};
+$('#load').onclick=()=>{const m=$('#old').value.match(/window\.AOB=(\{.*?\});<\/script>/s);if(!m){alert('找不到設定，請貼上完整程式碼');return}
+ try{const c=JSON.parse(m[1]);S.banners=c.banners;if(c.posts)S.posts=c.posts;renderAll();alert('已載入 ✓')}catch(e){alert('讀取失敗：'+e.message)}};
+renderAll();
+</script>
+</body></html>
