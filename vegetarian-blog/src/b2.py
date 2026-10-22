@@ -4,7 +4,7 @@ import kv_final as KVB
 import kv_mag
 PID='B2'
 _PX='https://images.pexels.com/photos/{0}/pexels-photo-{0}.jpeg?auto=compress&cs=tinysrgb&w=700'
-IMGS={'egg':_PX.format(7118901),'milk':_PX.format(36183642),'wx':_PX.format(17140078),'vg':_PX.format(6157094)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
+IMGS={'egg':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-egg.jpg','milk':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-milk.jpg','wx':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-wuxin.jpg','vg':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-vegan.jpg'}  # 已上載媒體庫（原圖：Pexels 7118901／36183642／17140078／6157094）
 MCOLS=[(IMGS['egg'],'蛋奶素','吃蛋、奶'),(IMGS['milk'],'奶素','吃奶、不吃蛋'),(IMGS['wx'],'五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'純素','只吃植物')]
 KV2=dict(pill='<span class="pill">素食新手入門 2026</span>',
  ttl='<h2 class="ttl">聚會有朋友吃素？<br>新手一表看懂<span class="y">素食種類</span></h2>',
