@@ -41,13 +41,14 @@ body=f'''
 <tr><td><b>蛋素</b></td><td>Ovo-vegetarian</td>{N}{Y}{N}{M}{M}<td>香港衞生署、台灣法規</td></tr>
 <tr><td><b>奶素</b></td><td>Lacto-vegetarian</td>{N}{N}{Y}{M}{M}<td>香港衞生署、台灣法規</td></tr>
 <tr><td><b>全素／純素</b></td><td>Vegan</td>{N}{N}{N}{N}{M}<td>香港衞生署（未提五辛）；台灣法規列明不含五辛；歐美 Vegan 可吃五辛</td></tr>
-<tr><td><b>純素（不含五辛）</b></td><td>—</td>{N}{N}{N}{N}{N}<td>香港調查用語；等同台灣法規的「全素或純素」</td></tr>
-<tr><td><b>五辛素（植物五辛素）</b></td><td>—</td>{N}{M}{M}{M}{Y}<td>台灣法規</td></tr>
-<tr><td><b>彈性素</b></td><td>Flexitarian</td><td class="c m">以素為主，間中吃肉</td>{Y}{Y}{Y}{Y}<td>歐美用語；香港調查亦採用</td></tr>
-<tr><td><b>鍋邊素</b></td><td>—</td><td class="c m">不吃肉，但接受與肉同煮的菜</td>{Y}{Y}{Y}{Y}<td>華人民間說法，多見於台灣</td></tr>
-<tr><td><b>方便素</b></td><td>—</td><td class="c m">外出時從寬，只避開肉塊</td>{Y}{Y}{Y}{Y}<td>華人民間說法，多見於台灣</td></tr>
+<tr><td><b>純素（不含五辛）</b></td><td>Vegan（台灣定義）</td>{N}{N}{N}{N}{N}<td>香港調查用語；等同台灣法規的「全素或純素」</td></tr>
+<tr><td><b>五辛素（植物五辛素）</b></td><td>Five pungent spices vegetarian</td>{N}{M}{M}{M}{Y}<td>台灣法規</td></tr>
+<tr><td><b>彈性素</b></td><td>Flexitarian</td><td class="c m">平日以素為主，間中吃肉或魚</td>{Y}{Y}{Y}{Y}<td>歐美用語；香港調查亦採用</td></tr>
+<tr><td><b>鍋邊素</b></td><td>沒有官方英文*</td><td class="c m">不吃肉，但接受與肉同煮的菜</td>{Y}{Y}{Y}{Y}<td>華人民間說法，多見於台灣</td></tr>
+<tr><td><b>方便素</b></td><td>沒有官方英文*</td><td class="c m">外出時從寬，只避開肉塊</td>{Y}{Y}{Y}{Y}<td>華人民間說法，多見於台灣</td></tr>
 <tr><td><b>海鮮素（不屬素食）</b></td><td>Pescatarian</td><td class="c m">不吃肉，但吃魚及海鮮</td>{Y}{Y}{Y}{Y}<td>歐美用語</td></tr>
 </tbody></table></div>
+<p class="ao-tcap">英文名稱：純素（不含五辛）及五辛素採用美國農業部（USDA）介紹台灣素食標示時的英文；台灣法規本身只有中文名稱。* 鍋邊素及方便素沒有官方英文，與外國人溝通時宜直接說明吃法。</p>
 <div class="ao-adv"><p class="t">這些分類從哪裡來？</p>
 <div class="r"><span class="n">🇭🇰</span><div><b>香港衞生署：按「可否吃蛋、奶」分四類</b><p>衞生防護中心分為蛋奶素食、蛋素食、奶素食及全素食；學生健康服務則稱為乳蛋素食、蛋素食、乳素食及純素食。兩者都沒有把五辛列入分類。</p></div></div>
 <div class="r"><span class="n">📜</span><div><b>台灣法規：包裝食品的五種素食標示</b><p>台灣衞生署 2008 年公告，宣稱素食的包裝食品須標示「全素或純素」「蛋素」「奶素」「奶蛋素」或「植物五辛素」。法規列明全素或純素不含五辛，植物五辛素則可含五辛。</p></div></div>
@@ -89,7 +90,7 @@ body=f'''
 
 <h2 class="ao-h2" id="others">其他常見說法：彈性素、鍋邊素、方便素</h2>
 <h3 class="ao-h3">彈性素</h3>
-<p>彈性素（Flexitarian）是源自歐美的用語，指以植物性飲食為主、間中進食肉類的生活方式，香港大學傳譯課程的詞彙表譯作「彈性素食者」。在香港的素食問卷調查中，約 64% 受訪素食者屬彈性素，是本地最常見的吃法；每星期安排一天吃素的「素食星期一」（Green Monday），就是常見的入門方法。</p>
+<p>彈性素（Flexitarian）是源自歐美的用語，由 flexible（彈性）及 vegetarian（素食者）組成。Merriam-Webster、Oxford 等英文字典均把 Flexitarian 解釋為<b>平日以素為主、間中吃肉或魚</b>的人。不過，歐美並沒有官方標準規定一星期要吃素多少天；提出「彈性素食法」的美國營養師 Dawn Jackson Blatner 把入門級定為每星期兩天不吃肉，進階級為三至四天，五天或以上屬專家級。換言之，由每星期「間中吃素」開始，已算踏出彈性素的第一步。香港大學傳譯課程的詞彙表則譯作「彈性素食者」。在香港的素食問卷調查中，約 64% 受訪素食者屬彈性素，是本地最常見的吃法；每星期安排一天吃素的「素食星期一」（Green Monday），就是常見的入門方法。</p>
 <h3 class="ao-h3">鍋邊素和方便素</h3>
 <p><b>鍋邊素</b>是指不吃肉塊，但接受與肉同煮或同鍋的蔬菜，例如會吃肉碎炒菜中的菜。<b>方便素</b>的意思相近，多指外出用膳時從寬處理，只避開明顯的肉類。兩者屬華人地區的民間說法，多見於台灣，沒有官方定義，嚴格程度因人而異。</p>
 
@@ -140,9 +141,10 @@ faqs=[
 ('五辛素可以吃蛋奶嗎？','按台灣法規，植物五辛素可以含奶或蛋，但須在內容物名稱內說明，所以要視乎個人習慣或產品標示。'),
 ('辣椒是五辛嗎？','不是。辣椒、薑及胡椒都不屬五辛。'),
 ('蔬食和素食有什麼差別？','蔬食泛指以植物為主的飲食，較著重健康及環保，未必嚴守宗教戒律；素食是統稱，包括宗教齋食。點餐前宜確認是否含蛋、奶或五辛。'),
+('彈性素是間中吃肉，還是間中吃素？','按 Merriam-Webster、Oxford 等字典的解釋，彈性素（Flexitarian）是以素為主、間中吃肉或魚。不過歐美沒有官方標準，提出彈性素食法的營養師 Dawn Jackson Blatner 把入門級定為每星期兩天不吃肉，所以由每星期「間中吃素」開始，同樣屬於彈性素。'),
 ('海鮮素算不算素食？','不算。海鮮素（Pescatarian）仍會進食魚及海鮮等動物，因此並不屬於素食。'),
 ]
-srcs=[SRC['chp'],SRC['chp_en'],SRC['shs'],('政府','台灣行政院衞生署公告〈包裝食品宣稱為素食之標示規定〉（衞署食字第 0970402575 號，2008 年）','https://www.bsmi.gov.tw/wSite/public/Data/f1247018671891.pdf'),('政府','台灣衞生福利部〈素食五標示 7/1 貼心上路〉','https://mohw.gov.tw/cp-16-27546-1.html'),('機構','The Vegan Society — Definition of veganism','https://www.vegansociety.com/go-vegan/definition-veganism'),('媒體','食力 foodNEXT〈到底什麼是純素主義？東、西方素食定義大不同！〉','https://www.foodnext.net/column/columnist/paper/5357549999'),('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['hku'],SRC['zdic']]
+srcs=[SRC['chp'],SRC['chp_en'],SRC['shs'],('政府','台灣行政院衞生署公告〈包裝食品宣稱為素食之標示規定〉（衞署食字第 0970402575 號，2008 年）','https://www.bsmi.gov.tw/wSite/public/Data/f1247018671891.pdf'),('政府','台灣衞生福利部〈素食五標示 7/1 貼心上路〉','https://mohw.gov.tw/cp-16-27546-1.html'),('辭典','Merriam-Webster — flexitarian','https://www.merriam-webster.com/dictionary/flexitarian'),('辭典','Oxford Learner’s Dictionaries — flexitarian','https://www.oxfordlearnersdictionaries.com/definition/american_english/flexitarian'),('媒體','Healthline — The Flexitarian Diet: A Detailed Beginner’s Guide','https://www.healthline.com/nutrition/flexitarian-diet-guide'),('政府','USDA FAS — Food and Agricultural Import Regulations and Standards Country Report: Taiwan (2022)','https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Food+and+Agricultural+Import+Regulations+and+Standards+Country+Report_Taipei_Taiwan_TW2022-0059'),('機構','The Vegan Society — Definition of veganism','https://www.vegansociety.com/go-vegan/definition-veganism'),('媒體','食力 foodNEXT〈到底什麼是純素主義？東、西方素食定義大不同！〉','https://www.foodnext.net/column/columnist/paper/5357549999'),('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['hku'],SRC['zdic']]
 open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(page(PID,
  '素食種類全攻略｜蛋奶素、五辛素、純素、蔬食有甚麼分別？素食分類一覽表',
  '素食分類一表看清：蛋奶素、蛋素、奶素、全素（純素）、五辛素有甚麼分別？哪些分類來自香港衞生署、台灣法規或歐美用語？純素可以吃五辛嗎、訂餐要問清楚甚麼，全面整理。',
