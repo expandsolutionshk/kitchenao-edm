@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from common import *
 import kv_final as KVB
-import kv_mag, kv_frame_d
+import kv_mag
 PID='B2'
 _PX='https://images.pexels.com/photos/{0}/pexels-photo-{0}.jpeg?auto=compress&cs=tinysrgb&w=700'
 IMGS={'egg':_PX.format(7118901),'milk':_PX.format(36183642),'wx':_PX.format(17140078),'vg':_PX.format(6157094)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
@@ -156,9 +156,9 @@ open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(pa
  '素食分類天書｜素食種類一覽：蛋奶素、五辛素、純素、蔬食有甚麼分別？',
  '素食分類一表看清：蛋奶素、蛋素、奶素、全素（純素）、五辛素有甚麼分別？哪些分類來自香港衞生署、台灣法規或歐美用語？純素可以吃五辛嗎、訂餐要問清楚甚麼，全面整理。',
  ['素食','蛋奶素','五辛','純素','蔬食'],'素食分類天書','以衞生署官方分類為基礎，一篇看清 9 種素食吃法、五辛定義及吃得與吃不得。',body,faqs,srcs,['B1'],
- kv_html=kv_frame_d.wrap(kv_mag.block(MCOLS,'h1',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>'))))
+ kv_html=kv_mag.block(MCOLS,'h1',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>')))
 WP_DIR='https://aoaodelivery.com/wp-content/uploads/2026/10/'
 open(HERE.parent/'b2-vegetarian-types-guide-WORDPRESS.html','w',encoding='utf-8').write(
  '<!-- B2 WordPress 版：貼入 WPBakery Raw HTML。文章標題（H1）：'+BLOGS[PID][0]+' -->\n'
- + wp_page(PID, body, faqs, srcs, [], kv_frame_d.wrap(kv_mag.block(MCOLS,'div',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>'))))
+ + wp_page(PID, body, faqs, srcs, [], kv_mag.block(MCOLS,'div',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>')))
 print('b2 ok')
