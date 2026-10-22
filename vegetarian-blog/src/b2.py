@@ -3,10 +3,10 @@ from common import *
 import kv_final as KVB
 PID='B2'
 _PX='https://images.pexels.com/photos/{0}/pexels-photo-{0}.jpeg?auto=compress&cs=tinysrgb&w=700'
-IMGS={'egg':_PX.format(7118898),'wx':_PX.format(17140078),'vg':_PX.format(6157094)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
-KV2=dict(pill='<span class="pill">素食種類全攻略 2026</span>',
- ttl='<h2 class="ttl"><span class="y">素食種類</span>全攻略：<br>蛋奶素、五辛素、純素點分？</h2>',
- punch='一表看清 10 種素食吃法。', kws=['素食種類','蛋奶素','五辛素','純素'],
+IMGS={'egg':_PX.format(7118901),'wx':_PX.format(17140078),'vg':_PX.format(6157094)}  # 正式版換成媒體庫 veg-b2-kv-*.jpg
+KV2=dict(pill='<span class="pill">素食新手入門｜素食種類 2026</span>',
+ ttl='<h2 class="ttl">朋友說<span class="y">「我吃素」</span>，<br>你知道是哪一種嗎？</h2>',
+ punch='素食不只 4 大類，新手一表看清 10 種吃法！', kws=['素食種類','蛋奶素','奶素','五辛素','純素'],
  cols=[(IMGS['egg'],'🥚 蛋奶素','吃蛋、奶'),(IMGS['wx'],'🧄 五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'🌱 純素','只吃植物')])
 Y='<td class="c y">✓</td>';N='<td class="c n">✗</td>';M='<td class="c m">△</td>'
 body=f'''
