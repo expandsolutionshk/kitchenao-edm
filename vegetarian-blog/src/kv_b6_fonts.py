@@ -28,6 +28,9 @@ THEMES = [
  ('F5｜昭源宋體 Chiron Sung HK（香港字形）', 'Chiron+Sung+HK:wght@900', "'Chiron Sung HK',serif", "'Chiron Sung HK',serif",
   dict(bg='#F5EFE2', h='#355E3B', sub='#C8553D', pill='#355E3B', pillsh='#223F27', badge='#C8553D', badgeb='#FFE9A8', kick='#C8553D', dd='#B9A27A', zh='#C8553D'),
   '按香港字形標準設計的宋體，配森林綠及番茄紅，最有本地感。'),
+ ('F6｜思源黑體 Noto Sans TC Black（粗黑體，F4 配色）', 'Noto+Sans+TC:wght@900', "'Noto Sans TC',sans-serif", "'Noto Sans TC',sans-serif",
+  dict(bg='#F6F2E8', h='#24452F', sub='#7A9A3A', pill='#24452F', pillsh='#152C1D', badge='#7A9A3A', badgeb='#FFF1B8', kick='#7A9A3A', dd='#B3C29A', zh='#7A9A3A'),
+  '思源粗黑體（Black），筆畫粗壯清晰，似新聞標題；沿用 F4 的深墨綠及牛油果綠，最醒目、手機上最易讀。'),
 ]
 
 def css(fh, fw, c):
@@ -51,9 +54,9 @@ def css(fh, fw, c):
 .kx .card .w{{font:{fw} 4.6cqw/1 {fh};color:#1A1A1A}}.kx .card .pr{{margin-top:.6cqw;font:500 1.5cqw/1.2 Georgia,serif;color:#7a6a50}}.kx .card .pr em{{color:{c["h"]};margin-left:.8cqw}}
 .kx .card .zh{{margin-top:1cqw;font:{fw} 2.4cqw/1.2 {fh};color:{c["zh"]}}}.kx .card .df{{margin-top:.6cqw;font:500 1.35cqw/1.5 {fh};color:#555}}
 @media(max-width:640px){{.kx{{aspect-ratio:4/5}}.kx .logo2{{height:7.5cqw;padding:0 3cqw;right:4cqw;top:4cqw}}.kx .logo2 .li{{height:4cqw}}.kx .logo2 .lt{{height:3.4cqw;margin-left:1.6cqw}}
- .kx .tb{{left:6cqw;right:6cqw;top:15cqw;transform:none;width:auto}}.kx .kick{{font-size:3.4cqw}}.kx .big{{font-size:10cqw}}.kx .sub{{font-size:7.4cqw}}.kx .pill{{font-size:3.2cqw;padding:1.8cqw 3.6cqw}}.kx .pill:before{{font-size:3cqw}}
+ .kx .tb{{left:6cqw;right:6cqw;top:12cqw;transform:none;width:auto}}.kx .kick{{font-size:3.4cqw}}.kx .big{{font-size:10cqw}}.kx .sub{{font-size:7.4cqw}}.kx .pill{{font-size:3.2cqw;padding:1.8cqw 3.6cqw}}.kx .pill:before{{font-size:3cqw}}
  .kx .badge{{width:19cqw;height:19cqw;font-size:2.4cqw;right:5cqw;left:auto;top:auto;bottom:50%}}.kx .badge b{{font-size:4.8cqw}}.kx .dd{{display:none}}
- .kx .card{{left:8cqw;right:8cqw;width:auto;top:auto;bottom:5cqw;transform:rotate(1.5deg)}}.kx .card i{{height:20cqw}}.kx .card .w{{font-size:8cqw}}.kx .card .pr{{font-size:2.8cqw}}.kx .card .zh{{font-size:4.4cqw}}.kx .card .df{{font-size:2.6cqw}}}}
+ .kx .card{{left:8cqw;right:8cqw;width:auto;top:auto;bottom:5cqw;transform:rotate(1.5deg)}}.kx .card i{{height:12cqw}}.kx .card div{{padding:2.4cqw 3.4cqw 3cqw}}.kx .card .w{{font-size:8cqw}}.kx .card .pr{{font-size:2.8cqw}}.kx .card .zh{{font-size:4.4cqw}}.kx .card .df{{font-size:2.6cqw}}}}
 '''
 
 def kv(c):
@@ -68,19 +71,32 @@ def kv(c):
 <div class="badge">中英對照<b>25+</b>素食用語</div>
 <div class="card"><i></i><div><div class="w">vegan</div><div class="pr">/ˈviːɡən/<em>noun · adj.</em></div><div class="zh">純素（全素）</div><div class="df">不吃任何動物來源食品，包括肉、蛋、奶及蜜糖</div></div></div></div>'''
 
-secs = []
-for t, q, fh, _, c, d in THEMES:
-    fw = '700' if 'Huninn' in q else '800' if 'GoRound' in q or 'WenKai' in q else '900'
-    doc = (f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{gf(q)}'
-           f'<style>body{{margin:0;padding:20px 14px;background:#fff}}{css(fh, fw, c)}</style></head><body>{kv(c)}</body></html>')
-    secs.append(f'<section class="opt"><h3>{t}</h3><p>{d}</p><div class="pair"><div><small>桌面</small>'
-                f'<iframe srcdoc="{html.escape(doc)}" style="width:880px;height:540px"></iframe></div>'
-                f'<div><small>手機</small><iframe srcdoc="{html.escape(doc)}" style="width:390px;height:560px"></iframe></div></div></section>')
-page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>B6 KV 字體方案</title>
-<style>body{{margin:0;background:#EEF1EA;color:#222;font:15px/1.6 -apple-system,"PingFang HK",sans-serif}}.wrap{{max-width:1340px;margin:0 auto;padding:24px 16px 60px}}
-.opt{{margin:0 0 34px}}.opt h3{{margin:0 0 4px;font-size:18px}}.opt p{{margin:0 0 10px;color:#555;font-size:14px}}
-.pair{{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}}.pair small{{display:block;font-weight:700;color:#7a6a45;margin:0 0 4px}}iframe{{border:1px solid #ddd;background:#fff;border-radius:8px}}</style></head>
-<body><div class="wrap"><h1 style="font-size:22px">B6 KV｜P1 海報＋字典詞條：5 款字體及素食配色</h1>
-<p style="font-size:14px;color:#555">字體均為 Google Fonts 免費商用字體，只載入 KV 用到的字（子集），檔案很細。預覽要用瀏覽器打開及連線上網才看到字體。</p>{''.join(secs)}</div></body></html>'''
-open(os.path.join(HERE, '..', 'kv-b6-fonts.html'), 'w', encoding='utf-8').write(page)
-print('ok')
+def main():
+    secs = []
+    for t, q, fh, _, c, d in THEMES:
+        fw = '700' if 'Huninn' in q else '800' if 'GoRound' in q or 'WenKai' in q else '900'
+        doc = (f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{gf(q)}'
+               f'<style>body{{margin:0;padding:20px 14px;background:#fff}}{css(fh, fw, c)}</style></head><body>{kv(c)}</body></html>')
+        secs.append(f'<section class="opt"><h3>{t}</h3><p>{d}</p><div class="pair"><div><small>桌面</small>'
+                    f'<iframe srcdoc="{html.escape(doc)}" style="width:880px;height:540px"></iframe></div>'
+                    f'<div><small>手機</small><iframe srcdoc="{html.escape(doc)}" style="width:390px;height:560px"></iframe></div></div></section>')
+    page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>B6 KV 字體方案</title>
+    <style>body{{margin:0;background:#EEF1EA;color:#222;font:15px/1.6 -apple-system,"PingFang HK",sans-serif}}.wrap{{max-width:1340px;margin:0 auto;padding:24px 16px 60px}}
+    .opt{{margin:0 0 34px}}.opt h3{{margin:0 0 4px;font-size:18px}}.opt p{{margin:0 0 10px;color:#555;font-size:14px}}
+    .pair{{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}}.pair small{{display:block;font-weight:700;color:#7a6a45;margin:0 0 4px}}iframe{{border:1px solid #ddd;background:#fff;border-radius:8px}}</style></head>
+    <body><div class="wrap"><h1 style="font-size:22px">B6 KV｜P1 海報＋字典詞條：6 款字體及素食配色</h1>
+    <p style="font-size:14px;color:#555">字體均為 Google Fonts 免費商用字體，只載入 KV 用到的字（子集），檔案很細。預覽要用瀏覽器打開及連線上網才看到字體。</p>{''.join(secs)}</div></body></html>'''
+    open(os.path.join(HERE, '..', 'kv-b6-fonts.html'), 'w', encoding='utf-8').write(page)
+    print('ok')
+
+
+if __name__ == '__main__':
+    main()
+
+def block(tag='div', idx=3):
+    """正式版 KV（預設 F4）：tag='h1' 用於 mockup，WordPress 用 'div'"""
+    t, q, fh, _, c, d = THEMES[idx]
+    fw = '900'
+    h = kv(c).replace('<div class="big">Vegan 中文是甚麼？</div>', f'<{tag} class="big">Vegan 中文是甚麼？</{tag}>')
+    st = css(fh, fw, c).replace('\n', '') + '.ao-b6kv{margin:0 0 22px}.ao-b6kv h1.big{margin:1.2cqw 0 0!important;padding:0!important;border:0!important}'
+    return f'<div class="ao-b6kv">{gf(q)}<style>{st}</style>{h}</div>'

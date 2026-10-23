@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # B6 第二稿：以客戶新稿（docx）為基礎，按 B2 定義統一、補回 B6 關鍵字
 from common import *
-import kv_mag, pathlib, re
+import kv_mag, kv_b6_fonts, pathlib, re
 PID = 'B6'
 BLOGS['B6'] = ('Vegan 中文是甚麼？與 Vegetarian 有何分別？一文看清素食英文與點餐用語', BLOGS['B6'][1])
 
@@ -143,7 +143,7 @@ META_T = 'Vegan 中文是甚麼？Vegetarian、Veganism 中文及素食英文一
 META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者，兩者有甚麼分別？一表看清蛋奶素、五辛素、Flexitarian 等素食英文及中英對照，附到外國餐廳的點餐英文句子。'
 open(HERE.parent / 'b6-vegan-vegetarian-meaning.html', 'w', encoding='utf-8').write(page(PID, META_T, META_D,
      ['Vegan 中文', 'Vegetarian 中文', 'Veganism 中文', '素食英文'], '', '', body, faqs, srcs, ['B2'],
-     kv_html=kv_mag.block(MCOLS, 'h1', **KVT)))
+     kv_html=kv_b6_fonts.block('h1')))
 open(HERE.parent / 'b6-vegan-vegetarian-meaning-WORDPRESS.html', 'w', encoding='utf-8').write(
-     wp_page(PID, body, faqs, srcs, [], kv_mag.block(MCOLS, 'div', **KVT)))
+     wp_page(PID, body, faqs, srcs, [], kv_b6_fonts.block('div')))
 print('b6 ok')
