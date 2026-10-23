@@ -39,7 +39,7 @@ def css(fh, fw, c):
  background-color:{c["bg"]};background-image:repeating-linear-gradient(90deg,rgba(120,110,60,.05) 0 .2cqw,transparent .2cqw 2.6cqw),repeating-linear-gradient(90deg,rgba(120,110,60,.04) 0 .1cqw,transparent .1cqw 7.3cqw),radial-gradient(ellipse at 70% 30%,rgba(255,255,255,.7),transparent 60%)}}
 .kx *{{box-sizing:border-box}}
 .kx .dd{{position:absolute;aspect-ratio:1;background:no-repeat center/contain;opacity:.6;pointer-events:none;z-index:1}}
-.kx .logo2{{position:absolute;right:2cqw;top:2cqw;z-index:9;display:inline-flex;align-items:center;height:4.3cqw;background:#fff;border:.25cqw solid #DCEFD6;border-radius:3cqw;padding:0 1.8cqw}}.kx .logo2 img{{display:block;width:auto}}.kx .logo2 .li{{height:2.3cqw}}.kx .logo2 .lt{{height:2cqw;margin-left:1cqw}}
+.kx .logo2{{position:absolute;right:2cqw;top:2cqw;z-index:9;display:inline-flex;align-items:center;height:4.3cqw;background:#fff;border:.25cqw solid #DCEFD6;border-radius:3cqw;padding:0 1.8cqw}}.kx .logo2 img{{display:block!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important}}.kx .logo2 .li{{height:2.3cqw!important}}.kx .logo2 .lt{{height:2cqw!important;margin-left:1cqw!important}}
 .kx .tb{{position:absolute;z-index:3;left:5cqw;top:50%;transform:translateY(-50%);width:50cqw}}
 .kx .kick{{display:inline-block;font:700 1.9cqw/1 {fh};color:{c["kick"]};letter-spacing:.2cqw}}
 .kx .big{{margin:1.2cqw 0 0;font:{fw} 5.2cqw/1.15 {fh};color:{c["h"]};letter-spacing:.1cqw;-webkit-text-stroke:.25cqw #fff;paint-order:stroke fill;text-shadow:.3cqw .35cqw 0 rgba(40,70,40,.18);white-space:nowrap}}
@@ -53,10 +53,10 @@ def css(fh, fw, c):
 .kx .card>div{{padding:1.6cqw 2.2cqw 2cqw}}.kx .card>div>div{{margin:0;padding:0;line-height:1.2}}
 .kx .card .w{{font:{fw} 4cqw/1 {fh};color:#1A1A1A}}.kx .card .pr{{margin-top:.6cqw;font:500 1.5cqw/1.2 Georgia,serif;color:#7a6a50}}.kx .card .pr em{{color:{c["h"]};margin-left:.8cqw}}
 .kx .card .zh{{margin-top:1cqw;font:{fw} 2.4cqw/1.2 {fh};color:{c["zh"]}}}.kx .card .df{{margin-top:.6cqw;font:500 1.35cqw/1.5 {fh};color:#555}}
-@media(max-width:640px){{.kx{{aspect-ratio:4/5}}.kx .logo2{{height:7.5cqw;padding:0 3cqw;right:4cqw;top:4cqw}}.kx .logo2 .li{{height:4cqw}}.kx .logo2 .lt{{height:3.4cqw;margin-left:1.6cqw}}
+@media(max-width:640px){{.kx{{aspect-ratio:4/5}}.kx .logo2{{height:7.5cqw;padding:0 3cqw;right:4cqw;top:4cqw}}.kx .logo2 .li{{height:4cqw!important}}.kx .logo2 .lt{{height:3.4cqw!important;margin-left:1.6cqw!important}}
  .kx .tb{{left:6cqw;right:6cqw;top:12cqw;transform:none;width:auto}}.kx .kick{{font-size:3.4cqw}}.kx .big{{font-size:10cqw}}.kx .sub{{font-size:7.4cqw}}.kx .pill{{font-size:3.2cqw;padding:1.8cqw 3.6cqw}}.kx .pill:before{{font-size:3cqw}}
  .kx .badge{{width:19cqw;height:19cqw;font-size:2.4cqw;right:5cqw;left:auto;top:auto;bottom:50%}}.kx .badge b{{font-size:4.8cqw}}.kx .dd{{display:none}}
- .kx .card{{left:8cqw;right:8cqw;width:auto;top:auto;bottom:5cqw;transform:rotate(1.5deg)}}.kx .card i{{aspect-ratio:auto;height:30cqw}}.kx .card>div{{padding:2.6cqw 4cqw 3.2cqw}}.kx .card .w{{font-size:8cqw}}.kx .card .pr{{font-size:2.8cqw}}.kx .card .zh{{font-size:4.6cqw}}.kx .card .df{{font-size:3cqw}}.kx .card .df{{font-size:2.6cqw}}}}
+ .kx .card{{left:8cqw;right:8cqw;width:auto;top:auto;bottom:5cqw;transform:rotate(1.5deg)}}.kx .card{{display:flex!important;flex-direction:row-reverse;align-items:center}}.kx .card i{{flex:none;width:36cqw;height:36cqw!important;aspect-ratio:auto;margin:3cqw 3cqw 3cqw 0;border-radius:2cqw}}.kx .card>div{{flex:1;padding:3.6cqw 2cqw 3.6cqw 4.5cqw}}.kx .card .pr{{padding-bottom:1.4cqw!important;border-bottom:.3cqw dashed #D9D2C2}}.kx .card .w{{font-size:10cqw}}.kx .card .pr{{font-size:3.2cqw}}.kx .card .zh{{font-size:5.4cqw;margin-top:2cqw!important}}.kx .card .df{{font-size:3.4cqw;margin-top:1.2cqw!important}}.kx .card .df{{font-size:2.6cqw}}}}
 '''
 
 def kv(c):
