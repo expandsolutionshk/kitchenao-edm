@@ -40,7 +40,8 @@ body=f'''
 <p>至於日常說的{k('素菜')}，一般是指不含肉的菜式，但未必符合所有素食者的要求，例如可能用了蠔油或雞湯調味。</p>
 
 <h2 class="ao-h2" id="table">素食分類一覽表：一表看清 10 種吃法及出處</h2>
-<p>下表整理香港常見的 10 種吃法，並註明每個名稱的出處。✓＝可以吃，✗＝不吃，△＝視乎個人、宗教團體或採用的定義。</p>
+<p>下表整理香港常見的 10 種吃法，並註明每個名稱的出處。</p>
+<p class="ao-tcap" style="margin:10px 0 4px!important">✓＝可以吃，✗＝不吃，△＝視乎個人、宗教團體。</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類型</th><th>英文</th><th>肉類／海鮮</th><th>蛋</th><th>奶</th><th>蜜糖</th><th>五辛</th><th>出處</th></tr></thead><tbody>
 <tr><td><b>蛋奶素</b></td><td>Lacto-ovo-vegetarian</td>{N}{Y}{Y}{M}{M}<td>香港衞生署（台灣法規稱「奶蛋素」）</td></tr>
 <tr><td><b>蛋素</b></td><td>Ovo-vegetarian</td>{N}{Y}{N}{M}{M}<td>香港衞生署、台灣法規</td></tr>
@@ -105,6 +106,7 @@ body=f'''
 <h3 class="ao-h3">素食食物有哪些？</h3>
 <p>常見的{k('素食食物')}包括穀物、蔬菜、水果、豆腐及豆類、堅果和菇菌類；如果是全素（純素），一份{k('純素餐')}就不能有蛋、奶、蜜糖等動物來源食品，連魚露、蠔油、雞粉等調味料也要避開。</p>
 <p>「{k('素食吃什麼')}」視乎所屬類型。以下按常見食物整理：</p>
+<p class="ao-tcap" style="margin:10px 0 4px!important">✓＝可以吃，✗＝不吃，△＝視乎個人、宗教團體。</p>
 <div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>食物</th><th>蛋奶素</th><th>全素／純素</th><th>五辛素</th><th>純素（不含五辛）</th></tr></thead><tbody>
 <tr><td>穀物、蔬果、豆腐、堅果</td>{Y}{Y}{Y}{Y}</tr>
 <tr><td>菇菌類（冬菇、雞髀菇等）</td>{Y}{Y}{Y}{Y}</tr>
