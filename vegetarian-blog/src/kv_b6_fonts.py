@@ -3,8 +3,8 @@ import os, html, random, urllib.parse
 from kv_fresh import LOGO
 from kv_frame_d import veg, U as SVGU, NAMES
 HERE = os.path.dirname(os.path.abspath(__file__))
-IMG = 'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-vegan.jpg'
-TXT = '素食英文速查2026Vegan中文是甚麼？素食英文一表看清附到外國餐廳的點餐英文中英對照25+素食用語純素（全素）不吃任何動物來源食品，包括肉、蛋、奶及蜜糖veganoun·adj.'
+IMG = 'https://images.pexels.com/photos/6708438/pexels-photo-6708438.jpeg?auto=compress&cs=tinysrgb&w=900&h=640&fit=crop'
+TXT = '港台歐美用詞一次看清FlexitarianPescatarian、有何分別？素食英文速查2026Vegan中文是甚麼？素食英文一表看清附到外國餐廳的點餐英文中英對照25+素食用語純素（全素）不吃任何動物來源食品，包括肉、蛋、奶及蜜糖veganoun·adj.'
 
 def gf(family_query):   # Google Fonts，只下載用到的字（text= 子集），檔案很細
     return f'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={family_query}&display=swap&text={urllib.parse.quote(TXT)}">'
@@ -48,15 +48,15 @@ def css(fh, fw, c):
 .kx .pill:before{{content:"🌱";font-size:1.6cqw}}
 .kx .badge{{position:absolute;z-index:6;left:33cqw;top:6cqw;width:11cqw;height:11cqw;border-radius:50%;background:{c["badge"]};color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(10deg);box-shadow:0 .5cqw 1.2cqw rgba(40,60,30,.25);border:.35cqw solid #fff;font:700 1.35cqw/1.25 {fh}}}
 .kx .badge b{{font:{fw} 2.8cqw/1.05 {fh};color:{c["badgeb"]}}}
-.kx .card{{position:absolute;right:5cqw;top:57%;transform:translateY(-50%) rotate(2deg);z-index:4;width:29cqw;background:#FFFDF8;border-radius:1.4cqw;box-shadow:0 1.2cqw 2.8cqw rgba(40,60,30,.2);overflow:hidden}}
-.kx .card i{{display:block;height:11cqw;background:url({IMG}) center/cover}}
-.kx .card div{{padding:1.8cqw 2.2cqw 2.2cqw}}
-.kx .card .w{{font:{fw} 4.6cqw/1 {fh};color:#1A1A1A}}.kx .card .pr{{margin-top:.6cqw;font:500 1.5cqw/1.2 Georgia,serif;color:#7a6a50}}.kx .card .pr em{{color:{c["h"]};margin-left:.8cqw}}
+.kx .card{{position:absolute;right:5cqw;top:55%;transform:translateY(-50%) rotate(2deg);z-index:4;width:30cqw;background:#FFFDF8;border-radius:1.4cqw;box-shadow:0 1.2cqw 2.8cqw rgba(40,60,30,.2);overflow:hidden}}
+.kx .card i{{display:block;aspect-ratio:7/5;background:url({IMG}) center/cover}}
+.kx .card>div{{padding:1.6cqw 2.2cqw 2cqw}}.kx .card>div>div{{margin:0;padding:0;line-height:1.2}}
+.kx .card .w{{font:{fw} 4cqw/1 {fh};color:#1A1A1A}}.kx .card .pr{{margin-top:.6cqw;font:500 1.5cqw/1.2 Georgia,serif;color:#7a6a50}}.kx .card .pr em{{color:{c["h"]};margin-left:.8cqw}}
 .kx .card .zh{{margin-top:1cqw;font:{fw} 2.4cqw/1.2 {fh};color:{c["zh"]}}}.kx .card .df{{margin-top:.6cqw;font:500 1.35cqw/1.5 {fh};color:#555}}
 @media(max-width:640px){{.kx{{aspect-ratio:4/5}}.kx .logo2{{height:7.5cqw;padding:0 3cqw;right:4cqw;top:4cqw}}.kx .logo2 .li{{height:4cqw}}.kx .logo2 .lt{{height:3.4cqw;margin-left:1.6cqw}}
  .kx .tb{{left:6cqw;right:6cqw;top:12cqw;transform:none;width:auto}}.kx .kick{{font-size:3.4cqw}}.kx .big{{font-size:10cqw}}.kx .sub{{font-size:7.4cqw}}.kx .pill{{font-size:3.2cqw;padding:1.8cqw 3.6cqw}}.kx .pill:before{{font-size:3cqw}}
  .kx .badge{{width:19cqw;height:19cqw;font-size:2.4cqw;right:5cqw;left:auto;top:auto;bottom:50%}}.kx .badge b{{font-size:4.8cqw}}.kx .dd{{display:none}}
- .kx .card{{left:8cqw;right:8cqw;width:auto;top:auto;bottom:5cqw;transform:rotate(1.5deg)}}.kx .card i{{height:12cqw}}.kx .card div{{padding:2.4cqw 3.4cqw 3cqw}}.kx .card .w{{font-size:8cqw}}.kx .card .pr{{font-size:2.8cqw}}.kx .card .zh{{font-size:4.4cqw}}.kx .card .df{{font-size:2.6cqw}}}}
+ .kx .card{{left:8cqw;right:8cqw;width:auto;top:auto;bottom:5cqw;transform:rotate(1.5deg)}}.kx .card i{{aspect-ratio:auto;height:30cqw}}.kx .card>div{{padding:2.6cqw 4cqw 3.2cqw}}.kx .card .w{{font-size:8cqw}}.kx .card .pr{{font-size:2.8cqw}}.kx .card .zh{{font-size:4.6cqw}}.kx .card .df{{font-size:3cqw}}.kx .card .df{{font-size:2.6cqw}}}}
 '''
 
 def kv(c):
@@ -66,8 +66,8 @@ def kv(c):
     return f'''<div class="kx">{dd}{LOGO}<div class="tb">
 <span class="kick">素食英文速查 2026</span>
 <div class="big">Vegan 中文是甚麼？</div>
-<div class="sub">素食英文一表看清</div>
-<span class="pill">附到外國餐廳的點餐英文</span></div>
+<div class="sub">Flexitarian、Pescatarian<br>有何分別？</div>
+<span class="pill">港台歐美用詞一次看清</span></div>
 <div class="badge">中英對照<b>25+</b>素食用語</div>
 <div class="card"><i></i><div><div class="w">vegan</div><div class="pr">/ˈviːɡən/<em>noun · adj.</em></div><div class="zh">純素（全素）</div><div class="df">不吃任何動物來源食品，包括肉、蛋、奶及蜜糖</div></div></div></div>'''
 
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 def block(tag='div', idx=3):
     """正式版 KV（預設 F4）：tag='h1' 用於 mockup，WordPress 用 'div'"""
     t, q, fh, _, c, d = THEMES[idx]
-    fw = '900'
+    q, fh, fw = 'Noto+Sans+TC:wght@700', "'Noto Sans TC',sans-serif", '700'   # 字體：Noto Sans TC Bold 700（沿用 F4 配色）
     h = kv(c).replace('<div class="big">Vegan 中文是甚麼？</div>', f'<{tag} class="big">Vegan 中文是甚麼？</{tag}>')
-    st = css(fh, fw, c).replace('\n', '') + '.ao-b6kv{margin:0 0 22px}.ao-b6kv h1.big{margin:1.2cqw 0 0!important;padding:0!important;border:0!important}'
+    st = css(fh, fw, c).replace('\n', '') + '.ao-b6kv{margin:0 0 22px}.kx .sub{font-size:3.3cqw;line-height:1.2}.kx .pill{background:#E4F0D3;color:#24452F;box-shadow:0 .4cqw 0 #BCD59C;border:.15cqw solid #C9DFAE;font-size:2.5cqw;padding:1.2cqw 2.6cqw}.kx .pill:before{font-size:2.2cqw}@media(max-width:640px){.kx .sub{font-size:6cqw}.kx .pill{font-size:4.4cqw;padding:2cqw 4cqw}.kx .pill:before{font-size:4cqw}}.ao-b6kv h1.big{margin:1.2cqw 0 0!important;padding:0!important;border:0!important}'
     return f'<div class="ao-b6kv">{gf(q)}<style>{st}</style>{h}</div>'

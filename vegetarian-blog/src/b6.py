@@ -3,7 +3,7 @@
 from common import *
 import kv_mag, kv_b6_fonts, pathlib, re
 PID = 'B6'
-BLOGS['B6'] = ('Vegan 中文是甚麼？與 Vegetarian 有何分別？一文看清素食英文與點餐用語', BLOGS['B6'][1])
+BLOGS['B6'] = ('Vegan、Vegetarian 中文是甚麼？Flexitarian、Pescatarian 有何分別？港台歐美素食用詞一次看清', BLOGS['B6'][1])
 
 W = 'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-'
 MCOLS = [(W + 'egg.jpg', '蛋奶素', 'Lacto-ovo-vegetarian'), (W + 'milk.jpg', '奶素', 'Lacto-vegetarian'),
@@ -21,7 +21,8 @@ body = f'''
 <li><a href="#veg">Vegetarian 中文是甚麼？素食者英文一覽</a></li>
 <li><a href="#vegan">Vegan 中文是甚麼？Veganism 中文：純素主義</a></li>
 <li><a href="#diff">Vegan 和 Vegetarian 有甚麼分別？</a></li>
-<li><a href="#flexi">Flexitarian 中文是甚麼？少吃肉的飲食用語</a></li>
+<li><a href="#region">香港、台灣、歐美的素食用詞有甚麼分別？</a></li>
+<li><a href="#flexi">Flexitarian 中文是甚麼？與 Pescatarian 有何分別？</a></li>
 <li><a href="#other">其他常見素食英文用語</a></li>
 <li><a href="#say">素食者英文怎樣講？自我介紹句子</a></li>
 <li><a href="#order">點餐實用素食英文</a></li>
@@ -29,7 +30,13 @@ body = f'''
 <style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style>
 
 <h2 class="ao-h2" id="veg">Vegetarian 中文是甚麼？素食者英文一覽</h2>
-<p>{k('Vegetarian 中文')}即「素食者」或「素食的」，複數 vegetarians 中文同樣是指素食者；{k('Vegetarianism 中文')}則是「素食主義」（即{k('素食主義英文')}是 Vegetarianism）。{k('Vegetarian food 中文')}是「素食食物」，{k('Vegetarian diet 中文')}是「素食飲食」。Vegetarian 一般指不吃肉類及海鮮，至於吃不吃蛋、奶及蜜糖等動物來源食品，就按個人習慣及信念再細分。以下是常見的{k('素食者英文')}：</p>
+<ul class="ao-ck">
+<li>{k('Vegetarian 中文')}：「素食者」或「素食的」；複數 vegetarians 同樣指素食者</li>
+<li>{k('Vegetarianism 中文')}：「素食主義」（即{k('素食主義英文')}是 Vegetarianism）</li>
+<li>{k('Vegetarian food 中文')}：「素食食物」</li>
+<li>{k('Vegetarian diet 中文')}：「素食飲食」</li>
+</ul>
+<p>Vegetarian 一般指不吃肉類及海鮮，至於吃不吃蛋、奶及蜜糖等動物來源食品，就按個人習慣及信念再細分。以下是常見的{k('素食者英文')}：</p>
 {LEG.format(B2L)}<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>飲食特點</th></tr></thead><tbody>
 <tr><td><b>Vegetarian／Vegetarianism</b></td><td>素食者／素食主義</td><td>素食的統稱，不吃肉類及海鮮，一般可吃蛋和奶</td></tr>
 <tr><td><b>Lacto-ovo-vegetarian</b></td><td>蛋奶素</td><td>吃蛋及奶類製品，不吃肉，是最常見的素食類型（{k('蛋奶素英文')}）</td></tr>
@@ -65,7 +72,19 @@ body = f'''
 <tr><td><b>Fruitarian</b></td><td>果食者</td><td>主要吃水果，部分人亦吃堅果及種子</td></tr>
 </tbody></table></div>
 
-<h2 class="ao-h2" id="flexi">Flexitarian 中文是甚麼？少吃肉的飲食用語</h2>
+<h2 class="ao-h2" id="region">香港、台灣、歐美的素食用詞有甚麼分別？</h2>
+<p>同一個中文詞，在香港、台灣及歐美的意思未必相同。最常令人混淆的是「全素」、「純素」與五辛：香港的定義沒有提及五辛，台灣法規的「全素或純素」不含五辛，而歐美的 Vegan 一般可以吃蔥蒜。宴客或訂餐前，宜先問清楚對方吃哪一種。</p>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>用語</th><th>香港</th><th>台灣</th><th>歐美</th></tr></thead><tbody>
+<tr><td><b>全素／純素</b></td><td>衞生署以「全素」對應 strict vegetarian（vegan），即不吃任何動物來源食品，沒有提及五辛</td><td>法規的「全素或純素」不含蛋、奶，亦不含五辛</td><td>Vegan：不吃任何動物來源食品，一般可吃蔥、蒜</td></tr>
+<tr><td><b>五辛素</b></td><td>較少使用，一般直接說明「可以吃蔥蒜」</td><td>法規稱「植物五辛素」：不含蛋、奶，但可含五辛</td><td>沒有對應概念，Vegan 本身已可吃五辛</td></tr>
+<tr><td><b>蛋奶素</b></td><td>蛋奶素</td><td>蛋奶素（另有蛋素、奶素）</td><td>Lacto-ovo-vegetarian，日常多簡稱 vegetarian</td></tr>
+<tr><td><b>食齋／齋菜</b></td><td>多指佛教素，不吃五辛</td><td>多說「吃素」，佛教素亦不吃五辛</td><td>Buddhist vegetarian food</td></tr>
+<tr><td><b>鍋邊素</b></td><td>較少說，有人稱「方便素」</td><td>常用，指只吃菜但接受與肉同煮</td><td>沒有正式名稱，點餐時宜直接說明</td></tr>
+<tr><td><b>彈性素食</b></td><td>彈性素食者</td><td>彈性素食、彈性蔬食</td><td>Flexitarian</td></tr>
+</tbody></table></div>
+<p>簡單來說，向外國朋友說 vegan，對方通常不會想到五辛；招待台灣的純素朋友，則要留意菜式有沒有蔥蒜。</p>
+
+<h2 class="ao-h2" id="flexi">Flexitarian 中文是甚麼？與 Pescatarian 有何分別？</h2>
 <p>如果未打算完全戒肉，可以由少吃肉開始。以下用語都是「以植物為主、減少吃肉」的飲食方式，但除了植物性飲食外，其餘仍會吃肉或海鮮，所以並不屬於素食。</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>飲食特點</th></tr></thead><tbody>
 <tr><td><b>Flexitarian</b></td><td>{k('彈性素食者')}</td><td>平日以素為主，間中吃肉或魚；亦稱彈性素食主義、彈性蔬食或彈性素食飲食法</td></tr>
@@ -77,6 +96,15 @@ body = f'''
 <tr><td><b>—</b></td><td>鍋邊素／方便素</td><td>不吃肉，但接受與肉同煮的菜；英文沒有官方對應名稱，點餐時宜直接說明</td></tr>
 </tbody></table></div>
 <div class="ao-warn">⚠️ Pescatarian 及 Pollotarian 仍會吃動物，宴客或訂餐時不應當作素食者安排。</div>
+<h3 class="ao-h3">Flexitarian 和 Pescatarian 有何分別？</h3>
+<p>兩者都是少吃肉的飲食方式，亦同樣不屬於素食，分別在於「有沒有固定不吃的肉類」：</p>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>項目</th><th>Flexitarian（彈性素食者）</th><th>Pescatarian（海鮮素者）</th></tr></thead><tbody>
+<tr><td><b>肉類及家禽</b></td><td>間中吃，沒有固定規限</td><td>不吃</td></tr>
+<tr><td><b>魚及海鮮</b></td><td>間中吃</td><td>吃，是主要的動物蛋白來源</td></tr>
+<tr><td><b>蛋、奶</b></td><td>一般會吃</td><td>一般會吃</td></tr>
+<tr><td><b>飲食原則</b></td><td>以植物為主，按場合彈性調整</td><td>固定戒絕陸上動物的肉</td></tr>
+<tr><td><b>英文自我介紹</b></td><td>I'm a flexitarian.</td><td>I'm a pescatarian. I eat fish but no meat.</td></tr>
+</tbody></table></div>
 
 <h2 class="ao-h2" id="other">其他常見素食英文用語</h2>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
@@ -126,6 +154,8 @@ faqs = [
  ('素食者可以吃蛋和喝牛奶嗎？', '視乎類型。蛋奶素（Lacto-ovo-vegetarian）吃蛋及奶類；蛋素只吃蛋；奶素只吃奶類；純素則不吃蛋奶。'),
  ('西方的 Vegan 可以吃蔥蒜嗎？', '一般可以。西方 Vegan 的理念是不使用動物，並沒有五辛的概念；但台灣法規的「全素或純素」不含五辛，佛教素亦不吃五辛。到外國點餐時如需走五辛，可說 "Could you make it without onion and garlic?"。'),
  ('不想完全戒肉，有相關的英文稱呼嗎？', '可以稱為 Flexitarian（彈性素食者），即平日以素為主、間中吃肉或魚；也可以說 I eat a mostly plant-based diet。要留意 Pescatarian（海鮮素者）仍吃魚及海鮮，並不屬於素食。'),
+ ('Flexitarian 和 Pescatarian 有何分別？', 'Flexitarian（彈性素食者）以植物為主，間中吃肉或魚，沒有固定規限；Pescatarian（海鮮素者）固定不吃肉類及家禽，但吃魚及海鮮。兩者都不屬於素食。'),
+ ('香港、台灣、歐美的「純素」意思一樣嗎？', '不完全一樣。香港衞生署的「全素」指不吃任何動物來源食品，沒有提及五辛；台灣法規的「全素或純素」不含五辛，可吃五辛的稱為「植物五辛素」；歐美的 Vegan 一般可以吃蔥蒜。'),
  ('鍋邊素、方便素的英文怎樣講？', '英文沒有官方對應名稱，說 convenience vegetarian 未必人人明白。點餐時建議直接說明："I eat mostly vegetarian, but I’m okay if it’s cooked with meat."'),
  ('蔬食（Plant-based）和純素（Vegan）有甚麼分別？', '蔬食著重飲食層面，多為健康或環保而以植物為主，彈性較大；純素則是以動物權益為核心的生活信念，飲食上完全不吃動物成分，並延伸至衣著及日用品。'),
 ]
@@ -139,8 +169,8 @@ srcs = [SRC['chp_en'],
         ('政府', 'USDA FAS：Food and Agricultural Import Regulations and Standards Country Report: Taiwan (2022)', 'https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Food+and+Agricultural+Import+Regulations+and+Standards+Country+Report_Taipei_Taiwan_TW2022-0059'),
         SRC['ao_set'], SRC['ao_del']]
 
-META_T = 'Vegan 中文是甚麼？Vegetarian、Veganism 中文及素食英文一覽｜點餐英文'
-META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者，兩者有甚麼分別？一表看清蛋奶素、五辛素、Flexitarian 等素食英文及中英對照，附到外國餐廳的點餐英文句子。'
+META_T = 'Vegan、Vegetarian 中文是甚麼？Flexitarian、Pescatarian 分別｜港台歐美素食用詞'
+META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者；Flexitarian 和 Pescatarian 又有何分別？一表看清香港、台灣、歐美素食用詞的不同，附中英對照及點餐英文。'
 open(HERE.parent / 'b6-vegan-vegetarian-meaning.html', 'w', encoding='utf-8').write(page(PID, META_T, META_D,
      ['Vegan 中文', 'Vegetarian 中文', 'Veganism 中文', '素食英文'], '', '', body, faqs, srcs, ['B2'],
      kv_html=kv_b6_fonts.block('h1')))
