@@ -195,6 +195,7 @@ body = f'''
 
 import tbl_poster
 body = tbl_poster.apply(body)
+body = tbl_poster.apply_nb(body)
 
 # CTA：沿用 B2 的 CTA 版面，改文字
 cta = (HERE / 'b2.py').read_text(encoding='utf-8').split('\n')
