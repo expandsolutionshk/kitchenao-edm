@@ -47,7 +47,7 @@ NB_CSS = '''.ao-article .ao-nb{position:relative;margin:16px 0 22px;padding:32px
 .ao-article .ao-nb p.en{margin:0!important;font:600 17px/32px Georgia,"Times New Roman",serif!important;color:#3B3A36}
 .ao-article .ao-nb p.en i{font-style:normal;color:#B5A998;margin:0 6px}
 
-.ao-article .ao-nb.dl p.en b{font-family:-apple-system,"PingFang HK",sans-serif;font-size:14px;color:#2C6E49;margin-right:4px}.ao-article .ao-nb.dl p.zh{font-weight:500;letter-spacing:0;color:#7a7266;font-size:14px!important}.ao-article .ao-nb.dl .r+.r{margin-top:0}
+.ao-article .ao-nb.dl p.en b{font-family:-apple-system,"PingFang HK",sans-serif;font-size:14px;color:#2C6E49;margin-right:4px}.ao-article .ao-nb.dl p.zh{font-weight:500;letter-spacing:0;color:#7a7266;font-size:14px!important}.ao-article .ao-nb.dl .r+.r{margin-top:0}.ao-article .ao-nb.dl p.en .cn{font:500 14px/32px -apple-system,"PingFang HK",sans-serif;color:#7a7266;margin-left:4px}
 @media(max-width:640px){.ao-article .ao-nb.dl{padding-left:54px}.ao-article .ao-nb{padding:32px 12px 32px 54px;background-image:linear-gradient(90deg,transparent 42px,#E7A9A0 42px,#E7A9A0 44px,transparent 44px),repeating-linear-gradient(180deg,transparent 0 31px,#D6E2EA 31px 32px)}.ao-article .ao-nb:before{left:10px;width:14px;background-size:14px 96px;background-position:-1px 0}.ao-article .ao-nb .hd{left:54px}.ao-article .ao-nb .no{left:-40px;width:26px;font-size:14px}.ao-article .ao-nb p.en{font-size:15.5px!important}}'''
 
 def notebook(ul_html, head):
@@ -58,6 +58,8 @@ def notebook(ul_html, head):
         rows.append(f'<div class="r"><span class="no">{i:02d}</span><p class="t zh">{z}</p><p class="t en">{e.replace("／", "<i>／</i>")}</p></div>')
     return f'<div class="ao-nb"><span class="hd">{head}</span>{"".join(rows)}</div>'
 
+EMO = {'Waiter': '🤵', 'You': '🙋', 'Colleague': '🧑‍💼', 'Friend': '🧑‍🍳'}
+
 def apply_nb(body):
     for aid, head, cls in (('say', 'MEMO · 自我介紹', ''), ('order', 'MEMO · 點餐', ' t2')):
         m = re.search(r'(id="%s">.*?)(<ul class="ao-ck">.*?</ul>)' % aid, body, re.S)
@@ -65,7 +67,7 @@ def apply_nb(body):
     tapes = [' t2', '', ' t2']
     def dlg(m):
         k = len(dlg.n); dlg.n.append(1)
-        rows = ''.join(f'<div class="r"><p class="t en"><b>{sp}：</b>{en}</p><p class="t zh">{zh}</p></div>'
+        rows = ''.join(f'<div class="r"><p class="t en"><b>{EMO.get(sp, "")} {sp}：</b>{en}<span class="cn">（{zh}）</span></p></div>'
                        for sp, en, zh in re.findall(r'<p><b>(.*?)：</b>(.*?)<small>(.*?)</small></p>', m.group(1)))
         return f'<div class="ao-nb dl{tapes[k % 3]}">{rows}</div>'
     dlg.n = []
