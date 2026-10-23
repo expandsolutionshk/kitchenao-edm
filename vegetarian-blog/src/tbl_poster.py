@@ -16,7 +16,7 @@ CSS = '''.ao-article .ao-tbx{position:relative;background:#F4EFE6;border:2px sol
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+2) td{background:#F1E2DB}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+3) td{background:#E4E8DA}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n) td{background:#DFE7EA}
-@media(max-width:640px){.ao-article .ao-tbx{padding:12px 10px 14px}.ao-article .ao-tbh .t{font-size:18px}.ao-article .ao-tbh .o{display:none}.ao-article .ao-tbh .cal{width:44px}.ao-article .ao-tbh .cal i{font-size:20px}}'''
+@media(max-width:640px){.ao-article .ao-tbl.ao-tbl3{min-width:0!important;font-size:14.5px!important}.ao-article .ao-tbl3 th,.ao-article .ao-tbl3 td{padding:9px 8px!important;white-space:normal!important;overflow-wrap:anywhere}.ao-article .ao-tbl3 td:first-child{width:34%}.ao-article .ao-tbx{padding:12px 10px 14px}.ao-article .ao-tbh .t{font-size:18px}.ao-article .ao-tbh .o{display:none}.ao-article .ao-tbh .cal{width:44px}.ao-article .ao-tbh .cal i{font-size:20px}}'''
 
 PAT = re.compile(r'<p class="t ao-tbt">列表(\d+)｜(.*?)</p>\s*(<div class="ao-tw">.*?</table></div>)', re.S)
 
@@ -26,6 +26,8 @@ def apply(body):
         n, t, tw = m.group(1), m.group(2), m.group(3)
         titles.append(t)
         rows = tw.count('<tr>') - 1
+        if tw.split('</tr>')[0].count('<th>') == 3:
+            tw = tw.replace('<table class="ao-tbl">', '<table class="ao-tbl ao-tbl3">', 1)
         tag = '比較表' if '比較' in t else f'{rows} 個用語'
         return (f'<div class="ao-tbx">'
                 f'<div class="ao-tbh"><span class="cal"><b>列表</b><i>{n}</i></span><span class="t">{t}</span><span class="o">{tag}</span></div>{tw}</div>')

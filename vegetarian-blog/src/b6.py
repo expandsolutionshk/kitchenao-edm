@@ -94,7 +94,6 @@ body = f'''
 <tr><td><b>Pollotarian</b></td><td>禽肉飲食者</td><td>不吃紅肉，但吃雞、鴨等家禽（不屬素食）</td></tr>
 <tr><td><b>—</b></td><td>鍋邊素／方便素</td><td>不吃肉，但接受與肉同煮的菜；英文沒有官方對應名稱，點餐時宜直接說明</td></tr>
 </tbody></table></div>
-<div class="ao-warn">⚠️ Pescatarian 及 Pollotarian 仍會吃動物，宴客或訂餐時不應當作素食者安排。</div>
 <h3 class="ao-h3">Flexitarian 和 Pescatarian 有何分別？</h3>
 <p>兩者都是少吃肉的飲食方式，亦同樣不屬於素食，分別在於「有沒有固定不吃的肉類」：</p>
 <p class="t ao-tbt">列表5｜Flexitarian 與 Pescatarian 比較</p>
