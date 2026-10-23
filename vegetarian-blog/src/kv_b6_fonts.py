@@ -3,7 +3,7 @@ import os, html, random, urllib.parse
 from kv_fresh import LOGO
 from kv_frame_d import veg, U as SVGU, NAMES
 HERE = os.path.dirname(os.path.abspath(__file__))
-IMG = 'https://images.pexels.com/photos/6708438/pexels-photo-6708438.jpeg?auto=compress&cs=tinysrgb&w=900&h=640&fit=crop'
+IMG = 'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b6-kv-vegan-bowl.jpg'
 TXT = '港台歐美用詞一次看清FlexitarianPescatarian、有何分別？素食英文速查2026Vegan中文是甚麼？素食英文一表看清附到外國餐廳的點餐英文中英對照25+素食用語純素（全素）不吃任何動物來源食品，包括肉、蛋、奶及蜜糖veganoun·adj.'
 
 def gf(family_query):   # Google Fonts，只下載用到的字（text= 子集），檔案很細

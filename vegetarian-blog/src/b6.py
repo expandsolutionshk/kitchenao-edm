@@ -228,7 +228,7 @@ srcs = [SRC['chp_en'],
         SRC['ao_set'], SRC['ao_del']]
 
 META_T = 'Vegan、Vegetarian 中文是甚麼？Flexitarian、Pescatarian 分別｜港台歐美素食用詞'
-META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者；Flexitarian 和 Pescatarian 又有何分別？一表看清香港、台灣、歐美素食用詞的不同，附中英對照及點餐英文。'
+META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者；Flexitarian 和 Pescatarian 又有何分別？8 個中英對照表看清港台歐美素食用詞，附點餐英文及對話例子。'
 open(HERE.parent / 'b6-vegan-vegetarian-meaning.html', 'w', encoding='utf-8').write(page(PID, META_T, META_D,
      ['Vegan 中文', 'Vegetarian 中文', 'Veganism 中文', '素食英文'], '', '', body, faqs, srcs, ['B2'],
      kv_html=kv_b6_fonts.block('h1')))
