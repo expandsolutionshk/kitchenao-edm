@@ -8,8 +8,6 @@ CSS = '''.ao-article .ao-tbx{position:relative;background:#F4EFE6;border:2px sol
 .ao-article .ao-tbh .cal i{display:block;font-style:normal;font:900 24px/1.25 "Noto Serif TC",Georgia,serif;color:#3B3A36}
 .ao-article .ao-tbh .t{font:900 23px/1.3 "Noto Serif TC","Songti TC",serif;color:#3B3A36;letter-spacing:1px}
 .ao-article .ao-tbh .o{flex:none;margin-left:auto;border:2px solid #3B3A36;border-radius:30px;background:#D5DFD2;padding:4px 14px;font-weight:800;font-size:13px;color:#3B3A36;white-space:nowrap;line-height:1.4}
-.ao-article .ao-tbx .sp{position:absolute;font-size:22px;color:#B7C4A6;-webkit-text-stroke:1.3px #3B3A36;line-height:1}
-.ao-article .ao-tbx .sp.a{right:-10px;top:-14px}.ao-article .ao-tbx .sp.b{left:-11px;bottom:30px;font-size:17px;color:#E3C88F}
 .ao-article .ao-tbx .ao-tw{margin:0!important;border:2px solid #3B3A36!important;border-radius:12px!important;background:#FFFCF6}
 .ao-article .ao-tbx .ao-tbl{background:transparent}
 .ao-article .ao-tbx .ao-tbl th{background:#3B3A36;color:#F4EFE6}
@@ -29,7 +27,7 @@ def apply(body):
         titles.append(t)
         rows = tw.count('<tr>') - 1
         tag = '比較表' if '比較' in t else f'{rows} 個用語'
-        return (f'<div class="ao-tbx"><span class="sp a">✦</span><span class="sp b">✦</span>'
+        return (f'<div class="ao-tbx">'
                 f'<div class="ao-tbh"><span class="cal"><b>列表</b><i>{n}</i></span><span class="t">{t}</span><span class="o">{tag}</span></div>{tw}</div>')
     body = PAT.sub(rep, body)
     txt = '列表0123456789' + ''.join(titles)
