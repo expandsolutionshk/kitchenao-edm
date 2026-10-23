@@ -15,7 +15,7 @@ LEG = '<p class="ao-tcap" style="margin:10px 0 4px!important">下表「中文」
 B2L = link('B2', '《素食分類天書》')
 
 body = f'''
-<p class="ao-intro">{k('素食')}愈來愈普及：有人為了健康，有人關注動物權益，也有人因宗教信仰而茹素。素食用語亦隨之增多：{k('Vegan 中文')}是甚麼？{k('Vegetarian 中文')}又怎樣講？素食者可以吃蛋和奶嗎？間中吃肉還算不算素食者？本文整理常用的{k('素食英文')}及中英對照，並附上到外國餐廳點餐的實用句子及對話例子。全文共整理 8 個中英對照及比較表，方便查閱。</p>
+<p class="ao-intro">{k('素食')}愈來愈普及：有人為了健康，有人關注動物權益，也有人因宗教信仰而茹素。素食用語亦隨之增多：{k('Vegan 中文')}是甚麼？{k('Vegetarian 中文')}又怎樣講？素食者可以吃蛋和奶嗎？間中吃肉還算不算素食者？本文整理常用的{k('素食英文')}及中英對照，並附上到外國餐廳點餐的實用句子及對話例子。全文共整理 9 個中英對照及比較表，方便查閱。</p>
 <div class="ao-qa"><p class="t">30 秒看懂</p><p><b>Vegetarian</b> 中文是「素食者」，一般不吃肉類及海鮮，但可能吃蛋和奶；<b>Vegan</b> 中文是「純素（全素）」，不吃任何動物來源食品，包括蛋、奶及蜜糖；<b>Veganism</b> 中文是「純素主義」，除飲食外，亦避免使用皮革等動物製品。至於 Flexitarian（彈性素食者）、Pescatarian（海鮮素者）等，則是少吃肉的飲食方式，並不屬於素食。</p></div>
 <nav class="ao-toc"><div class="t">目錄</div><ul>
 <li><a href="#tables">8 個素食英文中英對照表速查</a></li>
@@ -24,7 +24,7 @@ body = f'''
 <li><a href="#diff">Vegan 和 Vegetarian 有甚麼分別？</a></li>
 <li><a href="#region">香港、台灣、歐美的素食用詞有甚麼分別？</a></li>
 <li><a href="#flexi">Flexitarian 中文是甚麼？與 Pescatarian 有何分別？</a></li>
-<li><a href="#other">素食食物及餐廳相關英文用字</a></li>
+<li><a href="#other">素食食物、超市及餐廳相關英文用字</a></li>
 <li><a href="#practical">實用素食英文：自我介紹、點餐及對話例子</a></li>
 <li><a href="#faq">常見問題</a></li></ul></nav>
 <style>.ao-article p.ao-tbt{{margin:18px 0 6px!important;font-size:16px!important;font-weight:800;color:#2C6E49;line-height:1.5!important}}.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style>
@@ -105,7 +105,7 @@ body = f'''
 <tr><td><b>英文自我介紹</b></td><td>I'm a flexitarian.</td><td>I'm a pescatarian. I eat fish but no meat.</td></tr>
 </tbody></table></div>
 
-<h2 class="ao-h2" id="other">素食食物及餐廳相關英文用字</h2>
+<h2 class="ao-h2" id="other">素食食物、超市及餐廳相關英文用字</h2>
 <p>除了形容素食者的用語，到餐廳、超級市場或看外國食譜時，亦會經常遇到以下與素食食物相關的英文：</p>
 <h3 class="ao-h3">素食食物及飲食</h3>
 <p class="t ao-tbt">列表6｜素食食物及飲食英文</p>
@@ -134,6 +134,23 @@ body = f'''
 <tr><td><b>Veganuary</b></td><td>純素一月</td><td>源自英國的活動，鼓勵大眾在每年一月嘗試純素（{k('Veganuary 中文')}）</td></tr>
 <tr><td><b>World Vegan Day</b></td><td>世界純素日</td><td>每年 11 月 1 日，紀念 The Vegan Society 成立</td></tr>
 <tr><td><b>Meatless Monday</b></td><td>無肉星期一</td><td>每逢星期一不吃肉，與香港的 Green Monday 素食星期一活動相近</td></tr>
+</tbody></table></div>
+<h3 class="ao-h3">超級市場及包裝食品標示</h3>
+<p>到超級市場選購素食產品時，除了看包裝正面的標示，亦要細看成分表，因為部分動物成分會以英文學名或 E 編號出現：</p>
+<p class="t ao-tbt">列表9｜超市包裝食品素食標示英文</p>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
+<tr><td><b>Suitable for vegetarians</b></td><td>適合素食者</td><td>不含肉類及海鮮，但可能含蛋、奶或蜜糖</td></tr>
+<tr><td><b>Suitable for vegans</b></td><td>適合純素者</td><td>不含任何動物成分</td></tr>
+<tr><td><b>Certified vegan</b></td><td>純素認證</td><td>經第三方機構（例如 The Vegan Society）認證的純素產品</td></tr>
+<tr><td><b>Meat-free</b></td><td>無肉</td><td>不含肉類，但可能仍含蛋、奶，要再看成分表</td></tr>
+<tr><td><b>Contains: milk, egg</b></td><td>含奶、蛋</td><td>致敏原標示，素食者及純素者都要留意</td></tr>
+<tr><td><b>May contain traces of milk</b></td><td>或含微量奶</td><td>同一生產線處理奶類產品的提示，嚴格的純素者可自行判斷</td></tr>
+<tr><td><b>Gelatine</b></td><td>明膠（魚膠粉）</td><td>以動物骨及皮製成，常見於啫喱、軟糖及部分乳酪</td></tr>
+<tr><td><b>Rennet</b></td><td>凝乳酶</td><td>部分芝士以動物凝乳酶製成；標示 microbial 或 vegetable rennet 則屬非動物來源</td></tr>
+<tr><td><b>Whey／Casein</b></td><td>乳清／酪蛋白</td><td>奶類蛋白，常見於餅乾、朱古力及蛋白粉</td></tr>
+<tr><td><b>Carmine（E120）</b></td><td>胭脂紅</td><td>以胭脂蟲製成的紅色色素，常見於糖果及飲品</td></tr>
+<tr><td><b>Shellac（E904）</b></td><td>蟲膠</td><td>以紫膠蟲的分泌物製成，用於糖果及水果表面上光</td></tr>
+<tr><td><b>Isinglass</b></td><td>魚膠（澄清劑）</td><td>以魚鰾製成，部分啤酒及葡萄酒用作澄清</td></tr>
 </tbody></table></div>
 <p>總括而言，素食不只是「不吃肉」，背後因宗教、信念及生活習慣衍生出不同派別及用語。想了解各類素食吃得與吃不得的食物，可參考{B2L}。</p>
 
@@ -218,6 +235,7 @@ faqs = [
  ('Flexitarian 和 Pescatarian 有何分別？', 'Flexitarian（彈性素食者）以植物為主，間中吃肉或魚，沒有固定規限；Pescatarian（海鮮素者）固定不吃肉類及家禽，但吃魚及海鮮。兩者都不屬於素食。'),
  ('香港、台灣、歐美的「純素」意思一樣嗎？', '不完全一樣。香港衞生署的「全素」指不吃任何動物來源食品，沒有提及五辛；台灣法規的「全素或純素」不含五辛，可吃五辛的稱為「植物五辛素」；歐美的 Vegan 一般可以吃蔥蒜。'),
  ('鍋邊素、方便素的英文怎樣講？', '英文沒有官方對應名稱，說 convenience vegetarian 未必人人明白。點餐時建議直接說明："I eat mostly vegetarian, but I’m okay if it’s cooked with meat."'),
+ ('在超級市場怎樣分辨素食產品？', '可先看包裝上的 Suitable for vegetarians（適合素食者）或 Suitable for vegans（適合純素者）標示，再細看成分表有沒有 gelatine（明膠）、whey（乳清）、carmine（E120 胭脂紅）等動物成分。'),
  ('蔬食（Plant-based）和純素（Vegan）有甚麼分別？', '蔬食著重飲食層面，多為健康或環保而以植物為主，彈性較大；純素則是以動物權益為核心的生活信念，飲食上完全不吃動物成分，並延伸至衣著及日用品。'),
 ]
 srcs = [SRC['chp_en'],
@@ -231,7 +249,7 @@ srcs = [SRC['chp_en'],
         SRC['ao_set'], SRC['ao_del']]
 
 META_T = 'Vegan、Vegetarian 中文是甚麼？Flexitarian、Pescatarian 分別｜港台歐美素食用詞'
-META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者；Flexitarian 和 Pescatarian 又有何分別？8 個中英對照表看清港台歐美素食用詞，附點餐英文及對話例子。'
+META_D = 'Vegan 中文是純素，Vegetarian 中文是素食者；Flexitarian 和 Pescatarian 又有何分別？9 個中英對照表看清港台歐美素食用詞，附點餐英文及對話例子。'
 open(HERE.parent / 'b6-vegan-vegetarian-meaning.html', 'w', encoding='utf-8').write(page(PID, META_T, META_D,
      ['Vegan 中文', 'Vegetarian 中文', 'Veganism 中文', '素食英文'], '', '', body, faqs, srcs, ['B2'],
      kv_html=kv_b6_fonts.block('h1')))
