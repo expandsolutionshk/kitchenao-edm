@@ -39,7 +39,7 @@ def apply(body):
 
 # 句子小抄：筆記紙風（不當列表）
 NB_CSS = '''.ao-article .ao-nb{position:relative;margin:16px 0 22px;padding:32px 18px 32px 76px;background-color:#F7FBF6;background-image:linear-gradient(90deg,transparent 58px,#E7A9A0 58px,#E7A9A0 60px,transparent 60px),repeating-linear-gradient(180deg,transparent 0 31px,#D6E2EA 31px 32px);border:0;border-radius:2px;box-shadow:6px 6px 0 rgba(59,58,54,.16);transform:rotate(-.4deg)}.ao-article .ao-nb.t2{transform:rotate(.4deg)}.ao-article .ao-nb:after{content:"";position:absolute;top:-13px;left:50%;width:120px;height:28px;margin-left:-60px;background:rgba(216,160,170,.62);transform:rotate(-3deg);clip-path:polygon(3% 0,97% 0,100% 20%,97% 40%,100% 60%,97% 80%,100% 100%,3% 100%,0 80%,3% 60%,0 40%,3% 20%)}.ao-article .ao-nb.t2:after{background:rgba(222,200,120,.62);transform:rotate(4deg);left:auto;right:40px;margin:0}
-.ao-article .ao-nb:before{content:"";position:absolute;left:18px;top:24px;bottom:24px;width:16px;background:radial-gradient(circle at 8px 8px,#3B3A36 4px,transparent 4.6px) 0 0/16px 48px repeat-y}
+.ao-article .ao-nb:before{content:"";position:absolute;left:18px;top:32px;bottom:32px;width:16px;background:radial-gradient(circle at 8px 16px,#3B3A36 4px,transparent 4.6px) 0 0/16px 96px repeat-y}
 .ao-article .ao-nb .hd{position:absolute;top:4px;left:76px;font-size:12px!important;font-weight:800;letter-spacing:2px;color:#B48A7A;line-height:24px}
 .ao-article .ao-nb .r{position:relative}
 .ao-article .ao-nb .no{position:absolute;left:-54px;top:0;width:34px;text-align:right;font:900 17px/32px "Noto Serif TC",Georgia,serif;color:#C59C8A}
@@ -48,7 +48,7 @@ NB_CSS = '''.ao-article .ao-nb{position:relative;margin:16px 0 22px;padding:32px
 .ao-article .ao-nb p.en i{font-style:normal;color:#B5A998;margin:0 6px}
 
 .ao-article .ao-nb.dl p.en b{font-family:-apple-system,"PingFang HK",sans-serif;font-size:14px;color:#2C6E49;margin-right:4px}.ao-article .ao-nb.dl p.zh{font-weight:500;letter-spacing:0;color:#7a7266;font-size:14px!important}.ao-article .ao-nb.dl .r+.r{margin-top:0}
-@media(max-width:640px){.ao-article .ao-nb.dl{padding-left:54px}.ao-article .ao-nb{padding:32px 12px 32px 54px;background-image:linear-gradient(90deg,transparent 42px,#E7A9A0 42px,#E7A9A0 44px,transparent 44px),repeating-linear-gradient(180deg,transparent 0 31px,#D6E2EA 31px 32px)}.ao-article .ao-nb:before{left:10px;width:14px;background-size:14px 48px}.ao-article .ao-nb .hd{left:54px}.ao-article .ao-nb .no{left:-40px;width:26px;font-size:14px}.ao-article .ao-nb p.en{font-size:15.5px!important}}'''
+@media(max-width:640px){.ao-article .ao-nb.dl{padding-left:54px}.ao-article .ao-nb{padding:32px 12px 32px 54px;background-image:linear-gradient(90deg,transparent 42px,#E7A9A0 42px,#E7A9A0 44px,transparent 44px),repeating-linear-gradient(180deg,transparent 0 31px,#D6E2EA 31px 32px)}.ao-article .ao-nb:before{left:10px;width:14px;background-size:14px 96px;background-position:-1px 0}.ao-article .ao-nb .hd{left:54px}.ao-article .ao-nb .no{left:-40px;width:26px;font-size:14px}.ao-article .ao-nb p.en{font-size:15.5px!important}}'''
 
 def notebook(ul_html, head):
     items = re.findall(r'<li>(.*?)</li>', ul_html, re.S)
@@ -67,7 +67,7 @@ def apply_nb(body):
         k = len(dlg.n); dlg.n.append(1)
         rows = ''.join(f'<div class="r"><p class="t en"><b>{sp}：</b>{en}</p><p class="t zh">{zh}</p></div>'
                        for sp, en, zh in re.findall(r'<p><b>(.*?)：</b>(.*?)<small>(.*?)</small></p>', m.group(1)))
-        return f'<div class="ao-nb dl{tapes[k % 3]}"><span class="hd">DIALOGUE · {"一二三"[k]}</span>{rows}</div>'
+        return f'<div class="ao-nb dl{tapes[k % 3]}">{rows}</div>'
     dlg.n = []
     body = re.sub(r'<div class="ao-dlg">(.*?)</div>', dlg, body, flags=re.S)
     return '<style>' + NB_CSS.replace('\n', '') + '</style>\n' + body

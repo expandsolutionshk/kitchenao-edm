@@ -202,7 +202,7 @@ cta = (HERE / 'b2.py').read_text(encoding='utf-8').split('\n')
 cta = [l for l in cta if l.startswith('<div class="ao-ctabox">')][0]
 cta = cta.replace('🌱 一次照顧所有素食朋友', '🌱 公司聚會有素食同事？')
 cta = re.sub(r'<p>「素」味人生素食到會套餐[^<]*</p>',
-             '<p>「素」味人生素食到會套餐，以香濃芝士、雞蛋、大啡菇等食材入饌，6 至 26 人均有選擇。配合 Green Monday 素食星期一活動，逢星期五落單自動享 95 折，星期一即可送到；最少提早三日預訂。</p>', cta, 1)
+             '<p>「素」味人生素食到會套餐，設有「鮮百合炒秋葵雲耳蓮藕片配燴冬瓜」、「香橙甘筍南瓜蓉配西蘭花配橄欖油浸燈籠椒」等以蔬菜為主的菜式，6 至 26 人均有選擇；如需全素安排，請於落單前向客服確認。配合 Green Monday 素食星期一活動，逢星期五落單自動享 95 折，星期一即可送到；最少提早三日預訂。</p>', cta, 1)
 body += cta + '\n<p class="ao-tcap">單一訂單滿 $700，九龍指定區域免運費，港島及新界區運費半價；滿 $1,450 即享全港免運費，詳情請參閱<a href="https://aoaodelivery.com/delivery/">送貨需知</a>。</p>\n'
 
 faqs = [
