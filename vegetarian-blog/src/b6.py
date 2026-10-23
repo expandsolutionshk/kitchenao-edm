@@ -30,14 +30,14 @@ body = f'''
 <style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style>
 
 <h2 class="ao-h2" id="veg">Vegetarian 中文是甚麼？素食者英文一覽</h2>
-<p>{k('Vegetarian 中文')}是「素食者」，作形容詞時解「素食的」；{k('Vegetarianism 中文')}是「素食主義」（即{k('素食主義英文')}）。到外國餐廳時，菜單上標示 Vegetarian 或「V」的菜式，只代表不含肉類及海鮮，並不等於純素，點餐前要留意以下幾點：</p>
+<p>{k('Vegetarian 中文')}是「素食者」，作形容詞時解「素食的」；{k('Vegetarianism 中文')}是「素食主義」（即{k('素食主義英文')}）。由 Vegetarian 組成的常用詞包括：</p>
 <ul class="ao-ck">
-<li>{k('Vegetarian food 中文')}是「素食食物」，但可能含蛋、牛奶、芝士或蜜糖；不吃蛋奶的話，應選標示 Vegan 的菜式</li>
-<li>{k('Vegetarian diet 中文')}是「素食飲食」，按吃不吃蛋奶再細分為蛋奶素、蛋素及奶素</li>
-<li>部分芝士以動物凝乳酶（rennet）製成，較嚴格的素食者未必會吃，可先向店員查詢</li>
-<li>西方的 Vegetarian 一般可以吃蔥、蒜，與不吃五辛的齋菜不同</li>
+<li>{k('Vegetarian food 中文')}：素食食物</li>
+<li>{k('Vegetarian diet 中文')}：素食飲食</li>
+<li>Vegetarian option／Vegetarian dish：素食選擇／素菜</li>
+<li>Vegetarian restaurant：素食餐廳</li>
 </ul>
-<p>以下是常見的{k('素食者英文')}及中文對照：</p>
+<p>Vegetarian 是統稱，只代表不吃肉類及海鮮；至於吃不吃蛋、奶，英文會在前面加上 Lacto（奶）或 Ovo（蛋）來區分。以下是常見的{k('素食者英文')}及中文對照：</p>
 {LEG.format(B2L)}<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>飲食特點</th></tr></thead><tbody>
 <tr><td><b>Vegetarian／Vegetarianism</b></td><td>素食者／素食主義</td><td>素食的統稱，不吃肉類及海鮮，一般可吃蛋和奶</td></tr>
 <tr><td><b>Lacto-ovo-vegetarian</b></td><td>蛋奶素</td><td>吃蛋及奶類製品，不吃肉，是最常見的素食類型（{k('蛋奶素英文')}）</td></tr>
@@ -137,6 +137,13 @@ body = f'''
 <li>問有沒有隱藏的動物成分：Is this made with meat stock, fish sauce or oyster sauce?</li>
 <li>要求走五辛：Could you make it without onion, garlic or spring onion?</li>
 <li>不介意同鍋烹調：I don't mind if it's cooked in the same pan or oil.</li>
+</ul>
+<h3 class="ao-h3">看懂外國菜單的素食標示</h3>
+<ul class="ao-ck">
+<li>標示 Vegetarian 或「V」的菜式只代表不含肉類及海鮮，可能含蛋、牛奶、芝士或蜜糖</li>
+<li>不吃蛋奶的話，應選標示 Vegan 或「VG」的菜式</li>
+<li>部分芝士以動物凝乳酶（rennet）製成，較嚴格的素食者未必會吃，可先向店員查詢</li>
+<li>西方的素食菜式一般會用蔥、蒜，需要走五辛時要特別說明</li>
 </ul>
 '''
 
