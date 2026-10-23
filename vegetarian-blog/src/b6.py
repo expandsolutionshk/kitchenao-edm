@@ -18,17 +18,17 @@ body = f'''
 <p class="ao-intro">{k('素食')}愈來愈普及：有人為了健康，有人關注動物權益，也有人因宗教信仰而茹素。素食用語亦隨之增多：{k('Vegan 中文')}是甚麼？{k('Vegetarian 中文')}又怎樣講？素食者可以吃蛋和奶嗎？間中吃肉還算不算素食者？本文整理常用的{k('素食英文')}及中英對照，並附上到外國餐廳點餐的實用句子及對話例子。全文共整理 8 個中英對照及比較表，方便查閱。</p>
 <div class="ao-qa"><p class="t">30 秒看懂</p><p><b>Vegetarian</b> 中文是「素食者」，一般不吃肉類及海鮮，但可能吃蛋和奶；<b>Vegan</b> 中文是「純素（全素）」，不吃任何動物來源食品，包括蛋、奶及蜜糖；<b>Veganism</b> 中文是「純素主義」，除飲食外，亦避免使用皮革等動物製品。至於 Flexitarian（彈性素食者）、Pescatarian（海鮮素者）等，則是少吃肉的飲食方式，並不屬於素食。</p></div>
 <nav class="ao-toc"><div class="t">目錄</div><ul>
+<li><a href="#tables">8 個素食英文中英對照表速查</a></li>
 <li><a href="#veg">Vegetarian 中文是甚麼？素食者英文對照</a></li>
 <li><a href="#vegan">Vegan 中文是甚麼？Veganism 中文：純素主義</a></li>
 <li><a href="#diff">Vegan 和 Vegetarian 有甚麼分別？</a></li>
 <li><a href="#region">香港、台灣、歐美的素食用詞有甚麼分別？</a></li>
 <li><a href="#flexi">Flexitarian 中文是甚麼？與 Pescatarian 有何分別？</a></li>
 <li><a href="#other">素食食物及餐廳相關英文用字</a></li>
-<li><a href="#say">素食者英文怎樣講？自我介紹句子</a></li>
-<li><a href="#order">點餐實用素食英文</a></li>
-<li><a href="#talk">素食英文對話例子：三個常見情境</a></li>
+<li><a href="#practical">實用素食英文：自我介紹、點餐及對話例子</a></li>
 <li><a href="#faq">常見問題</a></li></ul></nav>
 <style>.ao-article p.ao-tbt{{margin:18px 0 6px!important;font-size:16px!important;font-weight:800;color:#2C6E49;line-height:1.5!important}}.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style>
+<!--TBL_INDEX-->
 
 <h2 class="ao-h2" id="veg">Vegetarian 中文是甚麼？素食者英文對照</h2>
 <p>{k('Vegetarian 中文')}是「素食者」，作形容詞時解「素食的」；{k('Vegetarianism 中文')}是「素食主義」（即{k('素食主義英文')}）。</p>
@@ -137,7 +137,9 @@ body = f'''
 </tbody></table></div>
 <p>總括而言，素食不只是「不吃肉」，背後因宗教、信念及生活習慣衍生出不同派別及用語。想了解各類素食吃得與吃不得的食物，可參考{B2L}。</p>
 
-<h2 class="ao-h2" id="say">素食者英文怎樣講？自我介紹句子</h2>
+<h2 class="ao-h2" id="practical">實用素食英文：自我介紹、點餐及對話例子</h2>
+<p>認識各種用語之後，以下按情況整理實際用得著的句子，並附三個對話例子。</p>
+<h3 class="ao-h3" id="say">素食者英文怎樣講？自我介紹句子</h3>
 <p>到外國餐廳或與外籍朋友吃飯時，可以這樣介紹自己的素食習慣（{k('純素英文')}、{k('食素英文')}）：</p>
 <ul class="ao-ck">
 <li>蛋奶素：I'm a lacto-ovo-vegetarian.／I'm vegetarian, but I eat eggs and dairy.</li>
@@ -147,7 +149,7 @@ body = f'''
 <li>不介意與肉同煮（鍋邊素）：I eat mostly plant-based, but I'm fine if the vegetables are cooked with meat. I'll just pick out the vegetables.</li>
 </ul>
 
-<h2 class="ao-h2" id="order">點餐實用素食英文</h2>
+<h3 class="ao-h3" id="order">點餐實用素食英文</h3>
 <ul class="ao-ck">
 <li>表明身份：I'm vegetarian.／I'm vegan.</li>
 <li>問有沒有素食選擇：Do you have any vegetarian options?</li>
@@ -164,9 +166,8 @@ body = f'''
 <li>西方的素食菜式一般會用蔥、蒜，需要走五辛時要特別說明</li>
 </ul>
 
-<h2 class="ao-h2" id="talk">素食英文對話例子：三個常見情境</h2>
 <style>.ao-article .ao-dlg{{background:#F4FBF3;border:1.5px solid #CFE8CD;border-radius:14px;padding:14px 18px;margin:12px 0 22px}}.ao-article .ao-dlg p{{margin:0 0 10px!important}}.ao-article .ao-dlg p:last-child{{margin:0!important}}.ao-article .ao-dlg b{{color:#2C6E49}}.ao-article .ao-dlg small{{display:block;color:#7a7266;font-size:15px!important;line-height:1.6}}</style>
-<p>學會用語之後，以下三個情境示範實際對話時可以怎樣運用：</p>
+<p id="talk">學會用語之後，以下三個情境示範實際對話時可以怎樣運用：</p>
 <h3 class="ao-h3">情境一：純素者在外國餐廳點餐</h3>
 <div class="ao-dlg">
 <p><b>Waiter：</b>Are you ready to order?<small>可以點餐了嗎？</small></p>

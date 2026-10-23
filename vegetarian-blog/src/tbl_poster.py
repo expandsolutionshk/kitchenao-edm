@@ -16,7 +16,7 @@ CSS = '''.ao-article .ao-tbx{position:relative;background:#F4EFE6;border:2px sol
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+2) td{background:#F1E2DB}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+3) td{background:#E4E8DA}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n) td{background:#DFE7EA}
-@media(max-width:640px){.ao-article .ao-tbl.ao-tbl3{min-width:0!important;font-size:14.5px!important}.ao-article .ao-tbl.ao-tbl3{table-layout:fixed}.ao-article .ao-tbl3 th,.ao-article .ao-tbl3 td{padding:9px 8px!important;white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important;writing-mode:horizontal-tb!important}.ao-article .ao-tbl3 th:nth-child(1){width:35%}.ao-article .ao-tbl3 th:nth-child(2){width:21%}.ao-article .ao-tbl3:not(.cmp) td:first-child{font-size:13px!important;overflow-wrap:normal!important;padding-right:4px!important}.ao-article .ao-tbl3.cmp th:nth-child(1){width:22%}.ao-article .ao-tbl3.cmp th:nth-child(2){width:39%}.ao-article .ao-tbx{padding:12px 10px 14px}.ao-article .ao-tbh .t{font-size:18px}.ao-article .ao-tbh .o{display:none}.ao-article .ao-tbh .cal{width:44px}.ao-article .ao-tbh .cal i{font-size:20px}}'''
+.ao-article ol.ao-tix{list-style:none!important;margin:12px 0 26px!important;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:10px}.ao-article ol.ao-tix li{margin:0!important;padding:0!important;list-style:none!important}.ao-article ol.ao-tix li:before{display:none!important}.ao-article ol.ao-tix a{display:flex;align-items:center;gap:10px;background:#F4EFE6;border:1.5px solid #3B3A36;border-radius:10px;padding:8px 12px;color:#3B3A36!important;text-decoration:none!important;font-size:15.5px!important;font-weight:700;line-height:1.4;box-shadow:2px 2px 0 #3B3A36;transition:transform .15s}.ao-article ol.ao-tix a:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 #3B3A36}.ao-article ol.ao-tix .n{flex:none;width:26px;height:26px;border-radius:6px;background:#D8B4A0;border:1.5px solid #3B3A36;display:flex;align-items:center;justify-content:center;font:900 14px/1 "Noto Serif TC",Georgia,serif}.ao-article .ao-tbx{scroll-margin-top:110px}@media(max-width:640px){.ao-article ol.ao-tix{grid-template-columns:1fr}.ao-article .ao-tbl.ao-tbl3{min-width:0!important;font-size:14.5px!important}.ao-article .ao-tbl.ao-tbl3{table-layout:fixed}.ao-article .ao-tbl3 th,.ao-article .ao-tbl3 td{padding:9px 8px!important;white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important;writing-mode:horizontal-tb!important}.ao-article .ao-tbl3 th:nth-child(1){width:35%}.ao-article .ao-tbl3 th:nth-child(2){width:21%}.ao-article .ao-tbl3:not(.cmp) td:first-child{font-size:13px!important;overflow-wrap:normal!important;padding-right:4px!important}.ao-article .ao-tbl3.cmp th:nth-child(1){width:22%}.ao-article .ao-tbl3.cmp th:nth-child(2){width:39%}.ao-article .ao-tbx{padding:12px 10px 14px}.ao-article .ao-tbh .t{font-size:18px}.ao-article .ao-tbh .o{display:none}.ao-article .ao-tbh .cal{width:44px}.ao-article .ao-tbh .cal i{font-size:20px}}'''
 
 PAT = re.compile(r'<p class="t ao-tbt">列表(\d+)｜(.*?)</p>\s*(<div class="ao-tw">.*?</table></div>)', re.S)
 
@@ -33,9 +33,13 @@ def apply(body):
         elif head.count('<th>') == 4:
             tw = tw.replace('<table class="ao-tbl">', '<table class="ao-tbl ao-tbl4">', 1)
         tag = '比較表' if '比較' in t else f'{rows} 個用語'
-        return (f'<div class="ao-tbx">'
+        return (f'<div class="ao-tbx" id="t{n}">'
                 f'<div class="ao-tbh"><span class="cal"><b>列表</b><i>{n}</i></span><span class="t">{t}</span><span class="o">{tag}</span></div>{tw}</div>')
     body = PAT.sub(rep, body)
+    items = ''.join(f'<li><a href="#t{i}"><span class="n">{i}</span>{t}</a></li>' for i, t in enumerate(titles, 1))
+    idx = (f'<h2 class="ao-h2" id="tables">{len(titles)} 個素食英文中英對照表速查</h2>\n'
+           f'<p>全文整理了以下 {len(titles)} 個列表，按一下即可跳到相關列表：</p>\n<ol class="ao-tix">{items}</ol>\n')
+    body = body.replace('<!--TBL_INDEX-->', idx, 1)
     txt = '列表0123456789' + ''.join(titles)
     font = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap&text='
             + urllib.parse.quote(''.join(sorted(set(txt)))) + '">')
