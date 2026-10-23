@@ -71,6 +71,25 @@ def kv(c):
 <div class="badge">中英對照<b>25+</b>素食用語</div>
 <div class="card"><i></i><div><div class="w">vegan</div><div class="pr">/ˈviːɡən/<em>noun · adj.</em></div><div class="zh">純素（全素）</div><div class="df">不吃任何動物來源食品，包括肉、蛋、奶及蜜糖</div></div></div></div>'''
 
+
+import re as _re
+def _boxify(h, cls):
+    def f(m):
+        t = m.group(2)
+        return m.group(1) + ''.join(f'<span class="{cls}">{ch}</span>' if ch.strip() else ch for ch in t) + m.group(3)
+    h = _re.sub(r'(<div class="big">)(.*?)(</div>)', f, h, 1)
+    return h
+F4C = THEMES[3][4]
+EXTRA = [
+ ('F7｜怪盜予告風格（模擬）', '仿「怪盜予告黑體」：每個字放在黑色方格內、輕微左右傾斜，似剪報拼貼的預告信。這裏用思源粗黑體＋CSS 模擬效果，配色沿用 F4。',
+  """.kx .big{-webkit-text-stroke:0;text-shadow:none;letter-spacing:.3cqw}.kx .big .bx{display:inline-block;background:#1A1A1A;color:#fff;padding:.2cqw .45cqw;margin:0 .15cqw;line-height:1.1;box-shadow:.3cqw .3cqw 0 #7A9A3A}
+.kx .big .bx:nth-child(3n+1){transform:rotate(-4deg)}.kx .big .bx:nth-child(3n+2){transform:rotate(3deg) translateY(.3cqw)}.kx .big .bx:nth-child(3n){transform:rotate(-1deg)}
+.kx .big .bx:nth-child(4n){background:#24452F}.kx .big{font-size:4.6cqw}@media(max-width:640px){.kx .big{font-size:7.4cqw;letter-spacing:0}.kx .big .bx{margin:0 .1cqw;padding:.2cqw .35cqw}}""", lambda h: _boxify(h, 'bx')),
+ ('F8｜四月黑體風格（模擬）', '仿「四月黑體」：粗黑字向右傾斜，帶速度感及動感，似運動或漫畫標題。這裏用思源粗黑體＋傾斜效果模擬，配色沿用 F4。',
+  """.kx .big,.kx .sub{transform:skewX(-12deg);transform-origin:left bottom;letter-spacing:-.1cqw}.kx .big{-webkit-text-stroke:.3cqw #fff;text-shadow:.5cqw .5cqw 0 rgba(36,69,47,.25)}
+.kx .card .w{transform:skewX(-10deg);display:inline-block}""", lambda h: h),
+]
+
 def main():
     secs = []
     for t, q, fh, _, c, d in THEMES:
@@ -80,11 +99,19 @@ def main():
         secs.append(f'<section class="opt"><h3>{t}</h3><p>{d}</p><div class="pair"><div><small>桌面</small>'
                     f'<iframe srcdoc="{html.escape(doc)}" style="width:880px;height:540px"></iframe></div>'
                     f'<div><small>手機</small><iframe srcdoc="{html.escape(doc)}" style="width:390px;height:560px"></iframe></div></div></section>')
+    NSF = "'Noto Sans TC',sans-serif"; W9 = '900'
+    for t, d, xcss, tr in EXTRA:
+        q = 'Noto+Sans+TC:wght@900'
+        doc = (f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{gf(q)}'
+               f'<style>body{{margin:0;padding:20px 14px;background:#fff}}{css(NSF, W9, F4C)}{xcss}</style></head><body>{tr(kv(F4C))}</body></html>')
+        secs.append(f'<section class="opt"><h3>{t}</h3><p>{d}</p><div class="pair"><div><small>桌面</small>'
+                    f'<iframe srcdoc="{html.escape(doc)}" style="width:880px;height:540px"></iframe></div>'
+                    f'<div><small>手機</small><iframe srcdoc="{html.escape(doc)}" style="width:390px;height:560px"></iframe></div></div></section>')
     page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>B6 KV 字體方案</title>
     <style>body{{margin:0;background:#EEF1EA;color:#222;font:15px/1.6 -apple-system,"PingFang HK",sans-serif}}.wrap{{max-width:1340px;margin:0 auto;padding:24px 16px 60px}}
     .opt{{margin:0 0 34px}}.opt h3{{margin:0 0 4px;font-size:18px}}.opt p{{margin:0 0 10px;color:#555;font-size:14px}}
     .pair{{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}}.pair small{{display:block;font-weight:700;color:#7a6a45;margin:0 0 4px}}iframe{{border:1px solid #ddd;background:#fff;border-radius:8px}}</style></head>
-    <body><div class="wrap"><h1 style="font-size:22px">B6 KV｜P1 海報＋字典詞條：6 款字體及素食配色</h1>
+    <body><div class="wrap"><h1 style="font-size:22px">B6 KV｜P1 海報＋字典詞條：字體及素食配色方案</h1>
     <p style="font-size:14px;color:#555">字體均為 Google Fonts 免費商用字體，只載入 KV 用到的字（子集），檔案很細。預覽要用瀏覽器打開及連線上網才看到字體。</p>{''.join(secs)}</div></body></html>'''
     open(os.path.join(HERE, '..', 'kv-b6-fonts.html'), 'w', encoding='utf-8').write(page)
     print('ok')
