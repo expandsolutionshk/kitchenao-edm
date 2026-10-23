@@ -23,20 +23,15 @@ body = f'''
 <li><a href="#diff">Vegan 和 Vegetarian 有甚麼分別？</a></li>
 <li><a href="#region">香港、台灣、歐美的素食用詞有甚麼分別？</a></li>
 <li><a href="#flexi">Flexitarian 中文是甚麼？與 Pescatarian 有何分別？</a></li>
-<li><a href="#other">其他常見素食英文用語</a></li>
+<li><a href="#other">素食食物及餐廳相關英文用字</a></li>
 <li><a href="#say">素食者英文怎樣講？自我介紹句子</a></li>
 <li><a href="#order">點餐實用素食英文</a></li>
+<li><a href="#talk">素食英文對話例子：三個常見情境</a></li>
 <li><a href="#faq">常見問題</a></li></ul></nav>
 <style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style>
 
 <h2 class="ao-h2" id="veg">Vegetarian 中文是甚麼？素食者英文一覽</h2>
-<p>{k('Vegetarian 中文')}是「素食者」，作形容詞時解「素食的」；{k('Vegetarianism 中文')}是「素食主義」（即{k('素食主義英文')}）。由 Vegetarian 組成的常用詞包括：</p>
-<ul class="ao-ck">
-<li>{k('Vegetarian food 中文')}：素食食物</li>
-<li>{k('Vegetarian diet 中文')}：素食飲食</li>
-<li>Vegetarian option／Vegetarian dish：素食選擇／素菜</li>
-<li>Vegetarian restaurant：素食餐廳</li>
-</ul>
+<p>{k('Vegetarian 中文')}是「素食者」，作形容詞時解「素食的」；{k('Vegetarianism 中文')}是「素食主義」（即{k('素食主義英文')}）。</p>
 <p>Vegetarian 是統稱，只代表不吃肉類及海鮮；至於吃不吃蛋、奶，英文會在前面加上 Lacto（奶）或 Ovo（蛋）來區分。以下是常見的{k('素食者英文')}及中文對照：</p>
 {LEG.format(B2L)}<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>飲食特點</th></tr></thead><tbody>
 <tr><td><b>Vegetarian／Vegetarianism</b></td><td>素食者／素食主義</td><td>素食的統稱，不吃肉類及海鮮，一般可吃蛋和奶</td></tr>
@@ -107,11 +102,28 @@ body = f'''
 <tr><td><b>英文自我介紹</b></td><td>I'm a flexitarian.</td><td>I'm a pescatarian. I eat fish but no meat.</td></tr>
 </tbody></table></div>
 
-<h2 class="ao-h2" id="other">其他常見素食英文用語</h2>
+<h2 class="ao-h2" id="other">素食食物及餐廳相關英文用字</h2>
+<p>除了形容素食者的用語，到餐廳、超級市場或看外國食譜時，亦會經常遇到以下與素食食物相關的英文：</p>
+<h3 class="ao-h3">素食食物及飲食</h3>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
+<tr><td><b>Vegetarian food</b></td><td>素食食物</td><td>不含肉類及海鮮的食物，但可能含蛋奶（{k('Vegetarian food 中文')}）</td></tr>
+<tr><td><b>Vegan food</b></td><td>純素食物</td><td>完全不含動物成分的食物（{k('Vegan food 中文')}）</td></tr>
+<tr><td><b>Vegetarian diet</b></td><td>素食飲食</td><td>以素食為主的飲食方式（{k('Vegetarian diet 中文')}）</td></tr>
+<tr><td><b>Vegan diet</b></td><td>純素飲食</td><td>完全不吃動物來源食品的飲食方式（{k('Vegan diet 中文')}）</td></tr>
+<tr><td><b>Plant-based food</b></td><td>植物性食物</td><td>以植物為原料的食物，多用於包裝食品標示</td></tr>
 <tr><td><b>Plant-based meat</b></td><td>植物肉</td><td>以植物蛋白製成、模仿肉類口感的替代肉</td></tr>
 <tr><td><b>Mock meat</b></td><td>齋肉／素肉</td><td>傳統中式素食常見的仿製肉，多以大豆或麵筋製成</td></tr>
+<tr><td><b>Dairy-free／Egg-free</b></td><td>不含奶／不含蛋</td><td>常見於包裝食品及餐牌，方便純素者及敏感人士選擇</td></tr>
+</tbody></table></div>
+<h3 class="ao-h3">餐廳及菜單用語</h3>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
+<tr><td><b>Vegetarian option</b></td><td>素食選擇</td><td>餐廳為素食者提供的菜式</td></tr>
+<tr><td><b>Vegetarian dish</b></td><td>素菜</td><td>不含肉類及海鮮的菜式</td></tr>
+<tr><td><b>Vegetarian restaurant</b></td><td>素食餐廳</td><td>只供應素食的餐廳</td></tr>
 <tr><td><b>Vegan-friendly</b></td><td>純素友善</td><td>提供純素選擇的餐廳或產品（{k('Vegan friendly 中文')}）</td></tr>
+</tbody></table></div>
+<h3 class="ao-h3">素食生活及活動用語</h3>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
 <tr><td><b>Go vegan</b></td><td>轉吃純素</td><td>開始實踐純素飲食及生活（{k('Go vegan 中文')}）</td></tr>
 <tr><td><b>Veganuary</b></td><td>純素一月</td><td>源自英國的活動，鼓勵大眾在每年一月嘗試純素（{k('Veganuary 中文')}）</td></tr>
 <tr><td><b>World Vegan Day</b></td><td>世界純素日</td><td>每年 11 月 1 日，紀念 The Vegan Society 成立</td></tr>
@@ -145,6 +157,34 @@ body = f'''
 <li>部分芝士以動物凝乳酶（rennet）製成，較嚴格的素食者未必會吃，可先向店員查詢</li>
 <li>西方的素食菜式一般會用蔥、蒜，需要走五辛時要特別說明</li>
 </ul>
+
+<h2 class="ao-h2" id="talk">素食英文對話例子：三個常見情境</h2>
+<style>.ao-article .ao-dlg{{background:#F4FBF3;border:1.5px solid #CFE8CD;border-radius:14px;padding:14px 18px;margin:12px 0 22px}}.ao-article .ao-dlg p{{margin:0 0 10px!important}}.ao-article .ao-dlg p:last-child{{margin:0!important}}.ao-article .ao-dlg b{{color:#2C6E49}}.ao-article .ao-dlg small{{display:block;color:#7a7266;font-size:15px!important;line-height:1.6}}</style>
+<p>學會用語之後，以下三個情境示範實際對話時可以怎樣運用：</p>
+<h3 class="ao-h3">情境一：純素者在外國餐廳點餐</h3>
+<div class="ao-dlg">
+<p><b>Waiter：</b>Are you ready to order?<small>可以點餐了嗎？</small></p>
+<p><b>You：</b>Yes. I'm vegan. Which dishes on the menu are vegan?<small>可以。我吃純素，菜單上哪些菜式是純素的？</small></p>
+<p><b>Waiter：</b>The mushroom risotto and the vegetable curry are both vegetarian.<small>野菌意大利飯和雜菜咖喱都是素食。</small></p>
+<p><b>You：</b>Does the risotto contain butter or cheese? And is the curry made with chicken stock?<small>意大利飯有沒有牛油或芝士？咖喱是否用雞湯煮？</small></p>
+<p><b>Waiter：</b>The risotto has parmesan, but the curry is made with vegetable stock and coconut milk.<small>意大利飯有巴馬臣芝士，但咖喱是用蔬菜湯和椰奶煮的。</small></p>
+<p><b>You：</b>Great, I'll have the curry, please.<small>好的，我要咖喱，謝謝。</small></p>
+</div>
+<h3 class="ao-h3">情境二：公司聚會向外籍同事說明飲食需要</h3>
+<div class="ao-dlg">
+<p><b>Colleague：</b>We're ordering lunch for the team meeting. Do you have any dietary requirements?<small>我們會為部門會議訂午餐，你有沒有飲食要求？</small></p>
+<p><b>You：</b>I'm vegetarian. I eat eggs and dairy, but no meat or seafood.<small>我吃素，吃蛋和奶，但不吃肉類及海鮮。</small></p>
+<p><b>Colleague：</b>Is fish sauce okay?<small>魚露可以嗎？</small></p>
+<p><b>You：</b>No, please avoid fish sauce and oyster sauce as well. Thanks!<small>不可以，麻煩也避開魚露和蠔油，謝謝！</small></p>
+</div>
+<h3 class="ao-h3">情境三：彈性素食者到朋友家作客</h3>
+<div class="ao-dlg">
+<p><b>Friend：</b>I'm making roast chicken tonight. Is that alright with you?<small>今晚我會焗雞，你可以嗎？</small></p>
+<p><b>You：</b>I'm a flexitarian, so I eat mostly plant-based. I'll have the vegetables and salad, thanks.<small>我是彈性素食者，主要吃植物性食物，我吃蔬菜和沙律就可以了，謝謝。</small></p>
+<p><b>Friend：</b>Should I roast the vegetables separately?<small>蔬菜要不要分開焗？</small></p>
+<p><b>You：</b>No need. I don't mind if they're cooked in the same tray.<small>不用了，同一個焗盤煮也沒關係。</small></p>
+</div>
+
 '''
 
 # CTA：沿用 B2 的 CTA 版面，改文字
