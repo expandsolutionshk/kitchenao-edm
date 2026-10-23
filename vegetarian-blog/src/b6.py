@@ -33,7 +33,7 @@ body = f'''
 <h2 class="ao-h2" id="veg">Vegetarian 中文是甚麼？素食者英文對照</h2>
 <p>{k('Vegetarian 中文')}是「素食者」，作形容詞時解「素食的」；{k('Vegetarianism 中文')}是「素食主義」（即{k('素食主義英文')}）。</p>
 <p>Vegetarian 是統稱，只代表不吃肉類及海鮮；至於吃不吃蛋、奶，英文會在前面加上 Lacto（奶）或 Ovo（蛋）來區分。下表列出常見的{k('素食者英文')}，並一併列出純素（Vegan）等類型：</p>
-{LEG.format(B2L)}<p class="t ao-tbt">表 1｜素食者英文對照</p>
+{LEG.format(B2L)}<p class="t ao-tbt">列表1｜素食者英文對照</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>飲食特點</th></tr></thead><tbody>
 <tr><td><b>Vegetarian／Vegetarianism</b></td><td>素食者／素食主義</td><td>素食的統稱，不吃肉類及海鮮，一般可吃蛋和奶</td></tr>
 <tr><td><b>Lacto-ovo-vegetarian</b></td><td>蛋奶素</td><td>吃蛋及奶類製品，不吃肉，是最常見的素食類型（{k('蛋奶素英文')}）</td></tr>
@@ -59,7 +59,7 @@ body = f'''
 
 <h2 class="ao-h2" id="diff">Vegan 和 Vegetarian 有甚麼分別？</h2>
 <p>{k('Vegetarian 和 Vegan 的分別')}在於飲食範圍及嚴格程度：Vegetarian 主要是一種飲食選擇，通常不吃肉但接受蛋奶；Vegan 則是全方位實踐沒有動物成分的生活。</p>
-<p class="t ao-tbt">表 2｜素食（Vegetarian）與純素（Vegan）比較</p>
+<p class="t ao-tbt">列表2｜素食（Vegetarian）與純素（Vegan）比較</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>項目</th><th>素食（Vegetarian）</th><th>純素（Vegan）</th></tr></thead><tbody>
 <tr><td><b>飲食定義</b></td><td>不吃肉類及海鮮</td><td>不吃任何動物來源食品</td></tr>
 <tr><td><b>蛋、奶、蜜糖</b></td><td>一般接受，按個人選擇分為蛋奶素、蛋素或奶素</td><td>不吃蛋、奶、芝士、蜜糖及明膠等</td></tr>
@@ -71,7 +71,7 @@ body = f'''
 
 <h2 class="ao-h2" id="region">香港、台灣、歐美的素食用詞有甚麼分別？</h2>
 <p>同一個中文詞，在香港、台灣及歐美的意思未必相同。最常令人混淆的是「全素」、「純素」與五辛：香港的定義沒有提及五辛，台灣法規的「全素或純素」不含五辛，而歐美的 Vegan 一般可以吃蔥蒜。宴客或訂餐前，宜先問清楚對方吃哪一種。</p>
-<p class="t ao-tbt">表 3｜香港、台灣、歐美素食用詞比較</p>
+<p class="t ao-tbt">列表3｜香港、台灣、歐美素食用詞比較</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>用語</th><th>香港</th><th>台灣</th><th>歐美</th></tr></thead><tbody>
 <tr><td><b>全素／純素</b></td><td>衞生署以「全素」對應 strict vegetarian（vegan），即不吃任何動物來源食品，沒有提及五辛</td><td>法規的「全素或純素」不含蛋、奶，亦不含五辛</td><td>Vegan：不吃任何動物來源食品，一般可吃蔥、蒜</td></tr>
 <tr><td><b>五辛素</b></td><td>較少使用，一般直接說明「可以吃蔥蒜」</td><td>法規稱「植物五辛素」：不含蛋、奶，但可含五辛</td><td>沒有對應概念，Vegan 本身已可吃五辛</td></tr>
@@ -84,7 +84,7 @@ body = f'''
 
 <h2 class="ao-h2" id="flexi">Flexitarian 中文是甚麼？與 Pescatarian 有何分別？</h2>
 <p>如果未打算完全戒肉，可以由少吃肉開始。以下用語都是「以植物為主、減少吃肉」的飲食方式，但除了植物性飲食外，其餘仍會吃肉或海鮮，所以並不屬於素食。</p>
-<p class="t ao-tbt">表 4｜少吃肉的飲食用語</p>
+<p class="t ao-tbt">列表4｜少吃肉的飲食用語</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>飲食特點</th></tr></thead><tbody>
 <tr><td><b>Flexitarian</b></td><td>{k('彈性素食者')}</td><td>平日以素為主，間中吃肉或魚；亦稱彈性素食主義、彈性蔬食或彈性素食飲食法</td></tr>
 <tr><td><b>Plant-based</b></td><td>植物性飲食（蔬食）</td><td>以植物為主的飲食，多基於健康或環保考慮；plant based food 中文即植物性食物，{k('蔬食者英文')}可說 plant-based eater</td></tr>
@@ -97,7 +97,7 @@ body = f'''
 <div class="ao-warn">⚠️ Pescatarian 及 Pollotarian 仍會吃動物，宴客或訂餐時不應當作素食者安排。</div>
 <h3 class="ao-h3">Flexitarian 和 Pescatarian 有何分別？</h3>
 <p>兩者都是少吃肉的飲食方式，亦同樣不屬於素食，分別在於「有沒有固定不吃的肉類」：</p>
-<p class="t ao-tbt">表 5｜Flexitarian 與 Pescatarian 比較</p>
+<p class="t ao-tbt">列表5｜Flexitarian 與 Pescatarian 比較</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>項目</th><th>Flexitarian（彈性素食者）</th><th>Pescatarian（海鮮素者）</th></tr></thead><tbody>
 <tr><td><b>肉類及家禽</b></td><td>間中吃，沒有固定規限</td><td>不吃</td></tr>
 <tr><td><b>魚及海鮮</b></td><td>間中吃</td><td>吃，是主要的動物蛋白來源</td></tr>
@@ -109,7 +109,7 @@ body = f'''
 <h2 class="ao-h2" id="other">素食食物及餐廳相關英文用字</h2>
 <p>除了形容素食者的用語，到餐廳、超級市場或看外國食譜時，亦會經常遇到以下與素食食物相關的英文：</p>
 <h3 class="ao-h3">素食食物及飲食</h3>
-<p class="t ao-tbt">表 6｜素食食物及飲食英文</p>
+<p class="t ao-tbt">列表6｜素食食物及飲食英文</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
 <tr><td><b>Vegetarian food</b></td><td>素食食物</td><td>不含肉類及海鮮的食物，但可能含蛋奶（{k('Vegetarian food 中文')}）</td></tr>
 <tr><td><b>Vegan food</b></td><td>純素食物</td><td>完全不含動物成分的食物（{k('Vegan food 中文')}）</td></tr>
@@ -121,7 +121,7 @@ body = f'''
 <tr><td><b>Dairy-free／Egg-free</b></td><td>不含奶／不含蛋</td><td>常見於包裝食品及餐牌，方便純素者及敏感人士選擇</td></tr>
 </tbody></table></div>
 <h3 class="ao-h3">餐廳及菜單用語</h3>
-<p class="t ao-tbt">表 7｜餐廳及菜單英文</p>
+<p class="t ao-tbt">列表7｜餐廳及菜單英文</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
 <tr><td><b>Vegetarian option</b></td><td>素食選擇</td><td>餐廳為素食者提供的菜式</td></tr>
 <tr><td><b>Vegetarian dish</b></td><td>素菜</td><td>不含肉類及海鮮的菜式</td></tr>
@@ -129,7 +129,7 @@ body = f'''
 <tr><td><b>Vegan-friendly</b></td><td>純素友善</td><td>提供純素選擇的餐廳或產品（{k('Vegan friendly 中文')}）</td></tr>
 </tbody></table></div>
 <h3 class="ao-h3">素食生活及活動用語</h3>
-<p class="t ao-tbt">表 8｜素食生活及活動英文</p>
+<p class="t ao-tbt">列表8｜素食生活及活動英文</p>
 <div class="ao-tw"><table class="ao-tbl"><thead><tr><th>英文</th><th>中文</th><th>意思</th></tr></thead><tbody>
 <tr><td><b>Go vegan</b></td><td>轉吃純素</td><td>開始實踐純素飲食及生活（{k('Go vegan 中文')}）</td></tr>
 <tr><td><b>Veganuary</b></td><td>純素一月</td><td>源自英國的活動，鼓勵大眾在每年一月嘗試純素（{k('Veganuary 中文')}）</td></tr>
@@ -193,6 +193,9 @@ body = f'''
 </div>
 
 '''
+
+import tbl_poster
+body = tbl_poster.apply(body)
 
 # CTA：沿用 B2 的 CTA 版面，改文字
 cta = (HERE / 'b2.py').read_text(encoding='utf-8').split('\n')
