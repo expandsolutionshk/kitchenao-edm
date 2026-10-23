@@ -9,14 +9,14 @@ CSS = '''.ao-article .ao-tbx{position:relative;background:#F4EFE6;border:2px sol
 .ao-article .ao-tbh .t{font:900 23px/1.3 "Noto Serif TC","Songti TC",serif;color:#3B3A36;letter-spacing:1px}
 .ao-article .ao-tbh .o{flex:none;margin-left:auto;border:2px solid #3B3A36;border-radius:30px;background:#D5DFD2;padding:4px 14px;font-weight:800;font-size:13px;color:#3B3A36;white-space:nowrap;line-height:1.4}
 .ao-article .ao-tbx .ao-tw{margin:0!important;border:2px solid #3B3A36!important;border-radius:12px!important;background:#FFFCF6}
-.ao-article .ao-tbx .ao-tbl{background:transparent}
+.ao-article .ao-tbx .ao-tbl{background:transparent}.ao-article .ao-tbl.ao-tbl4{table-layout:fixed}.ao-article .ao-tbl4 th:nth-child(1){width:15%}.ao-article .ao-tbl4 th:nth-child(2){width:23%}.ao-article .ao-tbl4 th:nth-child(3),.ao-article .ao-tbl4 th:nth-child(4){width:31%}.ao-article .ao-tbl4 th{white-space:normal!important}
 .ao-article .ao-tbx .ao-tbl th{background:#3B3A36;color:#F4EFE6}
 .ao-article .ao-tbx .ao-tbl td{border-top:1px solid rgba(59,58,54,.45)!important;color:#3B3A36}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+1) td{background:#F7F0DC}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+2) td{background:#F1E2DB}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+3) td{background:#E4E8DA}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n) td{background:#DFE7EA}
-@media(max-width:640px){.ao-article .ao-tbl.ao-tbl3{min-width:0!important;font-size:14.5px!important}.ao-article .ao-tbl3 th,.ao-article .ao-tbl3 td{padding:9px 8px!important;white-space:normal!important;overflow-wrap:anywhere}.ao-article .ao-tbl3 td:first-child{width:34%}.ao-article .ao-tbx{padding:12px 10px 14px}.ao-article .ao-tbh .t{font-size:18px}.ao-article .ao-tbh .o{display:none}.ao-article .ao-tbh .cal{width:44px}.ao-article .ao-tbh .cal i{font-size:20px}}'''
+@media(max-width:640px){.ao-article .ao-tbl.ao-tbl3{min-width:0!important;font-size:14.5px!important}.ao-article .ao-tbl.ao-tbl3{table-layout:fixed}.ao-article .ao-tbl3 th,.ao-article .ao-tbl3 td{padding:9px 8px!important;white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important;writing-mode:horizontal-tb!important}.ao-article .ao-tbl3 th:nth-child(1){width:35%}.ao-article .ao-tbl3 th:nth-child(2){width:21%}.ao-article .ao-tbl3:not(.cmp) td:first-child{font-size:13px!important;overflow-wrap:normal!important;padding-right:4px!important}.ao-article .ao-tbl3.cmp th:nth-child(1){width:22%}.ao-article .ao-tbl3.cmp th:nth-child(2){width:39%}.ao-article .ao-tbx{padding:12px 10px 14px}.ao-article .ao-tbh .t{font-size:18px}.ao-article .ao-tbh .o{display:none}.ao-article .ao-tbh .cal{width:44px}.ao-article .ao-tbh .cal i{font-size:20px}}'''
 
 PAT = re.compile(r'<p class="t ao-tbt">列表(\d+)｜(.*?)</p>\s*(<div class="ao-tw">.*?</table></div>)', re.S)
 
@@ -26,8 +26,12 @@ def apply(body):
         n, t, tw = m.group(1), m.group(2), m.group(3)
         titles.append(t)
         rows = tw.count('<tr>') - 1
-        if tw.split('</tr>')[0].count('<th>') == 3:
-            tw = tw.replace('<table class="ao-tbl">', '<table class="ao-tbl ao-tbl3">', 1)
+        head = tw.split('</tr>')[0]
+        if head.count('<th>') == 3:
+            cls = 'ao-tbl ao-tbl3' + (' cmp' if '<th>項目</th>' in head else '')
+            tw = tw.replace('<table class="ao-tbl">', f'<table class="{cls}">', 1)
+        elif head.count('<th>') == 4:
+            tw = tw.replace('<table class="ao-tbl">', '<table class="ao-tbl ao-tbl4">', 1)
         tag = '比較表' if '比較' in t else f'{rows} 個用語'
         return (f'<div class="ao-tbx">'
                 f'<div class="ao-tbh"><span class="cal"><b>列表</b><i>{n}</i></span><span class="t">{t}</span><span class="o">{tag}</span></div>{tw}</div>')
@@ -47,7 +51,7 @@ NB_CSS = '''.ao-article .ao-nb{position:relative;margin:16px 0 22px;padding:32px
 .ao-article .ao-nb p.en{margin:0!important;font:600 17px/32px Georgia,"Times New Roman",serif!important;color:#3B3A36}
 .ao-article .ao-nb p.en i{font-style:normal;color:#B5A998;margin:0 6px}
 
-.ao-article .ao-nb.dl p.en b{font-family:-apple-system,"PingFang HK",sans-serif;font-size:14px;color:#2C6E49;margin-right:4px}.ao-article .ao-nb.dl p.zh{font-weight:500;letter-spacing:0;color:#7a7266;font-size:14px!important}.ao-article .ao-nb.dl .r+.r{margin-top:0}.ao-article .ao-nb.dl p.en .cn{font:500 14px/32px -apple-system,"PingFang HK",sans-serif;color:#7a7266;margin-left:4px}
+.ao-article .ao-nb.dl p.en b{font-family:-apple-system,"PingFang HK",sans-serif;font-size:14px;color:#2C6E49;margin-right:4px}.ao-article .ao-nb.dl p.zh{font-weight:500;letter-spacing:0;color:#7a7266;font-size:14px!important}.ao-article .ao-nb.dl .r+.r{margin-top:0}.ao-article .ao-nb.dl{margin:18px 0 52px!important}.ao-article .ao-nb.dl p.en .cn{font:500 14px/32px -apple-system,"PingFang HK",sans-serif;color:#7a7266;margin-left:4px}
 @media(max-width:640px){.ao-article .ao-nb.dl{padding-left:54px}.ao-article .ao-nb{padding:32px 12px 32px 54px;background-image:linear-gradient(90deg,transparent 42px,#E7A9A0 42px,#E7A9A0 44px,transparent 44px),repeating-linear-gradient(180deg,transparent 0 31px,#D6E2EA 31px 32px)}.ao-article .ao-nb:before{left:10px;width:14px;background-size:14px 96px;background-position:-1px 0}.ao-article .ao-nb .hd{left:54px}.ao-article .ao-nb .no{left:-40px;width:26px;font-size:14px}.ao-article .ao-nb p.en{font-size:15.5px!important}}'''
 
 def notebook(ul_html, head):
