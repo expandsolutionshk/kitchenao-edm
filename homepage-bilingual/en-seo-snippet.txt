@@ -1,0 +1,79 @@
+/**
+ * Kitchen AO – 英文版 SEO（Rank Math + TranslatePress 免費版）
+ * 只在 /en/ 頁面生效，中文版不受影響。
+ * 新增頁面：在 $map 加一行「頁面ID => [ 't' => 英文 title, 'd' => 英文 description ]」
+ */
+function ao_en_seo_get( $key ) {
+	global $TRP_LANGUAGE;
+	if ( empty( $TRP_LANGUAGE ) || strpos( $TRP_LANGUAGE, 'en' ) !== 0 ) {
+		return null;
+	}
+	static $map = array(
+		// 首頁
+		7014  => array(
+			't' => 'Catering Hong Kong | Party & Corporate Catering | Kitchen AO',
+			'd' => 'Kitchen AO provides catering across Hong Kong for birthday parties, corporate events and boat parties. Browse party sets, get a quote and order online.',
+		),
+		// 到會推介
+		18621 => array(
+			't' => 'Hong Kong Catering Recommendations 2026 | Kitchen AO',
+			'd' => 'Looking for catering recommendations in Hong Kong? Kitchen AO caters corporate events, birthday parties and family gatherings with flexible menus and delivery.',
+		),
+		// 公司到會
+		18404 => array(
+			't' => 'Corporate Catering Hong Kong | Annual Dinner & Office Lunch',
+			'd' => 'Corporate catering in Hong Kong for annual dinners, office lunches, openings and anniversaries. Menus tailored to headcount and budget. Request a quote.',
+		),
+		// 商務活動
+		6341  => array(
+			't' => 'Business Event Catering Hong Kong | Kitchen AO',
+			'd' => 'Catering for business meetings, product launches, openings and receptions in Hong Kong. Finger food, canapés and buffets arranged to suit your event.',
+		),
+		// 報價查詢
+		10737 => array(
+			't' => 'Catering Quote Hong Kong | Party & Corporate | Kitchen AO',
+			'd' => 'Tell us your event date, headcount and budget, and Kitchen AO will send a tailored catering menu and quote for your party, corporate event or gathering.',
+		),
+		// 送貨需知
+		5927  => array(
+			't' => 'Free Catering Delivery Hong Kong | Fees & Times | Kitchen AO',
+			'd' => 'Delivery fees for Hong Kong Island, Kowloon and the New Territories. Free delivery on orders over HK$1,450, delivery time slots and typhoon arrangements.',
+		),
+		// 常見問題
+		6051  => array(
+			't' => 'Catering FAQ | Ordering & Delivery | Kitchen AO Hong Kong',
+			'd' => 'Answers to common questions about ordering, delivery times, delivery fees, minimum spend and menu suggestions for Kitchen AO catering in Hong Kong.',
+		),
+		// 關於我們
+		17    => array(
+			't' => 'About Kitchen AO | Hong Kong Catering Brand & Chef Team',
+			'd' => 'Discover the story, chef team and catering philosophy behind Kitchen AO. We serve corporate events, parties and family gatherings across Hong Kong.',
+		),
+		// 客製化紀念品訂製服務
+		15421 => array(
+			't' => 'Custom Souvenirs & Corporate Gifts Hong Kong | Kitchen AO',
+			'd' => 'Kitchen AO creates custom souvenirs and corporate gifts, from design and production to delivery. Ideal for company events, staff rewards and festive gifts.',
+		),
+		// 合作夥伴與服務實績
+		11197 => array(
+			't' => 'Partners & Client Portfolio | Kitchen AO Catering',
+			'd' => 'Kitchen AO has catered for companies, healthcare organisations, schools and public bodies in Hong Kong. See selected partners and enquire today.',
+		),
+	);
+	$id = is_front_page() ? 7014 : ( is_singular() ? get_queried_object_id() : 0 );
+	return isset( $map[ $id ][ $key ] ) ? $map[ $id ][ $key ] : null;
+}
+
+$ao_t = function ( $v ) { $x = ao_en_seo_get( 't' ); return $x ? $x : $v; };
+$ao_d = function ( $v ) { $x = ao_en_seo_get( 'd' ); return $x ? $x : $v; };
+
+add_filter( 'rank_math/frontend/title', $ao_t, 99 );
+add_filter( 'rank_math/frontend/description', $ao_d, 99 );
+add_filter( 'rank_math/opengraph/facebook/og_title', $ao_t, 99 );
+add_filter( 'rank_math/opengraph/facebook/og_description', $ao_d, 99 );
+add_filter( 'rank_math/opengraph/twitter/title', $ao_t, 99 );
+add_filter( 'rank_math/opengraph/twitter/description', $ao_d, 99 );
+add_filter( 'rank_math/opengraph/facebook/og_locale', function ( $v ) {
+	global $TRP_LANGUAGE;
+	return ( ! empty( $TRP_LANGUAGE ) && strpos( $TRP_LANGUAGE, 'en' ) === 0 ) ? 'en_GB' : $v;
+}, 99 );
