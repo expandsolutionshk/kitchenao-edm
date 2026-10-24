@@ -202,7 +202,7 @@ section{display:none;padding:20px 24px 60px}section.on{display:block}
 const V = __V__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
-const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（6 篇 Blog）','vegetarian-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
+const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（7 篇 Blog）','vegetarian-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
 const made={};let first=null;
 function show(b,s,top){document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
 for(const [k,code] of Object.entries(V)){

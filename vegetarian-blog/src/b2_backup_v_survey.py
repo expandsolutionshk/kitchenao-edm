@@ -1,0 +1,166 @@
+# -*- coding: utf-8 -*-
+from common import *
+import kv_final as KVB
+import kv_mag
+PID='B2'
+_PX='https://images.pexels.com/photos/{0}/pexels-photo-{0}.jpeg?auto=compress&cs=tinysrgb&w=700'
+IMGS={'egg':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-egg.jpg','milk':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-milk.jpg','wx':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-wuxin.jpg','vg':'https://aoaodelivery.com/wp-content/uploads/2026/10/veg-b2-kv-vegan.jpg'}  # 已上載媒體庫（原圖：Pexels 7118901／36183642／17140078／6157094）
+MCOLS=[(IMGS['egg'],'蛋奶素','吃蛋、奶'),(IMGS['milk'],'奶素','吃奶、不吃蛋'),(IMGS['wx'],'五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'純素','只吃植物')]
+KV2=dict(pill='<span class="pill">素食新手入門 2026</span>',
+ ttl='<h2 class="ttl">聚會有朋友吃素？<br>新手一表看懂<span class="y">素食種類</span></h2>',
+ punch='蛋奶素、奶素、五辛素、純素……<br>10 種吃法一次看清！', kws=['素食種類','蛋奶素','奶素','五辛素','純素'],
+ cols=[(IMGS['egg'],'🥚 蛋奶素','吃蛋、奶'),(IMGS['milk'],'🥛 奶素','吃奶、不吃蛋'),(IMGS['wx'],'🧄 五辛素','可吃蔥、蒜、韭'),(IMGS['vg'],'🌱 純素','只吃植物')])
+Y='<td class="c y">✓</td>';N='<td class="c n">✗</td>';M='<td class="c m">△</td>'
+body=f'''
+<p class="ao-intro">朋友說自己吃{k('素食')}，背後可以有好幾種意思：{k('蛋奶素')}會吃蛋和奶，{k('全素')}連蜜糖也不吃，{k('五辛素')}卻可以吃蔥、蒜等{k('五辛')}。再加上{k('蔬食')}、彈性素、鍋邊素等說法，難怪不少人一頭霧水。這些名稱其實出自不同地方：香港衞生署的分類、台灣的食品標示法規，以及歐美的英文用語。本文由定義、分類到吃得與吃不得逐一拆解，最後附上聚會訂餐時要問清楚的重點。</p>
+<div class="ao-qa"><p class="t">30 秒看懂</p><p>香港衞生署按「可否吃蛋、奶」把素食分為<b>蛋奶素、蛋素、奶素及全素（純素）</b>四大類，並沒有提及五辛。「<b>五辛素</b>」及「全素或純素不含五辛」的界定，則來自<b>台灣</b>的素食標示法規。由於同一個名稱在不同地方意思未必一樣，訂餐時最好直接說明「要不要蛋奶」及「要不要走五辛」。</p></div>
+<style>.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:15.5px!important;line-height:1.7!important}}@media(max-width:640px){{.ao-article .ao-toc ul li,.ao-article .ao-toc ul li a{{font-size:14.5px!important}}}}</style><nav class="ao-toc"><div class="t">目錄</div><ul>
+<li><a href="#def">素食是甚麼？食素、素菜、蔬食、無肉有甚麼分別</a></li>
+<li><a href="#table">素食分類一覽表：一表看清 10 種吃法及出處</a></li>
+<li><a href="#types">衞生署四大分類：蛋奶素、蛋素、奶素、全素</a></li>
+<li><a href="#vegan-wuxin">全素／純素可以吃五辛嗎？</a></li>
+<li><a href="#wuxin">五辛素是甚麼？五辛是哪五種？</a></li>
+<li><a href="#others">其他常見說法：彈性素、鍋邊素、方便素</a></li>
+<li><a href="#pesca">海鮮素算素食嗎？</a></li>
+<li><a href="#cancan">吃素可以吃甚麼？不可以吃甚麼？</a></li>
+<li><a href="#hidden">小心！隱藏的動物成分及五辛</a></li>
+<li><a href="#party">朋友吃素，聚會訂餐要問清楚甚麼？</a></li>
+<li><a href="#faq">常見問題</a></li></ul></nav>
+
+<h2 class="ao-h2" id="def">素食是甚麼？食素、素菜、蔬食、無肉有甚麼分別</h2>
+<p>根據衞生署衞生防護中心的說法，{k('素食')}泛指<b>以植物為主要食糧，不進食部分或所有動物的肉、內臟及其製品</b>的飲食模式。至於蛋、奶、蜜糖等動物來源食品吃不吃，就視乎屬哪一類素食。廣東話常說的「{k('食素')}」「食齋」，都屬於這個範圍。</p>
+<div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>說法</th><th>一般意思</th></tr></thead><tbody>
+<tr><td><b>素食</b></td><td>統稱，包括蛋奶素、全素及宗教齋食；不吃肉類及海鮮。</td></tr>
+<tr><td><b>蔬食</b></td><td>以蔬菜及植物為主的飲食，較強調健康及環保理念，未必嚴守宗教戒律（例如可能用蔥蒜）。</td></tr>
+<tr><td><b>葷食</b></td><td>日常指含肉類、海鮮等動物性食物的飲食，與素食相對；佛教所說的「葷」，原本另指五辛等氣味濃烈的蔬菜（見下文五葷）。</td></tr>
+<tr><td><b>無肉</b></td><td>只強調「不吃肉」，一般仍會吃蛋和奶；嚴格程度因人而異。</td></tr>
+</tbody></table></div>
+<h3 class="ao-h3">素食主義是甚麼？素食主義者有哪些類型？</h3>
+<p>{k('素食主義')}（Vegetarianism）是指奉行素食的生活理念，背後原因可以是健康、宗教、環保或動物權益；奉行的人稱為{k('素食主義者')}（Vegetarian）。按吃不吃蛋、奶，素食主義者又可分為蛋奶素、蛋素、奶素及全素（純素）等，即下文的素食分類。不少宗教亦有素食傳統，例如漢傳佛教的出家人一般茹素，道教信眾則多在齋期或特定日子吃素。</p>
+<p>至於日常說的{k('素菜')}，一般是指不含肉的菜式，但未必符合所有素食者的要求，例如可能用了蠔油或雞湯調味。</p>
+
+<h2 class="ao-h2" id="table">素食分類一覽表：一表看清 10 種吃法及出處</h2>
+<p>下表整理香港常見的 10 種吃法，並註明每個名稱的出處。</p>
+<p class="ao-tcap" style="margin:10px 0 4px!important">✓＝可以吃，✗＝不吃，△＝視乎個人、宗教團體。</p>
+<div class="ao-tw"><table class="ao-tbl"><thead><tr><th>類型</th><th>英文</th><th>肉類／海鮮</th><th>蛋</th><th>奶</th><th>蜜糖</th><th>五辛</th><th>出處</th></tr></thead><tbody>
+<tr><td><b>蛋奶素</b></td><td>Lacto-ovo-vegetarian</td>{N}{Y}{Y}{M}{M}<td>香港衞生署（台灣法規稱「奶蛋素」）</td></tr>
+<tr><td><b>蛋素</b></td><td>Ovo-vegetarian</td>{N}{Y}{N}{M}{M}<td>香港衞生署、台灣法規</td></tr>
+<tr><td><b>奶素</b></td><td>Lacto-vegetarian</td>{N}{N}{Y}{M}{M}<td>香港衞生署、台灣法規</td></tr>
+<tr><td><b>全素／純素</b></td><td>Vegan</td>{N}{N}{N}{N}{M}<td>香港衞生署（未提五辛）；台灣法規列明不含五辛；歐美 Vegan 可吃五辛</td></tr>
+<tr><td><b>純素（不含五辛）</b></td><td>Vegan（台灣定義）</td>{N}{N}{N}{N}{N}<td>香港調查用語；等同台灣法規的「全素或純素」</td></tr>
+<tr><td><b>五辛素（植物五辛素）</b></td><td>Five pungent spices vegetarian</td>{N}{M}{M}{M}{Y}<td>台灣法規</td></tr>
+<tr><td><b>彈性素</b></td><td>Flexitarian</td><td class="c m">平日以素為主，間中吃肉或魚</td>{Y}{Y}{Y}{Y}<td>歐美用語；香港調查亦採用</td></tr>
+<tr><td><b>鍋邊素</b></td><td>沒有官方英文</td><td class="c m">不吃肉，但接受與肉同煮的菜</td>{Y}{Y}{Y}{Y}<td>華人民間說法，多見於台灣</td></tr>
+<tr><td><b>方便素</b></td><td>沒有官方英文</td><td class="c m">外出時從寬，只避開肉塊</td>{Y}{Y}{Y}{Y}<td>華人民間說法，多見於台灣</td></tr>
+<tr><td><b>海鮮素（不屬素食）</b></td><td>Pescatarian</td><td class="c m">不吃肉，但吃魚及海鮮</td>{Y}{Y}{Y}{Y}<td>歐美用語</td></tr>
+</tbody></table></div>
+<div class="ao-adv"><p class="t">這些分類從哪裡來？</p>
+<div class="r"><span class="n">🇭🇰</span><div><b>香港衞生署：按「可否吃蛋、奶」分四類</b><p>衞生防護中心分為蛋奶素食、蛋素食、奶素食及全素食；學生健康服務則稱為乳蛋素食、蛋素食、乳素食及純素食。兩者都沒有把五辛列入分類。</p></div></div>
+<div class="r"><span class="n">📜</span><div><b>台灣法規：包裝食品的五種素食標示</b><p>台灣衞生署 2008 年公告，宣稱素食的包裝食品須標示「全素或純素」「蛋素」「奶素」「奶蛋素」或「植物五辛素」。法規列明全素或純素不含五辛，植物五辛素則可含五辛。</p></div></div>
+<div class="r"><span class="n">🌍</span><div><b>歐美英文用語：Vegan、Flexitarian（彈性素）、Pescatarian（海鮮素）</b><p>Vegan 一詞源自英國的 The Vegan Society，指不吃一切動物來源食品；西方沒有五辛的概念，所以 Vegan 一般可以吃蔥蒜。</p></div></div>
+<div class="r"><span class="n">📊</span><div><b>香港調查用語：彈性素、純素（不含五辛）</b><p>香港的素食問卷調查把素食者分為彈性素、蛋奶素、純素及純素（不含五辛）四類，可見本地人會把「純素」和「不含五辛」分開理解。</p></div></div>
+</div>
+
+<h2 class="ao-h2" id="types">衞生署四大分類：蛋奶素、蛋素、奶素、全素</h2>
+<h3 class="ao-h3">蛋奶素是甚麼意思？</h3>
+<div class="ao-qa"><p class="t">快速答案</p><p>{k('蛋奶素')}是指不吃肉類、海鮮及其他動物性食物，但會進食蛋類和奶類製品（例如牛奶、芝士、乳酪）的素食，英文是 Lacto-ovo-vegetarian，學生健康服務稱為「乳蛋素食」。</p></div>
+<p>{k('蛋奶素食者')}可以吃雞蛋、蛋糕、牛奶、芝士、乳酪等，但不吃肉、魚、海鮮，以及用肉湯、魚露等調味的食物。由於可從蛋和奶攝取優質蛋白質及維他命 B12，營養上較容易均衡。「{k('奶蛋素')}」與蛋奶素是同一意思，只是詞序不同。</p>
+<h3 class="ao-h3">蛋素和奶素有甚麼分別？</h3>
+<p>{k('蛋素')}（Ovo-vegetarian）只吃蛋、不吃奶類製品；{k('奶素')}（Lacto-vegetarian，學生健康服務稱「乳素食」）則相反，只吃奶類製品、不吃蛋。部分人因乳糖不耐或對蛋敏感而選擇其中一種，亦有宗教傳統只接受奶類。</p>
+<h3 class="ao-h3">全素和純素一樣嗎？</h3>
+<div class="ao-qa"><p class="t">快速答案</p><p>在香港，{k('全素')}和{k('純素')}是同一類吃法：只吃植物性食物，不吃肉、蛋、奶，以及蜜糖、燕窩等動物來源食品，英文是 Vegan。衞生防護中心稱為「全素食」，學生健康服務則稱為「純素食」。</p></div>
+<p>不過，「純素主義」（Veganism）的範圍往往更廣，除了飲食，亦會避免使用皮革、羊毛等動物製品。</p>
+
+<h2 class="ao-h2" id="vegan-wuxin">全素／純素可以吃五辛嗎？</h2>
+<div class="ao-qa"><p class="t">快速答案</p><p>要視乎採用哪個定義：香港衞生署的全素／純素只講<b>不吃動物性食物</b>，沒有提及五辛；台灣法規的「全素或純素」則列明<b>不含五辛</b>；歐美的 Vegan 沒有五辛概念，一般<b>可以吃蔥蒜</b>。</p></div>
+<p>香港的素食問卷調查（柏堡活動策劃，2023 年）正好反映這個分別：受訪素食者之中，約 14% 屬<b>純素</b>，另有約 12% 屬<b>純素（不含五辛）</b>，兩者是分開計算的。換言之，在香港聽到朋友說「我食純素」，並不代表他一定不吃蔥蒜；最穩妥的做法，是直接問一句「要不要走五辛？」</p>
+
+<h2 class="ao-h2" id="wuxin">五辛素是甚麼？五辛是哪五種？</h2>
+<div class="ao-qa"><p class="t">快速答案</p><p>{k('五辛素')}是指不吃肉類與海鮮，但<b>可以食用五種特定辛香植物</b>的蔬食方式。在台灣的食品標示法規中，正式名稱為「<b>植物五辛素</b>」；法規列明的{k('五辛')}是<b>蔥、蒜、韭、蕎及興渠</b>。</p></div>
+<p>按台灣的法規，植物五辛素是指食用植物性的食物，如含奶或蛋，須於內容物名稱內說明。換言之，五辛素與全素的最大分別，在於可否吃蔥、蒜等辛香植物。香港衞生署的分類則沒有「五辛素」這一項。</p>
+<h3 class="ao-h3">五辛食物一覽：哪些食物屬於五辛？</h3>
+<div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>五辛</th><th>常見食物例子</th></tr></thead><tbody>
+<tr><td>蒜</td><td>蒜頭、蒜蓉、蒜心、蒜苗</td></tr>
+<tr><td>蔥</td><td>青蔥、大蔥、紅蔥頭、乾蔥</td></tr>
+<tr><td>韭</td><td>韭菜、韭黃、韭菜花</td></tr>
+<tr><td>蕎（薤）</td><td>蕎頭（常見於醃製小菜）</td></tr>
+<tr><td>興渠</td><td>香港少見，漢典形容其根像蘿蔔、氣味像蒜；不少素食者亦把<b>洋蔥</b>一併視作五辛</td></tr>
+</tbody></table></div>
+<p>佛教典籍所列的{k('五葷')}（大蒜、韭菜、薤、蔥、興渠）與台灣法規的五辛大致相同，但不同宗派及典籍的名單並不完全一致；如賓客有宗教要求，最好直接確認對方戒口的範圍。</p>
+<h3 class="ao-h3">辣椒、薑算五辛嗎？</h3>
+<p>辣椒、薑、胡椒雖然味道濃烈，但<b>不屬五辛</b>，不吃五辛的人一般可以食用。</p>
+<h3 class="ao-h3">為甚麼有人吃素不吃五辛？</h3>
+<p>{k('素食為什麼不能吃五辛')}，主要源於佛教戒律。傳統說法認為五辛氣味濃烈，會影響修行及清淨，所以修行人不宜食用。換言之，戒五辛屬宗教要求，並非營養原因；不少非宗教素食者（例如蛋奶素、歐美的 Vegan）其實會吃蔥蒜。</p>
+<div class="ao-tip">💡 <b>蛋奶素和五辛素有甚麼分別？</b>兩者是不同層面的分類：蛋奶素講「可否吃蛋奶」，五辛素講「可否吃蔥蒜」。按台灣法規，植物五辛素亦可能含蛋或奶，只是須在內容物名稱內說明。</div>
+
+<h2 class="ao-h2" id="others">其他常見說法：彈性素、鍋邊素、方便素</h2>
+<h3 class="ao-h3">彈性素</h3>
+<p>彈性素（Flexitarian）是源自歐美的用語，由 flexible（彈性）及 vegetarian（素食者）組成。Merriam-Webster、Oxford 等英文字典均把 Flexitarian 解釋為<b>平日以素為主、間中吃肉或魚</b>的人。不過，歐美並沒有官方標準規定一星期要吃素多少天；提出「彈性素食法」的美國營養師 Dawn Jackson Blatner 把入門級定為每星期兩天不吃肉，進階級為三至四天，五天或以上屬專家級。換言之，由每星期「間中吃素」開始，已算踏出彈性素的第一步。香港大學傳譯課程的詞彙表則譯作「彈性素食者」。在香港的素食問卷調查中，約 64% 受訪素食者屬彈性素，是本地最常見的吃法；每星期安排一天吃素的「素食星期一」（Green Monday），就是常見的入門方法。</p>
+<h3 class="ao-h3">鍋邊素和方便素</h3>
+<p><b>鍋邊素</b>是指不吃肉塊，但接受與肉同煮或同鍋的蔬菜，例如會吃肉碎炒菜中的菜。<b>方便素</b>的意思相近，多指外出用膳時從寬處理，只避開明顯的肉類。兩者屬華人地區的民間說法，多見於台灣，沒有官方定義，嚴格程度因人而異。</p>
+
+<h2 class="ao-h2" id="pesca">海鮮素算素食嗎？</h2>
+<p>海鮮素（Pescatarian）是歐美用語，指不吃肉類，但會吃魚及海鮮。由於仍會進食動物，<b>並不屬於素食</b>，也不應視作彈性素；為素食朋友準備食物時，不應以海鮮代替肉類。</p>
+
+<h2 class="ao-h2" id="cancan">吃素可以吃甚麼？不可以吃甚麼？</h2>
+<h3 class="ao-h3">素食食物有哪些？</h3>
+<p>常見的{k('素食食物')}包括穀物、蔬菜、水果、豆腐及豆類、堅果和菇菌類；如果是全素（純素），一份{k('純素餐')}就不能有蛋、奶、蜜糖等動物來源食品，連魚露、蠔油、雞粉等調味料也要避開。</p>
+<p>「{k('素食吃什麼')}」視乎所屬類型。以下按常見食物整理：</p>
+<p class="ao-tcap" style="margin:10px 0 4px!important">✓＝可以吃，✗＝不吃，△＝視乎個人、宗教團體。</p>
+<div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>食物</th><th>蛋奶素</th><th>全素／純素</th><th>五辛素</th><th>純素（不含五辛）</th></tr></thead><tbody>
+<tr><td>穀物、蔬果、豆腐、堅果</td>{Y}{Y}{Y}{Y}</tr>
+<tr><td>菇菌類（冬菇、雞髀菇等）</td>{Y}{Y}{Y}{Y}</tr>
+<tr><td>雞蛋、鹹蛋、蛋糕</td>{Y}{N}{M}{N}</tr>
+<tr><td>牛奶、芝士、乳酪</td>{Y}{N}{M}{N}</tr>
+<tr><td>蜜糖</td>{M}{N}{M}{N}</tr>
+<tr><td>蔥、蒜、洋蔥、韭菜</td>{Y}{M}{Y}{N}</tr>
+<tr><td>魚露、蠔油、雞粉、上湯</td>{N}{N}{N}{N}</tr>
+<tr><td>啫喱（含明膠）</td>{N}{N}{N}{N}</tr>
+</tbody></table></div>
+<p>常見疑問：<b>菇類算素食嗎？</b>菇菌屬真菌，並非動物，所有素食者均可食用。<b>雞蛋算不算素食？</b>視乎類型：蛋奶素及蛋素可以吃，全素不吃。<b>全素可以吃蔥蒜嗎？</b>要視乎採用哪個定義，詳見上文。</p>
+
+<h2 class="ao-h2" id="hidden">小心！隱藏的動物成分及五辛</h2>
+<p>不少看似「素」的食物，其實含動物成分或五辛。衞生防護中心亦提到，全素者不吃蜜糖及燕窩等動物來源食品。購買或點餐時可留意以下成分：</p>
+<ul class="ao-ck"><li>❌ <b>動物調味料：</b>蠔油、魚露、蝦醬、雞粉、上湯、XO 醬</li>
+<li>❌ <b>油脂：</b>豬油、牛油（全素不吃）</li>
+<li>❌ <b>甜品：</b>啫喱及棉花糖（多含明膠）、部分芝士蛋糕</li>
+<li>❌ <b>芝士：</b>部分芝士以動物凝乳酶製造，嚴格素食者會避開</li>
+<li>❌ <b>隱藏的五辛：</b>蒜蓉醬、蔥油、洋蔥粉、沙茶醬、預拌醬汁、湯底及裝飾配料</li>
+<li>❌ <b>素肉／齋肉：</b>不一定是全素，部分可能含蛋或奶，購買前宜查看成分表</li></ul>
+<div class="ao-warn">⚠️ 衞生防護中心提醒：素食並非必然健康，小童、青少年、孕婦、授乳婦女、長者及長期病患者在決定茹素前，應先諮詢醫生及營養師。</div>
+
+<h2 class="ao-h2" id="party">朋友吃素，聚會訂餐要問清楚甚麼？</h2>
+<p>了解{k('素食分類')}後，安排聚會便容易得多。由於「純素」「五辛素」等名稱在香港、台灣及歐美的意思未必一樣，與其只說「素食」，不如直接問清楚以下幾點：</p>
+<ul class="ao-ck"><li>✅ <b>蛋奶：</b>可以吃蛋嗎？可以吃奶類製品嗎？</li>
+<li>✅ <b>五辛：</b>需要「走五辛」嗎？洋蔥也要避開嗎？</li>
+<li>✅ <b>醬料及湯底：</b>有沒有用蠔油、魚露、雞湯或蒜蓉醬？</li>
+<li>✅ <b>共用器具：</b>素食是否與肉類分開煮、分開盛載，並配備專用食物夾？</li></ul>
+<p>詳細的擺放及份量安排，可參考{link('B1','《派對有素食朋友點安排？素食到會揀選全攻略》')}；想省時，亦可直接訂購 Kitchen AO「素」味人生素食到會套餐。如賓客需要全素或走五辛，請於預訂前先向客服確認實際食材及製作安排。</p>
+<div class="ao-ctabox"><h3>🌱 一次照顧所有素食朋友</h3><p>「素」味人生素食到會套餐，6 至 26 人均有選擇，最少提早三日預訂。</p><div class="cta-row"><a class="cta-main" href="{C1}"><span class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></span><span>揀選「素」味人生套餐</span><span class="ar">→</span></a><a class="cta-wa" href="https://api.whatsapp.com/send?phone=85269011987&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E3%80%8C%E7%B4%A0%E3%80%8D%E5%91%B3%E4%BA%BA%E7%94%9F%E7%B4%A0%E9%A3%9F%E5%88%B0%E6%9C%83%E5%A5%97%E9%A4%90%EF%BC%8C%E6%9C%89%E7%89%B9%E5%88%A5%E9%A3%B2%E9%A3%9F%E8%A6%81%E6%B1%82%E6%83%B3%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B%E3%80%82" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><span><b>WhatsApp 查詢</b><small>全素、走五辛等特別要求</small></span></a></div></div>
+'''
+faqs=[
+('素食有哪幾種？','香港衞生署按可否吃蛋、奶，把素食分為蛋奶素、蛋素、奶素及全素（純素）四大類。此外，五辛素來自台灣的食品標示法規，彈性素、海鮮素等則是歐美用語，鍋邊素、方便素屬華人地區的民間說法。'),
+('蛋奶素是什麼意思？','蛋奶素是不吃肉類及海鮮，但會吃蛋類和奶類製品的素食，英文是 Lacto-ovo-vegetarian；學生健康服務稱為「乳蛋素食」，台灣法規則稱「奶蛋素」。'),
+('純素是全素嗎？','在香港是同一意思，即只吃植物性食物，不吃蛋、奶、蜜糖及燕窩等動物來源食品，英文是 Vegan。衞生防護中心稱為「全素食」，學生健康服務稱為「純素食」。'),
+('純素可以吃五辛嗎？','視乎採用哪個定義。香港衞生署的定義沒有提及五辛；台灣法規的「全素或純素」列明不含五辛；歐美的 Vegan 則一般可以吃蔥蒜。訂餐時宜直接說明是否需要走五辛。'),
+('五辛素是什麼意思？','五辛素是指不吃肉類與海鮮，但可以食用五種特定辛香植物的蔬食方式。在台灣的食品標示法規中，正式名稱為「植物五辛素」。'),
+('植物五辛素是素食嗎？','是。按台灣的食品標示法規，植物五辛素是五種素食標示之一，指食用植物性的食物，並可含蔥、蒜、韭、蕎及興渠等五辛。'),
+('五辛是什麼？','五辛是指五種氣味濃烈的辛香植物。按台灣法規，五辛是蔥、蒜、韭、蕎（薤）及興渠；部分素食者因宗教原因不吃五辛，五辛素則可以吃。'),
+('五辛是指哪五種食物？','台灣法規列明的五辛是蔥、蒜、韭、蕎（薤）及興渠；佛教典籍所列的五葷大致相同，但不同宗派的名單略有不同，不少素食者亦把洋蔥視作五辛。'),
+('五辛素可以吃蛋奶嗎？','按台灣法規，植物五辛素可以含奶或蛋，但須在內容物名稱內說明，所以要視乎個人習慣或產品標示。'),
+('辣椒是五辛嗎？','不是。辣椒、薑及胡椒都不屬五辛。'),
+('蔬食和素食有什麼差別？','蔬食泛指以植物為主的飲食，較著重健康及環保，未必嚴守宗教戒律；素食是統稱，包括宗教齋食。點餐前宜確認是否含蛋、奶或五辛。'),
+('彈性素是間中吃肉，還是間中吃素？','按 Merriam-Webster、Oxford 等字典的解釋，彈性素（Flexitarian）是以素為主、間中吃肉或魚。不過歐美沒有官方標準，提出彈性素食法的營養師 Dawn Jackson Blatner 把入門級定為每星期兩天不吃肉，所以由每星期「間中吃素」開始，同樣屬於彈性素。'),
+('海鮮素算不算素食？','不算。海鮮素（Pescatarian）仍會進食魚及海鮮等動物，因此並不屬於素食。'),
+]
+srcs=[SRC['chp'],SRC['shs'],('政府','台灣行政院衞生署公告〈包裝食品宣稱為素食之標示規定〉（衞署食字第 0970402575 號，2008 年）','https://www.bsmi.gov.tw/wSite/public/Data/f1247018671891.pdf'),('政府','台灣衞生福利部〈素食五標示 7/1 貼心上路〉','https://mohw.gov.tw/cp-16-27546-1.html'),('辭典','Merriam-Webster：flexitarian','https://www.merriam-webster.com/dictionary/flexitarian'),('辭典','Oxford Learner’s Dictionaries：flexitarian','https://www.oxfordlearnersdictionaries.com/definition/american_english/flexitarian'),('媒體','Healthline：The Flexitarian Diet: A Detailed Beginner’s Guide','https://www.healthline.com/nutrition/flexitarian-diet-guide'),('政府','USDA FAS：Food and Agricultural Import Regulations and Standards Country Report: Taiwan (2022)','https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Food+and+Agricultural+Import+Regulations+and+Standards+Country+Report_Taipei_Taiwan_TW2022-0059'),('機構','The Vegan Society：Definition of veganism','https://www.vegansociety.com/go-vegan/definition-veganism'),('機構','柏堡活動策劃〈素食及綠色生活習慣問卷調查〉（2023 年 2 月，約 1,000 名香港受訪者，14–65 歲）','https://www.lianapress.hk/media/userfiles/149898/1676630977/vfa2023_survey_pc_ppt_final_ver.pdf'),SRC['hku'],SRC['zdic']]
+open(HERE.parent/'b2-vegetarian-types-guide.html','w',encoding='utf-8').write(page(PID,
+ '素食分類天書｜素食種類一覽：蛋奶素、五辛素、純素、蔬食有甚麼分別？',
+ '素食分類一表看清：蛋奶素、蛋素、奶素、全素（純素）、五辛素有甚麼分別？哪些分類來自香港衞生署、台灣法規或歐美用語？純素可以吃五辛嗎、訂餐要問清楚甚麼，全面整理。',
+ ['素食','蛋奶素','五辛','純素','蔬食'],'素食分類天書','以衞生署官方分類為基礎，一篇看清 9 種素食吃法、五辛定義及吃得與吃不得。',body,faqs,srcs,['B1'],
+ kv_html=kv_mag.block(MCOLS,'h1',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>')))
+WP_DIR='https://aoaodelivery.com/wp-content/uploads/2026/10/'
+open(HERE.parent/'b2-vegetarian-types-guide-WORDPRESS.html','w',encoding='utf-8').write(
+ ''
+ + wp_page(PID, body, faqs, srcs, [], kv_mag.block(MCOLS,'div',ttl='聚會有朋友吃素？<br>新手一表看懂<em>素食分類天書</em>')))
+print('b2 ok')
