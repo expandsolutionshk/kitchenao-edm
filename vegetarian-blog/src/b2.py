@@ -63,7 +63,8 @@ body=f'''
 
 <h3 class="ao-h3" id="survey">香港素食問卷調查：港人吃哪一種素？</h3>
 <p>香港政府沒有公布官方的{k('香港素食人口')}數字，較常被引用的是柏堡活動策劃於 2023 年 2 月發表的〈素食及綠色生活習慣問卷調查〉。調查訪問了接近 1,000 名 14 至 65 歲的香港人，是少數按素食類型劃分的{k('港人素食習慣調查')}：</p>
-<div class="ao-tw"><table class="ao-tbl ao-tbl-wrap"><thead><tr><th>項目</th><th>調查結果</th></tr></thead><tbody>
+<style>.ao-article .ao-tbl.ao-svy{{min-width:0!important}}.ao-article .ao-svy th:first-child,.ao-article .ao-svy td:first-child{{width:auto!important;white-space:nowrap!important}}</style>
+<div class="ao-tw"><table class="ao-tbl ao-svy"><thead><tr><th>項目</th><th>調查結果</th></tr></thead><tbody>
 <tr><td><b>受訪人數</b></td><td>接近 1,000 名香港人（14 至 65 歲）</td></tr>
 <tr><td><b>有茹素習慣的受訪者</b></td><td>61%（雜食者 39%）</td></tr>
 <tr><td><b>素食者之中：彈性素</b></td><td>64%</td></tr>
