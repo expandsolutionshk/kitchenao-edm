@@ -9,7 +9,7 @@ CSS = '''.ao-article .ao-tbx{position:relative;background:#F4EFE6;border:2px sol
 .ao-article .ao-tbh .t{font:900 23px/1.3 "Noto Serif TC","Songti TC",serif;color:#3B3A36;letter-spacing:1px}
 .ao-article .ao-tbh .o{flex:none;margin-left:auto;border:2px solid #3B3A36;border-radius:30px;background:#D5DFD2;padding:4px 14px;font-weight:800;font-size:13px;color:#3B3A36;white-space:nowrap;line-height:1.4}
 .ao-article .ao-tbx .ao-tw{margin:0!important;border:2px solid #3B3A36!important;border-radius:12px!important;background:#FFFCF6}
-.ao-article .ao-tbx .ao-tbl{background:transparent}.ao-article .ao-tbl.ao-tbl4{table-layout:fixed}.ao-article .ao-tbl4 th:nth-child(1){width:15%}.ao-article .ao-tbl4 th:nth-child(2){width:23%}.ao-article .ao-tbl4 th:nth-child(3),.ao-article .ao-tbl4 th:nth-child(4){width:31%}.ao-article .ao-tbl4 th{white-space:normal!important}
+.ao-article .ao-tbx .ao-tbl{background:transparent}.ao-article .ao-tbl.ao-tblc{min-width:0!important;table-layout:fixed}.ao-article .ao-tblc th,.ao-article .ao-tblc td{white-space:normal!important;overflow-wrap:break-word}.ao-article .ao-tblc td.c,.ao-article .ao-tblc th.c{text-align:center}.ao-article .ao-tbl.ao-tbl4{table-layout:fixed}.ao-article .ao-tbl4 th:nth-child(1){width:15%}.ao-article .ao-tbl4 th:nth-child(2){width:23%}.ao-article .ao-tbl4 th:nth-child(3),.ao-article .ao-tbl4 th:nth-child(4){width:31%}.ao-article .ao-tbl4 th{white-space:normal!important}
 .ao-article .ao-tbx .ao-tbl th{background:#3B3A36;color:#F4EFE6}
 .ao-article .ao-tbx .ao-tbl td{border-top:1px solid rgba(59,58,54,.45)!important;color:#3B3A36}
 .ao-article .ao-tbx .ao-tbl tbody tr:nth-child(4n+1) td{background:#F7F0DC}
@@ -20,10 +20,13 @@ CSS = '''.ao-article .ao-tbx{position:relative;background:#F4EFE6;border:2px sol
 
 PAT = re.compile(r'<p class="t ao-tbt">列表(\d+)｜(.*?)</p>\s*(<div class="ao-tw">.*?</table></div>)', re.S)
 
-def apply(body):
+def apply(body, head='{n} 個素食英文中英對照表速查'):
     titles = []
     def rep(m):
         n, t, tw = m.group(1), m.group(2), m.group(3)
+        tag0 = None
+        if '｜' in t:
+            t, tag0 = t.split('｜', 1)
         titles.append(t)
         rows = tw.count('<tr>') - 1
         head = tw.split('</tr>')[0]
@@ -32,12 +35,12 @@ def apply(body):
             tw = tw.replace('<table class="ao-tbl">', f'<table class="{cls}">', 1)
         elif head.count('<th>') == 4:
             tw = tw.replace('<table class="ao-tbl">', '<table class="ao-tbl ao-tbl4">', 1)
-        tag = '比較表' if '比較' in t else f'{rows} 個用語'
+        tag = tag0 or ('比較表' if '比較' in t else f'{rows} 個用語')
         return (f'<div class="ao-tbx" id="t{n}">'
                 f'<div class="ao-tbh"><span class="cal"><b>列表</b><i>{n}</i></span><span class="t">{t}</span><span class="o">{tag}</span></div>{tw}</div>')
     body = PAT.sub(rep, body)
     items = ''.join(f'<li><a href="#t{i}"><span class="n">{i}</span>{t}</a></li>' for i, t in enumerate(titles, 1))
-    idx = (f'<h2 class="ao-h2" id="tables">{len(titles)} 個素食英文中英對照表速查</h2>\n'
+    idx = (f'<h2 class="ao-h2" id="tables">{head.format(n=len(titles))}</h2>\n'
            f'<p>全文整理了以下 {len(titles)} 個列表，按一下即可跳到相關列表：</p>\n<ol class="ao-tix">{items}</ol>\n')
     body = body.replace('<!--TBL_INDEX-->', idx, 1)
     txt = '列表0123456789' + ''.join(titles)
