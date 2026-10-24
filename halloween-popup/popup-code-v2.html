@@ -26,7 +26,6 @@
       </ul>
       </div>
       <div class="ao-hw-terms" style="margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#3a2410;color:#FFB36B;text-wrap:pretty;font-size:13.5px;font-weight:700;line-height:1.8;">
-        ✓ 10 月 22 日前預訂・即享 92 折<br>
         ✓ 各區免費送遞（滿 $1,450）<br>
         ✓ 可使用會員優惠現金券，但其他優惠碼不適用
       </div>
@@ -44,7 +43,7 @@
 <div id="ao-hw-nudge" data-nosnippet role="region" aria-label="萬聖節優惠提示" hidden>
   <button type="button" class="ao-nd-x" aria-label="關閉提示">×</button>
   <img class="ao-nd-img" loading="lazy" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/10/2025-Halloween-banner-1_banner_banner-768x358.jpg" width="768" height="358" alt="">
-  <div class="ao-nd-txt"><b><span aria-hidden="true">🎃</span> 萬聖節狂嘩套餐</b><small><i class="ao-nd-dot" aria-hidden="true"></i>即日接受訂購・各區免費送遞</small></div>
+  <div class="ao-nd-txt"><b><span aria-hidden="true">🎃</span> 萬聖節狂嘩套餐</b><small><i class="ao-nd-dot" aria-hidden="true"></i>即日接受訂購・全港各區免費送遞</small></div>
   <button type="button" class="ao-nd-go" data-ao-track="nudge_open"><span aria-hidden="true">👻</span> 按此狂嘩一下</button>
 </div>
 <style>
@@ -215,6 +214,12 @@
   #ao-popup-box .ao-hw-bats i.b3 { width:32px; }
 }
 
+/* ===== Desktop 整體縮細 10%（闊度及高度）===== */
+@media (min-width: 641px) {
+  #ao-popup-box { zoom:0.9; max-height:calc((100vh - 32px) / 0.9) !important; }
+  @supports (height:100dvh) { #ao-popup-box { max-height:calc((100dvh - 32px) / 0.9) !important; } }
+}
+
 /* ===== iPhone / WordPress emoji 圖片修正（防止 emoji 變超大）===== */
 #ao-popup-box .ao-hw-ico, #ao-popup-box .ao-hw-tg-ico { white-space:nowrap; line-height:1; }
 #ao-popup-box img.emoji, #ao-popup-box img.wp-smiley { display:inline-block !important; width:1em !important; height:1em !important; max-width:1em !important; min-width:0 !important; margin:0 .12em !important; padding:0 !important; vertical-align:-0.12em !important; border:0 !important; box-shadow:none !important; background:none !important; object-fit:contain !important; }
@@ -233,11 +238,12 @@
 #ao-hw-nudge .ao-nd-x{flex:none;width:28px;height:28px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:17px;line-height:1;cursor:pointer;padding:0}
 /* 手機：底部橫條，高度約 64px（避開右下 WhatsApp 按鈕）*/
 @media (max-width:640px){
-  #ao-hw-nudge{left:10px;right:78px;bottom:12px;padding:9px 10px;border-radius:14px}
-  #ao-hw-nudge .ao-nd-go{font-size:13px;padding:9px 11px}
+  #ao-hw-nudge{left:8px;right:72px;bottom:12px;padding:9px 8px 9px 10px;gap:7px;border-radius:14px}
+  #ao-hw-nudge .ao-nd-go{font-size:12.5px;padding:9px 9px}
   #ao-hw-nudge .ao-nd-go span{display:none}
   #ao-hw-nudge .ao-nd-x{position:absolute;top:-9px;left:-9px;width:24px;height:24px;font-size:15px;background:#4a3463;box-shadow:0 2px 6px rgba(0,0,0,.35)}
-  #ao-hw-nudge .ao-nd-txt small{font-size:11px;gap:5px}
+  #ao-hw-nudge .ao-nd-txt small{font-size:10.5px;gap:4px;letter-spacing:-.2px}
+  #ao-hw-nudge .ao-nd-dot{width:7px;height:7px}
   #ao-hw-nudge .ao-nd-txt b{font-size:14px}
 }
 /* 桌面：右下滑入小卡，闊 320px */
