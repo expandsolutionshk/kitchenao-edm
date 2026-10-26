@@ -37,5 +37,6 @@ for(const [k,code] of Object.entries(V)){
   b.onclick=e=>{e.stopPropagation();show(b,s,top);};
   if(!first){first=1;setTimeout(()=>b.click(),0);}
 }
+const ck=document.createElement('button');ck.textContent='🏢 核心頁面 KW 分配';ck.onclick=e=>{e.stopPropagation();location.href='core-pages-kw.html';};nav.appendChild(ck);
 document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
 </script></body></html>

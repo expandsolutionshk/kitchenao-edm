@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>核心頁面 KW 分配｜Kitchen AO</title><style>body{margin:0;font-family:-apple-system,"PingFang HK","Noto Sans HK",sans-serif;background:#FBF6EC;color:#2a2620}
+header{background:#1A1A1A;color:#F7CE46;padding:18px 24px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;color:#C9BFA8;font-size:13px}header a{color:#F7CE46}
+.wrap{padding:20px 24px 60px;max-width:1400px;margin:0 auto}
+h2{font-size:18px;margin:26px 0 12px}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.05);overflow:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.grid1{display:grid;grid-template-columns:1fr;gap:18px}
+.pc{background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-top:5px solid #7AA7CF;display:flex;flex-direction:column}
+.pc.big{border-top-color:#1A1A1A}
+.pc[data-pg=OLD1],.pc[data-pg=OLD2],.pc[data-pg=XMAS],.pc[data-pg=NB1],.pc[data-pg=RCP]{border-top-color:#6FAE82}
+.ph{display:flex;justify-content:space-between;align-items:center}.ph b{background:#1A1A1A;color:#F7CE46;border-radius:8px;padding:2px 9px;font-size:13px}.st{font-size:12px;background:#FFF4D6;border-radius:8px;padding:2px 8px}
+.pc h3{margin:10px 0 4px;font-size:16px}.pc.big h3{font-size:19px}.pc h4{margin:12px 0 6px;font-size:14px;color:#9A7B2E}
+.u{margin:0 0 8px;font-size:12.5px;word-break:break-all}.u a{color:#9A7B2E}
+.num{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 0 10px;max-width:520px}.num div{background:#F4FBF3;border-radius:10px;padding:6px;text-align:center}.num b{display:block;font-size:17px}.num small{font-size:11px;color:#6b6252}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:900px){.two{grid-template-columns:1fr}}
+.iss{margin:0 0 10px;padding-left:18px;font-size:13.5px;line-height:1.65}.iss li{margin:0 0 4px}.iss.g li::marker{color:#6FAE82}
+.out{margin:0 0 10px;padding-left:20px;font-size:13.5px;line-height:1.65}.out em{display:block;font-style:normal;color:#6b6252;font-size:12px}
+.kw{list-style:none;margin:6px 0 10px;padding:0}.kw li{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;padding:4px 0;border-bottom:1px dashed #eee}.kw span{color:#6b6252;font-size:12px;white-space:nowrap}
+mark{background:#FFF176;padding:0 3px;border-radius:3px}code{background:#F3EFE6;border-radius:4px;padding:0 4px;font-size:12px}
+.seo{background:#FAF7F1;border-radius:10px;padding:8px 10px;margin:0 0 10px;font-size:13px;line-height:1.55}.seo p{margin:0 0 6px}.seo p:last-child{margin:0}.seo small{display:block;font-weight:700;color:#C8A24A;font-size:11px;letter-spacing:1px}
+.note{font-size:13px;color:#4A4238;line-height:1.6;margin:0 0 8px}.lns{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}.ln{font-size:11.5px;background:#EEF4FB;border-radius:20px;padding:2px 8px}
+.more{align-self:flex-start;margin-top:auto;border:1.5px solid #1A1A1A;background:#fff;border-radius:30px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}.tools select,.tools input{font:inherit;font-size:14px;padding:6px 10px;border:1.5px solid #1A1A1A;border-radius:30px}
+.tw{max-height:640px;overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}th,td{padding:7px 9px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}th{background:#1A1A1A;color:#F7CE46;position:sticky;top:0}th.s{cursor:pointer;user-select:none;white-space:nowrap}th.s i{font-style:normal;opacity:.55;font-size:11px}th.s.on i{opacity:1}td.n{text-align:right;white-space:nowrap}
+table.own th{position:static}
+.dl{margin-left:auto;border:0;background:#1A1A1A;color:#F7CE46;border-radius:30px;padding:7px 14px;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
+.rule{background:#fff;border-left:5px solid #C8A24A;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.7}
+.foot{font-size:12px;color:#6b6252;margin:8px 0 0}
+textarea{width:100%;box-sizing:border-box;height:200px;font:inherit;font-size:13.5px;border:1.5px solid #ddd;border-radius:10px;padding:10px;margin:0 0 10px}
+</style></head><body>
+<header><h1>🏢 核心頁面 KW 分配（公司到會、到會推介＋其他待 review 頁面）</h1>
+<p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a></p></header>
+<div class="wrap">
+<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
+<h2>內鏈架構</h2><div class="card"><pre class="mermaid">flowchart LR
+H[&quot;首頁&lt;br/&gt;到會・catering&quot;] --&gt; REC[&quot;到會推介&lt;br/&gt;/hong-kong-catering-recommendation/&quot;]
+H --&gt; CORP[&quot;公司到會&lt;br/&gt;/corporate-catering-hk/&quot;]
+REC --&gt; CORP
+REC &lt;--&gt; OLD1[&quot;舊 Blog&lt;br/&gt;到會邊間好&quot;]
+REC &lt;--&gt; OLD2[&quot;舊 Blog&lt;br/&gt;到會中伏&quot;]
+CORP --&gt; BOX[&quot;商務／員工餐盒分類&quot;]
+CORP &lt;--&gt; BIZ[&quot;商務活動&lt;br/&gt;/business-event/&quot;]
+CORP &lt;--&gt; NB1[&quot;新 Blog&lt;br/&gt;Annual Dinner 籌備&quot;]
+CORP &lt;--&gt; XMAS[&quot;舊 Blog&lt;br/&gt;聖誕到會&quot;]
+CORP --&gt; Q[&quot;報價查詢&quot;]
+BIZ --&gt; Q
+CORP --&gt; P[&quot;合作夥伴&quot;]
+ABOUT[&quot;關於我們&quot;] -.authority.-&gt; CORP &amp; REC
+classDef main fill:#1A1A1A,color:#F7CE46,stroke:#1A1A1A
+classDef blog fill:#E3F4E8,stroke:#6FAE82
+classDef cat fill:#E3F1FB,stroke:#7AA7CF
+class CORP,REC main
+class OLD1,OLD2,XMAS,NB1 blog
+class BOX,BIZ,Q,P,ABOUT cat</pre></div>
+<h2>關鍵字擁有權（防止自家頁面互搶）</h2><div class="card"><table class="own"><tr><th>關鍵字群</th><th>負責頁面</th><th>頁面角色</th></tr><tr><td>到會、香港到會、到會服務、到會食物、catering</td><td><b>首頁</b></td><td>整站最大字，只由首頁主攻</td></tr><tr><td>到會推介、香港到會推介、到會推薦、到會推介2026</td><td><b>到會推介</b></td><td>套餐推介清單</td></tr><tr><td>到會邊間好、平價到會、到會價錢</td><td><b>舊 Blog：到會邊間好</b></td><td>比較及揀選準則</td></tr><tr><td>中伏、到會注意事項</td><td><b>舊 Blog：到會中伏</b></td><td>避雷清單</td></tr><tr><td>公司到會、企業到會、annual dinner 到會、office lunch</td><td><b>公司到會</b></td><td>交易型服務頁</td></tr><tr><td>商務到會、酒會、開張、宴會到會、canapés</td><td><b>商務活動</b></td><td>活動型服務頁</td></tr><tr><td>商務餐盒、員工餐盒、公司飯盒、商務便當</td><td><b>商務／員工餐盒分類</b></td><td>產品分類</td></tr><tr><td>annual dinner 遊戲、抽獎禮物、場地、主題</td><td><b>新 Blog：Annual Dinner</b></td><td>資訊型</td></tr><tr><td>聖誕到會、公司聖誕派對</td><td><b>舊 Blog：聖誕到會</b></td><td>季節性</td></tr></table></div>
+<h2>第一輪：公司到會＋到會推介</h2><div class="grid1">
+<div class="pc big" data-pg="CORP"><div class="ph"><b>CORP</b><span class="st">第一輪｜要重寫</span></div>
+<h3>公司到會（Annual Dinner、Office Lunch）</h3>
+<p class="u"><a href="https://aoaodelivery.com/corporate-catering-hk/" target="_blank">/corporate-catering-hk/</a>（頁面 ID 18404）</p>
+<div class="num"><div><b>28</b><small>關鍵字</small></div><div><b>470</b><small>Semrush Vol 合計</small></div><div><b>2,646</b><small>GSC 曝光（3 個月）</small></div></div>
+<div class="two"><div>
+<h4>現況（2026-10-27 檢查）</h4>
+<ul class="iss">
+<li><b>內容太薄</b>：正文約 1,490 字，只有 1 張圖、3 條站內連結。</li>
+<li><b>兩個 H1</b>：主題自動輸出的頁面標題，加上內文再寫一個 H1。</li>
+<li><b>口語太多</b>：揀、定、搞掂、唔、冇、點樣，要改為書面語。</li>
+<li><b>未能核實的宣稱</b>：「星級酒店大廚主理」「專利三重保溫技術」「24 小時內出報價」，以及蟹皇煲仔飯、煙燻牛肋等菜式和 $150／$200／$248／$300 每位價錢。要向營運確認，不能確認的要刪走。</li>
+<li><b>內鏈不足</b>：沒有連去商務餐盒、員工餐盒、高級餐盒、九宮格 Canapés、商務活動、報價查詢、合作夥伴。<code>/delivery-info</code> 是轉址連結，要改為 <code>/delivery/</code>。</li>
+<li><b>Schema</b>：只有 Article，沒有 Service 和 FAQPage。</li>
+<li><b>排名</b>：GSC「公司到會」510 曝光、平均第 29 名；「到會公司」697 曝光、第 31 名；「商務到會」301 曝光、第 32 名。全部在第三頁，零點擊。</li>
+</ul></div><div>
+<h4>建議 SEO 設定</h4>
+<div class="seo"><p><small>H1（內文只留一個）</small>香港公司到會｜Annual Dinner、Office Lunch 及公司聚會到會套餐</p>
+<p><small>SEO Title（10-25 已更新）</small>香港公司到會2026｜Annual Dinner、Office Lunch 到會套餐</p>
+<p><small>Meta Description（10-25 已更新）</small>Kitchen AO 提供香港公司到會服務，適合 Annual Dinner、Office Lunch、開張及週年活動。按人數及預算安排餐單，全港送貨，歡迎查詢報價。</p>
+<p><small>Focus Keyword</small><mark>公司到會</mark>（副：企業到會、annual dinner 到會）</p></div>
+<h4>建議 H2 架構</h4>
+<ol class="out">
+<li>公司到會速覽：一段 40 至 60 字的直接答案，加一個表（活動類型／人數／建議套餐／每位預算／提前預訂日數）。<em>AI Overview 最常引用這類段落</em></li>
+<li>Annual Dinner 到會：人數、菜單配搭及時間安排</li>
+<li>Office Lunch 及會議午餐：連去商務餐盒、員工餐盒</li>
+<li>公司聚會及節日活動：聖誕派對、春茗、團年飯（連去聖誕 Blog）</li>
+<li>商務活動及酒會：連去商務活動頁</li>
+<li>公司到會價錢怎樣計算？</li>
+<li>預訂流程（5 步）及報價查詢 CTA</li>
+<li>合作機構及真實案例：連去合作夥伴頁</li>
+<li>常見問題（FAQPage schema）</li>
+</ol></div></div>
+<h4>AI search（GEO）建議</h4>
+<ul class="iss g">
+<li>每個 H2 開頭先用 1 至 2 句直接回答，再補充細節。</li>
+<li>價錢、人數、預訂日數用表格呈現，方便 AI 摘錄。</li>
+<li>加入可核實的事實：服務年份、合作機構類別、真實活動照片及日期；頁底寫明「最後更新：2026 年 X 月」。</li>
+<li>Annual Dinner 遊戲、抽獎禮物、場地等資訊字（合共約 1,000 搜尋量）不放在這頁，改放新 Blog（NB1），再互相連結。</li>
+</ul>
+<div class="lns"><span class="ln">→ 商務／員工餐盒分類</span><span class="ln">→ 商務活動</span><span class="ln">→ 報價查詢</span><span class="ln">→ 合作夥伴</span><span class="ln">↔ NB1 Annual Dinner Blog</span><span class="ln">→ 聖誕 Blog</span></div>
+<button class="more" data-pg="CORP">查看全部關鍵字 ↓</button></div>
+<div class="pc big" data-pg="REC"><div class="ph"><b>REC</b><span class="st">第一輪｜要改寫</span></div>
+<h3>到會推介</h3>
+<p class="u"><a href="https://aoaodelivery.com/hong-kong-catering-recommendation/" target="_blank">/hong-kong-catering-recommendation/</a>（頁面 ID 18621）</p>
+<div class="num"><div><b>25</b><small>關鍵字</small></div><div><b>4,490</b><small>Semrush Vol 合計</small></div><div><b>1,346</b><small>GSC 曝光（3 個月）</small></div></div>
+<div class="two"><div>
+<h4>現況（2026-10-27 檢查）</h4>
+<ul class="iss">
+<li><b>主字沒有排名</b>：「到會推介」（Semrush 2,400）Kitchen AO 在 100 名以外，Kama 和 Bear 都排第 1。</li>
+<li><b>排名分散</b>：「到會推介2022」由派對分類頁排第 38；「到會邊間好」由舊 Blog 爭奪。要按下面的分配表分清楚每頁負責的字。</li>
+<li><b>兩個 H1</b>：主題輸出「到會推介」，內文再有一個 H1。</li>
+<li><b>HTML 錯誤</b>：「先看活動性質……」這句清單項目被標成 H2，而且開頭有多餘的「&gt;」。</li>
+<li><b>轉址連結</b>：<code>/product-category/busines-event/</code> 要改為 <code>/business-event/</code>。</li>
+<li><b>口語</b>：「幾多日前」改為「多少日前」。</li>
+<li><b>Schema</b>：只有 Article；FAQ 未加 FAQPage schema。</li>
+<li>正文約 2,400 字，10-25 已更新 Meta。</li>
+</ul></div><div>
+<h4>建議 SEO 設定</h4>
+<div class="seo"><p><small>H1</small>香港到會推介2026｜按公司活動、生日派對及船河選擇到會套餐</p>
+<p><small>SEO Title</small>香港到會推介2026｜公司活動・生日派對・船河到會｜Kitchen AO</p>
+<p><small>Meta Description</small>2026 香港到會推介：按公司活動、生日派對、船河及素食需要，比較 Kitchen AO 熱門到會套餐的人數、價錢及預訂時間，附揀選清單及常見問題。</p>
+<p><small>Focus Keyword</small><mark>到會推介</mark>（副：香港到會推介、到會推薦）</p></div>
+<h4>建議 H2 架構</h4>
+<ol class="out">
+<li>香港到會推介速覽：一個表（場合／推介套餐／人數／價錢起／連結）。<em>「推介」搜尋意圖要求清單式比較</em></li>
+<li>公司活動到會推介：連去公司到會頁</li>
+<li>生日派對及兒童到會推介：連去兒童套餐</li>
+<li>船河到會推介：連去船河套餐</li>
+<li>素食到會推介：連去素食 B1</li>
+<li>小型聚會到會推介（2 至 10 人）：連去人數選餐</li>
+<li>揀選到會的 5 個準則：連去「到會邊間好」及「到會中伏」舊 Blog</li>
+<li>客人評價及真實活動</li>
+<li>預訂流程</li>
+<li>常見問題（FAQPage schema）</li>
+</ol></div></div>
+<h4>AI search（GEO）建議</h4>
+<ul class="iss g">
+<li>速覽表的價錢及人數要和產品頁一致（由產品頁抄，不要估算）。</li>
+<li>每個推介段落寫明「適合誰、多少人、預算、需要提前多少日預訂」，AI 回答「到會推介」時較易引用。</li>
+<li>加入 Google 評價分數及數量（要真實），並在頁面寫明更新月份。</li>
+<li>論壇字（到會推介 lihkg、baby kingdom）不作目標，但可在 FAQ 回應論壇常見疑問。</li>
+</ul>
+<div class="lns"><span class="ln">→ 公司到會</span><span class="ln">→ 兒童套餐</span><span class="ln">→ 船河套餐</span><span class="ln">→ 素食 B1</span><span class="ln">→ 人數選餐</span><span class="ln">↔ 舊 Blog 到會邊間好</span><span class="ln">↔ 舊 Blog 到會中伏</span></div>
+<button class="more" data-pg="REC">查看全部關鍵字 ↓</button></div></div>
+<h2>其他待 review 頁面</h2><div class="grid"><div class="pc " data-pg="BIZ"><div class="ph"><b>BIZ</b><span class="st">下一輪</span></div>
+<h3>商務活動</h3><p class="u"><a href="https://aoaodelivery.com/business-event/" target="_blank">/business-event/</a></p><ul class="iss"><li>和公司到會頁重疊：兩頁都寫「公司到會推介」。建議這頁改為主攻商務活動、酒會、開張、發佈會及 Canapés。</li><li>有兩個完全相同的 H2「公司到會推介 開胃菜 Finger Food 和 Canapé's 的魅力」。</li><li>錯字：「Whastapp」「活動性質及而求」「訂購公司到會時否需要」。</li><li>GSC「商務到會」301 曝光、第 32 名；「宴會到會」169 曝光、第 26 名。</li></ul><ul class="kw"><li>酒會<span>Vol 170</span></li><li>event catering<span>Vol 70 · GSC 96／43.9</span></li><li>canapes catering hong kong<span>Vol 40</span></li><li>開張到會<span>Vol 30 · PT 29</span></li><li>商務到會<span>GSC 301／31.5 · PT 28</span></li><li>宴會到會<span>GSC 169／26.3</span></li></ul><button class="more" data-pg="BIZ">查看關鍵字 ↓</button></div><div class="pc " data-pg="ABOUT"><div class="ph"><b>ABOUT</b><span class="st">下一輪</span></div>
+<h3>關於我們（Authority）</h3><p class="u"><a href="https://aoaodelivery.com/about-kitchenao/" target="_blank">/about-kitchenao/</a></p><ul class="iss"><li>目的：建立 E-E-A-T 及 AI 搜尋信任。加入成立年份、團隊及廚師背景（真實資料）、食物製造廠牌照號碼、合作機構、媒體報道。</li><li>加入 Organization schema（logo、地址、電話、sameAs：Facebook、Instagram、Google 商家）。</li><li>有兩個 H1（「「關於 Kitchen AO」」及「關於 Kitchen AO」）。</li><li>每篇 Blog 加作者簡介並連回這頁。</li></ul></div><div class="pc " data-pg="FAQ"><div class="ph"><b>FAQ</b><span class="st">下一輪</span></div>
+<h3>常見問題（由 CS 起草）</h3><p class="u"><a href="https://aoaodelivery.com/常見問題/" target="_blank">/常見問題/</a></p><ul class="iss"><li>建議由 CS 按 5 類收集真實問題：訂購及付款、送貨及運費、餐單及飲食要求、改期及取消、發票及公司客。</li><li>每題答案 40 至 80 字，先直接回答；整頁加 FAQPage schema。</li><li>和送貨需知、報價查詢頁互相連結；避免和公司到會頁的 FAQ 完全重複。</li></ul></div><div class="pc " data-pg="GIFT"><div class="ph"><b>GIFT</b><span class="st">下一輪｜有錯要即改</span></div>
+<h3>客製化紀念品訂製服務</h3><p class="u"><a href="https://aoaodelivery.com/客製化紀念品訂製服務/" target="_blank">/客製化紀念品訂製服務/</a></p><ul class="iss"><li><b>現有錯誤</b>：FAQ 2 仍有佔位字「提前 [例如：2-3週] 預訂」，要即時改為實際日數。</li><li>網站架構計劃把這頁合併到 /catering/custom-printed-food/，改寫前先決定是否合併。</li><li>目標字待做 KW list（客製化紀念品 GSC 有曝光，Semrush 第 29 名）。</li></ul></div><div class="pc " data-pg="OLD1"><div class="ph"><b>OLD1</b><span class="st">重寫（第二輪）</span></div>
+<h3>舊 Blog：到會邊間好</h3><p class="u"><a href="https://aoaodelivery.com/blog/hongkong-catering-2026-香港到會邊間好/" target="_blank">/blog/hongkong-catering-2026-香港到會邊間好/</a></p><ul class="iss"><li>負責「到會邊間好、平價到會、到會價錢」，和到會推介頁分工：這篇做比較及揀選準則，到會推介頁做套餐推介。</li><li>Kama 和 Bear「到會邊間好」都排第 1。</li></ul><ul class="kw"><li>到會邊間好<span>Vol 480 · GSC 2／27.5</span></li><li>平價到會<span>Vol 170 · GSC 5／31 · PT 39</span></li><li>到會價錢<span>Vol 30 · GSC 126／22.5</span></li><li>到會平<span>GSC 94／30.3</span></li></ul><button class="more" data-pg="OLD1">查看關鍵字 ↓</button></div><div class="pc " data-pg="OLD2"><div class="ph"><b>OLD2</b><span class="st">重寫（第二輪）</span></div>
+<h3>舊 Blog：到會中伏</h3><p class="u"><a href="https://aoaodelivery.com/blog/catering-pitfalls-guide/" target="_blank">/blog/catering-pitfalls-guide/</a></p><ul class="iss"><li>負責「中伏、到會注意事項」。Semrush「中伏」（320）排第 15 名，GSC 第 12 名，接近第一頁。</li><li>連去到會推介及報價查詢。</li></ul><ul class="kw"><li>中伏<span>Vol 320 · GSC 3／12</span></li><li>到會中伏<span>待 KP</span></li><li>到會注意事項<span>待 KP</span></li></ul><button class="more" data-pg="OLD2">查看關鍵字 ↓</button></div><div class="pc " data-pg="XMAS"><div class="ph"><b>XMAS</b><span class="st">重寫｜11 月中前上線</span></div>
+<h3>舊 Blog：聖誕到會</h3><p class="u"><a href="https://aoaodelivery.com/blog/christmas-catering-hong-kong/" target="_blank">/blog/christmas-catering-hong-kong/</a></p><ul class="iss"><li>「聖誕到會」Semrush 1,000 搜尋量，GSC 265 曝光、第 16.7 名。12 月旺季前要更新 2026 套餐。</li><li>負責所有「聖誕到會」字，包括公司聖誕派對；公司到會頁只簡單提及並連過來。</li></ul><ul class="kw"><li>聖誕到會<span>Vol 1,000 · GSC 265／16.7</span></li><li>聖誕到會推介<span>Vol 140 · GSC 59／26.9</span></li><li>christmas catering<span>Vol 70 · GSC 3／35.7</span></li><li>christmas catering hong kong<span>Vol 70 · GSC 2／61</span></li><li>聖誕到會餐單<span>Vol 50 · GSC 126／26.5</span></li><li>聖誕大餐到會<span>Vol 50</span></li></ul><button class="more" data-pg="XMAS">查看關鍵字 ↓</button></div><div class="pc " data-pg="NB1"><div class="ph"><b>NB1</b><span class="st">建議新增</span></div>
+<h3>新 Blog：Annual Dinner 籌備全攻略</h3><p class="u">（建議新增）</p><ul class="iss"><li>承接 annual dinner 遊戲、抽獎禮物、場地、主題等資訊字，Kama 已用 Blog 排名（annual dinner 遊戲第 9 名）。</li><li>文內 CTA 連去公司到會頁。</li></ul><ul class="kw"><li>annual dinner 遊戲<span>Vol 210</span></li><li>公司抽獎禮物推薦<span>Vol 140</span></li><li>公司annual dinner遊戲<span>Vol 110</span></li><li>annual dinner 抽獎 禮物<span>Vol 110</span></li><li>年度晚宴遊戲<span>Vol 90</span></li><li>公司抽獎禮物<span>Vol 90</span></li></ul><button class="more" data-pg="NB1">查看關鍵字 ↓</button></div><div class="pc " data-pg="RCP"><div class="ph"><b>RCP</b><span class="st">未開始</span></div>
+<h3>Recipes 食譜</h3><p class="u">（未有 URL）</p><ul class="iss"><li>要先決定方向：素食食譜已分配給素食 B5；其他食譜（派對小食、節日菜式）要另做 KW list。</li><li>建議用 Recipe schema，每篇連去對應的單點或套餐產品。</li></ul></div></div>
+<h2 id="all">全部關鍵字</h2><div class="card">
+<div class="tools"><select id="pg"><option value="">全部頁面</option></select><select id="lang"><option value="">中＋EN</option><option>中</option><option>EN</option></select><input id="q" placeholder="搜尋關鍵字"><span id="cnt"></span><button class="dl" id="dl">⬇ 下載 CSV</button></div>
+<div class="tw"><table id="tb"></table></div>
+<p class="foot">Vol／KD＝Semrush HK；GSC＝曝光／平均排名（近 3 個月）；PT＝Position Tracking 10-24 排名（Desktop）；AO／Kama／Bear＝Semrush 排名。空白代表沒有數據。</p></div>
+<h2>Keyword Planner 種子字（52 個，沒有 Semrush 搜尋量）</h2><div class="card">
+<p class="note">複製後貼入 Google Keyword Planner ›「取得搜尋量和預測」，地區選香港，匯出 csv 給我更新。</p>
+<textarea id="seed" readonly>公司到會
+企業到會
+公司到會服務
+公司到會推介
+到會服務 公司
+到會公司
+annual dinner 到會
+年會到會
+午餐到會
+office lunch 到會
+公司聚會到會
+春茗到會
+公司到會價錢
+公司到會要提前多少日預訂
+公司到會有沒有素食
+公司到會可否開發票
+corporate catering service
+corporate catering hk
+office catering hong kong
+office lunch catering
+catering service company
+香港到會推介
+到會推介2026
+到會服務推介
+到會服務推介 2026
+到會服務 香港
+高級到會
+到會推介評分最高
+到會推介 好食
+到會專門店
+商務到會
+酒會到會
+宴會到會
+finger food catering
+商務飯盒
+商務餐盒
+公司飯盒
+商務便當
+飯盒到會
+一人餐盒到會
+lunch box 到會
+員工餐盒
+annual dinner
+annual dinner 場地
+annual dinner 主題
+annual dinner theme
+annual dinner 表演
+company annual dinner planning hk
+到會平
+到會中伏
+到會注意事項
+公司聖誕派對到會</textarea><button class="dl" id="cp">📋 複製</button></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>const D={"rows": [{"kw": "公司到會", "pg": "CORP", "typ": "主要", "lang": "中", "use": "H1／Title／首段 100 字內", "vol": null, "kd": null, "gi": 510, "gp": 29.2, "pt": 28, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "企業到會", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2／首段／Meta", "vol": null, "kd": null, "gi": 197, "gp": 25.1, "pt": 26, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "公司到會服務", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2／首段／Meta", "vol": null, "kd": null, "gi": 180, "gp": 28.4, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "公司到會推介", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2／首段／Meta", "vol": null, "kd": null, "gi": 66, "gp": 37.5, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC、Google 自動完成"}, {"kw": "到會服務 公司", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2／首段／Meta", "vol": null, "kd": null, "gi": 85, "gp": 32.1, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會公司", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2／首段／Meta", "vol": null, "kd": null, "gi": 697, "gp": 30.9, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "annual dinner 到會", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2（Annual Dinner／Office Lunch 段）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "年會到會", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2（Annual Dinner／Office Lunch 段）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "午餐到會", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2（Annual Dinner／Office Lunch 段）", "vol": null, "kd": null, "gi": 159, "gp": 35.2, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "office lunch 到會", "pg": "CORP", "typ": "次要", "lang": "中", "use": "H2（Annual Dinner／Office Lunch 段）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "公司聚會到會", "pg": "CORP", "typ": "長尾", "lang": "中", "use": "H3／內文（節日公司活動段）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "春茗到會", "pg": "CORP", "typ": "長尾", "lang": "中", "use": "H3／內文（節日公司活動段）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "公司開年飯", "pg": "CORP", "typ": "長尾", "lang": "中", "use": "H3／內文（節日公司活動段）", "vol": 70, "kd": 12, "gi": null, "gp": null, "pt": null, "ao": null, "km": 4, "br": 47, "src": "Semrush"}, {"kw": "公司團年飯", "pg": "CORP", "typ": "長尾", "lang": "中", "use": "H3／內文（節日公司活動段）", "vol": 50, "kd": 12, "gi": null, "gp": null, "pt": null, "ao": null, "km": 10, "br": 26, "src": "Semrush"}, {"kw": "團年飯到會", "pg": "CORP", "typ": "長尾", "lang": "中", "use": "H3／內文（節日公司活動段）", "vol": 50, "kd": 13, "gi": null, "gp": null, "pt": null, "ao": null, "km": 1, "br": 1, "src": "Semrush"}, {"kw": "公司到會價錢", "pg": "CORP", "typ": "FAQ", "lang": "中", "use": "FAQ（FAQPage schema）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "公司到會要提前多少日預訂", "pg": "CORP", "typ": "FAQ", "lang": "中", "use": "FAQ（FAQPage schema）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "公司到會有沒有素食", "pg": "CORP", "typ": "FAQ", "lang": "中", "use": "FAQ（FAQPage schema）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "公司到會可否開發票", "pg": "CORP", "typ": "FAQ", "lang": "中", "use": "FAQ（FAQPage schema）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "建議（待 KP）"}, {"kw": "corporate catering hong kong", "pg": "CORP", "typ": "主要", "lang": "EN", "use": "EN Title／H1（/en/ 版）", "vol": 90, "kd": 43, "gi": 48, "gp": 51.3, "pt": 56, "ao": 56, "km": 11, "br": null, "src": "Semrush、GSC"}, {"kw": "corporate catering", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": 50, "kd": 32, "gi": 195, "gp": 43.7, "pt": null, "ao": 51, "km": 23, "br": 31, "src": "Semrush、GSC"}, {"kw": "corporate catering service", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": null, "kd": null, "gi": 125, "gp": 40.7, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "corporate catering hk", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": null, "kd": null, "gi": 76, "gp": 52.8, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "corporate catering events", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": 90, "kd": 24, "gi": 14, "gp": 50.5, "pt": null, "ao": 54, "km": 57, "br": null, "src": "Semrush、GSC"}, {"kw": "office catering hong kong", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": null, "kd": null, "gi": 101, "gp": 50.5, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "office lunch delivery", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": 70, "kd": 10, "gi": 7, "gp": 42, "pt": null, "ao": 41, "km": 11, "br": null, "src": "Semrush、GSC"}, {"kw": "office lunch catering", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": null, "kd": null, "gi": 31, "gp": 68.3, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC、Google 自動完成"}, {"kw": "catering service company", "pg": "CORP", "typ": "次要", "lang": "EN", "use": "EN 內文／Meta", "vol": null, "kd": null, "gi": 155, "gp": 53.1, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會推介", "pg": "REC", "typ": "主要", "lang": "中", "use": "H1／Title／首段 100 字內", "vol": 2400, "kd": 46, "gi": 2, "gp": 35, "pt": null, "ao": null, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "香港到會推介", "pg": "REC", "typ": "主要", "lang": "中", "use": "H1／Title／首段 100 字內", "vol": null, "kd": null, "gi": 197, "gp": 34.1, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會推介2026", "pg": "REC", "typ": "主要", "lang": "中", "use": "H1／Title／首段 100 字內", "vol": null, "kd": null, "gi": 16, "gp": 25.8, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC、Google 自動完成"}, {"kw": "到會推薦", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": 140, "kd": 27, "gi": 6, "gp": 30.8, "pt": null, "ao": null, "km": 3, "br": 1, "src": "Semrush、GSC"}, {"kw": "到會服務推介", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": null, "kd": null, "gi": 80, "gp": 32.9, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會服務推介 2026", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": null, "kd": null, "gi": 195, "gp": 23.6, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會服務 香港", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": null, "kd": null, "gi": 236, "gp": 30.8, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "高級到會推介", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": 140, "kd": 9, "gi": 2, "gp": 35, "pt": null, "ao": null, "km": 1, "br": 9, "src": "Semrush、GSC"}, {"kw": "高級到會", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": null, "kd": null, "gi": 97, "gp": 34.0, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會推介評分最高", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "到會推介 好食", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "到會推介2022", "pg": "REC", "typ": "次要", "lang": "中", "use": "H2／內文／Meta", "vol": 880, "kd": 38, "gi": null, "gp": null, "pt": null, "ao": 38, "km": 1, "br": 2, "src": "Semrush"}, {"kw": "派對到會推介", "pg": "REC", "typ": "長尾", "lang": "中", "use": "H3／推介速覽表", "vol": 40, "kd": 46, "gi": 72, "gp": 27.8, "pt": null, "ao": 35, "km": 2, "br": 1, "src": "Semrush、GSC"}, {"kw": "party到會推介", "pg": "REC", "typ": "長尾", "lang": "中", "use": "H3／推介速覽表", "vol": 30, "kd": 38, "gi": null, "gp": null, "pt": null, "ao": 24, "km": 1, "br": 1, "src": "Semrush"}, {"kw": "美食到會", "pg": "REC", "typ": "長尾", "lang": "中", "use": "H3／推介速覽表", "vol": 110, "kd": 49, "gi": 25, "gp": 25.1, "pt": null, "ao": 34, "km": 1, "br": 2, "src": "Semrush、GSC"}, {"kw": "到會美食", "pg": "REC", "typ": "長尾", "lang": "中", "use": "H3／推介速覽表", "vol": 140, "kd": 39, "gi": 29, "gp": 26.8, "pt": null, "ao": 32, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "到會專門店", "pg": "REC", "typ": "長尾", "lang": "中", "use": "H3／推介速覽表", "vol": null, "kd": null, "gi": 144, "gp": 49.9, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "小型到會", "pg": "REC", "typ": "長尾", "lang": "中", "use": "H3／推介速覽表", "vol": 90, "kd": 11, "gi": 108, "gp": 30.5, "pt": null, "ao": 51, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "catering company hong kong", "pg": "REC", "typ": "主要", "lang": "EN", "use": "EN Title／H1（/en/ 版）", "vol": 90, "kd": 43, "gi": 53, "gp": 50.7, "pt": null, "ao": 51, "km": 15, "br": null, "src": "Semrush、GSC"}, {"kw": "catering company hk", "pg": "REC", "typ": "次要", "lang": "EN", "use": "EN 內文", "vol": 90, "kd": 39, "gi": 10, "gp": 54.3, "pt": null, "ao": 70, "km": 17, "br": null, "src": "Semrush、GSC"}, {"kw": "catering companies", "pg": "REC", "typ": "次要", "lang": "EN", "use": "EN 內文", "vol": 70, "kd": 46, "gi": 30, "gp": 65.7, "pt": null, "ao": 48, "km": 14, "br": null, "src": "Semrush、GSC"}, {"kw": "party catering", "pg": "REC", "typ": "次要", "lang": "EN", "use": "EN 內文", "vol": 70, "kd": 34, "gi": 21, "gp": 57.5, "pt": null, "ao": 53, "km": 18, "br": null, "src": "Semrush、GSC"}, {"kw": "party catering hk", "pg": "REC", "typ": "次要", "lang": "EN", "use": "EN 內文", "vol": 40, "kd": 42, "gi": 3, "gp": 72.7, "pt": null, "ao": 65, "km": 4, "br": null, "src": "Semrush、GSC"}, {"kw": "catering party", "pg": "REC", "typ": "次要", "lang": "EN", "use": "EN 內文", "vol": 50, "kd": 32, "gi": null, "gp": null, "pt": null, "ao": 58, "km": 16, "br": 33, "src": "Semrush"}, {"kw": "food catering", "pg": "REC", "typ": "次要", "lang": "EN", "use": "EN 內文", "vol": 110, "kd": 47, "gi": 20, "gp": 44.4, "pt": null, "ao": null, "km": 7, "br": null, "src": "Semrush、GSC"}, {"kw": "到會", "pg": "HOME", "typ": "主要", "lang": "中", "use": "", "vol": 8100, "kd": 51, "gi": 20, "gp": 24.7, "pt": 36, "ao": null, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "香港到會", "pg": "HOME", "typ": "主要", "lang": "中", "use": "", "vol": 110, "kd": 42, "gi": 2, "gp": 29.5, "pt": 26, "ao": 27, "km": 1, "br": 4, "src": "Semrush、GSC"}, {"kw": "到會服務", "pg": "HOME", "typ": "主要", "lang": "中", "use": "", "vol": 320, "kd": 29, "gi": 58, "gp": 36.1, "pt": 30, "ao": 32, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "到會食物", "pg": "HOME", "typ": "主要", "lang": "中", "use": "", "vol": 390, "kd": 54, "gi": 43, "gp": 22.9, "pt": null, "ao": 32, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "catering", "pg": "HOME", "typ": "主要", "lang": "EN", "use": "", "vol": 2900, "kd": 31, "gi": 268, "gp": 48.2, "pt": 46, "ao": 49, "km": 36, "br": 1, "src": "Semrush、GSC"}, {"kw": "catering hk", "pg": "HOME", "typ": "主要", "lang": "EN", "use": "", "vol": 1300, "kd": 36, "gi": 130, "gp": 59.4, "pt": 56, "ao": 53, "km": 17, "br": 38, "src": "Semrush、GSC"}, {"kw": "catering hong kong", "pg": "HOME", "typ": "主要", "lang": "EN", "use": "", "vol": 1300, "kd": 43, "gi": 72, "gp": 64.2, "pt": 77, "ao": null, "km": 14, "br": null, "src": "Semrush、GSC"}, {"kw": "catering service hong kong", "pg": "HOME", "typ": "主要", "lang": "EN", "use": "", "vol": 1300, "kd": 47, "gi": 256, "gp": 53.3, "pt": 49, "ao": 43, "km": 1, "br": null, "src": "Semrush、GSC"}, {"kw": "catering services", "pg": "HOME", "typ": "主要", "lang": "EN", "use": "", "vol": 390, "kd": 47, "gi": 206, "gp": 61.5, "pt": null, "ao": 53, "km": 5, "br": null, "src": "Semrush、GSC"}, {"kw": "catering 中文", "pg": "HOME", "typ": "主要", "lang": "EN", "use": "", "vol": 1600, "kd": 30, "gi": null, "gp": null, "pt": null, "ao": null, "km": 27, "br": 51, "src": "Semrush"}, {"kw": "商務到會", "pg": "BIZ", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 301, "gp": 31.5, "pt": 28, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "酒會到會", "pg": "BIZ", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": null, "gp": null, "pt": 34, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "開張到會", "pg": "BIZ", "typ": "主要", "lang": "中", "use": "", "vol": 30, "kd": 4, "gi": null, "gp": null, "pt": 29, "ao": 24, "km": 1, "br": 25, "src": "Semrush"}, {"kw": "宴會到會", "pg": "BIZ", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 169, "gp": 26.3, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "酒會", "pg": "BIZ", "typ": "主要", "lang": "中", "use": "", "vol": 170, "kd": 15, "gi": null, "gp": null, "pt": null, "ao": 85, "km": null, "br": null, "src": "Semrush"}, {"kw": "event catering", "pg": "BIZ", "typ": "主要", "lang": "EN", "use": "", "vol": 70, "kd": 33, "gi": 96, "gp": 43.9, "pt": null, "ao": 55, "km": 24, "br": null, "src": "Semrush、GSC"}, {"kw": "finger food catering", "pg": "BIZ", "typ": "主要", "lang": "EN", "use": "", "vol": null, "kd": null, "gi": 113, "gp": 27.1, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "canapes catering hong kong", "pg": "BIZ", "typ": "主要", "lang": "EN", "use": "", "vol": 40, "kd": 8, "gi": null, "gp": null, "pt": null, "ao": null, "km": 43, "br": null, "src": "Semrush"}, {"kw": "商務飯盒", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 366, "gp": 33.2, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "商務餐盒", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 221, "gp": 14.6, "pt": 1, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "公司飯盒", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 169, "gp": 41.8, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "商務便當", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 109, "gp": 41.8, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "飯盒到會", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 146, "gp": 52.6, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "一人餐盒到會", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 84, "gp": 35.9, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "lunch box 到會", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": 193, "gp": 17.6, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "員工餐盒", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": null, "kd": null, "gi": null, "gp": null, "pt": 6, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "外賣飯盒", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": 110, "kd": 12, "gi": 3, "gp": 57.3, "pt": null, "ao": 50, "km": 2, "br": 12, "src": "Semrush、GSC"}, {"kw": "員工飯堂", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": 170, "kd": 23, "gi": null, "gp": null, "pt": null, "ao": 43, "km": null, "br": null, "src": "Semrush"}, {"kw": "員工餐廳", "pg": "BOX", "typ": "主要", "lang": "中", "use": "", "vol": 110, "kd": 20, "gi": 2, "gp": 54, "pt": null, "ao": 23, "km": null, "br": null, "src": "Semrush、GSC"}, {"kw": "lunch set", "pg": "BOX", "typ": "主要", "lang": "EN", "use": "", "vol": 260, "kd": 14, "gi": 2, "gp": 66.5, "pt": null, "ao": 55, "km": null, "br": null, "src": "Semrush、GSC"}, {"kw": "catering box", "pg": "BOX", "typ": "主要", "lang": "EN", "use": "", "vol": 30, "kd": 6, "gi": 14, "gp": 7.2, "pt": null, "ao": 33, "km": 24, "br": null, "src": "Semrush、GSC"}, {"kw": "annual dinner", "pg": "NB1", "typ": "主要", "lang": "中", "use": "H1（資訊型，公司到會頁不放）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "annual dinner 遊戲", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 210, "kd": 11, "gi": null, "gp": null, "pt": null, "ao": null, "km": 9, "br": null, "src": "Semrush、Google 自動完成"}, {"kw": "公司annual dinner遊戲", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 110, "kd": 10, "gi": null, "gp": null, "pt": null, "ao": null, "km": 7, "br": null, "src": "Semrush"}, {"kw": "annual dinner 抽獎 禮物", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 110, "kd": 11, "gi": null, "gp": null, "pt": null, "ao": null, "km": 34, "br": null, "src": "Semrush、Google 自動完成"}, {"kw": "annual dinner 場地", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "annual dinner 主題", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "annual dinner theme", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "annual dinner 表演", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "年度晚宴遊戲", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 90, "kd": 9, "gi": null, "gp": null, "pt": null, "ao": null, "km": 19, "br": null, "src": "Semrush"}, {"kw": "年會遊戲", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 70, "kd": 13, "gi": null, "gp": null, "pt": null, "ao": null, "km": 14, "br": null, "src": "Semrush"}, {"kw": "春茗遊戲", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 70, "kd": 10, "gi": null, "gp": null, "pt": null, "ao": null, "km": 6, "br": null, "src": "Semrush"}, {"kw": "公司抽獎禮物", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 90, "kd": 14, "gi": null, "gp": null, "pt": null, "ao": null, "km": 16, "br": null, "src": "Semrush"}, {"kw": "公司抽獎禮物推薦", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 140, "kd": 17, "gi": null, "gp": null, "pt": null, "ao": null, "km": 16, "br": null, "src": "Semrush"}, {"kw": "公司派對遊戲", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 50, "kd": 11, "gi": null, "gp": null, "pt": null, "ao": null, "km": 5, "br": null, "src": "Semrush"}, {"kw": "公司團體活動推薦", "pg": "NB1", "typ": "次要", "lang": "中", "use": "H2／H3", "vol": 70, "kd": 9, "gi": null, "gp": null, "pt": null, "ao": null, "km": 52, "br": null, "src": "Semrush"}, {"kw": "company annual dinner planning hk", "pg": "NB1", "typ": "次要", "lang": "EN", "use": "EN 版 H1", "vol": null, "kd": null, "gi": 187, "gp": 79.9, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "到會邊間好", "pg": "OLD1", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": 480, "kd": 22, "gi": 2, "gp": 27.5, "pt": null, "ao": null, "km": 1, "br": 1, "src": "Semrush、GSC、Google 自動完成"}, {"kw": "平價到會", "pg": "OLD1", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": 170, "kd": 8, "gi": 5, "gp": 31, "pt": 39, "ao": null, "km": 3, "br": 1, "src": "Semrush、GSC"}, {"kw": "到會價錢", "pg": "OLD1", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": 30, "kd": 6, "gi": 126, "gp": 22.5, "pt": null, "ao": 25, "km": 15, "br": 1, "src": "Semrush、GSC"}, {"kw": "到會平", "pg": "OLD1", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": null, "kd": null, "gi": 94, "gp": 30.3, "pt": null, "ao": null, "km": null, "br": null, "src": "GSC"}, {"kw": "中伏", "pg": "OLD2", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": 320, "kd": 22, "gi": 3, "gp": 12, "pt": null, "ao": 15, "km": null, "br": null, "src": "Semrush、GSC"}, {"kw": "到會中伏", "pg": "OLD2", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "到會注意事項", "pg": "OLD2", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "聖誕到會", "pg": "XMAS", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2（12 月旺季前上線）", "vol": 1000, "kd": 20, "gi": 265, "gp": 16.7, "pt": null, "ao": null, "km": 9, "br": 4, "src": "Semrush、GSC"}, {"kw": "聖誕到會推介", "pg": "XMAS", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2（12 月旺季前上線）", "vol": 140, "kd": 17, "gi": 59, "gp": 26.9, "pt": null, "ao": null, "km": 1, "br": 1, "src": "Semrush、GSC"}, {"kw": "聖誕節到會", "pg": "XMAS", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2（12 月旺季前上線）", "vol": 40, "kd": 14, "gi": 71, "gp": 21.3, "pt": null, "ao": null, "km": 34, "br": 4, "src": "Semrush、GSC"}, {"kw": "聖誕到會餐單", "pg": "XMAS", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2（12 月旺季前上線）", "vol": 50, "kd": 13, "gi": 126, "gp": 26.5, "pt": null, "ao": null, "km": 8, "br": 6, "src": "Semrush、GSC"}, {"kw": "聖誕大餐到會", "pg": "XMAS", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2（12 月旺季前上線）", "vol": 50, "kd": 9, "gi": null, "gp": null, "pt": null, "ao": null, "km": 11, "br": 4, "src": "Semrush"}, {"kw": "公司聖誕派對到會", "pg": "XMAS", "typ": "主要", "lang": "中", "use": "重寫時 H1／H2（12 月旺季前上線）", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "—"}, {"kw": "christmas catering hong kong", "pg": "XMAS", "typ": "主要", "lang": "EN", "use": "", "vol": 70, "kd": 12, "gi": 2, "gp": 61, "pt": null, "ao": null, "km": 13, "br": 20, "src": "Semrush、GSC"}, {"kw": "christmas catering", "pg": "XMAS", "typ": "主要", "lang": "EN", "use": "", "vol": 70, "kd": 11, "gi": 3, "gp": 35.7, "pt": null, "ao": null, "km": 11, "br": 18, "src": "Semrush、GSC"}, {"kw": "xmas party catering", "pg": "XMAS", "typ": "主要", "lang": "EN", "use": "", "vol": 40, "kd": 10, "gi": null, "gp": null, "pt": null, "ao": null, "km": 23, "br": 34, "src": "Semrush"}, {"kw": "到會推介lihkg", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "到會推介baby kingdom", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "到會推介 threads", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": null, "kd": null, "gi": null, "gp": null, "pt": null, "ao": null, "km": null, "br": null, "src": "Google 自動完成"}, {"kw": "大家樂到會", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": 720, "kd": 12, "gi": null, "gp": null, "pt": null, "ao": null, "km": 8, "br": 5, "src": "Semrush"}, {"kw": "大快活到會", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": 320, "kd": 17, "gi": null, "gp": null, "pt": null, "ao": null, "km": 6, "br": 11, "src": "Semrush"}, {"kw": "pizza hut到會", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": 260, "kd": 14, "gi": null, "gp": null, "pt": null, "ao": null, "km": 7, "br": null, "src": "Semrush"}, {"kw": "hku catering", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": 2400, "kd": 27, "gi": null, "gp": null, "pt": null, "ao": null, "km": 16, "br": null, "src": "Semrush"}, {"kw": "asia pacific catering", "pg": "X", "typ": "—", "lang": "中", "use": "論壇／品牌／其他公司，不作目標", "vol": 590, "kd": 20, "gi": null, "gp": null, "pt": null, "ao": 51, "km": null, "br": null, "src": "Semrush"}], "pages": {"CORP": "公司到會（Annual Dinner）", "REC": "到會推介", "HOME": "首頁", "BIZ": "商務活動", "BOX": "商務／員工餐盒分類", "NB1": "新 Blog：Annual Dinner 籌備全攻略", "OLD1": "舊 Blog：到會邊間好", "OLD2": "舊 Blog：到會中伏", "XMAS": "舊 Blog：聖誕到會", "X": "不放（品牌／論壇／無關）", "ABOUT": "關於我們", "FAQ": "常見問題", "GIFT": "客製化紀念品", "RCP": "Recipes 食譜"}};try{mermaid.initialize({startOnLoad:true,securityLevel:'loose',flowchart:{htmlLabels:true}});}catch(e){console.warn('mermaid not loaded')}
+const sel=document.getElementById('pg'),lang=document.getElementById('lang');
+Object.entries(D.pages).forEach(([k,v])=>{if(!D.rows.some(r=>r.pg===k))return;const o=document.createElement('option');o.value=k;o.textContent=k+' '+v;sel.appendChild(o)});
+const f=x=>x==null||x===''?'':Number(x).toLocaleString();
+const C=[['kw','關鍵字',1],['pg','頁面'],['typ','類型'],['lang','語言'],['vol','Vol'],['kd','KD'],['gi','GSC 曝光'],['gp','GSC 排名'],['pt','PT 10-24'],['ao','AO'],['km','Kama'],['br','Bear'],['src','來源'],['use','用法']];
+const NUM=['vol','kd','gi','gp','pt','ao','km','br'];let sk=null,sd=-1,cur=[];
+function draw(){const pg=sel.value,lg=lang.value,q=document.getElementById('q').value.trim().toLowerCase();
+let rs=D.rows.filter(r=>(!pg||r.pg===pg)&&(!lg||r.lang===lg)&&(!q||r.kw.toLowerCase().includes(q)));
+if(sk)rs.sort((a,b)=>{let x=a[sk],y=b[sk];if(NUM.includes(sk)){if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;return (x-y)*sd}return String(x||'').localeCompare(String(y||''),'zh-HK')*sd});
+else rs.sort((a,b)=>((a.pg==='X')-(b.pg==='X'))||(b.vol||0)-(a.vol||0)||(b.gi||0)-(a.gi||0));
+cur=rs;
+document.getElementById('tb').innerHTML='<tr>'+C.map(([k,t])=>`<th class="s${sk===k?' on':''}" data-k="${k}">${t} <i>${sk===k?(sd>0?'▲':'▼'):'⇅'}</i></th>`).join('')+'</tr>'+
+rs.map(r=>'<tr>'+C.map(([k,t,mk])=>NUM.includes(k)?`<td class=n>${f(r[k])}</td>`:(k==='pg'?`<td title="${D.pages[r.pg]||''}">${r.pg}</td>`:`<td>${mk&&r.typ==='主要'?'<mark>'+r[k]+'</mark>':(r[k]??'')}</td>`)).join('')+'</tr>').join('');
+document.querySelectorAll('#tb th.s').forEach(t=>t.onclick=()=>{const k=t.dataset.k;if(sk===k)sd=-sd;else{sk=k;sd=NUM.includes(k)?(['gp','pt','ao','km','br','kd'].includes(k)?1:-1):1}draw()});
+document.getElementById('cnt').textContent=rs.length+' 項';}
+function csv(){const esc=v=>{v=v==null?'':String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+const head=C.map(c=>c[1]);head.splice(2,0,'頁面名稱');
+const lines=[head.map(esc).join(',')].concat(cur.map(r=>{const v=C.map(([k])=>r[k]);v.splice(2,0,D.pages[r.pg]||'');return v.map(esc).join(',')}));
+const b=new Blob(['﻿'+lines.join('\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');
+a.href=URL.createObjectURL(b);a.download=`核心頁面KW${sel.value?'_'+sel.value:''}.csv`;document.body.appendChild(a);a.click();a.remove();}
+sel.onchange=draw;lang.onchange=draw;document.getElementById('q').oninput=draw;document.getElementById('dl').onclick=csv;
+document.getElementById('cp').onclick=()=>{const t=document.getElementById('seed');t.select();navigator.clipboard?navigator.clipboard.writeText(t.value):document.execCommand('copy')};
+document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{sel.value=b.dataset.pg;draw();document.getElementById('all').scrollIntoView({behavior:'smooth'})});
+draw();
+</script></body></html>
