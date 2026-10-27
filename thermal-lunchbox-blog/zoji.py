@@ -79,3 +79,32 @@ SLIDERS = [
        scene='幼稚園至初小學生'),
  ]),
 ]
+
+# 2026-10-28 新增：象印官網「燜燒杯」系列 7 款（取代 HKTVmall 單一 SW-EAE50）
+_KA = ('3D 斷熱膠囊構造，官網稱為象印保溫保冷力最高的系列；SUS304 不銹鋼內容器，「一體式中栓」縫隙較少易拆洗，'
+       '防漏上蓋打開時可釋放熱食產生的壓力，7cm 闊口徑方便放入食材及用湯匙進食。')
+SLIDERS.append(dict(cat='C2', key='zoji-jar', title='象印燜燒杯（官網「燜燒杯」系列 7 款）',
+      src=B + 'hkproductslist.php?oid=11', items=[
+  dict(name='0.3L不銹鋼燜燒杯 一體式中栓', sku='SW-KA30', img=IMG + '202341418082233.jpg', url=B + 'hkproductsview.php?oid=11&pid=350',
+       size='300ml', spec='6 小時保溫 58°C 以上、保冷 10°C 以下；約 9.5 × 9.5 × 11cm；約 0.29kg', price='官網未列價錢',
+       desc=_KA + '300ml 是系列中最細小的一款。', scene='小朋友、一人份甜品或湯'),
+  dict(name='0.4L不銹鋼燜燒杯 一體式中栓', sku='SW-KA40', img=IMG + '202341418063011.jpg', url=B + 'hkproductsview.php?oid=11&pid=349',
+       size='400ml', spec='6 小時保溫 64°C 以上、保冷 9°C 以下；約 9.5 × 9.5 × 12.5cm；約 0.32kg', price='官網未列價錢',
+       desc=_KA, scene='上班族燜燕麥、粥'),
+  dict(name='0.52L不銹鋼燜燒杯 一體式中栓', sku='SW-KA52/52H', img=IMG + '202341417563813.jpg', url=B + 'hkproductsview.php?oid=11&pid=348',
+       size='520ml', spec='6 小時保溫 67°C 以上、保冷 9°C 以下；約 9.5 × 9.5 × 14.5cm；約 0.36kg', price='官網未列價錢',
+       desc=_KA, scene='上班族帶湯、燜粥'),
+  dict(name='0.75L不銹鋼燜燒杯 一體式中栓', sku='SW-KA75H', img=IMG + '202341417192533.jpg', url=B + 'hkproductsview.php?oid=11&pid=347',
+       size='750ml', spec='6 小時保溫 73°C 以上、保冷 8°C 以下；約 9.5 × 9.5 × 18.5cm；約 0.42kg', price='官網未列價錢',
+       desc=_KA + '750ml 是系列中容量最大、保溫效力最高的一款，可當湯壺使用。', scene='食量較大、帶湯麵或一壺湯'),
+  dict(name='0.35L不銹鋼燜燒杯', sku='SW-EAE35', img=IMG + '20213115035714.jpg', url=B + 'hkproductsview.php?oid=11&pid=158',
+       size='0.35L', spec='6 小時保溫 57°C 以上、保冷 12°C 以下；6.5cm 口徑；SUS304 不銹鋼內容器', price='官網未列價錢',
+       desc='真空構造，保溫保冷兩用，可裝粥、湯或甜品；上蓋有通氣孔設計，較容易開啟。', scene='小朋友、輕食'),
+  dict(name='0.5L不銹鋼燜燒杯', sku='SW-EAE50', img=IMG + '20213114590611.jpg', url=B + 'hkproductsview.php?oid=11&pid=160',
+       size='0.5L', spec='6 小時保溫 64°C 以上、保冷 10°C 以下；6.5cm 口徑；SUS304 不銹鋼內容器',
+       price='官網未列價錢（參考：HKTVmall $269，原價 $278，2026 年 10 月 28 日記錄）',
+       desc='真空構造，保溫保冷兩用，可預先放入燕麥、米及熱水，帶到公司時已燜熟。', scene='上班族燜燕麥、粥'),
+  dict(name='0.75L不銹鋼燜燒杯', sku='SW-FCE75', img=IMG + '20213114521236.jpg', url=B + 'hkproductsview.php?oid=11&pid=168',
+       size='0.75L', spec='6 小時保溫 71°C 以上、保冷 8°C 以下；7cm 口徑；SUS304 不銹鋼內容器', price='官網未列價錢',
+       desc='保溫保冷兩用，750ml 容量可裝一人份湯麵或作湯壺使用，7cm 闊口徑較易清洗。', scene='食量較大、帶湯'),
+ ]))

@@ -2,7 +2,7 @@
 """食物保暖用品／保鮮用品 KW 分配架構頁 → ../site-structure/thermal-kw.html
 資料：kw_classified_v2.json（integrate.py 產生）＋ content.PRODUCTS
 """
-import json, os, html
+import json, os, html, re
 from content import PRODUCTS, PRICE_DATE, PROD_EXTRA
 from product_desc import DESC
 from zoji import SLIDERS as ZS
@@ -10,9 +10,9 @@ from sliders_more import SLIDERS_MORE
 for _x in ZS:
     _x.setdefault('brand', '象印 Zojirushi'); _x.setdefault('srcname', '象印香港官網（官網不列價錢）')
 ZS[1]['after'] = True  # 兒童壺放在產品之後
-_ORDER = ['zoji-lunch', 'tiger-lunch', 'thermos-lunch', 'zoji-kids', 'tiger-jar', 'thermos-jar']
+_ORDER = ['zoji-lunch', 'tiger-lunch', 'thermos-lunch', 'zoji-kids', 'zoji-jar', 'tiger-jar', 'thermos-jar']
 SLIDERS = sorted(ZS + SLIDERS_MORE, key=lambda x: _ORDER.index(x['key']))
-SLIDER_REPLACES = {it['url'] for x in SLIDERS for it in x['items']} | {'https://www.hktvmall.com/p/H0569001_S_GJE-SL-NC09-ST'}  # 已併入 slider
+SLIDER_REPLACES = {it['url'] for x in SLIDERS for it in x['items']} | {'https://www.hktvmall.com/p/H0569001_S_GJE-SL-NC09-ST', 'https://www.hktvmall.com/p/H0569001_S_GJE-SW-EAE50-AB'}  # 已併入 slider
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'site-structure', 'thermal-kw.html')
@@ -58,12 +58,12 @@ CARDS = [
 OUTLINE = {
  'B1': [
   ('H2 1｜保溫飯盒、燜燒壺、加熱飯盒及保溫袋有甚麼分別？', None,
-   ['開首 40 至 60 字快答，下面用 4 張類型卡（星星評分）作總覽，爭取精選摘要。']),
+   ['開首 40 至 60 字快答，下面逐類用 H3 及文字列出星星評分，爭取精選摘要。']),
   ('H2 2｜保溫飯盒／保溫便當盒推介：材質、分層及品牌比較', 'C1',
    ['H3 2.1 保溫飯盒怎樣揀？不銹鋼、玻璃內盒及可微波內盒的分別', 'H3 2.2 學生保溫飯盒：小學生及兒童要注意甚麼？',
-    'H3 2.3 象印、虎牌、膳魔師保溫飯盒邊隻好？', '產品段落 ×3']),
+    'H3 2.3 象印、虎牌、膳魔師保溫飯盒邊隻好？', '產品 slider ×4（象印飯壺、虎牌、膳魔師、象印兒童壺）']),
   ('H2 3｜燜燒壺、燜燒杯與湯壺：帶湯、粥及燜飯', 'C2',
-   ['H3 3.1 燜燒壺與保溫壺有甚麼分別？（承接保溫壺、保溫杯、保溫瓶）', 'H3 3.2 燜燒壺用法及帶飯食譜', '產品段落 ×3']),
+   ['H3 3.1 燜燒壺與保溫壺有甚麼分別？（承接保溫壺、保溫杯、保溫瓶）', 'H3 3.2 燜燒壺用法及帶飯食譜', 'H3 3.3 湯壺怎樣揀？750ml 以上大容量推介', '產品 slider ×3（象印、虎牌、膳魔師）＋湯壺建議']),
   ('H2 4｜加熱飯盒、電熱飯盒與自熱飯盒：辦公室沒有微波爐怎麼辦？', 'C3',
    ['H3 4.1 加熱飯盒與保溫飯盒有甚麼分別？', 'H3 4.2 USB、充電式及插電式加熱飯盒比較', '產品段落 ×3']),
   ('H2 5｜保溫袋、保冷袋與保溫箱：延長保溫及保冷時間', 'C7',
@@ -73,7 +73,7 @@ OUTLINE = {
   ('H2 7｜常見問題', 'FAQ', ['FAQPage schema，每題先用 1 至 2 句直接回答']),
  ],
  'B2': [
-  ('H2 1｜保鮮紙、保鮮袋、保鮮盒用途有甚麼分別？', None, ['開首快答＋3 張類型卡（星星評分）']),
+  ('H2 1｜保鮮紙、保鮮袋、保鮮盒用途有甚麼分別？', None, ['開首快答，下面逐類用 H3 及文字列出星星評分']),
   ('H2 2｜保鮮紙、保鮮膜與保鮮貼：可以入微波爐或蒸嗎？', 'C5',
    ['H3 2.1 保鮮紙可以入微波爐嗎？可以蒸嗎？', 'H3 2.2 佳能與 Glad 是同一品牌嗎？Press\'n Seal 是甚麼？', '產品段落 ×3']),
   ('H2 3｜保鮮袋、密實袋與真空袋：尺寸及耐熱怎樣揀？', 'C6',
@@ -174,14 +174,25 @@ def outline_html(b):
         extra = ''
         if c is None:
             crit = TYPE_CRIT[b]
-            extra = '<div class="types">' + ''.join(
-                f'<div class="tc"><h5>{E(n)}</h5><ul class="rate">' + ''.join(f'<li><span>{E(cn)}</span>{stars(v)}</li>' for cn, v in zip(crit, sc))
-                + f'</ul><p class="aud"><b>適合場景／族群</b>{E(sc2)}</p></div>' for n, sc, sc2 in TYPES[b]) + '</div>'
+            extra = '<div class="tplain">' + ''.join(
+                f'<h5>{E(n)}</h5><p>' + '<br>'.join(f'{E(cn)}：{stars(v)}' for cn, v in zip(crit, sc))
+                + f'<br>適合場景／對象：{E(sc2)}</p>' for n, sc, sc2 in TYPES[b]) + '</div>'
         prods = ''
         if c in BLOG_OF:
             ps = [p for p in PRODUCTS if p[0] == c and p[7] not in SLIDER_REPLACES]
             sl = [x for x in SLIDERS if x['cat'] == c]
-            prods = ''.join(slider_block(x) for x in sl if not x.get('after')) + ('<div class="plist">' + ''.join(product_block(p, b) for p in ps) + '</div>' if ps else '') + ''.join(slider_block(x) for x in sl if x.get('after'))
+            prods = ''.join(slider_block(x) for x in sl if not x.get('after'))
+            if c == 'C2':
+                big = []
+                for x in sl:
+                    for it in x['items']:
+                        mm = re.search(r'(\d+(?:\.\d+)?)\s*(ml|L)', it['size'], re.I)
+                        v = float(mm.group(1)) * (1000 if mm and mm.group(2).lower() == 'l' else 1) if mm else 0
+                        if v >= 700: big.append((x['brand'], it))
+                prods += ('<div class="soup"><h5>湯壺建議：750ml 以上大容量款</h5><p>想帶一整壺湯，可揀容量 750ml 左右的燜燒杯當湯壺使用：</p><ul>'
+                          + ''.join(f'<li>{E(br)} {E(it["sku"])}（{E(it["size"])}）：{E(it["spec"].split("；")[0])}｜<a href="{E(it["url"])}" target="_blank" rel="nofollow noopener">產品頁</a></li>' for br, it in big)
+                          + '</ul></div>')
+            prods += ('<div class="plist">' + ''.join(product_block(p, b) for p in ps) + '</div>' if ps else '') + ''.join(slider_block(x) for x in sl if x.get('after'))
         out.append(f'<div class="sec"><h4>{E(h2)}</h4><ul class="h3">{body}</ul>'
                    + (f'<div class="chips">{chips}</div>' if chips else '') + extra + prods + '</div>')
     return ''.join(out)
