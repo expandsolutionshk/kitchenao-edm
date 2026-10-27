@@ -2,7 +2,7 @@
 """整合新增 GKP（Keyword Stats 2026-10-28）到 KW 分類，並按 Blog 重新分配關鍵字"""
 import json, os, re
 from collections import Counter
-from content import CATS as BASE, SHOP_CAT, PRODUCTS, PRICE_DATE
+from content import CATS as BASE, SHOP_CAT, PRODUCTS, PRICE_DATE, PROD_EXTRA
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
@@ -169,10 +169,11 @@ sheet(ws4, ['關鍵字', 'Avg. monthly searches', '3 個月變化', '按年變�
       [20, 12, 10, 10, 12, 24, 28, 22])
 
 ws5 = wb.create_sheet('產品對照表')
-sheet(ws5, ['類別', '品牌', '型號', '容量／尺寸', '重點規格', '價錢（HKD）', '網店', '產品連結', '備註'],
-      [[CATS[p[0]]] + list(p[1:]) for p in PRODUCTS], [22, 18, 30, 20, 36, 18, 22, 60, 20])
+sheet(ws5, ['類別', '品牌', '產品名稱（網店官方原文）', '型號／貨號', '容量／尺寸', '重點規格', '價錢（HKD）', '網店', '產品連結', '產品圖片網址', '備註'],
+      [[CATS[p[0]], p[1], p[2], PROD_EXTRA[p[7]][0]] + list(p[3:8]) + [PROD_EXTRA[p[7]][1], p[8]] for p in PRODUCTS], [22, 18, 40, 16, 20, 36, 18, 22, 50, 50, 20])
 for row in ws5.iter_rows(min_row=2):
-    row[7].hyperlink = row[7].value; row[7].font = Font(name='Arial', color='0563C1', underline='single')
+    for i in (8, 9):
+        row[i].hyperlink = row[i].value; row[i].font = Font(name='Arial', color='0563C1', underline='single')
 
 ws6 = wb.create_sheet('說明')
 for line in [

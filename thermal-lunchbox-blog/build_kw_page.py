@@ -3,7 +3,7 @@
 資料：kw_classified_v2.json（integrate.py 產生）＋ content.PRODUCTS
 """
 import json, os, html
-from content import PRODUCTS, PRICE_DATE
+from content import PRODUCTS, PRICE_DATE, PROD_EXTRA
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'site-structure', 'thermal-kw.html')
@@ -90,27 +90,27 @@ TYPE_CRIT = {'B1': ['保熱能力', '保冷／保鮮', '防漏密封'], 'B2': ['
 # 產品評分：None＝官方未列／不適用
 CRIT = {'B1': ['保熱能力', '保冷能力', '防漏密封', '份量'], 'B2': ['保鮮效果', '密封防漏', '微波爐適用', '性價比']}
 RATE = {
- 'SL-NC09-ST 不銹鋼保溫便當盒': ([4, 2, 3, 4], '上班族（有微波爐可再翻熱）、食量中等', '官方未列保溫時數；內盒可微波翻熱'),
- 'LXB-A100 (XC) 保溫便當盒': ([5, 2, 3, 4], '中學生、上班族，飯和餸分開裝', '6 小時後保持 50°C 以上'),
- 'JEE-800-DGY 保溫便當盒': ([5, 3, 4, 3], '小學生、有湯汁的餸菜', '6 小時保持 60°C 以上'),
- 'JBT-400 燜燒罐': ([4, 4, 5, 2], '小朋友、一人份湯或粥', '6 小時：熱 59°C 以上／冷 11°C 以下'),
- 'SW-EAE50 燜燒杯': ([5, 5, 5, 3], '上班族燜燕麥、粥', '6 小時：熱 64°C 以上／冷 10°C 以下'),
- 'MCJ-K075 燜燒罐': ([5, 5, 5, 4], '食量較大、燜飯或湯麵', '6 小時：熱 70°C 以上／冷 8°C 以下'),
- '無線加熱飯盒 F72': ([5, 1, 3, 5], '辦公室沒有微波爐、外勤', '50W 主動加熱，可充電'),
- 'F-818 充電式電熱飯盒': ([4, 1, 3, 5], '外勤、需要充電便攜', '40W 主動加熱，3200mAh'),
- '充電式便攜加熱飯盒': ([4, 1, 3, None], '外勤、短途出行', '可充電，多段溫度；容量未有標示'),
- 'REK-001H 保溫袋': ([3, 3, None, 3], '已有 Thermos 食物罐的用家', '配合食物罐使用，延長保溫'),
- 'Zuma 冷藏袋': ([1, 5, 3, 3], '夏天帶沙律、水果、凍飲', '袋身內置凝膠，冷凍 12 小時後毋須冰袋'),
- 'HUGEL VITC-20 真空隔熱保溫箱': ([5, 5, None, 5], '野餐、派對、外賣', '真空隔熱，保冷保溫兩用，20L'),
- '強化玻璃微波保鮮盒（長方形 2 件裝）': ([4, 5, 5, 3], '備餐、翻熱飯餸', '盒身可微波、焗爐、洗碗碟機'),
- '真空保鮮盒': ([5, 4, None, 3], '水果、肉類延長保鮮', '抽真空保鮮；微波適用未能確認'),
- '共聚酯保存容器': ([3, 4, None, 5], '雪櫃收納、乾貨分裝', '$38；可否微波頁面未有註明'),
- '佳能保鮮紙 200 呎': ([3, 3, None, 5], '碗碟封口、短時間保存', '一般保鮮紙；翻熱請用微波爐專用款'),
- "佳能保鮮魔術貼（Press'n Seal）": ([4, 5, None, 3], '形狀不規則的容器、碗碟封口', '可直接黏貼容器及碗碟'),
- '佳能微波爐保鮮紙 100 呎': ([3, 3, 5, 4], '翻熱飯餸時封口', '微波爐適用'),
- '佳能雙重鎖緊密實袋（中）': ([4, 5, None, 4], '急凍、醃肉', '雙重拉鏈'),
- '佳能食物保鮮袋（大）': ([3, 2, None, 5], '蔬果分裝', '一般食物保鮮袋，沒有拉鏈'),
- '食物保鮮密實袋（中）': ([4, 4, None, 5], '分裝、急凍', '拉鏈密實袋，19×20cm'),
+ 'https://www.hktvmall.com/p/H0569001_S_GJE-SL-NC09-ST': ([4, 2, 3, 4], '上班族（有微波爐可再翻熱）、食量中等', '官方未列保溫時數；內盒可微波翻熱'),
+ 'https://www.hktvmall.com/p/H5036001_S_LXB-A100-XC': ([5, 2, 3, 4], '中學生、上班族，飯和餸分開裝', '6 小時後保持 50°C 以上'),
+ 'https://www.thermos.com.hk/product/d004b821-b818-4163-b143-2421736cc46f': ([5, 3, 4, 3], '小學生、有湯汁的餸菜', '6 小時保持 60°C 以上'),
+ 'https://www.thermos.com.hk/product/ba9dc661-65d6-4a80-9a22-31aff4eb8d96': ([4, 4, 5, 2], '小朋友、一人份湯或粥', '6 小時：熱 59°C 以上／冷 11°C 以下'),
+ 'https://www.hktvmall.com/p/H0569001_S_GJE-SW-EAE50-AB': ([5, 5, 5, 3], '上班族燜燕麥、粥', '6 小時：熱 64°C 以上／冷 10°C 以下'),
+ 'https://www.hktvmall.com/p/H5036001_S_MCJ-K075-HC': ([5, 5, 5, 4], '食量較大、燜飯或湯麵', '6 小時：熱 70°C 以上／冷 8°C 以下'),
+ 'https://www.yohohongkong.com/zh-hk/product/98338': ([5, 1, 3, 5], '辦公室沒有微波爐、外勤', '50W 主動加熱，可充電'),
+ 'https://www.yohohongkong.com/zh-hk/product/188590': ([4, 1, 3, 5], '外勤、需要充電便攜', '40W 主動加熱，3200mAh'),
+ 'https://www.yohohongkong.com/zh-hk/product/492130': ([4, 1, 3, None], '外勤、短途出行', '可充電，多段溫度；容量未有標示'),
+ 'https://www.thermos.com.hk/p/REK-001H-BK': ([3, 3, None, 3], '已有 Thermos 食物罐的用家', '配合食物罐使用，延長保溫'),
+ 'https://www.yohohongkong.com/zh-hk/product/80121': ([1, 5, 3, 3], '夏天帶沙律、水果、凍飲', '袋身內置凝膠，冷凍 12 小時後毋須冰袋'),
+ 'https://www.yohohongkong.com/zh-hk/product/226394': ([5, 5, None, 5], '野餐、派對、外賣', '真空隔熱，保冷保溫兩用，20L'),
+ 'https://www.yohohongkong.com/zh-hk/product/114329': ([4, 5, 5, 3], '備餐、翻熱飯餸', '盒身可微波、焗爐、洗碗碟機'),
+ 'https://www.yohohongkong.com/zh-hk/product/116443': ([5, 4, None, 3], '水果、肉類延長保鮮', '抽真空保鮮；微波適用未能確認'),
+ 'https://onlineshop.muji.com.hk/products/4550583134433': ([3, 4, None, 5], '雪櫃收納、乾貨分裝', '$38；可否微波頁面未有註明'),
+ 'https://www.wellcome.com.hk/zh-hant/p/%E4%BD%B3%E8%83%BD%E4%BF%9D%E9%AE%AE%E7%B4%99%20200FT/i/101343913.html': ([3, 3, None, 5], '碗碟封口、短時間保存', '一般保鮮紙；翻熱請用微波爐專用款'),
+ 'https://www.wellcome.com.hk/zh-hant/p/%E4%BD%B3%E8%83%BD%E4%BF%9D%E9%AE%AE%E9%AD%94%E8%A1%93%E8%B2%BC%2030%E5%8E%98%E7%B1%B3%2070%E5%91%8E/i/115847548.html': ([4, 5, None, 3], '形狀不規則的容器、碗碟封口', '可直接黏貼容器及碗碟'),
+ 'https://www.wellcome.com.hk/zh-hant/p/%E4%BD%B3%E8%83%BD%E5%BE%AE%E6%B3%A2%E7%88%90%E4%BF%9D%E9%AE%AE%E7%B4%99%20100FT/i/101331506.html': ([3, 3, 5, 4], '翻熱飯餸時封口', '微波爐適用'),
+ 'https://www.wellcome.com.hk/zh-hant/p/%E4%BD%B3%E8%83%BD%E9%9B%99%E9%87%8D%E9%8E%96%E7%B7%8A%E5%AF%86%E5%AF%A6%E8%A2%8B%E4%B8%AD%2050PC/i/101335749.html': ([4, 5, None, 4], '急凍、醃肉', '雙重拉鏈'),
+ 'https://www.wellcome.com.hk/zh-hant/p/%E4%BD%B3%E8%83%BD%E9%A3%9F%E7%89%A9%E4%BF%9D%E9%AE%AE%E8%A2%8B%E5%A4%A7%E8%A2%8B%20100EA/i/101347619.html': ([3, 2, None, 5], '蔬果分裝', '一般食物保鮮袋，沒有拉鏈'),
+ 'https://www.yohohongkong.com/zh-hk/product/335649': ([4, 4, None, 5], '分裝、急凍', '拉鏈密實袋，19×20cm'),
 }
 BLOG_OF = {'C1': 'B1', 'C2': 'B1', 'C3': 'B1', 'C7': 'B1', 'C4': 'B2', 'C5': 'B2', 'C6': 'B2'}
 
@@ -122,16 +122,16 @@ def stars(v):
 
 
 def product_block(p, b):
-    cat, brand, model, size, spec, price, shop, url, note = p
-    sc, scene, basis = RATE[model]
-    rows = ''.join(f'<li><span>{E(c)}</span>{stars(v)}</li>' for c, v in zip(CRIT[b], sc))
-    nt = f'<p class="pn">備註：{E(note)}</p>' if note else ''
-    return f'''<div class="prod"><div class="img">產品圖片<br><small>{E(brand)} {E(model)}</small></div>
-<p class="pb">{E(brand)}</p><h5>{E(model)}</h5>
-<dl><dt>容量</dt><dd>{E(size)}</dd><dt>重點規格</dt><dd>{E(spec)}</dd><dt>價錢（HKD）</dt><dd>{E(price)}<small>（{E(shop)}）</small></dd></dl>
-<a class="buy" href="{E(url)}" target="_blank" rel="nofollow noopener">購買連結 →</a>
-<ul class="rate">{rows}</ul><p class="basis">評分根據：{E(basis)}</p>
-<p class="aud"><b>適合場景／族群</b>{E(scene)}</p>{nt}</div>'''
+    cat, brand, name, size, spec, price, shop, url, note = p
+    sku, img = PROD_EXTRA[url]
+    sc, scene, basis = RATE[url]
+    rate = '<br>'.join(f'{E(c)}：{stars(v)}' for c, v in zip(CRIT[b], sc))
+    nt = f'<br>備註：{E(note)}' if note else ''
+    return f'''<div class="pt"><img src="{E(img)}" alt="{E(name)}" loading="lazy" referrerpolicy="no-referrer">
+<p class="iu">圖片：<a href="{E(img)}" target="_blank" rel="noopener">{E(img)}</a></p>
+<p>品牌：{E(brand)}<br>產品名稱：{E(name)}<br>型號：{E(sku)}<br>容量：{E(size)}<br>重點規格：{E(spec)}<br>價錢（HKD）：{E(price)}（{E(shop)}，{E(PRICE_DATE)}記錄）<br>購買連結：<a href="{E(url)}" target="_blank" rel="nofollow noopener">{E(url)}</a></p>
+<p>{rate}<br><span class="basis">評分根據：{E(basis)}</span></p>
+<p>適合場景／族群：{E(scene)}{nt}</p></div>'''
 
 
 def kw_chips(b, c):
@@ -158,7 +158,7 @@ def outline_html(b):
         prods = ''
         if c in BLOG_OF:
             ps = [p for p in PRODUCTS if p[0] == c]
-            prods = '<div class="prods">' + ''.join(product_block(p, b) for p in ps) + '</div>'
+            prods = '<div class="plist">' + ''.join(product_block(p, b) for p in ps) + '</div>'
         out.append(f'<div class="sec"><h4>{E(h2)}</h4><ul class="h3">{body}</ul>'
                    + (f'<div class="chips">{chips}</div>' if chips else '') + extra + prods + '</div>')
     return ''.join(out)
@@ -207,7 +207,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <title>保暖及保鮮用品 KW 架構｜Kitchen AO</title>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
 <style>{CSS}</style></head><body>
-<header><h1>🍱 食物保暖及保鮮用品 KW 分配架構（2 篇 Blog）</h1><p>資料：Google Keyword Planner（保溫.xlsx＋2026-10-28 新增查詢）、Google 自動建議｜共 {tot} 個字｜產品價錢記錄：{PRICE_DATE}｜<a href="./index.html">← 返回網站架構圖</a></p></header>
+<header><h1>🍱 食物保暖及保鮮用品 KW 分配架構（2 篇 Blog）</h1><p>資料：Google Keyword Planner（保溫.xlsx＋2026-10-28 新增查詢）、Google 自動建議｜共 {tot} 個字｜產品價錢記錄：{PRICE_DATE}</p></header>
 <div class="wrap">
 <div class="rule"><b>分配原則：</b>一個關鍵字只分配到一篇，避免自家頁面互搶排名。帶飯保溫（保溫飯盒、燜燒壺、加熱飯盒、保溫袋）→ Blog 1；保鮮（保鮮紙、密實袋、保鮮盒、真空）→ Blog 2；飲品保溫壺、保溫杯、保溫瓶 → 只在 Blog 1 一個 H3 承接；冰袋、冰磚 → 暫不使用；烘焙紙、暖包 → 不建議。每篇只刻意佈局「主要／次要／長尾／FAQ」，其餘列為「自然涵蓋」，不用逐個寫入。</div>
 <h2>內鏈架構</h2><div class="card"><pre class="mermaid">{E(MERMAID)}</pre></div>
