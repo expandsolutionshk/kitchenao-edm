@@ -4,6 +4,7 @@
 """
 import json, os, html
 from content import PRODUCTS, PRICE_DATE, PROD_EXTRA
+from product_desc import DESC
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'site-structure', 'thermal-kw.html')
@@ -124,14 +125,12 @@ def stars(v):
 def product_block(p, b):
     cat, brand, name, size, spec, price, shop, url, note = p
     sku, img = PROD_EXTRA[url]
-    sc, scene, basis = RATE[url]
-    rate = '<br>'.join(f'{E(c)}：{stars(v)}' for c, v in zip(CRIT[b], sc))
-    nt = f'<br>備註：{E(note)}' if note else ''
+    desc, scene = DESC[url]
     return f'''<div class="pt"><img src="{E(img)}" alt="{E(name)}" loading="lazy" referrerpolicy="no-referrer">
 <p class="iu">圖片：<a href="{E(img)}" target="_blank" rel="noopener">{E(img)}</a></p>
 <p>品牌：{E(brand)}<br>產品名稱：{E(name)}<br>型號：{E(sku)}<br>容量：{E(size)}<br>重點規格：{E(spec)}<br>價錢（HKD）：{E(price)}（{E(shop)}，{E(PRICE_DATE)}記錄）<br>購買連結：<a href="{E(url)}" target="_blank" rel="nofollow noopener">{E(url)}</a></p>
-<p>{rate}<br><span class="basis">評分根據：{E(basis)}</span></p>
-<p>適合場景／族群：{E(scene)}{nt}</p></div>'''
+<p class="pd">{E(desc)}</p>
+<p>適合場景／對象：{E(scene)}</p></div>'''
 
 
 def kw_chips(b, c):

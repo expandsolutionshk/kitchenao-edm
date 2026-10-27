@@ -10,7 +10,7 @@ OFF = [
  ("虎牌 - 不銹鋼真空燜燒杯 MCJ-K075 750ml 犀牛灰 | 食物罐 | 保溫飯盒便當盒 | 食物儲存盒 | 野餐露營便當盒 | 保溫瓶罐 | 保冷壼", "MCJ-K075 (HC)", "https://cdn-media.hktvmall.com/hktv-mms/HKTV/mms/uploadProductImage/4781/e49e/b2c5/jxwZGMsQSN20250424145612_1200.png"),
  ("Life Element 生活元素 無線加熱飯盒 F72 紫色", "F72", "https://store.yohohongkong.com/mkp/gallery/goods/images/1a83cb2b-7cc4-4b3f-af4a-9ca201760e25_mkp_image.jpg"),
  ("Mercury 免插電充電式電熱飯盒 F-818 抹茶色", "F-818", "https://store.yohohongkong.com/mkp/gallery/goods/images/953c38eb-6a36-4878-951f-b649546c9fb0_mkp_image.webp"),
- ("VVU&CCO 物克 充電式便攜加熱飯盒", "（頁面未列型號）", "https://store.yohohongkong.com/mkp/gallery/goods/images/a3c71d28-845f-4c49-93da-ffd505ad7c8c_mkp_image.webp"),
+ ("迷你雙層蒸煮盒", "RSB-BV212S", "https://www.shew.com.hk/usm.ashx/e/9067B0382A99E77958BDE12B0943EAB4F251E5ADB8BD3DA4564A762B6F6D8ED9B737F584C7D5589FEFDD02C6B3E7DE8C6E5B77CD1793B502EED3A7666A4B473E"),  # 2026-10-28 取代 VVU&CCO（信興官網）
  ("Glasslock 強化玻璃微波保鮮盒 櫻花粉晶透款 長方形 1020ml 兩個裝", "（頁面未列型號）", "https://store.yohohongkong.com/mkp/gallery/goods/images/b38e68cb-27ad-4bec-ae50-0e1a2b24df8b_mkp_image.webp"),
  ("Food Fresh 真空保鮮盒 避光儲存 |雙重技術 [保鮮]•[保質] | 密封 防漏｜防潮 防霉| ★2026新款★", "（頁面未列型號）", "https://store.yohohongkong.com/mkp/gallery/goods/images/cb12567c-95ed-4878-b9f0-932baaec461c_mkp_image.webp"),
  ("共聚酯保存容器", "4550583134433", "https://img.shoplineapp.com/media/image_clips/67592bb20602cf000a92c393/original.jpg"),
