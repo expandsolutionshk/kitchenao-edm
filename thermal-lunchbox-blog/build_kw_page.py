@@ -5,6 +5,14 @@
 import json, os, html
 from content import PRODUCTS, PRICE_DATE, PROD_EXTRA
 from product_desc import DESC
+from zoji import SLIDERS as ZS
+from sliders_more import SLIDERS_MORE
+for _x in ZS:
+    _x.setdefault('brand', '象印 Zojirushi'); _x.setdefault('srcname', '象印香港官網（官網不列價錢）')
+ZS[1]['after'] = True  # 兒童壺放在產品之後
+_ORDER = ['zoji-lunch', 'tiger-lunch', 'thermos-lunch', 'zoji-kids', 'tiger-jar', 'thermos-jar']
+SLIDERS = sorted(ZS + SLIDERS_MORE, key=lambda x: _ORDER.index(x['key']))
+SLIDER_REPLACES = {it['url'] for x in SLIDERS for it in x['items']} | {'https://www.hktvmall.com/p/H0569001_S_GJE-SL-NC09-ST'}  # 已併入 slider
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'site-structure', 'thermal-kw.html')
@@ -133,6 +141,21 @@ def product_block(p, b):
 <p>適合場景／對象：{E(scene)}</p></div>'''
 
 
+def slider_block(x):
+    slides = []
+    for i, it in enumerate(x['items']):
+        slides.append(f'''<div class="sl{' on' if i == 0 else ''}"><img src="{E(it['img'])}" alt="{E(it['name'])} {E(it['sku'])}" loading="lazy" referrerpolicy="no-referrer">
+<p class="iu">圖片：<a href="{E(it['img'])}" target="_blank" rel="noopener">{E(it['img'])}</a></p>
+<p>品牌：{E(x['brand'])}<br>產品名稱：{E(it['name'])}<br>型號：{E(it['sku'])}<br>容量：{E(it['size'])}<br>重點規格：{E(it['spec'])}<br>價錢（HKD）：{E(it['price'])}<br>購買連結：<a href="{E(it['url'])}" target="_blank" rel="nofollow noopener">{E(it['url'])}</a></p>
+<p class="pd">{E(it['desc'])}</p>
+<p>適合場景／對象：{E(it['scene'])}</p></div>''')
+    dots = ''.join(f'<button class="dot{" on" if i == 0 else ""}" data-i="{i}" aria-label="{E(it["sku"])}">{E(it["sku"])}</button>' for i, it in enumerate(x['items']))
+    return (f'<div class="slider" id="{x["key"]}"><div class="sh"><b>{E(x["title"])}</b><span class="nav"><button class="pv" aria-label="上一款">‹</button>'
+            f'<span class="ct">1 / {len(x["items"])}</span><button class="nx" aria-label="下一款">›</button></span></div>'
+            f'<div class="dots">{dots}</div><div class="slides">{"".join(slides)}</div>'
+            f'<p class="src">資料來源：<a href="{E(x["src"])}" target="_blank" rel="noopener">{E(x["srcname"])}</a>；價錢為 2026 年 10 月 28 日記錄</p></div>')
+
+
 def kw_chips(b, c):
     if c == 'FAQ':
         rs = [r for r in R if r['pg'] == b and r['role'] == 'FAQ']
@@ -156,8 +179,9 @@ def outline_html(b):
                 + f'</ul><p class="aud"><b>適合場景／族群</b>{E(sc2)}</p></div>' for n, sc, sc2 in TYPES[b]) + '</div>'
         prods = ''
         if c in BLOG_OF:
-            ps = [p for p in PRODUCTS if p[0] == c]
-            prods = '<div class="plist">' + ''.join(product_block(p, b) for p in ps) + '</div>'
+            ps = [p for p in PRODUCTS if p[0] == c and p[7] not in SLIDER_REPLACES]
+            sl = [x for x in SLIDERS if x['cat'] == c]
+            prods = ''.join(slider_block(x) for x in sl if not x.get('after')) + ('<div class="plist">' + ''.join(product_block(p, b) for p in ps) + '</div>' if ps else '') + ''.join(slider_block(x) for x in sl if x.get('after'))
         out.append(f'<div class="sec"><h4>{E(h2)}</h4><ul class="h3">{body}</ul>'
                    + (f'<div class="chips">{chips}</div>' if chips else '') + extra + prods + '</div>')
     return ''.join(out)
@@ -247,6 +271,10 @@ a.href=URL.createObjectURL(b);a.download=`保暖保鮮KW${{sel.value?'_'+sel.val
 sel.onchange=draw;ro.onchange=draw;document.getElementById('q').oninput=draw;document.getElementById('dl').onclick=csv;
 document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{{sel.value=b.dataset.pg;draw();document.getElementById('all').scrollIntoView({{behavior:'smooth'}})}});
 draw();
+document.querySelectorAll('.slider').forEach(sl=>{{const ss=[...sl.querySelectorAll('.sl')],ds=[...sl.querySelectorAll('.dot')],ct=sl.querySelector('.ct');let i=0;
+const go=n=>{{i=(n+ss.length)%ss.length;ss.forEach((x,k)=>x.classList.toggle('on',k===i));ds.forEach((x,k)=>x.classList.toggle('on',k===i));ct.textContent=(i+1)+' / '+ss.length}};
+sl.querySelector('.pv').onclick=()=>go(i-1);sl.querySelector('.nx').onclick=()=>go(i+1);ds.forEach(d=>d.onclick=()=>go(+d.dataset.i));
+let x0=null;sl.querySelector('.slides').addEventListener('touchstart',e=>x0=e.touches[0].clientX,{{passive:true}});sl.querySelector('.slides').addEventListener('touchend',e=>{{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null}});}});
 </script></body></html>'''
 open(OUT, 'w', encoding='utf-8').write(page)
 print('ok', OUT, len(page))

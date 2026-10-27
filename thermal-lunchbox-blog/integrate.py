@@ -171,6 +171,18 @@ sheet(ws4, ['關鍵字', 'Avg. monthly searches', '3 個月變化', '按年變�
 ws5 = wb.create_sheet('產品對照表')
 sheet(ws5, ['類別', '品牌', '產品名稱（網店官方原文）', '型號／貨號', '容量／尺寸', '重點規格', '價錢（HKD）', '網店', '產品連結', '產品圖片網址', '備註'],
       [[CATS[p[0]], p[1], p[2], PROD_EXTRA[p[7]][0]] + list(p[3:8]) + [PROD_EXTRA[p[7]][1], p[8]] for p in PRODUCTS], [22, 18, 40, 16, 20, 36, 18, 22, 50, 50, 20])
+from zoji import SLIDERS
+from sliders_more import SLIDERS_MORE
+_have = {p[7] for p in PRODUCTS}
+_slid = {it['url'] for x in SLIDERS + SLIDERS_MORE for it in x['items']}
+for row in ws5.iter_rows(min_row=2):
+    if row[8].value in _slid: row[10].value = 'Slider 顯示'
+for x in SLIDERS + SLIDERS_MORE:
+    for it in x['items']:
+        if it['url'] in _have: continue
+        ws5.append([CATS[x['cat']], x.get('brand', '象印 Zojirushi'), it['name'], it['sku'], it['size'], it['spec'], it['price'], x.get('srcname', '象印香港官網') + '（' + x['title'] + '）', it['url'], it['img'], 'Slider 顯示'])
+for row in ws5.iter_rows(min_row=2):
+    for c in row: c.font = Font(name='Arial'); c.alignment = Alignment(wrap_text=True, vertical='top')
 for row in ws5.iter_rows(min_row=2):
     for i in (8, 9):
         row[i].hyperlink = row[i].value; row[i].font = Font(name='Arial', color='0563C1', underline='single')
