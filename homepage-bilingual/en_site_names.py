@@ -54,7 +54,7 @@ RAW = {
 }
 # 網站英文名可能有問題，要人手確認
 ISSUES = {
- 6063: '英文名「Fried Squid Tentacles」與中文「酥炸雞軟骨」不符，而且 TENEACLES 拼錯',
+ 6063: '網站英文名「Fried Squid Tentacles」錯誤：中文名及網址都是雞軟骨（chicken cartilage），Meta 已改用正確名稱，請同時修正網站英文產品名',
  10572: '英文名 Dount 拼錯，應為 Doughnut',
  6078: '英文名只有「.」，未有翻譯',
 }
@@ -83,5 +83,5 @@ FALLBACK = {
  20928: 'AO 5-6pax Mid-Autumn Reunion Set 2026', 20929: 'AO 8-10pax Mid-Autumn Reunion Set 2026', 20930: 'AO 12-16pax Mid-Autumn Reunion Set 2026',
  20931: 'AO 18-22pax Mid-Autumn Reunion Set 2026', 20932: 'AO 26-30pax Mid-Autumn Reunion Set 2026', 20933: 'AO 35-40pax Mid-Autumn Reunion Set 2026',
 }
-FIX = {14052: 'Noah Nonbe', 14102: 'Coca-Cola Collection', 13985: 'Executive – Set A'}
+FIX = {14052: 'Noah Nonbe', 14102: 'Coca-Cola Collection', 13985: 'Executive – Set A', 6063: 'Crispy Fried Chicken Cartilage with Onion Rings'}
 for k, v in FIX.items(): EN[k] = v

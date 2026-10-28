@@ -2,6 +2,7 @@
 """產生「一次性匯入英文 Meta」WPCode snippet（A：頁面、Blog、分類；B：產品）及審閱 Excel"""
 import os
 from en_meta_data import all_rows, kw_of, name_status
+from en_urls import url_of
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -48,19 +49,22 @@ open(os.path.join(HERE, 'en-meta-import-B-products.txt'), 'w', encoding='utf-8')
 
 wb = Workbook(); ws = wb.active; ws.title = '全網英文 Meta'
 TY = {'page': '頁面', 'post': 'Blog', 'product': '產品', 'term': '產品分類', 'special': '頁面（商店／Blog 列表）'}
-ws.append(['類型', 'ID', '中文頁面', 'English Title', '字元', 'English Meta Description', '字元', '主要英文關鍵字（月搜／GSC 曝光）', '網站英文產品名狀態', '匯入檔'])
+ws.append(['類型', 'ID', '中文頁面', '中文網址', '英文網址（/en/）', 'English Title', '字元', 'English Meta Description', '字元', '主要英文關鍵字（月搜／GSC 曝光）', '網站英文產品名狀態', '匯入檔'])
 for r in R:
-    ws.append([TY[r[0]], r[1], r[2], r[3], len(r[3]), r[4], len(r[4]), kw_of(r[0], r[1]), name_status(r[0], r[1]), 'B' if r[0] == 'product' else 'A'])
+    zu, eu = url_of(r[0], r[1])
+    ws.append([TY[r[0]], r[1], r[2], zu, eu, r[3], len(r[3]), r[4], len(r[4]), kw_of(r[0], r[1]), name_status(r[0], r[1]), 'B' if r[0] == 'product' else 'A'])
 for c in ws[1]: c.font = Font(name='Arial', bold=True, color='F7CE46'); c.fill = PatternFill('solid', fgColor='1A1A1A')
 for row in ws.iter_rows(min_row=2):
     for c in row: c.font = Font(name='Arial'); c.alignment = Alignment(wrap_text=True, vertical='top')
-for col, w in zip('ABCDEFGHIJ', [12, 8, 30, 48, 6, 70, 6, 40, 40, 8]): ws.column_dimensions[col].width = w
-ws.freeze_panes = 'D2'; ws.auto_filter.ref = f'A1:J{ws.max_row}'
+for col, w in zip('ABCDEFGHIJKL', [12, 8, 26, 40, 40, 48, 6, 70, 6, 40, 40, 8]): ws.column_dimensions[col].width = w
+ws.freeze_panes = 'F2'; ws.auto_filter.ref = f'A1:L{ws.max_row}'
 Y = PatternFill('solid', fgColor='FFF2A8')
 for row in ws.iter_rows(min_row=2):
-    if row[7].value:
+    for c in (row[3], row[4]):
+        if c.value: c.hyperlink = c.value; c.font = Font(name='Arial', color='0563C1', underline='single')
+    if row[9].value:
         for c in row: c.fill = Y
-    if row[8].value and not str(row[8].value).startswith('沿用'):
-        row[8].fill = PatternFill('solid', fgColor='FAD4D4')
+    if row[10].value and not str(row[10].value).startswith('沿用'):
+        row[10].fill = PatternFill('solid', fgColor='FAD4D4')
 wb.save(os.path.join(HERE, '全網英文Meta_2026-10-28.xlsx'))
 print(len(A), len(Bp))

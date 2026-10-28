@@ -288,8 +288,7 @@ PRODUCTS = [
 
 def product_meta(en, kind):
     k = kind.split(':')
-    t = f'{en} | Kitchen AO Catering'
-    if len(t) > 60: t = f'{en} | Kitchen AO'
+    t = f'{en} | Kitchen AO'
     if k[0] == 'dish': d = dish(en)
     elif k[0] == 'side': d = f'{en}, a side dish by Kitchen AO to complete your party menu, delivered across Hong Kong.'
     elif k[0] == 'gourmet': d = gourmet(k[1])
@@ -460,9 +459,9 @@ _pm = product_meta
 def product_meta(en, kind):
     k = kind.split(':')
     if k[0] == 'mid':
-        return fit(f'{en} | Kitchen AO Catering', f'{en}: Mid-Autumn Festival reunion catering for {k[1]} guests, delivered across Hong Kong. Order online.')
+        return fit(f'{en} | Kitchen AO', f'{en}: Mid-Autumn Festival reunion catering for {k[1]} guests, delivered across Hong Kong. Order online.')
     if k[0] == 'hw':
-        return fit(f'{en} | Kitchen AO Catering', f'{en}: Halloween party catering for {k[1]} guests with spooky-themed dishes, delivered across Hong Kong.')
+        return fit(f'{en} | Kitchen AO', f'{en}: Halloween party catering for {k[1]} guests with spooky-themed dishes, delivered across Hong Kong.')
     t, d = _pm(en, kind)
     if len(d) > 160: d = f'{en}, freshly made by Kitchen AO and delivered across Hong Kong.'
     if len(d) > 160: d = f'{en} by Kitchen AO.'
