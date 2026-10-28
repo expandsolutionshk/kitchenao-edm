@@ -84,4 +84,18 @@ FALLBACK = {
  20931: 'AO 18-22pax Mid-Autumn Reunion Set 2026', 20932: 'AO 26-30pax Mid-Autumn Reunion Set 2026', 20933: 'AO 35-40pax Mid-Autumn Reunion Set 2026',
 }
 FIX = {14052: 'Noah Nonbe', 14102: 'Coca-Cola Collection', 13985: 'Executive – Set A', 6063: 'Crispy Fried Chicken Cartilage with Onion Rings'}
+# 2026-10-29：網站已手動修改的英文產品名（Meta 跟網站名）
+FIX.update({
+ 6063: 'Crispy Fried Chicken Cartilage and Onion Rings',
+ 6072: 'Cheese Pork Floss & Seafood Croissants',
+ 6077: 'Mini Hand-Pattied Cheese Burgers',
+ 6078: 'Thai-Style Hot & Spicy Chicken Feet',
+ 6274: 'Hong Kong-Style Grilled Kagoshima in Herbs and Honey Char Siu Steak',
+ 6409: 'AO 35-40 pax Refreshment Set',
+ 10572: 'Chocolate Mini Doughnut',
+ 14300: "Meat Monster Admiral's Harbor Choice Feast Box",
+ 14306: "Meat Monster Admiral's Harbor Mega Feast Box",
+ 19579: 'Sharaku Sake-Braised Crab Roe & Seared Flounder Claypot Rice',
+})
+for _k in (6063, 10572, 6078): ISSUES.pop(_k, None)
 for k, v in FIX.items(): EN[k] = v

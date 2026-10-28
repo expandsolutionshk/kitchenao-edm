@@ -475,8 +475,9 @@ for _i, (_pid, _zh, _en, _kind) in enumerate(PRODUCTS):
         name, st = site, '沿用網站英文名'
     else:
         name = SITE_FB.get(_pid, _en)
-        st = f'網站未有英文名，建議在 TranslatePress 補上：{name}'
-    if _pid in SITE_ISSUES: st = '⚠ ' + SITE_ISSUES[_pid] + '；' + st
+        st = f'網站未有英文名，建議在 TranslatePress 補上：{name.upper()}'
+    if _pid in SITE_ISSUES:
+        st = '⚠ ' + SITE_ISSUES[_pid] + '；' + (f'建議網站英文名改為：{name.upper()}' if site else st)
     PRODUCTS[_i] = (_pid, _zh, name, KIND_FIX.get(_pid, _kind))
     NAME_STATUS[('product', _pid)] = st
 
@@ -536,5 +537,20 @@ def all_rows():
     return out
 
 
+# 2026-10-29：按網站最新 /en/ 產品名（site_h1_20261029.tsv）更新狀態
+import os as _os, re as _re
+_tsv = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'site_h1_20261029.tsv')
+if _os.path.exists(_tsv):
+    for _l in open(_tsv, encoding='utf-8').read().strip().split('\n'):
+        _a, _h = _l.split('\t', 1); _a = int(_a)
+        if ('product', _a) in NAME_STATUS and not _re.search(r'[一-鿿]', _h):
+            NAME_STATUS[('product', _a)] = '沿用網站英文名'
+for _a in range(20928, 20934):
+    NAME_STATUS[('product', _a)] = '沿用：中秋產品網站英文名不更改（Meta 用建議英文名）'
+BLOG_OFF = '英文版已停用：/en/blog/ 已 301 至中文版（2026-10-29），此英文 Meta 不再使用'
+
+
 def name_status(kind, i):
+    if kind == 'post' or (kind == 'special' and i == 'blog'):
+        return BLOG_OFF
     return NAME_STATUS.get((kind, i), '')

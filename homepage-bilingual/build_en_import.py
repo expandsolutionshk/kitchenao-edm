@@ -49,7 +49,7 @@ open(os.path.join(HERE, 'en-meta-import-B-products.txt'), 'w', encoding='utf-8')
 
 wb = Workbook(); ws = wb.active; ws.title = '全網英文 Meta'
 TY = {'page': '頁面', 'post': 'Blog', 'product': '產品', 'term': '產品分類', 'special': '頁面（商店／Blog 列表）'}
-ws.append(['類型', 'ID', '中文頁面', '中文網址', '英文網址（/en/）', 'English Title', '字元', 'English Meta Description', '字元', '主要英文關鍵字（月搜／GSC 曝光）', '網站英文產品名狀態', '匯入檔'])
+ws.append(['類型', 'ID', '中文頁面', '中文網址', '英文網址（/en/）', 'English Title', '字元', 'English Meta Description', '字元', '主要英文關鍵字（月搜／GSC 曝光）', '狀態（網站英文產品名／英文版）', '匯入檔'])
 for r in R:
     zu, eu = url_of(r[0], r[1])
     ws.append([TY[r[0]], r[1], r[2], zu, eu, r[3], len(r[3]), r[4], len(r[4]), kw_of(r[0], r[1]), name_status(r[0], r[1]), 'B' if r[0] == 'product' else 'A'])
@@ -64,7 +64,23 @@ for row in ws.iter_rows(min_row=2):
         if c.value: c.hyperlink = c.value; c.font = Font(name='Arial', color='0563C1', underline='single')
     if row[9].value:
         for c in row: c.fill = Y
-    if row[10].value and not str(row[10].value).startswith('沿用'):
+    if row[10].value and str(row[10].value).startswith('英文版已停用'):
+        for c in row: c.fill = PatternFill('solid', fgColor='E7E6E6'); c.font = Font(name='Arial', color='808080')
+    elif row[10].value and not str(row[10].value).startswith('沿用'):
         row[10].fill = PatternFill('solid', fgColor='FAD4D4')
+lg = wb.create_sheet('更新紀錄')
+for line in [
+    ('日期', '更新內容'),
+    ('2026-10-28', 'A 匯入：頁面、Blog、產品分類英文 Meta（103 項）'),
+    ('2026-10-28', 'B 匯入：產品英文 Meta（155 項）'),
+    ('2026-10-29', 'B2：產品英文 Title 加「| Kitchen AO」（128 項；超過 60 字元的不加）'),
+    ('2026-10-29', 'B3：8 個產品 Title／Description 跟網站手動修改的英文名（6063、6072、6077、6078、6274、6409、14306、19579）'),
+    ('2026-10-29', '舊 EN SEO snippet 停用；全站英文 Meta 由「中英文版通用工具 v2」English SEO 方格提供'),
+    ('2026-10-29', 'Blog 只保留中文版：TranslatePress 排除 /blog/、/blog/*；Rank Math 301 ^en/blog(/.*)?$ → /blog$1（灰色列）'),
+    ('2026-10-29', '紅色＝網站英文產品名仍是中文或中英混雜，待補：10388、14342、20217、20225'),
+]:
+    lg.append(list(line))
+for c in lg[1]: c.font = Font(name='Arial', bold=True, color='F7CE46'); c.fill = PatternFill('solid', fgColor='1A1A1A')
+lg.column_dimensions['A'].width = 12; lg.column_dimensions['B'].width = 110
 wb.save(os.path.join(HERE, '全網英文Meta_2026-10-28.xlsx'))
 print(len(A), len(Bp))
