@@ -1,0 +1,67 @@
+/**
+ * Kitchen AO – 中英文版通用工具 v2（只需上載一次）
+ * 1) 每篇頁面／文章／產品的編輯畫面多一個「English SEO」方格，填英文 Title 及 Description，只在 /en/ 生效
+ *    （未填的頁面會用舊 EN SEO snippet 的 $map 或 Rank Math 中文設定）
+ * 2) WPBakery 任何元件或 Row 的「Extra class name」填 ao-en ＝只在英文版顯示；填 ao-zh ＝只在中文版顯示
+ * WPCode：PHP Snippet，Auto Insert › Run Everywhere
+ */
+
+function ao_is_en() {
+	global $TRP_LANGUAGE;
+	return ! empty( $TRP_LANGUAGE ) && strpos( $TRP_LANGUAGE, 'en' ) === 0;
+}
+
+/* ---------- 1. English SEO 方格 ---------- */
+add_action( 'add_meta_boxes', function () {
+	foreach ( array( 'page', 'post', 'product' ) as $pt ) {
+		add_meta_box( 'ao_en_seo', 'English SEO（只在 /en/ 生效）', 'ao_en_seo_box', $pt, 'normal', 'high' );
+	}
+} );
+
+function ao_en_seo_box( $post ) {
+	wp_nonce_field( 'ao_en_seo_save', 'ao_en_seo_nonce' );
+	$t = get_post_meta( $post->ID, '_ao_en_title', true );
+	$d = get_post_meta( $post->ID, '_ao_en_desc', true );
+	echo '<p><label><b>English Title</b>（建議 60 字元以內）<br><input type="text" name="ao_en_title" value="' . esc_attr( $t ) . '" style="width:100%"></label></p>';
+	echo '<p><label><b>English Meta Description</b>（建議 160 字元以內）<br><textarea name="ao_en_desc" rows="3" style="width:100%">' . esc_textarea( $d ) . '</textarea></label></p>';
+	echo '<p style="color:#666">留空＝英文版沿用中文設定。</p>';
+}
+
+add_action( 'save_post', function ( $post_id ) {
+	$nonce = filter_input( INPUT_POST, 'ao_en_seo_nonce' );
+	if ( ! $nonce || ! wp_verify_nonce( $nonce, 'ao_en_seo_save' ) ) return;
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+	$t = (string) filter_input( INPUT_POST, 'ao_en_title' );
+	$d = (string) filter_input( INPUT_POST, 'ao_en_desc' );
+	update_post_meta( $post_id, '_ao_en_title', sanitize_text_field( $t ) );
+	update_post_meta( $post_id, '_ao_en_desc', sanitize_textarea_field( $d ) );
+} );
+
+function ao_en_meta( $key ) {
+	if ( ! ao_is_en() ) return null;
+	$id = is_front_page() ? (int) get_option( 'page_on_front' ) : ( is_singular() ? get_queried_object_id() : 0 );
+	if ( ! $id ) return null;
+	$v = get_post_meta( $id, $key === 't' ? '_ao_en_title' : '_ao_en_desc', true );
+	return $v !== '' ? $v : null;
+}
+
+$ao_v2_t = function ( $v ) { $x = ao_en_meta( 't' ); return $x ? $x : $v; };
+$ao_v2_d = function ( $v ) { $x = ao_en_meta( 'd' ); return $x ? $x : $v; };
+// priority 100：比舊 EN SEO snippet（99）遲執行，方格有填就以方格為準
+add_filter( 'rank_math/frontend/title', $ao_v2_t, 100 );
+add_filter( 'rank_math/frontend/description', $ao_v2_d, 100 );
+add_filter( 'rank_math/opengraph/facebook/og_title', $ao_v2_t, 100 );
+add_filter( 'rank_math/opengraph/facebook/og_description', $ao_v2_d, 100 );
+add_filter( 'rank_math/opengraph/twitter/title', $ao_v2_t, 100 );
+add_filter( 'rank_math/opengraph/twitter/description', $ao_v2_d, 100 );
+
+/* ---------- 2. WPBakery：按語言顯示元件 ---------- */
+add_filter( 'vc_shortcode_output', function ( $output, $shortcode = null, $atts = array() ) {
+	if ( is_admin() || empty( $atts['el_class'] ) ) return $output;
+	$cls = ' ' . $atts['el_class'] . ' ';
+	$en  = ao_is_en();
+	if ( ! $en && strpos( $cls, ' ao-en ' ) !== false ) return '';
+	if ( $en && strpos( $cls, ' ao-zh ' ) !== false ) return '';
+	return $output;
+}, 10, 3 );

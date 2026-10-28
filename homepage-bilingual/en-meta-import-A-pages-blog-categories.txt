@@ -1,0 +1,135 @@
+/**
+ * Kitchen AO – 英文 Meta 一次性匯入 A（頁面、Blog、分類）（2026-10-28）
+ * 用法：WPCode › PHP Snippet › Auto Insert › Admin Only（或 Run Everywhere）→ Active → Save
+ *       儲存後打開任何後台頁面，頂部會顯示「已匯入 N 項」→ 之後把此 snippet 轉為 Inactive
+ * 只會填入空白的 English SEO 方格，已填的內容不會被覆蓋。需要「中英文版通用工具 v2」已啟用。
+ */
+add_action( 'admin_init', function () {
+	if ( get_option( 'ao_en_import_a_20261028' ) || ! current_user_can( 'manage_options' ) ) return;
+	$n = 0;
+	$posts = array(
+		3 => array( 'Privacy Policy | Kitchen AO', 'How Kitchen AO collects, uses and protects your personal data when you browse our website, send an enquiry or place a catering order.' ), // Privacy Policy
+		17 => array( 'About Kitchen AO | Hong Kong Catering Brand & Chef Team', 'Discover the story, chef team and catering philosophy behind Kitchen AO. We serve corporate events, parties and family gatherings across Hong Kong.' ), // 關於 Kitchen AO
+		2025 => array( 'Contact Us | Kitchen AO Catering Hong Kong', 'Contact Kitchen AO by WhatsApp, phone or email for catering menus, quotes and delivery arrangements for parties and corporate events in Hong Kong.' ), // 聯絡我們
+		5924 => array( 'How to Order | Catering Online Ordering | Kitchen AO', 'A step-by-step guide to ordering Kitchen AO catering online: browse menus, add to cart, enter delivery details and confirm your order.' ), // 購買流程
+		5927 => array( 'Free Catering Delivery Hong Kong | Fees & Times | Kitchen AO', 'Delivery fees for Hong Kong Island, Kowloon and the New Territories. Free delivery on orders over HK$1,450, delivery time slots and typhoon arrangements.' ), // 送貨需知
+		6029 => array( 'Breaking News & Offers | Kitchen AO Catering', 'The latest catering offers, seasonal menus and member promotions from Kitchen AO in Hong Kong.' ), // 最新消息
+		6051 => array( 'Catering FAQ | Ordering & Delivery | Kitchen AO Hong Kong', 'Answers to common questions about ordering, delivery times, delivery fees, minimum spend and menu suggestions for Kitchen AO catering in Hong Kong.' ), // 常見問題
+		6053 => array( 'Party Food Delivery HK | Birthday Party Catering', 'Party food delivery in Hong Kong for birthdays and celebrations: finger food, hot dishes, desserts and kids menus, delivered to your home or venue.' ), // 派對美食食物
+		6341 => array( 'Event Catering Hong Kong | Business Events & Canapés', 'Event catering in Hong Kong for business meetings, product launches, openings and receptions. Finger food, canapés and buffets arranged for your event.' ), // 商務活動
+		7014 => array( 'Catering Hong Kong | Party & Corporate Catering | Kitchen AO', 'Kitchen AO catering service in Hong Kong: party food delivery, corporate catering and boat party sets. Browse menus, get a quote and order online.' ), // 首頁
+		7024 => array( 'Boat Party Catering Hong Kong | Junk Boat Food | Kitchen AO', 'Boat party and junk boat catering in Hong Kong: party sets for 15 to 40 guests, packed for the boat and delivered to the pier.' ), // 遊船河到會
+		7032 => array( 'Finger Food Catering Hong Kong | Weddings & Parties', 'Finger food catering for weddings, cocktail receptions and parties in Hong Kong. Bite-sized dishes and canapés delivered ready to serve.' ), // 小食到會推介
+		9249 => array( 'Corporate Event Catering Gallery | Kitchen AO', 'Photos of Kitchen AO catering at corporate events, product launches and business receptions in Hong Kong.' ), // 商業活動照片
+		10436 => array( 'Executive Meal Boxes | Premium Lunch Catering | Kitchen AO', 'Premium catering in executive meal boxes for board meetings, VIP guests and corporate lunches in Hong Kong, delivered to your office.' ), // 高級餐盒
+		10443 => array( 'Staff Meal Boxes Hong Kong | Crew Meal Catering | Kitchen AO', 'Staff meal and crew meal boxes for team lunches, film crews, training days and shift workers in Hong Kong. Balanced meals delivered to your site.' ), // 員工膳食餐盒
+		10477 => array( 'Commercial Lunch Box Hong Kong | Meal Box Catering', 'Commercial lunch boxes and meal box catering for meetings, seminars and office lunches in Hong Kong, delivered on time to your workplace.' ), // 商務餐盒
+		10737 => array( 'Catering Quote Enquiry | Free Quotation | Kitchen AO', 'Request a free catering quotation: tell us your event date, headcount and budget, and Kitchen AO will send a tailored menu for your party or corporate event.' ), // 報價查詢
+		10740 => array( 'Canapé Catering Hong Kong | Royal Snack Boxes | Kitchen AO', 'Canapé catering in royal snack boxes for VIP receptions, cocktail events and corporate gatherings in Hong Kong.' ), // 皇家小食盒
+		10744 => array( 'Drinks & Cocktail Service Hong Kong | Kitchen AO', 'Drinks and cocktail service for receptions, openings and parties in Hong Kong, arranged together with your Kitchen AO catering.' ), // 飲品及雞尾酒服務
+		10940 => array( 'Canapé Box | 9-Grid Gourmet Canapés | Kitchen AO', 'A box of nine gourmet canapés for receptions, meetings and corporate gifts. Elegant canapé catering from Kitchen AO, delivered across Hong Kong.' ), // 舌尖上的餐桌
+		11197 => array( 'Partners & Service Records | Kitchen AO Catering', 'Kitchen AO has catered for companies, healthcare organisations, schools and public bodies in Hong Kong. See selected partners and enquire today.' ), // 合作夥伴與服務實績
+		11204 => array( 'Featured Gallery | Catering Photos | Kitchen AO', 'Browse photos of Kitchen AO catering at corporate events, openings, weddings and parties across Hong Kong.' ), // 精選圖庫
+		11216 => array( 'Customer Reviews | Kitchen AO Catering Hong Kong', 'Read what customers say about Kitchen AO catering for parties, corporate events and family gatherings in Hong Kong.' ), // 客人好評
+		12099 => array( 'Handmade Poon Choi | Kitchen AO Hong Kong', 'Handmade poon choi from Kitchen AO for Chinese New Year and family gatherings, delivered across Hong Kong.' ), // 母親手作盆菜
+		14653 => array( 'Wedding Event Photos | Wedding Catering | Kitchen AO', 'Photos of Kitchen AO catering at weddings and wedding receptions in Hong Kong.' ), // 婚禮活動照片
+		14689 => array( 'Opening Event Photos | Grand Opening Catering | Kitchen AO', 'Photos of Kitchen AO catering at shop openings and launch events in Hong Kong.' ), // 開張活動照片
+		14961 => array( 'Catering by District | Hong Kong Delivery | Kitchen AO', 'Find Kitchen AO catering delivery in your district, from Central and Causeway Bay to Kwun Tong, Sha Tin and Yuen Long.' ), // 地區到會分類
+		14963 => array( 'Catering Tsuen Wan 2026 | Party Food Delivery | Kitchen AO', 'Catering delivery in Tsuen Wan: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 荃灣到會
+		14968 => array( 'Catering Central Hong Kong 2026 | Kitchen AO', 'Catering delivery in Central: Kitchen AO party sets, lunch boxes and canapés for offices and events. Free delivery on orders over HK$1,450.' ), // 中環到會
+		14972 => array( 'Catering Causeway Bay 2026 | Party Food Delivery', 'Catering delivery in Causeway Bay: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 銅鑼灣到會
+		14981 => array( 'Catering Wan Chai 2026 | Corporate & Party | Kitchen AO', 'Catering delivery in Wan Chai: Kitchen AO party sets, lunch boxes and canapés for the convention district. Free delivery on orders over HK$1,450.' ), // 灣仔到會
+		14984 => array( 'Catering Quarry Bay 2026 | Office Catering | Kitchen AO', 'Catering delivery in Quarry Bay: Kitchen AO party sets, lunch boxes and canapés for Taikoo Place offices. Free delivery on orders over HK$1,450.' ), // 鰂魚涌到會
+		14988 => array( 'Catering North Point 2026 | Party Food Delivery | Kitchen AO', 'Catering delivery in North Point: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 北角到會
+		15011 => array( 'Catering Sai Ying Pun 2026 | Party Food Delivery', 'Catering delivery in Sai Ying Pun: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 西營盤到會
+		15014 => array( 'Catering Kowloon City 2026 | Party Food Delivery', 'Catering delivery in Kowloon City: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 九龍城到會
+		15017 => array( 'Kwun Tong Catering 2026 | Corporate Catering | Kitchen AO', 'Kwun Tong catering for Kowloon East offices and parties: party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 觀塘到會
+		15020 => array( 'Catering Mong Kok 2026 | Party Room & Corporate | Kitchen AO', 'Catering delivery in Mong Kok: Kitchen AO party sets, lunch boxes and canapés for party rooms. Free delivery on orders over HK$1,450.' ), // 旺角到會
+		15023 => array( 'Catering Sham Shui Po 2026 | Party Food Delivery', 'Catering delivery in Sham Shui Po: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 深水埗到會
+		15027 => array( 'Catering Tsim Sha Tsui 2026 | Event Catering | Kitchen AO', 'Catering delivery in Tsim Sha Tsui: Kitchen AO party sets, lunch boxes and canapés for events. Free delivery on orders over HK$1,450.' ), // 尖沙咀到會
+		15029 => array( 'Catering Yuen Long 2026 | Family Party Food | Kitchen AO', 'Catering delivery in Yuen Long: Kitchen AO party sets, lunch boxes and canapés for family parties. Free delivery on orders over HK$1,450.' ), // 元朗到會
+		15033 => array( 'Catering Sha Tin 2026 | Family & Corporate | Kitchen AO', 'Catering delivery in Sha Tin: Kitchen AO party sets, lunch boxes and canapés. Free delivery on orders over HK$1,450.' ), // 沙田到會
+		15035 => array( 'Catering Tuen Mun 2026 | Party & BBQ Food | Kitchen AO', 'Catering delivery in Tuen Mun: Kitchen AO party sets, lunch boxes and canapés for family parties. Free delivery on orders over HK$1,450.' ), // 屯門到會
+		15421 => array( 'Custom Souvenirs & Corporate Gifts Hong Kong | Kitchen AO', 'Kitchen AO creates custom souvenirs and corporate gifts, from design and production to delivery. Ideal for company events, staff rewards and festive gifts.' ), // 客製化紀念品
+		18404 => array( 'Corporate Catering Hong Kong | Office & Annual Dinner', 'Corporate and office catering in Hong Kong for annual dinners, office lunches, meetings and openings. Menus tailored to headcount and budget. Request a quote.' ), // 公司到會
+		18568 => array( 'Our Catering Services | Kitchen AO Hong Kong', 'An overview of Kitchen AO catering services in Hong Kong: party sets, corporate lunch boxes, canapés, boat party food and custom gifts.' ), // 服務概覽
+		18621 => array( 'Hong Kong Catering Recommendations 2026 | Kitchen AO', 'Hong Kong catering recommendations for corporate events, parties and premium dining. Compare Kitchen AO sets as your catering company in Hong Kong.' ), // 到會推介
+		21018 => array( 'Mooncake Pre-order 2026 | Custom Logo Gift Boxes', 'Pre-order lava custard mooncakes for Mid-Autumn Festival 2026, with corporate gift boxes printed with your company logo.' ), // 中秋月餅預訂
+		14128 => array( 'How to Avoid Catering Mistakes: 5 Pitfalls | Kitchen AO', 'Five common catering pitfalls in Hong Kong and how to avoid them, with expert tips on menus, quantities, delivery and budget.' ), // 到會中伏
+		14164 => array( 'Corporate Event Catering Guide 2026 | Budget & Menus', 'Plan corporate event catering in Hong Kong: budget per head, menu ideas, service options and timelines for a professional event.' ), // 公司活動到會
+		14183 => array( 'Kids Party Food & Children\'s Party Catering 2026', 'How to choose children\'s party catering in Hong Kong: kids party food ideas, portions, allergies and party set suggestions.' ), // 小朋友生日會
+		14400 => array( 'Laser-Printed Party Food | Custom Burgers & Macarons', 'Laser-printed burgers and engraved macarons: a new way to personalise party food and corporate events in Hong Kong.' ), // 激光打印食物
+		14610 => array( 'Mother\'s Day Catering Offer | Free Handmade Cookies', 'Celebrate Mother\'s Day with Kitchen AO catering and receive free handmade cookies with your order. Delivered across Hong Kong.' ), // 母親節
+		14795 => array( 'Vegetarian Catering Hong Kong 2026 | Party Guide', 'How to cater for vegetarian guests at your party: meat-free menu ideas, labelling tips and vegetarian catering sets in Hong Kong.' ), // 素食到會
+		14835 => array( 'Junk Boat Party Food Checklist 2026 | Kitchen AO', 'Everything you need for a Hong Kong junk boat party: food checklist, quantities, packing tips and free-delivery boat party catering sets.' ), // 船河食物
+		15897 => array( 'Mid-Autumn Festival Catering 2026 | Reunion Sets', 'Six Mid-Autumn reunion catering sets and corporate mooncakes for family gatherings and company celebrations in Hong Kong.' ), // 中秋
+		16290 => array( 'Halloween Party Catering 2026 | Party Food Ideas', 'Halloween party food ideas and catering sets for 2026, plus the story behind Halloween. Spooky party catering delivered across Hong Kong.' ), // 萬聖節
+		16468 => array( 'Christmas Catering Hong Kong | Xmas Party Food | Kitchen AO', 'Christmas catering in Hong Kong: festive party sets and Xmas party food for family gatherings and office Christmas parties, delivered to your door.' ), // 聖誕
+		17646 => array( 'Chinese New Year Reunion Dinner Guide 2026 | Kitchen AO', 'Reunion dinner and opening dinner explained: Chinese New Year traditions, lucky dishes and their meanings for 2026.' ), // 團年飯
+		18461 => array( 'Best Catering in Hong Kong 2026 | How to Compare', 'Which catering service in Hong Kong is best for you? Compare menus, prices, delivery and service with our 2026 checklist.' ), // 到會邊間好
+		18495 => array( 'How to Choose Corporate Catering in Hong Kong | Kitchen AO', 'Five key points for choosing quality corporate catering in Hong Kong, from menu variety and food safety to punctual delivery.' ), // 公司到會點揀
+		21808 => array( 'Picnic Spots Hong Kong 2026 | 33 Best Parks | Kitchen AO', '33 picnic spots in Hong Kong with large lawns, sea views and pet-friendly areas, plus parking tips and picnic box ideas.' ), // 野餐好去處
+		21876 => array( 'Types of Vegetarian Diets Explained | Kitchen AO', 'Lacto-ovo, five-pungent-free, vegan and plant-based: a clear guide to the types of vegetarian diets common in Hong Kong.' ), // 素食種類
+		21890 => array( 'Vegan vs Vegetarian: Meanings in Chinese | Kitchen AO', 'What vegan, vegetarian, flexitarian and pescatarian mean, with the Chinese terms used in Hong Kong, Taiwan and the West.' ), // Vegan Vegetarian 中文
+	);
+	foreach ( $posts as $id => $v ) {
+		if ( ! get_post( $id ) ) continue;
+		if ( get_post_meta( $id, '_ao_en_title', true ) === '' ) { update_post_meta( $id, '_ao_en_title', $v[0] ); $n++; }
+		if ( get_post_meta( $id, '_ao_en_desc', true ) === '' ) { update_post_meta( $id, '_ao_en_desc', $v[1] ); }
+	}
+	$terms = array(
+		15 => array( 'Other Items | Kitchen AO Catering', 'Other catering items and add-ons from Kitchen AO, delivered with your party order across Hong Kong.' ), // 其他
+		21 => array( 'Party Catering Set | Party Food Packages HK | Kitchen AO', 'Party catering packages for birthdays, office parties and family gatherings in Hong Kong, for 2 to 100+ guests. Order food packages online with delivery.' ), // 派對到會套餐
+		24 => array( 'Refreshment Sets | Meeting & Tea Catering | Kitchen AO', 'Refreshment sets of light bites for meetings, seminars and tea receptions in Hong Kong, for 12 to 40 guests.' ), // 輕食宴會套餐
+		25 => array( 'Couple Set | Dinner for Two Delivery | Kitchen AO', 'Dinner sets for two for anniversaries and special occasions, delivered to your home across Hong Kong.' ), // 雙人套餐
+		26 => array( 'Finger Food Platters Hong Kong | Kitchen AO', 'Finger food platters for parties and receptions in Hong Kong. Build your own platter, delivered ready to serve.' ), // 手指食物拼盤
+		40 => array( 'Desserts | Dessert Catering Hong Kong | Kitchen AO', 'Dessert catering with macarons, mini tarts, jelly cups and more for parties and office celebrations, delivered across Hong Kong.' ), // 甜品
+		45 => array( 'A La Carte | Build Your Own Catering Menu | Kitchen AO', 'Build your own catering menu with à la carte snacks, salads, pasta, mains, seafood and desserts, delivered across Hong Kong.' ), // 單點美食
+		64 => array( 'Cutlery & Heat Pack Add-ons | Party Catering | Kitchen AO', 'Add cutlery, plates, food tongs and heat packs to your catering order to keep party food warm and ready to serve.' ), // 餐具及暖貼加配
+		66 => array( 'Gourmet Party Sets | Food Packages by Headcount | Kitchen AO', 'Gourmet party food packages for 5 to 30 guests with hot mains, pasta, salads and snacks. Choose by headcount and order online.' ), // 美食派對 Gourmet Set
+		67 => array( 'Happy Kids Set | Kids Party Food Catering | Kitchen AO', 'Kids party food and children\'s party catering sets for birthdays and school events in Hong Kong, from 5 children.' ), // 兒童套餐
+		80 => array( 'Cold Appetizers | Party Catering Hong Kong | Kitchen AO', 'Cold appetizers and chilled starters for parties, delivered with your Kitchen AO catering order across Hong Kong.' ), // 冷盤小食
+		81 => array( 'Savory Snacks | Fried Bites & Skewers | Kitchen AO', 'Crowd-pleasing party snacks including fried bites, chicken wings and satay skewers, delivered across Hong Kong.' ), // 惹味小食
+		82 => array( 'Salads | Catering Hong Kong | Kitchen AO', 'Fresh salads for parties and office lunches, from Caesar salad to seafood and chicken salads, delivered across Hong Kong.' ), // 沙律
+		83 => array( 'Pasta | Pasta & Risotto Catering Hong Kong | Kitchen AO', 'Baked pasta, cream pasta and risotto in party trays, freshly prepared and delivered across Hong Kong.' ), // 意粉 / 意大利飯
+		84 => array( 'Meat | Meat Mains Catering Hong Kong | Kitchen AO', 'Roast pork, wagyu short rib, lamb rack, roast chicken and suckling pig: meat mains for parties and banquets in Hong Kong.' ), // 肉類
+		85 => array( 'Seafood Dishes | Catering Hong Kong | Kitchen AO', 'Seafood catering dishes for parties and receptions, freshly prepared and delivered across Hong Kong.' ), // 海鮮
+		86 => array( 'Drinks & Beverages | Catering Hong Kong | Kitchen AO', 'Soft drinks, juices and tea to add to your Kitchen AO catering order, delivered with your party food.' ), // 飲品
+		107 => array( 'Party Supplies | Tableware & Food Stands | Kitchen AO', 'Party supplies including tableware, food warmers and three-tier food stands to complete your catering setup.' ), // 派對用品
+		111 => array( 'Staff Meal & Crew Meal Boxes | Team Lunch | Kitchen AO', 'Staff meal and crew meal boxes for team lunches, film crews and training days, delivered across Hong Kong.' ), // 員工膳食餐盒
+		112 => array( 'Commercial Lunch Box | Meal Box Catering | Kitchen AO', 'Commercial lunch boxes and meal boxes for meetings and seminars in Hong Kong, delivered on time to your office.' ), // 商務餐盒
+		113 => array( 'Executive Premium Meal Box | Kitchen AO Hong Kong', 'Executive premium meal boxes for board meetings and VIP guests, delivered across Hong Kong.' ), // 高級餐盒
+		114 => array( 'Royal Snackers Box | Canapé Catering | Kitchen AO', 'Royal Snackers Box: premium canapés for VIP receptions and cocktail events, delivered across Hong Kong.' ), // 皇家小食盒
+		115 => array( 'Nine Delights Gourmet Canapés Box | Kitchen AO', 'Nine Delights Gourmet Canapés Box: nine bite-sized canapés for receptions, meetings and corporate gifts.' ), // 九宮格 Canapés
+		116 => array( 'Alcoholic Drinks | Party Catering | Kitchen AO', 'Alcoholic drinks to add to your party catering order in Hong Kong.' ), // 酒類
+		117 => array( 'Three-Tier Food Stand | Party Display | Kitchen AO', 'Three-tier food stands in themed colours and designs to display party food and desserts.' ), // 三層氣氛食物架
+		118 => array( 'Chill Picnic Box | Picnic Food Delivery HK | Kitchen AO', 'Ready-to-go picnic boxes of party snacks for picnics in Hong Kong parks, for 2 to 6 people, delivered to the park entrance.' ), // Chill一下野餐盒
+		120 => array( 'Boat Party Set | Junk Boat Catering | Kitchen AO', 'Boat party sets for 15 to 40 guests, packed for junk boat trips and delivered to the pier in Hong Kong.' ), // 船河派對套餐
+		121 => array( 'Meat Monster Feast Box | Admiral\'s Harbor Choice', 'Meat Monster feast boxes with roasts and grilled meats for meat-loving parties of 7 to 13 guests, delivered across Hong Kong.' ), // 肉食獸
+		124 => array( 'Party Sets for 2–6 People | Kitchen AO Catering', 'Catering sets and sharing dishes for 2 to 6 people, ideal for small gatherings at home or in the office.' ), // 2-6人分享選項
+		125 => array( 'Party Sets for 7–11 People | Kitchen AO Catering', 'Catering sets for 7 to 11 guests, ideal for birthday parties and small team celebrations in Hong Kong.' ), // 7-11人分享選項
+		126 => array( 'Party Sets for 12–16 People | Kitchen AO Catering', 'Catering sets for 12 to 16 guests for birthdays, office parties and family gatherings in Hong Kong.' ), // 12-16人分享選項
+		127 => array( 'Party Sets for 18–25 People | Kitchen AO Catering', 'Catering sets for 18 to 25 guests for company events and larger parties in Hong Kong.' ), // 18-25人分享選項
+		128 => array( 'Party Sets for 30+ People | Kitchen AO Catering', 'Catering sets for 30 or more guests for corporate events, receptions and big celebrations in Hong Kong.' ), // 30人以上分享選項
+		129 => array( 'Party Sets for 100+ People | Large Event Catering', 'Large event catering for 100 or more guests, for annual dinners, school events and big celebrations in Hong Kong.' ), // 100人以上分享選項
+		131 => array( 'Side Dishes | Party Catering Hong Kong | Kitchen AO', 'Side dishes and seasonal vegetables to complete your party menu, delivered across Hong Kong.' ), // 配菜
+		132 => array( 'Vegetarian Delight | Vegetarian Catering HK | Kitchen AO', 'Vegetarian catering sets for 6 to 26 guests, from HK$1,388. Meat-free snacks, salads, pasta and mains, delivered across Hong Kong.' ), // 「素」味人生
+		194 => array( 'Mid-Autumn Reunion Sets 2026 | Kitchen AO', 'Mid-Autumn Festival 2026 reunion catering sets for family gatherings and company celebrations in Hong Kong.' ), // 中秋佳節團圓套餐 2026
+		196 => array( 'Spooktacular Halloween Party Set | Kitchen AO', 'Halloween party catering sets with spooky-themed dishes for 5 to 40 guests, delivered across Hong Kong.' ), // Halloween萬聖節狂嘩套餐
+	);
+	foreach ( $terms as $id => $v ) {
+		if ( ! term_exists( (int) $id ) ) continue;
+		if ( get_term_meta( $id, '_ao_en_title', true ) === '' ) { update_term_meta( $id, '_ao_en_title', $v[0] ); $n++; }
+		if ( get_term_meta( $id, '_ao_en_desc', true ) === '' ) { update_term_meta( $id, '_ao_en_desc', $v[1] ); }
+	}
+	$sid = ( function_exists( 'wc_get_page_id' ) ? (int) wc_get_page_id( 'shop' ) : 0 ); // 商店
+	if ( $sid && get_post_meta( $sid, '_ao_en_title', true ) === '' ) { update_post_meta( $sid, '_ao_en_title', 'Catering Menu & Party Food Delivery | Kitchen AO Shop' ); update_post_meta( $sid, '_ao_en_desc', 'Browse the Kitchen AO catering menu: party sets, à la carte dishes, desserts, drinks and party supplies, with party food delivery across Hong Kong.' ); $n++; }
+	$sid = (int) get_option( 'page_for_posts' ); // Blog
+	if ( $sid && get_post_meta( $sid, '_ao_en_title', true ) === '' ) { update_post_meta( $sid, '_ao_en_title', 'Catering Blog | Party & Event Tips | Kitchen AO Hong Kong' ); update_post_meta( $sid, '_ao_en_desc', 'Guides and ideas for party catering, corporate events, festivals and vegetarian menus in Hong Kong from the Kitchen AO team.' ); $n++; }
+	update_option( 'ao_en_import_a_20261028', $n . ' 項 @ ' . current_time( 'mysql' ), false );
+	set_transient( 'ao_en_import_msg', 'A（頁面、Blog、分類）：已匯入 ' . $n . ' 項英文 Meta（已有內容的方格沒有改動）。請把此 snippet 轉為 Inactive。', 300 );
+} );
+add_action( 'admin_notices', function () {
+	$m = get_transient( 'ao_en_import_msg' );
+	if ( $m ) { echo '<div class="notice notice-success"><p>' . esc_html( $m ) . '</p></div>'; delete_transient( 'ao_en_import_msg' ); }
+} );
