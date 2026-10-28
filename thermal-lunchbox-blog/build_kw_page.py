@@ -6,12 +6,18 @@ import json, os, html, re
 from content import PRODUCTS, PRICE_DATE, PROD_EXTRA
 from product_desc import DESC
 from zoji import SLIDERS as ZS
+from b3 import B3_NAME, OUTLINE_B3, TYPES_B3, TYPE_CRIT_B3, products_for, brand_table_html, B3_PRODUCTS
 from sliders_more import SLIDERS_MORE
 for _x in ZS:
     _x.setdefault('brand', '象印 Zojirushi'); _x.setdefault('srcname', '象印香港官網（官網不列價錢）')
 ZS[1]['after'] = True  # 兒童壺放在產品之後
+ZS[1]['cat'] = 'B3KIDS'  # 2026-10-28：象印兒童壺移去 Blog 3
+for _it in ZS[1]['items']:
+    if _it['sku'] == 'SD-CAE50': _it['price'] = '$279（原價 $378）（生活館 Life Gallery 象印香港代理網店，2026 年 10 月 28 日記錄）'; _it['url'] = 'https://eshop.lifekan.com/products/zojirushi-05l-ss-portable-pot-straw%E3%80%90hk-licensed%E3%80%91-sd-cae50'
+    if _it['sku'] == 'SP-JB06': _it['price'] = '$169（生活館 Life Gallery 象印香港代理網店，2026 年 10 月 28 日記錄）'
 _ORDER = ['zoji-lunch', 'tiger-lunch', 'thermos-lunch', 'zoji-kids', 'zoji-jar', 'tiger-jar', 'thermos-jar']
 SLIDERS = sorted(ZS + SLIDERS_MORE, key=lambda x: _ORDER.index(x['key']))
+SLIDERS_ALL = SLIDERS
 SLIDER_REPLACES = {it['url'] for x in SLIDERS for it in x['items']} | {'https://www.hktvmall.com/p/H0569001_S_GJE-SL-NC09-ST', 'https://www.hktvmall.com/p/H0569001_S_GJE-SW-EAE50-AB'}  # 已併入 slider
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -20,9 +26,9 @@ R = json.load(open(os.path.join(HERE, 'kw_classified_v2.json'), encoding='utf-8'
 E = html.escape
 fv = lambda v: '—' if v is None else f'{v:,}'
 
-PG = {'Blog 1｜食物保暖用品篇': 'B1', 'Blog 2｜保鮮用品篇（建議另寫）': 'B2', '只作承接（不作目標）': 'H',
+PG = {'Blog 1｜食物保暖用品篇': 'B1', 'Blog 2｜保鮮用品篇（建議另寫）': 'B2', B3_NAME: 'B3',
       '暫不使用（冰袋、冰磚）': 'Z', '不建議（另一主題：烘焙）': 'X', '不建議（暖包多指暖手包）': 'X'}
-PAGES = {'B1': 'Blog 1｜食物保暖用品篇', 'B2': 'Blog 2｜保鮮用品篇', 'H': '只作承接（不作目標）',
+PAGES = {'B1': 'Blog 1｜食物保暖用品篇', 'B2': 'Blog 2｜保鮮用品篇', 'B3': 'Blog 3｜飲品保溫杯、保溫瓶、保溫壺篇',
          'Z': '暫不使用（冰袋、冰磚）', 'X': '不建議（烘焙紙、暖包）'}
 for r in R:
     r['pg'] = PG[r['blog']]
@@ -37,8 +43,8 @@ CARDS = [
       title_tag='【2026】保溫飯盒推介｜象印、虎牌、膳魔師保溫便當盒、燜燒壺及保溫袋比較',
       meta='保溫飯盒怎樣揀？比較象印、虎牌、膳魔師保溫便當盒及燜燒壺的保溫時間、容量及價錢，附加熱飯盒、保溫袋選購重點及學生帶飯建議。',
       focus='保溫飯盒（副：保溫飯盒推介、保溫便當盒）',
-      note='只講「帶飯保溫」：保溫飯盒、燜燒壺、加熱飯盒、保溫袋。重點長尾：保溫飯盒推介、學生保溫飯盒、象印保溫飯盒、燜燒壺與保溫壺分別。保溫壺、保溫杯、保溫瓶（飲品）只用一個 H3 承接，不作目標。結尾以「派對及到會食物怎樣保溫？」帶到 Kitchen AO。',
-      links=['→ Blog 2', '→ 派對用品：餐具及暖貼加配', '→ 派對到會套餐']),
+      note='只講「帶飯保溫」：保溫飯盒、燜燒壺、加熱飯盒、保溫袋。重點長尾：保溫飯盒推介、學生保溫飯盒、象印保溫飯盒。飲品保溫壺、保溫杯、保溫瓶已全部移去 Blog 3，本篇不寫。結尾以「派對及到會食物怎樣保溫？」帶到 Kitchen AO。',
+      links=['→ Blog 2', '↔ Blog 3', '→ 派對用品：餐具及暖貼加配', '→ 派對到會套餐']),
  dict(pg='B2', st='新文章（建議另寫）', title='Blog 2｜保鮮用品篇', url='/blog/food-storage-wrap-bags-containers/', ty='Blog（資訊＋商業調查）',
       h1='保鮮紙、密實袋及保鮮盒怎樣揀？2026 保鮮用品推介及微波爐使用須知',
       title_tag='保鮮紙、密實袋、保鮮盒推介 2026｜可以入微波爐嗎？佳能 Glad、真空保鮮比較',
@@ -46,8 +52,13 @@ CARDS = [
       focus='保鮮紙（副：密實袋、保鮮盒）',
       note='這類大字的搜尋結果首頁多為 HKTVmall、惠康、YOHO 產品分類頁，所以文章以「可以入微波爐嗎」「可以蒸嗎」「尺寸」等問題型字切入，排名機會較大。',
       links=['→ Blog 1', '→ Chill 一下野餐盒']),
- dict(pg='H', st='不作目標', title='只作承接：飲品保溫壺／保溫杯／保溫瓶', url='', ty='—', h1='', title_tag='', meta='', focus='',
-      note='搜尋量大（保溫壺 2,400、保溫杯 2,400、保溫瓶 1,600、象印保温壺 1,900），但搜尋者想買飲品水壺。只在 Blog 1 H3「燜燒壺與保溫壺有甚麼分別？」自然提及。', links=[]),
+ dict(pg='B3', st='新文章（2026-10-28 新增）', title='Blog 3｜飲品保溫杯、保溫瓶、保溫壺篇', url='/blog/thermos-bottle-brand-comparison/', ty='Blog（商業調查・品牌比較）',
+      h1='保溫杯推介 2026：象印、虎牌、膳魔師保溫杯、保溫瓶及兒童水壺比較',
+      title_tag='【2026】保溫杯推介｜象印 vs 虎牌 vs 膳魔師保溫瓶、保溫壺比較（附價錢）',
+      meta='象印、虎牌、膳魔師保溫杯邊個好？比較 6 小時保熱及保冷數字、重量、清洗方法及價錢，附大容量保溫壺及兒童保溫水壺推介。',
+      focus='保溫杯（副：保溫壺、保溫瓶、象印保溫壺）',
+      note='承接原本不作目標的飲品字（保溫壺 2,400、保溫杯 2,400、象印保温壺 1,900、保溫瓶 1,600）。以三大品牌比較表切入，因為這類大字的搜尋結果多為網店分類頁，品牌比較及問題型字（消委會、第一次使用清洗、可以泡茶嗎）排名機會較大。',
+      links=['↔ Blog 1', '→ Chill 一下野餐盒（行山、野餐）']),
  dict(pg='Z', st='暫不使用', title='暫不使用：冰袋、冰磚', url='', ty='—', h1='', title_tag='', meta='', focus='',
       note='屬野餐及露營用品，暫時不放入任何頁面。', links=[]),
  dict(pg='X', st='不建議', title='不建議：烘焙紙、暖包', url='', ty='—', h1='', title_tag='', meta='', focus='',
@@ -61,9 +72,9 @@ OUTLINE = {
    ['開首 40 至 60 字快答，下面逐類用 H3 及文字列出星星評分，爭取精選摘要。']),
   ('H2 2｜保溫飯盒／保溫便當盒推介：材質、分層及品牌比較', 'C1',
    ['H3 2.1 保溫飯盒怎樣揀？不銹鋼、玻璃內盒及可微波內盒的分別', 'H3 2.2 學生保溫飯盒：小學生及兒童要注意甚麼？',
-    'H3 2.3 象印、虎牌、膳魔師保溫飯盒邊隻好？', '產品 slider ×4（象印飯壺、虎牌、膳魔師、象印兒童壺）']),
+    'H3 2.3 象印、虎牌、膳魔師保溫飯盒邊隻好？', '產品 slider ×3（象印飯壺、虎牌、膳魔師）']),
   ('H2 3｜燜燒壺、燜燒杯與湯壺：帶湯、粥及燜飯', 'C2',
-   ['H3 3.1 燜燒壺與保溫壺有甚麼分別？（承接保溫壺、保溫杯、保溫瓶）', 'H3 3.2 燜燒壺用法及帶飯食譜', 'H3 3.3 湯壺怎樣揀？750ml 以上大容量推介', '產品 slider ×3（象印、虎牌、膳魔師）＋湯壺建議']),
+   ['H3 3.1 燜燒壺、燜燒杯與湯壺有甚麼分別？', 'H3 3.2 燜燒壺用法及帶飯食譜', 'H3 3.3 湯壺怎樣揀？750ml 以上大容量推介', '產品 slider ×3（象印、虎牌、膳魔師）＋湯壺建議', '段末一句連去 Blog 3：「想找飲品保溫杯、保溫瓶？」']),
   ('H2 4｜加熱飯盒、電熱飯盒與自熱飯盒：辦公室沒有微波爐怎麼辦？', 'C3',
    ['H3 4.1 加熱飯盒與保溫飯盒有甚麼分別？', 'H3 4.2 USB、充電式及插電式加熱飯盒比較', '產品段落 ×3']),
   ('H2 5｜保溫袋、保冷袋與保溫箱：延長保溫及保冷時間', 'C7',
@@ -198,6 +209,28 @@ def outline_html(b):
     return ''.join(out)
 
 
+
+def outline_b3():
+    out = []
+    kids = [x for x in SLIDERS_ALL if x['key'] == 'zoji-kids']
+    for h2, c, items in OUTLINE_B3:
+        body = ''.join(f'<li>{E(i)}</li>' for i in items)
+        chips = kw_chips('B3', c) if c in ('C9', 'FAQ') else ''
+        extra = ''
+        if c is None and h2.startswith('H2 1'):
+            extra = '<div class="tplain">' + ''.join(
+                f'<h5>{E(n)}</h5><p>' + '<br>'.join(f'{E(cn)}：{stars(v)}' for cn, v in zip(TYPE_CRIT_B3, sc))
+                + f'<br>適合場景／對象：{E(sc2)}</p>' for n, sc, sc2 in TYPES_B3) + '</div>'
+        if c == 'C9': extra = brand_table_html()
+        if c in ('A', 'B'): extra = products_for(c)
+        if c == 'C':
+            others = '<div class="plist">' + ''.join(__import__('b3').product_html(p) for p in B3_PRODUCTS if p[0] == 'C' and not p[1].startswith('象印')) + '</div>'
+            extra = ''.join(slider_block(x) for x in kids) + others
+        out.append(f'<div class="sec"><h4>{E(h2)}</h4><ul class="h3">{body}</ul>'
+                   + (f'<div class="chips">{chips}</div>' if chips else '') + extra + '</div>')
+    return ''.join(out)
+
+
 def card(cd):
     b = cd['pg']
     rs = [r for r in R if r['pg'] == b]
@@ -214,7 +247,7 @@ def card(cd):
             f'<h3>{E(cd["title"])}</h3>{u}<p class="ty">{E(cd["ty"])}</p>{seo}'
             f'<div class="num"><div><b>{len(rs)}</b><small>關鍵字</small></div><div><b>{sum((r["vol"] or 0) for r in rs):,}</b><small>KP 月均合計</small></div>'
             f'<div><b>{len(tgt)}</b><small>要佈局</small></div></div><ul class="kw">{kws}</ul><p class="note">{E(cd["note"])}</p>'
-            f'<div class="lns">{lns}</div>' + (f'<a class="mock" href="#outline-{b}">📝 查看大綱及產品段落</a>' if b in ('B1', 'B2') else '')
+            f'<div class="lns">{lns}</div>' + (f'<a class="mock" href="#outline-{b}">📝 查看大綱及產品段落</a>' if b in ('B1', 'B2', 'B3') else '')
             + f'<button class="more" data-pg="{b}">查看全部關鍵字 ↓</button></div>')
 
 
@@ -223,13 +256,13 @@ B1["B1 食物保暖用品篇<br/>保溫飯盒推介"] <--> B2["B2 保鮮用品�
 B1 -. CTA .-> S["派對用品：餐具及暖貼加配"]
 B1 -. CTA .-> P["派對到會套餐"]
 B2 -. CTA .-> C["Chill 一下野餐盒"]
-H["保溫壺／保溫杯／保溫瓶<br/>（只作承接）"] -.-> B1
+B1 <--> B3["B3 飲品保溫杯、保溫瓶篇<br/>象印 vs 虎牌 vs 膳魔師"]
+B3 -. CTA .-> C
 classDef b fill:#E3F4E8,stroke:#6FAE82
 classDef k fill:#1A1A1A,color:#F7CE46,stroke:#1A1A1A
 classDef h fill:#F3F3F3,stroke:#BBB,color:#777
-class B1,B2 b
-class S,P,C k
-class H h'''
+class B1,B2,B3 b
+class S,P,C k'''
 
 DATA = {'rows': [dict(kw=r['kw'], gkp=r['gkp'], pg=r['pg'], cat=r['catname'], role=r['role'], kp=r['vol'],
                       m3=r['m3'], yoy=r['yoy'], h2=r['h2'], src=r['src'], brand=r['brand']) for r in R],
@@ -241,9 +274,9 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <title>保暖及保鮮用品 KW 架構｜Kitchen AO</title>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
 <style>{CSS}</style></head><body>
-<header><h1>🍱 食物保暖及保鮮用品 KW 分配架構（2 篇 Blog）</h1><p>資料：Google Keyword Planner（保溫.xlsx＋2026-10-28 新增查詢）、Google 自動建議｜共 {tot} 個字｜產品價錢記錄：{PRICE_DATE}</p></header>
+<header><h1>🍱 食物保暖、保鮮及飲品保溫用品 KW 分配架構（3 篇 Blog）</h1><p>資料：Google Keyword Planner（保溫.xlsx＋2026-10-28 新增查詢）、Google 自動建議｜共 {tot} 個字｜產品價錢記錄：{PRICE_DATE}</p></header>
 <div class="wrap">
-<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一篇，避免自家頁面互搶排名。帶飯保溫（保溫飯盒、燜燒壺、加熱飯盒、保溫袋）→ Blog 1；保鮮（保鮮紙、密實袋、保鮮盒、真空）→ Blog 2；飲品保溫壺、保溫杯、保溫瓶 → 只在 Blog 1 一個 H3 承接；冰袋、冰磚 → 暫不使用；烘焙紙、暖包 → 不建議。每篇只刻意佈局「主要／次要／長尾／FAQ」，其餘列為「自然涵蓋」，不用逐個寫入。</div>
+<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一篇，避免自家頁面互搶排名。帶飯保溫（保溫飯盒、燜燒壺、加熱飯盒、保溫袋）→ Blog 1；保鮮（保鮮紙、密實袋、保鮮盒、真空）→ Blog 2；飲品保溫壺、保溫杯、保溫瓶 → Blog 3（象印、虎牌、膳魔師三大品牌比較），Blog 1 不再提及；冰袋、冰磚 → 暫不使用；烘焙紙、暖包 → 不建議。每篇只刻意佈局「主要／次要／長尾／FAQ」，其餘列為「自然涵蓋」，不用逐個寫入。</div>
 <h2>內鏈架構</h2><div class="card"><pre class="mermaid">{E(MERMAID)}</pre></div>
 <h2>頁面分配總覽</h2><div class="grid">{''.join(card(c) for c in CARDS)}</div>
 <h2 id="outline-B1">Blog 1 大綱及產品段落</h2>
@@ -251,6 +284,9 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="card">{outline_html('B1')}</div>
 <h2 id="outline-B2">Blog 2 大綱及產品段落</h2>
 <div class="card">{outline_html('B2')}</div>
+<h2 id="outline-B3">Blog 3 大綱及產品段落</h2>
+<p class="leg">價錢及規格於 2026 年 10 月 28 日在象印代理網店（生活館）、虎牌及膳魔師香港官方網店記錄；星星為 Kitchen AO 編輯評分，按官方數字評估，並非實測。</p>
+<div class="card">{outline_b3()}</div>
 <h2 id="all">全部關鍵字</h2>
 <div class="card"><div class="tools"><select id="pg"><option value="">全部頁面</option></select><select id="ro"><option value="">全部角色</option></select><input id="q" placeholder="搜尋關鍵字…"><span id="cnt"></span><button id="dl" class="dl">⬇ 下載 CSV（按目前篩選及排序）</button></div>
 <div style="max-height:70vh;overflow:auto"><table id="tb"></table></div></div>

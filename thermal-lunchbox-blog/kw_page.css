@@ -55,3 +55,4 @@ dl{margin:0 0 8px;font-size:13px;display:grid;grid-template-columns:auto 1fr;gap
 .slider .sl p{margin:6px 0}.slider .src{font-size:11.5px;color:#8a7f70;margin:8px 0 0}.slider a{color:#9A7B2E;word-break:break-all}
 
 .tplain h5{margin:14px 0 4px;font-size:15px}.tplain p{margin:0;font-size:13.5px;line-height:1.8}.soup{margin:14px 0;font-size:13.5px;line-height:1.75}.soup h5{margin:0 0 4px;font-size:15px}.soup ul{margin:4px 0 0;padding-left:20px}.soup a{color:#9A7B2E}
+table.cmp{border-collapse:collapse;width:100%;font-size:13.5px;margin:6px 0}table.cmp th{background:#1A1A1A;color:#F7CE46;position:static}table.cmp th,table.cmp td{padding:7px 9px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
