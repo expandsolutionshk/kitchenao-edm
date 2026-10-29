@@ -61,11 +61,11 @@ CSS = '''<style>
 .ao-corp .ao-cta a.alt:hover{background:#C8A24A!important;color:#1A1A1A!important;border-color:#C8A24A;}
 .ao-corp img{max-width:100%;height:auto;border-radius:14px;}
 .ao-corp .ao-kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 14px;}
-.ao-corp .ao-kv img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border-radius:14px;}
-.ao-corp .ao-kv img.k1{object-position:50% 22%;}
-.ao-corp .ao-kv img.k2{object-position:50% 58%;}
+.ao-corp .ao-kv img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:14px;}
+.ao-corp .ao-kv img.k1{object-position:50% 30%;}
+.ao-corp .ao-kv img.k2{object-position:50% 55%;}
 @media(max-width:768px){.ao-corp .ao-scene a{width:calc((100% - 14px)/2);}}
-@media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/2;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;max-width:300px;}}
+@media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/4;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;max-width:300px;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -133,8 +133,8 @@ ZH = dict(
     nav_label='公司到會目錄',
     panes=[
         ('overview', '公司到會速覽', f'''
-<h2>公司到會怎樣選？五種企業活動，五種到會方案</h2>
-<p>公司到會（又稱企業到會），是由到會公司把食物直接送到辦公室或活動場地。活動性質不同，合適的形式亦各有不同：日常午餐講求方便，客戶會議著重體面，年會則要有排場。以下是 Kitchen AO 最常承辦的五類企業活動，按下卡片即可查看詳情：</p>
+<h2>Kitchen AO 公司到會服務：由午餐盒到年會，五種企業到會方案</h2>
+<p>作為香港到會公司，Kitchen AO 為企業提供一站式公司到會服務。由日常員工飯盒、客戶會議午餐，到 Annual Dinner、公司聚會及酒會開張，我們都有對應的餐盒、套餐及小食方案，並按人數及預算度身配搭，全港送貨。按下卡片即可查看各項服務詳情：</p>
 {scene(ZH_SCENES)}
 <h3>人數及預算一覽</h3>
 <div class="ao-tblwrap"><table>
@@ -238,8 +238,8 @@ EN = dict(
     nav_label='Corporate catering contents',
     panes=[
         ('overview', 'Overview', f'''
-<h2>Corporate Catering Hong Kong: Five Company Events, Five Catering Solutions</h2>
-<p>Corporate catering is a food service where a catering company delivers meals straight to your office or event venue. Each type of event calls for a different format: everyday lunches need to be convenient, client meetings need to impress, and an annual dinner needs a sense of occasion. Here are the five company events Kitchen AO caters most often. Tap a card for details:</p>
+<h2>Our Corporate Catering Services in Hong Kong: Five Solutions, from Lunch Boxes to Annual Dinners</h2>
+<p>As a Hong Kong catering company, Kitchen AO offers one-stop corporate catering services. From everyday staff lunch boxes and client meeting lunches to annual dinners, company gatherings and grand openings, we have meal boxes, catering sets and canapés for every occasion, tailored to your headcount and budget, with delivery across Hong Kong. Tap a card to see each service:</p>
 {scene(EN_SCENES)}
 <h3>Headcount and Budget at a Glance</h3>
 <div class="ao-tblwrap"><table>
