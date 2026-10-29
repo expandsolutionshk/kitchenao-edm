@@ -193,6 +193,7 @@ nav button.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
 section{display:none;padding:20px 24px 60px}section.on{display:block}
 .card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.05);overflow:auto}
 .legend{font-size:13px;color:#6b6252;margin:0 0 12px}.legend span{display:inline-block;padding:2px 10px;border-radius:8px;margin-right:6px}
+.kwlink{display:inline-block;margin:0 0 10px;background:#1A1A1A;color:#F7CE46;font-weight:700;font-size:15px;padding:8px 16px;border-radius:20px;text-decoration:none}.kwlink:hover{background:#C8A24A;color:#1A1A1A}
 .new{background:#E3F4E8}.old{background:#FFF4D6}.bad{background:#FDE2E1}.ok{background:#E3F1FB}
 .mermaid .nodeLabel,.mermaid .nodeLabel *{font-size:16px!important;line-height:1.35}.mermaid .nodeLabel b{font-size:17px!important}.mermaid .u{font-size:13px!important;color:#444;word-break:break-all}.mermaid .node{cursor:pointer}.mermaid .t{display:inline-block;font-size:13px!important;font-weight:700;color:#fff!important;background:#1A1A1A;border-radius:10px;padding:2px 9px;margin-bottom:4px}.mermaid .grp .t{background:#C8A24A;color:#1A1A1A!important}
 </style></head><body>
@@ -202,13 +203,14 @@ section{display:none;padding:20px 24px 60px}section.on{display:block}
 const V = __V__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
-const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（7 篇 Blog）','vegetarian-kw.html']],'Seasonal':[['🎄 聖誕 KW 分配','xmas-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
+const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（7 篇 Blog）','vegetarian-kw.html']]};const SLINKS={'聖誕節':[['🎄 查看聖誕 KW 分配（Landing page、Blog、英文頁）','xmas-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
 const made={};let first=null;
 const BTN={};function show(b,s,top,k){if(k&&history.replaceState)history.replaceState(null,'','#'+encodeURIComponent(k));document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
 for(const [k,code] of Object.entries(V)){
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
   s.querySelector('pre').textContent=code;views.appendChild(s);
+  (SLINKS[k]||[]).forEach(([t,u])=>{const a=document.createElement('a');a.href=u;a.textContent=t;a.className='kwlink';s.insertBefore(a,s.firstChild);});
   const b=document.createElement('button');b.textContent=LABEL[k]||k;let top=null;
   const g=inGrp[k];
   if(g){if(!made[g]){const d=document.createElement('div');d.className='dd';const t=document.createElement('button');t.textContent=g;t.onclick=e=>{e.stopPropagation();d.classList.toggle('open');};const m=document.createElement('div');m.className='menu';d.append(t,m);nav.appendChild(d);made[g]={d,t,m};}
