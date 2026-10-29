@@ -100,6 +100,8 @@ AUTOC = {n(x) for x in ['公司到會推介','到會推介2026','到會推介評
 def pos(v):
     return v[0] if v else None
 
+XMAS_PG = {'XMAS', 'XMAS-LP', 'XMAS-LP-EN'}
+R = [r for r in R if r['pg'] not in XMAS_PG]
 rows = []
 seen = set()
 for r in R:
@@ -146,7 +148,7 @@ def num(pg):
 
 # ---------- 詳細卡 ----------
 CORP_CARD = f'''
-<div class="pc big" data-pg="CORP"><div class="ph"><b>CORP</b><span class="st">第一輪｜要重寫</span></div>
+<div class="pc big" id="CORP" data-pg="CORP"><div class="ph"><b>CORP</b><a class="anc" href="#CORP" title="複製這頁的連結">🔗</a><span class="st">第一輪｜要重寫</span></div>
 <h3>公司到會（Annual Dinner、Office Lunch）</h3>
 <p class="u"><a href="https://aoaodelivery.com/corporate-catering-hk/" target="_blank">/corporate-catering-hk/</a>（頁面 ID 18404）</p>
 {num('CORP')}
@@ -190,7 +192,7 @@ CORP_CARD = f'''
 <button class="more" data-pg="CORP">查看全部關鍵字 ↓</button></div>'''
 
 REC_CARD = f'''
-<div class="pc big" data-pg="REC"><div class="ph"><b>REC</b><span class="st">第一輪｜要改寫</span></div>
+<div class="pc big" id="REC" data-pg="REC"><div class="ph"><b>REC</b><a class="anc" href="#REC" title="複製這頁的連結">🔗</a><span class="st">第一輪｜要改寫</span></div>
 <h3>到會推介</h3>
 <p class="u"><a href="https://aoaodelivery.com/hong-kong-catering-recommendation/" target="_blank">/hong-kong-catering-recommendation/</a>（頁面 ID 18621）</p>
 {num('REC')}
@@ -240,7 +242,7 @@ def small(pg, title, url, status, notes, cls=''):
     link = f'<a href="https://aoaodelivery.com{url}" target="_blank">{E(url)}</a>' if url.startswith('/') else E(url)
     kws = kwli(pg, 6) if any(r['pg'] == pg for r in rows) else ''
     more = f'<button class="more" data-pg="{pg}">查看關鍵字 ↓</button>' if kws else ''
-    return f'''<div class="pc {cls}" data-pg="{pg}"><div class="ph"><b>{pg}</b><span class="st">{status}</span></div>
+    return f'''<div class="pc {cls}" id="{pg}" data-pg="{pg}"><div class="ph"><b>{pg}</b><a class="anc" href="#{pg}" title="複製這頁的連結">🔗</a><span class="st">{status}</span></div>
 <h3>{title}</h3><p class="u">{link}</p><ul class="iss">{lis}</ul>{kws}{more}</div>'''
 
 OTHERS = [
@@ -255,10 +257,6 @@ OTHERS = [
  small('PARTY','派對到會套餐分類（中英）','/product-category/party/','10-30 新增',[
    '「派對到會」465 曝光、「生日到會」295 曝光、「party 到會」202 曝光，現時全部由首頁排第 32 至 53 名。',
    '分類頁頂加 150 至 300 字介紹及 FAQ，H1 用「派對到會套餐」。英文版主攻 party food delivery hk、party catering。']),
- small('XMAS-LP','聖誕到會 Landing page（中英）','（建議新增：聖誕套餐分類）','10-30 新增｜11 月 10 日前',[
-   '負責交易字：聖誕到會、聖誕到會套餐、聖誕外賣、聖誕派對食物、公司聖誕派對到會。',
-   '舊聖誕 Blog 改為主攻「聖誕大餐」（12 月 12,100 搜尋量）等資訊字，再連去這頁。',
-   '英文版負責 christmas catering hong kong、xmas catering（Blog 沒有英文版）。']),
  small('BIZ','商務活動','/business-event/','下一輪',[
    '和公司到會頁重疊：兩頁都寫「公司到會推介」。建議這頁改為主攻商務活動、酒會、開張、發佈會及 Canapés。',
    '有兩個完全相同的 H2「公司到會推介 開胃菜 Finger Food 和 Canapé\'s 的魅力」。',
@@ -283,9 +281,6 @@ OTHERS = [
  small('OLD2','舊 Blog：到會中伏','/blog/catering-pitfalls-guide/','重寫（第二輪）',[
    '負責「中伏、到會注意事項」。Semrush「中伏」（320）排第 15 名，GSC 第 12 名，接近第一頁。',
    '連去到會推介及報價查詢。']),
- small('XMAS','舊 Blog：聖誕到會','/blog/christmas-catering-hong-kong/','重寫｜11 月中前上線',[
-   '「聖誕到會」Semrush 1,000 搜尋量，GSC 265 曝光、第 16.7 名。12 月旺季前要更新 2026 套餐。',
-   '負責所有「聖誕到會」字，包括公司聖誕派對；公司到會頁只簡單提及並連過來。']),
  small('NB1','新 Blog：Annual Dinner 籌備全攻略','（建議新增）','建議新增',[
    '承接 annual dinner 遊戲、抽獎禮物、場地、主題等資訊字，Kama 已用 Blog 排名（annual dinner 遊戲第 9 名）。',
    '文內 CTA 連去公司到會頁。']),
@@ -302,8 +297,7 @@ OWN = [
  ('派對到會、party 到會、派對到會套餐、生日到會', '派對到會套餐分類', 'party food delivery hk、party catering (services)、food catering for birthday parties', '派對分類 /en/', '產品分類頁；現由首頁排第 32 至 53 名'),
  ('商務到會、酒會、開張、宴會到會、canapés', '商務活動', 'event catering、finger food catering、canapes catering hong kong', '商務活動 /en/', '活動型服務頁'),
  ('商務餐盒、員工餐盒、公司飯盒、商務便當', '商務／員工餐盒分類', 'lunch set、catering box', '餐盒分類 /en/', '產品分類'),
- ('聖誕到會、聖誕到會套餐、聖誕外賣、聖誕派對食物、公司聖誕派對到會', '聖誕 Landing page（新增）', 'christmas catering hong kong、xmas catering、xmas party catering', '聖誕 Landing page /en/', '交易型季節頁'),
- ('聖誕大餐、聖誕小食、聖誕食品、聖誕到會推介', '舊 Blog：聖誕（改寫）', '（Blog 只有中文版）', '—', '資訊型，帶去聖誕 Landing page'),
+ ('聖誕到會、聖誕大餐等所有聖誕字', '見 🎄 聖誕 KW 分配頁', 'christmas catering 等', '見 🎄 聖誕 KW 分配頁', '已拆到 Seasonal › 聖誕節（xmas-kw.html）'),
  ('到會邊間好、平價到會、到會價錢', '舊 Blog：到會邊間好', '（Blog 只有中文版）', '—', '比較及揀選準則'),
  ('中伏、到會注意事項', '舊 Blog：到會中伏', '（Blog 只有中文版）', '—', '避雷清單'),
  ('annual dinner 遊戲、抽獎禮物、場地、主題', '新 Blog：Annual Dinner', '（Blog 只有中文版，英文字由公司到會 /en/ 負責）', '—', '資訊型'),
@@ -340,15 +334,13 @@ H["首頁<br/>到會・catering"] --> REC["到會推介<br/>/hong-kong-catering-
 H --> CORP["公司到會<br/>/corporate-catering-hk/"]
 H --> PARTY["派對到會套餐分類<br/>/product-category/party/"]
 REC --> PARTY
-XMAS --> XLP["聖誕 Landing page<br/>（新增）"]
-CORP --> XLP
+CORP --> XLP["🎄 聖誕 KW 分配頁<br/>xmas-kw.html"]
 REC --> CORP
 REC <--> OLD1["舊 Blog<br/>到會邊間好"]
 REC <--> OLD2["舊 Blog<br/>到會中伏"]
 CORP --> BOX["商務／員工餐盒分類"]
 CORP <--> BIZ["商務活動<br/>/business-event/"]
 CORP <--> NB1["新 Blog<br/>Annual Dinner 籌備"]
-CORP <--> XMAS["舊 Blog<br/>聖誕到會"]
 CORP --> Q["報價查詢"]
 BIZ --> Q
 CORP --> P["合作夥伴"]
@@ -357,21 +349,24 @@ classDef main fill:#1A1A1A,color:#F7CE46,stroke:#1A1A1A
 classDef blog fill:#E3F4E8,stroke:#6FAE82
 classDef cat fill:#E3F1FB,stroke:#7AA7CF
 class CORP,REC main
-class OLD1,OLD2,XMAS,NB1 blog
+class OLD1,OLD2,NB1 blog
 class BOX,BIZ,Q,P,ABOUT,PARTY,XLP cat'''
 
 DATA = json.dumps(dict(rows=rows, pages={k: v[0] for k, v in PAGES.items()}), ensure_ascii=False)
 SEED = '\n'.join(seed)
 
-CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read()
-JS = open(os.path.join(HERE, 'core-kw.js'), encoding='utf-8').read()
+CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + '\n.pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}.copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'
+JS = open(os.path.join(HERE, 'core-kw.js'), encoding='utf-8').read() + '''
+function goHash(){const id=decodeURIComponent(location.hash.slice(1));if(!id)return;const c=document.getElementById(id);const opt=[...sel.options].some(o=>o.value===id);if(!(c&&c.classList.contains('pc'))){if(opt){sel.value=id;draw();document.getElementById('all').scrollIntoView({behavior:'smooth'});}return;}document.querySelectorAll('.pc.hit').forEach(x=>x.classList.remove('hit'));c.classList.add('hit');c.scrollIntoView({behavior:'smooth'});if([...sel.options].some(o=>o.value===id)){sel.value=id;draw();}}
+document.querySelectorAll('.pc .anc').forEach(a=>a.onclick=e=>{e.preventDefault();history.replaceState(null,'',a.getAttribute('href'));goHash();const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>{const d=document.createElement('div');d.className='copied';d.textContent='已複製連結';document.body.appendChild(d);setTimeout(()=>d.remove(),1500);}).catch(()=>{});});
+window.addEventListener('hashchange',goHash);setTimeout(goHash,300);'''
 
 page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>核心頁面 KW 分配｜Kitchen AO</title><style>{CSS}</style></head><body>
 <header><h1>🏢 核心頁面 KW 分配（公司到會、到會推介＋其他待 review 頁面）</h1>
-<p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08；首頁、公司到會、到會推介 2026-10-30）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a></p></header>
+<p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08；首頁、公司到會、到會推介 2026-10-30）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a>｜<a href="./xmas-kw.html">🎄 聖誕 KW 分配</a></p></header>
 <div class="wrap">
-<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 及聖誕字分別交給英文公司到會頁及英文聖誕 Landing page。內鏈架構中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
+<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 字交給英文公司到會頁。所有聖誕字（中英）已拆到 <a href="./xmas-kw.html">🎄 聖誕 KW 分配頁</a>（Seasonal › 聖誕節）。內鏈架構中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
 <h2>內鏈架構</h2><div class="card"><pre class="mermaid">{E(MERMAID)}</pre></div>
 <h2>GSC 對位分析（2026-10-30）</h2><div class="card">{gsc30_html()}</div>
 <h2>關鍵字擁有權：中英文頁分工（2026-10-30 更新）</h2><div class="card">{own_html}</div>

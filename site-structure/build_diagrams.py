@@ -124,10 +124,10 @@ D['萬聖節'] = dict(dir='LR', nodes=[
 # ---------- 聖誕節 ----------
 D['聖誕節'] = dict(dir='LR', nodes=[
  N('H', '首頁', '/'), N('L', '聖誕 landing（新・每年沿用）', '/catering/christmas/', 'new'),
- N('N1', '聖誕套餐分類（未有）', '', 'new'), N('C2', '人數選餐', '/product-category/party-set-by-people/'),
+ N('N1', '聖誕套餐分類（Landing page・11 月 10 日前）', '', 'new'), N('C2', '人數選餐', '/product-category/party-set-by-people/'),
  N('C3', '美食派對 Gourmet', '/product-category/party/foot-party/'), N('C4', '派對用品', '/product-category/party-supplies/'),
  N('V1', '公司到會（公司聖誕派對）', '/corporate-catering-hk/'), N('Q', '報價查詢', '/catering-quote-enquiry/'),
- N('B1', '聖誕到會 blog（建議新增）', '', 'new'),
+ N('B1', '聖誕 Blog（改寫：香港人聖誕餐吃甚麼）', '/blog/christmas-catering-hong-kong/', 'old'),
 ], edges=['H --> L', 'L --> N1', 'L --> C2 & C3 & C4', 'L --> V1', 'V1 --> Q', 'L <--> B1', 'B1 --> N1'])
 
 # ---------- 野餐 ----------
@@ -202,9 +202,9 @@ section{display:none;padding:20px 24px 60px}section.on{display:block}
 const V = __V__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
-const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（7 篇 Blog）','vegetarian-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
+const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（7 篇 Blog）','vegetarian-kw.html']],'Seasonal':[['🎄 聖誕 KW 分配','xmas-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
 const made={};let first=null;
-function show(b,s,top){document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
+const BTN={};function show(b,s,top,k){if(k&&history.replaceState)history.replaceState(null,'','#'+encodeURIComponent(k));document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
 for(const [k,code] of Object.entries(V)){
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
@@ -215,9 +215,10 @@ for(const [k,code] of Object.entries(V)){
     made[g].m.appendChild(b);top=made[g].t;
     (LINKS[g]||[]).forEach(([t,u])=>{if(made[g]['l'+u])return;const a=document.createElement('button');a.textContent=t;a.onclick=e=>{e.stopPropagation();location.href=u;};made[g].m.appendChild(a);made[g]['l'+u]=1;});}
   else nav.appendChild(b);
-  b.onclick=e=>{e.stopPropagation();show(b,s,top);};
-  if(!first){first=1;setTimeout(()=>b.click(),0);}
+  b.onclick=e=>{e.stopPropagation();show(b,s,top,k);};BTN[k]=b;
+  if(!first)first=b;
 }
+setTimeout(()=>{const h=decodeURIComponent(location.hash.slice(1));(BTN[h]||first).click();},0);
 const ck=document.createElement('button');ck.textContent='🏢 核心頁面 KW 分配';ck.onclick=e=>{e.stopPropagation();location.href='core-pages-kw.html';};nav.appendChild(ck);
 document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
 </script></body></html>'''
