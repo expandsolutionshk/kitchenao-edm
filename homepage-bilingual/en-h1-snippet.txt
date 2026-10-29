@@ -1,0 +1,27 @@
+/**
+ * Kitchen AO - English H1 (page title + breadcrumb on /en/ only)
+ * WPCode: PHP Snippet, Auto Insert, Run Everywhere
+ * Reads post meta _ao_en_h1 (filled by import C). Needs v2 snippet (ao_is_en).
+ */
+function ao_en_h1_get( $p ) {
+	if ( is_admin() || ! function_exists( 'ao_is_en' ) || ! ao_is_en() || ! $p ) return '';
+	$cur = 0;
+	if ( function_exists( 'is_shop' ) && is_shop() ) {
+		$cur = (int) wc_get_page_id( 'shop' );
+	} elseif ( is_singular() ) {
+		$cur = (int) get_queried_object_id();
+	}
+	if ( ! $cur || (int) $p !== $cur ) return '';
+	return (string) get_post_meta( $cur, '_ao_en_h1', true );
+}
+function ao_en_h1_title( $t, $p = 0 ) {
+	$h = ao_en_h1_get( $p );
+	return $h !== '' ? $h : $t;
+}
+function ao_en_h1_shop( $t ) {
+	if ( ! function_exists( 'is_shop' ) || ! is_shop() ) return $t;
+	$h = ao_en_h1_get( wc_get_page_id( 'shop' ) );
+	return $h !== '' ? $h : $t;
+}
+add_filter( 'the_title', 'ao_en_h1_title', 20, 2 );
+add_filter( 'woocommerce_page_title', 'ao_en_h1_shop', 20 );

@@ -1,0 +1,55 @@
+/**
+ * Kitchen AO – 英文 H1 一次性匯入 C（頁面標題及麵包屑）（2026-10-30）
+ * 需要先更新「中英文版通用工具 v2」（已加入 English H1 欄）
+ * 用法：WPCode › PHP Snippet › Auto Insert › Admin Only → Active → Save
+ *       打開任何後台頁面，頂部會顯示「已匯入 N 項」→ 之後轉為 Inactive
+ * 只會填入空白的 English H1 欄，已填的不會被覆蓋。
+ */
+add_action( 'admin_init', function () {
+	if ( get_option( 'ao_en_h1_import_c_20261030' ) || ! current_user_can( 'manage_options' ) ) return;
+	$n = 0;
+	$rows = array(
+		7 => 'Catering Menu: Party Food Delivery in Hong Kong', // 商店
+		5927 => 'Catering Delivery Hong Kong: Delivery Fees, Free Delivery and Time Slots', // 送貨需知
+		6053 => 'Party Food Catering Hong Kong', // 派對美食
+		6341 => 'Event Catering Hong Kong: Business Events, Openings and Receptions', // 商務活動
+		7024 => 'Boat Party Catering Hong Kong', // 船河到會
+		7032 => 'Finger Food Catering Hong Kong', // 小食到會
+		9249 => 'Corporate Event Catering Photos', // 商業活動照片
+		10436 => 'Executive Premium Meal Boxes', // 高級餐盒
+		10443 => 'Staff Meal Boxes Hong Kong', // 員工膳食餐盒
+		10737 => 'Catering Quote Enquiry: Party and Corporate Event Catering', // 報價查詢
+		10740 => 'Royal Snackers Box', // 皇家小食盒
+		10940 => 'Nine Delights Gourmet Canapés Box', // 舌尖上的餐桌
+		12099 => 'Kitchen AO Handmade Poon Choi', // 母親手作盆菜
+		14961 => 'Catering by District in Hong Kong', // 地區到會分類
+		14963 => 'Tsuen Wan Catering 2026: Party Food and Office Catering Delivery', // Tsuen Wan到會
+		14968 => 'Central Catering 2026: Party Food and Office Catering Delivery', // Central到會
+		14972 => 'Causeway Bay Catering 2026: Party Food and Office Catering Delivery', // Causeway Bay到會
+		14981 => 'Wan Chai Catering 2026: Party Food and Office Catering Delivery', // Wan Chai到會
+		14984 => 'Quarry Bay Catering 2026: Party Food and Office Catering Delivery', // Quarry Bay到會
+		14988 => 'North Point Catering 2026: Party Food and Office Catering Delivery', // North Point到會
+		15011 => 'Sai Ying Pun Catering 2026: Party Food and Office Catering Delivery', // Sai Ying Pun到會
+		15014 => 'Kowloon City Catering 2026: Party Food and Office Catering Delivery', // Kowloon City到會
+		15017 => 'Kwun Tong Catering 2026: Party Food and Office Catering Delivery', // Kwun Tong到會
+		15020 => 'Mong Kok Catering 2026: Party Food and Office Catering Delivery', // Mong Kok到會
+		15023 => 'Sham Shui Po Catering 2026: Party Food and Office Catering Delivery', // Sham Shui Po到會
+		15027 => 'Tsim Sha Tsui Catering 2026: Party Food and Office Catering Delivery', // Tsim Sha Tsui到會
+		15029 => 'Yuen Long Catering 2026: Party Food and Office Catering Delivery', // Yuen Long到會
+		15033 => 'Sha Tin Catering 2026: Party Food and Office Catering Delivery', // Sha Tin到會
+		15035 => 'Tuen Mun Catering 2026: Party Food and Office Catering Delivery', // Tuen Mun到會
+		15421 => 'Custom Souvenirs and Corporate Gifts Hong Kong', // 客製化紀念品
+		18404 => 'Corporate Catering Hong Kong 2026: Annual Dinner and Office Lunch Packages', // 公司到會
+		18568 => 'Our Catering Services', // 服務概覽
+	);
+	foreach ( $rows as $id => $h1 ) {
+		if ( ! get_post( $id ) ) continue;
+		if ( get_post_meta( $id, '_ao_en_h1', true ) === '' ) { update_post_meta( $id, '_ao_en_h1', $h1 ); $n++; }
+	}
+	update_option( 'ao_en_h1_import_c_20261030', $n . ' 項 @ ' . current_time( 'mysql' ), false );
+	set_transient( 'ao_en_h1_import_msg', '英文 H1 匯入 C：已匯入 ' . $n . ' 項。請把此 snippet 轉為 Inactive。', 300 );
+} );
+add_action( 'admin_notices', function () {
+	$m = get_transient( 'ao_en_h1_import_msg' );
+	if ( $m ) { echo '<div class="notice notice-success"><p>' . esc_html( $m ) . '</p></div>'; delete_transient( 'ao_en_h1_import_msg' ); }
+} );
