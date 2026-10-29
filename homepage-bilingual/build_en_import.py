@@ -77,7 +77,7 @@ for line in [
     ('2026-10-29', 'B3：8 個產品 Title／Description 跟網站手動修改的英文名（6063、6072、6077、6078、6274、6409、14306、19579）'),
     ('2026-10-29', '舊 EN SEO snippet 停用；全站英文 Meta 由「中英文版通用工具 v2」English SEO 方格提供'),
     ('2026-10-29', 'Blog 只保留中文版：TranslatePress 排除 /blog/、/blog/*；Rank Math 301 ^en/blog(/.*)?$ → /blog$1（灰色列）'),
-    ('2026-10-29', '紅色＝網站英文產品名仍是中文或中英混雜，待補：10388、14342、20217、20225'),
+    ('2026-10-30', '網站已補 4 個英文產品名：10388、14342、20217、20225（與 Meta 一致，毋須重新匯入）；全部產品已有英文名'),
 ]:
     lg.append(list(line))
 for c in lg[1]: c.font = Font(name='Arial', bold=True, color='F7CE46'); c.fill = PatternFill('solid', fgColor='1A1A1A')
