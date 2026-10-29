@@ -73,3 +73,9 @@ def nav_html(current):
             out.append(f'<a href="{href(k)}"{" class=on" if k == current else ""}>{LABEL.get(k, k)}</a>')
     out.append(f'<a href="{CORE[1]}"{" class=on" if current == "核心" else ""}>{CORE[0]}</a>')
     return '<nav class="snav">' + ''.join(out) + '</nav>'
+
+# 最頂：和 index.html 一樣的網站架構圖標題＋選單
+TOP_CSS = '''.stop{background:#1A1A1A;padding:14px 24px;border-bottom:1px solid #333}.stop a{color:#F7CE46;text-decoration:none;font-size:20px;font-weight:800;font-family:-apple-system,"PingFang HK","Noto Sans HK",sans-serif}.stop span{display:block;color:#C9BFA8;font-size:13px;margin-top:2px}
+.stop + .snav + header{background:#2a2620}'''
+def top_html(current):
+    return '<div class="stop"><a href="index.html">Kitchen AO 網站架構圖（Site Structure）</a><span>每個格子顯示完整 URL，按一下可打開該頁</span></div>' + nav_html(current)

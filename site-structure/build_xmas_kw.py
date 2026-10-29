@@ -4,7 +4,7 @@
 輸出：xmas-kw.html
 """
 import json, re, html, os
-from diag_embed import section as DSEC, from_index, CSS as DCSS, nav_html, NAV_CSS, NAV_JS
+from diag_embed import section as DSEC, from_index, CSS as DCSS, nav_html, NAV_CSS, NAV_JS, top_html, TOP_CSS
 HERE = os.path.dirname(os.path.abspath(__file__))
 X = json.load(open(os.path.join(HERE, 'xmas-kw-sources.json'), encoding='utf-8'))
 C = json.load(open(os.path.join(HERE, 'core-kw-sources.json'), encoding='utf-8'))
@@ -17,7 +17,8 @@ E = html.escape
 PAGES = {
  'LP':    ('聖誕到會 Landing page（中文）', '建議新增：/product-category/christmas-set/'),
  'LP-EN': ('聖誕到會 Landing page（英文）', '建議新增：/en/product-category/christmas-set/'),
- 'BLOG':  ('聖誕 Blog（改寫）', '/blog/christmas-catering-hong-kong/'),
+ 'B1':    ('Blog 1｜聖誕到會推介（更新舊文）', '/blog/christmas-catering-hong-kong/'),
+ 'B2':    ('Blog 2｜香港人聖誕餐吃甚麼（新文章）', '建議新增：/blog/christmas-dinner-hong-kong/'),
  'X':     ('不放', ''),
 }
 
@@ -27,16 +28,19 @@ def add(pg, typ, kws, lang='中', use=''):
 
 # ---------- Landing page（交易型）----------
 add('LP', '主要', ['聖誕到會'], use='H1／Title／頁頂首段')
-add('LP', '次要', ['聖誕到會套餐', '聖誕外賣', '聖誕派對食物', '公司聖誕派對到會', '聖誕到會餐單', '聖誕節到會', '聖誕大餐到會', '聖誕套餐 2026'], use='頁頂內容／H2／Meta')
+add('LP', '次要', ['聖誕到會套餐', '聖誕外賣', '聖誕派對食物', '公司聖誕派對到會', '聖誕套餐 2026'], use='頁頂內容／H2／Meta')
 add('LP', '長尾', ['火雞到會', '火雞訂購', '訂火雞', '火雞餐', '聖誕大餐外賣', '聖誕大餐外送', '聖誕素食餐'], use='產品名／FAQ（只寫真實有售的產品）')
 add('LP-EN', '主要', ['christmas catering hong kong'], lang='EN', use='EN H1／Title')
 add('LP-EN', '次要', ['christmas catering', 'xmas catering', 'xmas party catering', 'xmas lunch'], lang='EN', use='EN 頁頂內容／Meta')
 add('LP-EN', '長尾', ['turkey hk', 'roast turkey hong kong', 'turkey catering hong kong', 'order turkey online', 'christmas bbq menu'], lang='EN', use='EN 產品名／FAQ')
-# ---------- Blog（資訊型）----------
-add('BLOG', '主要', ['聖誕大餐'], use='H1／Title／30 秒速覽')
-add('BLOG', '次要', ['火雞', '薑餅人', '聖誕蛋糕', '聖誕曲奇', '聖誕小食', '聖誕甜品', '薑餅屋', '聖誕朱古力', '聖誕到會推介'], use='H2「經典聖誕食物一覽」／FAQ（火雞夠幾多人吃）')
-add('BLOG', '長尾', ['聖誕食品', '聖誕節美食', '聖誕節菜式', '聖誕糖果', '拐杖糖', '聖誕布甸', '樹幹蛋糕', '聖誕冬甩', '聖誕馬卡龍', '聖誕杯子蛋糕', '聖誕泡芙', '聖誕可麗露', '聖誕布朗尼', '聖誕雪人蛋糕', '意大利聖誕麵包', '史多倫麵包', '肉餡餅', '簡單聖誕甜品', '糖霜曲奇', '薑餅曲奇', '聖誕軟餐'], use='H3／經典聖誕食物表')
-add('BLOG', '長尾', ['panettone', 'gingerbread man', 'gingerbread house', 'christmas cake', 'candy cane', 'mince pie', 'christmas cookies', 'stollen', 'christmas dessert', 'yule log cake'], lang='EN', use='中文 Blog 內以括號寫英文名，例如「意大利聖誕麵包（Panettone）」（Blog 沒有英文版）')
+# ---------- Blog 1（舊文更新：推介及餐單）----------
+add('B1', '主要', ['聖誕到會推介'], use='H1／Title（沿用現有網址）')
+add('B1', '次要', ['聖誕到會餐單', '聖誕節到會', '聖誕大餐到會'], use='H2／內文')
+# ---------- Blog 2（新文章：資訊型）----------
+add('B2', '主要', ['聖誕大餐'], use='H1／Title／30 秒速覽')
+add('B2', '次要', ['火雞', '薑餅人', '聖誕蛋糕', '聖誕曲奇', '聖誕小食', '聖誕甜品', '薑餅屋', '聖誕朱古力'], use='H2「經典聖誕食物一覽」／FAQ（火雞夠幾多人吃）')
+add('B2', '長尾', ['聖誕食品', '聖誕節美食', '聖誕節菜式', '聖誕糖果', '拐杖糖', '聖誕布甸', '樹幹蛋糕', '聖誕冬甩', '聖誕馬卡龍', '聖誕杯子蛋糕', '聖誕泡芙', '聖誕可麗露', '聖誕布朗尼', '聖誕雪人蛋糕', '意大利聖誕麵包', '史多倫麵包', '肉餡餅', '簡單聖誕甜品', '糖霜曲奇', '薑餅曲奇', '聖誕軟餐'], use='H3／經典聖誕食物表')
+add('B2', '長尾', ['panettone', 'gingerbread man', 'gingerbread house', 'christmas cake', 'candy cane', 'mince pie', 'christmas cookies', 'stollen', 'christmas dessert', 'yule log cake'], lang='EN', use='中文 Blog 內以括號寫英文名，例如「意大利聖誕麵包（Panettone）」（Blog 沒有英文版）')
 PARTY = ['瑞士雞翼', '蜜汁雞翼', '烤雞翼', '水牛城雞翼', '薯角', '菠蘿腸仔', '迷你漢堡', '一口漢堡', 'sliders', '炸蝦多士', '一口多士', '沙嗲牛肉串', '沙嗲雞肉串', '照燒雞肉串',
          '凱撒沙律', '薯仔沙律', '雜果沙律', '蝦沙律', '蔬菜條沙律', 'popcorn chicken', '爆谷雞', '炸雞粒', '墨西哥脆片', '煙三文魚卷', '煙三文魚脆餅', '泡芙塔',
          '芝士條', '炸蟹鉗', '椒鹽蝦', '椒鹽魷魚', '炸魷魚圈', '炸洋蔥圈', '炸廣島蠔', '炸莫札瑞拉芝士', '笑臉薯餅', '芝士肉丸', '瑞典肉丸', '黑椒牛柳粒', '蒜蓉牛柳粒',
@@ -44,7 +48,7 @@ PARTY = ['瑞士雞翼', '蜜汁雞翼', '烤雞翼', '水牛城雞翼', '薯角
          '蜜瓜火腿', '風乾火腿拼盤', '冷肉拼盤', 'charcuterie board', '芝士拼盤', '忌廉芝士餅乾', 'bruschetta', '法式麵包脆片', '焗青口', 'prawn cocktail', '雞尾酒蝦', '鮮蝦杯',
          '煙肉卷帶子', 'bacon wrapped scallops', '水果串', '焗棉花糖', 'brownie', '布朗尼', '心太軟', '熔岩朱古力蛋糕', '松露朱古力', '蘋果批', '肉桂卷']
 for k in PARTY:
-    add('BLOG', '派對食物清單', [k], lang='EN' if re.match(r'^[a-z ]+$', k) else '中', use='H2「聖誕派對食物推介」清單／表格，有售的連去產品頁')
+    add('B1', '派對食物清單', [k], lang='EN' if re.match(r'^[a-z ]+$', k) else '中', use='H2「聖誕派對食物推介」清單／表格，有售的連去產品頁')
 # ---------- 不放 ----------
 add('X', '不放', ['canapes'], lang='EN', use='已分配給商務活動頁（canapés）')
 add('X', '不放', ['感恩節火雞訂購', '聖誕event'], use='和聖誕到會無關')
@@ -149,7 +153,22 @@ LPEN = card('LP-EN', '交易型｜英文版', [
   'Blog 只有中文版，所有英文聖誕字由這頁負責。',
   '「christmas catering」12 月 590 搜尋量；Kama 第 11 名、Bear 第 18 名。'],
   ['→ /en/corporate-catering-hk/', '→ /en/delivery/'])
-BLOG = card('BLOG', '資訊型｜11 月中前改寫', [
+B1 = card('B1', '商業調查型｜更新舊文', [
+  ('H1', '聖誕到會推介 2026｜聖誕派對食物清單及到會餐單'),
+  ('SEO Title', '聖誕到會推介 2026｜聖誕派對食物清單・到會餐單｜Kitchen AO'),
+  ('Meta Description', '2026 聖誕到會推介：公司聖誕派對及家庭聚會怎樣配搭到會餐單？附聖誕派對食物清單、人數及份量建議，以及 Kitchen AO 聖誕到會套餐。'),
+  ('Focus Keyword', '<mark>聖誕到會推介</mark>（副：聖誕到會餐單、聖誕節到會）')], [
+  '聖誕到會推介速覽：按人數及場合的推介表',
+  '公司聖誕派對到會：連去公司到會頁',
+  '家庭聖誕聚會到會',
+  '聖誕派對食物清單：派對食物字放在清單或表格，有售的連去產品頁',
+  '人數及份量怎樣計？',
+  '常見問題（FAQPage schema）'], [
+  '沿用現有網址 /blog/christmas-catering-hong-kong/，保留舊有排名（「聖誕到會」GSC 265 曝光、第 16.7 名）。',
+  '標題由「聖誕到會2025」更新為 2026；主攻「推介、餐單」，交易字「聖誕到會、聖誕外賣」交給 Landing page。',
+  '派對食物字（瑞士雞翼、迷你漢堡等）下表「Kitchen AO 有售」一欄列出可連去的產品。'],
+  ['→ 聖誕 Landing page', '→ 單點小食', '→ 甜品', '→ 公司到會', '↔ Blog 2'])
+B2 = card('B2', '資訊型｜新文章｜11 月中前上線', [
   ('H1', '香港人聖誕餐吃甚麼？2026 聖誕大餐、到會及派對食物全攻略'),
   ('SEO Title', '聖誕大餐吃甚麼？2026 香港聖誕餐、聖誕到會及派對食物推介｜Kitchen AO'),
   ('Meta Description', '2026 香港聖誕大餐怎樣選？按到會派對、快餐套餐、酒店聖誕大餐、火鍋及自家煮整理預算及人數，附經典聖誕食物、派對食物清單及預訂貼士。'),
@@ -161,18 +180,17 @@ BLOG = card('BLOG', '資訊型｜11 月中前改寫', [
   '冬日火鍋及打邊爐',
   '自家煮聖誕餐：火雞、焗豬手、烤牛肉',
   '經典聖誕食物一覽：火雞、薑餅人、樹幹蛋糕、聖誕布甸（中英對照）',
-  '聖誕派對食物推介：派對食物清單，有售的連去產品頁',
+  '想自己辦派對？連去 Blog 1 聖誕派對食物清單',
   '香港人訂聖誕餐的習慣：提早預訂、平安夜送貨時段',
   '常見問題（FAQPage schema）：聖誕大餐幾錢、火雞夠幾多人吃、幾時要訂'], [
-  '沿用現有網址，保留舊有排名；標題由「聖誕到會2025」改為主攻「聖誕大餐」，交易字交給 Landing page。',
+  '新文章，建議網址 /blog/christmas-dinner-hong-kong/；主攻「聖誕大餐」等資訊字，交易字交給 Landing page。',
   '「聖誕大餐」平均月搜 1,300，2025 年 11 月 2,400、12 月 12,100；「聖誕小食」12 月 3,600。',
-  '派對食物字（瑞士雞翼、迷你漢堡等）放在清單或表格，不逐個寫段落；下表「Kitchen AO 有售」一欄列出可連去的產品。',
-  '對手品牌字（快餐、連鎖店）不寫品牌名、不放連結。'],
-  ['→ 聖誕 Landing page', '→ 單點小食', '→ 甜品', '→ 公司到會'])
+  '對手品牌字（快餐、連鎖店）只寫類別，不寫品牌名、不放連結。'],
+  ['→ 聖誕 Landing page', '↔ Blog 1', '→ 公司到會'])
 XC = f'''<div class="pc" id="X" data-pg="X"><div class="ph"><b>X</b><span class="st">不放</span><a class="anc" href="#X" title="複製這頁的連結">🔗</a></div>
 <h3>不放：對手品牌字及無關字</h3>{num('X')}<ul class="iss"><li>對手品牌字（快餐及連鎖店聖誕套餐）搜尋量大多只有每月 10 至 170，而且會幫對手做 SEO。</li><li>canapes 已分配給商務活動頁；感恩節、聖誕 event 和聖誕到會無關。</li></ul>{kwli('X', None, 6)}<button class="more" data-pg="X">查看全部 ↓</button></div>'''
 
-CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + NAV_CSS + '''
+CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + NAV_CSS + TOP_CSS + '''
 .pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}
 .copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'''
 JS = r'''const sel=document.getElementById('pg'),typ=document.getElementById('typ');
@@ -198,13 +216,13 @@ window.addEventListener('hashchange',goHash);draw();setTimeout(goHash,200);'''
 DATA = json.dumps(dict(rows=rows, pages={k: v[0] for k, v in PAGES.items()}), ensure_ascii=False)
 page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>聖誕 KW 分配｜Kitchen AO</title><style>{CSS}</style></head><body>
+{top_html('聖誕節')}
 <header><h1>🎄 聖誕節：架構圖＋KW 分配</h1>
 <p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，匯出 10-27）、Semrush HK（10-23）、GSC（10-08）｜2026-10-30 更新</p></header>
-{nav_html('聖誕節')}
 <div class="wrap">
 {DSEC(from_index("聖誕節"), "架構圖（聖誕節）", "Landing page 用聖誕套餐分類（類似萬聖節狂嘩套餐分類），原本計劃的 /catering/christmas/ 場景頁暫不做。")}
-<div class="rule"><b>分工：</b>交易字（聖誕到會、聖誕外賣、聖誕派對食物）由<b>聖誕到會 Landing page</b>負責，11 月 10 日前上線；資訊字（聖誕大餐、聖誕小食、火雞）由<b>改寫後的聖誕 Blog</b>負責，11 月中前完成，再連去 Landing page。英文聖誕字全部交給英文 Landing page（Blog 只有中文版）。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#BLOG</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
-<h2>頁面分配</h2><div class="grid1">{LP}{BLOG}{LPEN}</div>
+<div class="rule"><b>分工：</b>交易字（聖誕到會、聖誕外賣、聖誕派對食物）由<b>聖誕到會 Landing page</b>負責，11 月 10 日前上線；推介及餐單字（聖誕到會推介、聖誕到會餐單）由<b>Blog 1（更新舊文）</b>負責；資訊字（聖誕大餐、聖誕小食、火雞）由<b>Blog 2（新文章）</b>負責，11 月中前完成。兩篇都連去 Landing page。英文聖誕字全部交給英文 Landing page（Blog 只有中文版）。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#B2</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
+<h2>頁面分配</h2><div class="grid1">{LP}{B1}{B2}{LPEN}</div>
 <div class="grid">{XC}</div>
 <h2 id="all">全部關鍵字</h2><div class="card">
 <div class="tools"><select id="pg"><option value="">全部頁面</option></select><select id="typ"><option value="">全部角色</option></select><input id="q" placeholder="搜尋關鍵字"><span id="cnt"></span><button class="dl" id="dl">⬇ 下載 CSV</button></div>
