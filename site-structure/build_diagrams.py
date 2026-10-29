@@ -213,7 +213,7 @@ section{display:none;padding:20px 24px 60px}section.on{display:block}
 const V = __V__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
-const GROUPS={'素食':['素食'],'Seasonal':['中秋節','萬聖節','聖誕節']};const LINKS={'素食':[['📑 素食 KW 分配（7 篇 Blog）','vegetarian-kw.html']]};const SLINKS={'聖誕節':[['🎄 查看聖誕 KW 分配（Landing page、Blog、英文頁）','xmas-kw.html']]};const LABEL={'素食':'🗺️ 素食架構圖'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
+const GROUPS={'Seasonal':['中秋節','萬聖節','聖誕節']};const KWPAGE={'素食':'vegetarian-kw.html','聖誕節':'xmas-kw.html'};const LINKS={};const SLINKS={};const LABEL={'素食':'🥦 素食','聖誕節':'🎄 聖誕節'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
 const made={};let first=null;
 const BTN={};function show(b,s,top,k){if(k&&history.replaceState)history.replaceState(null,'','#'+encodeURIComponent(k));document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('section').forEach(x=>x.classList.remove('on'));b.classList.add('on');if(top)top.classList.add('on');s.classList.add('on');document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open'));const pre=s.querySelector('pre');if(!pre.dataset.done){mermaid.run({nodes:[pre]}).then(()=>pre.dataset.done=1);}}
 for(const [k,code] of Object.entries(V)){
@@ -227,10 +227,10 @@ for(const [k,code] of Object.entries(V)){
     made[g].m.appendChild(b);top=made[g].t;
     (LINKS[g]||[]).forEach(([t,u])=>{if(made[g]['l'+u])return;const a=document.createElement('button');a.textContent=t;a.onclick=e=>{e.stopPropagation();location.href=u;};made[g].m.appendChild(a);made[g]['l'+u]=1;});}
   else nav.appendChild(b);
-  b.onclick=e=>{e.stopPropagation();show(b,s,top,k);};BTN[k]=b;
+  b.onclick=e=>{e.stopPropagation();if(KWPAGE[k]){location.href=KWPAGE[k];return;}show(b,s,top,k);};BTN[k]=b;
   if(!first)first=b;
 }
-setTimeout(()=>{const h=decodeURIComponent(location.hash.slice(1));(BTN[h]||first).click();},0);
+{const h=decodeURIComponent(location.hash.slice(1));if(KWPAGE[h])location.replace(KWPAGE[h]);else setTimeout(()=>(BTN[h]||first).click(),0);}
 const ck=document.createElement('button');ck.textContent='🏢 核心頁面 KW 分配';ck.onclick=e=>{e.stopPropagation();location.href='core-pages-kw.html';};nav.appendChild(ck);
 document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
 </script></body></html>'''

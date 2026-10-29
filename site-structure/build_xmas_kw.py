@@ -4,7 +4,7 @@
 輸出：xmas-kw.html
 """
 import json, re, html, os
-from diag_embed import section as DSEC, from_index, CSS as DCSS
+from diag_embed import section as DSEC, from_index, CSS as DCSS, nav_html, NAV_CSS, NAV_JS
 HERE = os.path.dirname(os.path.abspath(__file__))
 X = json.load(open(os.path.join(HERE, 'xmas-kw-sources.json'), encoding='utf-8'))
 C = json.load(open(os.path.join(HERE, 'core-kw-sources.json'), encoding='utf-8'))
@@ -172,7 +172,7 @@ BLOG = card('BLOG', '資訊型｜11 月中前改寫', [
 XC = f'''<div class="pc" id="X" data-pg="X"><div class="ph"><b>X</b><span class="st">不放</span><a class="anc" href="#X" title="複製這頁的連結">🔗</a></div>
 <h3>不放：對手品牌字及無關字</h3>{num('X')}<ul class="iss"><li>對手品牌字（快餐及連鎖店聖誕套餐）搜尋量大多只有每月 10 至 170，而且會幫對手做 SEO。</li><li>canapes 已分配給商務活動頁；感恩節、聖誕 event 和聖誕到會無關。</li></ul>{kwli('X', None, 6)}<button class="more" data-pg="X">查看全部 ↓</button></div>'''
 
-CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + '''
+CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + NAV_CSS + '''
 .pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}
 .copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'''
 JS = r'''const sel=document.getElementById('pg'),typ=document.getElementById('typ');
@@ -198,8 +198,9 @@ window.addEventListener('hashchange',goHash);draw();setTimeout(goHash,200);'''
 DATA = json.dumps(dict(rows=rows, pages={k: v[0] for k, v in PAGES.items()}), ensure_ascii=False)
 page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>聖誕 KW 分配｜Kitchen AO</title><style>{CSS}</style></head><body>
-<header><h1>🎄 聖誕 KW 分配（Seasonal › 聖誕節）</h1>
-<p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，匯出 10-27）、Semrush HK（10-23）、GSC（10-08）｜2026-10-30 更新｜<a href="./index.html#%E8%81%96%E8%AA%95%E7%AF%80">← 返回聖誕節架構圖</a>｜<a href="./core-pages-kw.html">🏢 核心頁面 KW 分配</a></p></header>
+<header><h1>🎄 聖誕節：架構圖＋KW 分配</h1>
+<p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，匯出 10-27）、Semrush HK（10-23）、GSC（10-08）｜2026-10-30 更新</p></header>
+{nav_html('聖誕節')}
 <div class="wrap">
 {DSEC(from_index("聖誕節"), "架構圖（聖誕節）", "Landing page 用聖誕套餐分類（類似萬聖節狂嘩套餐分類），原本計劃的 /catering/christmas/ 場景頁暫不做。")}
 <div class="rule"><b>分工：</b>交易字（聖誕到會、聖誕外賣、聖誕派對食物）由<b>聖誕到會 Landing page</b>負責，11 月 10 日前上線；資訊字（聖誕大餐、聖誕小食、火雞）由<b>改寫後的聖誕 Blog</b>負責，11 月中前完成，再連去 Landing page。英文聖誕字全部交給英文 Landing page（Blog 只有中文版）。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#BLOG</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
@@ -211,7 +212,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <p class="foot">平均月搜、11 月、12 月＝GKP（2025 年）；沒有 GKP 數字的用 Semrush；GSC＝曝光／平均排名（近 3 個月，10-08）；Kitchen AO 有售＝可在 Blog 派對食物清單連去的產品頁。</p></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>try{{mermaid.initialize({{startOnLoad:true,securityLevel:'loose',flowchart:{{htmlLabels:true,curve:'basis'}}}});}}catch(e){{}}const D={DATA};{JS}</script></body></html>'''
+<script>try{{mermaid.initialize({{startOnLoad:true,securityLevel:'loose',flowchart:{{htmlLabels:true,curve:'basis'}}}});}}catch(e){{}}const D={DATA};{JS}</script>{NAV_JS}</body></html>'''
 open(os.path.join(HERE, 'xmas-kw.html'), 'w', encoding='utf-8').write(page)
 print('rows', len(rows))
 for pg in PAGES: print(pg, stats(pg))

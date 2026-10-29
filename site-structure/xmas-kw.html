@@ -38,10 +38,18 @@ textarea{width:100%;box-sizing:border-box;height:200px;font:inherit;font-size:13
 .diag .mermaid .t{display:inline-block;font-size:12px!important;font-weight:700;color:#fff!important;background:#1A1A1A;border-radius:10px;padding:2px 9px;margin-bottom:4px}
 .diag .mermaid .edgeLabel,.diag .mermaid .edgeLabel *{font-size:13px!important;color:#7a5c12!important;background:#FFF8E6!important}
 
+.snav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20;font-family:-apple-system,"PingFang HK","Noto Sans HK",sans-serif}
+.snav a,.snav .dt{border:1.5px solid #1A1A1A;background:#fff;color:#1A1A1A;border-radius:30px;padding:6px 14px;font-size:14px;text-decoration:none;cursor:pointer;line-height:1.4}
+.snav a.on,.snav .dt.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
+.snav .dd{position:relative}.snav .dt:after{content:' ▾'}
+.snav .menu{display:none;position:absolute;top:115%;left:0;background:#fff;border:1.5px solid #1A1A1A;border-radius:14px;padding:6px;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.snav .dd.open .menu{display:block}.snav .menu a{display:block;border:0;border-radius:10px;margin:2px 0}
+
 .pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}
 .copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}</style></head><body>
-<header><h1>🎄 聖誕 KW 分配（Seasonal › 聖誕節）</h1>
-<p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，匯出 10-27）、Semrush HK（10-23）、GSC（10-08）｜2026-10-30 更新｜<a href="./index.html#%E8%81%96%E8%AA%95%E7%AF%80">← 返回聖誕節架構圖</a>｜<a href="./core-pages-kw.html">🏢 核心頁面 KW 分配</a></p></header>
+<header><h1>🎄 聖誕節：架構圖＋KW 分配</h1>
+<p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，匯出 10-27）、Semrush HK（10-23）、GSC（10-08）｜2026-10-30 更新</p></header>
+<nav class="snav"><a href="index.html#%E5%85%A8%E7%AB%99%E7%B8%BD%E8%A6%BD">全站總覽</a><a href="index.html#%E8%88%B9%E6%B2%B3">船河</a><a href="vegetarian-kw.html">🥦 素食</a><a href="index.html#%E7%94%9F%E6%97%A5%E6%9C%83">生日會</a><a href="index.html#%E5%85%AC%E5%8F%B8%E5%8D%88%E9%A4%90">公司午餐</a><a href="index.html#%E5%AD%B8%E6%A0%A1%E9%A3%AF%E7%9B%92">學校飯盒</a><div class="dd"><span class="dt on">Seasonal</span><div class="menu"><a href="index.html#%E4%B8%AD%E7%A7%8B%E7%AF%80">中秋節</a><a href="index.html#%E8%90%AC%E8%81%96%E7%AF%80">萬聖節</a><a href="xmas-kw.html" class=on>🎄 聖誕節</a></div></div><a href="index.html#%E9%87%8E%E9%A4%90">野餐</a><a href="index.html#%E8%A8%82%E8%A3%BD%E9%A3%9F%E7%89%A9">訂製食物</a><a href="index.html#%E5%9C%B0%E5%8D%80%E9%A0%81">地區頁</a><a href="core-pages-kw.html">🏢 核心頁面 KW 分配</a></nav>
 <div class="wrap">
 <div class="diag"><h2 id="map">架構圖（聖誕節）</h2><p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="cta">虛線＋文字＝CTA 連結（要在該頁加入的按鈕或連結）</span>按格子可打開該頁</p><p class="note">Landing page 用聖誕套餐分類（類似萬聖節狂嘩套餐分類），原本計劃的 /catering/christmas/ 場景頁暫不做。</p><div class="card"><pre class="mermaid">flowchart LR
 H[&quot;&lt;span class=&#x27;t&#x27;&gt;首頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;首頁&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/&lt;/span&gt;&quot;]:::ok
@@ -123,4 +131,4 @@ document.getElementById('dl').onclick=()=>{const esc=v=>{v=v==null?'':String(v);
 document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{sel.value=b.dataset.pg;draw();document.getElementById('all').scrollIntoView({behavior:'smooth'})});
 function goHash(){const id=decodeURIComponent(location.hash.slice(1));if(!id)return;const c=document.getElementById(id);if(c&&c.classList.contains('pc')){document.querySelectorAll('.pc.hit').forEach(x=>x.classList.remove('hit'));c.classList.add('hit');c.scrollIntoView({behavior:'smooth'});}if([...sel.options].some(o=>o.value===id)){sel.value=id;draw();}}
 document.querySelectorAll('.pc .anc').forEach(a=>a.onclick=e=>{e.preventDefault();history.replaceState(null,'',a.getAttribute('href'));goHash();(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(()=>{const d=document.createElement('div');d.className='copied';d.textContent='已複製連結';document.body.appendChild(d);setTimeout(()=>d.remove(),1500);}).catch(()=>{});});
-window.addEventListener('hashchange',goHash);draw();setTimeout(goHash,200);</script></body></html>
+window.addEventListener('hashchange',goHash);draw();setTimeout(goHash,200);</script><script>document.querySelectorAll('.snav .dt').forEach(t=>t.onclick=e=>{e.stopPropagation();t.parentNode.classList.toggle('open')});document.addEventListener('click',()=>document.querySelectorAll('.snav .dd').forEach(d=>d.classList.remove('open')));</script></body></html>

@@ -343,7 +343,7 @@ def gsc30_html():
 <li><b>英文首頁只有品牌字有點擊</b>：catering service company（第 52 名）、corporate catering service（第 37 名）等，要用英文公司到會頁及首頁內鏈分流。</li>
 <li><b>行動</b>：首頁加內鏈區塊（「公司到會」「到會推介」「派對到會」作連結文字），英文首頁同樣用 corporate catering、party catering 連去英文頁。</li></ul>"""
 
-from diag_embed import N as DN, mm as DMM, section as DSEC, CSS as DCSS
+from diag_embed import N as DN, mm as DMM, section as DSEC, CSS as DCSS, nav_html, NAV_CSS, NAV_JS
 _old1 = '/blog/hongkong-catering-2026-e9-a6-99-e6-b8-af-e5-88-b0-e6-9c-83-e9-82-8a-e9-96-93-e5-a5-bd/'
 MERMAID = DMM('LR', [
  DN('H', '首頁（HOME／HOME-EN）', '/', 'ok', '首頁'),
@@ -376,7 +376,7 @@ def seed_html():
     areas = ''.join(f'<textarea class="seedt" id="seed-{k}" readonly hidden>{E(chr(10).join(v))}</textarea>' for k, v in SEEDS.items())
     return f'<div class="seedtabs"><button class="sd on" data-k="ALL">全部核心頁面（{len(seed)}）</button>{tabs}</div><textarea class="seedt" id="seed-ALL" readonly>{E(SEED)}</textarea>{areas}'
 
-CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + '\n.seedtabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.seedtabs .sd{border:1px solid #E3D9C4;background:#fff;border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer}.seedtabs .sd.on{background:#1A1A1A;color:#F7CE46;border-color:#1A1A1A}textarea.seedt{width:100%;height:220px;box-sizing:border-box}\n.pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}.copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'
+CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + NAV_CSS + '\n.seedtabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.seedtabs .sd{border:1px solid #E3D9C4;background:#fff;border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer}.seedtabs .sd.on{background:#1A1A1A;color:#F7CE46;border-color:#1A1A1A}textarea.seedt{width:100%;height:220px;box-sizing:border-box}\n.pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}.copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'
 JS = open(os.path.join(HERE, 'core-kw.js'), encoding='utf-8').read().replace("document.getElementById('seed')","document.querySelector('textarea.seedt:not([hidden])')") + '''
 document.querySelectorAll('.seedtabs .sd').forEach(b=>b.onclick=()=>{document.querySelectorAll('.seedtabs .sd').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('textarea.seedt').forEach(a=>a.hidden=a.id!=='seed-'+b.dataset.k);});
 function goHash(){const id=decodeURIComponent(location.hash.slice(1));if(!id)return;const c=document.getElementById(id);const opt=[...sel.options].some(o=>o.value===id);if(!(c&&c.classList.contains('pc'))){if(opt){sel.value=id;draw();document.getElementById('all').scrollIntoView({behavior:'smooth'});}return;}document.querySelectorAll('.pc.hit').forEach(x=>x.classList.remove('hit'));c.classList.add('hit');c.scrollIntoView({behavior:'smooth'});if([...sel.options].some(o=>o.value===id)){sel.value=id;draw();}}
@@ -387,6 +387,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <title>核心頁面 KW 分配｜Kitchen AO</title><style>{CSS}</style></head><body>
 <header><h1>🏢 核心頁面 KW 分配（公司到會、到會推介＋其他待 review 頁面）</h1>
 <p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08；首頁、公司到會、到會推介 2026-10-30）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a>｜<a href="./xmas-kw.html">🎄 聖誕 KW 分配</a></p></header>
+{nav_html('核心')}
 <div class="wrap">
 {DSEC(MERMAID, "架構圖（中文版；英文版 /en/ 結構相同）", "包括公司到會、到會推介、商務活動、關於我們、常見問題、客製化紀念品及相關 Blog。")}
 <div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 字交給英文公司到會頁。所有聖誕字（中英）已拆到 <a href="./xmas-kw.html">🎄 聖誕 KW 分配頁</a>（Seasonal › 聖誕節）。架構圖中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
@@ -405,7 +406,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 {seed_html()}<button class="dl" id="cp">📋 複製目前清單</button></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>const D={DATA};{JS}</script></body></html>'''
+<script>const D={DATA};{JS}</script>{NAV_JS}</body></html>'''
 
 open(os.path.join(HERE, 'core-pages-kw.html'), 'w', encoding='utf-8').write(page)
 print('rows', len(rows), 'seed', len(seed))

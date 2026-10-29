@@ -39,3 +39,37 @@ def mm(direction, nodes, edges):
     L += [f'click {n["id"]} "{n["url"]}" _blank' for n in nodes if n['url']]
     L += CLS
     return '\n'.join(L)
+
+# ---------- 共用頂部選單（index.html 及各 KW 頁）----------
+ORDER = ['全站總覽', '船河', '素食', '生日會', '公司午餐', '學校飯盒', '中秋節', '萬聖節', '聖誕節', '野餐', '訂製食物', '地區頁']
+GROUP = {'Seasonal': ['中秋節', '萬聖節', '聖誕節']}
+KWPAGE = {'素食': 'vegetarian-kw.html', '聖誕節': 'xmas-kw.html'}   # 這些分頁＝架構圖＋KW 分配，同一頁
+LABEL = {'素食': '🥦 素食', '聖誕節': '🎄 聖誕節'}
+CORE = ('🏢 核心頁面 KW 分配', 'core-pages-kw.html')
+import urllib.parse as _u
+def href(k):
+    return KWPAGE.get(k) or 'index.html#' + _u.quote(k)
+NAV_CSS = '''
+.snav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20;font-family:-apple-system,"PingFang HK","Noto Sans HK",sans-serif}
+.snav a,.snav .dt{border:1.5px solid #1A1A1A;background:#fff;color:#1A1A1A;border-radius:30px;padding:6px 14px;font-size:14px;text-decoration:none;cursor:pointer;line-height:1.4}
+.snav a.on,.snav .dt.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
+.snav .dd{position:relative}.snav .dt:after{content:' ▾'}
+.snav .menu{display:none;position:absolute;top:115%;left:0;background:#fff;border:1.5px solid #1A1A1A;border-radius:14px;padding:6px;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.snav .dd.open .menu{display:block}.snav .menu a{display:block;border:0;border-radius:10px;margin:2px 0}
+'''
+NAV_JS = '''<script>document.querySelectorAll('.snav .dt').forEach(t=>t.onclick=e=>{e.stopPropagation();t.parentNode.classList.toggle('open')});document.addEventListener('click',()=>document.querySelectorAll('.snav .dd').forEach(d=>d.classList.remove('open')));</script>'''
+def nav_html(current):
+    ing = {k: g for g, ks in GROUP.items() for k in ks}
+    out, done = [], set()
+    for k in ORDER:
+        g = ing.get(k)
+        if g:
+            if g in done: continue
+            done.add(g)
+            on = ' on' if current in GROUP[g] else ''
+            items = ''.join(f'<a href="{href(x)}"{" class=on" if x == current else ""}>{LABEL.get(x, x)}</a>' for x in GROUP[g])
+            out.append(f'<div class="dd"><span class="dt{on}">{g}</span><div class="menu">{items}</div></div>')
+        else:
+            out.append(f'<a href="{href(k)}"{" class=on" if k == current else ""}>{LABEL.get(k, k)}</a>')
+    out.append(f'<a href="{CORE[1]}"{" class=on" if current == "核心" else ""}>{CORE[0]}</a>')
+    return '<nav class="snav">' + ''.join(out) + '</nav>'
