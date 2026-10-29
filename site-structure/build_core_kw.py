@@ -26,7 +26,26 @@ PAGES = {
  'FAQ':  ('常見問題', '/常見問題/'),
  'GIFT': ('客製化紀念品', '/客製化紀念品訂製服務/'),
  'RCP':  ('Recipes 食譜', ''),
+ 'HOME-EN': ('首頁（英文）', '/en/'),
+ 'CORP-EN': ('公司到會（英文）', '/en/corporate-catering-hk/'),
+ 'REC-EN':  ('到會推介（英文）', '/en/hong-kong-catering-recommendation/'),
+ 'BIZ-EN':  ('商務活動（英文）', '/en/business-event/'),
+ 'BOX-EN':  ('商務／員工餐盒分類（英文）', '/en/product-category/商務活動/commercial-lunch-box/'),
+ 'PARTY':   ('派對到會套餐分類', '/product-category/party/'),
+ 'PARTY-EN':('派對到會套餐分類（英文）', '/en/product-category/party/'),
+ 'XMAS-LP':    ('聖誕到會 Landing page（建議新增）', '（建議新增：聖誕套餐分類）'),
+ 'XMAS-LP-EN': ('聖誕到會 Landing page（英文）', '（建議新增：/en/ 聖誕套餐分類）'),
 }
+# 英文字自動分配到英文頁（Blog 只有中文版，英文字改由其他英文頁負責）
+EN_PAGE = {'HOME': 'HOME-EN', 'CORP': 'CORP-EN', 'REC': 'REC-EN', 'BIZ': 'BIZ-EN', 'BOX': 'BOX-EN', 'PARTY': 'PARTY-EN',
+           'XMAS': 'XMAS-LP-EN', 'XMAS-LP': 'XMAS-LP-EN', 'NB1': 'CORP-EN'}
+G30 = json.load(open(os.path.join(HERE, 'gsc-pages-2026-10-30.json'), encoding='utf-8'))
+G30N = {pg: {n(k): v for k, v in d['q'].items()} for pg, d in G30.items()}
+G30LAB = {'HOME': '中文首頁', 'HOME-EN': '英文首頁', 'CORP*': '公司到會', 'REC*': '到會推介'}
+def now30(k):
+    hits = [(G30LAB[pg], d[k][1], d[k][2]) for pg, d in G30N.items() if k in d and d[k][1] > 0]
+    hits.sort(key=lambda x: -x[1])
+    return '；'.join(f'{a} {b:,} 曝光 #{c:g}' for a, b, c in hits) or None
 
 # kw, page, role, lang, src(額外來源), use
 R = []
@@ -35,21 +54,28 @@ def add(page, role, kws, lang='中', src='', use=''):
 
 # 公司到會
 add('CORP','主要',['公司到會'],use='H1／Title／首段 100 字內')
-add('CORP','次要',['企業到會','公司到會服務','公司到會推介','到會服務 公司','到會公司'],use='H2／首段／Meta')
+add('CORP','次要',['企業到會','公司到會服務','到會服務 公司'],use='H2／首段／Meta')
 add('CORP','次要',['annual dinner 到會','年會到會','午餐到會','office lunch 到會'],src='建議',use='H2（Annual Dinner／Office Lunch 段）')
 add('CORP','長尾',['公司聚會到會','春茗到會','公司開年飯','公司團年飯','團年飯到會'],src='',use='H3／內文（節日公司活動段）')
 add('CORP','FAQ',['公司到會價錢','公司到會要提前多少日預訂','公司到會有沒有素食','公司到會可否開發票'],src='建議',use='FAQ（FAQPage schema）')
 add('CORP','主要',['corporate catering hong kong'],lang='EN',use='EN Title／H1（/en/ 版）')
-add('CORP','次要',['corporate catering','corporate catering service','corporate catering hk','corporate catering events','office catering hong kong','office lunch delivery','office lunch catering','catering service company'],lang='EN',use='EN 內文／Meta')
+add('CORP','次要',['corporate catering','corporate catering service','corporate catering hk','corporate catering events','office catering hong kong','office lunch delivery','office lunch catering','office lunch catering hong kong','corporate lunch catering hong kong','office party catering hk','office catering'],lang='EN',use='EN 內文／Meta')
+add('CORP','長尾',['company annual dinner planning hk','annual dinner planner hk','annual lunch','department dinner'],lang='EN',src='GSC 10-30',use='EN Annual Dinner 段（Blog 只有中文版）')
 # 到會推介
 add('REC','主要',['到會推介','香港到會推介','到會推介2026'],use='H1／Title／首段 100 字內')
-add('REC','次要',['到會推薦','到會服務推介','到會服務推介 2026','到會服務 香港','高級到會推介','高級到會','到會推介評分最高','到會推介 好食','到會推介2022'],use='H2／內文／Meta')
-add('REC','長尾',['派對到會推介','party到會推介','派對到會 推介','美食到會','到會美食','到會專門店','小型到會'],use='H3／推介速覽表')
+add('REC','次要',['公司到會推介','到會服務推介 2026'],src='GSC 10-30',use='H2「公司活動到會推介」（連去公司到會頁）')
+add('REC','次要',['到會推薦','到會服務推介','高級到會推介','高級到會','到會推介評分最高','到會推介 好食','到會推介2022'],use='H2／內文／Meta')
+add('REC','長尾',['派對到會推介','party到會推介','派對到會 推介','到會美食','到會專門店','小型到會'],use='H3／推介速覽表')
 add('REC','主要',['catering company hong kong'],lang='EN',use='EN Title／H1（/en/ 版）')
-add('REC','次要',['catering company hk','catering companies','party catering','party catering hk','catering party','food catering'],lang='EN',use='EN 內文')
+add('REC','次要',['catering company hk','catering companies','celebrations catering','best catering hong kong'],lang='EN',use='EN 內文')
 # 首頁
 add('HOME','主要',['到會','香港到會','到會服務','到會食物'])
+add('HOME','次要',['到會公司','到會服務 香港','美食到會','到會套餐','catering 香港'],src='GSC 10-30',use='首頁 H2／首段（首頁已排第 28 至 32 名）')
+add('PARTY','主要',['派對到會','party 到會','派對到會套餐','派對食物到會','party food 到會','生日到會','生日到會服務','party到會'],src='GSC 10-30',use='派對分類頁 H1／頁頂內容（現由首頁排第 32 至 53 名）')
+add('PARTY','主要',['party food delivery hk','party food delivery','party catering','party catering hk','party catering services','party food hk','food catering for birthday parties','catering party'],lang='EN',src='GSC 10-30',use='EN 派對分類頁')
+add('XMAS-LP','主要',['聖誕到會','聖誕到會套餐','聖誕外賣','聖誕派對食物','公司聖誕派對到會','聖誕大餐外賣','聖誕大餐 外送'],src='聖誕策略 10-30',use='聖誕套餐分類 H1／頁頂內容（舊 Blog 改為主攻聖誕大餐）')
 add('HOME','主要',['catering','catering hk','catering hong kong','catering service hong kong','catering services','catering 中文'],lang='EN')
+add('HOME','次要',['catering service company','catering service provider','food catering services','catering service hk','catered meals','full service catering','affordable catering','food and beverage catering','food catering','catering service'],lang='EN',src='GSC 10-30',use='EN 首頁 H2／內文（現排第 37 至 59 名）')
 # 商務活動
 add('BIZ','主要',['商務到會','酒會到會','開張到會','宴會到會','酒會'])
 add('BIZ','主要',['event catering','finger food catering','canapes catering hong kong'],lang='EN')
@@ -63,8 +89,8 @@ add('NB1','次要',['company annual dinner planning hk'],lang='EN',use='EN 版 H
 # 舊 blog
 add('OLD1','主要',['到會邊間好','平價到會','到會價錢','到會平'],use='重寫時 H1／H2')
 add('OLD2','主要',['中伏','到會中伏','到會注意事項'],use='重寫時 H1／H2')
-add('XMAS','主要',['聖誕到會','聖誕到會推介','聖誕節到會','聖誕到會餐單','聖誕大餐到會','公司聖誕派對到會'],use='重寫時 H1／H2（12 月旺季前上線）')
-add('XMAS','主要',['christmas catering hong kong','christmas catering','xmas party catering'],lang='EN')
+add('XMAS','主要',['聖誕大餐','聖誕到會推介','聖誕小食','聖誕食品','聖誕節到會','聖誕到會餐單','聖誕大餐到會'],use='重寫為「香港人聖誕餐吃甚麼」資訊型（主攻聖誕大餐）；交易字交給聖誕 Landing page')
+add('XMAS','主要',['christmas catering hong kong','christmas catering','xmas catering','xmas party catering','new year catering'],lang='EN',use='Blog 沒有英文版 → 英文聖誕 Landing page')
 # 不放
 add('X','—',['到會推介lihkg','到會推介baby kingdom','到會推介 threads','大家樂到會','大快活到會','pizza hut到會','hku catering','asia pacific catering'],use='論壇／品牌／其他公司，不作目標')
 
@@ -87,8 +113,10 @@ for r in R:
     if s: srcs.append('Semrush')
     if g: srcs.append('GSC')
     if k in AUTOC: srcs.append('Google 自動完成')
+    if now30(k) and 'GSC' not in srcs: srcs.append('GSC 10-30')
     if r['src'] == '建議' and not srcs: srcs.append('建議（待 KP）')
-    rows.append(dict(kw=r['kw'], pg=r['pg'], typ=r['typ'], lang=r['lang'], use=r['use'],
+    pgv = EN_PAGE.get(r['pg'], r['pg']) if r['lang'] == 'EN' else r['pg']
+    rows.append(dict(kw=r['kw'], pg=pgv, typ=r['typ'], lang=r['lang'], use=r['use'], now=now30(k),
         vol=s.get('vol') or None, kd=s.get('kd'), gi=g[1] if g else None, gp=round(g[2],1) if g and g[2] else None,
         pt=pt if isinstance(pt,(int,float)) else None, ao=pos(s.get('ao')), km=pos(s.get('km')), br=pos(s.get('br')),
         src='、'.join(srcs) or '—'))
@@ -122,6 +150,7 @@ CORP_CARD = f'''
 <h3>公司到會（Annual Dinner、Office Lunch）</h3>
 <p class="u"><a href="https://aoaodelivery.com/corporate-catering-hk/" target="_blank">/corporate-catering-hk/</a>（頁面 ID 18404）</p>
 {num('CORP')}
+<div class="two"><div><h4>中文版主攻字</h4>{kwli('CORP', 6)}</div><div><h4>英文版（<a href="https://aoaodelivery.com/en/corporate-catering-hk/" target="_blank">/en/corporate-catering-hk/</a>）主攻字</h4>{kwli('CORP-EN', 6)}</div></div>
 <div class="two"><div>
 <h4>現況（2026-10-27 檢查）</h4>
 <ul class="iss">
@@ -165,6 +194,7 @@ REC_CARD = f'''
 <h3>到會推介</h3>
 <p class="u"><a href="https://aoaodelivery.com/hong-kong-catering-recommendation/" target="_blank">/hong-kong-catering-recommendation/</a>（頁面 ID 18621）</p>
 {num('REC')}
+<div class="two"><div><h4>中文版主攻字</h4>{kwli('REC', 6)}</div><div><h4>英文版（<a href="https://aoaodelivery.com/en/hong-kong-catering-recommendation/" target="_blank">/en/hong-kong-catering-recommendation/</a>）主攻字</h4>{kwli('REC-EN', 6)}</div></div>
 <div class="two"><div>
 <h4>現況（2026-10-27 檢查）</h4>
 <ul class="iss">
@@ -214,6 +244,21 @@ def small(pg, title, url, status, notes, cls=''):
 <h3>{title}</h3><p class="u">{link}</p><ul class="iss">{lis}</ul>{kws}{more}</div>'''
 
 OTHERS = [
+ small('HOME','首頁（中文）','/','10-30 新增分配',[
+   'GSC 10-30：13,142 曝光、平均第 27 名，近 30 日升 11%。「到會」第 19 名最接近首頁；「到會服務」940 曝光、第 28 名。',
+   '新增負責「到會公司」（602 曝光、第 30 名）、「到會服務 香港」「到會套餐」「美食到會」。',
+   '首頁不再主攻公司到會、推介及派對字：加內鏈區塊，用「公司到會」「到會推介」「派對到會」作連結文字。']),
+ small('HOME-EN','首頁（英文）','/en/','10-30 新增分配',[
+   'GSC 10-30：2,046 曝光，128 點擊幾乎全部來自品牌字（kitchen ao 第 1 名）。',
+   '負責 catering、catering hong kong、catering services、catering service company／provider（現第 46 至 59 名）。',
+   'corporate catering 類字交給英文公司到會頁；英文首頁加內鏈連去 /en/corporate-catering-hk/。']),
+ small('PARTY','派對到會套餐分類（中英）','/product-category/party/','10-30 新增',[
+   '「派對到會」465 曝光、「生日到會」295 曝光、「party 到會」202 曝光，現時全部由首頁排第 32 至 53 名。',
+   '分類頁頂加 150 至 300 字介紹及 FAQ，H1 用「派對到會套餐」。英文版主攻 party food delivery hk、party catering。']),
+ small('XMAS-LP','聖誕到會 Landing page（中英）','（建議新增：聖誕套餐分類）','10-30 新增｜11 月 10 日前',[
+   '負責交易字：聖誕到會、聖誕到會套餐、聖誕外賣、聖誕派對食物、公司聖誕派對到會。',
+   '舊聖誕 Blog 改為主攻「聖誕大餐」（12 月 12,100 搜尋量）等資訊字，再連去這頁。',
+   '英文版負責 christmas catering hong kong、xmas catering（Blog 沒有英文版）。']),
  small('BIZ','商務活動','/business-event/','下一輪',[
    '和公司到會頁重疊：兩頁都寫「公司到會推介」。建議這頁改為主攻商務活動、酒會、開張、發佈會及 Canapés。',
    '有兩個完全相同的 H2「公司到會推介 開胃菜 Finger Food 和 Canapé\'s 的魅力」。',
@@ -251,21 +296,52 @@ OTHERS = [
 
 # ---------- 擁有權表 ----------
 OWN = [
- ('到會、香港到會、到會服務、到會食物、catering','首頁','整站最大字，只由首頁主攻'),
- ('到會推介、香港到會推介、到會推薦、到會推介2026','到會推介','套餐推介清單'),
- ('到會邊間好、平價到會、到會價錢','舊 Blog：到會邊間好','比較及揀選準則'),
- ('中伏、到會注意事項','舊 Blog：到會中伏','避雷清單'),
- ('公司到會、企業到會、annual dinner 到會、office lunch','公司到會','交易型服務頁'),
- ('商務到會、酒會、開張、宴會到會、canapés','商務活動','活動型服務頁'),
- ('商務餐盒、員工餐盒、公司飯盒、商務便當','商務／員工餐盒分類','產品分類'),
- ('annual dinner 遊戲、抽獎禮物、場地、主題','新 Blog：Annual Dinner','資訊型'),
- ('聖誕到會、公司聖誕派對','舊 Blog：聖誕到會','季節性'),
+ ('到會、香港到會、到會服務、到會公司、到會套餐、美食到會', '首頁 /', 'catering、catering hong kong、catering services、catering service company／provider', '首頁 /en/', '整站最大字，只由首頁主攻'),
+ ('公司到會、企業到會、公司到會服務、annual dinner 到會、年會到會、午餐到會', '公司到會', 'corporate catering hong kong、corporate catering (service)、office catering hong kong、office lunch catering、company annual dinner planning hk', '公司到會 /en/', '交易型服務頁；英文版同時承接 Annual Dinner 英文字'),
+ ('到會推介、香港到會推介、到會推薦、公司到會推介、到會服務推介 2026', '到會推介', 'catering company hong kong、catering companies、celebrations catering', '到會推介 /en/', '推介清單；公司字只留一段並連去公司到會'),
+ ('派對到會、party 到會、派對到會套餐、生日到會', '派對到會套餐分類', 'party food delivery hk、party catering (services)、food catering for birthday parties', '派對分類 /en/', '產品分類頁；現由首頁排第 32 至 53 名'),
+ ('商務到會、酒會、開張、宴會到會、canapés', '商務活動', 'event catering、finger food catering、canapes catering hong kong', '商務活動 /en/', '活動型服務頁'),
+ ('商務餐盒、員工餐盒、公司飯盒、商務便當', '商務／員工餐盒分類', 'lunch set、catering box', '餐盒分類 /en/', '產品分類'),
+ ('聖誕到會、聖誕到會套餐、聖誕外賣、聖誕派對食物、公司聖誕派對到會', '聖誕 Landing page（新增）', 'christmas catering hong kong、xmas catering、xmas party catering', '聖誕 Landing page /en/', '交易型季節頁'),
+ ('聖誕大餐、聖誕小食、聖誕食品、聖誕到會推介', '舊 Blog：聖誕（改寫）', '（Blog 只有中文版）', '—', '資訊型，帶去聖誕 Landing page'),
+ ('到會邊間好、平價到會、到會價錢', '舊 Blog：到會邊間好', '（Blog 只有中文版）', '—', '比較及揀選準則'),
+ ('中伏、到會注意事項', '舊 Blog：到會中伏', '（Blog 只有中文版）', '—', '避雷清單'),
+ ('annual dinner 遊戲、抽獎禮物、場地、主題', '新 Blog：Annual Dinner', '（Blog 只有中文版，英文字由公司到會 /en/ 負責）', '—', '資訊型'),
 ]
-own_html = '<table class="own"><tr><th>關鍵字群</th><th>負責頁面</th><th>頁面角色</th></tr>' + ''.join(f'<tr><td>{E(a)}</td><td><b>{E(b)}</b></td><td>{E(c)}</td></tr>' for a,b,c in OWN) + '</table>'
+own_html = '<table class="own"><tr><th>中文關鍵字群</th><th>中文頁</th><th>英文關鍵字群</th><th>英文頁</th><th>頁面角色</th></tr>' + ''.join(f'<tr><td>{E(a)}</td><td><b>{E(b)}</b></td><td>{E(c)}</td><td><b>{E(d)}</b></td><td>{E(e)}</td></tr>' for a,b,c,d,e in OWN) + '</table>'
+
+# ---------- GSC 2026-10-30 對位分析 ----------
+def gsc30_html():
+    lab = [('HOME','中文首頁 /'),('HOME-EN','英文首頁 /en/'),('CORP*','公司到會（中＋英）'),('REC*','到會推介（中＋英）')]
+    tr = ''
+    for k, name in lab:
+        d = G30[k]['tot']; ch = (d['last30'] - d['prev30']) / d['prev30'] * 100 if d['prev30'] else 0
+        tr += f"<tr><td><b>{name}</b></td><td>{d['impr']:,}</td><td>{d['clicks']:,}</td><td>{d['pos']}</td><td>{d['last30']:,} vs {d['prev30']:,}（{ch:+.0f}%）</td></tr>"
+    t1 = '<table class="own"><tr><th>頁面</th><th>曝光</th><th>點擊</th><th>平均排名</th><th>近 30 日曝光 vs 前 30 日</th></tr>' + tr + '</table>'
+    kws = ['到會公司','公司到會','商務到會','公司到會服務','企業到會','公司到會推介','香港到會推介','派對到會','生日到會','corporate catering','corporate catering service','catering service company','company annual dinner planning hk']
+    want = {r['kw']: (PAGES[r['pg']][0]) for r in rows}
+    tr = ''
+    for kw in kws:
+        k = n(kw); cells = []
+        for pg in ['HOME','HOME-EN','CORP*','REC*']:
+            v = G30N[pg].get(k); cells.append(f"{v[1]:,}／#{v[2]:g}" if v else '—')
+        tr += f"<tr><td><b>{E(kw)}</b></td>" + ''.join(f'<td>{c}</td>' for c in cells) + f"<td>{E(want.get(kw,'—'))}</td></tr>"
+    t2 = '<table class="own"><tr><th>關鍵字</th><th>中文首頁</th><th>英文首頁</th><th>公司到會</th><th>到會推介</th><th>分配到</th></tr>' + tr + '</table>'
+    return f"""<p class="note">GSC 2026-07-28 至 10-27（匯出 10-30）。公司到會及到會推介的數字包括中英文版；曝光／平均排名。</p>{t1}
+<h4>自家頁面互搶：公司到會及推介字主要由首頁排名</h4>{t2}
+<ul class="iss"><li><b>公司到會頁差不多沒有排名</b>：「公司到會」「到會公司」「企業到會」都由首頁（第 29 至 44 名）及到會推介頁（第 74 至 86 名）排名，公司到會頁沒有出現。新版內文上線後曝光已升 67%。</li>
+<li><b>到會推介頁搶錯字</b>：3 個月零點擊，主要排名的是公司到會字（第 75 至 86 名）；「香港到會推介」反而由首頁排第 31 名。改寫時要刪減公司內容，主攻推介、推薦、邊間好。</li>
+<li><b>派對字由首頁排名</b>：「派對到會」465 曝光、「生日到會」295 曝光，應交給派對到會套餐分類頁。</li>
+<li><b>英文首頁只有品牌字有點擊</b>：catering service company（第 52 名）、corporate catering service（第 37 名）等，要用英文公司到會頁及首頁內鏈分流。</li>
+<li><b>行動</b>：首頁加內鏈區塊（「公司到會」「到會推介」「派對到會」作連結文字），英文首頁同樣用 corporate catering、party catering 連去英文頁。</li></ul>"""
 
 MERMAID = '''flowchart LR
 H["首頁<br/>到會・catering"] --> REC["到會推介<br/>/hong-kong-catering-recommendation/"]
 H --> CORP["公司到會<br/>/corporate-catering-hk/"]
+H --> PARTY["派對到會套餐分類<br/>/product-category/party/"]
+REC --> PARTY
+XMAS --> XLP["聖誕 Landing page<br/>（新增）"]
+CORP --> XLP
 REC --> CORP
 REC <--> OLD1["舊 Blog<br/>到會邊間好"]
 REC <--> OLD2["舊 Blog<br/>到會中伏"]
@@ -282,7 +358,7 @@ classDef blog fill:#E3F4E8,stroke:#6FAE82
 classDef cat fill:#E3F1FB,stroke:#7AA7CF
 class CORP,REC main
 class OLD1,OLD2,XMAS,NB1 blog
-class BOX,BIZ,Q,P,ABOUT cat'''
+class BOX,BIZ,Q,P,ABOUT,PARTY,XLP cat'''
 
 DATA = json.dumps(dict(rows=rows, pages={k: v[0] for k, v in PAGES.items()}), ensure_ascii=False)
 SEED = '\n'.join(seed)
@@ -293,17 +369,18 @@ JS = open(os.path.join(HERE, 'core-kw.js'), encoding='utf-8').read()
 page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>核心頁面 KW 分配｜Kitchen AO</title><style>{CSS}</style></head><body>
 <header><h1>🏢 核心頁面 KW 分配（公司到會、到會推介＋其他待 review 頁面）</h1>
-<p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a></p></header>
+<p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08；首頁、公司到會、到會推介 2026-10-30）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a></p></header>
 <div class="wrap">
-<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
+<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 及聖誕字分別交給英文公司到會頁及英文聖誕 Landing page。內鏈架構中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
 <h2>內鏈架構</h2><div class="card"><pre class="mermaid">{E(MERMAID)}</pre></div>
-<h2>關鍵字擁有權（防止自家頁面互搶）</h2><div class="card">{own_html}</div>
+<h2>GSC 對位分析（2026-10-30）</h2><div class="card">{gsc30_html()}</div>
+<h2>關鍵字擁有權：中英文頁分工（2026-10-30 更新）</h2><div class="card">{own_html}</div>
 <h2>第一輪：公司到會＋到會推介</h2><div class="grid1">{CORP_CARD}{REC_CARD}</div>
 <h2>其他待 review 頁面</h2><div class="grid">{''.join(OTHERS)}</div>
 <h2 id="all">全部關鍵字</h2><div class="card">
 <div class="tools"><select id="pg"><option value="">全部頁面</option></select><select id="lang"><option value="">中＋EN</option><option>中</option><option>EN</option></select><input id="q" placeholder="搜尋關鍵字"><span id="cnt"></span><button class="dl" id="dl">⬇ 下載 CSV</button></div>
 <div class="tw"><table id="tb"></table></div>
-<p class="foot">Vol／KD＝Semrush HK；GSC＝曝光／平均排名（近 3 個月）；PT＝Position Tracking 10-24 排名（Desktop）；AO／Kama／Bear＝Semrush 排名。空白代表沒有數據。</p></div>
+<p class="foot">現時排名頁＝GSC 10-30 哪一頁有曝光（曝光 #平均排名）；Vol／KD＝Semrush HK；GSC＝曝光／平均排名（近 3 個月）；PT＝Position Tracking 10-24 排名（Desktop）；AO／Kama／Bear＝Semrush 排名。空白代表沒有數據。</p></div>
 <h2>Keyword Planner 種子字（{len(seed)} 個，沒有 Semrush 搜尋量）</h2><div class="card">
 <p class="note">複製後貼入 Google Keyword Planner ›「取得搜尋量和預測」，地區選香港，匯出 csv 給我更新。</p>
 <textarea id="seed" readonly>{E(SEED)}</textarea><button class="dl" id="cp">📋 複製</button></div>

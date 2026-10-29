@@ -2,7 +2,7 @@ try{mermaid.initialize({startOnLoad:true,securityLevel:'loose',flowchart:{htmlLa
 const sel=document.getElementById('pg'),lang=document.getElementById('lang');
 Object.entries(D.pages).forEach(([k,v])=>{if(!D.rows.some(r=>r.pg===k))return;const o=document.createElement('option');o.value=k;o.textContent=k+' '+v;sel.appendChild(o)});
 const f=x=>x==null||x===''?'':Number(x).toLocaleString();
-const C=[['kw','關鍵字',1],['pg','頁面'],['typ','類型'],['lang','語言'],['vol','Vol'],['kd','KD'],['gi','GSC 曝光'],['gp','GSC 排名'],['pt','PT 10-24'],['ao','AO'],['km','Kama'],['br','Bear'],['src','來源'],['use','用法']];
+const C=[['kw','關鍵字',1],['pg','頁面'],['typ','類型'],['lang','語言'],['vol','Vol'],['kd','KD'],['gi','GSC 曝光'],['gp','GSC 排名'],['pt','PT 10-24'],['ao','AO'],['km','Kama'],['br','Bear'],['now','現時排名頁（GSC 10-30）'],['src','來源'],['use','用法']];
 const NUM=['vol','kd','gi','gp','pt','ao','km','br'];let sk=null,sd=-1,cur=[];
 function draw(){const pg=sel.value,lg=lang.value,q=document.getElementById('q').value.trim().toLowerCase();
 let rs=D.rows.filter(r=>(!pg||r.pg===pg)&&(!lg||r.lang===lg)&&(!q||r.kw.toLowerCase().includes(q)));
