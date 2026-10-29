@@ -10,7 +10,7 @@ TAGS = {'/delivery/': '支援頁', '/foodbook/': '支援頁', '/常見問題/': 
         '/飲品及雞尾酒服務/': '服務頁', '/客製化紀念品訂製服務/': '服務頁', '/mooncake-preorder/': '推廣頁', '/地區到會分類/': '地區 Hub',
         '/boat-trip-bldg/': '舊 Landing 頁', '/partyfood-bldg/': '舊 Landing 頁', '/snacks-bldg/': '舊 Landing 頁', '/blog/': 'Blog 首頁',
         '/商務餐盒/': '舊產品頁', '/高級餐盒-2/': '舊產品頁', '/員工膳食餐盒/': '舊產品頁', '/皇家小食盒/': '舊產品頁', '/舌尖上的餐桌-頂級美食一盒盛/': '舊產品頁',
-        '/sample-page/': '問題頁', '/ba620e385336-htm/': '問題頁（被入侵）', '/66695d0f41db-htm/': '問題頁（被入侵）', '/': '首頁'}
+        '/en/corporate-catering-hk/': '服務頁（英文）', '/en/delivery/': '支援頁（英文）', '/sample-page/': '問題頁', '/ba620e385336-htm/': '問題頁（被入侵）', '/66695d0f41db-htm/': '問題頁（被入侵）', '/': '首頁'}
 def page_tag(path, name):
     if path in TAGS: return TAGS[path]
     if not path: return '分組' if name in ('港島', '九龍', '新界') else '計劃中'
@@ -59,21 +59,25 @@ D['船河'] = dict(dir='LR', nodes=[
 
 # ---------- 素食 ----------
 D['素食'] = dict(dir='LR', nodes=[
- N('H', '首頁', '/'), N('L', '素食 landing（新）', '/catering/vegetarian/', 'new'),
- N('C1', '「素」味人生套餐分類', '/product-category/party/vegetarians-set/'),
- N('V1', '6–8 人', '/product/ao-6-8pax-vegetarian-life/'), N('V2', '10–12 人', '/product/ao-10-12pax-vegetarian-life/'),
- N('V3', '16–19 人', '/product/ao-16-19pax-vegetarian-life/'), N('V4', '22–26 人', '/product/ao-22-26pax-vegetarian-life/'),
- N('C2', '素食單品（新分類）', '/product-category/a-la-carte/vegetarian/', 'new'),
+ N('H', '首頁', '/'), N('LP', 'LP｜素食到會 Landing（新）', '/catering/vegetarian/', 'new'),
+ N('C1', 'C1｜「素」味人生套餐分類', '/product-category/party/vegetarians-set/'),
+ N('V1', 'P1｜6–8 人', '/product/ao-6-8pax-vegetarian-life/'), N('V2', 'P2｜10–12 人', '/product/ao-10-12pax-vegetarian-life/'),
+ N('V3', 'P3｜16–19 人', '/product/ao-16-19pax-vegetarian-life/'), N('V4', 'P4｜22–26 人', '/product/ao-22-26pax-vegetarian-life/'),
+ N('C2', 'C2｜素食單點（新分類）', '/product-category/a-la-carte/vegetarian/', 'new'),
  N('I1', '惹味蒜香焗茄子', '/product/a3900-grilled-garlic-eggplant/', 'old'), N('I2', '蒜香炒翠玉瓜', '/product/a62-stir-fried-zucchini-with-garlic-1-pounds/', 'old'),
  N('I3', '忌廉白汁菠菜', '/product/a59-spinach-with-cream-sauce-1-pounds/', 'old'), N('I4', '手壓香濃薯蓉', '/product/a61-hand-pressed-sweet-potato-puree-1-pounds/', 'old'),
- N('BG', 'Blog 1 素食到會推介（更新舊文）', '/blog/vegetarian-catering-hong-kong/', 'old'),
- N('B2', 'Blog 2 素食種類全攻略（支柱）', '/blog/vegetarian-types-guide/', 'new'),
- N('B3', 'Blog 3 初一十五食齋懶人包', '/blog/chu-yat-sap-ng-vegetarian-guide/', 'new'),
- N('B4', 'Blog 4 吃素好處與營養', '/blog/vegetarian-nutrition-protein/', 'new'),
- N('B5', 'Blog 5 一週素食菜單', '/blog/weekly-vegetarian-menu/', 'new'),
- N('B6', 'Blog 6 Vegan／Vegetarian 中文', '/blog/vegan-vegetarian-meaning/', 'new'),
+ N('B1', 'B1｜素食到會推介（更新舊文）', '/blog/vegetarian-catering-hong-kong/', 'old'),
+ N('B2', 'B2｜素食種類全攻略（支柱）', '/blog/vegetarian-types-guide/'),
+ N('B3', 'B3｜初一十五食齋懶人包', '/blog/chu-yat-sap-ng-vegetarian-guide/', 'new'),
+ N('B4', 'B4｜吃素好處與營養', '/blog/vegetarian-nutrition-protein/', 'new'),
+ N('B5', 'B5｜一週素食菜單', '/blog/weekly-vegetarian-menu/', 'new'),
+ N('B6', 'B6｜Vegan／Vegetarian 中文', '/blog/vegan-vegetarian-meaning/'),
+ N('B7', 'B7｜植物肉、植物奶', '/blog/plant-based-meat-milk/', 'new'),
  N('T1', '舊 tag（已 301）', '/tag/素食到會/'), N('T2', 'Blog tag 頁（建議 noindex）', '/blog/tag/素食到會/', 'old'),
-], edges=['H --> L', 'L --> C1', 'C1 --> V1 & V2 & V3 & V4', 'L --> C2', 'C2 --> I1 & I2 & I3 & I4', 'L <--> BG', 'BG --> B2', 'B2 --> B3 & B4 & B6', 'B4 --> B5', 'B3 & B5 -.-> L', 'B5 -.-> C2', 'T1 -.-> C1', 'BG -.-> T2'])
+], edges=['H --> LP', 'LP --> C1 & C2', 'C1 --> V1 & V2 & V3 & V4', 'C2 --> I1 & I2 & I3 & I4', 'LP <--> B1', 'LP --> B2',
+ 'B1 -. "CTA：揀選「素」味人生套餐" .-> C1', 'B1 --> B2 & B3', 'B2 --> B3 & B4 & B6', 'B2 -. "CTA：素食到會" .-> LP',
+ 'B3 -. "CTA：初一十五訂素食到會" .-> LP', 'B4 --> B5 & B7', 'B5 -. "CTA：不想煮？素食單點" .-> C2', 'B5 -. "CTA：素食到會" .-> LP',
+ 'B6 --> B2 & B4', 'B7 -. "CTA：「素」味人生套餐" .-> C1', 'T1 -. 301 .-> C1', 'B1 -. noindex .-> T2'])
 
 # ---------- 生日會 ----------
 D['生日會'] = dict(dir='LR', nodes=[
@@ -123,12 +127,18 @@ D['萬聖節'] = dict(dir='LR', nodes=[
 
 # ---------- 聖誕節 ----------
 D['聖誕節'] = dict(dir='LR', nodes=[
- N('H', '首頁', '/'), N('L', '聖誕 landing（新・每年沿用）', '/catering/christmas/', 'new'),
- N('N1', '聖誕套餐分類（Landing page・11 月 10 日前）', '', 'new'), N('C2', '人數選餐', '/product-category/party-set-by-people/'),
- N('C3', '美食派對 Gourmet', '/product-category/party/foot-party/'), N('C4', '派對用品', '/product-category/party-supplies/'),
- N('V1', '公司到會（公司聖誕派對）', '/corporate-catering-hk/'), N('Q', '報價查詢', '/catering-quote-enquiry/'),
- N('B1', '聖誕 Blog（改寫：香港人聖誕餐吃甚麼）', '/blog/christmas-catering-hong-kong/', 'old'),
-], edges=['H --> L', 'L --> N1', 'L --> C2 & C3 & C4', 'L --> V1', 'V1 --> Q', 'L <--> B1', 'B1 --> N1'])
+ N('H', '首頁', '/'),
+ N('LP', 'LP｜聖誕套餐分類（Landing page・11 月 10 日前）<br/>建議網址 /product-category/christmas-set/', '', 'new'),
+ N('BL', 'BLOG｜聖誕 Blog（改寫：香港人聖誕餐吃甚麼）', '/blog/christmas-catering-hong-kong/', 'old'),
+ N('EN', 'LP-EN｜英文聖誕 Landing page', '', 'new'),
+ N('C2', '人數選餐', '/product-category/party-set-by-people/'), N('C3', '美食派對 Gourmet', '/product-category/party/foot-party/'),
+ N('C4', '派對用品', '/product-category/party-supplies/'),
+ N('S1', '惹味小食（單點）', '/product-category/a-la-carte/snacks/'), N('S2', '甜品（單點）', '/product-category/a-la-carte/dessert/'),
+ N('V1', '公司到會（公司聖誕派對）', '/corporate-catering-hk/'), N('VE', '公司到會（英文）', '/en/corporate-catering-hk/'),
+ N('DL', '送貨需知（平安夜送貨時段）', '/delivery/'), N('Q', '報價查詢', '/catering-quote-enquiry/'),
+], edges=['H -- 首頁 banner --> LP', 'LP --> C2 & C3 & C4', 'LP -. "CTA：公司聖誕派對" .-> V1', 'LP -. "CTA：平安夜送貨安排" .-> DL',
+ 'LP -. "CTA：大型活動報價" .-> Q', 'BL -. "CTA：查看聖誕到會套餐" .-> LP', 'BL -. "派對食物清單：產品連結" .-> S1 & S2',
+ 'BL -. "公司聖誕派對" .-> V1', 'LP <-. 中英版本 .-> EN', 'EN -. "CTA：Office Christmas party" .-> VE'])
 
 # ---------- 野餐 ----------
 D['野餐'] = dict(dir='LR', nodes=[

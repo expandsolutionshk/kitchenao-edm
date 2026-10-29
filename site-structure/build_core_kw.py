@@ -343,28 +343,31 @@ def gsc30_html():
 <li><b>英文首頁只有品牌字有點擊</b>：catering service company（第 52 名）、corporate catering service（第 37 名）等，要用英文公司到會頁及首頁內鏈分流。</li>
 <li><b>行動</b>：首頁加內鏈區塊（「公司到會」「到會推介」「派對到會」作連結文字），英文首頁同樣用 corporate catering、party catering 連去英文頁。</li></ul>"""
 
-MERMAID = '''flowchart LR
-H["首頁<br/>到會・catering"] --> REC["到會推介<br/>/hong-kong-catering-recommendation/"]
-H --> CORP["公司到會<br/>/corporate-catering-hk/"]
-H --> PARTY["派對到會套餐分類<br/>/product-category/party/"]
-REC --> PARTY
-CORP --> XLP["🎄 聖誕 KW 分配頁<br/>xmas-kw.html"]
-REC --> CORP
-REC <--> OLD1["舊 Blog<br/>到會邊間好"]
-REC <--> OLD2["舊 Blog<br/>到會中伏"]
-CORP --> BOX["商務／員工餐盒分類"]
-CORP <--> BIZ["商務活動<br/>/business-event/"]
-CORP <--> NB1["新 Blog<br/>Annual Dinner 籌備"]
-CORP --> Q["報價查詢"]
-BIZ --> Q
-CORP --> P["合作夥伴"]
-ABOUT["關於我們"] -.authority.-> CORP & REC
-classDef main fill:#1A1A1A,color:#F7CE46,stroke:#1A1A1A
-classDef blog fill:#E3F4E8,stroke:#6FAE82
-classDef cat fill:#E3F1FB,stroke:#7AA7CF
-class CORP,REC main
-class OLD1,OLD2,NB1 blog
-class BOX,BIZ,Q,P,ABOUT,PARTY,XLP cat'''
+from diag_embed import N as DN, mm as DMM, section as DSEC, CSS as DCSS
+_old1 = '/blog/hongkong-catering-2026-e9-a6-99-e6-b8-af-e5-88-b0-e6-9c-83-e9-82-8a-e9-96-93-e5-a5-bd/'
+MERMAID = DMM('LR', [
+ DN('H', '首頁（HOME／HOME-EN）', '/', 'ok', '首頁'),
+ DN('CORP', 'CORP｜公司到會（Annual Dinner）', '/corporate-catering-hk/', 'old', '服務頁'),
+ DN('REC', 'REC｜到會推介', '/hong-kong-catering-recommendation/', 'old', '服務頁'),
+ DN('PARTY', 'PARTY｜派對到會套餐分類', '/product-category/party/', 'ok', '產品分類頁'),
+ DN('BIZ', 'BIZ｜商務活動', '/business-event/', 'old', '服務頁'),
+ DN('BOX', 'BOX｜商務餐盒', '/product-category/商務活動/commercial-lunch-box/', 'ok', '產品分類頁'),
+ DN('EXE', '高級餐盒', '/product-category/商務活動/executive-premium-meal-box/', 'ok', '產品分類頁'),
+ DN('Q', '報價查詢', '/catering-quote-enquiry/', 'ok', '支援頁（報價）'),
+ DN('P', '合作夥伴與服務實績', '/合作伙伴/', 'ok', '信任頁'),
+ DN('ABOUT', 'ABOUT｜關於我們（Authority）', '/about-kitchenao/', 'old', '信任頁'),
+ DN('FAQ', 'FAQ｜常見問題（CS 起草）', '/常見問題/', 'old', '支援頁'),
+ DN('GIFT', 'GIFT｜客製化紀念品訂製服務', '/客製化紀念品訂製服務/', 'old', '服務頁'),
+ DN('OLD1', 'OLD1｜舊 Blog：到會邊間好', _old1, 'old', 'Blog 文章'),
+ DN('OLD2', 'OLD2｜舊 Blog：到會中伏', '/blog/catering-pitfalls-guide/', 'old', 'Blog 文章'),
+ DN('NB1', 'NB1｜新 Blog：Annual Dinner 籌備', '', 'new', '計劃中'),
+ DN('DL', '送貨需知', '/delivery/', 'ok', '支援頁'),
+], ['H -- "內鏈區塊：公司到會" --> CORP', 'H -- "內鏈區塊：到會推介" --> REC', 'H -- "內鏈區塊：派對到會" --> PARTY',
+ 'REC -. "CTA：公司活動到會推介" .-> CORP', 'REC -. "CTA：派對套餐" .-> PARTY', 'REC <--> OLD1', 'REC <--> OLD2',
+ 'CORP -. "卡片：Office Lunch" .-> BOX', 'CORP -. "卡片：Meeting Lunch" .-> EXE', 'CORP -. "卡片：酒會開張" .-> BIZ',
+ 'CORP -. "CTA：到會報價查詢" .-> Q', 'CORP -. "合作夥伴與服務實績" .-> P', 'CORP -. "運費及免運費" .-> DL',
+ 'NB1 -. "CTA：公司到會" .-> CORP', 'BIZ -. "CTA：報價" .-> Q', 'GIFT -. "CTA：報價" .-> Q',
+ 'FAQ -. "送貨問題" .-> DL', 'FAQ -. "公司客問題" .-> CORP', 'ABOUT -. authority .-> CORP & REC'])
 
 DATA = json.dumps(dict(rows=rows, pages={k: v[0] for k, v in PAGES.items()}), ensure_ascii=False)
 SEED = '\n'.join(seed)
@@ -373,7 +376,7 @@ def seed_html():
     areas = ''.join(f'<textarea class="seedt" id="seed-{k}" readonly hidden>{E(chr(10).join(v))}</textarea>' for k, v in SEEDS.items())
     return f'<div class="seedtabs"><button class="sd on" data-k="ALL">全部核心頁面（{len(seed)}）</button>{tabs}</div><textarea class="seedt" id="seed-ALL" readonly>{E(SEED)}</textarea>{areas}'
 
-CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + '\n.seedtabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.seedtabs .sd{border:1px solid #E3D9C4;background:#fff;border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer}.seedtabs .sd.on{background:#1A1A1A;color:#F7CE46;border-color:#1A1A1A}textarea.seedt{width:100%;height:220px;box-sizing:border-box}\n.pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}.copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'
+CSS = open(os.path.join(HERE, 'core-kw.css'), encoding='utf-8').read() + DCSS + '\n.seedtabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.seedtabs .sd{border:1px solid #E3D9C4;background:#fff;border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer}.seedtabs .sd.on{background:#1A1A1A;color:#F7CE46;border-color:#1A1A1A}textarea.seedt{width:100%;height:220px;box-sizing:border-box}\n.pc{scroll-margin-top:16px}.pc .anc{margin-left:auto;text-decoration:none;font-size:15px;opacity:.55}.pc .anc:hover{opacity:1}.pc.hit{outline:3px solid #C8A24A;outline-offset:2px}.copied{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#F7CE46;padding:8px 16px;border-radius:20px;font-size:14px;z-index:9}'
 JS = open(os.path.join(HERE, 'core-kw.js'), encoding='utf-8').read().replace("document.getElementById('seed')","document.querySelector('textarea.seedt:not([hidden])')") + '''
 document.querySelectorAll('.seedtabs .sd').forEach(b=>b.onclick=()=>{document.querySelectorAll('.seedtabs .sd').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('textarea.seedt').forEach(a=>a.hidden=a.id!=='seed-'+b.dataset.k);});
 function goHash(){const id=decodeURIComponent(location.hash.slice(1));if(!id)return;const c=document.getElementById(id);const opt=[...sel.options].some(o=>o.value===id);if(!(c&&c.classList.contains('pc'))){if(opt){sel.value=id;draw();document.getElementById('all').scrollIntoView({behavior:'smooth'});}return;}document.querySelectorAll('.pc.hit').forEach(x=>x.classList.remove('hit'));c.classList.add('hit');c.scrollIntoView({behavior:'smooth'});if([...sel.options].some(o=>o.value===id)){sel.value=id;draw();}}
@@ -385,8 +388,9 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <header><h1>🏢 核心頁面 KW 分配（公司到會、到會推介＋其他待 review 頁面）</h1>
 <p>資料：Semrush Organic Positions HK（2026-10-23，Kitchen AO／Kama／Bear）、GSC 近 3 個月（2026-10-08；首頁、公司到會、到會推介 2026-10-30）、Position Tracking（2026-10-24）、Google 自動完成｜<a href="./index.html">← 返回網站架構圖</a>｜<a href="./xmas-kw.html">🎄 聖誕 KW 分配</a></p></header>
 <div class="wrap">
-<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 字交給英文公司到會頁。所有聖誕字（中英）已拆到 <a href="./xmas-kw.html">🎄 聖誕 KW 分配頁</a>（Seasonal › 聖誕節）。內鏈架構中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
-<h2>內鏈架構</h2><div class="card"><pre class="mermaid">{E(MERMAID)}</pre></div>
+{DSEC(MERMAID, "架構圖（中文版；英文版 /en/ 結構相同）", "包括公司到會、到會推介、商務活動、關於我們、常見問題、客製化紀念品及相關 Blog。")}
+<div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 字交給英文公司到會頁。所有聖誕字（中英）已拆到 <a href="./xmas-kw.html">🎄 聖誕 KW 分配頁</a>（Seasonal › 聖誕節）。架構圖中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
+
 <h2>GSC 對位分析（2026-10-30）</h2><div class="card">{gsc30_html()}</div>
 <h2>關鍵字擁有權：中英文頁分工（2026-10-30 更新）</h2><div class="card">{own_html}</div>
 <h2>第一輪：公司到會＋到會推介</h2><div class="grid1">{CORP_CARD}{REC_CARD}</div>
@@ -400,7 +404,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <p class="note">包括首頁、公司到會、到會推介（中英文）、派對分類、商務活動、餐盒分類及相關 Blog 的全部關鍵字，另加 {sum(1 for r in rows if r['src'].startswith('建議擴充'))} 個建議擴充字（來源欄標示「建議擴充」）。聖誕字已移到 🎄 聖誕 KW 分配頁。GKP 每次最多可貼 10,000 個字，可以一次過貼「全部」，或按頁面分開查。</p>
 {seed_html()}<button class="dl" id="cp">📋 複製目前清單</button></div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>const D={DATA};{JS}</script></body></html>'''
 
 open(os.path.join(HERE, 'core-pages-kw.html'), 'w', encoding='utf-8').write(page)

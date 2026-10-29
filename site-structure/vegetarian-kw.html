@@ -24,27 +24,85 @@ table{border-collapse:collapse;width:100%;font-size:13.5px}th,td{padding:7px 9px
 .dl{margin-left:auto;border:0;background:#1A1A1A;color:#F7CE46;border-radius:30px;padding:7px 14px;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}.dl:hover{background:#333}
 .tabs{display:flex;gap:8px;margin:0 0 10px}.tabs button{border:1.5px solid #1A1A1A;background:#fff;border-radius:30px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}.tabs button.on{background:#C8A24A;border-color:#C8A24A;font-weight:800}
 .rule{background:#fff;border-left:5px solid #C8A24A;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.7}
+
+.diag h2{margin-top:6px}.diag .card{overflow:auto}
+.diag .legend{font-size:13px;color:#6b6252;margin:0 0 10px}.diag .legend span{display:inline-block;padding:2px 10px;border-radius:8px;margin-right:6px}
+.diag .legend .new{background:#E3F4E8}.diag .legend .old{background:#FFF4D6}.diag .legend .ok{background:#E3F1FB}.diag .legend .cta{background:#fff;border:1px dashed #8a8172}
+.diag .mermaid .nodeLabel,.diag .mermaid .nodeLabel *{font-size:15px!important;line-height:1.35}.diag .mermaid .nodeLabel b{font-size:16px!important}
+.diag .mermaid .u{font-size:12px!important;color:#444;word-break:break-all}.diag .mermaid .node{cursor:pointer}
+.diag .mermaid .t{display:inline-block;font-size:12px!important;font-weight:700;color:#fff!important;background:#1A1A1A;border-radius:10px;padding:2px 9px;margin-bottom:4px}
+.diag .mermaid .edgeLabel,.diag .mermaid .edgeLabel *{font-size:13px!important;color:#7a5c12!important;background:#FFF8E6!important}
 </style></head><body>
 <header><h1>🥦 素食 KW 分配架構（7 篇 Blog＋Landing＋產品分類＋4 個套餐產品頁）</h1><p>資料：Kitchen_AO_野餐_素食_Keyword_List_v5.xlsx（KP 2026-10-19、Keyword Surfer、GSC）｜<a href="./index.html">← 返回網站架構圖</a></p></header>
 <div class="wrap">
+<div class="diag"><h2 id="map">架構圖（素食）</h2><p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="cta">虛線＋文字＝CTA 連結（要在該頁加入的按鈕或連結）</span>按格子可打開該頁</p><p class="note">LP 素食到會 Landing、C1／C2 產品分類及 B1 至 B7 Blog；虛線文字是每篇 Blog 要加入的 CTA。</p><div class="card"><pre class="mermaid">flowchart LR
+H[&quot;&lt;span class=&#x27;t&#x27;&gt;首頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;首頁&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/&lt;/span&gt;&quot;]:::ok
+LP[&quot;&lt;span class=&#x27;t&#x27;&gt;場景 Landing 頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;LP｜素食到會 Landing（新）&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/catering/vegetarian/&lt;/span&gt;&quot;]:::new
+C1[&quot;&lt;span class=&#x27;t&#x27;&gt;產品分類頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;C1｜「素」味人生套餐分類&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product-category/party/vegetarians-set/&lt;/span&gt;&quot;]:::ok
+V1[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;P1｜6–8 人&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/ao-6-8pax-vegetarian-life/&lt;/span&gt;&quot;]:::ok
+V2[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;P2｜10–12 人&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/ao-10-12pax-vegetarian-life/&lt;/span&gt;&quot;]:::ok
+V3[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;P3｜16–19 人&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/ao-16-19pax-vegetarian-life/&lt;/span&gt;&quot;]:::ok
+V4[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;P4｜22–26 人&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/ao-22-26pax-vegetarian-life/&lt;/span&gt;&quot;]:::ok
+C2[&quot;&lt;span class=&#x27;t&#x27;&gt;產品分類頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;C2｜素食單點（新分類）&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product-category/a-la-carte/vegetarian/&lt;/span&gt;&quot;]:::new
+I1[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;惹味蒜香焗茄子&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/a3900-grilled-garlic-eggplant/&lt;/span&gt;&quot;]:::old
+I2[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;蒜香炒翠玉瓜&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/a62-stir-fried-zucchini-with-garlic-1-pounds/&lt;/span&gt;&quot;]:::old
+I3[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;忌廉白汁菠菜&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/a59-spinach-with-cream-sauce-1-pounds/&lt;/span&gt;&quot;]:::old
+I4[&quot;&lt;span class=&#x27;t&#x27;&gt;產品頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;手壓香濃薯蓉&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/product/a61-hand-pressed-sweet-potato-puree-1-pounds/&lt;/span&gt;&quot;]:::old
+B1[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B1｜素食到會推介（更新舊文）&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/vegetarian-catering-hong-kong/&lt;/span&gt;&quot;]:::old
+B2[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B2｜素食種類全攻略（支柱）&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/vegetarian-types-guide/&lt;/span&gt;&quot;]:::ok
+B3[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B3｜初一十五食齋懶人包&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/chu-yat-sap-ng-vegetarian-guide/&lt;/span&gt;&quot;]:::new
+B4[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B4｜吃素好處與營養&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/vegetarian-nutrition-protein/&lt;/span&gt;&quot;]:::new
+B5[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B5｜一週素食菜單&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/weekly-vegetarian-menu/&lt;/span&gt;&quot;]:::new
+B6[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B6｜Vegan／Vegetarian 中文&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/vegan-vegetarian-meaning/&lt;/span&gt;&quot;]:::ok
+B7[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog 文章&lt;/span&gt;&lt;br/&gt;&lt;b&gt;B7｜植物肉、植物奶&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/plant-based-meat-milk/&lt;/span&gt;&quot;]:::new
+T1[&quot;&lt;span class=&#x27;t&#x27;&gt;舊 Tag（已 301）&lt;/span&gt;&lt;br/&gt;&lt;b&gt;舊 tag（已 301）&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/tag/素食到會/&lt;/span&gt;&quot;]:::ok
+T2[&quot;&lt;span class=&#x27;t&#x27;&gt;Blog Tag 頁&lt;/span&gt;&lt;br/&gt;&lt;b&gt;Blog tag 頁（建議 noindex）&lt;/b&gt;&lt;br/&gt;&lt;span class=&#x27;u&#x27;&gt;https://aoaodelivery.com/blog/tag/素食到會/&lt;/span&gt;&quot;]:::old
+H --&gt; LP
+LP --&gt; C1 &amp; C2
+C1 --&gt; V1 &amp; V2 &amp; V3 &amp; V4
+C2 --&gt; I1 &amp; I2 &amp; I3 &amp; I4
+LP &lt;--&gt; B1
+LP --&gt; B2
+B1 -. &quot;CTA：揀選「素」味人生套餐&quot; .-&gt; C1
+B1 --&gt; B2 &amp; B3
+B2 --&gt; B3 &amp; B4 &amp; B6
+B2 -. &quot;CTA：素食到會&quot; .-&gt; LP
+B3 -. &quot;CTA：初一十五訂素食到會&quot; .-&gt; LP
+B4 --&gt; B5 &amp; B7
+B5 -. &quot;CTA：不想煮？素食單點&quot; .-&gt; C2
+B5 -. &quot;CTA：素食到會&quot; .-&gt; LP
+B6 --&gt; B2 &amp; B4
+B7 -. &quot;CTA：「素」味人生套餐&quot; .-&gt; C1
+T1 -. 301 .-&gt; C1
+B1 -. noindex .-&gt; T2
+click H &quot;https://aoaodelivery.com/&quot; _blank
+click LP &quot;https://aoaodelivery.com/catering/vegetarian/&quot; _blank
+click C1 &quot;https://aoaodelivery.com/product-category/party/vegetarians-set/&quot; _blank
+click V1 &quot;https://aoaodelivery.com/product/ao-6-8pax-vegetarian-life/&quot; _blank
+click V2 &quot;https://aoaodelivery.com/product/ao-10-12pax-vegetarian-life/&quot; _blank
+click V3 &quot;https://aoaodelivery.com/product/ao-16-19pax-vegetarian-life/&quot; _blank
+click V4 &quot;https://aoaodelivery.com/product/ao-22-26pax-vegetarian-life/&quot; _blank
+click C2 &quot;https://aoaodelivery.com/product-category/a-la-carte/vegetarian/&quot; _blank
+click I1 &quot;https://aoaodelivery.com/product/a3900-grilled-garlic-eggplant/&quot; _blank
+click I2 &quot;https://aoaodelivery.com/product/a62-stir-fried-zucchini-with-garlic-1-pounds/&quot; _blank
+click I3 &quot;https://aoaodelivery.com/product/a59-spinach-with-cream-sauce-1-pounds/&quot; _blank
+click I4 &quot;https://aoaodelivery.com/product/a61-hand-pressed-sweet-potato-puree-1-pounds/&quot; _blank
+click B1 &quot;https://aoaodelivery.com/blog/vegetarian-catering-hong-kong/&quot; _blank
+click B2 &quot;https://aoaodelivery.com/blog/vegetarian-types-guide/&quot; _blank
+click B3 &quot;https://aoaodelivery.com/blog/chu-yat-sap-ng-vegetarian-guide/&quot; _blank
+click B4 &quot;https://aoaodelivery.com/blog/vegetarian-nutrition-protein/&quot; _blank
+click B5 &quot;https://aoaodelivery.com/blog/weekly-vegetarian-menu/&quot; _blank
+click B6 &quot;https://aoaodelivery.com/blog/vegan-vegetarian-meaning/&quot; _blank
+click B7 &quot;https://aoaodelivery.com/blog/plant-based-meat-milk/&quot; _blank
+click T1 &quot;https://aoaodelivery.com/tag/素食到會/&quot; _blank
+click T2 &quot;https://aoaodelivery.com/blog/tag/素食到會/&quot; _blank
+classDef new fill:#E3F4E8,stroke:#3BAA5C
+classDef old fill:#FFF4D6,stroke:#C8A24A
+classDef bad fill:#FDE2E1,stroke:#E2574C
+classDef ok fill:#E3F1FB,stroke:#2B7BD0
+classDef grp fill:#1A1A1A,stroke:#1A1A1A,color:#F7CE46</pre></div></div>
 <div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁，避免自家頁面互搶排名。交易詞（到會／外賣）→ Landing 及產品分類；「素食到會推介」及派對安排問題 → Blog 1；定義及分類 → Blog 2 支柱文；蛋與食齋 → Blog 3；健康營養 → Blog 4；食譜 → Blog 5；英文用語 → Blog 6；植物肉／植物奶 → Blog 7；品牌／餐廳／超市 → 不放。PAA 只計「素食 ppa - ai overview」分頁中標為「用」的問題。</div>
-<h2>內鏈架構</h2><div class="card"><pre class="mermaid">flowchart LR
-H[&quot;首頁&quot;] --&gt; LP[&quot;LP 素食到會 Landing&lt;br/&gt;/catering/vegetarian/&quot;]
-LP --&gt; C1[&quot;C1「素」味人生套餐&quot;] &amp; C2[&quot;C2 素食單點&quot;]
-C1 --&gt; P1[&quot;P1 6–8 人&quot;] &amp; P2[&quot;P2 10–12 人&quot;] &amp; P3[&quot;P3 16–19 人&quot;] &amp; P4[&quot;P4 22–26 人&quot;]
-LP &lt;--&gt; B1[&quot;B1 素食到會推介（更新舊文）&quot;]
-B2[&quot;B2 素食種類全攻略（支柱）&quot;] --&gt; B3[&quot;B3 初一十五食齋&quot;] &amp; B4[&quot;B4 吃素好處與營養&quot;] &amp; B6[&quot;B6 Vegan／Vegetarian 中文&quot;]
-B4 --&gt; B5[&quot;B5 一週素食菜單&quot;] &amp; B7[&quot;B7 植物肉、植物奶&quot;]
-B3 &amp; B4 &amp; B5 &amp; B6 &amp; B7 --&gt; B2
-B1 --&gt; B2
-B2 &amp; B3 &amp; B5 -.CTA.-&gt; LP
-B5 -.CTA.-&gt; C2
-classDef lp fill:#1A1A1A,color:#F7CE46,stroke:#1A1A1A
-classDef c fill:#E3F1FB,stroke:#7AA7CF
-classDef b fill:#E3F4E8,stroke:#6FAE82
-class LP lp
-class C1,C2,P1,P2,P3,P4 c
-class B1,B2,B3,B4,B5,B6,B7 b</pre></div>
+
 <h2>頁面分配總覽</h2><div class="grid"><div class="pc " data-pg="LP"><div class="ph"><b>LP</b><span class="st">未完成</span></div>
 <h3>素食到會 Landing Page</h3><p class="u"><a href="https://aoaodelivery.com/catering/vegetarian/" target="_blank">/catering/vegetarian/</a></p><p class="ty">Landing（交易型）</p>
 <p class="h1"><small>建議 H1</small>素食到會｜Kitchen AO「素」味人生派對素食套餐，全港送遞</p>
