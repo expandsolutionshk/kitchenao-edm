@@ -56,7 +56,7 @@ CSS = '''<style>
 .ao-corp .ao-faq .a{padding:0 16px 14px;color:#4A4238;}
 .ao-corp .ao-note{font-size:14px;color:#6B6252;}
 .ao-corp .ao-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:30px 0 10px;}
-.ao-corp .ao-cta a{display:block;width:280px;box-sizing:border-box;text-align:center;background:#C8A24A!important;color:#1A1A1A!important;font-size:16px;font-weight:800;line-height:1.4;white-space:nowrap;padding:14px 20px;border:2px solid #C8A24A;border-radius:40px;text-decoration:none!important;transition:background .2s,color .2s;}
+.ao-corp .ao-cta a{display:block;min-width:280px;max-width:100%;box-sizing:border-box;text-align:center;background:#C8A24A!important;color:#1A1A1A!important;font-size:16px;font-weight:800;line-height:1.4;white-space:nowrap;padding:14px 20px;border:2px solid #C8A24A;border-radius:40px;text-decoration:none!important;transition:background .2s,color .2s;}
 .ao-corp .ao-cta a:hover{background:#1A1A1A!important;color:#F7CE46!important;border-color:#1A1A1A;}
 .ao-corp .ao-cta a.alt{background:#1A1A1A!important;color:#F7CE46!important;border-color:#1A1A1A;}
 .ao-corp .ao-cta a.alt:hover{background:#C8A24A!important;color:#1A1A1A!important;border-color:#C8A24A;}
@@ -66,7 +66,7 @@ CSS = '''<style>
 .ao-corp .ao-kv img.k1{object-position:50% 30%;}
 .ao-corp .ao-kv img.k2{object-position:50% 55%;}
 @media(max-width:768px){.ao-corp .ao-scene a{width:calc((100% - 14px)/2);}}
-@media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/4;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;max-width:300px;}}
+@media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/4;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;min-width:0;max-width:320px;white-space:normal;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -316,7 +316,15 @@ EN = dict(
 {menu_dinner('en')}
 <h3>Year-end and Spring Dinners: Book Early for Peak Season</h3>
 <p>December to February is peak season, with enquiries rising for year-end dinners and spring dinners. Popular dates fill up quickly, so we recommend booking early. If you would like to add Chinese dishes, just let us know when you enquire.</p>
-<p><strong>Planning tip:</strong> For a large company annual dinner in Hong Kong, confirm your dinner start time and the space available at the venue for setting up the food before arranging the delivery time. If you need service staff, let us know when you enquire.</p>'''),
+<h3>Planning an Annual Dinner in Hong Kong: A Catering Checklist</h3>
+<p>If you are the annual dinner planner for your company, sort out the catering early so the rest of the evening runs smoothly:</p>
+<ul>
+<li><strong>Headcount and budget:</strong> confirm guest numbers and budget per person first. Our annual dinner menus start from HK$300 per person.</li>
+<li><strong>Venue and set-up space:</strong> check how much space the venue has for setting up the food, and whether guests will be seated or standing.</li>
+<li><strong>Timing:</strong> fix the start time of dinner, then arrange the delivery time around it.</li>
+<li><strong>Dietary needs:</strong> collect vegetarian and other dietary requirements in advance.</li>
+<li><strong>Service staff:</strong> if you need staff on site, let us know when you enquire.</li>
+</ul>'''),
         ('festive', 'Company Party', f'''
 <h2>Company Party Catering: Team Building and Office Christmas Parties</h2>
 <p>Company party catering is usually served as a buffet so guests can help themselves, ideal for team building, product launches, staff birthday parties and office Christmas parties of 30 to 300 guests, from HK$300 per person.</p>
@@ -360,7 +368,7 @@ EN = dict(
     ],
     faq=EN_FAQ,
     service={"@context": "https://schema.org", "@type": "Service", "serviceType": "Corporate catering", "name": "Kitchen AO Corporate Catering Hong Kong", "areaServed": {"@type": "Place", "name": "Hong Kong"}, "provider": {"@type": "Organization", "name": "Kitchen AO", "url": "https://aoaodelivery.com/"}, "url": "https://aoaodelivery.com/en/corporate-catering-hk/"},
-    cta=f'<div class="ao-cta"><a class="alt" href="{P}/catering-quote-enquiry/">Get a Catering Quote</a><a href="{WA}?text=Corporate%20catering%20enquiry" target="_blank" rel="noopener">WhatsApp Us About Corporate Catering</a></div>',
+    cta=f'<div class="ao-cta"><a class="alt" href="{P}/catering-quote-enquiry/">Get a Catering Quote</a><a href="{WA}?text=Corporate%20catering%20enquiry" target="_blank" rel="noopener">WhatsApp Us</a></div>',
     updated='<p class="ao-note">Last updated: October 2026</p>',
 )
 
