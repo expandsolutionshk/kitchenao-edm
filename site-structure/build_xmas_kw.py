@@ -31,7 +31,7 @@ def add(pg, typ, kws, lang='中', use=''):
 
 # ---------- Landing page（交易型）----------
 add('LP', '主要', ['聖誕到會'], use='H1／Title／頁頂首段')
-add('LP', '次要', ['聖誕外賣', '聖誕套餐', '聖誕大餐到會', '聖誕到會套餐', '聖誕派對到會', '公司聖誕派對到會'], use='頁頂內容／H2／Meta')
+add('LP', '次要', ['聖誕大餐', '聖誕外賣', '聖誕套餐', '聖誕大餐到會', '聖誕到會套餐', '聖誕派對到會', '公司聖誕派對到會'], use='頁頂內容／H2／Meta')
 add('LP', '長尾', ['聖誕到會4人', '聖誕到會6人', '聖誕到會2人', '聖誕二人餐外賣', '一人聖誕餐'], use='按人數的套餐名稱及篩選（例如「4 人聖誕到會套餐」）')
 add('LP', '長尾', ['聖誕外賣到會', '聖誕餐到會', '聖誕到會外賣', '聖誕套餐到會', '聖誕party到會', 'christmas到會', 'christmasparty到會', 'xmas到會', '到會聖誕', '聖誕小食到會', '聖誕美食到會', '聖誕食物到會', '聖誕到會餐盒', '聖誕便當到會', '聖誕外賣下午茶', '聖誕海鮮到會', '聖誕套餐 2026'], use='頁頂內容／產品描述／FAQ 自然出現')
 add('LP', '長尾', ['聖誕火雞到會', '聖誕到會火雞', '聖誕火雞套餐', '火雞到會', '火雞訂購', '訂火雞', '火雞餐', '聖誕大餐外賣', '聖誕大餐外送', '聖誕素食餐'], use='只在有真實產品時使用（例如有火雞套餐才寫火雞字）')
@@ -43,7 +43,7 @@ add('LP', '次要', ['聖誕節到會', '聖誕到會推介', '聖誕到會餐�
 add('B2', '長尾', ['聖誕到會酒店', '酒店聖誕到會', '聖誕酒店到會', '酒店聖誕外賣', '聖誕酒店外賣', '聖誕外賣酒店', '酒店火雞'], use='H2「香港人聖誕餐的 5 個場景」酒店一節（只寫類別，不寫酒店名）')
 # ---------- Blog 2（新文章：資訊型）----------
 add('B2', '主要', ['聖誕小食'], use='Title／H1／首段（H1 以「香港人聖誕餐吃甚麼？」開頭）')
-add('B2', '次要', ['聖誕餐', '聖誕派對食物', '聖誕派對小食', '聖誕party小食', 'christmasparty食物', '聖誕晚餐', '聖誕大餐', '聖誕大餐吃什麼'], use='H1／30 秒速覽／H2「香港人聖誕餐的 5 個場景」')
+add('B2', '次要', ['聖誕餐', '聖誕派對食物', '聖誕派對小食', '聖誕party小食', 'christmasparty食物', '聖誕晚餐', '聖誕大餐吃什麼'], use='H1／30 秒速覽／H2「香港人聖誕餐的 5 個場景」')
 add('B2', '次要', ['聖誕大餐食譜', '聖誕火雞', '聖誕小食diy', '簡易聖誕小食'], use='H2「在家吃聖誕大餐：自己煮還是訂到會？」／H2「簡易聖誕小食」')
 add('B2', '長尾', ['聖誕大餐自己煮', '聖誕小食食譜', '聖誕派對小食食譜', '聖誕簡易小食', '聖誕健康小食', '聖誕大餐食物', '港式聖誕大餐', '茶餐廳聖誕大餐', '聖誕節火雞', '火雞聖誕', '聖誕火雞餐', '聖誕食火雞', '火雞聖誕大餐', '聖誕火雞大餐', '聖誕大餐火雞', '聖誕節火雞大餐', '火雞自助餐', '聖誕火雞餐廳'], use='H3／FAQ（火雞夠幾多人吃、自家煮還是訂到會）')
 add('B2', '次要', ['火雞', '薑餅人', '聖誕蛋糕', '聖誕曲奇', '聖誕甜品', '薑餅屋', '聖誕朱古力'], use='H2「聖誕主菜」／H2「聖誕甜品」／FAQ（火雞夠幾多人吃）')
@@ -105,8 +105,8 @@ for r in R:
     if s: src.append('Semrush')
     if gs: src.append('GSC')
     rows.append(dict(kw=r['kw'], pg=r['pg'], typ=r['typ'], lang=r['lang'], use=r['use'],
-        vol=g.get('vol') if g.get('vol') is not None else (s.get('vol') or None),
-        nov=g.get('nov'), dec=g.get('dec'), m3=round(g['m3'] * 100) if g.get('m3') is not None else None,
+        vol=int(g['vol']) if g.get('vol') is not None else (s.get('vol') or None),
+        nov=int(g['nov']) if g.get('nov') is not None else None, dec=int(g['dec']) if g.get('dec') is not None else None, m3=round(g['m3'] * 100) if g.get('m3') is not None else None,
         gi=gs[1] if gs else None, gp=round(gs[2], 1) if gs and gs[2] else None,
         prod=pr[0] if pr else '', purl=P + pr[1] if pr else '', src='、'.join(src) or '—'))
 
@@ -115,13 +115,14 @@ def stats(pg):
     return len(rs), sum(r['vol'] or 0 for r in rs), sum(r['dec'] or 0 for r in rs)
 
 def kwli(pg, typs=None, lim=8):
-    rs = sorted([r for r in rows if r['pg'] == pg and (not typs or r['typ'] in typs)], key=lambda r: -(r['dec'] or r['vol'] or 0))[:lim]
-    out = ''.join(f"<li>{E(r['kw'])}<span>{'Vol ' + format(r['vol'], ',') if r['vol'] else '待 KP'}{' · 12 月 ' + format(r['dec'], ',') if r['dec'] else ''}</span></li>" for r in rs)
+    ORD = {'主要': 0, '次要': 1}
+    rs = sorted([r for r in rows if r['pg'] == pg and (not typs or r['typ'] in typs)], key=lambda r: (ORD.get(r['typ'], 2), -(r['dec'] or r['vol'] or 0)))[:lim]
+    out = ''.join(f"<li>{'<mark>' + E(r['kw']) + '</mark>' if r['typ'] == '主要' else E(r['kw'])}<span>{'Vol ' + format(r['vol'], ',') if r['vol'] else '待 KP'}{' · 12 月 ' + format(r['dec'], ',') if r['dec'] else ''}</span></li>" for r in rs)
     return f'<ul class="kw">{out}</ul>'
 
 def num(pg):
     c, v, d = stats(pg)
-    return f'<div class="num"><div><b>{c}</b><small>關鍵字</small></div><div><b>{v:,}</b><small>平均月搜合計</small></div><div><b>{d:,}</b><small>2025 年 12 月搜尋合計</small></div></div>'
+    return f'<div class="num"><div><b>{c}</b><small>關鍵字</small></div><div><b>{int(v):,}</b><small>平均月搜合計</small></div><div><b>{int(d):,}</b><small>2025 年 12 月搜尋合計</small></div></div>'
 
 def card(pg, status, seo, outline, notes, links):
     name, url = PAGES[pg]
@@ -137,10 +138,10 @@ def card(pg, status, seo, outline, notes, links):
 <div class="lns">{ln}</div><button class="more" data-pg="{pg}">查看全部關鍵字 ↓</button></div>'''
 
 LP = card('LP', '交易型｜11 月 10 日前上線', [
-  ('H1', '聖誕到會套餐 2026｜公司聖誕派對及家庭聚會到會'),
-  ('SEO Title', '聖誕到會 2026｜聖誕派對套餐・聖誕外賣全港送貨｜Kitchen AO'),
+  ('H1', '聖誕到會套餐 2026｜聖誕大餐外賣・公司及家庭聖誕派對到會'),
+  ('SEO Title', '聖誕到會 2026｜聖誕大餐外賣・聖誕派對套餐全港送貨｜Kitchen AO'),
   ('Meta Description', 'Kitchen AO 2026 聖誕到會套餐，適合公司聖誕派對及家庭聚會，按人數選擇，全港送貨。平安夜及聖誕節送貨時段有限，建議提早預訂。'),
-  ('Focus Keyword', '<mark>聖誕到會</mark>（副：聖誕到會套餐、聖誕外賣、聖誕派對食物）')], [
+  ('Focus Keyword', '<mark>聖誕到會</mark>（副：聖誕大餐、聖誕外賣、聖誕套餐）')], [
   '頁頂 150 至 300 字：聖誕到會套餐 2026、適合人數、截單日期及送貨時段（「聖誕到會」放在首段 100 字內）',
   '聖誕到會推介：按場合揀套餐（公司、家庭、小朋友、素食），承接舊 Blog 1 的「聖誕到會推介」「聖誕節到會」',
   '按人數揀聖誕套餐：2 人、4 人、6 人、10 人、20 人以上（承接「聖誕到會4人」12 月 480 搜尋）',
@@ -168,23 +169,24 @@ LPEN = card('LP-EN', '交易型｜英文版', [
   '「christmas catering」12 月 590 搜尋量；Kama 第 11 名、Bear 第 18 名。'],
   ['→ /en/corporate-catering-hk/', '→ /en/delivery/'])
 B2 = card('B2', '資訊型＋搵食工具｜新文章｜11 月中前上線', [
-  ('H1', '香港人聖誕餐吃甚麼？2026 聖誕小食、派對食物及聖誕大餐推介（附搵食工具）'),
+  ('H1', '香港人聖誕餐吃甚麼？2026 聖誕小食、派對食物及聖誕甜品推介（附搵食工具）'),
   ('SEO Title', '聖誕小食推介 2026｜香港人聖誕餐吃甚麼？派對食物搵食工具｜Kitchen AO'),
-  ('Meta Description', '香港人聖誕餐吃甚麼？2026 聖誕小食、派對食物、火雞及聖誕甜品一次看，用搵食工具按人數、預算及口味篩選，附在家吃聖誕大餐及預訂貼士。'),
-  ('Focus Keyword', '<mark>聖誕小食</mark>（副：聖誕餐、聖誕派對食物、聖誕大餐）')], [
+  ('Meta Description', '香港人聖誕餐吃甚麼？2026 聖誕小食、派對食物、火雞及聖誕甜品一次看，用搵食工具按人數、預算及口味篩選，附簡易聖誕小食做法及預訂貼士。'),
+  ('Focus Keyword', '<mark>聖誕小食</mark>（副：聖誕餐、聖誕派對食物、火雞）')], [
   '30 秒速覽：香港人聖誕餐吃甚麼？50 字直接答案＋表（場景／常見食物／人數／預算／提早幾多預訂）',
   '🔍 聖誕食物搵食工具：按類別（小食／主菜／甜品／飲品）、人數、預算、素食、小朋友篩選，有售的連去產品頁',
   '聖誕小食推介：鹹點及 Finger Food（瑞士雞翼、迷你漢堡、蝦多士等）',
   '聖誕主菜：火雞、燒牛肉、焗豬手（附「火雞夠幾多人吃」）',
   '聖誕甜品：薑餅人、樹幹蛋糕、聖誕布甸、Panettone（中英對照）',
   '香港人聖誕餐的 5 個場景：到會派對、快餐套餐、酒店及餐廳、火鍋打邊爐、自己煮（只寫類別，不寫品牌）',
-  '在家吃聖誕大餐：自己煮還是訂到會？（承接聖誕大餐、聖誕大餐食譜）',
+  '在家吃聖誕大餐：自己煮還是訂到會？（承接聖誕大餐食譜；「聖誕大餐」由 Landing page 主攻，這節用「聖誕大餐到會」作連結文字連過去）',
   '簡易聖誕小食 DIY：3 至 5 款簡單做法',
   '香港人訂聖誕餐的習慣：提早預訂、平安夜送貨時段 → CTA 聖誕到會套餐',
   '常見問題（FAQPage schema）：聖誕小食有甚麼、火雞夠幾多人吃、聖誕大餐在家吃甚麼、幾時要訂'], [
   '整合原本「香港人聖誕餐吃甚麼」及「聖誕小食＋搵食工具」兩個方向：保留場景分類及在家吃聖誕大餐，主攻字改為「聖誕小食」（12 月 3,600，競爭低，首頁沒有專門清單）。',
-  '「聖誕大餐」（12 月 12,100）搜尋結果以媒體的酒店及餐廳清單為主，所以只作次要字，放在場景及「在家吃聖誕大餐」兩節。',
-  '「聖誕派對食物」（12 月 1,300，競爭低）及約 70 個派對食物字由 Landing page 及舊 Blog 1 移到這篇，成為搵食工具的食物清單。',
+  '「聖誕大餐」（12 月 12,100）改由 Landing page 負責，這篇不放在 H1、Title 及 Meta，避免兩頁互搶；文內只在「在家吃聖誕大餐」一節自然提及並連去 Landing page。',
+  '和 Landing page 的分界：這篇負責「吃甚麼」（食物、靈感、做法），Landing page 負責「在哪裡訂」（到會、外賣、套餐）。',
+  '「聖誕派對食物」（12 月 1,300，競爭低）及約 70 個派對食物字由 Landing page 及舊 Blog 1 移到這篇，成為搵食工具的食物清單。「聖誕蛋糕」（12 月 14,800）只放在聖誕甜品一節，Kitchen AO 沒有售賣聖誕蛋糕，不宜作主攻。',
   '對手品牌字（快餐、連鎖店）只寫類別，不寫品牌名、不放連結。'],
   ['→ 聖誕 Landing page', '→ 單點小食', '→ 甜品', '→ 公司到會'])
 OLDC = f'''<div class="pc" id="OLD" data-pg="OLD"><div class="ph"><b>OLD</b><span class="st">301 轉址｜Landing page 上線當日</span><a class="anc" href="#OLD" title="複製這頁的連結">🔗</a></div>
@@ -229,7 +231,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，10-27 及 10-31 匯出）、Semrush HK（10-23）、GSC（10-08）｜2026-10-31 更新</p></header>
 <div class="wrap">
 {DSEC(from_index("聖誕節"), "架構圖（聖誕節）", "Landing page 用聖誕套餐分類（類似萬聖節狂嘩套餐分類），原本計劃的 /catering/christmas/ 場景頁暫不做。")}
-<div class="rule"><b>分工（10-31 更新）：</b>只有兩頁。<b>聖誕到會 Landing page</b>負責所有訂購及揀套餐字（聖誕到會、聖誕節到會、聖誕到會推介、聖誕外賣、聖誕套餐、聖誕大餐到會），11 月 10 日前上線；<b>Blog 2（新文章＋搵食工具）</b>負責資訊字（聖誕小食、聖誕餐、聖誕派對食物、聖誕大餐、火雞），11 月中前上線，再連去 Landing page。舊 Blog「聖誕到會」在 Landing page 上線當日 301 轉到 Landing page。英文聖誕字全部交給英文 Landing page。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#B2</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
+<div class="rule"><b>分工（10-31 更新）：</b>只有兩頁。<b>聖誕到會 Landing page</b>負責所有訂購及揀套餐字（聖誕到會、聖誕大餐、聖誕節到會、聖誕到會推介、聖誕外賣、聖誕套餐、聖誕大餐到會），11 月 10 日前上線；<b>Blog 2（新文章＋搵食工具）</b>負責資訊字（聖誕小食、聖誕餐、聖誕派對食物、火雞、聖誕甜品），11 月中前上線，再連去 Landing page。舊 Blog「聖誕到會」在 Landing page 上線當日 301 轉到 Landing page。英文聖誕字全部交給英文 Landing page。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#B2</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
 <h2>頁面分配</h2><div class="grid1">{LP}{B2}{LPEN}</div>
 <div class="grid">{OLDC}{XC}</div>
 <h2 id="all">全部關鍵字</h2><div class="card">
