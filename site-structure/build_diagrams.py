@@ -129,7 +129,7 @@ D['萬聖節'] = dict(dir='LR', nodes=[
 D['聖誕節'] = dict(dir='LR', nodes=[
  N('H', '首頁', '/'),
  N('LP', 'LP｜聖誕套餐分類（Landing page・11 月 10 日前）<br/>建議網址 /product-category/christmas-set/', '', 'new'),
- N('BL', 'B1｜聖誕到會推介（更新舊文）', '/blog/christmas-catering-hong-kong/', 'old'),
+ N('BL', '舊 Blog：聖誕到會（Landing page 上線當日 301）', '/blog/christmas-catering-hong-kong/', 'old'),
  N('B2', 'B2｜香港人聖誕餐吃甚麼？聖誕小食＋搵食工具（新文章）<br/>建議網址 /blog/christmas-food-hong-kong/', '', 'new'),
  N('EN', 'LP-EN｜英文聖誕 Landing page', '', 'new'),
  N('C2', '人數選餐', '/product-category/party-set-by-people/'), N('C3', '美食派對 Gourmet', '/product-category/party/foot-party/'),
@@ -138,8 +138,7 @@ D['聖誕節'] = dict(dir='LR', nodes=[
  N('V1', '公司到會（公司聖誕派對）', '/corporate-catering-hk/'), N('VE', '公司到會（英文）', '/en/corporate-catering-hk/'),
  N('DL', '送貨需知（平安夜送貨時段）', '/delivery/'), N('Q', '報價查詢', '/catering-quote-enquiry/'),
 ], edges=['H -- 首頁 banner --> LP', 'LP --> C2 & C3 & C4', 'LP -. "CTA：公司聖誕派對" .-> V1', 'LP -. "CTA：平安夜送貨安排" .-> DL',
- 'LP -. "CTA：大型活動報價" .-> Q', 'BL -. "CTA：查看聖誕到會套餐" .-> LP', 'B2 -. "搵食工具：產品連結" .-> S1 & S2', 'B2 -. "CTA：聖誕到會套餐" .-> LP', 'B2 <--> BL',
- 'BL -. "公司聖誕派對" .-> V1', 'LP <-. 中英版本 .-> EN', 'EN -. "CTA：Office Christmas party" .-> VE'])
+ 'LP -. "CTA：大型活動報價" .-> Q', 'BL == 301 ==> LP', 'B2 -. "搵食工具：產品連結" .-> S1 & S2', 'B2 -. "CTA：聖誕到會套餐" .-> LP', 'B2 -. "公司聖誕派對" .-> V1', 'LP <-. 中英版本 .-> EN', 'EN -. "CTA：Office Christmas party" .-> VE'])
 
 # ---------- 野餐 ----------
 D['野餐'] = dict(dir='LR', nodes=[

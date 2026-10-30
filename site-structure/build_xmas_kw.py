@@ -20,7 +20,7 @@ E = html.escape
 PAGES = {
  'LP':    ('聖誕到會 Landing page（中文）', '建議新增：/product-category/christmas-set/'),
  'LP-EN': ('聖誕到會 Landing page（英文）', '建議新增：/en/product-category/christmas-set/'),
- 'B1':    ('Blog 1｜聖誕到會推介（更新舊文）', '/blog/christmas-catering-hong-kong/'),
+ 'OLD':   ('舊 Blog：聖誕到會（Landing page 上線當日 301）', '/blog/christmas-catering-hong-kong/'),
  'B2':    ('Blog 2｜香港人聖誕餐吃甚麼？聖誕小食及派對食物（新文章＋搵食工具）', '建議新增：/blog/christmas-food-hong-kong/'),
  'X':     ('不放', ''),
 }
@@ -38,10 +38,9 @@ add('LP', '長尾', ['聖誕火雞到會', '聖誕到會火雞', '聖誕火雞�
 add('LP-EN', '主要', ['christmas catering hong kong'], lang='EN', use='EN H1／Title')
 add('LP-EN', '次要', ['christmas catering', 'xmas catering', 'xmas party catering', 'xmas lunch'], lang='EN', use='EN 頁頂內容／Meta')
 add('LP-EN', '長尾', ['turkey hk', 'roast turkey hong kong', 'turkey catering hong kong', 'order turkey online', 'christmas bbq menu'], lang='EN', use='EN 產品名／FAQ')
-# ---------- Blog 1（舊文更新：推介及餐單）----------
-add('B1', '主要', ['聖誕到會推介'], use='H1／Title（沿用現有網址）')
-add('B1', '次要', ['聖誕到會餐單', '聖誕節到會'], use='H2／內文')
-add('B1', '長尾', ['聖誕到會酒店', '酒店聖誕到會', '聖誕酒店到會', '酒店聖誕外賣', '聖誕酒店外賣', '聖誕外賣酒店', '酒店火雞'], use='H2「酒店聖誕到會 vs 到會公司」比較（只寫類別，不寫酒店名）')
+# ---------- 舊 Blog 1 已併入 Landing page（301）----------
+add('LP', '次要', ['聖誕節到會', '聖誕到會推介', '聖誕到會餐單'], use='H2「聖誕到會推介：按場合揀套餐」／套餐餐單（由舊 Blog 1 併入）')
+add('B2', '長尾', ['聖誕到會酒店', '酒店聖誕到會', '聖誕酒店到會', '酒店聖誕外賣', '聖誕酒店外賣', '聖誕外賣酒店', '酒店火雞'], use='H2「香港人聖誕餐的 5 個場景」酒店一節（只寫類別，不寫酒店名）')
 # ---------- Blog 2（新文章：資訊型）----------
 add('B2', '主要', ['聖誕小食'], use='Title／H1／首段（H1 以「香港人聖誕餐吃甚麼？」開頭）')
 add('B2', '次要', ['聖誕餐', '聖誕派對食物', '聖誕派對小食', '聖誕party小食', 'christmasparty食物', '聖誕晚餐', '聖誕大餐', '聖誕大餐吃什麼'], use='H1／30 秒速覽／H2「香港人聖誕餐的 5 個場景」')
@@ -143,17 +142,18 @@ LP = card('LP', '交易型｜11 月 10 日前上線', [
   ('Meta Description', 'Kitchen AO 2026 聖誕到會套餐，適合公司聖誕派對及家庭聚會，按人數選擇，全港送貨。平安夜及聖誕節送貨時段有限，建議提早預訂。'),
   ('Focus Keyword', '<mark>聖誕到會</mark>（副：聖誕到會套餐、聖誕外賣、聖誕派對食物）')], [
   '頁頂 150 至 300 字：聖誕到會套餐 2026、適合人數、截單日期及送貨時段（「聖誕到會」放在首段 100 字內）',
+  '聖誕到會推介：按場合揀套餐（公司、家庭、小朋友、素食），承接舊 Blog 1 的「聖誕到會推介」「聖誕節到會」',
   '按人數揀聖誕套餐：2 人、4 人、6 人、10 人、20 人以上（承接「聖誕到會4人」12 月 480 搜尋）',
   '聖誕套餐列表（產品分類本身），每個套餐寫明人數、每位價錢及菜式',
-  '聖誕派對食物及小食加配：連去單點小食及甜品（承接「聖誕派對食物」12 月 1,300）',
+  '聖誕小食加配：連去單點小食、甜品及 Blog 2 搵食工具',
   '公司聖誕派對到會：連去公司到會頁',
   '平安夜及聖誕節送貨安排、截單日期：連去送貨需知',
   '常見問題（FAQPage schema）：要提早幾多預訂、平安夜可否送貨、有沒有火雞、可否加素食'], [
-  '用產品分類頁做 Landing page（類似萬聖節狂嘩套餐分類），網址不帶年份，每年沿用。',
+  '用產品分類頁做 Landing page（類似萬聖節狂嘩套餐分類），網址不帶年份，每年沿用。上線當日把舊 Blog「聖誕到會」301 轉到這頁。',
   'GKP 10-31：「聖誕到會」平均月搜 1,000，2025 年 11 月 3,600、12 月 8,100；「聖誕外賣」及「聖誕派對食物」12 月各 1,300；「聖誕套餐」12 月 880。11 月起急升，所以要 11 月 10 日前上線。',
   '對手做法（只作參考，頁面不寫品牌）：連鎖快餐及餐廳聖誕套餐約每位 HK$70 至 200，套餐按人數由 2 至 35 人；常見賣點是早鳥折扣（12 月中前預訂）、原隻燒火雞、滿額送贈品及熱食送到樓下。Kitchen AO 可突出食物質素、按人數配搭及全港送貨。',
   '只寫真實資料：2026 聖誕套餐、價錢、截單日期、早鳥優惠及火雞（如有）。'],
-  ['← 聖誕 Blog', '→ 公司到會', '→ 送貨需知', '→ 報價查詢'])
+  ['← Blog 2 搵食工具', '← 舊 Blog 301', '→ 公司到會', '→ 送貨需知', '→ 報價查詢'])
 LPEN = card('LP-EN', '交易型｜英文版', [
   ('H1', 'Christmas Catering Hong Kong 2026: Party Sets for Offices and Families'),
   ('SEO Title', 'Christmas Catering Hong Kong 2026 | Xmas Party Sets | Kitchen AO'),
@@ -167,21 +167,6 @@ LPEN = card('LP-EN', '交易型｜英文版', [
   'Blog 只有中文版，所有英文聖誕字由這頁負責。',
   '「christmas catering」12 月 590 搜尋量；Kama 第 11 名、Bear 第 18 名。'],
   ['→ /en/corporate-catering-hk/', '→ /en/delivery/'])
-B1 = card('B1', '商業調查型｜更新舊文', [
-  ('H1', '聖誕到會推介 2026｜聖誕派對食物清單及到會餐單'),
-  ('SEO Title', '聖誕到會推介 2026｜聖誕派對食物清單・到會餐單｜Kitchen AO'),
-  ('Meta Description', '2026 聖誕到會推介：公司聖誕派對及家庭聚會怎樣配搭到會餐單？附聖誕派對食物清單、人數及份量建議，以及 Kitchen AO 聖誕到會套餐。'),
-  ('Focus Keyword', '<mark>聖誕到會推介</mark>（副：聖誕到會餐單、聖誕節到會）')], [
-  '聖誕到會推介速覽：按人數及場合的推介表',
-  '公司聖誕派對到會：連去公司到會頁',
-  '家庭聖誕聚會到會',
-  '想找聖誕食物？連去 Blog 2 搵食工具',
-  '人數及份量怎樣計？',
-  '常見問題（FAQPage schema）'], [
-  '沿用現有網址 /blog/christmas-catering-hong-kong/，保留舊有排名（「聖誕到會」GSC 265 曝光、第 16.7 名）。',
-  '標題由「聖誕到會2025」更新為 2026；主攻「推介、餐單」，交易字「聖誕到會、聖誕外賣」交給 Landing page。',
-  '派對食物清單已移到 Blog 2 的搵食工具，這篇只做推介、餐單及比較。'],
-  ['→ 聖誕 Landing page', '→ 公司到會', '↔ Blog 2'])
 B2 = card('B2', '資訊型＋搵食工具｜新文章｜11 月中前上線', [
   ('H1', '香港人聖誕餐吃甚麼？2026 聖誕小食、派對食物及聖誕大餐推介（附搵食工具）'),
   ('SEO Title', '聖誕小食推介 2026｜香港人聖誕餐吃甚麼？派對食物搵食工具｜Kitchen AO'),
@@ -199,9 +184,17 @@ B2 = card('B2', '資訊型＋搵食工具｜新文章｜11 月中前上線', [
   '常見問題（FAQPage schema）：聖誕小食有甚麼、火雞夠幾多人吃、聖誕大餐在家吃甚麼、幾時要訂'], [
   '整合原本「香港人聖誕餐吃甚麼」及「聖誕小食＋搵食工具」兩個方向：保留場景分類及在家吃聖誕大餐，主攻字改為「聖誕小食」（12 月 3,600，競爭低，首頁沒有專門清單）。',
   '「聖誕大餐」（12 月 12,100）搜尋結果以媒體的酒店及餐廳清單為主，所以只作次要字，放在場景及「在家吃聖誕大餐」兩節。',
-  '「聖誕派對食物」（12 月 1,300，競爭低）及約 70 個派對食物字由 Landing page 及 Blog 1 移到這篇，成為搵食工具的食物清單。',
+  '「聖誕派對食物」（12 月 1,300，競爭低）及約 70 個派對食物字由 Landing page 及舊 Blog 1 移到這篇，成為搵食工具的食物清單。',
   '對手品牌字（快餐、連鎖店）只寫類別，不寫品牌名、不放連結。'],
-  ['→ 聖誕 Landing page', '→ 單點小食', '→ 甜品', '↔ Blog 1'])
+  ['→ 聖誕 Landing page', '→ 單點小食', '→ 甜品', '→ 公司到會'])
+OLDC = f'''<div class="pc" id="OLD" data-pg="OLD"><div class="ph"><b>OLD</b><span class="st">301 轉址｜Landing page 上線當日</span><a class="anc" href="#OLD" title="複製這頁的連結">🔗</a></div>
+<h3>舊 Blog：聖誕到會（併入 Landing page）</h3><p class="u"><a href="{P}/blog/christmas-catering-hong-kong/" target="_blank">/blog/christmas-catering-hong-kong/</a></p>
+<ul class="iss"><li><b>原因</b>：「聖誕到會推介」首頁全是傳媒的多品牌推介清單（HK01、星島），不寫對手就排不上；只寫自家套餐又和 Landing page 重疊，兩頁會互搶「聖誕到會」。</li>
+<li><b>現況</b>：這篇現時為「聖誕到會」排名（GSC 265 曝光、第 16.7 名），301 後排名及連結價值交給 Landing page。</li>
+<li><b>Rank Math › Redirections</b>：Source <code>blog/christmas-catering-hong-kong</code>（Exact）→ Destination Landing page 網址 → 301 Permanent Move。</li>
+<li><b>時間</b>：Landing page 上線當日才做；之前不要轉址，舊文章繼續保留排名。轉址後到 GSC 用「網址審查」提交 Landing page。</li>
+<li>它的關鍵字（聖誕節到會、聖誕到會推介、聖誕到會餐單）已移到 Landing page；酒店聖誕到會比較字移到 Blog 2。</li></ul></div>
+'''
 XC = f'''<div class="pc" id="X" data-pg="X"><div class="ph"><b>X</b><span class="st">不放</span><a class="anc" href="#X" title="複製這頁的連結">🔗</a></div>
 <h3>不放：對手品牌字及無關字</h3>{num('X')}<ul class="iss"><li>對手品牌字（快餐及連鎖店聖誕套餐）搜尋量大多只有每月 10 至 170，而且會幫對手做 SEO。</li><li>canapes 已分配給商務活動頁；感恩節、聖誕 event 和聖誕到會無關。</li></ul>{kwli('X', None, 6)}<button class="more" data-pg="X">查看全部 ↓</button></div>'''
 
@@ -236,9 +229,9 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <p>資料：Google Keyword Planner 香港（2025-10 至 2026-09，10-27 及 10-31 匯出）、Semrush HK（10-23）、GSC（10-08）｜2026-10-31 更新</p></header>
 <div class="wrap">
 {DSEC(from_index("聖誕節"), "架構圖（聖誕節）", "Landing page 用聖誕套餐分類（類似萬聖節狂嘩套餐分類），原本計劃的 /catering/christmas/ 場景頁暫不做。")}
-<div class="rule"><b>分工：</b>交易字（聖誕到會、聖誕外賣、聖誕派對食物）由<b>聖誕到會 Landing page</b>負責，11 月 10 日前上線；推介及餐單字（聖誕到會推介、聖誕到會餐單）由<b>Blog 1（更新舊文）</b>負責；資訊字（聖誕小食、聖誕餐、聖誕派對食物、聖誕大餐、火雞）由<b>Blog 2（新文章＋搵食工具）</b>負責，11 月中前完成。兩篇都連去 Landing page。英文聖誕字全部交給英文 Landing page（Blog 只有中文版）。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#B2</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
-<h2>頁面分配</h2><div class="grid1">{LP}{B1}{B2}{LPEN}</div>
-<div class="grid">{XC}</div>
+<div class="rule"><b>分工（10-31 更新）：</b>只有兩頁。<b>聖誕到會 Landing page</b>負責所有訂購及揀套餐字（聖誕到會、聖誕節到會、聖誕到會推介、聖誕外賣、聖誕套餐、聖誕大餐到會），11 月 10 日前上線；<b>Blog 2（新文章＋搵食工具）</b>負責資訊字（聖誕小食、聖誕餐、聖誕派對食物、聖誕大餐、火雞），11 月中前上線，再連去 Landing page。舊 Blog「聖誕到會」在 Landing page 上線當日 301 轉到 Landing page。英文聖誕字全部交給英文 Landing page。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#B2</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
+<h2>頁面分配</h2><div class="grid1">{LP}{B2}{LPEN}</div>
+<div class="grid">{OLDC}{XC}</div>
 <h2 id="all">全部關鍵字</h2><div class="card">
 <div class="tools"><select id="pg"><option value="">全部頁面</option></select><select id="typ"><option value="">全部角色</option></select><input id="q" placeholder="搜尋關鍵字"><span id="cnt"></span><button class="dl" id="dl">⬇ 下載 CSV</button></div>
 <div class="tw"><table id="tb"></table></div>
