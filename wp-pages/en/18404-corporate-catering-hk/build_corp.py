@@ -32,6 +32,7 @@ CSS = '''<style>
 .ao-corp .ao-scene .no{display:inline-block;width:26px;height:26px;line-height:26px;border-radius:50%;background:#45566E;color:#fff;font-size:13px;font-weight:800;}
 .ao-corp .ao-scene .ic{display:block;font-size:26px;line-height:1;margin:10px 0 8px;}
 .ao-corp .ao-scene b{display:block;color:#1A1A1A;font-size:16px;font-weight:900;margin:0 0 4px;}
+.ao-corp .ao-scene .en{display:block;font-size:12px;font-weight:700;color:#9A7B2E;margin:-2px 0 6px;}
 .ao-corp .ao-scene .d{display:block;font-size:14px;line-height:1.6;color:#5A5246;}
 .ao-corp .ao-scene .m{display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#9A7B2E;background:#FFF8E6;border-radius:20px;padding:2px 10px;}
 .ao-corp .ao-scene a.hot{background:#EEF4EC;border-color:#5E7E5C;}
@@ -103,101 +104,137 @@ def a(path, text):
 
 def scene(items):
     o = ['<div class="ao-scene">']
-    for i, (href, ic, title, desc, meta, tag) in enumerate(items, 1):
+    for i, (href, ic, title, en, desc, meta, tag) in enumerate(items, 1):
         cls = ' class="hot"' if tag else ''
         t = f'<span class="tag">{tag}</span>' if tag else ''
-        o.append(f'<a href="#{href}"{cls}>{t}<span class="no">{i}</span><span class="ic" aria-hidden="true">{ic}</span><b>{title}</b><span class="d">{desc}</span><span class="m">{meta}</span></a>')
+        sub = f'<span class="en">{en}</span>' if en else ''
+        o.append(f'<a href="#{href}"{cls}>{t}<span class="no">{i}</span><span class="ic" aria-hidden="true">{ic}</span><b>{title}</b>{sub}<span class="d">{desc}</span><span class="m">{meta}</span></a>')
     o.append('</div>')
     return '\n'.join(o)
 
 
+# 共用菜式連結
+def menu_lunch(lang):
+    if lang == 'zh':
+        return f'''<ul>
+<li><strong>熱盤：</strong>{a("/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/", "蜜蜜糖德國鹹豬手")}、{a("/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/", "黑松露野菌蘆筍忌廉意粉")}</li>
+<li><strong>小食：</strong>{a("/product/a0700-handmade-mini-cheeseburger/", "迷你芝士手打豬肉牛肉漢堡")}、{a("/product/a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/", "懷舊芝麻蝦滑多士")}、{a("/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/", "避風塘炸海鮮豆腐")}</li>
+<li><strong>沙律：</strong>{a("/product/s0300-smoked-salmon-caesar-salad/", "油香煙三文魚凱撒沙律")}</li>
+</ul>'''
+    return f'''<ul>
+<li><strong>Hot dishes:</strong> {a("/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/", "Honey Glazed German Pork Knuckle")}, {a("/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/", "Black Truffle Wild Mushroom Asparagus Cream Pasta")}</li>
+<li><strong>Snacks:</strong> {a("/product/a0700-handmade-mini-cheeseburger/", "Mini Hand-Pattied Cheese Burgers")}, {a("/product/a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/", "Sesame Shrimp Toast")}, {a("/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/", "Typhoon Shelter Style Crispy Seafood Tofu")}</li>
+<li><strong>Salad:</strong> {a("/product/s0300-smoked-salmon-caesar-salad/", "Smoked Salmon Signature Caesar Salad")}</li>
+</ul>'''
+
+def menu_dinner(lang):
+    if lang == 'zh':
+        return f'''<ul>
+<li><strong>迎賓小食：</strong>{a("/product/c1201-照燒慢煮雞卷配牛油果蓉-1件/", "照燒慢煮雞卷配牛油果蓉")}、{a("/product/c0701-炙燒帶子芋頭紫椰菜串-1串/", "炙燒帶子芋頭紫椰菜串")}、{a("/product/c0101-一口和牛野菌串-1串/", "一口和牛野菌串")}</li>
+<li><strong>主菜：</strong>{a("/product/ms02l-西京燒「富士金襴」威士忌白味噌燒鹿兒島叉燒/", "西京燒威士忌白味噌燒鹿兒島叉燒")}、{a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "自家製黑松露牛油慢焗法國黃油雞")}、{a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "清酒煮蟹皇灸燒左口魚醬油煲仔飯")}</li>
+<li><strong>甜品：</strong>{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}、{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}</li>
+</ul>'''
+    return f'''<ul>
+<li><strong>Welcome canapés:</strong> {a("/product/c1201-照燒慢煮雞卷配牛油果蓉-1件/", "Teriyaki Chicken Roll with Avocado")}, {a("/product/c0701-炙燒帶子芋頭紫椰菜串-1串/", "Seared Scallop, Taro &amp; Red Cabbage Skewer")}, {a("/product/c0101-一口和牛野菌串-1串/", "Wagyu &amp; Wild Mushroom Skewer")}</li>
+<li><strong>Mains:</strong> {a("/product/ms02l-西京燒「富士金襴」威士忌白味噌燒鹿兒島叉燒/", "Saikyo Miso &amp; Whisky Glazed Kagoshima Char Siu")}, {a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "Slow-roasted French Yellow Spring Chicken with Black Truffle Butter")}, {a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "Sharaku Sake-Braised Crab Roe &amp; Seared Flounder Claypot Rice")}</li>
+<li><strong>Desserts:</strong> {a("/product/d01-french-colorful-macarons-10-pieces/", "French Rainbow Macarons")}, {a("/product/d06-caramel-tart-10個/", "Caramel Portuguese Tarts")}</li>
+</ul>'''
+
+
 # ---------------- 中文 ----------------
 ZH_FAQ = [
-    ('公司到會價錢是多少？', '按人數、菜式及送貨地區計算。參考價方面，Office Lunch 商務餐盒每位 HK$108 起，會議午餐高級餐盒每位 HK$248 起，Annual Dinner 及公司聚會每位 HK$300 起。'),
+    ('公司到會價錢是多少？', '按人數、菜式及送貨地區計算。參考價方面，員工午餐商務餐盒每位 HK$108 起，會議午餐高級餐盒每位 HK$248 起，年會、團年飯及公司聚會每位 HK$300 起。'),
     ('公司到會要提前多少日預訂？', '建議盡早預訂，尤其是 12 月至農曆新年的公司活動旺季。所需日數視乎人數及菜式，可先透過 WhatsApp 向客服確認。'),
+    ('公司團年飯及開年飯可以到會嗎？', '可以。年會、公司團年飯、開年飯及春茗到會一般以迎賓小食、熱盤主菜及甜品組成，每位 HK$300 起；12 月至 2 月是旺季，建議盡早預訂。'),
+    ('學校、醫院等機構可以訂到會嗎？', '可以。學校、醫院及社福機構的活動可按人數、場地及預算配搭餐盒、自助餐或小食拼盤，歡迎提供活動資料索取報價。'),
     ('公司到會有沒有素食選擇？', '有。請在查詢時說明素食人數及要求，例如是否需要全素或走五辛，客服會按要求安排菜單。'),
     ('Annual Dinner 到會大約需要多少預算？', '以每位 HK$300 起計算，100 人的 Annual Dinner 到會預算約 HK$30,000，包括迎賓小食、主菜及甜品。'),
     ('怎樣預訂公司到會？', '可透過 WhatsApp 852-6901-1987、電郵 info@aoaodelivery.com，或填寫網站的到會報價查詢表格。'),
 ]
 ZH_SCENES = [
-    ('office-lunch', '🍱', 'Office Lunch／員工飯盒', '商務餐盒每人一盒，日常午餐、培訓及加班膳食都適用', '10 至 100 人｜HK$108 起', ''),
-    ('office-lunch', '💼', 'Meeting Lunch／會議午餐', '高級餐盒更講究，客戶會議及貴賓接待更體面', '10 至 100 人｜HK$248 起', ''),
-    ('annual-dinner', '🏆', 'Annual Dinner／頒獎晚宴', '迎賓小食、熱盤主菜到壓軸甜品，撐起整晚排場', '50 至 200 人以上｜HK$300 起', '年尾旺季'),
-    ('festive', '🎉', '公司聚會／Team Building', '自助餐形式自由取用，員工聚會及節日派對首選', '30 至 300 人｜HK$300 起', ''),
-    ('business-event', '🥂', '酒會／開張／發佈會', 'Canapés 及 Finger Food 一口一件，邊走邊交流', '20 至 200 人以上｜按餐單報價', ''),
+    ('office-lunch', '🍱', '員工午餐', 'Office Lunch', '商務餐盒每人一盒，日常午餐、培訓及加班膳食都適用', '10 至 100 人｜HK$108 起', ''),
+    ('office-lunch', '💼', '會議午餐', 'Meeting &amp; Company Lunch', '高級餐盒更講究，客戶會議、董事會及貴賓接待更體面', '10 至 100 人｜HK$248 起', ''),
+    ('annual-dinner', '🏆', '年會及團年飯', 'Annual Dinner &amp; Year-end Dinner', '年會、頒獎晚宴、公司團年飯、開年飯及春茗', '50 至 200 人以上｜HK$300 起', '12 月至 2 月旺季'),
+    ('festive', '🎉', '公司聚會', 'Company Party &amp; Team Building', '自助餐形式自由取用，Team Building 及公司聖誕派對首選', '30 至 300 人｜HK$300 起', ''),
+    ('business-event', '🥂', '酒會及開張', 'Reception &amp; Grand Opening', 'Canapés 及 Finger Food 一口一件，邊走邊交流', '20 至 200 人以上｜按餐單報價', ''),
+    ('institutions', '🏫', '機構活動', 'Schools, Hospitals &amp; NGOs', '學校家長日、醫院員工午餐、社福機構講座及工作坊', '按人數及形式報價', ''),
 ]
 ZH = dict(
-    intro='<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>',
+    intro='<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>',
     img_alt='Kitchen AO 團隊在公司活動現場準備到會食物',
     img_alt2='Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點',
     nav_label='公司到會目錄',
     panes=[
         ('overview', '公司到會速覽', f'''
-<h2>Kitchen AO 公司到會服務：由午餐盒到年會，五種企業到會方案</h2>
-<p>作為香港到會公司，Kitchen AO 為企業提供一站式公司到會服務。由日常員工飯盒、客戶會議午餐，到 Annual Dinner、公司聚會及酒會開張，我們都有對應的餐盒、套餐及小食方案，並按人數及預算度身配搭，全港送貨。按下卡片即可查看各項服務詳情：</p>
+<h2>Kitchen AO 公司到會服務：六類企業及機構活動到會方案</h2>
+<p>作為香港到會公司，Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會）。由日常員工午餐、客戶會議午餐、年會及團年飯，到公司聚會、酒會開張，以至學校、醫院及社福機構活動，我們都有對應的餐盒、套餐及小食方案，並按人數及預算度身配搭，全港送貨。按下卡片即可查看各項服務詳情：</p>
 {scene(ZH_SCENES)}
 <h3>人數及預算一覽</h3>
 <div class="ao-tblwrap"><table>
-<thead><tr><th>活動類型</th><th>人數</th><th>到會形式</th><th>每位參考價</th></tr></thead>
+<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>每位參考價</th></tr></thead>
 <tbody>
-<tr><td>Office Lunch／員工飯盒</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}</td><td>HK$108 起</td></tr>
-<tr><td>Meeting Lunch／會議午餐</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td><td>HK$248 起</td></tr>
-<tr><td>Annual Dinner／頒獎晚宴</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>HK$300 起</td></tr>
-<tr><td>公司聚會／Team Building</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>HK$300 起</td></tr>
-<tr><td>酒會／開張／發佈會</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
+<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}</td><td>HK$108 起</td></tr>
+<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td><td>HK$248 起</td></tr>
+<tr><td>年會及團年飯 Annual Dinner</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>HK$300 起</td></tr>
+<tr><td>公司聚會 Team Building</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>HK$300 起</td></tr>
+<tr><td>酒會及開張 Reception</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
+<tr><td>機構活動 Schools &amp; NGOs</td><td>按活動而定</td><td>餐盒、自助餐或小食拼盤</td><td>按人數及形式報價</td></tr>
 </tbody></table></div>
 <p class="ao-note">以上公司到會推介配搭為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
-<h3>企業客戶選擇 Kitchen AO 公司到會服務的四個原因</h3>
+<h3>企業及機構選擇 Kitchen AO 公司到會服務的四個原因</h3>
 <ul>
 <li><strong>菜單跟著活動走：</strong>中西菜式自由配搭，並設素食及無麩質選擇，照顧不同同事的飲食需要。</li>
 <li><strong>人數可多可少：</strong>由 10 人部門午餐到 300 人公司聚會，份量都可以按人數調整。</li>
 <li><strong>熱盤保持溫度：</strong>熱盤以保溫包裝送達，活動一開始即可上桌。</li>
 <li><strong>報價清楚直接：</strong>提供人數、日期及預算，客服便會提供餐單、價錢及送貨安排。</li>
 </ul>'''),
-        ('office-lunch', 'Office Lunch', f'''
-<h2>Office Lunch 到會：日常午餐與會議午餐，兩種需要兩種選擇</h2>
-<p>午餐到會看似簡單，其實最考細節。每日的員工午餐要準時送到、方便分派；與客戶開會時的一頓午餐，則代表公司的待客之道。Office Lunch 到會因此可分兩類：</p>
-<h3>員工飯盒：商務餐盒 HK$108 起</h3>
+        ('office-lunch', '午餐到會', f'''
+<h2>午餐到會：員工午餐與會議午餐（Office Lunch &amp; Meeting Lunch）</h2>
+<p>午餐到會看似簡單，其實最考細節。每日的員工午餐要準時送到、方便分派；與客戶開會時的一頓午餐，則代表公司的待客之道。公司午餐到會因此可分兩類：</p>
+<h3>員工午餐 Office Lunch：商務餐盒 HK$108 起</h3>
 <p>適合 10 至 100 人的日常午餐、內部培訓及加班膳食。每人一盒，派發快捷，亦方便按人數增減。詳情見{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}，另有{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}可供選擇。</p>
-<h3>會議午餐：高級餐盒 HK$248 起</h3>
+<h3>會議午餐 Meeting &amp; Company Lunch：高級餐盒 HK$248 起</h3>
 <p>適合 10 至 100 人的客戶會議、董事會議及貴賓接待。菜式及包裝更講究，即使是一頓會議午餐，也能為公司形象加分。詳情見{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}。</p>
 <h3>想更豐富？加配熱盤及小食</h3>
-<ul>
-<li><strong>熱盤：</strong>{a("/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/", "蜜蜜糖德國鹹豬手")}、{a("/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/", "黑松露野菌蘆筍忌廉意粉")}</li>
-<li><strong>小食：</strong>{a("/product/a0700-handmade-mini-cheeseburger/", "迷你芝士手打豬肉牛肉漢堡")}、{a("/product/a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/", "懷舊芝麻蝦滑多士")}、{a("/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/", "避風塘炸海鮮豆腐")}</li>
-<li><strong>沙律：</strong>{a("/product/s0300-smoked-salmon-caesar-salad/", "油香煙三文魚凱撒沙律")}</li>
-</ul>
+{menu_lunch('zh')}
 <p>想按人數一次過訂購，可參考{a("/product-category/party-set-by-people/", "人數選餐")}。</p>'''),
-        ('annual-dinner', 'Annual Dinner', f'''
-<h2>Annual Dinner 到會：年會的排場，由餐桌開始</h2>
-<p>一場成功的年會，餐飲節奏與台上節目同樣重要。Annual Dinner 到會一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會及頒獎晚宴，每位 HK$300 起。菜式參考：</p>
-<ul>
-<li><strong>迎賓小食：</strong>{a("/product/c1201-照燒慢煮雞卷配牛油果蓉-1件/", "照燒慢煮雞卷配牛油果蓉")}、{a("/product/c0701-炙燒帶子芋頭紫椰菜串-1串/", "炙燒帶子芋頭紫椰菜串")}、{a("/product/c0101-一口和牛野菌串-1串/", "一口和牛野菌串")}</li>
-<li><strong>主菜：</strong>{a("/product/ms02l-西京燒「富士金襴」威士忌白味噌燒鹿兒島叉燒/", "西京燒威士忌白味噌燒鹿兒島叉燒")}、{a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "自家製黑松露牛油慢焗法國黃油雞")}、{a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "清酒煮蟹皇灸燒左口魚醬油煲仔飯")}</li>
-<li><strong>甜品：</strong>{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}、{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}</li>
-</ul>
+        ('annual-dinner', '年會及團年飯', f'''
+<h2>年會及團年飯到會：Annual Dinner、公司團年飯及開年飯一次安排</h2>
+<p>每年 12 月至農曆新年，是公司年會最密集的時段。無論是年尾的 Annual Dinner 及頒獎晚宴，還是公司團年飯、新年後的公司開年飯及春茗，到會餐飲一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會，每位 HK$300 起。菜式參考：</p>
+{menu_dinner('zh')}
+<h3>團年飯到會及公司開年飯：旺季宜早預訂</h3>
+<p>12 月至 2 月是年會旺季，團年飯到會、公司開年飯及春茗到會的查詢明顯增加，熱門日子的名額有限，建議盡早預訂。如想加入中式菜式，可在查詢時一併提出。</p>
 <p><strong>籌備貼士：</strong>人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再安排送達時間。如需要侍應服務，可在查詢時一併提出。</p>'''),
         ('festive', '公司聚會', f'''
-<h2>公司聚會及節日活動：聖誕派對、春茗、團年飯，旺季宜早預訂</h2>
-<p>每年 12 月至農曆新年，是企業活動最密集的時段。由聖誕派對、公司團年飯、公司開年飯到春茗到會，查詢都明顯增加。公司聚會到會多採用自助餐形式，賓客可隨意取用，最適合 30 至 300 人的 Team Building、產品發佈及節日聚會，每位 HK$300 起。</p>
+<h2>公司聚會到會：Company Party、Team Building 及公司聖誕派對</h2>
+<p>公司聚會到會多採用自助餐形式，賓客可隨意取用，最適合 30 至 300 人的 Team Building、產品發佈、員工生日會及公司聖誕派對，每位 HK$300 起。</p>
 <ul>
 <li><strong>自助餐菜式參考：</strong>{a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "日式雞皮餃子配洋蔥圈")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}、{a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "香烤沙嗲串燒")}</li>
 <li><strong>套餐：</strong>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}，按人數由 5 人至 85 人選擇</li>
-<li><strong>聖誕派對：</strong>可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會推介")}</li>
+<li><strong>公司聖誕派對：</strong>可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}</li>
 </ul>'''),
-        ('business-event', '酒會開張', f'''
-<h2>酒會、開張及發佈會：站著吃，也要吃得精緻</h2>
+        ('business-event', '酒會及開張', f'''
+<h2>酒會及開張到會：Reception、Grand Opening 及發佈會</h2>
 <p>酒會及開張活動多以站立形式進行，賓客邊走邊交流，一口一件的 Canapés 及 Finger Food 最合適，既方便取用，又不會打斷談話。這類活動適合 20 至 200 人以上，價錢按餐單報價。詳情可參考{a("/business-event/", "商務活動到會")}，或選擇{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}及{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}。</p>'''),
+        ('institutions', '機構活動', f'''
+<h2>機構活動到會：學校、醫院及社福機構（Schools, Hospitals &amp; NGOs）</h2>
+<p>除了企業，學校、醫院、診所、社福機構及政府部門亦經常需要到會。這類活動的人數、時間及場地各有不同，Kitchen AO 可按需要配搭餐盒、自助餐或小食拼盤：</p>
+<ul>
+<li><strong>學校活動：</strong>家長日、開放日、畢業禮及教職員聚餐，可選自助餐或小食拼盤。</li>
+<li><strong>醫院及診所：</strong>員工午餐、輪班膳食及答謝活動，可選{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}或{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}，每人一盒方便分派。</li>
+<li><strong>社福機構及政府部門：</strong>講座、工作坊及義工活動，可選小食拼盤或{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}。</li>
+</ul>
+<p>機構訂購如有採購或單據要求，請在查詢時一併說明。歡迎填寫{a("/catering-quote-enquiry/", "到會報價查詢")}，提供活動日期、人數及預算。</p>'''),
         ('price', '價錢及流程', f'''
 <h2>公司到會價錢怎樣計算？四個預算例子</h2>
 <p>公司到會的價錢主要由人數、菜式及送貨地區決定。以下例子可作初步預算參考：</p>
 <div class="ao-tblwrap"><table>
-<thead><tr><th>活動類型</th><th>人數</th><th>每位參考價</th><th>總預算例子</th><th>特色</th></tr></thead>
+<thead><tr><th>服務</th><th>人數</th><th>每位參考價</th><th>總預算例子</th><th>特色</th></tr></thead>
 <tbody>
-<tr><td>Office Lunch（商務餐盒）</td><td>20 人</td><td>HK$108</td><td>HK$2,160</td><td>每人一盒，方便分派</td></tr>
-<tr><td>Meeting Lunch（高級餐盒）</td><td>20 人</td><td>HK$248</td><td>HK$4,960</td><td>適合會議及貴賓接待</td></tr>
-<tr><td>Annual Dinner</td><td>80 人</td><td>HK$300</td><td>HK$24,000</td><td>熱盤主菜</td></tr>
-<tr><td>Team Building</td><td>50 人</td><td>HK$300</td><td>HK$15,000</td><td>自助餐及小食</td></tr>
+<tr><td>員工午餐（商務餐盒）</td><td>20 人</td><td>HK$108</td><td>HK$2,160</td><td>每人一盒，方便分派</td></tr>
+<tr><td>會議午餐（高級餐盒）</td><td>20 人</td><td>HK$248</td><td>HK$4,960</td><td>適合會議及貴賓接待</td></tr>
+<tr><td>年會及團年飯</td><td>80 人</td><td>HK$300</td><td>HK$24,000</td><td>熱盤主菜</td></tr>
+<tr><td>公司聚會</td><td>50 人</td><td>HK$300</td><td>HK$15,000</td><td>自助餐及小食</td></tr>
 </tbody></table></div>
 <p class="ao-note">運費按送貨地區計算；單一訂單滿 HK$1,450 全港免運費，詳情見{a("/delivery/", "送貨需知")}。</p>
 <h2 id="process">公司到會預訂流程：四步完成</h2>
@@ -218,41 +255,45 @@ ZH = dict(
 
 # ---------------- English ----------------
 EN_FAQ = [
-    ('How much does corporate catering cost?', 'It depends on headcount, menu and delivery area. As a reference, office lunch commercial lunch boxes start from HK$108 per person, meeting lunch executive meal boxes from HK$248 per person, and annual dinners and company gatherings from HK$300 per person.'),
+    ('How much does corporate catering cost?', 'It depends on headcount, menu and delivery area. As a reference, office lunch commercial lunch boxes start from HK$108 per person, meeting lunch executive meal boxes from HK$248 per person, and annual dinners, year-end dinners and company gatherings from HK$300 per person.'),
     ('How far in advance should I book corporate catering?', 'We recommend booking as early as possible, especially during the busy company event season from December to Chinese New Year. The lead time depends on headcount and menu, so please check with our team on WhatsApp first.'),
+    ('Do you cater year-end dinners and spring dinners?', 'Yes. Annual dinners, year-end dinners and Chinese New Year spring dinners usually include welcome canapés, hot mains and desserts, from HK$300 per person. December to February is peak season, so we recommend booking early.'),
+    ('Can schools, hospitals and NGOs order catering?', 'Yes. For school, hospital and NGO events, we can arrange meal boxes, buffets or snack platters to suit your headcount, venue and budget. Send us your event details for a quotation.'),
     ('Do you offer vegetarian options for corporate catering?', 'Yes. Tell us how many vegetarian guests you have and their requirements, such as vegan or no five pungent spices, and we will arrange the menu accordingly.'),
     ('What budget do I need for annual dinner catering?', 'From HK$300 per person, annual dinner catering for 100 guests costs about HK$30,000, including welcome canapés, mains and desserts.'),
     ('How do I book corporate catering?', 'Contact us on WhatsApp at 852-6901-1987, email info@aoaodelivery.com, or fill in the catering quote enquiry form on our website.'),
 ]
 EN_SCENES = [
-    ('office-lunch', '🍱', 'Office Lunch', 'One commercial lunch box per person for everyday lunches, training and overtime meals', '10 to 100 guests | from HK$108', ''),
-    ('office-lunch', '💼', 'Meeting Lunch', 'Executive meal boxes with a more refined touch for client meetings and VIP guests', '10 to 100 guests | from HK$248', ''),
-    ('annual-dinner', '🏆', 'Annual Dinner', 'From welcome canapés and hot mains to a sweet finale, built for the big night', '50 to 200+ guests | from HK$300', 'Peak season'),
-    ('festive', '🎉', 'Team Building', 'Help-yourself buffets for staff gatherings and festive parties', '30 to 300 guests | from HK$300', ''),
-    ('business-event', '🥂', 'Receptions &amp; Openings', 'Bite-sized canapés and finger food that keep guests mingling', '20 to 200+ guests | quoted by menu', ''),
+    ('office-lunch', '🍱', 'Office Lunch', '', 'One commercial lunch box per person for everyday lunches, training and overtime meals', '10 to 100 guests | from HK$108', ''),
+    ('office-lunch', '💼', 'Meeting &amp; Company Lunch', '', 'Executive meal boxes with a refined touch for client meetings, board meetings and VIP guests', '10 to 100 guests | from HK$248', ''),
+    ('annual-dinner', '🏆', 'Annual Dinner &amp; Year-end Dinner', '', 'Annual dinners, awards nights, year-end dinners and spring dinners', '50 to 200+ guests | from HK$300', 'Dec to Feb peak'),
+    ('festive', '🎉', 'Company Party &amp; Team Building', '', 'Help-yourself buffets for team building and office Christmas parties', '30 to 300 guests | from HK$300', ''),
+    ('business-event', '🥂', 'Reception &amp; Grand Opening', '', 'Bite-sized canapés and finger food that keep guests mingling', '20 to 200+ guests | quoted by menu', ''),
+    ('institutions', '🏫', 'Schools, Hospitals &amp; NGOs', '', 'School open days, hospital staff lunches, NGO talks and workshops', 'Quoted by headcount and format', ''),
 ]
 EN = dict(
-    intro='<p>From the daily lunch box to the year-end annual dinner, the food is often what colleagues remember most about a company event. Kitchen AO provides <strong>corporate catering in Hong Kong</strong> with menus tailored to your headcount and budget, from a 10-person department lunch to a company gathering of 300, with delivery across Hong Kong.</p>',
+    intro='<p>From the daily lunch box to the year-end annual dinner, the food is often what colleagues remember most about a company event. Kitchen AO provides <strong>corporate catering in Hong Kong</strong> for companies and organisations, with menus tailored to your headcount and budget, from a 10-person department lunch to a company gathering of 300, with delivery across Hong Kong.</p>',
     img_alt='Kitchen AO team preparing corporate catering at a company event in Hong Kong',
     img_alt2='Kitchen AO staff setting up a catering buffet at a business event',
     nav_label='Corporate catering contents',
     panes=[
         ('overview', 'Overview', f'''
-<h2>Our Corporate Catering Services in Hong Kong: Five Solutions, from Lunch Boxes to Annual Dinners</h2>
-<p>As a Hong Kong catering company, Kitchen AO offers one-stop corporate catering services. From everyday staff lunch boxes and client meeting lunches to annual dinners, company gatherings and grand openings, we have meal boxes, catering sets and canapés for every occasion, tailored to your headcount and budget, with delivery across Hong Kong. Tap a card to see each service:</p>
+<h2>Our Corporate Catering Services in Hong Kong: Six Solutions for Companies and Organisations</h2>
+<p>As a Hong Kong catering company, Kitchen AO offers one-stop corporate catering services. From everyday office lunches, client meeting lunches, annual dinners and year-end dinners to company parties, grand openings and events for schools, hospitals and NGOs, we have meal boxes, catering sets and canapés for every occasion, tailored to your headcount and budget, with delivery across Hong Kong. Tap a card to see each service:</p>
 {scene(EN_SCENES)}
 <h3>Headcount and Budget at a Glance</h3>
 <div class="ao-tblwrap"><table>
-<thead><tr><th>Event type</th><th>Guests</th><th>Catering format</th><th>Reference price per person</th></tr></thead>
+<thead><tr><th>Service</th><th>Guests</th><th>Catering format</th><th>Reference price per person</th></tr></thead>
 <tbody>
-<tr><td>Office lunch / staff lunch boxes</td><td>10 to 100</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "Commercial Lunch Box")}</td><td>From HK$108</td></tr>
-<tr><td>Meeting lunch</td><td>10 to 100</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "Executive Premium Meal Box")}</td><td>From HK$248</td></tr>
-<tr><td>Annual dinner / awards night</td><td>50 to 200+</td><td>Welcome canapés, hot mains, desserts</td><td>From HK$300</td></tr>
-<tr><td>Company gathering / team building</td><td>30 to 300</td><td>Buffet-style catering sets</td><td>From HK$300</td></tr>
-<tr><td>Reception / opening / product launch</td><td>20 to 200+</td><td>Canapés and finger food</td><td>Quoted by menu</td></tr>
+<tr><td>Office Lunch</td><td>10 to 100</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "Commercial Lunch Box")}</td><td>From HK$108</td></tr>
+<tr><td>Meeting &amp; Company Lunch</td><td>10 to 100</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "Executive Premium Meal Box")}</td><td>From HK$248</td></tr>
+<tr><td>Annual Dinner &amp; Year-end Dinner</td><td>50 to 200+</td><td>Welcome canapés, hot mains, desserts</td><td>From HK$300</td></tr>
+<tr><td>Company Party &amp; Team Building</td><td>30 to 300</td><td>Buffet-style catering sets</td><td>From HK$300</td></tr>
+<tr><td>Reception &amp; Grand Opening</td><td>20 to 200+</td><td>Canapés and finger food</td><td>Quoted by menu</td></tr>
+<tr><td>Schools, Hospitals &amp; NGOs</td><td>Varies by event</td><td>Meal boxes, buffets or snack platters</td><td>Quoted by headcount and format</td></tr>
 </tbody></table></div>
 <p class="ao-note">Reference prices only. Final prices depend on headcount, menu and delivery area.</p>
-<h3>Four Reasons Companies Choose Kitchen AO Corporate Catering Services</h3>
+<h3>Four Reasons Companies and Organisations Choose Kitchen AO</h3>
 <ul>
 <li><strong>Menus that fit the occasion:</strong> Mix Chinese and Western dishes, with vegetarian and gluten-free options for colleagues with dietary needs.</li>
 <li><strong>Any headcount:</strong> From a 10-person department lunch to a company gathering of 300, portions are adjusted to your numbers.</li>
@@ -260,48 +301,51 @@ EN = dict(
 <li><strong>Straightforward quotes:</strong> Share your headcount, date and budget, and our team will send a menu, price and delivery plan.</li>
 </ul>'''),
         ('office-lunch', 'Office Lunch', f'''
-<h2>Office Lunch Catering: Two Kinds of Lunch, Two Solutions</h2>
+<h2>Office Lunch Catering: Office Lunch and Meeting Lunch</h2>
 <p>Office catering in Hong Kong may look simple, but the details matter. Everyday staff lunches need to arrive on time and be easy to hand out, while a lunch served at a client meeting reflects how your company treats its guests. That is why office lunch catering comes in two forms:</p>
-<h3>Staff Lunch Boxes: Commercial Lunch Box from HK$108</h3>
+<h3>Office Lunch: Commercial Lunch Box from HK$108</h3>
 <p>For everyday lunches, in-house training and overtime meals of 10 to 100 people. One box per person makes distribution quick and lets you adjust numbers easily. See our {a("/product-category/商務活動/commercial-lunch-box/", "Commercial Lunch Box")} range, or the {a("/product-category/商務活動/staff-meal/", "Staff Meal Box")}.</p>
-<h3>Meeting Lunch: Executive Premium Meal Box from HK$248</h3>
+<h3>Meeting &amp; Company Lunch: Executive Premium Meal Box from HK$248</h3>
 <p>For client meetings, board meetings and VIP guests of 10 to 100 people. More refined dishes and packaging mean even a working lunch leaves a good impression. See our {a("/product-category/商務活動/executive-premium-meal-box/", "Executive Premium Meal Box")}.</p>
 <h3>Want More? Add Hot Dishes and Snacks</h3>
-<ul>
-<li><strong>Hot dishes:</strong> {a("/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/", "Honey Glazed German Pork Knuckle")}, {a("/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/", "Black Truffle Wild Mushroom Asparagus Cream Pasta")}</li>
-<li><strong>Snacks:</strong> {a("/product/a0700-handmade-mini-cheeseburger/", "Mini Hand-Pattied Cheese Burgers")}, {a("/product/a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/", "Sesame Shrimp Toast")}, {a("/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/", "Typhoon Shelter Style Crispy Seafood Tofu")}</li>
-<li><strong>Salad:</strong> {a("/product/s0300-smoked-salmon-caesar-salad/", "Smoked Salmon Signature Caesar Salad")}</li>
-</ul>
+{menu_lunch('en')}
 <p>To order by headcount in one go, see our {a("/product-category/party-set-by-people/", "party sets by number of guests")}.</p>'''),
         ('annual-dinner', 'Annual Dinner', f'''
-<h2>Annual Dinner Catering: A Memorable Night Starts at the Table</h2>
-<p>Planning a company annual dinner in Hong Kong? The pace of the food matters as much as the show on stage. Annual dinner catering usually comes in three parts: welcome canapés as guests arrive, hot mains once dinner begins, and desserts to close the evening. This format suits annual dinners and award ceremonies of 50 to 200+ guests, from HK$300 per person. Sample dishes:</p>
-<ul>
-<li><strong>Welcome canapés:</strong> {a("/product/c1201-照燒慢煮雞卷配牛油果蓉-1件/", "Teriyaki Chicken Roll with Avocado")}, {a("/product/c0701-炙燒帶子芋頭紫椰菜串-1串/", "Seared Scallop, Taro &amp; Red Cabbage Skewer")}, {a("/product/c0101-一口和牛野菌串-1串/", "Wagyu &amp; Wild Mushroom Skewer")}</li>
-<li><strong>Mains:</strong> {a("/product/ms02l-西京燒「富士金襴」威士忌白味噌燒鹿兒島叉燒/", "Saikyo Miso &amp; Whisky Glazed Kagoshima Char Siu")}, {a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "Slow-roasted French Yellow Spring Chicken with Black Truffle Butter")}, {a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "Sharaku Sake-Braised Crab Roe &amp; Seared Flounder Claypot Rice")}</li>
-<li><strong>Desserts:</strong> {a("/product/d01-french-colorful-macarons-10-pieces/", "French Rainbow Macarons")}, {a("/product/d06-caramel-tart-10個/", "Caramel Portuguese Tarts")}</li>
-</ul>
-<p><strong>Planning tip:</strong> For a large annual dinner, confirm your dinner start time and the space available at the venue for setting up the food before arranging the delivery time. If you need service staff, let us know when you enquire.</p>'''),
-        ('festive', 'Gatherings', f'''
-<h2>Company Gatherings and Festive Events: Book Early for Christmas, Spring and Year-end Dinners</h2>
-<p>December to Chinese New Year is the busiest time of year for company events, with enquiries rising for Christmas parties, year-end dinners and spring dinners. Company gathering catering is usually served as a buffet so guests can help themselves, ideal for team building, product launches and festive gatherings of 30 to 300 guests, from HK$300 per person.</p>
+<h2>Annual Dinner and Year-end Dinner Catering: Annual Dinners, Year-end Dinners and Spring Dinners</h2>
+<p>December to Chinese New Year is the busiest time for company dinners in Hong Kong. Whether it is an annual dinner or awards night at year end, a company year-end dinner, or a spring dinner after Chinese New Year, the catering usually comes in three parts: welcome canapés as guests arrive, hot mains once dinner begins, and desserts to close the evening. This suits annual dinner catering for 50 to 200+ guests, from HK$300 per person. Sample dishes:</p>
+{menu_dinner('en')}
+<h3>Year-end and Spring Dinners: Book Early for Peak Season</h3>
+<p>December to February is peak season, with enquiries rising for year-end dinners and spring dinners. Popular dates fill up quickly, so we recommend booking early. If you would like to add Chinese dishes, just let us know when you enquire.</p>
+<p><strong>Planning tip:</strong> For a large company annual dinner in Hong Kong, confirm your dinner start time and the space available at the venue for setting up the food before arranging the delivery time. If you need service staff, let us know when you enquire.</p>'''),
+        ('festive', 'Company Party', f'''
+<h2>Company Party Catering: Team Building and Office Christmas Parties</h2>
+<p>Company party catering is usually served as a buffet so guests can help themselves, ideal for team building, product launches, staff birthday parties and office Christmas parties of 30 to 300 guests, from HK$300 per person.</p>
 <ul>
 <li><strong>Sample buffet dishes:</strong> {a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "Japanese Chicken Skin Dumplings with Crispy Onion Rings")}, {a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "Braised Abalone &amp; Wild Mushroom Puff Pastry")}, {a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "Grilled Satay Skewers")}</li>
 <li><strong>Catering sets:</strong> {a("/product-category/party/foot-party/", "Gourmet party sets")} for 5 to 85 guests</li>
 </ul>'''),
         ('business-event', 'Receptions', f'''
-<h2>Receptions, Openings and Product Launches: Finger Food Done Right</h2>
+<h2>Reception and Grand Opening Catering: Receptions, Openings and Product Launches</h2>
 <p>Receptions and grand openings are usually standing events where guests mingle as they eat, so bite-sized canapés and finger food work best: easy to pick up, and they never interrupt a conversation. These events suit 20 to 200+ guests and are quoted by menu. See our {a("/business-event/", "event catering")} page, or choose the {a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "Nine Delights Gourmet Canapés Box")} and {a("/product-category/商務活動/royal-snackers-box/", "Royal Snackers Box")}.</p>'''),
+        ('institutions', 'Schools &amp; NGOs', f'''
+<h2>Catering for Schools, Hospitals and NGOs</h2>
+<p>Besides companies, schools, hospitals, clinics, NGOs and government departments often need catering too. Headcount, timing and venue vary from event to event, so Kitchen AO can arrange meal boxes, buffets or snack platters to suit:</p>
+<ul>
+<li><strong>Schools:</strong> parents' days, open days, graduation ceremonies and staff gatherings, with buffets or snack platters.</li>
+<li><strong>Hospitals and clinics:</strong> staff lunches, shift meals and appreciation events, with a {a("/product-category/商務活動/commercial-lunch-box/", "Commercial Lunch Box")} or {a("/product-category/商務活動/staff-meal/", "Staff Meal Box")}, one per person for easy distribution.</li>
+<li><strong>NGOs and government departments:</strong> talks, workshops and volunteer events, with snack platters or the {a("/product-category/商務活動/royal-snackers-box/", "Royal Snackers Box")}.</li>
+</ul>
+<p>If your organisation has procurement or documentation requirements, please let us know when you enquire. Fill in our {a("/catering-quote-enquiry/", "catering quote enquiry")} form with your event date, headcount and budget.</p>'''),
         ('price', 'Prices &amp; Booking', f'''
 <h2>How Much Does Corporate Catering Cost in Hong Kong? Four Budget Examples</h2>
 <p>Corporate catering prices depend mainly on headcount, menu and delivery area. Use these examples as a starting point for your budget:</p>
 <div class="ao-tblwrap"><table>
-<thead><tr><th>Event type</th><th>Guests</th><th>Reference price per person</th><th>Total budget (example)</th><th>Highlights</th></tr></thead>
+<thead><tr><th>Service</th><th>Guests</th><th>Reference price per person</th><th>Total budget (example)</th><th>Highlights</th></tr></thead>
 <tbody>
-<tr><td>Office lunch (Commercial Lunch Box)</td><td>20</td><td>HK$108</td><td>HK$2,160</td><td>One box per person, easy to hand out</td></tr>
-<tr><td>Meeting lunch (Executive Premium Meal Box)</td><td>20</td><td>HK$248</td><td>HK$4,960</td><td>For meetings and VIP guests</td></tr>
-<tr><td>Annual dinner</td><td>80</td><td>HK$300</td><td>HK$24,000</td><td>Hot mains</td></tr>
-<tr><td>Team building</td><td>50</td><td>HK$300</td><td>HK$15,000</td><td>Buffet and snacks</td></tr>
+<tr><td>Office Lunch (Commercial Lunch Box)</td><td>20</td><td>HK$108</td><td>HK$2,160</td><td>One box per person, easy to hand out</td></tr>
+<tr><td>Meeting Lunch (Executive Premium Meal Box)</td><td>20</td><td>HK$248</td><td>HK$4,960</td><td>For meetings and VIP guests</td></tr>
+<tr><td>Annual Dinner &amp; Year-end Dinner</td><td>80</td><td>HK$300</td><td>HK$24,000</td><td>Hot mains</td></tr>
+<tr><td>Company Party &amp; Team Building</td><td>50</td><td>HK$300</td><td>HK$15,000</td><td>Buffet and snacks</td></tr>
 </tbody></table></div>
 <p class="ao-note">Delivery fees depend on the delivery area. Orders of HK$1,450 or more get free delivery across Hong Kong. See {a("/delivery/", "Delivery Info")} for details.</p>
 <h2 id="process">How to Book Corporate Catering in Four Steps</h2>

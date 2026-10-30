@@ -55,12 +55,15 @@ def add(page, role, kws, lang='中', src='', use=''):
 # 公司到會
 add('CORP','主要',['公司到會'],use='H1／Title／首段 100 字內')
 add('CORP','次要',['企業到會','公司到會服務','到會服務 公司'],use='H2／首段／Meta')
-add('CORP','次要',['annual dinner 到會','年會到會','午餐到會','office lunch 到會'],src='建議',use='H2（Annual Dinner／Office Lunch 段）')
-add('CORP','長尾',['公司聚會到會','春茗到會','公司開年飯','公司團年飯','團年飯到會'],src='',use='H3／內文（節日公司活動段）')
+add('CORP','次要',['午餐到會','office lunch 到會','會議到會'],src='建議',use='H2（分頁：午餐到會）')
+add('CORP','次要',['annual dinner 到會','年會到會','公司開年飯','公司團年飯','團年飯到會'],src='GKP 10-30',use='H2／H3（分頁：年會及團年飯；12 月至 2 月旺季）')
+add('CORP','長尾',['公司聚會到會','春茗到會','公司聖誕派對到會'],src='',use='H3／內文（分頁：年會及團年飯、公司聚會）')
+add('CORP','長尾',['機構到會','學校到會','醫院到會','社福機構到會','講座到會','家長日到會'],src='建議',use='H2／內文（分頁：機構活動）')
 add('CORP','FAQ',['公司到會價錢','公司到會要提前多少日預訂','公司到會有沒有素食','公司到會可否開發票'],src='建議',use='FAQ（FAQPage schema）')
 add('CORP','主要',['corporate catering hong kong'],lang='EN',use='EN Title／H1（/en/ 版）')
 add('CORP','次要',['corporate catering','corporate catering service','corporate catering hk','corporate catering events','office catering hong kong','office lunch delivery','office lunch catering','office lunch catering hong kong','corporate lunch catering hong kong','office party catering hk','office catering'],lang='EN',use='EN 內文／Meta')
 add('CORP','長尾',['company annual dinner planning hk','annual dinner planner hk','annual lunch','department dinner'],lang='EN',src='GSC 10-30',use='EN Annual Dinner 段（Blog 只有中文版）')
+add('CORP','長尾',['year-end dinner catering','spring dinner catering','school catering hong kong','hospital catering hong kong','ngo catering hong kong'],lang='EN',src='建議',use='EN 分頁：Annual Dinner／Schools &amp; NGOs')
 # 到會推介
 add('REC','主要',['到會推介','香港到會推介','到會推介2026'],use='H1／Title／首段 100 字內')
 add('REC','次要',['公司到會推介','到會服務推介 2026'],src='GSC 10-30',use='H2「公司活動到會推介」（連去公司到會頁）')
@@ -163,7 +166,7 @@ def num(pg):
 # ---------- 詳細卡 ----------
 CORP_CARD = f'''
 <div class="pc big" id="CORP" data-pg="CORP"><div class="ph"><b>CORP</b><a class="anc" href="#CORP" title="複製這頁的連結">🔗</a><span class="st">第一輪｜要重寫</span></div>
-<h3>公司到會（Annual Dinner、Office Lunch）</h3>
+<h3>公司到會（六類服務：員工午餐、會議午餐、年會及團年飯、公司聚會、酒會及開張、機構活動）</h3>
 <p class="u"><a href="https://aoaodelivery.com/corporate-catering-hk/" target="_blank">/corporate-catering-hk/</a>（頁面 ID 18404）</p>
 {num('CORP')}
 <div class="two"><div><h4>中文版主攻字</h4>{kwli('CORP', 6)}</div><div><h4>英文版（<a href="https://aoaodelivery.com/en/corporate-catering-hk/" target="_blank">/en/corporate-catering-hk/</a>）主攻字</h4>{kwli('CORP-EN', 6)}</div></div>
@@ -185,15 +188,14 @@ CORP_CARD = f'''
 <p><small>Focus Keyword</small><mark>公司到會</mark>（副：企業到會、annual dinner 到會）</p></div>
 <h4>建議 H2 架構</h4>
 <ol class="out">
-<li>公司到會速覽：一段 40 至 60 字的直接答案，加一個表（活動類型／人數／建議套餐／每位預算／提前預訂日數）。<em>AI Overview 最常引用這類段落</em></li>
-<li>Annual Dinner 到會：人數、菜單配搭及時間安排</li>
-<li>Office Lunch 及會議午餐：連去商務餐盒、員工餐盒</li>
-<li>公司聚會及節日活動：聖誕派對、春茗、團年飯（連去聖誕 Blog）</li>
-<li>商務活動及酒會：連去商務活動頁</li>
-<li>公司到會價錢怎樣計算？</li>
-<li>預訂流程（5 步）及報價查詢 CTA</li>
-<li>合作機構及真實案例：連去合作夥伴頁</li>
-<li>常見問題（FAQPage schema）</li>
+<li><b>（10-30 已改）分頁 1 速覽</b>：Kitchen AO 公司到會服務介紹＋六張服務卡（中英主題名）＋人數及預算表｜公司到會、企業到會、公司到會服務、到會公司</li>
+<li><b>分頁 2 午餐到會</b>：員工午餐 Office Lunch（商務餐盒 $108 起）＋會議午餐 Meeting Lunch（高級餐盒 $248 起）｜午餐到會、會議到會</li>
+<li><b>分頁 3 年會及團年飯</b>：Annual Dinner、公司團年飯、公司開年飯、春茗（$300 起；H3 旺季宜早訂）｜團年飯到會 等</li>
+<li><b>分頁 4 公司聚會</b>：Team Building、公司聖誕派對（連去聖誕到會）</li>
+<li><b>分頁 5 酒會及開張</b>：短介紹，連去商務活動頁（字歸 BIZ）</li>
+<li><b>分頁 6 機構活動</b>：學校、醫院及診所、社福機構及政府部門｜機構到會、學校到會、醫院到會</li>
+<li><b>分頁 7 價錢及流程</b>：四個預算例子＋四步預訂</li>
+<li><b>分頁 8 常見問題</b>（FAQPage schema，新增團年飯及機構 FAQ）</li>
 </ol></div></div>
 <h4>AI search（GEO）建議</h4>
 <ul class="iss g">
