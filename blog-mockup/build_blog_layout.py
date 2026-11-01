@@ -8,11 +8,11 @@ B = 'https://aoaodelivery.com'
 REL = {
  'b2': ('/blog/vegetarian-types-guide/', B + '/wp-content/uploads/2026/10/veg-b2-thumb-1000x563-1-300x169.webp', '素食分類天書｜蛋奶素、五辛素、純素、蔬食有甚麼分別？'),
  'b1': ('/blog/vegetarian-catering-hong-kong/', B + '/wp-content/uploads/2026/10/veg-b1-vegetarian-catering-2026-kv-300x169.webp', '派對有素食朋友點安排？素食到會揀選全攻略'),
- 'b6': ('/blog/vegan-vegetarian-meaning/', '', 'Vegan、Vegetarian 中文是甚麼？港台歐美素食用詞'),
+ 'b6': ('/blog/vegan-vegetarian-meaning/', B + '/wp-content/uploads/2026/10/veg-b6-thumb-2000x1126-1-300x169.webp', 'Vegan、Vegetarian 中文是甚麼？港台歐美素食用詞'),
  'b3': ('/blog/chu-yat-sap-ng-vegetarian-guide/', '', '初一十五食齋懶人包｜原因、禁忌及日子表'),
 }
 def rel(keys):
-    return ''.join(f'\n    <a class="ao-rc" href="{B}{u}" target="_blank">' + (f'<img src="{i}" alt="" loading="lazy">' if i else '<img src="" alt="">') + f'<b>{t}</b></a>' for u, i, t in (REL[k] for k in keys)) + '\n   '
+    return ''.join(f'\n    <a class="ao-rc" href="{B}{u}" target="_blank">' + (f'<img src="{i}" alt="" loading="lazy">' if i else '<img src="" alt="">') + f'<b>{t}</b></a>' for u, i, t in (REL[k] for k in keys) if i) + '\n   '
 def tags(ts): return ''.join(f'<a href="#">{x}</a>' for x in ts)
 PAGES = [
  dict(out='blog-layout-v1.html', VER='v1', src='b6-vegan-vegetarian-meaning-WORDPRESS.html', SHORT='Vegan、Vegetarian 中文是甚麼？',
