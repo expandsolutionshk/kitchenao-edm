@@ -344,13 +344,13 @@ DONE = [  # 已完成：(名稱, 網址, 完成日期)
 ]
 
 DRAFT = {  # 製作中的草稿：(草稿網址, 狀態)
- 'Blog：初一十五食齋懶人包（vegB3）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b3-chu-yat-sap-ng-guide.html', '內文完成，有 WORDPRESS 版；KV 要揀（文章內是舊版，另有 3 個新方案）'),
+ 'Blog：初一十五食齋懶人包（vegB3）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b3-chu-yat-sap-ng-guide.html', '內文及 KV（A 媒體封面風）完成，有 WORDPRESS 版，可上載'),
  'Blog：F1 車手飲食＋觀賽派對到會': ('https://expandsolutionshk.github.io/kitchenao-edm/f1-blog/f1-driver-diet-watch-party.html', '內文完成，有 WORDPRESS 版，未上線'),
  'Blog：吃素好處與營養（vegB4）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b4-vegetarian-nutrition.html', '初稿，未有 WORDPRESS 版及 KV'),
  'Blog：一週素食菜單（vegB5）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b5-weekly-vegetarian-menu.html', '初稿，未有 WORDPRESS 版及 KV'),
 }
 PIN_O = ['公司到會 18404 上載＋live check', '客製化紀念品訂製服務：改錯']   # 已做好待上載／有錯要即改
-PIN_N = ['聖誕到會 Landing page（中文）', 'Blog：初一十五食齋懶人包（vegB3）', '聖誕到會 Landing page（英文）', 'Blog：F1 車手飲食＋觀賽派對到會', 'Blog：香港人聖誕餐吃甚麼？', 'Blog：Annual Dinner 籌備全攻略（NB1）', 'Blog：吃素好處與營養（vegB4）', 'Blog：一週素食菜單（vegB5）']  # 季節 deadline
+PIN_N = ['Blog：初一十五食齋懶人包（vegB3）', '聖誕到會 Landing page（中文）', '聖誕到會 Landing page（英文）', 'Blog：F1 車手飲食＋觀賽派對到會', 'Blog：香港人聖誕餐吃甚麼？', 'Blog：Annual Dinner 籌備全攻略（NB1）', 'Blog：吃素好處與營養（vegB4）', 'Blog：一週素食菜單（vegB5）']  # 季節 deadline
 def _order(kind, pins):
     L = [r for r in _R if r['k'] == kind]
     head = [next(r for r in L if r['n'] == p) for p in pins]
@@ -360,12 +360,21 @@ def _order(kind, pins):
         r['id'] = f"{kind}{i}"; r['pin'] = r['n'] in pins
     return out
 OLDQ, NEWQ = _order('O', PIN_O), _order('N', PIN_N)
+# 已上線：保留編號，從排程移除，放入「已完成」
+LAUNCHED = {'Blog：素食種類全攻略（vegB2）': ('/blog/vegetarian-types-guide/', '2026-11-01 前'),
+            'Blog：Vegan／Vegetarian 中文（vegB6）': ('/blog/vegan-vegetarian-meaning/', '2026-11-01 前')}
+for _r in OLDQ + NEWQ:
+    if _r['n'] in LAUNCHED: DONE.append((f"{_r['id']} {SER.get(_r['n'], '')}｜{_r['n']}", *LAUNCHED[_r['n']]))
+OLDQ = [r for r in OLDQ if r['n'] not in LAUNCHED]; NEWQ = [r for r in NEWQ if r['n'] not in LAUNCHED]
+TODAY = (_dt.date(2026, 11, 1), ['公司到會 18404 上載＋live check'], ['Blog：初一十五食齋懶人包（vegB3）'])  # 今日做的項目
 def _days(start, n):
     d, out = start, []
     while len(out) < n:
         if d.weekday() < 5: out.append(d)
         d += _dt.timedelta(days=1)
     return out
+_TO = [r for r in OLDQ if r['n'] in TODAY[1]]; _TN = [r for r in NEWQ if r['n'] in TODAY[2]]
+OLDQ = [r for r in OLDQ if r not in _TO]; NEWQ = [r for r in NEWQ if r not in _TN]
 _n = max((len(OLDQ) + 1) // 2, len(NEWQ))
 _W = '一二三四五六日'
 _VC = {'高': '#3BAA5C', '中': '#C8A24A', '低': '#8A8172'}
@@ -381,7 +390,9 @@ def _cell(r):
     return (f'{tag}<b>{_h.escape(r["n"])}</b>{pin}{wp}{drl}<small>+{r["gain"]:,} click／年｜生意價值 '
             f'<i style="color:{_VC[r["val"]]};font-style:normal;font-weight:800">{r["val"]}</i>｜{_h.escape(r["note"])}</small>')
 _srow = []
-for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
+_d0 = TODAY[0]
+_srow.append(f'<tr class="today"><td class="nw"><b>今日</b><br>{_d0.month}/{_d0.day}（{_W[_d0.weekday()]}）</td><td>' + ''.join(f'<div class="it">{_cell(r)}</div>' for r in _TO) + '</td><td>' + ''.join(f'<div class="it">{_cell(r)}</div>' for r in _TN) + '</td></tr>')
+for i, d in enumerate(_days(_d0 + _dt.timedelta(days=1), _n)):
     o = OLDQ[i*2:i*2+2]; nw = NEWQ[i] if i < len(NEWQ) else None
     oc = '<div class="it">' + '</div><div class="it">'.join(_cell(r) for r in o) + '</div>' if o else '—'
     nc = '<div class="it">' + _cell(nw) + '</div>' if nw else '—'
@@ -396,7 +407,7 @@ SCHED_HTML = DONE_HTML + ('<div class="pri"><h2>每日排程（每個工作日 2
   f'<br>舊文 {len(OLDQ)} 項、新文 {len(NEWQ)} 項，約 {_n} 個工作日完成（只計星期一至五）。已移除：船P必備清單、激光打印食物、野餐好去處、中秋及萬聖節 Blog（已上線）。</p>'
   '<div class="card"><table><thead><tr><th>日期</th><th>舊文／舊頁（2 篇）</th><th>新文／新頁（1 篇）</th></tr></thead><tbody>' + ''.join(_srow) + '</tbody></table></div></div>')
 PRI_HTML = PRI_HTML.replace('<div class="pri">', SCHED_HTML + '<div class="pri">', 1)
-PRI_CSS += '.pri .wp{font-size:13px;margin:3px 0 2px;color:#4A4238}.pri .wp code{background:#FFF4D6;border:1px solid #E9D9AE;border-radius:6px;padding:1px 6px;cursor:pointer;font-family:inherit}.pri .wp code.ok{background:#E3F4E8;border-color:#3BAA5C}.pri .tg{display:inline-block;background:#1A1A1A;color:#F7CE46;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px}.pri .tg.s{background:#E3F1FB;color:#2B7BD0}.pri .it{padding:4px 0}.pri .it+.it{border-top:1px dashed #EEE6D6}.pri .pinf{font-size:12px;color:#E2574C;font-weight:700}'
+PRI_CSS += '.pri tr.today td{background:#FFF8E6}.pri .wp{font-size:13px;margin:3px 0 2px;color:#4A4238}.pri .wp code{background:#FFF4D6;border:1px solid #E9D9AE;border-radius:6px;padding:1px 6px;cursor:pointer;font-family:inherit}.pri .wp code.ok{background:#E3F4E8;border-color:#3BAA5C}.pri .tg{display:inline-block;background:#1A1A1A;color:#F7CE46;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px}.pri .tg.s{background:#E3F1FB;color:#2B7BD0}.pri .it{padding:4px 0}.pri .it+.it{border-top:1px dashed #EEE6D6}.pri .pinf{font-size:12px;color:#E2574C;font-weight:700}'
 
 # ---------- render ----------
 CLS = ['classDef new fill:#E3F4E8,stroke:#3BAA5C', 'classDef old fill:#FFF4D6,stroke:#C8A24A', 'classDef bad fill:#FDE2E1,stroke:#E2574C',
