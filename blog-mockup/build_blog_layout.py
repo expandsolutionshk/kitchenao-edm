@@ -71,6 +71,8 @@ SNIP = open(os.path.join(H, 'wp', 'ao-blog-layout-snippet.txt'), encoding='utf-8
 WPCSS = re.search(r'<style id="ao-bl-css">(.*?)</style>', SNIP, re.S).group(1).strip()
 WPCSS = WPCSS.replace('body.ao-bl-on .lafka_post_data_holder{max-width:1240px!important}',
                       '.lafka_post_data_holder:has(.ao-bl){max-width:1240px!important}')
+_T = open(os.path.join(H, 'blog-layout-template.html'), encoding='utf-8').read()
+WPCSS += '\n' + re.search(r'\.ao-bl \.ao-fb\{.*?\n', _T).group(0)
 WPOUT = {'blog-layout-v1.html': 'b6-vegan-vegetarian-meaning-WORDPRESS-layout.html',
          'blog-layout-v2.html': 'b3-chu-yat-sap-ng-guide-WORDPRESS-layout.html',
          'blog-layout-b2.html': 'b2-vegetarian-types-guide-WORDPRESS-layout.html',
@@ -86,7 +88,7 @@ for src, dst in WPOUT.items():
     a = s.index('<div class="ao-bl">'); b = s.rindex('<script>')
     block = s[a:b].rstrip()
     js = re.findall(r'<script>(.*?)</script>', s, re.S)[-1]
-    out = '<style>' + WPCSS + '</style>\n' + block + '\n<script>' + js + '\n' + VOTEJS + '</script>\n'
+    out = '<style>' + WPCSS + '</style>\n' + block + '\n<script>' + js + '</script>\n'
     assert '<h1' not in out
     open(os.path.join(VB, dst), 'w', encoding='utf-8').write(out)
     print('WP', dst, len(out), len(re.findall(r'<div\b', out)), out.count('</div>'))
