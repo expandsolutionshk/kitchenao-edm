@@ -1,17 +1,13 @@
-/* Kitchen AO｜CLS（版面跳動）修正 2026-11-02
-   放法：WP 後台 → 外觀 → 自訂 → 附加 CSS（或 WPCode → CSS Snippet，Site Wide Header）
-   原因 1：主題的固定頁頂（sticky header）要等 JS 載入後才轉為 fixed 並加 body padding，令整頁向下跳 175px。
-           以下 CSS 由第一刻已用固定頁頂並預留同樣高度（≤1279px：175px；≥1280px：212px，與主題 JS 計算一致）。
-   原因 2：WPBakery「全闊 row」要等 JS 才拉闊，手機首頁 Hero 文字會重新排版。以下在 1024px 以下預先設為全闊。 */
+/* Kitchen AO - CLS fix (2026-11-02)
+   1) Sticky header: apply fixed header + body padding from first paint (theme JS sets the same values later).
+   2) WPBakery full-width rows: stretch on mobile/tablet before JS runs. */
 
-/* 1) 固定頁頂：預先套用，與主題 lafkaStickyHeaderInit 的結果相同 */
 body:not(.lafka_transparent_header):not(.lafka_boxed) #header{position:fixed;top:0;left:0;right:0;z-index:999}
 body.admin-bar:not(.lafka_transparent_header):not(.lafka_boxed) #header{top:32px}
 @media (max-width:782px){body.admin-bar:not(.lafka_transparent_header):not(.lafka_boxed) #header{top:46px}}
 body:not(.lafka_transparent_header):not(.lafka_boxed){padding-top:175px}
 @media (min-width:1280px){body:not(.lafka_transparent_header):not(.lafka_boxed){padding-top:212px}}
 
-/* 2) WPBakery 全闊 row：手機及平板預先拉闊 */
 @media (max-width:1024px){
   .vc_row[data-vc-full-width="true"]{position:relative!important;left:50%!important;right:auto!important;width:100vw!important;max-width:100vw!important;margin-left:-50vw!important;margin-right:0!important;box-sizing:border-box}
 }
