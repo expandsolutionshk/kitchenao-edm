@@ -271,6 +271,7 @@ I=[
 ('N','veg','Blog：吃素好處與營養（vegB4）','KP 1,060／月',12720,None,0,10,'低'),
 ('N','veg','Blog：一週素食菜單（vegB5）','KP 1,420／月',17040,None,0,10,'低'),
 ('N','veg','Blog：植物肉、植物奶（vegB7）','KP 490／月',5880,None,0,10,'低'),
+('N','f1','Blog：F1 車手飲食＋觀賽派對到會','未做 KW 分析；GSC 未有數據',0,None,0,10,'低'),
 ('N','pic','野餐 Landing','野餐字群 474 曝光（野餐盒分類已 #9）',474,None,0,8,'高'),
 ('N','therm','Blog：食物保暖用品（thermB1）','KP 12,980／月（多為大字）；待確認 MUJI 產品',155760,None,0,20,'低'),
 ('N','therm','Blog：保鮮用品（thermB2）','KP 6,960／月',83520,None,0,20,'低'),
@@ -284,7 +285,7 @@ for k,s,n,note,imp,pos,clk,t,val in I:
     t=t or tgt(pos); gain=max(0,round(imp*CTR[t]-clk))
     _R.append(dict(k=k,s=s,n=n,note=note,gain=gain,t=t,val=val))
 
-SER = {'Blog：素食到會推介（vegB1）': 'vegB1', 'Blog：素食種類全攻略（vegB2）': 'vegB2', 'Blog：Vegan／Vegetarian 中文（vegB6）': 'vegB6', 'Blog：初一十五食齋懶人包（vegB3）': 'vegB3', 'Blog：吃素好處與營養（vegB4）': 'vegB4', 'Blog：一週素食菜單（vegB5）': 'vegB5', 'Blog：植物肉、植物奶（vegB7）': 'vegB7', 'Blog：食物保暖用品（thermB1）': 'thermB1', 'Blog：保鮮用品（thermB2）': 'thermB2', 'Blog：保溫杯、保溫瓶（thermB3）': 'thermB3', '聖誕到會 Landing page（中文）': 'xmasLP', '聖誕到會 Landing page（英文）': 'xmasLP-EN', 'Blog：香港人聖誕餐吃甚麼？': 'xmasB2', 'Blog：Annual Dinner 籌備全攻略（NB1）': 'corpB1', 'Blog：團年飯 vs 開年飯（更新 2027）': 'cnyB1', 'Blog：公司活動到會攻略': 'corpB2', 'Blog：公司到會點揀': 'corpB3', '舊 Blog：到會邊間好': 'recB1', '舊 Blog：到會中伏': 'recB2', 'Blog：小朋友生日會': 'bdayB1', '生日會 Landing': 'bdayLP', '素食到會 Landing': 'vegLP', '船河 Landing': 'boatLP', '野餐 Landing': 'picLP', '訂製食物 Landing': 'giftLP', '中秋 Landing（每年沿用）': 'maLP', '萬聖節 Landing（每年沿用）': 'halLP'}
+SER = {'Blog：素食到會推介（vegB1）': 'vegB1', 'Blog：素食種類全攻略（vegB2）': 'vegB2', 'Blog：Vegan／Vegetarian 中文（vegB6）': 'vegB6', 'Blog：初一十五食齋懶人包（vegB3）': 'vegB3', 'Blog：吃素好處與營養（vegB4）': 'vegB4', 'Blog：一週素食菜單（vegB5）': 'vegB5', 'Blog：植物肉、植物奶（vegB7）': 'vegB7', 'Blog：食物保暖用品（thermB1）': 'thermB1', 'Blog：保鮮用品（thermB2）': 'thermB2', 'Blog：保溫杯、保溫瓶（thermB3）': 'thermB3', '聖誕到會 Landing page（中文）': 'xmasLP', '聖誕到會 Landing page（英文）': 'xmasLP-EN', 'Blog：香港人聖誕餐吃甚麼？': 'xmasB2', 'Blog：Annual Dinner 籌備全攻略（NB1）': 'corpB1', 'Blog：團年飯 vs 開年飯（更新 2027）': 'cnyB1', 'Blog：公司活動到會攻略': 'corpB2', 'Blog：公司到會點揀': 'corpB3', '舊 Blog：到會邊間好': 'recB1', '舊 Blog：到會中伏': 'recB2', 'Blog：小朋友生日會': 'bdayB1', '生日會 Landing': 'bdayLP', '素食到會 Landing': 'vegLP', '船河 Landing': 'boatLP', '野餐 Landing': 'picLP', '訂製食物 Landing': 'giftLP', '中秋 Landing（每年沿用）': 'maLP', '萬聖節 Landing（每年沿用）': 'halLP', 'Blog：F1 車手飲食＋觀賽派對到會': 'f1B1'}
 
 # ---------- WP 位置：網址、在 WP 後台搜尋用的字 ----------
 WP = {  # 名稱: (網址, 後台搜尋字, 位置)
@@ -318,6 +319,7 @@ WP = {  # 名稱: (網址, 後台搜尋字, 位置)
  'Blog：吃素好處與營養（vegB4）': ('/blog/vegetarian-nutrition-protein/（建議）', '新建文章', '新建'),
  'Blog：一週素食菜單（vegB5）': ('/blog/weekly-vegetarian-menu/（建議）', '新建文章', '新建'),
  'Blog：植物肉、植物奶（vegB7）': ('/blog/plant-based-meat-milk/（建議）', '新建文章', '新建'),
+ 'Blog：F1 車手飲食＋觀賽派對到會': ('/blog/f1-driver-diet-watch-party/（建議）', '新建文章（貼 WORDPRESS 版）', '新建'),
  '野餐 Landing': ('/catering/picnic/（建議）', '新建頁面', '新建'),
  'Blog：食物保暖用品（thermB1）': ('（待定）', '新建文章', '新建'),
  'Blog：保鮮用品（thermB2）': ('（待定）', '新建文章', '新建'),
@@ -341,8 +343,14 @@ DONE = [  # 已完成：(名稱, 網址, 完成日期)
  ('全站英文 Meta、英文 H1、英文選單', '/en/', '2026-10-29'), ('Blog 只留中文版（/en/blog/ 301）', '/blog/', '2026-10-29'),
 ]
 
+DRAFT = {  # 製作中的草稿：(草稿網址, 狀態)
+ 'Blog：初一十五食齋懶人包（vegB3）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b3-chu-yat-sap-ng-guide.html', '內文完成，有 WORDPRESS 版；KV 要揀（文章內是舊版，另有 3 個新方案）'),
+ 'Blog：F1 車手飲食＋觀賽派對到會': ('https://expandsolutionshk.github.io/kitchenao-edm/f1-blog/f1-driver-diet-watch-party.html', '內文完成，有 WORDPRESS 版，未上線'),
+ 'Blog：吃素好處與營養（vegB4）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b4-vegetarian-nutrition.html', '初稿，未有 WORDPRESS 版及 KV'),
+ 'Blog：一週素食菜單（vegB5）': ('https://expandsolutionshk.github.io/kitchenao-edm/vegetarian-blog/b5-weekly-vegetarian-menu.html', '初稿，未有 WORDPRESS 版及 KV'),
+}
 PIN_O = ['公司到會 18404 上載＋live check', '客製化紀念品訂製服務：改錯']   # 已做好待上載／有錯要即改
-PIN_N = ['聖誕到會 Landing page（中文）', '聖誕到會 Landing page（英文）', 'Blog：香港人聖誕餐吃甚麼？', 'Blog：Annual Dinner 籌備全攻略（NB1）']  # 季節 deadline
+PIN_N = ['聖誕到會 Landing page（中文）', 'Blog：初一十五食齋懶人包（vegB3）', '聖誕到會 Landing page（英文）', 'Blog：F1 車手飲食＋觀賽派對到會', 'Blog：香港人聖誕餐吃甚麼？', 'Blog：Annual Dinner 籌備全攻略（NB1）', 'Blog：吃素好處與營養（vegB4）', 'Blog：一週素食菜單（vegB5）']  # 季節 deadline
 def _order(kind, pins):
     L = [r for r in _R if r['k'] == kind]
     head = [next(r for r in L if r['n'] == p) for p in pins]
@@ -363,12 +371,14 @@ _W = '一二三四五六日'
 _VC = {'高': '#3BAA5C', '中': '#C8A24A', '低': '#8A8172'}
 def _cell(r):
     tag = f'<span class="tg">{r["id"]}</span>' + (f'<span class="tg s">{SER[r["n"]]}</span>' if r['n'] in SER else '')
-    pin = ' <span class="pinf">📌 deadline／已完成</span>' if r['pin'] else ''
+    dr = DRAFT.get(r['n'])
+    pin = (' <span class="pinf" style="color:#2B7BD0">📝 已有草稿</span>' if dr else ' <span class="pinf">📌 deadline／已完成</span>') if r['pin'] else ''
+    drl = f'<div class="wp">📝 草稿：<a href="{dr[0]}" target="_blank">預覽</a>｜{_h.escape(dr[1])}</div>' if dr else ''
     u, q, where = WP.get(r['n'], ('', '', ''))
     href = (B + u) if u.startswith('/') and '（' not in u else ''
     ul = (f'<a href="{href}" target="_blank">{_h.escape(u)}</a>' if href else _h.escape(u))
     wp = (f'<div class="wp">🔗 {ul}<br>WP 搜尋（{where}）：<code class="cp" title="按一下複製">{_h.escape(q)}</code></div>' if u else '')
-    return (f'{tag}<b>{_h.escape(r["n"])}</b>{pin}{wp}<small>+{r["gain"]:,} click／年｜生意價值 '
+    return (f'{tag}<b>{_h.escape(r["n"])}</b>{pin}{wp}{drl}<small>+{r["gain"]:,} click／年｜生意價值 '
             f'<i style="color:{_VC[r["val"]]};font-style:normal;font-weight:800">{r["val"]}</i>｜{_h.escape(r["note"])}</small>')
 _srow = []
 for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
@@ -379,7 +389,7 @@ for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
 DONE_HTML = ('<div class="pri"><h2>✅ 已完成（' + str(len(DONE)) + ' 項）</h2><div class="card"><table><thead><tr><th>頁面</th><th>網址</th><th>完成</th></tr></thead><tbody>' +
   ''.join(f'<tr><td><b>{_h.escape(n)}</b></td><td><a href="{B}{u}" target="_blank">{B}{_h.escape(u)}</a></td><td class="nw">{d}</td></tr>' for n, u, d in DONE) + '</tbody></table></div></div>')
 SCHED_HTML = DONE_HTML + ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文＋1 篇新文）</h2><p class="pn">'
-  '<b>排序：</b>📌 先做有 deadline 或已完成待上載的項目，其餘按「預計每年增加點擊」由高至低。'
+  '<b>排序：</b>📌 先做有 deadline 或已完成待上載的項目，📝 已有草稿的接著完成，其餘按「預計每年增加點擊」由高至低。'
   '<b>編號：</b>O＝舊文／舊頁，N＝新文／新頁；系列另加標籤（例如 xmasB2、vegB3、thermB1）。<br>'
   '<b>點擊估算：</b>GSC 12 個月曝光（新文用 Keyword Planner 月搜×12）× 目標排名 CTR − 現有點擊。目標排名：現時 #1–10 → #3；#11–20 → #5；#21–30 → #8；#30 以後或新文 → #10；大字為主的資訊文 → #20。只作排序參考。'
   '<br><b>生意價值：</b>高＝交易型頁面（會帶來查詢及訂單）；低＝資訊型 Blog（點擊多但轉化低）。'
@@ -437,7 +447,7 @@ for(const [k,code] of Object.entries(V)){
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
   s.querySelector('pre').textContent=code;views.appendChild(s);
-  if(k==='全站總覽'){const d=document.createElement('div');d.innerHTML=PRI;s.insertBefore(d.firstChild,s.firstChild);}
+  if(k==='全站總覽'){const d=document.createElement('div');d.innerHTML=PRI;s.insertBefore(d,s.firstChild);}
   (SLINKS[k]||[]).forEach(([t,u])=>{const a=document.createElement('a');a.href=u;a.textContent=t;a.className='kwlink';s.insertBefore(a,s.firstChild);});
   const b=document.createElement('button');b.textContent=LABEL[k]||k;let top=null;
   const g=inGrp[k];
