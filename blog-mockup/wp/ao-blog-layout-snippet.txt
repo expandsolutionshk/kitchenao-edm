@@ -1,0 +1,214 @@
+/**
+ * Kitchen AO - Blog 版面（右側目錄、分享、推介產品、報價 CTA；文末投票、Tag、推介產品、延伸閱讀）
+ * WPCode：PHP Snippet，Auto Insert，Run Everywhere
+ *
+ * 用法：在文章內加一個 WPBakery「Text Block」（或傳統編輯器任何位置），貼上：
+ *   [ao_blog products="14715,14750,14758,14759" related="21876,14795" more_url="/product-category/party/vegetarians-set/" more_text="查看全部素食套餐" cta_title="派對有朋友吃素？" cta_text="告訴我們人數及飲食要求，客服為你配搭素食到會餐單。"]
+ * - products：產品 ID（逗號分隔），沒有圖片的產品自動不顯示
+ * - related：延伸閱讀文章 ID；留空＝自動揀同分類、有特色圖片的 3 篇
+ * - 其餘參數可留空（用預設字眼）
+ * 沒有放 [ao_blog] 的文章維持原有版面。
+ */
+
+if ( ! defined( 'ABSPATH' ) ) { return; }
+
+$GLOBALS['ao_bl_atts'] = null;
+
+/* 1) Shortcode：只記下參數，不輸出任何內容 */
+add_shortcode( 'ao_blog', function ( $atts ) {
+	$GLOBALS['ao_bl_atts'] = shortcode_atts( array(
+		'products'  => '',
+		'related'   => '',
+		'more_url'  => '',
+		'more_text' => '查看全部套餐',
+		'cta_title' => '想訂到會？',
+		'cta_text'  => '告訴我們日子、人數及飲食要求，客服為你配搭餐單。',
+		'cta_url'   => 'https://wa.me/85269011987',
+	), $atts, 'ao_blog' );
+	return '';
+} );
+
+function ao_bl_on() {
+	if ( is_admin() || ! is_singular( 'post' ) ) { return false; }
+	$p = get_post();
+	return $p && has_shortcode( $p->post_content, 'ao_blog' );
+}
+
+/* 2) body class（用來放寬主題 980px 的內容闊度） */
+add_filter( 'body_class', function ( $c ) {
+	if ( ao_bl_on() ) { $c[] = 'ao-bl-on'; }
+	return $c;
+} );
+
+/* 3) 產品、延伸閱讀資料 */
+function ao_bl_products( $ids ) {
+	$out = array();
+	if ( ! function_exists( 'wc_get_product' ) ) { return $out; }
+	foreach ( array_filter( array_map( 'absint', explode( ',', $ids ) ) ) as $id ) {
+		$p = wc_get_product( $id );
+		if ( ! $p || 'publish' !== $p->get_status() ) { continue; }
+		$img = $p->get_image_id() ? wp_get_attachment_image_url( $p->get_image_id(), 'woocommerce_thumbnail' ) : '';
+		if ( ! $img ) { continue; }
+		$out[] = array(
+			'name'  => $p->get_name(),
+			'url'   => get_permalink( $id ),
+			'img'   => $img,
+			'price' => wp_strip_all_tags( wc_price( (float) $p->get_price(), array( 'decimals' => 0 ) ) ),
+		);
+	}
+	return $out;
+}
+function ao_bl_related( $ids, $self ) {
+	$list = array_filter( array_map( 'absint', explode( ',', $ids ) ) );
+	if ( ! $list ) {
+		$cats = wp_get_post_categories( $self );
+		$q    = get_posts( array( 'post_type' => 'post', 'posts_per_page' => 6, 'category__in' => $cats, 'post__not_in' => array( $self ), 'fields' => 'ids' ) );
+		$list = $q;
+	}
+	$out = array();
+	foreach ( $list as $id ) {
+		if ( (int) $id === (int) $self || 'publish' !== get_post_status( $id ) ) { continue; }
+		$img = get_the_post_thumbnail_url( $id, 'medium' );
+		if ( ! $img ) { continue; }
+		$out[] = array( 'title' => get_the_title( $id ), 'url' => get_permalink( $id ), 'img' => $img );
+		if ( count( $out ) >= 3 ) { break; }
+	}
+	return $out;
+}
+
+/* 4) 包住文章：左邊文章＋文末區，右邊側欄 */
+add_filter( 'the_content', function ( $html ) {
+	static $done = false;
+	if ( $done || ! ao_bl_on() || ! in_the_loop() || ! is_main_query() || empty( $GLOBALS['ao_bl_atts'] ) ) { return $html; }
+	$done = true;
+	$a    = $GLOBALS['ao_bl_atts'];
+	$pid  = get_the_ID();
+	$prod = ao_bl_products( $a['products'] );
+	$rel  = ao_bl_related( $a['related'], $pid );
+	$mins = max( 1, (int) ceil( mb_strlen( wp_strip_all_tags( $html ) ) / 450 ) );
+	$more = $a['more_url'] ? ( 0 === strpos( $a['more_url'], 'http' ) ? $a['more_url'] : home_url( $a['more_url'] ) ) : '';
+	$up   = (int) get_post_meta( $pid, '_ao_vote_up', true );
+	$dn   = (int) get_post_meta( $pid, '_ao_vote_dn', true );
+
+	/* 側欄產品 */
+	$side = '';
+	foreach ( $prod as $p ) {
+		$side .= '<a class="ao-pi" href="' . esc_url( $p['url'] ) . '"><img src="' . esc_url( $p['img'] ) . '" alt="" loading="lazy"><div><b>' . esc_html( $p['name'] ) . '</b><span>' . esc_html( $p['price'] ) . '</span></div></a>';
+	}
+	/* 文末產品格 */
+	$grid = '';
+	foreach ( $prod as $p ) {
+		$grid .= '<a class="ao-pc" href="' . esc_url( $p['url'] ) . '"><img src="' . esc_url( $p['img'] ) . '" alt="' . esc_attr( $p['name'] ) . '" loading="lazy"><div><b>' . esc_html( $p['name'] ) . '</b><span>' . esc_html( $p['price'] ) . '</span><em>查看套餐</em></div></a>';
+	}
+	/* 延伸閱讀 */
+	$rg = '';
+	foreach ( $rel as $r ) {
+		$rg .= '<a class="ao-rc" href="' . esc_url( $r['url'] ) . '"><img src="' . esc_url( $r['img'] ) . '" alt="" loading="lazy"><b>' . esc_html( $r['title'] ) . '</b></a>';
+	}
+	/* Tag */
+	$tg = '';
+	foreach ( (array) get_the_tags( $pid ) as $t ) {
+		if ( $t ) { $tg .= '<a href="' . esc_url( get_tag_link( $t ) ) . '">' . esc_html( $t->name ) . '</a>'; }
+	}
+
+	$end  = '<div class="ao-end">';
+	$end .= '<div class="ao-vote" data-id="' . $pid . '"><button type="button" class="cp" data-copy>🔗 複製文章連結</button><span class="q">呢篇文章有冇幫到你？</span><button type="button" class="b" data-v="up">👍 有用</button><button type="button" class="b" data-v="dn">👎 一般</button>';
+	$end .= '<div class="ao-vbar"><i style="width:' . ( $up + $dn ? round( $up / ( $up + $dn ) * 100 ) : 0 ) . '%"></i></div><div class="ao-vtxt" data-up="' . $up . '" data-dn="' . $dn . '"></div></div>';
+	if ( $tg )   { $end .= '<div class="ao-sec"><h3>此文章相關 TAG</h3><div class="ao-tags">' . $tg . '</div></div>'; }
+	if ( $grid ) { $end .= '<div class="ao-sec"><h3>推介產品</h3><div class="ao-pg">' . $grid . '</div></div>'; }
+	if ( $rg )   { $end .= '<div class="ao-sec"><h3>📖 延伸閱讀</h3><div class="ao-rg">' . $rg . '</div></div>'; }
+	$end .= '</div>';
+
+	$aside  = '<aside class="ao-bl-aside">';
+	$aside .= '<div class="ao-meta"><span>作者</span><b>Kitchen AO 編輯部</b><span>更新</span><b>' . esc_html( get_the_modified_date( 'Y-m-d', $pid ) ) . '</b><span>閱讀</span><b>約 ' . $mins . ' 分鐘</b></div>';
+	$aside .= '<div class="ao-sc toc"><h4>目錄</h4><div class="ao-prog"><i></i></div><ol class="ao-toc2"></ol></div>';
+	$aside .= '<div class="ao-bshare"><b>分享</b><a href="#" class="cp" data-copy title="複製連結"><i class="fa-solid fa-link"></i><em>複製</em></a><a href="#" class="wa" target="_blank" rel="noopener" title="分享到 WhatsApp"><i class="fa-brands fa-whatsapp"></i><em>WhatsApp</em></a><a href="#" class="fb" target="_blank" rel="noopener" title="分享到 Facebook"><i class="fa-brands fa-facebook-f"></i><em>Facebook</em></a><a href="#" class="ig" title="分享到 Instagram"><i class="fa-brands fa-instagram"></i><em>IG</em></a></div>';
+	if ( $side ) {
+		$aside .= '<div class="ao-sc"><h4>推介產品</h4><div class="ao-pl">' . $side . '</div>' . ( $more ? '<a class="ao-more" href="' . esc_url( $more ) . '">' . esc_html( $a['more_text'] ) . ' →</a>' : '' ) . '</div>';
+	}
+	$aside .= '<div class="ao-cta2"><b>' . esc_html( $a['cta_title'] ) . '</b><p>' . esc_html( $a['cta_text'] ) . '</p><a href="' . esc_url( $a['cta_url'] ) . '" target="_blank" rel="noopener">WhatsApp 查詢</a></div>';
+	$aside .= '</aside>';
+
+	return '<div class="ao-bl"><div class="ao-bl-main" id="ao-art">' . $html . $end . '</div>' . $aside . '</div>';
+}, 999 );
+
+/* 5) 投票（REST，不使用表單變數） */
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'ao/v1', '/vote', array(
+		'methods'             => 'POST',
+		'permission_callback' => '__return_true',
+		'callback'            => function ( WP_REST_Request $r ) {
+			$id = absint( $r->get_param( 'id' ) );
+			$v  = $r->get_param( 'v' ) === 'up' ? '_ao_vote_up' : '_ao_vote_dn';
+			if ( ! $id || 'post' !== get_post_type( $id ) ) { return new WP_Error( 'bad', 'bad', array( 'status' => 400 ) ); }
+			update_post_meta( $id, $v, (int) get_post_meta( $id, $v, true ) + 1 );
+			return array( 'up' => (int) get_post_meta( $id, '_ao_vote_up', true ), 'dn' => (int) get_post_meta( $id, '_ao_vote_dn', true ) );
+		},
+	) );
+} );
+
+/* 6) CSS＋JS（只在有 [ao_blog] 的文章輸出） */
+add_action( 'wp_footer', function () {
+	if ( ! ao_bl_on() ) { return; }
+	$api = esc_url_raw( rest_url( 'ao/v1/vote' ) );
+	?>
+<style id="ao-bl-css">
+body.ao-bl-on .lafka_post_data_holder{max-width:1240px!important}
+.ao-bl{--gold:#C8A24A;--gold-d:#9A7B2E;--ink:#1A1A1A;--mut:#8A8172;--line:#EEE6D6;--cream:#FBF7EE;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start;padding:10px 0 40px}
+.ao-bl *{box-sizing:border-box}.ao-bl-main{min-width:0}.ao-bl-main .ao-article{max-width:none!important;margin-left:0!important;margin-right:0!important}
+.ao-bl-aside{position:sticky;top:24px;display:flex;flex-direction:column;gap:18px}
+.ao-bl .ao-sc{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px 18px}
+.ao-bl .ao-sc h4{margin:0 0 10px;font-size:13px;letter-spacing:1px;color:var(--gold-d);font-weight:800}
+.ao-bl .ao-meta{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;color:var(--mut);padding:0 2px}.ao-bl .ao-meta b{color:var(--ink);font-weight:600}
+.ao-bl .ao-prog{height:3px;background:var(--line);border-radius:3px;margin:-2px 0 12px;overflow:hidden}.ao-bl .ao-prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .15s}
+.ao-bl .ao-toc2{list-style:none!important;margin:0!important;padding:0!important;max-height:42vh;overflow:auto}.ao-bl .ao-toc2 li{margin:0!important;padding:0!important;list-style:none!important}.ao-bl .ao-toc2 li:before{display:none!important}
+.ao-bl .ao-toc2 a{display:block;text-decoration:none!important;font-size:14px;line-height:1.45;color:#6B6252!important;padding:6px 0 6px 14px;border-left:2px solid var(--line)}
+.ao-bl .ao-toc2 a:hover{color:var(--ink)!important}.ao-bl .ao-toc2 a.on{color:var(--gold-d)!important;font-weight:800;border-left-color:var(--gold)}
+.ao-bshare{display:flex;align-items:center;gap:22px;padding:2px 2px 24px}.ao-bshare b{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--gold-d);margin-right:2px}
+.ao-bshare a{position:relative;width:40px;height:40px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none!important;font-size:19px;color:#fff!important;transition:transform .2s,box-shadow .2s}
+.ao-bshare a:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.15)}.ao-bshare .cp{background:#fff;color:var(--ink)!important;border:1.5px solid var(--line);font-size:16px}
+.ao-bshare .wa{background:#25D366}.ao-bshare .fb{background:#1877F2}.ao-bshare .ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.ao-bshare a.ok{background:#3BAA5C;color:#fff!important;border-color:#3BAA5C}.ao-bshare a em{position:absolute;top:45px;left:50%;transform:translateX(-50%);font-style:normal;font-size:10.5px;color:var(--mut);white-space:nowrap}
+.ao-bl .ao-pl{display:flex;flex-direction:column;gap:10px}.ao-bl .ao-pi{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;text-decoration:none!important}
+.ao-bl .ao-pi img{width:64px;height:64px;border-radius:10px;object-fit:cover;margin:0}.ao-bl .ao-pi b{display:block;font-size:14px;line-height:1.4;color:var(--ink)}.ao-bl .ao-pi span{font-size:13px;color:var(--gold-d);font-weight:800}
+.ao-bl .ao-more{display:block;text-align:center;margin-top:12px;font-weight:800;font-size:13px;color:var(--gold-d)!important;text-decoration:none!important}
+.ao-bl .ao-cta2{background:var(--ink);color:#fff;border-radius:16px;padding:18px}.ao-bl .ao-cta2 b{display:block;color:#F7CE46;font-size:18px;line-height:1.4}.ao-bl .ao-cta2 p{margin:6px 0 12px;font-size:13px;line-height:1.6;color:#ddd}
+.ao-bl .ao-cta2 a{display:block;text-align:center;background:var(--gold);color:var(--ink)!important;font-weight:800;border-radius:30px;padding:10px;text-decoration:none!important}
+.ao-bl .ao-end{margin-top:40px;border-top:1px solid var(--line);padding-top:24px}
+.ao-bl .ao-vote{display:flex;align-items:center;justify-content:center;gap:12px 16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.ao-bl .ao-vote .cp{background:var(--ink);color:#fff;border:0;border-radius:30px;padding:10px 18px;font-weight:800;font-size:14px;cursor:pointer}
+.ao-bl .ao-vote .q{font-size:14px}.ao-bl .ao-vote .b{border:1px solid #E9D9AE;background:#FBF7EE;border-radius:30px;padding:7px 16px;font-weight:800;color:#6b5a2a;font-size:14px;cursor:pointer}.ao-bl .ao-vote .b.on{background:var(--gold);color:var(--ink)}
+.ao-bl .ao-vbar{flex-basis:100%;max-width:340px;height:6px;background:var(--line);border-radius:6px;overflow:hidden}.ao-bl .ao-vbar i{display:block;height:100%;background:var(--gold)}.ao-bl .ao-vtxt{flex-basis:100%;text-align:center;font-size:13px;color:var(--mut)}
+.ao-bl .ao-sec{margin-top:26px}.ao-bl .ao-sec h3{font-size:13px!important;letter-spacing:1px;color:var(--gold-d)!important;margin:0 0 12px!important;font-weight:800}
+.ao-bl .ao-tags{display:flex;gap:8px;flex-wrap:wrap}.ao-bl .ao-tags a{border:1px solid #E9D9AE;background:#FBF7EE;border-radius:30px;padding:6px 14px;font-size:13px;font-weight:700;text-decoration:none!important;color:#6b5a2a!important}
+.ao-bl .ao-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}.ao-bl .ao-pc{border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none!important;background:#fff;display:flex;flex-direction:column}
+.ao-bl .ao-pc img{width:100%;aspect-ratio:1;object-fit:cover;margin:0}.ao-bl .ao-pc div{padding:10px 12px 12px}.ao-bl .ao-pc b{display:block;font-size:14px;line-height:1.4;color:var(--ink);min-height:2.8em}
+.ao-bl .ao-pc span{display:block;font-size:14px;color:var(--gold-d);font-weight:800;margin:4px 0 8px}.ao-bl .ao-pc em{display:block;text-align:center;font-style:normal;font-size:13px;font-weight:800;border:1.5px solid var(--ink);border-radius:20px;padding:5px;color:var(--ink)}
+.ao-bl .ao-rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.ao-bl .ao-rc{text-decoration:none!important;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.ao-bl .ao-rc img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;margin:0}.ao-bl .ao-rc b{display:block;padding:10px 12px 14px;font-size:14px;line-height:1.5;color:var(--ink)}
+@media(min-width:1025px){.ao-bl-main .ao-toc{display:none!important}}
+@media(max-width:1024px){.ao-bl{grid-template-columns:1fr;gap:0}.ao-bl-aside{position:static;margin-top:30px}.ao-bl-aside .ao-sc.toc{display:none}.ao-bl .ao-pg{grid-template-columns:repeat(2,1fr)}.ao-bl .ao-rg{grid-template-columns:1fr}.ao-bl .ao-rc{display:grid;grid-template-columns:120px 1fr}.ao-bl .ao-rc img{height:100%;aspect-ratio:auto}}
+</style>
+<script id="ao-bl-js">
+(function(){var art=document.getElementById('ao-art'),AS=document.querySelector('.ao-bl-aside');if(!art||!AS)return;
+var hs=[].slice.call(art.querySelectorAll('h2[id]')),t=AS.querySelector('.ao-toc2'),pg=AS.querySelector('.ao-prog i'),L=[];
+hs.forEach(function(h){var li=document.createElement('li'),a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;li.appendChild(a);t.appendChild(li);L.push(a)});
+if(!hs.length)AS.querySelector('.ao-sc.toc').style.display='none';
+function spy(){var c=0;hs.forEach(function(h,i){if(h.getBoundingClientRect().top<120)c=i});L.forEach(function(a,i){a.classList.toggle('on',i===c)});var r=art.getBoundingClientRect(),p=Math.min(1,Math.max(0,(120-r.top)/(r.height-innerHeight+120)));if(pg)pg.style.width=(p*100)+'%'}
+addEventListener('scroll',spy,{passive:true});spy();
+function fit(){if(innerWidth<=1024){AS.style.top='';return}var h=AS.offsetHeight,vh=innerHeight;AS.style.top=(h+48>vh?(vh-h-24):24)+'px'}addEventListener('resize',fit);addEventListener('load',fit);fit();
+var U=location.href.split('#')[0],T=document.title,E=encodeURIComponent;
+AS.querySelector('.wa').href='https://wa.me/?text='+E(T+' '+U);AS.querySelector('.fb').href='https://www.facebook.com/sharer/sharer.php?u='+E(U);
+function copy(el,msg){var done=function(){el.classList.add('ok');var em=el.querySelector('em');var old=em?em.textContent:el.textContent;if(em)em.textContent=msg||'已複製';else el.textContent='✓ 已複製';setTimeout(function(){el.classList.remove('ok');if(em)em.textContent=old;else el.textContent=old},1600)};if(navigator.clipboard)navigator.clipboard.writeText(U).then(done,done);else done()}
+[].forEach.call(document.querySelectorAll('.ao-bl [data-copy]'),function(b){b.addEventListener('click',function(e){e.preventDefault();copy(b)})});
+AS.querySelector('.ig').addEventListener('click',function(e){e.preventDefault();if(navigator.share){navigator.share({title:T,url:U}).catch(function(){})}else{copy(this,'已複製，可貼到 IG')}});
+var V=document.querySelector('.ao-bl .ao-vote');if(V){var tx=V.querySelector('.ao-vtxt'),bar=V.querySelector('.ao-vbar i'),id=V.getAttribute('data-id'),K='ao_vote_'+id;
+function show(up,dn){var n=up+dn;tx.innerHTML=n?'<b>'+Math.round(up/n*100)+'%</b> 讀者覺得有用 · 共 '+n+' 票':'成為第一個投票的讀者';bar.style.width=(n?Math.round(up/n*100):0)+'%'}
+show(+tx.getAttribute('data-up'),+tx.getAttribute('data-dn'));var voted=null;try{voted=localStorage.getItem(K)}catch(e){}
+if(voted){var on=V.querySelector('[data-v="'+voted+'"]');if(on)on.classList.add('on')}
+[].forEach.call(V.querySelectorAll('[data-v]'),function(b){b.addEventListener('click',function(){if(voted)return;voted=b.getAttribute('data-v');b.classList.add('on');try{localStorage.setItem(K,voted)}catch(e){}
+fetch('<?php echo $api; ?>',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:+id,v:voted})}).then(function(r){return r.json()}).then(function(d){if(d&&d.up!=null)show(d.up,d.dn)}).catch(function(){})})})}
+})();
+</script>
+	<?php
+}, 50 );

@@ -1,0 +1,14 @@
+【B6｜Vegan、Vegetarian 中文是甚麼？】（文章 ID 21890，已上線）
+[ao_blog products="14715,14750,14758,14759" related="21876,14795" more_url="/product-category/party/vegetarians-set/" more_text="查看全部素食套餐" cta_title="派對有朋友吃素？" cta_text="告訴我們人數及飲食要求，客服為你配搭素食到會餐單。"]
+
+【B3｜初一十五食齋懶人包】（新文章，上載後如有 B6 以外的延伸閱讀可改 related）
+[ao_blog products="14715,14750,14758,14759" related="21876,14795,21890" more_url="/product-category/party/vegetarians-set/" more_text="查看全部素食套餐" cta_title="初一十五想請齋？" cta_text="告訴我們日子、人數及飲食要求（例如走五辛），客服為你配搭素食到會。"]
+
+【B2｜素食分類天書】（文章 ID 21876）
+[ao_blog products="14715,14750,14758,14759" related="14795,21890" more_url="/product-category/party/vegetarians-set/" more_text="查看全部素食套餐" cta_title="聚會有朋友吃素？" cta_text="告訴我們人數及吃素方式（蛋奶素、全素或走五辛），客服為你配搭素食到會。"]
+
+【B1｜素食到會推介】（文章 ID 14795）
+[ao_blog products="14715,14750,14758,14759" related="21876,21890" more_url="/product-category/party/vegetarians-set/" more_text="查看全部素食套餐" cta_title="想訂素食到會？" cta_text="告訴我們日子、人數及飲食要求，客服為你配搭素食到會餐單。"]
+
+產品 ID：14715「素」味人生 6–8 人｜14750 10–12 人｜14758 16–19 人｜14759 22–26 人
+文章 ID：21876 B2 素食分類天書｜14795 B1 素食到會推介｜21890 B6 Vegan 中文

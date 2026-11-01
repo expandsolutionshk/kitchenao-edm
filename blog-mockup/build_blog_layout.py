@@ -32,3 +32,26 @@ for p in PAGES:
     assert '{{' not in s, re.findall(r'\{\{\w+\}\}', s)
     open(os.path.join(H, p['out']), 'w', encoding='utf-8').write(s)
     print(p['out'], len(s), s.count('<h1'), len(re.findall(r'<div\b', s)), s.count('</div>'), len(re.findall(r'<h2[^>]*id=', s)))
+
+# ---------- WordPress 版（一個 Raw HTML 貼上即可，不需要 snippet）----------
+SNIP = open(os.path.join(H, 'wp', 'ao-blog-layout-snippet.txt'), encoding='utf-8').read()
+WPCSS = re.search(r'<style id="ao-bl-css">(.*?)</style>', SNIP, re.S).group(1).strip()
+WPCSS = WPCSS.replace('body.ao-bl-on .lafka_post_data_holder{max-width:1240px!important}',
+                      '.lafka_post_data_holder:has(.ao-bl){max-width:1240px!important}')
+WPOUT = {'blog-layout-v1.html': 'b6-vegan-vegetarian-meaning-WORDPRESS-layout.html',
+         'blog-layout-v2.html': 'b3-chu-yat-sap-ng-guide-WORDPRESS-layout.html'}
+VOTEJS = ("(function(){var V=document.querySelector('.ao-bl .ao-vote');if(!V)return;"
+          "[].forEach.call(V.querySelectorAll('.b'),function(b){b.style.cursor='pointer';b.addEventListener('click',function(){"
+          "[].forEach.call(V.querySelectorAll('.b'),function(x){x.classList.remove('on')});b.classList.add('on');"
+          "var q=V.querySelector('.q');if(q)q.textContent='多謝你的意見！';})});"
+          "var c=V.querySelector('.cp');if(c)c.addEventListener('click',function(){var u=location.href.split('#')[0];"
+          "if(navigator.clipboard)navigator.clipboard.writeText(u);c.textContent='✓ 已複製';setTimeout(function(){c.textContent='🔗 複製文章連結'},1600)});})();")
+for src, dst in WPOUT.items():
+    s = open(os.path.join(H, src), encoding='utf-8').read()
+    a = s.index('<div class="ao-bl">'); b = s.rindex('<script>')
+    block = s[a:b].rstrip()
+    js = re.findall(r'<script>(.*?)</script>', s, re.S)[-1]
+    out = '<style>' + WPCSS + '</style>\n' + block + '\n<script>' + js + '\n' + VOTEJS + '</script>\n'
+    assert '<h1' not in out
+    open(os.path.join(VB, dst), 'w', encoding='utf-8').write(out)
+    print('WP', dst, len(out), len(re.findall(r'<div\b', out)), out.count('</div>'))
