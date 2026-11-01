@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Blog 版面 {{VER}}｜{{SHORT}}（Mockup）</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{--gold:#C8A24A;--gold-d:#9A7B2E;--ink:#1A1A1A;--txt:#3A342B;--mut:#8A8172;--line:#EEE6D6;--cream:#FBF7EE;--green:#5E7E5C}
+*{box-sizing:border-box}body{margin:0;font:16px/1.8 -apple-system,"PingFang HK","Noto Sans HK",sans-serif;color:var(--txt);background:#fff}
+a{color:inherit}
+.note{background:#1A1A1A;color:#F7CE46;padding:12px 20px;font-size:14px;line-height:1.6}.note b{color:#fff}
+.hd{background:#F5F5F5;padding:34px 20px 30px}.hd .in{max-width:1240px;margin:0 auto}
+.bc{font-size:12px;color:#666;font-weight:700}.hd h1{font-size:40px;line-height:1.3;margin:10px 0 8px;color:#222;font-weight:900;max-width:960px}
+.hd .mt{font-size:13px;color:#555}
+/* ===== 版面 ===== */
+.ao-bl{max-width:1240px;margin:0 auto;padding:36px 20px 60px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start}
+.ao-bl-main{min-width:0;max-width:820px}
+.ao-bl-aside{position:sticky;top:24px;display:flex;flex-direction:column;gap:18px}
+/* 側欄卡 */
+.ao-sc{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px 18px}
+.ao-sc h4{margin:0 0 10px;font-size:13px;letter-spacing:1px;color:var(--gold-d);font-weight:800}
+.ao-meta{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;color:var(--mut);border:0;padding:0 2px}.ao-meta b{color:var(--ink);font-weight:600}
+.ao-prog{height:3px;background:var(--line);border-radius:3px;margin:-2px 0 12px;overflow:hidden}.ao-prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .15s}
+.ao-toc2{list-style:none;margin:0;padding:0;max-height:42vh;overflow:auto}
+.ao-toc2 a{display:block;text-decoration:none;font-size:14px;line-height:1.45;color:#6B6252;padding:6px 0 6px 14px;border-left:2px solid var(--line)}
+.ao-toc2 a:hover{color:var(--ink)}.ao-toc2 a.on{color:var(--gold-d);font-weight:800;border-left-color:var(--gold)}
+.ao-bshare{display:flex;align-items:center;gap:22px;padding:2px 2px 24px}.ao-bshare b{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--gold-d);margin-right:2px}.ao-bshare a{position:relative;width:40px;height:40px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:19px;color:#fff;transition:transform .2s,box-shadow .2s}.ao-bshare a:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.15)}.ao-bshare .cp{background:#fff;color:var(--ink);border:1.5px solid var(--line);font-size:16px}.ao-bshare .wa{background:#25D366}.ao-bshare .fb{background:#1877F2}.ao-bshare .ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}.ao-bshare a.ok{background:#3BAA5C;color:#fff;border-color:#3BAA5C}.ao-bshare a em{position:absolute;top:45px;left:50%;transform:translateX(-50%);font-style:normal;font-size:10.5px;letter-spacing:-.2px;color:var(--mut);white-space:nowrap}
+.ao-pl{display:flex;flex-direction:column;gap:10px}
+.ao-pi{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;text-decoration:none}
+.ao-pi img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:var(--cream)}
+.ao-pi b{display:block;font-size:14px;line-height:1.4;color:var(--ink)}.ao-pi span{font-size:13px;color:var(--gold-d);font-weight:800}
+.ao-pi:hover b{color:var(--gold-d)}
+.ao-more{display:block;width:100%;text-align:center;margin-top:12px;padding:4px 0;font:800 13px/1.4 inherit;color:var(--gold-d);background:none;border:0;cursor:pointer;text-decoration:none}.ao-more:hover{color:var(--ink)}.ao-pl-more{display:flex;flex-direction:column;gap:10px}.ao-sub{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--green);margin:6px 0 -2px;padding-top:8px;border-top:1px dashed var(--line)}.ao-pl-more[hidden]{display:none}.ao-pi .ph{width:64px;height:64px;border-radius:10px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:24px}
+.ao-cta2{background:var(--ink);color:#fff;border-radius:16px;padding:18px}.ao-cta2 b{display:block;color:#F7CE46;font-size:18px;line-height:1.4}.ao-cta2 p{margin:6px 0 12px;font-size:13px;line-height:1.6;color:#ddd}
+.ao-cta2 a{display:block;text-align:center;background:var(--gold);color:var(--ink);font-weight:800;border-radius:30px;padding:10px;text-decoration:none}
+/* 文章（示意） */
+.kv{aspect-ratio:16/9;border-radius:10px;background:linear-gradient(135deg,#EEF4EC,#F7EFDF);border:4px solid #CFE8CD;display:flex;align-items:center;justify-content:center;color:#5E7E5C;font-weight:800;font-size:22px;margin:0 0 22px}
+.ao-bl-main p{margin:0 0 14px}
+/* 文末 */
+.ao-end{margin-top:40px;border-top:1px solid var(--line);padding-top:24px}
+.ao-vote{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.ao-vote .cp{background:var(--ink);color:#fff;border:0;border-radius:30px;padding:10px 18px;font-weight:800;font-size:14px}
+.ao-vote .q{font-size:14px}.ao-vote .b{border:1px solid #E9D9AE;background:#FBF7EE;border-radius:30px;padding:7px 16px;font-weight:800;color:#6b5a2a;font-size:14px}
+.ao-sec{margin-top:26px}.ao-sec h3{font-size:13px;letter-spacing:1px;color:var(--gold-d);margin:0 0 12px;font-weight:800}
+.ao-tags{display:flex;gap:8px;flex-wrap:wrap}.ao-tags a{border:1px solid #E9D9AE;background:#FBF7EE;border-radius:30px;padding:6px 14px;font-size:13px;font-weight:700;text-decoration:none;color:#6b5a2a}
+.ao-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.ao-pc{border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;background:#fff;display:flex;flex-direction:column}
+.ao-pc img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--cream)}.ao-pc div{padding:10px 12px 12px}.ao-pc b{display:block;font-size:14px;line-height:1.4;color:var(--ink);min-height:2.8em}
+.ao-pc span{display:block;font-size:14px;color:var(--gold-d);font-weight:800;margin:4px 0 8px}.ao-pc em{display:block;text-align:center;font-style:normal;font-size:13px;font-weight:800;border:1.5px solid var(--ink);border-radius:20px;padding:5px;color:var(--ink)}
+.ao-pc:hover{border-color:var(--gold)}
+.ao-rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ao-rc{text-decoration:none;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.ao-rc img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--cream);display:block}
+.ao-rc b{display:block;padding:10px 12px 14px;font-size:14px;line-height:1.5;color:var(--ink)}.ao-rc:hover b{color:var(--gold-d)}
+/* 桌面用右側目錄，文章內目錄只在手機顯示 */
+@media(min-width:1025px){.ao-bl-main .ao-toc{display:none!important}}
+.ao-mtoc{display:none}
+@media(max-width:1024px){
+ .ao-bl{grid-template-columns:1fr;gap:0}.ao-bl-aside{position:static;margin-top:30px}
+ .ao-bl-aside .ao-sc.toc{display:none}.ao-mtoc details{border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:var(--cream)}
+ .ao-mtoc summary{font-weight:800;cursor:pointer;color:var(--ink)}
+ .ao-mtoc ol{margin:8px 0 0;padding-left:20px;font-size:14px}.ao-mtoc a{text-decoration:none;color:#6B6252}
+ .hd h1{font-size:28px}
+ .ao-pg{grid-template-columns:repeat(2,1fr)}.ao-rg{grid-template-columns:1fr}
+ .ao-rc{display:grid;grid-template-columns:120px 1fr}.ao-rc img{height:100%;aspect-ratio:auto}
+}
+</style></head><body>
+<div class="note"><b>Mockup {{VER}}｜Blog 版面</b>：以「{{SHORT}}」真實內容示範（所有文章共用同一個 template）。右側為黏貼側欄（作者及更新、目錄、分享、推介產品、報價 CTA）；文末為有用投票、Tag、推介產品、延伸閱讀。闊度少於 1024px 時側欄移到文末，手機沿用文章內原有目錄。</div>
+<div class="hd"><div class="in"><div class="bc">首頁 / 香港到會資訊 / {{SHORT}}</div>
+<h1>{{H1}}</h1>
+<div class="mt">🕒 1 週前　📁 香港到會資訊</div></div></div>
+
+<div class="ao-bl">
+ <main class="ao-bl-main" id="art">
+{{ARTICLE}}
+  <div class="ao-end">
+   <div class="ao-vote"><button class="cp">🔗 複製文章連結</button><span class="q">呢篇文章有冇幫到你？</span><span class="b">👍 有用</span><span class="b">👎 一般</span></div>
+   <div class="ao-sec"><h3>此文章相關 TAG</h3><div class="ao-tags">{{TAGS}}</div></div>
+   <div class="ao-sec"><h3>🥗 推介產品</h3><div class="ao-pg">
+    <a class="ao-pc" href="https://aoaodelivery.com/product/ao-6-8pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt=""><div><b>「素」味人生 6–8 人</b><span>HK$1,388</span><em>查看套餐</em></div></a>
+    <a class="ao-pc" href="https://aoaodelivery.com/product/ao-10-12pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt=""><div><b>「素」味人生 10–12 人</b><span>HK$1,988</span><em>查看套餐</em></div></a>
+    <a class="ao-pc" href="https://aoaodelivery.com/product/a3900-grilled-garlic-eggplant/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/KitchenAO_DEC2023-ALA-CARTE-02-2-600x600.jpg" alt=""><div><b>惹味蒜香焗茄子</b><span>HK$178</span><em>查看</em></div></a>
+   </div></div>
+   <div class="ao-sec"><h3>📖 延伸閱讀</h3><div class="ao-rg">{{RELATED}}</div></div>
+  </div>
+ </main>
+
+ <aside class="ao-bl-aside">
+  <div class="ao-meta"><span>作者</span><b>Kitchen AO 編輯部</b><span>更新</span><b>{{UPDATED}}</b><span>閱讀</span><b>約 {{READ}} 分鐘</b></div>
+  <div class="ao-sc toc"><h4>目錄</h4><div class="ao-prog"><i id="prog"></i></div><ol class="ao-toc2" id="toc"></ol></div>
+  <div class="ao-bshare" aria-label="分享文章"><b>分享</b><a href="#" id="cpl" class="cp" title="複製連結"><i class="fa-solid fa-link"></i><em>複製</em></a><a href="#" id="shwa" class="wa" target="_blank" rel="noopener" title="分享到 WhatsApp"><i class="fa-brands fa-whatsapp"></i><em>WhatsApp</em></a><a href="#" id="shfb" class="fb" target="_blank" rel="noopener" title="分享到 Facebook"><i class="fa-brands fa-facebook-f"></i><em>Facebook</em></a><a href="#" id="shig" class="ig" title="分享到 Instagram"><i class="fa-brands fa-instagram"></i><em>IG</em></a></div>
+  <div class="ao-sc"><h4>🥗 推介產品</h4><div class="ao-pl">
+   <a class="ao-pi" href="https://aoaodelivery.com/product/ao-6-8pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt=""><div><b>「素」味人生 6–8 人</b><span>HK$1,388</span></div></a>
+   <a class="ao-pi" href="https://aoaodelivery.com/product/ao-10-12pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt=""><div><b>「素」味人生 10–12 人</b><span>HK$1,988</span></div></a>
+   <a class="ao-pi" href="https://aoaodelivery.com/product/a3900-grilled-garlic-eggplant/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/KitchenAO_DEC2023-ALA-CARTE-02-2-600x600.jpg" alt=""><div><b>惹味蒜香焗茄子</b><span>HK$178</span></div></a>
+  <div class="ao-pl-more" hidden><div class="ao-sub">更多素食套餐</div><a class="ao-pi" href="https://aoaodelivery.com/product/ao-16-19pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt="" loading="lazy"><div><b>「素」味人生 16–19 人</b><span>HK$2,988</span></div></a><a class="ao-pi" href="https://aoaodelivery.com/product/ao-22-26pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt="" loading="lazy"><div><b>「素」味人生 22–26 人</b><span>HK$3,788</span></div></a><div class="ao-sub">素食單點</div><a class="ao-pi" href="https://aoaodelivery.com/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/cafcfef6-09ff-4233-be66-84dd307ea036-600x600.jpg" alt="" loading="lazy"><div><b>黑松露野菌蘆筍忌廉意粉（4 磅）</b><span>HK$318</span></div></a><a class="ao-pi" href="https://aoaodelivery.com/product/a3100-cheese-nachos-with-flavorful-three-colour-salsa/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2023/12/KitchenAO_DEC2023-ALA-CARTE_工作區域-1-600x600.jpg" alt="" loading="lazy"><div><b>墨西哥芝士玉米片配三色醬</b><span>HK$198</span></div></a><a class="ao-pi" href="https://aoaodelivery.com/product/a3800-shanghai-style-deep-fried-buns-with-condensed-milk/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/KitchenAO_DEC2023-ALA-CARTE-06-2-600x600.jpg" alt="" loading="lazy"><div><b>上海古早炸饅頭配煉奶</b><span>HK$178</span></div></a><a class="ao-pi" href="https://aoaodelivery.com/product/d07-molten-cheese-tart-10pic/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/speeddating-1-600x532.jpg" alt="" loading="lazy"><div><b>流心芝士撻（10 個）</b><span>HK$178</span></div></a><a class="ao-pi" href="https://aoaodelivery.com/product/d01-french-colorful-macarons-10-pieces/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2026/09/法式七彩馬卡龍-600x600.png" alt="" loading="lazy"><div><b>法式七彩馬卡龍（10 個）</b><span>HK$198</span></div></a></div></div><button type="button" class="ao-more" data-more>更多素食套餐及單點 ＋</button></div>
+  <div class="ao-cta2"><b>{{CTA_T}}</b><p>{{CTA_P}}</p><a href="https://wa.me/85269011987" target="_blank">WhatsApp 查詢</a></div>
+ </aside>
+</div>
+<script>
+(function(){var hs=[].slice.call(document.querySelectorAll('#art h2[id]')),t=document.getElementById('toc'),L=[];
+hs.forEach(function(h){var li=document.createElement('li');var a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;li.appendChild(a);t.appendChild(li);L.push(a);});
+var art=document.getElementById('art'),pg=document.getElementById('prog');
+function spy(){var y=120,c=0;hs.forEach(function(h,i){if(h.getBoundingClientRect().top<y)c=i});L.forEach(function(a,i){a.classList.toggle('on',i===c)});
+var r=art.getBoundingClientRect(),p=Math.min(1,Math.max(0,(-r.top+120)/(r.height-innerHeight+120)));pg.style.width=(p*100)+'%';
+var on=L[c];if(on){var box=t;if(on.offsetTop<box.scrollTop||on.offsetTop>box.scrollTop+box.clientHeight-30)box.scrollTop=on.offsetTop-40}}
+addEventListener('scroll',spy,{passive:true});spy();
+var U=location.href.split('#')[0],T=document.title,E=encodeURIComponent;
+document.getElementById('shwa').href='https://wa.me/?text='+E(T+' '+U);
+document.getElementById('shfb').href='https://www.facebook.com/sharer/sharer.php?u='+E(U);
+function copy(el){var done=function(){el.classList.add('ok');el.querySelector('em').textContent='已複製';setTimeout(function(){el.classList.remove('ok');el.querySelector('em').textContent=el.dataset.l||'複製'},1600)};if(navigator.clipboard)navigator.clipboard.writeText(U).then(done,done);else done();}
+var cp=document.getElementById('cpl');cp.dataset.l='複製';cp.onclick=function(e){e.preventDefault();copy(this)};
+var ig=document.getElementById('shig');ig.dataset.l='IG';ig.onclick=function(e){e.preventDefault();if(navigator.share){navigator.share({title:T,url:U}).catch(function(){})}else{copy(this);this.querySelector('em').textContent='已複製，可貼到 IG'}};
+var AS=document.querySelector('.ao-bl-aside');function fit(){if(!AS)return;if(innerWidth<=1024){AS.style.top='';return}var h=AS.offsetHeight,vh=innerHeight;AS.style.top=(h+48>vh?(vh-h-24):24)+'px'}
+addEventListener('resize',fit);addEventListener('load',fit);fit();
+var mb=document.querySelector('[data-more]');if(mb)mb.onclick=function(){var m=document.querySelector('.ao-pl-more');m.hidden=false;this.outerHTML='<a class="ao-more" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" target="_blank">查看全部素食套餐 →</a>';fit();};})();
+</script>
+</body></html>
