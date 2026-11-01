@@ -361,8 +361,8 @@ def _order(kind, pins):
     return out
 OLDQ, NEWQ = _order('O', PIN_O), _order('N', PIN_N)
 # 已上線：保留編號，從排程移除，放入「已完成」
-LAUNCHED = {'Blog：素食種類全攻略（vegB2）': ('/blog/vegetarian-types-guide/', '2026-11-01 前'),
-            'Blog：Vegan／Vegetarian 中文（vegB6）': ('/blog/vegan-vegetarian-meaning/', '2026-11-01 前')}
+LAUNCHED = {'Blog：素食種類全攻略（vegB2）': ('/blog/vegetarian-types-guide/', '已上線'),
+            'Blog：Vegan／Vegetarian 中文（vegB6）': ('/blog/vegan-vegetarian-meaning/', '已上線')}
 for _r in OLDQ + NEWQ:
     if _r['n'] in LAUNCHED: DONE.append((f"{_r['id']} {SER.get(_r['n'], '')}｜{_r['n']}", *LAUNCHED[_r['n']]))
 OLDQ = [r for r in OLDQ if r['n'] not in LAUNCHED]; NEWQ = [r for r in NEWQ if r['n'] not in LAUNCHED]
