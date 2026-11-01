@@ -122,7 +122,7 @@ add_filter( 'the_content', function ( $html ) {
 	$aside  = '<aside class="ao-bl-aside">';
 	$aside .= '<div class="ao-meta"><span>作者</span><b>Kitchen AO 編輯部</b><span>更新</span><b>' . esc_html( get_the_modified_date( 'Y-m-d', $pid ) ) . '</b><span>閱讀</span><b>約 ' . $mins . ' 分鐘</b></div>';
 	$aside .= '<div class="ao-sc toc"><h4>目錄</h4><div class="ao-prog"><i></i></div><ol class="ao-toc2"></ol></div>';
-	$aside .= '<div class="ao-bshare"><b>分享</b><a href="#" class="cp" data-copy title="複製連結"><i class="fa-solid fa-link"></i><em>複製</em></a><a href="#" class="wa" target="_blank" rel="noopener" title="分享到 WhatsApp"><i class="fa-brands fa-whatsapp"></i><em>WhatsApp</em></a><a href="#" class="fb" target="_blank" rel="noopener" title="分享到 Facebook"><i class="fa-brands fa-facebook-f"></i><em>Facebook</em></a><a href="#" class="ig" title="分享到 Instagram"><i class="fa-brands fa-instagram"></i><em>IG</em></a></div>';
+	$aside .= '<div class="ao-bshare"><b>分享</b><a href="#" class="cp" data-copy title="複製連結"><i class="fas fa-link"></i><em>複製</em></a><a href="#" class="wa" target="_blank" rel="noopener" title="分享到 WhatsApp"><i class="fab fa-whatsapp"></i><em>WhatsApp</em></a><a href="#" class="fb" target="_blank" rel="noopener" title="分享到 Facebook"><i class="fab fa-facebook-f"></i><em>Facebook</em></a><a href="#" class="ig" title="分享到 Instagram"><i class="fab fa-instagram"></i><em>IG</em></a></div>';
 	if ( $side ) {
 		$aside .= '<div class="ao-sc"><h4>推介產品</h4><div class="ao-pl">' . $side . '</div>' . ( $more ? '<a class="ao-more" href="' . esc_url( $more ) . '">' . esc_html( $a['more_text'] ) . ' →</a>' : '' ) . '</div>';
 	}

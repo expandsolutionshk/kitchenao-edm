@@ -6,9 +6,9 @@ H = os.path.dirname(os.path.abspath(__file__))
 VB = os.path.join(H, '..', 'vegetarian-blog')
 B = 'https://aoaodelivery.com'
 REL = {
- 'b2': ('/blog/vegetarian-types-guide/', B + '/wp-content/uploads/2026/10/veg-b2-thumb-1000x563-1-300x169.webp', '素食分類天書｜蛋奶素、五辛素、純素、蔬食有甚麼分別？'),
- 'b1': ('/blog/vegetarian-catering-hong-kong/', B + '/wp-content/uploads/2026/10/veg-b1-vegetarian-catering-2026-kv-300x169.webp', '派對有素食朋友點安排？素食到會揀選全攻略'),
- 'b6': ('/blog/vegan-vegetarian-meaning/', B + '/wp-content/uploads/2026/10/veg-b6-thumb-2000x1126-1-300x169.webp', 'Vegan、Vegetarian 中文是甚麼？港台歐美素食用詞'),
+ 'b2': ('/blog/vegetarian-types-guide/', B + '/wp-content/uploads/2026/10/veg-b2-thumb-1000x563-1-768x432.webp', '素食分類天書｜蛋奶素、五辛素、純素、蔬食有甚麼分別？'),
+ 'b1': ('/blog/vegetarian-catering-hong-kong/', B + '/wp-content/uploads/2026/10/veg-b1-vegetarian-catering-2026-kv-768x432.webp', '派對有素食朋友點安排？素食到會揀選全攻略'),
+ 'b6': ('/blog/vegan-vegetarian-meaning/', B + '/wp-content/uploads/2026/10/veg-b6-thumb-2000x1126-1-768x432.webp', 'Vegan、Vegetarian 中文是甚麼？港台歐美素食用詞'),
  'b3': ('/blog/chu-yat-sap-ng-vegetarian-guide/', '', '初一十五食齋懶人包｜原因、禁忌及日子表'),
 }
 def rel(keys):
