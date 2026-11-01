@@ -362,11 +362,12 @@ def _order(kind, pins):
 OLDQ, NEWQ = _order('O', PIN_O), _order('N', PIN_N)
 # 已上線：保留編號，從排程移除，放入「已完成」
 LAUNCHED = {'Blog：素食種類全攻略（vegB2）': ('/blog/vegetarian-types-guide/', '已上線'),
-            'Blog：Vegan／Vegetarian 中文（vegB6）': ('/blog/vegan-vegetarian-meaning/', '已上線')}
+            'Blog：Vegan／Vegetarian 中文（vegB6）': ('/blog/vegan-vegetarian-meaning/', '已上線'),
+            'Blog：初一十五食齋懶人包（vegB3）': ('/blog/chu-yat-sap-ng-vegetarian-guide/', '2026-11-02')}
 for _r in OLDQ + NEWQ:
     if _r['n'] in LAUNCHED: DONE.append((f"{_r['id']} {SER.get(_r['n'], '')}｜{_r['n']}", *LAUNCHED[_r['n']]))
 OLDQ = [r for r in OLDQ if r['n'] not in LAUNCHED]; NEWQ = [r for r in NEWQ if r['n'] not in LAUNCHED]
-TODAY = (_dt.date(2026, 11, 1), ['公司到會 18404 上載＋live check'], ['Blog：初一十五食齋懶人包（vegB3）'])  # 今日做的項目
+TODAY = (_dt.date(2026, 11, 2), ['公司到會 18404 上載＋live check'], ['聖誕到會 Landing page（中文）'])  # 今日做的項目
 def _days(start, n):
     d, out = start, []
     while len(out) < n:
