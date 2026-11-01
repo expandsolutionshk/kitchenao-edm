@@ -219,34 +219,83 @@ PRI_HTML = ('<div class="pri"><h2>SEO 工作優先次序（2026-11-01）</h2><p 
 PRI_CSS = '.pri h2{margin:0 0 8px;font-size:20px}.pri .pl span{display:inline-block;margin:0 14px 6px 0;font-size:13px}.pri .pl i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.pri .pn{font-size:13px;color:#6b6252;margin:0 0 10px}.pri table{border-collapse:collapse;width:100%;font-size:14px}.pri th{background:#1A1A1A;color:#F7CE46;text-align:left;padding:8px 10px;white-space:nowrap}.pri td{border-top:1px solid #EEE6D6;padding:8px 10px;vertical-align:top}.pri td small{color:#8a8172}.pri .nw{white-space:nowrap}.pri .pp{display:inline-block;color:#fff;font-weight:800;border-radius:8px;padding:2px 8px}.pri a{color:#9A7B2E;font-weight:700}.pri{margin-bottom:22px}'
 
 
-# ---------- 每日排程：每日 2 篇舊文／舊頁＋1 篇新文（工作日）----------
+# ---------- 每日排程：每日 2 篇舊文＋1 篇新文，按「預計每年增加點擊」排先後 ----------
 import datetime as _dt
-OLDQ = [  # (舊文／舊頁, 備註)
- ('公司到會 18404 上載＋live check', '檔案已做好'), ('客製化紀念品訂製服務：改錯', '需要你提供錯處'),
- ('派對到會套餐分類（中＋英）', '「到會套餐」#9 quick win'), ('商務餐盒分類＋舊頁 /商務餐盒/ 301', '商務餐盒 #11'),
- ('到會推介（中＋英）', '分清與首頁角色'), ('首頁（中＋英）', '到會、到會服務'),
- ('Blog：團年飯 vs 開年飯（更新 2027）', '加連結去公司到會'), ('Blog：公司活動到會攻略', '與 NB1 分工，連去公司到會'),
- ('Blog：公司到會點揀', '避免與公司到會搶字'), ('商務活動', '酒會、開張、發佈會'),
- ('地區頁：荃灣', '#6'), ('地區頁：元朗', '#11'), ('地區頁：沙田', '#10'), ('地區頁：屯門', ''),
- ('地區頁：北角', ''), ('地區頁：鰂魚涌', ''), ('地區頁：觀塘', ''), ('地區頁：旺角', ''),
- ('地區頁：深水埗', ''), ('地區頁：尖沙咀', ''), ('地區頁：中環', ''), ('地區頁：銅鑼灣', ''),
- ('地區頁：灣仔', ''), ('地區頁：西營盤', ''), ('地區頁：九龍城', ''),
- ('舊 Blog：到會邊間好', '支援到會推介'), ('舊 Blog：到會中伏', ''),
- ('Blog：素食到會推介（B1）', ''), ('Blog：素食種類全攻略（B2）', ''),
- ('Blog：小朋友生日會', '配合生日會 Landing'), ('Blog：激光打印食物', ''),
- ('Blog：船P必備清單', '配合船河 Landing'), ('Blog：Vegan／Vegetarian 中文（B6）', ''),
- ('關於我們', 'E-E-A-T'), ('常見問題', '需要 CS 提供問題'),
- ('Blog：中秋到會', '下季前更新'), ('Blog：萬聖節到會', '下季前更新'),
+CTR={3:.10,5:.055,8:.03,10:.02,15:.01,20:.005}
+def tgt(pos):
+    return 3 if pos<=10 else 5 if pos<=20 else 8 if pos<=30 else 10
+# kind O/N, series, name, note, impr(年), current pos (None=新), clicks now, target override, value
+I=[
+('O','corp','公司到會 18404 上載＋live check','檔案已做好；公司到會字群 7,079 曝光 #27',7079,27,7,None,'高'),
+('O','gift','客製化紀念品訂製服務：改錯','3,566 曝光 #51',3566,51,10,None,'中'),
+('O','party','派對到會套餐分類（中＋英）','27,486 曝光 #36',27486,36,95,None,'高'),
+('O','biz','商務餐盒分類＋舊頁 /商務餐盒/ 301','商務字群 5,156 曝光 #30',5156,30,54,None,'高'),
+('O','rec','到會推介（中＋英）','到會推介字群 8,237 曝光 #30',8237,30,30,None,'高'),
+('O','home','首頁（中＋英）','33,658 曝光 #27（已有 623 click，多為品牌字）',33658,27,623,None,'高'),
+('O','cny','Blog：團年飯 vs 開年飯（更新 2027）','633 曝光 #14；1 月見頂',633,14,2,None,'中'),
+('O','corp','Blog：公司活動到會攻略','170 曝光 #19',170,19,3,None,'中'),
+('O','corp','Blog：公司到會點揀','392 曝光 #36',392,36,0,None,'中'),
+('O','biz','商務活動','商務到會 655 曝光 #29',655,29,0,None,'高'),
+('O','area','地區頁：荃灣','1,526 曝光 #10',1526,9.8,25,None,'高'),
+('O','area','地區頁：元朗','2,217 曝光 #11',2217,11,52,None,'高'),
+('O','area','地區頁：沙田','1,308 曝光 #13',1308,13.2,21,None,'高'),
+('O','area','地區頁：屯門','1,086 曝光 #12',1086,12.1,17,None,'高'),
+('O','area','地區頁：北角','2,091 曝光 #23',2091,22.7,38,None,'高'),
+('O','area','地區頁：鰂魚涌','922 曝光 #15',922,15,30,None,'高'),
+('O','area','地區頁：觀塘','2,455 曝光 #26',2455,26.1,10,None,'高'),
+('O','area','地區頁：旺角','1,100 曝光 #17',1100,17,1,None,'高'),
+('O','area','地區頁：深水埗','686 曝光 #15',686,14.7,19,None,'高'),
+('O','area','地區頁：尖沙咀','17 曝光 #16',17,16,0,None,'高'),
+('O','area','地區頁：中環','998 曝光 #20',998,19.6,6,None,'高'),
+('O','area','地區頁：銅鑼灣','1,171 曝光 #18',1171,18,4,None,'高'),
+('O','area','地區頁：灣仔','843 曝光 #27',843,26.8,8,None,'高'),
+('O','area','地區頁：西營盤','279 曝光 #26',279,26.5,6,None,'高'),
+('O','area','地區頁：九龍城','320 曝光 #23',320,23.1,2,None,'高'),
+('O','bday','兒童套餐分類','3,292 曝光 #18',3292,18,39,None,'高'),
+('O','rec','舊 Blog：到會邊間好','600 曝光 #25',600,25,11,None,'中'),
+('O','rec','舊 Blog：到會中伏','177 曝光 #9',177,8.6,3,None,'中'),
+('O','veg','Blog：素食到會推介（vegB1）','KP 770／月；現 438 曝光 #14',9240,None,12,10,'高'),
+('O','veg','Blog：素食種類全攻略（vegB2）','KP 47,030／月（大字難排）',564360,None,0,20,'低'),
+('O','veg','Blog：Vegan／Vegetarian 中文（vegB6）','KP 2,700／月；現 114 曝光 #12',32400,None,1,10,'低'),
+('O','bday','Blog：小朋友生日會','904 曝光 #37',904,36.6,2,None,'中'),
+('O','trust','關於我們','1,467 曝光 #4',1467,4.2,22,None,'中'),
+('O','trust','常見問題','82 曝光 #5（需要 CS 提供問題）',82,5.3,2,None,'中'),
+('N','xmas','聖誕到會 Landing page（中文）','KP 3,540／月（12 月 30,010）；11/10 前上線，當日舊 Blog 301',42480,None,0,8,'高'),
+('N','xmas','聖誕到會 Landing page（英文）','英文聖誕字量少',1884,None,0,10,'高'),
+('N','xmas','Blog：香港人聖誕餐吃甚麼？','KP 14,170／月（12 月 91,160）',170040,None,0,20,'中'),
+('N','corp','Blog：Annual Dinner 籌備全攻略（NB1）','資訊字約 1,000／月',12000,None,0,10,'中'),
+('N','bday','生日會 Landing','生日字群 4,723 曝光',4723,None,0,8,'高'),
+('N','veg','素食到會 Landing','KP 200／月＋GSC 963 曝光',2400,None,0,8,'高'),
+('N','boat','船河 Landing','船河字群 2,492＋舊 landing 4,531 曝光（301 承接）',7023,None,7,8,'高'),
+('N','veg','Blog：初一十五食齋懶人包（vegB3）','KP 1,510／月',18120,None,0,10,'低'),
+('N','veg','Blog：吃素好處與營養（vegB4）','KP 1,060／月',12720,None,0,10,'低'),
+('N','veg','Blog：一週素食菜單（vegB5）','KP 1,420／月',17040,None,0,10,'低'),
+('N','veg','Blog：植物肉、植物奶（vegB7）','KP 490／月',5880,None,0,10,'低'),
+('N','pic','野餐 Landing','野餐字群 474 曝光（野餐盒分類已 #9）',474,None,0,8,'高'),
+('N','therm','Blog：食物保暖用品（thermB1）','KP 12,980／月（多為大字）；待確認 MUJI 產品',155760,None,0,20,'低'),
+('N','therm','Blog：保鮮用品（thermB2）','KP 6,960／月',83520,None,0,20,'低'),
+('N','therm','Blog：保溫杯、保溫瓶（thermB3）','KP 8,520／月',102240,None,0,20,'低'),
+('N','gift','訂製食物 Landing','訂製字群 2,127 曝光 #50',2127,None,1,8,'中'),
+('N','ma','中秋 Landing（每年沿用）','中秋字群 1,268 曝光；Blog 已有排名',1268,None,0,10,'中'),
+('N','hal','萬聖節 Landing（每年沿用）','萬聖字群 163 曝光；Blog 已有排名',163,None,0,10,'中'),
 ]
-NEWQ = [  # (新文／新頁, 備註)
- ('聖誕到會 Landing page（中文）', '11/10 前上線；當日舊聖誕 Blog 301'), ('聖誕到會 Landing page（英文）', ''),
- ('Blog：香港人聖誕餐吃甚麼？（B2）', '聖誕小食＋搵食工具'), ('Blog：Annual Dinner 籌備全攻略（NB1）', '連去公司到會'),
- ('生日會 Landing', '生日到會 1,037 #30'), ('素食到會 Landing', ''), ('船河 Landing', '取代 /boat-trip-bldg/'),
- ('Blog：初一十五食齋懶人包（素食 B3）', ''), ('Blog：吃素好處與營養（素食 B4）', ''), ('Blog：一週素食菜單（素食 B5）', ''),
- ('Blog：植物肉、植物奶（素食 B7）', ''), ('野餐 Landing', ''), ('Blog：香港野餐好去處', '地點搜尋工具'),
- ('Blog：食物保暖用品（保溫 B1）', '待確認 MUJI 產品'), ('Blog：保鮮用品（保溫 B2）', ''), ('Blog：保溫杯、保溫瓶（保溫 B3）', ''),
- ('訂製食物 Landing', ''), ('中秋 Landing（每年沿用）', ''), ('萬聖節 Landing（每年沿用）', ''),
-]
+_R=[]
+for k,s,n,note,imp,pos,clk,t,val in I:
+    t=t or tgt(pos); gain=max(0,round(imp*CTR[t]-clk))
+    _R.append(dict(k=k,s=s,n=n,note=note,gain=gain,t=t,val=val))
+
+SER = {'Blog：素食到會推介（vegB1）': 'vegB1', 'Blog：素食種類全攻略（vegB2）': 'vegB2', 'Blog：Vegan／Vegetarian 中文（vegB6）': 'vegB6', 'Blog：初一十五食齋懶人包（vegB3）': 'vegB3', 'Blog：吃素好處與營養（vegB4）': 'vegB4', 'Blog：一週素食菜單（vegB5）': 'vegB5', 'Blog：植物肉、植物奶（vegB7）': 'vegB7', 'Blog：食物保暖用品（thermB1）': 'thermB1', 'Blog：保鮮用品（thermB2）': 'thermB2', 'Blog：保溫杯、保溫瓶（thermB3）': 'thermB3', '聖誕到會 Landing page（中文）': 'xmasLP', '聖誕到會 Landing page（英文）': 'xmasLP-EN', 'Blog：香港人聖誕餐吃甚麼？': 'xmasB2', 'Blog：Annual Dinner 籌備全攻略（NB1）': 'corpB1', 'Blog：團年飯 vs 開年飯（更新 2027）': 'cnyB1', 'Blog：公司活動到會攻略': 'corpB2', 'Blog：公司到會點揀': 'corpB3', '舊 Blog：到會邊間好': 'recB1', '舊 Blog：到會中伏': 'recB2', 'Blog：小朋友生日會': 'bdayB1', '生日會 Landing': 'bdayLP', '素食到會 Landing': 'vegLP', '船河 Landing': 'boatLP', '野餐 Landing': 'picLP', '訂製食物 Landing': 'giftLP', '中秋 Landing（每年沿用）': 'maLP', '萬聖節 Landing（每年沿用）': 'halLP'}
+PIN_O = ['公司到會 18404 上載＋live check', '客製化紀念品訂製服務：改錯']   # 已做好待上載／有錯要即改
+PIN_N = ['聖誕到會 Landing page（中文）', '聖誕到會 Landing page（英文）', 'Blog：香港人聖誕餐吃甚麼？', 'Blog：Annual Dinner 籌備全攻略（NB1）']  # 季節 deadline
+def _order(kind, pins):
+    L = [r for r in _R if r['k'] == kind]
+    head = [next(r for r in L if r['n'] == p) for p in pins]
+    rest = sorted([r for r in L if r['n'] not in pins], key=lambda r: -r['gain'])
+    out = head + rest
+    for i, r in enumerate(out, 1):
+        r['id'] = f"{kind}{i}"; r['pin'] = r['n'] in pins
+    return out
+OLDQ, NEWQ = _order('O', PIN_O), _order('N', PIN_N)
 def _days(start, n):
     d, out = start, []
     while len(out) < n:
@@ -255,16 +304,27 @@ def _days(start, n):
     return out
 _n = max((len(OLDQ) + 1) // 2, len(NEWQ))
 _W = '一二三四五六日'
+_VC = {'高': '#3BAA5C', '中': '#C8A24A', '低': '#8A8172'}
+def _cell(r):
+    tag = f'<span class="tg">{r["id"]}</span>' + (f'<span class="tg s">{SER[r["n"]]}</span>' if r['n'] in SER else '')
+    pin = ' <span class="pinf">📌 deadline／已完成</span>' if r['pin'] else ''
+    return (f'{tag}<b>{_h.escape(r["n"])}</b>{pin}<br><small>+{r["gain"]:,} click／年｜生意價值 '
+            f'<i style="color:{_VC[r["val"]]};font-style:normal;font-weight:800">{r["val"]}</i>｜{_h.escape(r["note"])}</small>')
 _srow = []
 for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
     o = OLDQ[i*2:i*2+2]; nw = NEWQ[i] if i < len(NEWQ) else None
-    oc = '<br>'.join(f'{_h.escape(a)}' + (f' <small>{_h.escape(b)}</small>' if b else '') for a, b in o) or '—'
-    nc = (f'{_h.escape(nw[0])}' + (f' <small>{_h.escape(nw[1])}</small>' if nw[1] else '')) if nw else '—'
+    oc = '<div class="it">' + '</div><div class="it">'.join(_cell(r) for r in o) + '</div>' if o else '—'
+    nc = '<div class="it">' + _cell(nw) + '</div>' if nw else '—'
     _srow.append(f'<tr><td class="nw">{d.month}/{d.day}（{_W[d.weekday()]}）</td><td>{oc}</td><td>{nc}</td></tr>')
-SCHED_HTML = ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文＋1 篇新文）</h2><p class="pn">由 11/2 開始，只計星期一至五；'
-  f'舊文 {len(OLDQ)} 項、新文 {len(NEWQ)} 項，約 {_n} 個工作日完成。有中英版的頁面同日做英文版。我每日早上交稿，你審閱及上載後通知我做 live check。</p>'
+SCHED_HTML = ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文＋1 篇新文）</h2><p class="pn">'
+  '<b>排序：</b>📌 先做有 deadline 或已完成待上載的項目，其餘按「預計每年增加點擊」由高至低。'
+  '<b>編號：</b>O＝舊文／舊頁，N＝新文／新頁；系列另加標籤（例如 xmasB2、vegB3、thermB1）。<br>'
+  '<b>點擊估算：</b>GSC 12 個月曝光（新文用 Keyword Planner 月搜×12）× 目標排名 CTR − 現有點擊。目標排名：現時 #1–10 → #3；#11–20 → #5；#21–30 → #8；#30 以後或新文 → #10；大字為主的資訊文 → #20。只作排序參考。'
+  '<br><b>生意價值：</b>高＝交易型頁面（會帶來查詢及訂單）；低＝資訊型 Blog（點擊多但轉化低）。'
+  f'<br>舊文 {len(OLDQ)} 項、新文 {len(NEWQ)} 項，約 {_n} 個工作日完成（只計星期一至五）。已移除：船P必備清單、激光打印食物、野餐好去處、中秋及萬聖節 Blog（已上線）。</p>'
   '<div class="card"><table><thead><tr><th>日期</th><th>舊文／舊頁（2 篇）</th><th>新文／新頁（1 篇）</th></tr></thead><tbody>' + ''.join(_srow) + '</tbody></table></div></div>')
 PRI_HTML = PRI_HTML.replace('<div class="pri">', SCHED_HTML + '<div class="pri">', 1)
+PRI_CSS += '.pri .tg{display:inline-block;background:#1A1A1A;color:#F7CE46;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px}.pri .tg.s{background:#E3F1FB;color:#2B7BD0}.pri .it{padding:4px 0}.pri .it+.it{border-top:1px dashed #EEE6D6}.pri .pinf{font-size:12px;color:#E2574C;font-weight:700}'
 
 # ---------- render ----------
 CLS = ['classDef new fill:#E3F4E8,stroke:#3BAA5C', 'classDef old fill:#FFF4D6,stroke:#C8A24A', 'classDef bad fill:#FDE2E1,stroke:#E2574C',
