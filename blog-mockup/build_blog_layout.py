@@ -13,15 +13,15 @@ REL = {
 }
 def rel(keys):
     return ''.join(f'\n    <a class="ao-rc" href="{B}{u}" target="_blank">' + (f'<img src="{i}" alt="" loading="lazy">' if i else '<img src="" alt="">') + f'<b>{t}</b></a>' for u, i, t in (REL[k] for k in keys) if i) + '\n   '
-def tags(ts): return ''.join(f'<a href="#">{x}</a>' for x in ts)
+def tags(ts): return ''.join(f'<a href="{B}{u}">{x}</a>' for x, u in ts)
 PAGES = [
  dict(out='blog-layout-v1.html', VER='v1', src='b6-vegan-vegetarian-meaning-WORDPRESS.html', SHORT='Vegan、Vegetarian 中文是甚麼？',
       H1='Vegan、Vegetarian 中文是甚麼？Flexitarian、Pescatarian 有何分別？港台歐美素食用詞一次看清', UPDATED='2026-10-24', READ='8',
-      TAGS=tags(['素食知識', '素食英文', '素食到會']), RELATED=rel(['b2', 'b1', 'b3']),
+      TAGS=tags([('素食分類', '/blog/vegetarian-types-guide/'), ('素食到會', '/blog/vegetarian-catering-hong-kong/'), ('素食套餐', '/product-category/party/vegetarians-set/')]), RELATED=rel(['b2', 'b1', 'b3']),
       CTA_T='派對有朋友吃素？', CTA_P='告訴我們人數及飲食要求，客服為你配搭素食到會餐單。'),
  dict(out='blog-layout-v2.html', VER='v2', src='b3-chu-yat-sap-ng-guide-WORDPRESS.html', SHORT='初一十五食齋懶人包',
       H1='初一十五食齋懶人包｜食齋原因、禁忌及未來 12 個月日子表', UPDATED='2026-11-01', READ='7',
-      TAGS=tags(['初一十五', '素食知識', '素食到會']), RELATED=rel(['b2', 'b1', 'b6']),
+      TAGS=tags([('素食分類', '/blog/vegetarian-types-guide/'), ('素食英文', '/blog/vegan-vegetarian-meaning/'), ('素食到會', '/blog/vegetarian-catering-hong-kong/'), ('素食套餐', '/product-category/party/vegetarians-set/')]), RELATED=rel(['b2', 'b1', 'b6']),
       CTA_T='初一十五想請齋？', CTA_P='告訴我們日子、人數及飲食要求（例如走五辛），客服為你配搭素食到會。'),
 ]
 T = open(os.path.join(H, 'blog-layout-template.html'), encoding='utf-8').read()
