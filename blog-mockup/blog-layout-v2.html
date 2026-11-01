@@ -21,7 +21,7 @@ a{color:inherit}
 .ao-toc2{list-style:none;margin:0;padding:0;max-height:42vh;overflow:auto}
 .ao-toc2 a{display:block;text-decoration:none;font-size:14px;line-height:1.45;color:#6B6252;padding:6px 0 6px 14px;border-left:2px solid var(--line)}
 .ao-toc2 a:hover{color:var(--ink)}.ao-toc2 a.on{color:var(--gold-d);font-weight:800;border-left-color:var(--gold)}
-.ao-share{display:flex;gap:8px}.ao-share a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;height:38px;border:1px solid var(--line);border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;color:var(--ink);background:#fff}.ao-share a:hover{border-color:var(--gold)}
+.ao-share{display:flex;align-items:center;gap:9px;padding:2px 2px 22px}.ao-share b{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--gold-d);margin-right:2px}.ao-share a{position:relative;width:40px;height:40px;flex:none;border-radius:50%;border:1.5px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;transition:border-color .2s,transform .2s}.ao-share a:hover{border-color:var(--gold);transform:translateY(-1px)}.ao-share a.ok{border-color:#3BAA5C;background:#E3F4E8}.ao-share a em{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-style:normal;font-size:11px;color:var(--mut);white-space:nowrap}
 .ao-pl{display:flex;flex-direction:column;gap:10px}
 .ao-pi{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;text-decoration:none}
 .ao-pi img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:var(--cream)}
@@ -193,7 +193,7 @@ a{color:inherit}
  <aside class="ao-bl-aside">
   <div class="ao-meta"><span>作者</span><b>Kitchen AO 編輯部</b><span>更新</span><b>2026-11-01</b><span>閱讀</span><b>約 7 分鐘</b></div>
   <div class="ao-sc toc"><h4>目錄</h4><div class="ao-prog"><i id="prog"></i></div><ol class="ao-toc2" id="toc"></ol></div>
-  <div class="ao-share"><a href="#" id="cpl">🔗 複製</a><a href="#" id="shwa" target="_blank" rel="noopener">WhatsApp</a><a href="#" id="shfb" target="_blank" rel="noopener">Facebook</a></div>
+  <div class="ao-share" aria-label="分享文章"><b>分享</b><a href="#" id="cpl" title="複製連結">🔗<em>複製</em></a><a href="#" id="shwa" target="_blank" rel="noopener" title="分享到 WhatsApp">💬<em>WhatsApp</em></a><a href="#" id="shfb" target="_blank" rel="noopener" title="分享到 Facebook">👍<em>Facebook</em></a><a href="#" id="shth" target="_blank" rel="noopener" title="分享到 Threads">🧵<em>Threads</em></a><a href="#" id="shmore" title="更多分享方式（IG、Telegram、電郵等）">↗<em>更多</em></a></div>
   <div class="ao-sc"><h4>🥗 推介產品</h4><div class="ao-pl">
    <a class="ao-pi" href="https://aoaodelivery.com/product/ao-6-8pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt=""><div><b>「素」味人生 6–8 人</b><span>HK$1,388</span></div></a>
    <a class="ao-pi" href="https://aoaodelivery.com/product/ao-10-12pax-vegetarian-life/" target="_blank"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" alt=""><div><b>「素」味人生 10–12 人</b><span>HK$1,988</span></div></a>
@@ -210,10 +210,13 @@ function spy(){var y=120,c=0;hs.forEach(function(h,i){if(h.getBoundingClientRect
 var r=art.getBoundingClientRect(),p=Math.min(1,Math.max(0,(-r.top+120)/(r.height-innerHeight+120)));pg.style.width=(p*100)+'%';
 var on=L[c];if(on){var box=t;if(on.offsetTop<box.scrollTop||on.offsetTop>box.scrollTop+box.clientHeight-30)box.scrollTop=on.offsetTop-40}}
 addEventListener('scroll',spy,{passive:true});spy();
-var U=location.href.split('#')[0],T=document.title;
-document.getElementById('shwa').href='https://wa.me/?text='+encodeURIComponent(T+' '+U);
-document.getElementById('shfb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(U);
-var mb=document.querySelector('[data-more]');if(mb)mb.onclick=function(){var m=document.querySelector('.ao-pl-more');m.hidden=false;this.outerHTML='<a class="ao-more" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" target="_blank">查看全部素食套餐 →</a>';};
-document.getElementById('cpl').onclick=function(e){e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(U);this.textContent='✓ 已複製'};})();
+var U=location.href.split('#')[0],T=document.title,E=encodeURIComponent;
+document.getElementById('shwa').href='https://wa.me/?text='+E(T+' '+U);
+document.getElementById('shfb').href='https://www.facebook.com/sharer/sharer.php?u='+E(U);
+document.getElementById('shth').href='https://www.threads.net/intent/post?text='+E(T+' '+U);
+function copy(el){var done=function(){el.classList.add('ok');el.querySelector('em').textContent='已複製';setTimeout(function(){el.classList.remove('ok');el.querySelector('em').textContent=el.dataset.l||'複製'},1600)};if(navigator.clipboard)navigator.clipboard.writeText(U).then(done,done);else done();}
+var cp=document.getElementById('cpl');cp.dataset.l='複製';cp.onclick=function(e){e.preventDefault();copy(this)};
+var mo=document.getElementById('shmore');mo.dataset.l='更多';mo.onclick=function(e){e.preventDefault();if(navigator.share){navigator.share({title:T,url:U}).catch(function(){})}else{copy(this)}};
+var mb=document.querySelector('[data-more]');if(mb)mb.onclick=function(){var m=document.querySelector('.ao-pl-more');m.hidden=false;this.outerHTML='<a class="ao-more" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" target="_blank">查看全部素食套餐 →</a>';};})();
 </script>
 </body></html>
