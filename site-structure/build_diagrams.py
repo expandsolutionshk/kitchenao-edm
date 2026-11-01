@@ -285,6 +285,62 @@ for k,s,n,note,imp,pos,clk,t,val in I:
     _R.append(dict(k=k,s=s,n=n,note=note,gain=gain,t=t,val=val))
 
 SER = {'Blog：素食到會推介（vegB1）': 'vegB1', 'Blog：素食種類全攻略（vegB2）': 'vegB2', 'Blog：Vegan／Vegetarian 中文（vegB6）': 'vegB6', 'Blog：初一十五食齋懶人包（vegB3）': 'vegB3', 'Blog：吃素好處與營養（vegB4）': 'vegB4', 'Blog：一週素食菜單（vegB5）': 'vegB5', 'Blog：植物肉、植物奶（vegB7）': 'vegB7', 'Blog：食物保暖用品（thermB1）': 'thermB1', 'Blog：保鮮用品（thermB2）': 'thermB2', 'Blog：保溫杯、保溫瓶（thermB3）': 'thermB3', '聖誕到會 Landing page（中文）': 'xmasLP', '聖誕到會 Landing page（英文）': 'xmasLP-EN', 'Blog：香港人聖誕餐吃甚麼？': 'xmasB2', 'Blog：Annual Dinner 籌備全攻略（NB1）': 'corpB1', 'Blog：團年飯 vs 開年飯（更新 2027）': 'cnyB1', 'Blog：公司活動到會攻略': 'corpB2', 'Blog：公司到會點揀': 'corpB3', '舊 Blog：到會邊間好': 'recB1', '舊 Blog：到會中伏': 'recB2', 'Blog：小朋友生日會': 'bdayB1', '生日會 Landing': 'bdayLP', '素食到會 Landing': 'vegLP', '船河 Landing': 'boatLP', '野餐 Landing': 'picLP', '訂製食物 Landing': 'giftLP', '中秋 Landing（每年沿用）': 'maLP', '萬聖節 Landing（每年沿用）': 'halLP'}
+
+# ---------- WP 位置：網址、在 WP 後台搜尋用的字 ----------
+WP = {  # 名稱: (網址, 後台搜尋字, 位置)
+ '公司到會 18404 上載＋live check': ('/corporate-catering-hk/', '香港公司到會', '頁面'),
+ '客製化紀念品訂製服務：改錯': ('/客製化紀念品訂製服務/', '客製化紀念品訂製服務', '頁面'),
+ '派對到會套餐分類（中＋英）': ('/product-category/party/', '派對到會套餐', '商品分類'),
+ '商務餐盒分類＋舊頁 /商務餐盒/ 301': ('/product-category/商務活動/commercial-lunch-box/', '商務餐盒', '商品分類＋頁面'),
+ '到會推介（中＋英）': ('/hong-kong-catering-recommendation/', '到會推介', '頁面'),
+ '首頁（中＋英）': ('/', '首頁', '頁面'),
+ 'Blog：團年飯 vs 開年飯（更新 2027）': ('/blog/cny-reunion-dinner-guide/', '團年飯 vs 開年飯', '文章'),
+ 'Blog：公司活動到會攻略': ('/blog/company-event-catering-guide/', '香港公司活動到會攻略', '文章'),
+ 'Blog：公司到會點揀': ('/blog/hong-kong-company-catering-how-to-choose/', '香港公司到會指南', '文章'),
+ '商務活動': ('/business-event/', '商務活動', '頁面'),
+ '兒童套餐分類': ('/product-category/party/children/', '兒童套餐', '商品分類'),
+ '舊 Blog：到會邊間好': ('/blog/hongkong-catering-2026-香港到會邊間好/', '香港到會邊間好', '文章'),
+ '舊 Blog：到會中伏': ('/blog/catering-pitfalls-guide/', '香港到會避伏指南', '文章'),
+ 'Blog：素食到會推介（vegB1）': ('/blog/vegetarian-catering-hong-kong/', '素食到會揀選全攻略', '文章'),
+ 'Blog：素食種類全攻略（vegB2）': ('/blog/vegetarian-types-guide/', '素食分類天書', '文章'),
+ 'Blog：Vegan／Vegetarian 中文（vegB6）': ('/blog/vegan-vegetarian-meaning/', 'Vegan、Vegetarian 中文', '文章'),
+ 'Blog：小朋友生日會': ('/blog/kids-birthday-party-catering/', '小朋友生日會到會挑選指南', '文章'),
+ '關於我們': ('/about-kitchenao/', '關於 Kitchen AO', '頁面'),
+ '常見問題': ('/常見問題/', '常見問題', '頁面'),
+ '聖誕到會 Landing page（中文）': ('/product-category/christmas-set/（建議）', '新建：商品分類「聖誕到會套餐」', '新建'),
+ '聖誕到會 Landing page（英文）': ('/en/product-category/christmas-set/（建議）', '同上（英文內容）', '新建'),
+ 'Blog：香港人聖誕餐吃甚麼？': ('/blog/christmas-food-hong-kong/（建議）', '新建文章', '新建'),
+ 'Blog：Annual Dinner 籌備全攻略（NB1）': ('/blog/annual-dinner-planning-guide/（建議）', '新建文章', '新建'),
+ '生日會 Landing': ('/catering/birthday-party/（建議）', '新建頁面', '新建'),
+ '素食到會 Landing': ('/catering/vegetarian/（建議）', '新建頁面', '新建'),
+ '船河 Landing': ('/catering/boat-party/（建議）', '新建頁面；舊頁「遊船河到會」301', '新建'),
+ 'Blog：初一十五食齋懶人包（vegB3）': ('/blog/chu-yat-sap-ng-vegetarian-guide/（建議）', '新建文章', '新建'),
+ 'Blog：吃素好處與營養（vegB4）': ('/blog/vegetarian-nutrition-protein/（建議）', '新建文章', '新建'),
+ 'Blog：一週素食菜單（vegB5）': ('/blog/weekly-vegetarian-menu/（建議）', '新建文章', '新建'),
+ 'Blog：植物肉、植物奶（vegB7）': ('/blog/plant-based-meat-milk/（建議）', '新建文章', '新建'),
+ '野餐 Landing': ('/catering/picnic/（建議）', '新建頁面', '新建'),
+ 'Blog：食物保暖用品（thermB1）': ('（待定）', '新建文章', '新建'),
+ 'Blog：保鮮用品（thermB2）': ('（待定）', '新建文章', '新建'),
+ 'Blog：保溫杯、保溫瓶（thermB3）': ('（待定）', '新建文章', '新建'),
+ '訂製食物 Landing': ('/catering/custom-printed-food/（建議）', '新建頁面', '新建'),
+ '中秋 Landing（每年沿用）': ('/catering/mid-autumn/（建議）', '新建頁面', '新建'),
+ '萬聖節 Landing（每年沿用）': ('/catering/halloween/（建議）', '新建頁面', '新建'),
+}
+_AREA = {'荃灣': ('catering-tsuenwan', '荃灣到會推介'), '元朗': ('catering-yuen-long', '元朗到會推介'), '沙田': ('catering-sha-tin', '沙田到會推介'),
+ '屯門': ('catering-tuen-mun', '屯門到會推介'), '北角': ('catering-north-point', '北角到會推介'), '鰂魚涌': ('catering-quarry-bay', '鰂魚涌到會推介'),
+ '觀塘': ('catering-kwun-tong', '觀塘到會推介'), '旺角': ('catering-mong-kok', '旺角到會推介'), '深水埗': ('catering-sham-shui-po', '深水埗到會推介'),
+ '尖沙咀': ('catering-tsim-sha-tsui', '尖沙咀到會推介'), '中環': ('catering-central', '中環到會推介'), '銅鑼灣': ('catering-causewaybay', '銅鑼灣到會推介'),
+ '灣仔': ('catering-wan-chai', '灣仔到會推介'), '西營盤': ('catering-sai-ying-pun', '西營盤到會推介'), '九龍城': ('catering-kowloon-city', '九龍城到會推介')}
+for _k, (_s, _q) in _AREA.items(): WP['地區頁：' + _k] = (f'/{_s}/', _q, '頁面')
+DONE = [  # 已完成：(名稱, 網址, 完成日期)
+ ('送貨需知（中文）', '/delivery/', '2026-10-31'), ('送貨需知（英文）', '/en/delivery/', '2026-10-31'),
+ ('聯絡我們（中＋英）', '/contacts/', '2026-10-29'),
+ ('Blog：船P必備清單', '/blog/boat-party-catering-guide/', '已上線'), ('Blog：激光打印食物', '/blog/laser-printed-food-party/', '已上線'),
+ ('Blog：香港野餐好去處', '/blog/hong-kong-picnic-spots-picnic-box/', '已上線'), ('Blog：中秋到會 2026', '/blog/mid-autumn-catering-hong-kong/', '已上線'),
+ ('Blog：萬聖節到會 2026', '/blog/halloween-catering-hong-kong/', '已上線'),
+ ('全站英文 Meta、英文 H1、英文選單', '/en/', '2026-10-29'), ('Blog 只留中文版（/en/blog/ 301）', '/blog/', '2026-10-29'),
+]
+
 PIN_O = ['公司到會 18404 上載＋live check', '客製化紀念品訂製服務：改錯']   # 已做好待上載／有錯要即改
 PIN_N = ['聖誕到會 Landing page（中文）', '聖誕到會 Landing page（英文）', 'Blog：香港人聖誕餐吃甚麼？', 'Blog：Annual Dinner 籌備全攻略（NB1）']  # 季節 deadline
 def _order(kind, pins):
@@ -308,7 +364,11 @@ _VC = {'高': '#3BAA5C', '中': '#C8A24A', '低': '#8A8172'}
 def _cell(r):
     tag = f'<span class="tg">{r["id"]}</span>' + (f'<span class="tg s">{SER[r["n"]]}</span>' if r['n'] in SER else '')
     pin = ' <span class="pinf">📌 deadline／已完成</span>' if r['pin'] else ''
-    return (f'{tag}<b>{_h.escape(r["n"])}</b>{pin}<br><small>+{r["gain"]:,} click／年｜生意價值 '
+    u, q, where = WP.get(r['n'], ('', '', ''))
+    href = (B + u) if u.startswith('/') and '（' not in u else ''
+    ul = (f'<a href="{href}" target="_blank">{_h.escape(u)}</a>' if href else _h.escape(u))
+    wp = (f'<div class="wp">🔗 {ul}<br>WP 搜尋（{where}）：<code class="cp" title="按一下複製">{_h.escape(q)}</code></div>' if u else '')
+    return (f'{tag}<b>{_h.escape(r["n"])}</b>{pin}{wp}<small>+{r["gain"]:,} click／年｜生意價值 '
             f'<i style="color:{_VC[r["val"]]};font-style:normal;font-weight:800">{r["val"]}</i>｜{_h.escape(r["note"])}</small>')
 _srow = []
 for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
@@ -316,7 +376,9 @@ for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
     oc = '<div class="it">' + '</div><div class="it">'.join(_cell(r) for r in o) + '</div>' if o else '—'
     nc = '<div class="it">' + _cell(nw) + '</div>' if nw else '—'
     _srow.append(f'<tr><td class="nw">{d.month}/{d.day}（{_W[d.weekday()]}）</td><td>{oc}</td><td>{nc}</td></tr>')
-SCHED_HTML = ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文＋1 篇新文）</h2><p class="pn">'
+DONE_HTML = ('<div class="pri"><h2>✅ 已完成（' + str(len(DONE)) + ' 項）</h2><div class="card"><table><thead><tr><th>頁面</th><th>網址</th><th>完成</th></tr></thead><tbody>' +
+  ''.join(f'<tr><td><b>{_h.escape(n)}</b></td><td><a href="{B}{u}" target="_blank">{B}{_h.escape(u)}</a></td><td class="nw">{d}</td></tr>' for n, u, d in DONE) + '</tbody></table></div></div>')
+SCHED_HTML = DONE_HTML + ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文＋1 篇新文）</h2><p class="pn">'
   '<b>排序：</b>📌 先做有 deadline 或已完成待上載的項目，其餘按「預計每年增加點擊」由高至低。'
   '<b>編號：</b>O＝舊文／舊頁，N＝新文／新頁；系列另加標籤（例如 xmasB2、vegB3、thermB1）。<br>'
   '<b>點擊估算：</b>GSC 12 個月曝光（新文用 Keyword Planner 月搜×12）× 目標排名 CTR − 現有點擊。目標排名：現時 #1–10 → #3；#11–20 → #5；#21–30 → #8；#30 以後或新文 → #10；大字為主的資訊文 → #20。只作排序參考。'
@@ -324,7 +386,7 @@ SCHED_HTML = ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文�
   f'<br>舊文 {len(OLDQ)} 項、新文 {len(NEWQ)} 項，約 {_n} 個工作日完成（只計星期一至五）。已移除：船P必備清單、激光打印食物、野餐好去處、中秋及萬聖節 Blog（已上線）。</p>'
   '<div class="card"><table><thead><tr><th>日期</th><th>舊文／舊頁（2 篇）</th><th>新文／新頁（1 篇）</th></tr></thead><tbody>' + ''.join(_srow) + '</tbody></table></div></div>')
 PRI_HTML = PRI_HTML.replace('<div class="pri">', SCHED_HTML + '<div class="pri">', 1)
-PRI_CSS += '.pri .tg{display:inline-block;background:#1A1A1A;color:#F7CE46;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px}.pri .tg.s{background:#E3F1FB;color:#2B7BD0}.pri .it{padding:4px 0}.pri .it+.it{border-top:1px dashed #EEE6D6}.pri .pinf{font-size:12px;color:#E2574C;font-weight:700}'
+PRI_CSS += '.pri .wp{font-size:13px;margin:3px 0 2px;color:#4A4238}.pri .wp code{background:#FFF4D6;border:1px solid #E9D9AE;border-radius:6px;padding:1px 6px;cursor:pointer;font-family:inherit}.pri .wp code.ok{background:#E3F4E8;border-color:#3BAA5C}.pri .tg{display:inline-block;background:#1A1A1A;color:#F7CE46;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px}.pri .tg.s{background:#E3F1FB;color:#2B7BD0}.pri .it{padding:4px 0}.pri .it+.it{border-top:1px dashed #EEE6D6}.pri .pinf{font-size:12px;color:#E2574C;font-weight:700}'
 
 # ---------- render ----------
 CLS = ['classDef new fill:#E3F4E8,stroke:#3BAA5C', 'classDef old fill:#FFF4D6,stroke:#C8A24A', 'classDef bad fill:#FDE2E1,stroke:#E2574C',
@@ -389,6 +451,7 @@ for(const [k,code] of Object.entries(V)){
 {const h=decodeURIComponent(location.hash.slice(1));if(KWPAGE[h])location.replace(KWPAGE[h]);else setTimeout(()=>(BTN[h]||first).click(),0);}
 const ck=document.createElement('button');ck.textContent='🏢 核心頁面 KW 分配';ck.onclick=e=>{e.stopPropagation();location.href='core-pages-kw.html';};nav.appendChild(ck);
 document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
+document.addEventListener('click',e=>{const c=e.target.closest('code.cp');if(!c)return;navigator.clipboard&&navigator.clipboard.writeText(c.textContent);c.classList.add('ok');setTimeout(()=>c.classList.remove('ok'),1200);});
 window.addEventListener('hashchange',()=>{const h=decodeURIComponent(location.hash.slice(1));if(KWPAGE[h])location.href=KWPAGE[h];else if(BTN[h])BTN[h].click();});
 </script></body></html>'''
 (HERE / 'index.html').write_text(html.replace('__V__', json.dumps(V, ensure_ascii=False)).replace('__PRI__', json.dumps(PRI_HTML, ensure_ascii=False)).replace('__PRICSS__', PRI_CSS), encoding='utf-8')
