@@ -173,6 +173,99 @@ for ri, (reg, items) in enumerate(dist):
         if '西貢' in nm: edges.append(f'{did} -.-> BOAT')
 D['地區頁'] = dict(dir='TB', nodes=nodes, edges=edges)
 
+
+# ---------- SEO 工作優先次序（2026-11-01）----------
+# (優先, 頁面, 類型, 主攻字＋GSC 12 個月數據, 原因, 期限, 狀態, 連結)
+PRI = [
+ ('P0', '被入侵頁面×2、範例頁面', '技術', '—', '安全問題，影響全站信任度；如已處理可刪此行', '即時', '待確認', ''),
+ ('P0', '公司到會 18404（中＋英）', '核心錢頁', '公司到會 1,155 曝光 #27；到會公司 1,618 #26；企業到會 347 #28', '檔案已做好，只差上載；12 月至 2 月年會及團年飯旺季前要上線', '11/3', '待上載', 'core-pages-kw.html#CORP'),
+ ('P0', '客製化紀念品訂製服務', '服務頁', '贈品訂製 410 #57；紀念品訂製 296 #47', '頁面有錯要即改', '11/7', '未開始', 'core-pages-kw.html#GIFT'),
+ ('P0', '/en/ 全站共用中文字眼', '技術', '「描述」「已售完」、側欄分類名', 'TranslatePress 改一次全站生效，約 10 分鐘', '11/7', '未開始', ''),
+ ('P1', '聖誕到會 Landing page（中＋英）', 'Landing', '聖誕到會 602 #35；聖誕到會 2026 357 #36；聖誕到會套餐 232 #43', '季節 deadline，搜尋 11 月中開始升，12 月見頂', '11/10', '未開始（待確認火雞）', 'xmas-kw.html'),
+ ('P1', '舊 Blog 聖誕到會 → 301 去 LP', '技術', '舊文 1,275 曝光 #22', 'LP 上線當日做，避免兩頁搶字', 'LP 上線當日', '未開始', 'xmas-kw.html'),
+ ('P1', 'B2 聖誕小食 Blog（香港人聖誕餐吃甚麼）', 'Blog', '聖誕小食、聖誕派對食物、聖誕餐（GKP）', '要 2 至 3 星期被收錄，12 月前要上', '11/17', '未開始', 'xmas-kw.html'),
+ ('P1', 'NB1 Annual Dinner 籌備全攻略', 'Blog', 'company annual dinner planning hk 256 #80；annual dinner 遊戲、抽獎禮物等約 1,000 搜尋量', '年會旺季前上線，連去公司到會', '11/24', '未開始', 'core-pages-kw.html#NB1'),
+ ('P2', '派對到會套餐分類', '核心錢頁', '到會套餐 1,731 #9；派對到會 1,625 #26；party 到會 1,042 #20', '「到會套餐」已在第一頁，小改即可多拿點擊（Quick win）', '11 月', '已分配 KW', 'core-pages-kw.html#PARTY'),
+ ('P2', '到會推介（中＋英）', '核心頁', '到會推介 537 #31；到會邊間好討論區 51 #12', '同首頁搶「到會公司」「公司到會」，改寫後分清角色', '12 月', '要改寫', 'core-pages-kw.html#REC'),
+ ('P2', '首頁（中＋英）', '核心頁', '到會 2,792 #22；到會服務 2,499 #25', '全站最大曝光，排名升到第一頁效益最大', '12 月', '已分配 KW', 'core-pages-kw.html#HOME'),
+ ('P2', '商務餐盒分類＋舊頁 /商務餐盒/ 301', '核心錢頁＋技術', '商務餐盒 574 #11；商務飯盒 721 #36；舊頁 1,091 曝光 #59', '舊頁搶字，301 後集中排名；商務餐盒接近第一頁', '12 月', '未開始', 'index.html#公司午餐'),
+ ('P2', '地區頁（15 頁）', 'Landing', '荃灣到會 735 #6；元朗到會 671 #11；沙田到會 590 #10', '已接近第一頁，加內容及內鏈即可升；英文版待翻譯', '12 月', '要翻譯', 'index.html#地區頁'),
+ ('P2', '商務活動', '核心頁', '商務到會 655 #29', '同公司到會分工：酒會、開張、發佈會', '12 月', '下一輪', 'core-pages-kw.html#BIZ'),
+ ('P2', '團年飯 Blog（cny-reunion-dinner-guide）更新', 'Blog', '開年飯 314 #16；團年飯 188 #16', '1 月搜尋見頂，更新年份及加連結去公司到會', '1/10', '要更新', ''),
+ ('P3', '生日會 Landing', 'Landing', '生日到會 1,037 #30；小朋友派對食物 517 #15；小朋友到會 437 #24', '曝光大但未有專頁，全年需求', '2027 Q1', '計劃中', 'index.html#生日會'),
+ ('P3', '船河 Landing＋Blog 更新', 'Landing', '船河到會 896 #23；船河 806 #24；遊船河到會 438 #22', '4 至 10 月旺季，3 月前上線', '2027/3', '計劃中', 'index.html#船河'),
+ ('P3', '素食 Landing＋Blog 1–7', 'Landing＋Blog', '素食到會 565 #14；素味人生 195 #8', '已有 KW 分配，可分批寫', '2027 Q1', '已分配 KW', 'vegetarian-kw.html'),
+ ('P3', '舊 Blog 重寫：到會邊間好、到會中伏', 'Blog', '到會邊間好 600 曝光 #25', '支援到會推介', '2027 Q1', '第二輪', 'core-pages-kw.html#OLD1'),
+ ('P3', '關於我們、常見問題', '信任頁', '品牌字（kitchen ao 1,671 #1）', 'E-E-A-T 及 AI search 信任度', '2027 Q1', '下一輪', 'core-pages-kw.html#ABOUT'),
+ ('P3', '/en/ 產品及分類英文內容', '翻譯', '155 頁仍有中文', '先做 25 個分類描述', '12 月起分批', '已列清單', ''),
+ ('P4', '野餐 Landing＋好去處 Blog', 'Landing＋Blog', '野餐盒 197 #4（17 click）', '曝光小但轉化好，春季前做', '2027/2', '計劃中', 'index.html#野餐'),
+ ('P4', '保暖及保鮮用品 Blog 1–3', 'Blog', 'GSC 未有數據（GKP 字）', '資訊型，轉化較低；待確認產品', '2027 Q2', '待產品', 'thermal-kw.html'),
+ ('P4', '學校飯盒 Landing', 'Landing', '學校到會 288 #51', '未有產品', '待產品', '計劃中', 'index.html#學校飯盒'),
+ ('P4', '訂製食物 campaign', 'Landing', '激光打印食物（Blog 已有）', '先完成 GIFT 改錯', '2027', '計劃中', 'index.html#訂製食物'),
+ ('P4', '中秋、萬聖節 Landing', 'Landing', '中秋到會 2026 339 #13；萬聖節到會 84 #6', '季節頁，下次推出前 2 個月做', '2027/7、2027/9', '計劃中', 'index.html#中秋節'),
+ ('P4', 'Recipes 食譜', 'Blog', '—', '未有方向', '—', '未開始', 'core-pages-kw.html#RCP'),
+]
+import html as _h, urllib.parse as _u
+PCOL = {'P0': '#E2574C', 'P1': '#C8A24A', 'P2': '#2B7BD0', 'P3': '#5E7E5C', 'P4': '#8A8172'}
+PDESC = {'P0': '本週：即改或已做好待上載', 'P1': '11 月：季節 deadline', 'P2': '11 至 12 月：核心錢頁及 Quick win', 'P3': '2027 Q1', 'P4': '之後／待產品或季節'}
+def _lnk(u):
+    if not u: return ''
+    if '#' in u: a, b = u.split('#', 1); u = a + '#' + _u.quote(b)
+    return f'<a href="{u}">' + ('架構圖 →' if u.startswith('index.html') else 'KW 分配 →') + '</a>'
+rows = ''.join(f'<tr><td><span class="pp" style="background:{PCOL[p]}">{p}</span></td><td><b>{_h.escape(n)}</b><br><small>{t}</small></td><td>{_h.escape(k)}</td><td>{_h.escape(w)}</td><td class="nw">{d}</td><td class="nw">{s}</td><td class="nw">{_lnk(l)}</td></tr>' for p, n, t, k, w, d, s, l in PRI)
+PRI_HTML = ('<div class="pri"><h2>SEO 工作優先次序（2026-11-01）</h2><p class="pl">' + ''.join(f'<span><i style="background:{PCOL[p]}"></i>{p}｜{PDESC[p]}</span>' for p in PCOL) +
+  '</p><p class="pn">排序準則：①季節 deadline ②交易型錢頁先於資訊型 Blog ③已接近第一頁（#5–#20）的字先做，回報最快 ④已做好未上載的先上。數據：GSC 12 個月（至 10-31）。</p>'
+  '<div class="card"><table><thead><tr><th>優先</th><th>頁面</th><th>主攻字及 GSC（曝光／排名）</th><th>原因</th><th>期限</th><th>狀態</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div></div>')
+PRI_CSS = '.pri h2{margin:0 0 8px;font-size:20px}.pri .pl span{display:inline-block;margin:0 14px 6px 0;font-size:13px}.pri .pl i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.pri .pn{font-size:13px;color:#6b6252;margin:0 0 10px}.pri table{border-collapse:collapse;width:100%;font-size:14px}.pri th{background:#1A1A1A;color:#F7CE46;text-align:left;padding:8px 10px;white-space:nowrap}.pri td{border-top:1px solid #EEE6D6;padding:8px 10px;vertical-align:top}.pri td small{color:#8a8172}.pri .nw{white-space:nowrap}.pri .pp{display:inline-block;color:#fff;font-weight:800;border-radius:8px;padding:2px 8px}.pri a{color:#9A7B2E;font-weight:700}.pri{margin-bottom:22px}'
+
+
+# ---------- 每日排程：每日 2 篇舊文／舊頁＋1 篇新文（工作日）----------
+import datetime as _dt
+OLDQ = [  # (舊文／舊頁, 備註)
+ ('公司到會 18404 上載＋live check', '檔案已做好'), ('客製化紀念品訂製服務：改錯', '需要你提供錯處'),
+ ('派對到會套餐分類（中＋英）', '「到會套餐」#9 quick win'), ('商務餐盒分類＋舊頁 /商務餐盒/ 301', '商務餐盒 #11'),
+ ('到會推介（中＋英）', '分清與首頁角色'), ('首頁（中＋英）', '到會、到會服務'),
+ ('Blog：團年飯 vs 開年飯（更新 2027）', '加連結去公司到會'), ('Blog：公司活動到會攻略', '與 NB1 分工，連去公司到會'),
+ ('Blog：公司到會點揀', '避免與公司到會搶字'), ('商務活動', '酒會、開張、發佈會'),
+ ('地區頁：荃灣', '#6'), ('地區頁：元朗', '#11'), ('地區頁：沙田', '#10'), ('地區頁：屯門', ''),
+ ('地區頁：北角', ''), ('地區頁：鰂魚涌', ''), ('地區頁：觀塘', ''), ('地區頁：旺角', ''),
+ ('地區頁：深水埗', ''), ('地區頁：尖沙咀', ''), ('地區頁：中環', ''), ('地區頁：銅鑼灣', ''),
+ ('地區頁：灣仔', ''), ('地區頁：西營盤', ''), ('地區頁：九龍城', ''),
+ ('舊 Blog：到會邊間好', '支援到會推介'), ('舊 Blog：到會中伏', ''),
+ ('Blog：素食到會推介（B1）', ''), ('Blog：素食種類全攻略（B2）', ''),
+ ('Blog：小朋友生日會', '配合生日會 Landing'), ('Blog：激光打印食物', ''),
+ ('Blog：船P必備清單', '配合船河 Landing'), ('Blog：Vegan／Vegetarian 中文（B6）', ''),
+ ('關於我們', 'E-E-A-T'), ('常見問題', '需要 CS 提供問題'),
+ ('Blog：中秋到會', '下季前更新'), ('Blog：萬聖節到會', '下季前更新'),
+]
+NEWQ = [  # (新文／新頁, 備註)
+ ('聖誕到會 Landing page（中文）', '11/10 前上線；當日舊聖誕 Blog 301'), ('聖誕到會 Landing page（英文）', ''),
+ ('Blog：香港人聖誕餐吃甚麼？（B2）', '聖誕小食＋搵食工具'), ('Blog：Annual Dinner 籌備全攻略（NB1）', '連去公司到會'),
+ ('生日會 Landing', '生日到會 1,037 #30'), ('素食到會 Landing', ''), ('船河 Landing', '取代 /boat-trip-bldg/'),
+ ('Blog：初一十五食齋懶人包（素食 B3）', ''), ('Blog：吃素好處與營養（素食 B4）', ''), ('Blog：一週素食菜單（素食 B5）', ''),
+ ('Blog：植物肉、植物奶（素食 B7）', ''), ('野餐 Landing', ''), ('Blog：香港野餐好去處', '地點搜尋工具'),
+ ('Blog：食物保暖用品（保溫 B1）', '待確認 MUJI 產品'), ('Blog：保鮮用品（保溫 B2）', ''), ('Blog：保溫杯、保溫瓶（保溫 B3）', ''),
+ ('訂製食物 Landing', ''), ('中秋 Landing（每年沿用）', ''), ('萬聖節 Landing（每年沿用）', ''),
+]
+def _days(start, n):
+    d, out = start, []
+    while len(out) < n:
+        if d.weekday() < 5: out.append(d)
+        d += _dt.timedelta(days=1)
+    return out
+_n = max((len(OLDQ) + 1) // 2, len(NEWQ))
+_W = '一二三四五六日'
+_srow = []
+for i, d in enumerate(_days(_dt.date(2026, 11, 2), _n)):
+    o = OLDQ[i*2:i*2+2]; nw = NEWQ[i] if i < len(NEWQ) else None
+    oc = '<br>'.join(f'{_h.escape(a)}' + (f' <small>{_h.escape(b)}</small>' if b else '') for a, b in o) or '—'
+    nc = (f'{_h.escape(nw[0])}' + (f' <small>{_h.escape(nw[1])}</small>' if nw[1] else '')) if nw else '—'
+    _srow.append(f'<tr><td class="nw">{d.month}/{d.day}（{_W[d.weekday()]}）</td><td>{oc}</td><td>{nc}</td></tr>')
+SCHED_HTML = ('<div class="pri"><h2>每日排程（每個工作日 2 篇舊文＋1 篇新文）</h2><p class="pn">由 11/2 開始，只計星期一至五；'
+  f'舊文 {len(OLDQ)} 項、新文 {len(NEWQ)} 項，約 {_n} 個工作日完成。有中英版的頁面同日做英文版。我每日早上交稿，你審閱及上載後通知我做 live check。</p>'
+  '<div class="card"><table><thead><tr><th>日期</th><th>舊文／舊頁（2 篇）</th><th>新文／新頁（1 篇）</th></tr></thead><tbody>' + ''.join(_srow) + '</tbody></table></div></div>')
+PRI_HTML = PRI_HTML.replace('<div class="pri">', SCHED_HTML + '<div class="pri">', 1)
+
 # ---------- render ----------
 CLS = ['classDef new fill:#E3F4E8,stroke:#3BAA5C', 'classDef old fill:#FFF4D6,stroke:#C8A24A', 'classDef bad fill:#FDE2E1,stroke:#E2574C',
        'classDef ok fill:#E3F1FB,stroke:#2B7BD0', 'classDef grp fill:#1A1A1A,stroke:#1A1A1A,color:#F7CE46']
@@ -206,11 +299,13 @@ section{display:none;padding:20px 24px 60px}section.on{display:block}
 .kwlink{display:inline-block;margin:0 0 10px;background:#1A1A1A;color:#F7CE46;font-weight:700;font-size:15px;padding:8px 16px;border-radius:20px;text-decoration:none}.kwlink:hover{background:#C8A24A;color:#1A1A1A}
 .new{background:#E3F4E8}.old{background:#FFF4D6}.bad{background:#FDE2E1}.ok{background:#E3F1FB}
 .mermaid .nodeLabel,.mermaid .nodeLabel *{font-size:16px!important;line-height:1.35}.mermaid .nodeLabel b{font-size:17px!important}.mermaid .u{font-size:13px!important;color:#444;word-break:break-all}.mermaid .node{cursor:pointer}.mermaid .t{display:inline-block;font-size:13px!important;font-weight:700;color:#fff!important;background:#1A1A1A;border-radius:10px;padding:2px 9px;margin-bottom:4px}.mermaid .grp .t{background:#C8A24A;color:#1A1A1A!important}
+__PRICSS__
 </style></head><body>
 <header><h1>Kitchen AO 網站架構圖（Site Structure）</h1><p>每個格子顯示完整 URL，按一下可打開該頁｜由主表整理，2026-10-19 更新（素食加入 6 篇 Blog 及 KW 分配頁）</p></header>
 <nav id="nav"></nav><div id="views"></div>
 <script>
 const V = __V__;
+const PRI = __PRI__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
 const GROUPS={'Seasonal':['中秋節','萬聖節','聖誕節']};const KWPAGE={'素食':'vegetarian-kw.html','聖誕節':'xmas-kw.html'};const LINKS={};const SLINKS={};const LABEL={'素食':'🥦 素食','聖誕節':'🎄 聖誕節'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
@@ -220,6 +315,7 @@ for(const [k,code] of Object.entries(V)){
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
   s.querySelector('pre').textContent=code;views.appendChild(s);
+  if(k==='全站總覽'){const d=document.createElement('div');d.innerHTML=PRI;s.insertBefore(d.firstChild,s.firstChild);}
   (SLINKS[k]||[]).forEach(([t,u])=>{const a=document.createElement('a');a.href=u;a.textContent=t;a.className='kwlink';s.insertBefore(a,s.firstChild);});
   const b=document.createElement('button');b.textContent=LABEL[k]||k;let top=null;
   const g=inGrp[k];
@@ -233,7 +329,8 @@ for(const [k,code] of Object.entries(V)){
 {const h=decodeURIComponent(location.hash.slice(1));if(KWPAGE[h])location.replace(KWPAGE[h]);else setTimeout(()=>(BTN[h]||first).click(),0);}
 const ck=document.createElement('button');ck.textContent='🏢 核心頁面 KW 分配';ck.onclick=e=>{e.stopPropagation();location.href='core-pages-kw.html';};nav.appendChild(ck);
 document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
+window.addEventListener('hashchange',()=>{const h=decodeURIComponent(location.hash.slice(1));if(KWPAGE[h])location.href=KWPAGE[h];else if(BTN[h])BTN[h].click();});
 </script></body></html>'''
-(HERE / 'index.html').write_text(html.replace('__V__', json.dumps(V, ensure_ascii=False)), encoding='utf-8')
+(HERE / 'index.html').write_text(html.replace('__V__', json.dumps(V, ensure_ascii=False)).replace('__PRI__', json.dumps(PRI_HTML, ensure_ascii=False)).replace('__PRICSS__', PRI_CSS), encoding='utf-8')
 (HERE / 'diagrams.json').write_text(json.dumps(V, ensure_ascii=False), encoding='utf-8')
 print('ok', {k: len(v['nodes']) for k, v in D.items()})
