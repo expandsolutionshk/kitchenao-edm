@@ -60,6 +60,12 @@
 .ao-dlv .ao-tabs a:hover{border-color:#C8A24A!important;color:#1A1A1A;}
 .ao-dlv .ao-tabs a.on{background:#1A1A1A;border-color:#1A1A1A!important;color:#F7CE46!important;box-shadow:none!important;}
 @media(max-width:600px){.ao-dlv .ao-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}.ao-dlv .ao-tabs a{min-height:46px;font-size:14px!important;padding:8px 8px!important;}}
+/* v4：分頁加 icon（Font Awesome 5，主題已載入） */
+.ao-dlv .ao-tabs a{flex-direction:column;gap:6px;min-height:76px!important;padding:12px 10px!important;}
+.ao-dlv .ao-tabs a i{font-size:20px;line-height:1;color:#C8A24A;transition:color .2s;}
+.ao-dlv .ao-tabs a.on i{color:#F7CE46;}
+.ao-dlv .ao-tabs a span{display:block;}
+@media(max-width:600px){.ao-dlv .ao-tabs a{min-height:70px!important;gap:5px;}.ao-dlv .ao-tabs a i{font-size:18px;}}
 /* v3：CTA 按鈕字一定在按鈕內 */
 .ao-dlv .ao-dlv-cta a{display:inline-flex!important;align-items:center;justify-content:center;width:auto!important;min-width:260px;max-width:100%;padding:14px 30px!important;white-space:nowrap!important;box-sizing:border-box;}
 @media(max-width:600px){.ao-dlv .ao-dlv-cta{flex-direction:column;align-items:center;}.ao-dlv .ao-dlv-cta a{width:100%!important;min-width:0;max-width:340px;white-space:normal!important;padding:13px 18px!important;}}
@@ -67,12 +73,12 @@
 
 <p>Kitchen AO offers <strong>catering delivery across Hong Kong</strong>, covering Hong Kong Island, Kowloon and the New Territories. Whether you are ordering party food for a family gathering in Tsuen Wan, Sha Tin, Yuen Long or Tuen Mun, or corporate catering for an event in Central, Causeway Bay, Kwun Tong or Kowloon Bay, please check our <strong>catering delivery fees</strong>, <strong>free delivery offers</strong>, delivery time slots and same-day catering arrangements below before you order.</p>
 <div class="ao-tabwrap"><nav class="ao-tabs" aria-label="Delivery information contents">
-<a href="#free-shipping" class="on">Free Delivery</a>
-<a href="#shipping-fees">Delivery Areas &amp; Fees</a>
-<a href="#delivery-time">Time Slots &amp; Surcharges</a>
-<a href="#important">Same-day Orders &amp; Notes</a>
-<a href="#weather">Bad Weather</a>
-<a href="#faq">FAQ</a>
+<a href="#free-shipping" class="on"><i class="fas fa-gift" aria-hidden="true"></i><span>Free Delivery</span></a>
+<a href="#shipping-fees"><i class="fas fa-map-marked-alt" aria-hidden="true"></i><span>Delivery Areas &amp; Fees</span></a>
+<a href="#delivery-time"><i class="fas fa-clock" aria-hidden="true"></i><span>Time Slots &amp; Surcharges</span></a>
+<a href="#important"><i class="fas fa-shipping-fast" aria-hidden="true"></i><span>Same-day Orders &amp; Notes</span></a>
+<a href="#weather"><i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i><span>Bad Weather</span></a>
+<a href="#faq"><i class="fas fa-question-circle" aria-hidden="true"></i><span>FAQ</span></a>
 </nav><span class="ao-tabhint" aria-hidden="true">›</span></div>
 
 <section class="ao-pane" id="free-shipping">

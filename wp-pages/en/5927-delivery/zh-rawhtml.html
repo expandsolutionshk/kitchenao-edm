@@ -60,6 +60,12 @@
 .ao-dlv .ao-tabs a:hover{border-color:#C8A24A!important;color:#1A1A1A;}
 .ao-dlv .ao-tabs a.on{background:#1A1A1A;border-color:#1A1A1A!important;color:#F7CE46!important;box-shadow:none!important;}
 @media(max-width:600px){.ao-dlv .ao-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}.ao-dlv .ao-tabs a{min-height:46px;font-size:14px!important;padding:8px 8px!important;}}
+/* v4：分頁加 icon（Font Awesome 5，主題已載入） */
+.ao-dlv .ao-tabs a{flex-direction:column;gap:6px;min-height:76px!important;padding:12px 10px!important;}
+.ao-dlv .ao-tabs a i{font-size:20px;line-height:1;color:#C8A24A;transition:color .2s;}
+.ao-dlv .ao-tabs a.on i{color:#F7CE46;}
+.ao-dlv .ao-tabs a span{display:block;}
+@media(max-width:600px){.ao-dlv .ao-tabs a{min-height:70px!important;gap:5px;}.ao-dlv .ao-tabs a i{font-size:18px;}}
 /* v3：CTA 按鈕字一定在按鈕內 */
 .ao-dlv .ao-dlv-cta a{display:inline-flex!important;align-items:center;justify-content:center;width:auto!important;min-width:260px;max-width:100%;padding:14px 30px!important;white-space:nowrap!important;box-sizing:border-box;}
 @media(max-width:600px){.ao-dlv .ao-dlv-cta{flex-direction:column;align-items:center;}.ao-dlv .ao-dlv-cta a{width:100%!important;min-width:0;max-width:340px;white-space:normal!important;padding:13px 18px!important;}}
@@ -67,12 +73,12 @@
 
 <p>Kitchen AO 提供<strong>全港到會送貨</strong>服務，覆蓋香港島、九龍及新界。無論是荃灣、沙田、元朗、屯門的家庭派對，還是中環、銅鑼灣、觀塘、九龍灣的公司活動，下單前可先查看以下<strong>到會運費</strong>、<strong>免運費優惠</strong>、派送時間及即日到會安排。</p>
 <div class="ao-tabwrap"><nav class="ao-tabs" aria-label="送貨需知目錄">
-<a href="#free-shipping" class="on">免運費優惠</a>
-<a href="#shipping-fees">送貨範圍及運費</a>
-<a href="#delivery-time">派送時間及附加費</a>
-<a href="#important">即日到會及送貨須知</a>
-<a href="#weather">惡劣天氣安排</a>
-<a href="#faq">常見問題</a>
+<a href="#free-shipping" class="on"><i class="fas fa-gift" aria-hidden="true"></i><span>免運費優惠</span></a>
+<a href="#shipping-fees"><i class="fas fa-map-marked-alt" aria-hidden="true"></i><span>送貨範圍及運費</span></a>
+<a href="#delivery-time"><i class="fas fa-clock" aria-hidden="true"></i><span>派送時間及附加費</span></a>
+<a href="#important"><i class="fas fa-shipping-fast" aria-hidden="true"></i><span>即日到會及送貨須知</span></a>
+<a href="#weather"><i class="fas fa-cloud-showers-heavy" aria-hidden="true"></i><span>惡劣天氣安排</span></a>
+<a href="#faq"><i class="fas fa-question-circle" aria-hidden="true"></i><span>常見問題</span></a>
 </nav><span class="ao-tabhint" aria-hidden="true">›</span></div>
 
 <section class="ao-pane" id="free-shipping">

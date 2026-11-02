@@ -21,6 +21,12 @@ CSS += '''
 .ao-dlv .ao-tabs a:hover{border-color:#C8A24A!important;color:#1A1A1A;}
 .ao-dlv .ao-tabs a.on{background:#1A1A1A;border-color:#1A1A1A!important;color:#F7CE46!important;box-shadow:none!important;}
 @media(max-width:600px){.ao-dlv .ao-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}.ao-dlv .ao-tabs a{min-height:46px;font-size:14px!important;padding:8px 8px!important;}}
+/* v4：分頁加 icon（Font Awesome 5，主題已載入） */
+.ao-dlv .ao-tabs a{flex-direction:column;gap:6px;min-height:76px!important;padding:12px 10px!important;}
+.ao-dlv .ao-tabs a i{font-size:20px;line-height:1;color:#C8A24A;transition:color .2s;}
+.ao-dlv .ao-tabs a.on i{color:#F7CE46;}
+.ao-dlv .ao-tabs a span{display:block;}
+@media(max-width:600px){.ao-dlv .ao-tabs a{min-height:70px!important;gap:5px;}.ao-dlv .ao-tabs a i{font-size:18px;}}
 /* v3：CTA 按鈕字一定在按鈕內 */
 .ao-dlv .ao-dlv-cta a{display:inline-flex!important;align-items:center;justify-content:center;width:auto!important;min-width:260px;max-width:100%;padding:14px 30px!important;white-space:nowrap!important;box-sizing:border-box;}
 @media(max-width:600px){.ao-dlv .ao-dlv-cta{flex-direction:column;align-items:center;}.ao-dlv .ao-dlv-cta a{width:100%!important;min-width:0;max-width:340px;white-space:normal!important;padding:13px 18px!important;}}'''
@@ -32,6 +38,9 @@ def build(body):
     body = body.strip()
     # 天氣由 h3 升為 h2（獨立分頁）
     body = re.sub(r'<h3 id="weather">(.*?)</h3>', r'<h2 id="weather">\1</h2>', body)
+    ICON = {'free-shipping': 'fa-gift', 'shipping-fees': 'fa-map-marked-alt', 'delivery-time': 'fa-clock',
+            'important': 'fa-shipping-fast', 'weather': 'fa-cloud-showers-heavy', 'faq': 'fa-question-circle'}
+    body = re.sub(r'<a href="#([a-z-]+)"([^>]*)>(.*?)</a>', lambda m: f'<a href="#{m.group(1)}"{m.group(2)}><i class="fas {ICON[m.group(1)]}" aria-hidden="true"></i><span>{m.group(3)}</span></a>' if m.group(1) in ICON and '<i class' not in m.group(3) else m.group(0), body, count=6)
     nav_end = body.index('</nav>')
     head_end = body.index('</div>', nav_end) + 6
     head, rest = body[:head_end], body[head_end:]
