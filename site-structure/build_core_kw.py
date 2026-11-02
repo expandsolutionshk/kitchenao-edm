@@ -54,7 +54,7 @@ def add(page, role, kws, lang='中', src='', use=''):
 
 # 公司到會
 add('CORP','主要',['公司到會'],use='H1／Title／首段 100 字內')
-add('CORP','次要',['企業到會','公司到會服務','到會服務 公司'],use='H2／首段／Meta')
+add('CORP','次要',['企業到會','公司到會服務'],use='H2／首段／Meta')
 add('CORP','次要',['午餐到會','office lunch 到會','會議到會'],src='建議',use='H2（分頁：午餐到會）')
 add('CORP','次要',['annual dinner 到會','年會到會','公司開年飯','公司團年飯','團年飯到會'],src='GKP 10-30',use='H2／H3（分頁：年會及團年飯；12 月至 2 月旺季）')
 add('CORP','長尾',['公司聚會到會','春茗到會','公司聖誕派對到會'],src='',use='H3／內文（分頁：年會及團年飯、公司聚會）')
@@ -188,7 +188,7 @@ CORP_CARD = f'''
 <p><small>Focus Keyword</small><mark>公司到會</mark>（副：企業到會、annual dinner 到會）</p></div>
 <h4>建議 H2 架構</h4>
 <ol class="out">
-<li><b>（10-30 已改）分頁 1 速覽</b>：Kitchen AO 公司到會服務介紹＋六張服務卡（中英主題名）＋人數及預算表｜公司到會、企業到會、公司到會服務、到會公司</li>
+<li><b>（10-30 已改）分頁 1 速覽</b>：Kitchen AO 公司到會服務介紹＋六張服務卡（中英主題名）＋人數及預算表｜公司到會、企業到會、公司到會服務（「到會公司」交首頁）</li>
 <li><b>分頁 2 午餐到會</b>：員工午餐 Office Lunch（商務餐盒 $108 起）＋會議午餐 Meeting Lunch（高級餐盒 $248 起）｜午餐到會、會議到會</li>
 <li><b>分頁 3 年會及團年飯</b>：Annual Dinner、公司團年飯、公司開年飯、春茗（$300 起；H3 旺季宜早訂）｜團年飯到會 等</li>
 <li><b>分頁 4 公司聚會</b>：Team Building、公司聖誕派對（連去聖誕到會）</li>
@@ -306,19 +306,67 @@ OTHERS = [
 ]
 
 # ---------- 擁有權表 ----------
+B_ = 'https://aoaodelivery.com'
+# (組別, 中文關鍵字群, 頁面名稱, URL, 主題, 重點要寫甚麼, 英文關鍵字群, 英文頁, 頁面角色, 狀態)
 OWN = [
- ('到會、香港到會、到會服務、到會公司、到會套餐、美食到會', '首頁 /', 'catering、catering hong kong、catering services、catering service company／provider', '首頁 /en/', '整站最大字，只由首頁主攻'),
- ('公司到會、企業到會、公司到會服務、annual dinner 到會、年會到會、午餐到會', '公司到會', 'corporate catering hong kong、corporate catering (service)、office catering hong kong、office lunch catering、company annual dinner planning hk', '公司到會 /en/', '交易型服務頁；英文版同時承接 Annual Dinner 英文字'),
- ('到會推介、香港到會推介、到會推薦、公司到會推介、到會服務推介 2026', '到會推介', 'catering company hong kong、catering companies、celebrations catering', '到會推介 /en/', '推介清單；公司字只留一段並連去公司到會'),
- ('派對到會、party 到會、派對到會套餐、生日到會', '派對到會套餐分類', 'party food delivery hk、party catering (services)、food catering for birthday parties', '派對分類 /en/', '產品分類頁；現由首頁排第 32 至 53 名'),
- ('商務到會、酒會、開張、宴會到會、canapés', '商務活動', 'event catering、finger food catering、canapes catering hong kong', '商務活動 /en/', '活動型服務頁'),
- ('商務餐盒、員工餐盒、公司飯盒、商務便當', '商務／員工餐盒分類', 'lunch set、catering box', '餐盒分類 /en/', '產品分類'),
- ('聖誕到會、聖誕大餐等所有聖誕字', '見 🎄 聖誕 KW 分配頁', 'christmas catering 等', '見 🎄 聖誕 KW 分配頁', '已拆到 Seasonal › 聖誕節（xmas-kw.html）'),
- ('到會邊間好、平價到會、到會價錢', '舊 Blog：到會邊間好', '（Blog 只有中文版）', '—', '比較及揀選準則'),
- ('中伏、到會注意事項', '舊 Blog：到會中伏', '（Blog 只有中文版）', '—', '避雷清單'),
- ('annual dinner 遊戲、抽獎禮物、場地、主題', '新 Blog：Annual Dinner', '（Blog 只有中文版，英文字由公司到會 /en/ 負責）', '—', '資訊型'),
+ ('整站', '到會、香港到會、到會服務、到會公司、到會服務公司、到會套餐、美食到會', '首頁', '/',
+  '香港到會服務總覽（Kitchen AO 是誰、做甚麼）',
+  '首屏講清服務範圍及人數；按場合分流卡（公司、派對、生日、船河、素食）；人氣套餐；客戶及活動實績；內鏈區塊以「公司到會」「到會推介」「派對到會」作連結文字',
+  'catering、catering hong kong、catering services、catering service company／provider', '首頁 /en/', '整站最大字，只由首頁主攻', '已上線'),
+ ('公司', '公司到會、企業到會、公司到會服務、annual dinner 到會、年會到會、午餐到會、公司團年飯、公司開年飯、團年飯到會', '公司到會（18404）', '/corporate-catering-hk/',
+  '公司到會服務頁（交易型：套餐、價錢、報價）',
+  '六類服務（員工午餐、會議午餐、年會及團年飯、公司聚會、酒會及開張、機構活動）；人數及預算表；四個預算例子；四步預訂流程；FAQ。不寫「到會公司」；酒會及開張只寫簡介並連去商務活動',
+  'corporate catering hong kong、corporate catering (service)、office catering hong kong、office lunch catering、company annual dinner planning hk', '公司到會 /en/', '交易型服務頁；英文版同時承接 Annual Dinner 英文字', '新版待上載'),
+ ('公司', '公司到會點揀、企業到會點揀、公司到會注意事項、到會供應商比較', 'Blog：公司到會點揀', '/blog/hong-kong-company-catering-how-to-choose/',
+  '如何揀選公司到會供應商（決策指南）',
+  '5 個揀選準則；比較表；落單前向供應商問的 10 條問題；報價核對清單（運費、餐具、保溫、人手）；真實活動相片。不列套餐及價錢，CTA 連去公司到會頁。現 Title 以「香港公司到會」開頭，與 18404 搶字，要改為「公司到會點揀」開頭；內文改書面語',
+  '（Blog 只有中文版）', '—', '資訊型：揀選準則', '要改寫'),
+ ('公司', '公司活動到會、公司活動餐飲、公司活動預算、HR 活動籌備', 'Blog：公司活動到會攻略', '/blog/company-event-catering-guide/',
+  'HR／Admin 公司活動餐飲籌備流程（預算、餐單形式、當日執行）',
+  '人均預算計算方法；按活動類型揀餐飲形式（酒會、會議、Team Building、晚宴）；飲食限制及 RSVP；當日場地、保溫及清理清單。「揀供應商」一段縮短並連去「公司到會點揀」。要修正：文末「[你嘅品牌名稱]」佔位字、壞連結 /busines-event/',
+  '（Blog 只有中文版）', '—', '資訊型：籌備流程', '要改寫'),
+ ('公司', 'annual dinner 遊戲、抽獎禮物、場地、主題、流程', '新 Blog：Annual Dinner 籌備全攻略', '/blog/annual-dinner-planning-guide/（建議）',
+  'Annual Dinner 籌備時間表及活動點子',
+  '倒數 8 週時間表；場地類型比較；主題及遊戲點子；抽獎禮物預算；流程表範本。餐飲只寫一段並連去公司到會頁',
+  '（Blog 只有中文版，英文字由公司到會 /en/ 負責）', '—', '資訊型', '未開始'),
+ ('公司', '團年飯 開年飯 分別、開年飯日子、團年飯意思、團年飯菜式寓意', 'Blog：團年飯 vs 開年飯', '/blog/cny-reunion-dinner-guide/',
+  '團年飯與開年飯的分別、日子及習俗（2027 更新）',
+  '分別對照表；2027 年日子；習俗及禁忌；菜式寓意。「公司團年飯」「團年飯到會」交易字交公司到會頁，文末 CTA 連去公司到會',
+  '（Blog 只有中文版）', '—', '資訊型：節日', '要更新'),
+ ('商務', '商務到會、酒會、開張、宴會到會、發佈會、canapés', '商務活動', '/business-event/',
+  '酒會、開張及發佈會到會（活動型服務）',
+  '酒會、開張、發佈會、品牌活動四類；Canapés 及 Finger Food 選擇；侍應及現場服務；活動相片。與公司到會頁分工：不寫年會及員工午餐',
+  'event catering、finger food catering、canapes catering hong kong', '商務活動 /en/', '活動型服務頁', '下一輪'),
+ ('商務', '商務餐盒、員工餐盒、公司飯盒、商務便當', '商務／員工餐盒分類', '/product-category/商務活動/commercial-lunch-box/',
+  '商務餐盒產品分類',
+  '款式、價錢及最少訂購數量；送貨時間；舊頁 /商務餐盒/ 301 到此',
+  'lunch set、catering box', '餐盒分類 /en/', '產品分類', '未開始'),
+ ('推介', '到會推介、香港到會推介、到會推薦、公司到會推介、到會服務推介 2026', '到會推介', '/hong-kong-catering-recommendation/',
+  '香港到會推介清單（按場合推介套餐）',
+  '按場合推介（派對、公司、生日、素食、船河）；推介準則；公司字只留一段並連去公司到會',
+  'catering company hong kong、catering companies、celebrations catering', '到會推介 /en/', '推介清單', '要改寫'),
+ ('推介', '到會邊間好、平價到會、到會價錢', '舊 Blog：到會邊間好', '/blog/hongkong-catering-2026-香港到會邊間好/',
+  '到會服務比較及揀選準則（一般客）',
+  '比較準則；價錢範圍；不同場合適合的到會形式。不寫公司揀選（交「公司到會點揀」）',
+  '（Blog 只有中文版）', '—', '比較及揀選準則', '第二輪'),
+ ('推介', '中伏、到會注意事項', '舊 Blog：到會中伏', '/blog/catering-pitfalls-guide/',
+  '到會避雷清單',
+  '5 大常見問題及預防方法；落單前檢查清單',
+  '（Blog 只有中文版）', '—', '避雷清單', '第二輪'),
+ ('派對', '派對到會、party 到會、派對到會套餐、生日到會', '派對到會套餐分類', '/product-category/party/',
+  '派對到會套餐產品分類',
+  '價錢表、餐單樣本、份量建議、FAQ（見派對分類 SEO demo）',
+  'party food delivery hk、party catering (services)、food catering for birthday parties', '派對分類 /en/', '產品分類頁；現由首頁排第 32 至 53 名', '進行中'),
+ ('節日', '聖誕到會、聖誕大餐等所有聖誕字', '見 🎄 聖誕 KW 分配頁', '（xmas-kw.html）',
+  '—', '—', 'christmas catering 等', '見 🎄 聖誕 KW 分配頁', '已拆到 Seasonal › 聖誕節', '—'),
 ]
-own_html = '<table class="own"><tr><th>中文關鍵字群</th><th>中文頁</th><th>英文關鍵字群</th><th>英文頁</th><th>頁面角色</th></tr>' + ''.join(f'<tr><td>{E(a)}</td><td><b>{E(b)}</b></td><td>{E(c)}</td><td><b>{E(d)}</b></td><td>{E(e)}</td></tr>' for a,b,c,d,e in OWN) + '</table>'
+def _url(u):
+    return f'<a href="{B_}{E(u)}" target="_blank">{E(u)}</a>' if u.startswith('/') and '（' not in u else E(u)
+_ST = {'已上線': '#2e7d32', '新版待上載': '#b26a00', '要改寫': '#c0392b', '要更新': '#c0392b', '未開始': '#777', '下一輪': '#777', '第二輪': '#777', '進行中': '#1565c0'}
+own_html = ('<table class="own own2"><tr><th>組別</th><th>中文關鍵字群</th><th>中文頁及網址</th><th>主題</th><th>重點要寫甚麼</th><th>英文關鍵字群</th><th>英文頁</th><th>頁面角色</th></tr>'
+            + ''.join(f'<tr><td>{E(g)}</td><td>{E(a)}</td><td><b>{E(p)}</b><br>{_url(u)}<br><span class="st" style="color:{_ST.get(st, "#777")}">● {E(st)}</span></td><td>{E(t)}</td><td class="pt">{E(w)}</td><td>{E(c)}</td><td><b>{E(d)}</b></td><td>{E(e)}</td></tr>'
+                      for g, a, p, u, t, w, c, d, e, st in OWN) + '</table>'
+            + '<style>.own2 td{vertical-align:top;font-size:13px}.own2 td.pt{min-width:260px}.own2 a{word-break:break-all}.own2 .st{font-size:12px;font-weight:700}</style>')
 
 # ---------- GSC 2026-10-30 對位分析 ----------
 def gsc30_html():
@@ -395,7 +443,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="rule"><b>分配原則：</b>一個關鍵字只分配到一頁。整站大字（到會、catering）只由首頁主攻；「推介」字由到會推介頁負責；公司及 Annual Dinner 交易字由公司到會頁負責；資訊字（遊戲、抽獎、場地）放 Blog；餐盒字留在產品分類；派對字由派對到會套餐分類負責。<br><b>中英文分工（10-30）：</b>每個中文頁有對應的 /en/ 英文頁，英文字分配到英文頁（例如 corporate catering → /en/corporate-catering-hk/）；Blog 只有中文版，所以英文的 Annual Dinner 字交給英文公司到會頁。所有聖誕字（中英）已拆到 <a href="./xmas-kw.html">🎄 聖誕 KW 分配頁</a>（Seasonal › 聖誕節）。架構圖中英文版相同。<br><b>注意：</b>公司到會類大部分字在 Semrush 沒有搜尋量，標示「待 KP」，請用下面的種子字清單在 Keyword Planner 查詢後再更新。</div>
 
 <h2>GSC 對位分析（2026-10-30）</h2><div class="card">{gsc30_html()}</div>
-<h2>關鍵字擁有權：中英文頁分工（2026-10-30 更新）</h2><div class="card">{own_html}</div>
+<h2>關鍵字擁有權：中英文頁分工、主題及重點（2026-11-03 更新）</h2><div class="card">{own_html}</div>
 <h2>第一輪：公司到會＋到會推介</h2><div class="grid1">{CORP_CARD}{REC_CARD}</div>
 <h2>其他待 review 頁面</h2><div class="grid">{''.join(OTHERS)}</div>
 <h2 id="all">全部關鍵字</h2><div class="card">
