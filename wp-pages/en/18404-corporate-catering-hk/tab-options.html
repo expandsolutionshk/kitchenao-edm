@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>18404 公司到會｜Tab 顯示方式（3 個方案）</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<style>
+body{margin:0;background:#F4F1EC;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;color:#2b2620}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 80px}
+.opt{background:#fff;border-radius:18px;padding:26px 24px 30px;margin:0 0 28px;box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.opt>h2{margin:0 0 4px;font-size:20px}.opt>h2 em{font-style:normal;color:#9A7B2E;margin-right:8px}
+.opt>p.d{margin:0 0 20px;color:#7A7268;font-size:14px;line-height:1.7}
+.opt .pv{border-top:1px dashed #e2d9c6;padding-top:20px}
+.lbl{display:inline-block;font-size:12px;color:#9A7B2E;font-weight:700;letter-spacing:1px;margin:14px 0 8px}
+.mob{width:375px;max-width:100%;border:8px solid #1A1A1A;border-radius:28px;padding:18px 14px;margin-top:6px;box-sizing:border-box}
+.pane{margin-top:18px;padding:14px 16px;background:#FAF7F1;border-radius:10px;font-size:14px;color:#5d534d}
+.pane b{color:#1A1A1A}
+
+/* ===== 方案 A：格狀卡片（黑金，參考送貨頁） ===== */
+.ta{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.ta a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:84px;padding:12px 8px;border:1px solid #E4DAC6;border-radius:12px;background:#FFFDF8;color:#4a4238;text-decoration:none;font-size:14px;font-weight:700;text-align:center;line-height:1.3;transition:.2s}
+.ta a i{font-size:19px;color:#C8A24A}
+.ta a:hover{border-color:#C8A24A}
+.ta a.on{background:#1A1A1A;border-color:#1A1A1A;color:#F7E3A8}.ta a.on i{color:#C8A24A}
+.mob .ta{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mob .ta a{min-height:66px;font-size:13px}
+
+/* ===== 方案 B：編號目錄（雜誌／酒店菜單風） ===== */
+.tb{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px;border-top:1px solid #C8A24A;border-bottom:1px solid #C8A24A;padding:6px 0}
+.tb a{display:flex;align-items:baseline;gap:14px;padding:12px 4px;border-bottom:1px solid #EFE8DA;color:#3a342b;text-decoration:none;font-size:15.5px;font-weight:600;letter-spacing:.5px;position:relative;transition:.2s}
+.tb a:nth-last-child(-n+2){border-bottom:0}
+.tb a .n{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:15px;color:#C8A24A;min-width:24px}
+.tb a .ar{margin-left:auto;color:#d8cbb0;font-size:12px;transition:.2s}
+.tb a:hover{color:#1A1A1A}.tb a:hover .ar{color:#C8A24A;transform:translateX(3px)}
+.tb a.on{color:#1A1A1A;font-weight:800}.tb a.on .ar{color:#C8A24A}
+.tb a.on:before{content:"";position:absolute;left:-10px;top:50%;width:4px;height:22px;margin-top:-11px;background:#C8A24A;border-radius:2px}
+.mob .tb{grid-template-columns:1fr;column-gap:0}.mob .tb a{padding:11px 4px;font-size:14.5px}.mob .tb a:nth-last-child(2){border-bottom:1px solid #EFE8DA}
+
+/* ===== 方案 C：左側固定目錄（桌面）＋ 手機下拉選單 ===== */
+.tc{display:grid;grid-template-columns:230px 1fr;gap:28px}
+.tc nav{position:sticky;top:16px;align-self:start;border-left:1px solid #E4DAC6}
+.tc nav small{display:block;padding:0 0 10px 18px;color:#9A7B2E;font-size:11px;font-weight:800;letter-spacing:3px}
+.tc nav a{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 18px;margin-left:-1px;border-left:2px solid transparent;color:#6b6252;text-decoration:none;font-size:14.5px;font-weight:600;transition:.2s}
+.tc nav a i{width:18px;text-align:center;color:#C8A24A;font-size:14px}
+.tc nav a:hover{color:#1A1A1A;background:#FBF7EE}
+.tc nav a.on{border-left-color:#C8A24A;color:#1A1A1A;font-weight:800;background:#FBF7EE}
+.tc .body{min-height:420px}
+.tc .body .pane{margin-top:0}
+.tc-sel{display:none}
+.mob .tc{grid-template-columns:1fr}.mob .tc nav{display:none}
+.mob .tc-sel{display:block;position:relative}
+.mob .tc-sel select{width:100%;appearance:none;-webkit-appearance:none;padding:14px 44px 14px 16px;font:inherit;font-size:15px;font-weight:700;color:#1A1A1A;background:#FFFDF8;border:1px solid #C8A24A;border-radius:12px}
+.mob .tc-sel:after{content:"\f078";font-family:"Font Awesome 5 Free";font-weight:900;position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#C8A24A;pointer-events:none;font-size:13px}
+.mob .tc-sel small{display:block;color:#9A7B2E;font-size:11px;font-weight:800;letter-spacing:3px;margin:0 0 8px}
+
+.cmp{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.cmp th,.cmp td{padding:10px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+.cmp th{background:#1A1A1A;color:#F7E3A8}
+@media(max-width:760px){.ta{grid-template-columns:repeat(2,minmax(0,1fr))}.tb{grid-template-columns:1fr}.tc{grid-template-columns:1fr}.tc nav{display:none}.tc-sel{display:block}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 style="font-size:22px;margin:0 0 4px">18404 公司到會：Tab 顯示方式（3 個方案）</h1>
+<p style="margin:0 0 22px;color:#7A7268;font-size:14px">10 個分頁全部一次顯示，唔使左右碌。每個方案都有桌面版同手機版，撳一下可以試切換效果。</p>
+
+<!-- ===== A ===== -->
+<section class="opt" id="A">
+ <h2><em>方案 A</em>格狀卡片＋icon（黑金）</h2>
+ <p class="d">同送貨頁一致，全站統一。桌面 5 欄 × 2 行，手機 2 欄 × 5 行。最易睇，但 10 格偏多，手機佔高度較大（約 380px）。</p>
+ <div class="pv"><span class="lbl">桌面</span><div class="ta" data-g="a1"></div><div class="pane" data-p="a1"></div>
+ <span class="lbl">手機</span><div class="mob"><div class="ta" data-g="a2"></div><div class="pane" data-p="a2"></div></div></div>
+</section>
+
+<!-- ===== B ===== -->
+<section class="opt" id="B">
+ <h2><em>方案 B</em>編號目錄（酒店菜單風）⭐ 推介</h2>
+ <p class="d">好似高級餐廳 menu 或雜誌目錄：斜體金色編號、幼金線、留白多，最有 elegant 感覺。桌面 2 欄 × 5 行，手機 1 欄。字唔使縮細，亦唔使 icon。</p>
+ <div class="pv"><span class="lbl">桌面</span><div class="tb" data-g="b1"></div><div class="pane" data-p="b1"></div>
+ <span class="lbl">手機</span><div class="mob"><div class="tb" data-g="b2"></div><div class="pane" data-p="b2"></div></div></div>
+</section>
+
+<!-- ===== C ===== -->
+<section class="opt" id="C">
+ <h2><em>方案 C</em>左側固定目錄＋手機下拉選單</h2>
+ <p class="d">桌面：目錄固定喺左邊，向下捲時跟住走，內容喺右邊（似酒店及顧問公司網站）。手機：變成一個下拉選單，只佔一行高度，最慳位。缺點：內容區變窄，表格要再調整。</p>
+ <div class="pv"><span class="lbl">桌面</span><div class="tc" data-g="c1"><nav><small>CONTENTS</small></nav><div class="body"><div class="pane" data-p="c1"></div></div></div>
+ <span class="lbl">手機</span><div class="mob"><div class="tc-sel"><small>選擇服務</small><select data-g="c2"></select></div><div class="pane" data-p="c2"></div></div></div>
+</section>
+
+<section class="opt">
+ <h2>比較</h2>
+ <table class="cmp">
+  <tr><th></th><th>A 格狀卡片</th><th>B 編號目錄 ⭐</th><th>C 左側目錄＋下拉</th></tr>
+  <tr><td>Elegant 程度</td><td>中</td><td><b>高</b></td><td>高</td></tr>
+  <tr><td>一眼睇晒 10 項</td><td>✓</td><td>✓</td><td>桌面 ✓／手機要撳開</td></tr>
+  <tr><td>手機佔高度</td><td>約 380px</td><td>約 470px</td><td><b>約 60px</b></td></tr>
+  <tr><td>同送貨頁一致</td><td><b>✓</b></td><td>風格不同（公司頁獨立定位）</td><td>風格不同</td></tr>
+  <tr><td>改動量</td><td>小（CSS）</td><td>小（CSS＋編號）</td><td>中（版面要改兩欄）</td></tr>
+ </table>
+ <p style="font-size:14px;color:#5d534d;margin:14px 0 0">建議：<b>方案 B</b>，桌面同手機都保留 elegant 感覺；如果覺得手機太長，可以「桌面用 B、手機用 C 嘅下拉選單」混合。</p>
+</section>
+</div>
+
+<script>
+var T=[['overview','公司到會速覽','fa-th-large'],['office-lunch','員工午餐','fa-briefcase'],['meeting','會議餐飲','fa-coffee'],['training','培訓及研討會','fa-chalkboard-teacher'],['annual-dinner','年會及團年飯','fa-glass-cheers'],['festive','公司聚會','fa-users'],['business-event','Event 及 PR 活動','fa-microphone'],['institutions','機構活動','fa-school'],['price','價錢及流程','fa-file-invoice-dollar'],['faq','常見問題','fa-question-circle']];
+function pane(g,i){var p=document.querySelector('[data-p="'+g+'"]');if(p)p.innerHTML='<b>'+T[i][1]+'</b>：此處顯示「'+T[i][1]+'」分頁內容（示意）。';}
+function bind(g,sel){var w=document.querySelector('[data-g="'+g+'"]');var L=w.querySelectorAll('a');L.forEach(function(a,i){a.onclick=function(e){e.preventDefault();L.forEach(function(x){x.classList.remove('on')});a.classList.add('on');pane(g,i);}});pane(g,0);}
+['a1','a2'].forEach(function(g){var w=document.querySelector('[data-g="'+g+'"]');w.innerHTML=T.map(function(t,i){return '<a href="#'+t[0]+'"'+(i?'':' class="on"')+'><i class="fas '+t[2]+'"></i><span>'+t[1]+'</span></a>'}).join('');bind(g);});
+['b1','b2'].forEach(function(g){var w=document.querySelector('[data-g="'+g+'"]');w.innerHTML=T.map(function(t,i){return '<a href="#'+t[0]+'"'+(i?'':' class="on"')+'><span class="n">'+String(i+1).padStart(2,'0')+'</span><span>'+t[1]+'</span><i class="fas fa-chevron-right ar"></i></a>'}).join('');bind(g);});
+(function(){var w=document.querySelector('[data-g="c1"] nav');w.innerHTML+=T.map(function(t,i){return '<a href="#'+t[0]+'"'+(i?'':' class="on"')+'><i class="fas '+t[2]+'"></i><span>'+t[1]+'</span></a>'}).join('');var L=w.querySelectorAll('a');L.forEach(function(a,i){a.onclick=function(e){e.preventDefault();L.forEach(function(x){x.classList.remove('on')});a.classList.add('on');pane('c1',i);}});pane('c1',0);
+var s=document.querySelector('[data-g="c2"]');s.innerHTML=T.map(function(t,i){return '<option value="'+i+'">'+String(i+1).padStart(2,'0')+'　'+t[1]+'</option>'}).join('');s.onchange=function(){pane('c2',+s.value)};pane('c2',0);})();
+</script>
+</body>
+</html>

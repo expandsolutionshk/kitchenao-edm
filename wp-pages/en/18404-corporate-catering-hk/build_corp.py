@@ -67,6 +67,17 @@ CSS = '''<style>
 .ao-corp .ao-kv img.k2{object-position:50% 55%;}
 @media(max-width:768px){.ao-corp .ao-scene a{width:calc((100% - 14px)/2);}}
 @media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/4;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;min-width:0;max-width:320px;white-space:normal;}}
+
+/* v9：深色目錄列｜桌面 2 行（5＋4）、字一行；手機 3 欄 × 3 行 */
+.ao-corp .ao-tabwrap{margin:22px 0 0;}
+.ao-corp .ao-tabs{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;height:auto !important;overflow:visible !important;background:#1A1A1A;border:0 !important;border-radius:6px;padding:6px 12px;}
+.ao-corp .ao-tabs a{flex:none !important;height:auto !important;min-height:54px;display:flex;align-items:center;justify-content:center;padding:14px 6px 16px !important;white-space:nowrap !important;text-align:center;font-size:14.5px !important;font-weight:500 !important;line-height:1.3 !important;letter-spacing:.08em;color:#E9E2D3 !important;box-shadow:none !important;position:relative;}
+.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:1px solid #33302b;}
+.ao-corp .ao-tabs a:hover{color:#F7E3A8 !important;}
+.ao-corp .ao-tabs a.on{color:#C8A24A !important;font-weight:700 !important;}
+.ao-corp .ao-tabs a.on:after{content:"";position:absolute;left:50%;bottom:7px;width:22px;height:2px;margin-left:-11px;background:#C8A24A;}
+.ao-corp .ao-faqsec{margin-top:40px;padding-top:6px;border-top:1px solid #EEE9DF;}
+@media(max-width:768px){.ao-corp .ao-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:4px 6px;}.ao-corp .ao-tabs a{min-height:50px;font-size:13px !important;letter-spacing:.03em;padding:12px 2px 15px !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+6){border-bottom:1px solid #33302b;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -77,13 +88,18 @@ def build(L):
     o = ['<div class="ao-corp">', CSS, '']
     o.append(L['intro'])
     o.append(f'<div class="ao-kv"><img class="k1" decoding="async" src="{P}/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="{L["img_alt"]}" width="600" height="300" /><img class="k2" decoding="async" src="{P}/wp-content/uploads/2023/11/IMG_2358.jpg" alt="{L["img_alt2"]}" width="600" height="300" /></div>')
-    o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" aria-label="{L["nav_label"]}">')
-    for i, (pid, label, _) in enumerate(L['panes']):
+    tabs = [p for p in L['panes'] if p[0] != 'faq']
+    faqp = [p for p in L['panes'] if p[0] == 'faq']
+    o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:{len(tabs)}" aria-label="{L["nav_label"]}">')
+    for i, (pid, label, _) in enumerate(tabs):
         on = ' class="on"' if i == 0 else ''
         o.append(f'<a href="#{pid}"{on}>{label}</a>')
     o.append('</nav></div>')
-    for pid, label, html in L['panes']:
+    for pid, label, html in tabs:
         o.append(f'<section class="ao-pane" id="{pid}">\n{html.strip()}\n</section>')
+    # 常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
+    for pid, label, html in faqp:
+        o.append(f'<section class="ao-faqsec" id="{pid}">\n{html.strip()}\n</section>')
     faq = L['faq']
     o.append('<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}, ensure_ascii=False, separators=(',', ':')) + '</script>')
     o.append('<script type="application/ld+json">' + json.dumps(L['service'], ensure_ascii=False, separators=(',', ':')) + '</script>')
