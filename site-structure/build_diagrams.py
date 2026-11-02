@@ -111,19 +111,23 @@ D['學校飯盒'] = dict(dir='LR', nodes=[
 # ---------- 中秋節 ----------
 D['中秋節'] = dict(dir='LR', nodes=[
  N('H', '首頁', '/'), N('L', '中秋 landing（新・每年沿用）', '/catering/mid-autumn/', 'new'),
- N('C1', '中秋套餐分類（建議改 slug）', '/product-category/中秋佳節團圓套餐-2026/', 'old'), N('M', '月餅預訂', '/mooncake-preorder/'),
- N('B1', '中秋到會 blog', '/blog/mid-autumn-catering-hong-kong/'),
-], edges=['H --> L', 'L --> C1', 'L <--> M', 'L <--> B1'])
+ N('C1', '舊中秋分類（網址有年份）→ 301 到新分類', '/product-category/中秋佳節團圓套餐-2026/', 'old'),
+ N('C2', '中秋套餐分類（新網址・無年份・每年沿用）', '/product-category/mid-autumn-set/', 'new'),
+ N('P', '6 個「中秋佳節團圓套餐 2026」產品<br/>名稱有年份，明年不再用 → 逐個 301 到新分類', '/product/ao-12-16pax-中秋佳節團圓套餐-2026/', 'old'),
+ N('M', '月餅預訂', '/mooncake-preorder/'),
+ N('B1', '中秋到會 blog（不轉址，每年更新）', '/blog/mid-autumn-catering-hong-kong/'),
+], edges=['H --> L', 'L --> C2', 'C1 == 301 ==> C2', 'P == 301 ==> C2', 'L <--> M', 'L <--> B1', 'B1 --> C2'])
 
 # ---------- 萬聖節 ----------
 D['萬聖節'] = dict(dir='LR', nodes=[
  N('H', '首頁', '/'), N('L', '萬聖節 landing（新・每年沿用）', '/catering/halloween/', 'new'),
- N('C1', '萬聖節狂嘩套餐分類', '/product-category/halloween-set/'),
+ N('C1', '萬聖節狂嘩套餐分類（保留・不 301・每年沿用）', '/product-category/halloween-set/'),
  N('PR1', '5–6 人', '/product/ao-5-6pax-halloween萬聖節狂嘩套餐/'), N('PR2', '8–10 人', '/product/ao-8-10pax-halloween萬聖節狂嘩套餐/'),
  N('PR3', '12–16 人', '/product/ao-12-16pax-halloween萬聖節狂嘩套餐/'), N('PR4', '18–22 人', '/product/ao-18-22pax-halloween萬聖節狂嘩套餐/'),
  N('PR5', '26–30 人', '/product/ao-26-30pax-halloween萬聖節狂嘩套餐/'), N('PR6', '35–40 人', '/product/ao-35-40pax-halloween萬聖節狂嘩套餐/'),
- N('B1', '萬聖節到會 blog', '/blog/halloween-catering-hong-kong/'),
-], edges=['H --> L', 'H --> C1', 'L --> C1', 'C1 --> PR1 & PR2 & PR3 & PR4 & PR5 & PR6', 'L <--> B1', 'B1 --> C1'])
+ N('B1', '萬聖節到會 blog（不轉址，每年更新）', '/blog/halloween-catering-hong-kong/'),
+ N('X', '6 個套餐：節後設為缺貨＋目錄隱藏<br/>不轉址，明年更新價錢及日期後重新上架', '', 'old'),
+], edges=['H --> L', 'H --> C1', 'L --> C1', 'C1 --> PR1 & PR2 & PR3 & PR4 & PR5 & PR6', 'L <--> B1', 'B1 --> C1', 'PR1 & PR2 & PR3 & PR4 & PR5 & PR6 -.- X'])
 
 # ---------- 聖誕節 ----------
 D['聖誕節'] = dict(dir='LR', nodes=[
@@ -425,6 +429,28 @@ def mm(d):
     L += CLS
     return '\n'.join(L)
 
+
+# ---------- Seasonal：節後設定 ----------
+def _ol(items): return '<ol>' + ''.join(f'<li>{x}</li>' for x in items) + '</ol>'
+_MA_PRODS = ['5-6', '8-10', '12-16', '18-22', '26-30', '35-40']
+SNOTE = {
+ '中秋節': '<div class="snote"><h3>🌕 節後設定（10 月 5 日起）</h3>' + _ol([
+   '<b>分類頁：保留，不 301。</b>現網址有年份，改 slug 為 <code class="cp">/product-category/mid-autumn-set/</code>（每年沿用）；舊網址 <code class="cp">/product-category/中秋佳節團圓套餐-2026/</code> <b>301</b> 到新網址。Rank Math 改 slug 時選「建立轉址」。',
+   '<b>節後內容：</b>頁頂改為「2026 中秋團圓套餐已完結，2027 年 9 月再推出」；連去現行活動（雙 11、聖誕）；加 WhatsApp 預先登記明年優惠；保留今年餐單作參考；保持收錄（index）。',
+   '<b>產品：</b>6 個「中秋佳節團圓套餐 2026」名稱有年份，明年不再沿用 → 逐個 <b>301 到新分類頁</b>（不要轉首頁，Google 會當作軟 404）：<br>' + '<br>'.join(f'<code class="cp">/product/ao-{p}pax-中秋佳節團圓套餐-2026/</code>' for p in _MA_PRODS),
+   '<b>不想保留過期頁：</b>只可用 <b>302</b>（暫時轉址）到現行活動頁，不要 301。',
+   '<b>內鏈：</b>頂部選單移除中秋項目；中秋到會 Blog 不轉址，文內 CTA 改為「2027 年 9 月推出，歡迎預先登記」；月餅預訂頁同樣保留。',
+   '<b>明年起：</b>新產品名稱不要加年份（例如「中秋團圓套餐 12–16 人」），節後只需設為缺貨＋隱藏，毋須轉址。']) + '</div>',
+ '萬聖節': '<div class="snote"><h3>🎃 節後設定（11 月 2 日起）</h3>' + _ol([
+   '<b>分類頁：保留，不 301。</b><code class="cp">/product-category/halloween-set/</code> 已無年份，每年 10 月沿用。',
+   '<b>節後內容：</b>頁頂改為「2026 萬聖節套餐已完結，2027 年 10 月再推出」；連去現行活動（雙 11、聖誕）；加 WhatsApp 預先登記；保留今年餐單作參考；保持收錄。',
+   '<b>產品：</b>6 個套餐名稱無年份，明年可沿用 → <b>不轉址</b>；設為「缺貨」或「預購已截止」，目錄可見度設為「隱藏」；明年更新價錢及日期後重新上架。',
+   '<b>不想保留過期頁：</b>只可用 <b>302</b> 到現行活動頁，不要 301，亦不要轉首頁。',
+   '<b>內鏈清理：</b>✅ 首頁 Hero 掣已移除（11/3）；✅ 首頁 pop up 已停用（Disable row，11/3）；⬜ 頂部選單「Halloween萬聖節狂嘩套餐」；⬜ 派對分類 quick pick 期間限定卡及 TOP 1；⬜ 萬聖節 Blog CTA 改為「2027 年 10 月推出」。',
+   '<b>Sitemap：</b>隱藏產品仍會出現在 sitemap，屬正常；若改為 301 的產品，Rank Math 會自動移除。']) + '</div>',
+}
+SNOTE_CSS = '.snote{background:#fff;border-left:5px solid #C8A24A;border-radius:14px;padding:14px 18px;margin:0 0 14px;box-shadow:0 2px 12px rgba(0,0,0,.05);font-size:14.5px;line-height:1.75}.snote h3{margin:0 0 6px;font-size:17px}.snote ol{margin:0;padding-left:22px}.snote li{margin:4px 0}.snote code{background:#f4efe4;padding:1px 6px;border-radius:5px;font-size:12.5px;cursor:pointer;word-break:break-all}'
+
 V = {k: mm(v) for k, v in D.items()}
 html = '''<!DOCTYPE html>
 <html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -450,6 +476,7 @@ __PRICSS__
 <script>
 const V = __V__;
 const PRI = __PRI__;
+const SNOTE = __SNOTE__;
 mermaid.initialize({startOnLoad:false,securityLevel:'loose',themeVariables:{fontSize:'17px'},flowchart:{htmlLabels:true,curve:'basis',wrappingWidth:460,nodeSpacing:40,rankSpacing:55}});
 const nav=document.getElementById('nav'),views=document.getElementById('views');
 const GROUPS={'Seasonal':['中秋節','萬聖節','聖誕節']};const KWPAGE={'素食':'vegetarian-kw.html','聖誕節':'xmas-kw.html'};const LINKS={};const SLINKS={};const LABEL={'素食':'🥦 素食','聖誕節':'🎄 聖誕節'};const inGrp={};for(const [g,ks] of Object.entries(GROUPS))ks.forEach(k=>inGrp[k]=g);
@@ -459,6 +486,7 @@ for(const [k,code] of Object.entries(V)){
   const s=document.createElement('section');
   s.innerHTML='<p class="legend"><span class="new">綠＝新建／建議新增</span><span class="old">黃＝要整理</span><span class="ok">藍＝已有</span><span class="bad">紅＝緊急</span></p><div class="card"><pre class="mermaid"></pre></div>';
   s.querySelector('pre').textContent=code;views.appendChild(s);
+  if(SNOTE[k]){const d=document.createElement('div');d.innerHTML=SNOTE[k];s.insertBefore(d,s.querySelector('.card'));}
   if(k==='全站總覽'){const d=document.createElement('div');d.innerHTML=PRI;s.insertBefore(d,s.firstChild);}
   (SLINKS[k]||[]).forEach(([t,u])=>{const a=document.createElement('a');a.href=u;a.textContent=t;a.className='kwlink';s.insertBefore(a,s.firstChild);});
   const b=document.createElement('button');b.textContent=LABEL[k]||k;let top=null;
@@ -476,6 +504,6 @@ document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d
 document.addEventListener('click',e=>{const c=e.target.closest('code.cp');if(!c)return;navigator.clipboard&&navigator.clipboard.writeText(c.textContent);c.classList.add('ok');setTimeout(()=>c.classList.remove('ok'),1200);});
 window.addEventListener('hashchange',()=>{const h=decodeURIComponent(location.hash.slice(1));if(KWPAGE[h])location.href=KWPAGE[h];else if(BTN[h])BTN[h].click();});
 </script></body></html>'''
-(HERE / 'index.html').write_text(html.replace('__V__', json.dumps(V, ensure_ascii=False)).replace('__PRI__', json.dumps(PRI_HTML, ensure_ascii=False)).replace('__PRICSS__', PRI_CSS), encoding='utf-8')
+(HERE / 'index.html').write_text(html.replace('__V__', json.dumps(V, ensure_ascii=False)).replace('__PRI__', json.dumps(PRI_HTML, ensure_ascii=False)).replace('__PRICSS__', PRI_CSS + SNOTE_CSS).replace('__SNOTE__', json.dumps(SNOTE, ensure_ascii=False)), encoding='utf-8')
 (HERE / 'diagrams.json').write_text(json.dumps(V, ensure_ascii=False), encoding='utf-8')
 print('ok', {k: len(v['nodes']) for k, v in D.items()})

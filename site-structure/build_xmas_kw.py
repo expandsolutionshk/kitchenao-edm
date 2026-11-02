@@ -234,6 +234,16 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="rule"><b>分工（10-31 更新）：</b>只有兩頁。<b>聖誕到會 Landing page</b>負責所有訂購及揀套餐字（聖誕到會、聖誕大餐、聖誕節到會、聖誕到會推介、聖誕外賣、聖誕套餐、聖誕大餐到會），11 月 10 日前上線；<b>Blog 2（新文章＋搵食工具）</b>負責資訊字（聖誕小食、聖誕餐、聖誕派對食物、火雞、聖誕甜品），11 月中前上線，再連去 Landing page。舊 Blog「聖誕到會」在 Landing page 上線當日 301 轉到 Landing page。英文聖誕字全部交給英文 Landing page。對手品牌字不做。<br><b>連結：</b>每張卡右上角 🔗 可複製該頁的獨立網址（例如 <code>xmas-kw.html#B2</code>），打開後會自動跳到該頁及篩選關鍵字。</div>
 <h2>頁面分配</h2><div class="grid1">{LP}{B2}{LPEN}</div>
 <div class="grid">{OLDC}{XC}</div>
+<h2 id="after">🎄 節後設定（12 月 27 日起）</h2><div class="card snote"><ol>
+<li><b>Landing page（聖誕套餐分類）：保留，不 301。</b>網址用 <code>/product-category/christmas-set/</code>，不要加年份，每年 11 月沿用；H1、Title 內的年份每年更新即可。</li>
+<li><b>節後內容：</b>頁頂改為「2026 聖誕到會套餐已完結，2027 年 11 月再推出」；連去現行活動（年尾飯局、新年及團年飯）；加 WhatsApp 預先登記；保留今年餐單作參考；保持收錄。</li>
+<li><b>產品：</b>名稱不要加年份（例如「聖誕派對套餐 12–16 人」），節後設為「缺貨」或「預購已截止」，目錄可見度設為「隱藏」，不轉址；明年更新價錢及日期後重新上架。若產品名稱或網址有年份、明年不再沿用，才逐個 <b>301 到聖誕分類頁</b>（不要轉首頁）。</li>
+<li><b>舊 Blog：聖誕到會</b> <code>/blog/christmas-catering-hong-kong/</code>：按計劃於 Landing page 上線當日 301 到分類頁（永久合併，之後不再分開）。</li>
+<li><b>新 Blog：香港人聖誕餐吃甚麼？</b>不轉址，每年更新年份及推介。</li>
+<li><b>不想保留過期頁：</b>只可用 <b>302</b> 到現行活動頁，不要 301。</li>
+<li><b>內鏈清理：</b>首頁 Hero 及 pop up、頂部選單、派對分類 quick pick、EDM 連結，節後全部移除或改為下一個活動。</li>
+</ol></div>
+<style>.snote{{border-left:5px solid #C8A24A;font-size:14.5px;line-height:1.75}}.snote ol{{margin:0;padding-left:22px}}.snote li{{margin:4px 0}}.snote code{{background:#f4efe4;padding:1px 6px;border-radius:5px;font-size:12.5px;word-break:break-all}}</style>
 <h2 id="all">全部關鍵字</h2><div class="card">
 <div class="tools"><select id="pg"><option value="">全部頁面</option></select><select id="typ"><option value="">全部角色</option></select><input id="q" placeholder="搜尋關鍵字"><span id="cnt"></span><button class="dl" id="dl">⬇ 下載 CSV</button></div>
 <div class="tw"><table id="tb"></table></div>
