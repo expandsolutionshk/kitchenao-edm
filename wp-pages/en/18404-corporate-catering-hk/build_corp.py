@@ -90,6 +90,8 @@ def build(L):
     o.append(f'<div class="ao-kv"><img class="k1" decoding="async" src="{P}/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="{L["img_alt"]}" width="600" height="300" /><img class="k2" decoding="async" src="{P}/wp-content/uploads/2023/11/IMG_2358.jpg" alt="{L["img_alt2"]}" width="600" height="300" /></div>')
     tabs = [p for p in L['panes'] if p[0] != 'faq']
     faqp = [p for p in L['panes'] if p[0] == 'faq']
+    c = (len(tabs) + 1) // 2  # 桌面兩行
+    o.append(f'<style>@media(min-width:769px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a:nth-child(-n+5){{border-bottom:0;}}.ao-corp .ao-tabs a:nth-child(-n+{c}){{border-bottom:1px solid #33302b;}}}}</style>')
     o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:{len(tabs)}" aria-label="{L["nav_label"]}">')
     for i, (pid, label, _) in enumerate(tabs):
         on = ' class="on"' if i == 0 else ''
@@ -97,6 +99,9 @@ def build(L):
     o.append('</nav></div>')
     for pid, label, html in tabs:
         o.append(f'<section class="ao-pane" id="{pid}">\n{html.strip()}\n</section>')
+    # 人數及預算一覽、四個原因：不放 tab，固定顯示在分頁內容之後
+    if L.get('summary'):
+        o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
     # 常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
     for pid, label, html in faqp:
         o.append(f'<section class="ao-faqsec" id="{pid}">\n{html.strip()}\n</section>')
@@ -179,36 +184,21 @@ ZH_SCENES = [
 ]
 REFRESH = '/product-category/party/refreshment-set/'
 ZH = dict(
-    intro='<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>',
+    intro=f'''<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>
+<h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
+<p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會），涵蓋七類活動：日常員工午餐、會議餐飲（早餐、午餐、下午茶及茶點）、全日培訓及研討會、年會、春茗及團年飯、公司聚會及員工活動、Event 及 PR 活動，以及學校、醫院及社福機構活動。</p>
+<p>一張訂單可按活動需要，配搭以下餐飲形式及服務：</p>
+<ul>
+<li><strong>每人一盒的餐盒：</strong>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}、{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}及{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}，方便派發，適合午餐、會議及培訓。</li>
+<li><strong>自助餐及到會套餐：</strong>熱盤主菜、小食、沙律及甜品，適合年會、公司聚會及員工活動。</li>
+<li><strong>Canapés 及 Finger Food：</strong>一口一件，適合 Event、PR 活動及酒會等站立形式的場合。</li>
+<li><strong>附加服務：</strong>可加配{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}、{a("/product-category/party-supplies/thin-crust-pizza/", "餐具及暖貼")}，大型活動亦可安排侍應服務。</li>
+</ul>
+<p>按下面的分頁，即可查看各類公司到會服務的菜式、人數及參考價。</p>''',
     img_alt='Kitchen AO 團隊在公司活動現場準備到會食物',
     img_alt2='Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點',
     nav_label='公司到會目錄',
     panes=[
-        ('overview', '公司到會速覽', f'''
-<h2>Kitchen AO 公司到會服務：七類企業及機構活動到會方案</h2>
-<p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會）。由員工午餐、會議餐飲、全日培訓、年會及團年飯，到公司聚會、Event 及 PR 活動，以至學校、醫院及社福機構活動，我們都有對應的餐盒、套餐及小食方案，並按人數及預算度身配搭，全港送貨。按下卡片即可查看各項服務詳情：</p>
-{scene(ZH_SCENES)}
-<h3>人數及預算一覽</h3>
-<div class="ao-tblwrap"><table>
-<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>參考價</th></tr></thead>
-<tbody>
-<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}</td><td>每位 HK$108 起</td></tr>
-<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td><td>每位 HK$248 起</td></tr>
-<tr><td>會議茶點及下午茶 Tea Break</td><td>12 人起</td><td>{a(REFRESH, "輕食宴會套餐")}、小食盒</td><td>12 至 16 人 HK$2,688 起</td></tr>
-<tr><td>培訓及研討會（全日）</td><td>按活動而定</td><td>早上茶點、午餐、下午茶</td><td>按日程報價</td></tr>
-<tr><td>年會、春茗及團年飯</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>每位 HK$300 起</td></tr>
-<tr><td>公司聚會及員工活動</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>每位 HK$300 起</td></tr>
-<tr><td>Event 及 PR 活動</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
-<tr><td>機構活動 Schools &amp; NGOs</td><td>按活動而定</td><td>餐盒、自助餐或小食拼盤</td><td>按人數及形式報價</td></tr>
-</tbody></table></div>
-<p class="ao-note">以上為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
-<h3>企業及機構選擇 Kitchen AO 公司到會服務的四個原因</h3>
-<ul>
-<li><strong>菜單跟著活動走：</strong>中西菜式自由配搭，並設素食及無麩質選擇，照顧不同同事的飲食需要。</li>
-<li><strong>人數可多可少：</strong>由 10 人部門午餐到 300 人公司聚會，份量都可以按人數調整。</li>
-<li><strong>熱盤保持溫度：</strong>熱盤以保溫包裝送達，活動一開始即可上桌。</li>
-<li><strong>報價清楚直接：</strong>提供人數、日期及預算，客服便會提供餐單、價錢及送貨安排。</li>
-</ul>'''),
         ('office-lunch', '員工午餐', f'''
 <h2>員工午餐到會：Office Lunch 商務餐盒 HK$108 起</h2>
 <p>員工午餐到會以每人一盒的商務餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p>
@@ -303,6 +293,28 @@ ZH = dict(
 <p>船河及戶外活動另行報價。可以直接填寫{a("/catering-quote-enquiry/", "到會報價查詢")}，或參考我們的{a("/合作伙伴/", "合作夥伴與服務實績")}。</p>'''),
         ('faq', '常見問題', '<h2>公司到會常見問題</h2>\n' + faq_html(ZH_FAQ)),
     ],
+    summary=f'''
+<h3>人數及預算一覽</h3>
+<div class="ao-tblwrap"><table>
+<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>參考價</th></tr></thead>
+<tbody>
+<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}</td><td>每位 HK$108 起</td></tr>
+<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td><td>每位 HK$248 起</td></tr>
+<tr><td>會議茶點及下午茶 Tea Break</td><td>12 人起</td><td>{a(REFRESH, "輕食宴會套餐")}、小食盒</td><td>12 至 16 人 HK$2,688 起</td></tr>
+<tr><td>培訓及研討會（全日）</td><td>按活動而定</td><td>早上茶點、午餐、下午茶</td><td>按日程報價</td></tr>
+<tr><td>年會、春茗及團年飯</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>每位 HK$300 起</td></tr>
+<tr><td>公司聚會及員工活動</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>每位 HK$300 起</td></tr>
+<tr><td>Event 及 PR 活動</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
+<tr><td>機構活動 Schools &amp; NGOs</td><td>按活動而定</td><td>餐盒、自助餐或小食拼盤</td><td>按人數及形式報價</td></tr>
+</tbody></table></div>
+<p class="ao-note">以上為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
+<h3>企業及機構選擇 Kitchen AO 公司到會服務的四個原因</h3>
+<ul>
+<li><strong>菜單跟著活動走：</strong>中西菜式自由配搭，並設素食及無麩質選擇，照顧不同同事的飲食需要。</li>
+<li><strong>人數可多可少：</strong>由 10 人部門午餐到 300 人公司聚會，份量都可以按人數調整。</li>
+<li><strong>熱盤保持溫度：</strong>熱盤以保溫包裝送達，活動一開始即可上桌。</li>
+<li><strong>報價清楚直接：</strong>提供人數、日期及預算，客服便會提供餐單、價錢及送貨安排。</li>
+</ul>''',
     faq=ZH_FAQ,
     service={"@context": "https://schema.org", "@type": "Service", "serviceType": "公司到會", "name": "Kitchen AO 香港公司到會", "areaServed": {"@type": "Place", "name": "香港"}, "provider": {"@type": "Organization", "name": "Kitchen AO", "url": "https://aoaodelivery.com/"}, "url": "https://aoaodelivery.com/corporate-catering-hk/"},
     cta=f'<div class="ao-cta"><a class="alt" href="{P}/catering-quote-enquiry/">到會報價查詢</a><a href="{WA}?text=%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83%E6%9F%A5%E8%A9%A2" target="_blank" rel="noopener">WhatsApp 查詢公司到會</a></div>',
