@@ -44,6 +44,12 @@
 .ao-hero-feats i{flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:#efe4d1;color:#7d5b27;display:flex;align-items:center;justify-content:center;font-size:16px;}
 .ao-hero-feats b{display:block;color:#201814;font-size:14.5px;line-height:1.35;font-weight:800;white-space:nowrap;}
 .ao-hero-feats small{display:block;color:#7a6d63;font-size:12.5px;line-height:1.4;margin-top:2px;}
+/* 英文版：文字較長 → 卡片改為 icon 在上、文字置中；按鈕容許轉行 */
+html[lang^="en"] .ao-hero-feats li{flex-direction:column;align-items:center;text-align:center;gap:6px;padding:12px 8px;}
+html[lang^="en"] .ao-hero-feats b{white-space:normal;font-size:14px;line-height:1.3;}
+html[lang^="en"] .ao-hero-feats small{font-size:12px;}
+html[lang^="en"] .ao-hero-ctas .ao-hero-btn{white-space:normal !important;font-size:14px !important;line-height:1.25 !important;padding:10px 12px !important;}
+.ao-hero-feats li > span{min-width:0;}
 .ao-hero .ao-nw{white-space:nowrap;}
 .ao-hero-ctas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:620px;margin:0 0 18px;}
 .ao-hero-ctas .ao-hero-btn{display:flex !important;align-items:center;justify-content:center;min-height:50px;box-sizing:border-box;text-align:center;white-space:nowrap;}
