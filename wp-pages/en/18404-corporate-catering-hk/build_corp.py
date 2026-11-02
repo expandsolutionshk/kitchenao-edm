@@ -143,22 +143,25 @@ def menu_dinner(lang):
 
 # ---------------- 中文 ----------------
 ZH_FAQ = [
-    ('公司到會價錢是多少？', '按人數、菜式及送貨地區計算。參考價方面，員工午餐商務餐盒每位 HK$108 起，會議午餐高級餐盒每位 HK$248 起，年會、團年飯及公司聚會每位 HK$300 起。'),
-    ('公司到會要提前多少日預訂？', '建議盡早預訂，尤其是 12 月至農曆新年的公司活動旺季。所需日數視乎人數及菜式，可先透過 WhatsApp 向客服確認。'),
-    ('公司團年飯及開年飯可以到會嗎？', '可以。年會、公司團年飯、開年飯及春茗到會一般以迎賓小食、熱盤主菜及甜品組成，每位 HK$300 起；12 月至 2 月是旺季，建議盡早預訂。'),
+    ('公司到會價錢是多少？', '按人數、菜式及送貨地區計算。參考價方面，員工午餐商務餐盒每位 HK$108 起，會議午餐高級餐盒每位 HK$248 起，會議茶點可選輕食宴會套餐（12 至 16 人 HK$2,688 起），年會、團年飯及公司聚會每位 HK$300 起。'),
+    ('公司到會要提前多少日預訂？', '建議盡早預訂，尤其是 12 月至農曆新年的年會、春茗及團年飯旺季。所需日數視乎人數及菜式，可先透過 WhatsApp 向客服確認。'),
+    ('會議可以只訂下午茶或茶點到會嗎？', '可以。會議中段的 Tea Break、下午茶或早餐會議，可選輕食宴會套餐、皇家小食盒或九宮格 Canapés，按人數及會議時間安排送達。'),
+    ('公司春茗、團年飯及開年飯可以到會嗎？', '可以。年會、春茗、公司團年飯及開年飯到會一般以迎賓小食、熱盤主菜及甜品組成，每位 HK$300 起；2027 年農曆新年為 2 月 6 日，1 月至 2 月是旺季，建議盡早預訂。'),
+    ('全日培訓或研討會可以一次過安排餐飲嗎？', '可以。全日培訓、研討會及工作坊可一次過安排早上茶點、午餐餐盒及下午茶，提供日程及人數後，客服會按時段配搭餐單。'),
     ('學校、醫院等機構可以訂到會嗎？', '可以。學校、醫院及社福機構的活動可按人數、場地及預算配搭餐盒、自助餐或小食拼盤，歡迎提供活動資料索取報價。'),
     ('公司到會有沒有素食選擇？', '有。請在查詢時說明素食人數及要求，例如是否需要全素或走五辛，客服會按要求安排菜單。'),
-    ('Annual Dinner 到會大約需要多少預算？', '以每位 HK$300 起計算，100 人的 Annual Dinner 到會預算約 HK$30,000，包括迎賓小食、主菜及甜品。'),
     ('怎樣預訂公司到會？', '可透過 WhatsApp 852-6901-1987、電郵 info@aoaodelivery.com，或填寫網站的到會報價查詢表格。'),
 ]
 ZH_SCENES = [
-    ('office-lunch', '🍱', '員工午餐', 'Office Lunch', '商務餐盒每人一盒，日常午餐、培訓及加班膳食都適用', '10 至 100 人｜HK$108 起', ''),
-    ('office-lunch', '💼', '會議午餐', 'Meeting &amp; Company Lunch', '高級餐盒更講究，客戶會議、董事會及貴賓接待更體面', '10 至 100 人｜HK$248 起', ''),
-    ('annual-dinner', '🏆', '年會及團年飯', 'Annual Dinner &amp; Year-end Dinner', '年會、頒獎晚宴、公司團年飯、開年飯及春茗', '50 至 200 人以上｜HK$300 起', '12 月至 2 月旺季'),
-    ('festive', '🎉', '公司聚會', 'Company Party &amp; Team Building', '自助餐形式自由取用，Team Building 及公司聖誕派對首選', '30 至 300 人｜HK$300 起', ''),
-    ('business-event', '🥂', '酒會及開張', 'Reception &amp; Grand Opening', 'Canapés 及 Finger Food 一口一件，邊走邊交流', '20 至 200 人以上｜按餐單報價', ''),
-    ('institutions', '🏫', '機構活動', 'Schools, Hospitals &amp; NGOs', '學校家長日、醫院員工午餐、社福機構講座及工作坊', '按人數及形式報價', ''),
+    ('office-lunch', '🍱', '員工午餐', 'Office Lunch', '商務餐盒每人一盒，日常午餐及部門聚餐都適用', '10 至 100 人｜HK$108 起', ''),
+    ('meeting', '☕', '會議餐飲', 'Breakfast, Lunch &amp; Tea Break', '早餐會議、會議午餐、下午茶及茶點', '10 至 100 人｜HK$248 起', ''),
+    ('training', '📋', '培訓及研討會', 'Training, Seminar &amp; Workshop', '全日活動一次安排早上茶點、午餐及下午茶', '按日程報價', ''),
+    ('annual-dinner', '🏆', '年會、春茗及團年飯', 'Annual Dinner &amp; Spring Dinner', '年會、頒獎晚宴、春茗、公司團年飯及開年飯', '50 至 200 人以上｜HK$300 起', '1 月至 2 月旺季'),
+    ('festive', '🎉', '公司聚會及員工活動', 'Company Party &amp; Staff Events', 'Team Building、員工生日會、迎新歡送及家庭日', '30 至 300 人｜HK$300 起', ''),
+    ('business-event', '🎤', 'Event 及 PR 活動', 'Launch, Press &amp; Brand Events', '產品發佈會、記者會、品牌活動及酒會', '20 至 200 人以上｜按餐單報價', ''),
+    ('institutions', '🏫', '機構活動', 'Schools, Hospitals &amp; NGOs', '學校家長日、醫院員工午餐、社福機構講座', '按人數及形式報價', ''),
 ]
+REFRESH = '/product-category/party/refreshment-set/'
 ZH = dict(
     intro='<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>',
     img_alt='Kitchen AO 團隊在公司活動現場準備到會食物',
@@ -166,21 +169,23 @@ ZH = dict(
     nav_label='公司到會目錄',
     panes=[
         ('overview', '公司到會速覽', f'''
-<h2>Kitchen AO 公司到會服務：六類企業及機構活動到會方案</h2>
-<p>作為香港到會公司，Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會）。由日常員工午餐、客戶會議午餐、年會及團年飯，到公司聚會、酒會開張，以至學校、醫院及社福機構活動，我們都有對應的餐盒、套餐及小食方案，並按人數及預算度身配搭，全港送貨。按下卡片即可查看各項服務詳情：</p>
+<h2>Kitchen AO 公司到會服務：七類企業及機構活動到會方案</h2>
+<p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會）。由員工午餐、會議餐飲、全日培訓、年會及團年飯，到公司聚會、Event 及 PR 活動，以至學校、醫院及社福機構活動，我們都有對應的餐盒、套餐及小食方案，並按人數及預算度身配搭，全港送貨。按下卡片即可查看各項服務詳情：</p>
 {scene(ZH_SCENES)}
 <h3>人數及預算一覽</h3>
 <div class="ao-tblwrap"><table>
-<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>每位參考價</th></tr></thead>
+<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>參考價</th></tr></thead>
 <tbody>
-<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}</td><td>HK$108 起</td></tr>
-<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td><td>HK$248 起</td></tr>
-<tr><td>年會及團年飯 Annual Dinner</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>HK$300 起</td></tr>
-<tr><td>公司聚會 Team Building</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>HK$300 起</td></tr>
-<tr><td>酒會及開張 Reception</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
+<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}</td><td>每位 HK$108 起</td></tr>
+<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td>{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td><td>每位 HK$248 起</td></tr>
+<tr><td>會議茶點及下午茶 Tea Break</td><td>12 人起</td><td>{a(REFRESH, "輕食宴會套餐")}、小食盒</td><td>12 至 16 人 HK$2,688 起</td></tr>
+<tr><td>培訓及研討會（全日）</td><td>按活動而定</td><td>早上茶點、午餐、下午茶</td><td>按日程報價</td></tr>
+<tr><td>年會、春茗及團年飯</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>每位 HK$300 起</td></tr>
+<tr><td>公司聚會及員工活動</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>每位 HK$300 起</td></tr>
+<tr><td>Event 及 PR 活動</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
 <tr><td>機構活動 Schools &amp; NGOs</td><td>按活動而定</td><td>餐盒、自助餐或小食拼盤</td><td>按人數及形式報價</td></tr>
 </tbody></table></div>
-<p class="ao-note">以上公司到會推介配搭為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
+<p class="ao-note">以上為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
 <h3>企業及機構選擇 Kitchen AO 公司到會服務的四個原因</h3>
 <ul>
 <li><strong>菜單跟著活動走：</strong>中西菜式自由配搭，並設素食及無麩質選擇，照顧不同同事的飲食需要。</li>
@@ -188,40 +193,75 @@ ZH = dict(
 <li><strong>熱盤保持溫度：</strong>熱盤以保溫包裝送達，活動一開始即可上桌。</li>
 <li><strong>報價清楚直接：</strong>提供人數、日期及預算，客服便會提供餐單、價錢及送貨安排。</li>
 </ul>'''),
-        ('office-lunch', '午餐到會', f'''
-<h2>午餐到會：員工午餐與會議午餐（Office Lunch &amp; Meeting Lunch）</h2>
-<p>午餐到會看似簡單，其實最考細節。每日的員工午餐要準時送到、方便分派；與客戶開會時的一頓午餐，則代表公司的待客之道。公司午餐到會因此可分兩類：</p>
-<h3>員工午餐 Office Lunch：商務餐盒 HK$108 起</h3>
-<p>適合 10 至 100 人的日常午餐、內部培訓及加班膳食。每人一盒，派發快捷，亦方便按人數增減。詳情見{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}，另有{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}可供選擇。</p>
-<h3>會議午餐 Meeting &amp; Company Lunch：高級餐盒 HK$248 起</h3>
-<p>適合 10 至 100 人的客戶會議、董事會議及貴賓接待。菜式及包裝更講究，即使是一頓會議午餐，也能為公司形象加分。詳情見{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}。</p>
+        ('office-lunch', '員工午餐', f'''
+<h2>員工午餐到會：Office Lunch 商務餐盒 HK$108 起</h2>
+<p>員工午餐到會以每人一盒的商務餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p>
+<h3>商務餐盒及員工膳食餐盒</h3>
+<p>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}提供多款主菜選擇；另有{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}，適合需要大量訂購的公司午餐。</p>
 <h3>想更豐富？加配熱盤及小食</h3>
 {menu_lunch('zh')}
-<p>想按人數一次過訂購，可參考{a("/product-category/party-set-by-people/", "人數選餐")}。</p>'''),
+<p>想按人數一次過訂購，可參考{a("/product-category/party-set-by-people/", "人數選餐")}。客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>'''),
+        ('meeting', '會議餐飲', f'''
+<h2>會議餐飲：早餐會議、會議午餐、下午茶及茶點到會</h2>
+<p>會議餐飲按時段可分為早餐、午餐及會議中段的茶點。Kitchen AO 可按會議時間安排送達：會議午餐可選高級餐盒，每位 HK$248 起；下午茶及茶點到會可選輕食宴會套餐，12 至 16 人 HK$2,688 起。</p>
+<h3>早餐會議 Breakfast Meeting</h3>
+<p>早上會議或培訓開始前，可安排輕食拼盤、小食盒及飲品，於會議開始前送達，方便與會者一邊交流一邊享用。人數及菜式請向客服查詢。</p>
+<h3>會議午餐 Meeting Lunch：高級餐盒 HK$248 起</h3>
+<p>適合 10 至 100 人的客戶會議、董事會及貴賓接待。菜式及包裝更講究，即使是一頓會議午餐，也能為公司形象加分。詳情見{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}。</p>
+<h3>會議茶點及下午茶 Tea Break</h3>
+<p>會議中段的 Tea Break 以一口大小的小食為主，取用方便，不會打斷會議節奏。可選：</p>
+<ul>
+<li>{a(REFRESH, "輕食宴會套餐 Refreshment")}：12 至 40 人，適合會議茶點及下午茶到會</li>
+<li>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}：每人一盒，方便派發</li>
+<li>{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：適合貴賓及客戶會議</li>
+</ul>'''),
+        ('training', '培訓及研討會', f'''
+<h2>培訓、研討會及工作坊到會：全日活動餐飲一次安排</h2>
+<p>全日培訓、研討會、講座及工作坊，可一次過安排早上茶點、午餐及下午茶，由同一張訂單分時段送達，毋須分開訂購。提供日程及人數後，客服會按時段配搭餐單。</p>
+<div class="ao-tblwrap"><table>
+<thead><tr><th>時段</th><th>建議安排</th><th>選擇</th></tr></thead>
+<tbody>
+<tr><td>早上（開始前）</td><td>茶點及飲品</td><td>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}</td></tr>
+<tr><td>午餐</td><td>每人一盒，方便即場派發</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}或{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td></tr>
+<tr><td>下午茶</td><td>一口小食，配合小休時間</td><td>{a(REFRESH, "輕食宴會套餐")}</td></tr>
+</tbody></table></div>
+<p class="ao-note">建議提前確認場地擺放食物的位置及各時段的開始時間，以便安排送達。</p>'''),
         ('annual-dinner', '年會及團年飯', f'''
-<h2>年會及團年飯到會：Annual Dinner、公司團年飯及開年飯一次安排</h2>
-<p>每年 12 月至農曆新年，是公司年會最密集的時段。無論是年尾的 Annual Dinner 及頒獎晚宴，還是公司團年飯、新年後的公司開年飯及春茗，到會餐飲一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會，每位 HK$300 起。菜式參考：</p>
+<h2>年會、春茗及團年飯到會：Annual Dinner、公司開年飯一次安排</h2>
+<p>每年 12 月至農曆新年，是公司年會、春茗及團年飯最密集的時段。到會餐飲一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會，每位 HK$300 起。菜式參考：</p>
 {menu_dinner('zh')}
-<h3>團年飯到會及公司開年飯：旺季宜早預訂</h3>
-<p>12 月至 2 月是年會旺季，團年飯到會、公司開年飯及春茗到會的查詢明顯增加，熱門日子的名額有限，建議盡早預訂。如想加入中式菜式，可在查詢時一併提出。</p>
+<h3>公司春茗、團年飯及開年飯：旺季宜早預訂</h3>
+<p>2027 年農曆新年為 2 月 6 日，1 月至 2 月是公司團年飯、開年飯及春茗到會的高峰，熱門日子名額有限，建議盡早預訂。如想加入中式菜式，可在查詢時一併提出。</p>
 <p><strong>籌備貼士：</strong>人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再安排送達時間。如需要侍應服務，可在查詢時一併提出。</p>'''),
         ('festive', '公司聚會', f'''
-<h2>公司聚會到會：Company Party、Team Building 及公司聖誕派對</h2>
-<p>公司聚會到會多採用自助餐形式，賓客可隨意取用，最適合 30 至 300 人的 Team Building、產品發佈、員工生日會及公司聖誕派對，每位 HK$300 起。</p>
+<h2>公司聚會及員工活動到會：Company Party、Team Building 及員工慶祝</h2>
+<p>公司聚會及員工活動到會多採用自助餐形式，賓客可隨意取用，適合 30 至 300 人，每位 HK$300 起。</p>
 <ul>
 <li><strong>自助餐菜式參考：</strong>{a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "日式雞皮餃子配洋蔥圈")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}、{a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "香烤沙嗲串燒")}</li>
-<li><strong>套餐：</strong>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}，按人數由 5 人至 85 人選擇</li>
-<li><strong>公司聖誕派對：</strong>可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}</li>
-</ul>'''),
-        ('business-event', '酒會及開張', f'''
-<h2>酒會及開張到會：Reception、Grand Opening 及發佈會</h2>
-<p>酒會及開張活動多以站立形式進行，賓客邊走邊交流，一口一件的 Canapés 及 Finger Food 最合適，既方便取用，又不會打斷談話。這類活動適合 20 至 200 人以上，價錢按餐單報價。詳情可參考{a("/business-event/", "商務活動到會")}，或選擇{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}及{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}。</p>'''),
+<li><strong>套餐：</strong>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}，按人數由 8 人至 85 人選擇</li>
+</ul>
+<h3>員工活動：生日會、迎新、歡送及慶功</h3>
+<p>每月員工生日會、新同事迎新、同事歡送會及項目慶功，人數較少，可選{a("/product-category/party-set-by-people/", "人數選餐")}的小型套餐，或加配{a("/product-category/a-la-carte/dessert/", "甜品")}作慶祝。</p>
+<h3>公司家庭日及開放日</h3>
+<p>家庭日及開放日有不少小朋友參與，可配搭{a("/product-category/party/children/", "兒童套餐")}及容易取用的小食，照顧大人及小朋友的口味。</p>
+<h3>公司聖誕派對</h3>
+<p>12 月的公司聖誕派對，可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}。</p>'''),
+        ('business-event', 'Event 及 PR 活動', f'''
+<h2>Event 及 PR 活動到會：產品發佈會、記者會及品牌活動</h2>
+<p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕，多以站立形式進行，賓客邊走邊交流。一口一件的 Canapés 及 Finger Food 既方便取用，擺盤亦配合品牌形象。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p>
+<ul>
+<li>{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：每人一盒，適合傳媒及嘉賓</li>
+<li>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}：方便即場派發</li>
+</ul>
+<p>酒會、開張及其他商務活動，詳情可參考{a("/business-event/", "商務活動")}。</p>'''),
         ('institutions', '機構活動', f'''
 <h2>機構活動到會：學校、醫院及社福機構（Schools, Hospitals &amp; NGOs）</h2>
 <p>除了企業，學校、醫院、診所、社福機構及政府部門亦經常需要到會。這類活動的人數、時間及場地各有不同，Kitchen AO 可按需要配搭餐盒、自助餐或小食拼盤：</p>
+<h3>學校到會：家長日、開放日、畢業禮及教職員聚餐</h3>
+<p>學校活動可選自助餐或小食拼盤；12 月是學校活動及教職員聚餐的高峰，建議提早查詢。</p>
+<h3>醫院、社福機構及政府部門</h3>
 <ul>
-<li><strong>學校活動：</strong>家長日、開放日、畢業禮及教職員聚餐，可選自助餐或小食拼盤。</li>
-<li><strong>醫院及診所：</strong>員工午餐、輪班膳食及答謝活動，可選{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}或{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}，每人一盒方便分派。</li>
+<li><strong>醫院及診所：</strong>員工午餐及答謝活動，可選{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}或{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}，每人一盒方便分派。</li>
 <li><strong>社福機構及政府部門：</strong>講座、工作坊及義工活動，可選小食拼盤或{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}。</li>
 </ul>
 <p>機構訂購如有採購或單據要求，請在查詢時一併說明。歡迎填寫{a("/catering-quote-enquiry/", "到會報價查詢")}，提供活動日期、人數及預算。</p>'''),
@@ -233,8 +273,8 @@ ZH = dict(
 <tbody>
 <tr><td>員工午餐（商務餐盒）</td><td>20 人</td><td>HK$108</td><td>HK$2,160</td><td>每人一盒，方便分派</td></tr>
 <tr><td>會議午餐（高級餐盒）</td><td>20 人</td><td>HK$248</td><td>HK$4,960</td><td>適合會議及貴賓接待</td></tr>
-<tr><td>年會及團年飯</td><td>80 人</td><td>HK$300</td><td>HK$24,000</td><td>熱盤主菜</td></tr>
-<tr><td>公司聚會</td><td>50 人</td><td>HK$300</td><td>HK$15,000</td><td>自助餐及小食</td></tr>
+<tr><td>年會、春茗及團年飯</td><td>80 人</td><td>HK$300</td><td>HK$24,000</td><td>熱盤主菜</td></tr>
+<tr><td>公司聚會及員工活動</td><td>50 人</td><td>HK$300</td><td>HK$15,000</td><td>自助餐及小食</td></tr>
 </tbody></table></div>
 <p class="ao-note">運費按送貨地區計算；單一訂單滿 HK$1,450 全港免運費，詳情見{a("/delivery/", "送貨需知")}。</p>
 <h2 id="process">公司到會預訂流程：四步完成</h2>
