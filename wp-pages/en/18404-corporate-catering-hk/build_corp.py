@@ -70,6 +70,22 @@ CSS = '''<style>
 
 .ao-corp .ao-custom{margin:18px 0 8px;padding:14px 18px;background:#FBF7EE;border:1px solid #E9D9AE;border-left:4px solid #C8A24A;border-radius:10px;font-size:15px;line-height:1.75;color:#4a4238;}
 .ao-corp .ao-custom b{display:block;color:#1A1A1A;margin-bottom:2px;}
+.ao-corp .ao-shelf{background:#1A1A1A;border-radius:18px;padding:18px 18px 14px;margin:20px 0 0;}
+.ao-corp .ao-shelf-t{color:#fff !important;font-size:19px;font-weight:800;margin:0 0 2px !important;}
+.ao-corp .ao-shelf-d{color:#C9BFA8 !important;font-size:14px;margin:0 0 12px !important;line-height:1.6;}
+.ao-corp .ao-slwrap{position:relative;}
+.ao-corp .ao-slider{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding:0 0 4px;}
+.ao-corp .ao-slider::-webkit-scrollbar{display:none;}
+.ao-corp .ao-scard{flex:0 0 200px;scroll-snap-align:start;text-decoration:none !important;display:flex;flex-direction:column;}
+.ao-corp .ao-scard img{width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:cover;border-radius:12px !important;display:block;margin:0 !important;}
+.ao-corp .ao-scard .nm{color:#EDE6D6;font-size:14px;font-weight:600;line-height:1.45;padding:8px 2px 0;}
+.ao-corp .ao-scard .pr{color:#C8A24A;font-size:13px;font-weight:700;padding:2px 2px 0;}
+.ao-corp .ao-sl-btn{position:absolute;top:84px;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid #C8A24A;background:rgba(26,26,26,.92);color:#F7CE46;font-size:24px;line-height:32px;text-align:center;padding:0;cursor:pointer;}
+.ao-corp .ao-sl-btn.prev{left:-8px;}.ao-corp .ao-sl-btn.next{right:-8px;}
+.ao-corp .ao-sl-btn[hidden]{display:none;}
+.ao-corp .ao-btn-gold{display:block;width:fit-content;margin:14px auto 10px;background:#C8A24A;color:#1A1A1A !important;border:2px solid #C8A24A;border-radius:40px;padding:10px 28px;font-size:15px;font-weight:800;text-decoration:none !important;}
+.ao-corp .ao-btn-gold:hover{background:#1A1A1A;color:#F7CE46 !important;}
+@media(max-width:600px){.ao-corp .ao-scard{flex-basis:62%;}.ao-corp .ao-sl-btn{top:30%;}}
 /* v9：深色目錄列｜桌面 2 行（5＋4）、字一行；手機 3 欄 × 3 行 */
 .ao-corp .ao-tabwrap{margin:22px 0 0;}
 .ao-corp .ao-tabs{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;height:auto !important;overflow:visible !important;background:#1A1A1A;border:0 !important;border-radius:6px;padding:6px 12px;}
@@ -84,6 +100,8 @@ CSS = '''<style>
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
 JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)return;var n=r.querySelector(".ao-tabs");if(!n)return;var T=[].slice.call(n.querySelectorAll("a")),P=T.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});if(P.some(function(p){return !p}))return;r.classList.add("js-tabs");n.setAttribute("role","tablist");function show(i,push){T.forEach(function(a,k){var on=k===i;a.classList.toggle("on",on);a.setAttribute("aria-selected",on?"true":"false");P[k].classList.toggle("on",on);});var a=T[i];if(n.scrollWidth>n.clientWidth)n.scrollTo({left:a.offsetLeft-(n.clientWidth-a.offsetWidth)/2,behavior:"smooth"});if(push&&history.replaceState)history.replaceState(null,"","#"+P[i].id);}T.forEach(function(a,i){a.setAttribute("role","tab");P[i].setAttribute("role","tabpanel");a.addEventListener("click",function(e){e.preventDefault();show(i,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;if(window.pageYOffset>top)window.scrollTo({top:top,behavior:"smooth"});});});function fromHash(){var h=location.hash.slice(1);if(!h)return 0;var el=document.getElementById(h);if(!el)return 0;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el))return k;}return 0;}var s=fromHash();show(s,false);if(location.hash&&s){setTimeout(function(){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});},150);}window.addEventListener("hashchange",function(){show(fromHash(),false);});[].slice.call(r.querySelectorAll('a[href^="#"]')).forEach(function(l){if(n.contains(l))return;l.addEventListener("click",function(e){var el=document.getElementById(l.getAttribute("href").slice(1));if(!el)return;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el)){e.preventDefault();show(k,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;window.scrollTo({top:top,behavior:"smooth"});return;}}});});})();</script>'''
+
+JS_SL = '''<script>(function(){document.querySelectorAll(".ao-corp .ao-slwrap").forEach(function(w){var s=w.querySelector(".ao-slider"),p=w.querySelector(".prev"),n=w.querySelector(".next");function u(){var m=s.scrollWidth-s.clientWidth;p.hidden=s.scrollLeft<4;n.hidden=s.scrollLeft>m-4;}p.addEventListener("click",function(){s.scrollBy({left:-s.clientWidth*.8,behavior:"smooth"})});n.addEventListener("click",function(){s.scrollBy({left:s.clientWidth*.8,behavior:"smooth"})});s.addEventListener("scroll",u,{passive:true});window.addEventListener("resize",u);u();document.querySelectorAll(".ao-corp .ao-tabs a").forEach(function(a){a.addEventListener("click",function(){setTimeout(u,50)})});});})();</script>'''
 
 
 def build(L):
@@ -113,6 +131,7 @@ def build(L):
     o.append(L['cta'])
     o.append(L['updated'])
     o.append(JS)
+    o.append(JS_SL)
     o.append('</div>')
     return '\n'.join(o) + '\n'
 
@@ -135,6 +154,70 @@ def scene(items):
     o.append('</div>')
     return '\n'.join(o)
 
+
+
+# ---------- Product card slider（參考船P blog）----------
+UP = P + '/wp-content/uploads/'
+def sl(title, desc, items, btn_url, btn_text, cls=''):
+    cards = ''.join(f'<a class="ao-scard" href="{P}{u}" target="_blank" rel="noopener"><img src="{UP}{img}" width="600" height="600" loading="lazy" alt="{n}｜Kitchen AO 公司到會"><span class="nm">{n}</span>' + (f'<span class="pr">{sub}</span>' if sub else '') + '</a>' for n, u, img, sub in items)
+    return (f'<div class="ao-shelf{cls}"><p class="ao-shelf-t">{title}</p><p class="ao-shelf-d">{desc}</p>'
+            f'<div class="ao-slwrap"><button type="button" class="ao-sl-btn prev" aria-label="上一個">‹</button><div class="ao-slider">{cards}</div>'
+            f'<button type="button" class="ao-sl-btn next" aria-label="下一個">›</button></div></div>'
+            f'<a class="ao-btn-gold" href="{P}{btn_url}" target="_blank" rel="noopener">{btn_text}</a>')
+CB = '/product-category/商務活動/'
+SETS = [
+ ('商務餐盒', CB+'commercial-lunch-box/', '2025/04/CAB-Commercial-Meal-Lv2_頁面_1-1-724x1024-1-600x600.jpg', '每人一盒｜HK$108 起'),
+ ('高級餐盒', CB+'executive-premium-meal-box/', '2025/04/螢幕截圖-2026-10-17-下午5.20.52-593x600.png', '會議及貴賓｜HK$248 起'),
+ ('員工膳食餐盒 Staff Meal', CB+'staff-meal/', '2024/07/SM-Staff-Meal-Lv1-600x600.jpg', '大量訂購'),
+ ('皇家小食盒', CB+'royal-snackers-box/', '2025/04/Royal-Snacks-Box-600x600.jpg', '茶點及小休'),
+ ('舌尖上的餐桌九宮格 Canapés', CB+'a-bit-of-cuisines-gourmet-in-a-box/', '2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-600x600.jpeg', 'Event 及迎賓'),
+ ('美食派對 Gourmet 套餐', '/product-category/party/foot-party/', '2026/03/8-10_101-X-KITCHENAO-03-03-03-600x600.jpg', '8 至 85 人｜HK$1,988 起'),
+ ('輕食宴會套餐 Refreshment', '/product-category/party/refreshment-set/', '2023/11/refreshmentparty-03-600x600.jpg', '12 至 40 人｜HK$2,688 起'),
+ ('百人慶典派對到會套餐', '/product/ao100set/', '2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM.jpeg', '100 人｜HK$13,800'),
+ ('「素」味人生素食套餐', '/product-category/party/vegetarians-set/', '2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg', '6 至 26 人｜HK$1,388 起'),
+ ('肉食獸上將海港之選', '/product-category/party/meat-monster/', '2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-600x600.jpeg', '7 至 11 人｜HK$1,888 起'),
+ ('5 人自選拼盤', '/product/5-people-self-selected-platter/', '2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png', '小型聚會｜HK$498'),
+]
+PASTA = [
+ ('「冩樂」清酒煮蟹皇灸燒左口魚醬油煲仔飯', '/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/', '2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-4-600x600.jpeg', '4 磅'),
+ ('黑松露野菌蘆筍忌廉意粉', '/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/', '2023/10/cafcfef6-09ff-4233-be66-84dd307ea036-600x600.jpg', '4 磅'),
+ ('黑椒牛柳絲韭菜花炒意粉', '/product/p22l-黑椒牛柳絲韭菜花炒意粉-4磅p22l-black-pepper-wagyu-strips-garlic-chive-blossom-spaghetti-4-pounds/', '2025/05/KitchenAO_DEC2023-ALA-CARTE-09-600x600.jpg', '4 磅'),
+ ('爆炒 XO 醬蜆肉香蒜意大利麵', '/product/p04l-pan-fried-xo-sauce-clam-and-garlic-pasta-4-pounds/', '2019/06/Posts-27-scaled-600x600.jpg', '4 磅'),
+ ('芝士腐乳卡邦尼長通粉', '/product/p07l-carbonara-penne-with-fermented-tofu-sauce-4-pounds/', '2019/06/Posts-03-scaled-600x600.jpg', '4 磅'),
+ ('芝士焗特調肉醬蝴蝶粉', '/product/baked-chessy-farfalle-bolognese-4-pounds/', '2019/06/KitchenAO_JUN2023-ALA-CARTE-02-600x600.png', '4 磅'),
+]
+FINGER = [
+ ('蠔油鮑汁野菌鮑魚酥', '/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/', '2023/12/KitchenAO_DEC2023-ALA-CARTE-06-600x600.jpg', ''),
+ ('照燒鰻魚日本蛋沙律牛油酥盒', '/product/a0400-japanese-eel-egg-salad-vol-au-vent/', '2019/06/Posts-15-1-scaled-600x600.jpg', ''),
+ ('焗雙色芝士吞拿魚脆法包', '/product/a0100-baked-double-cheese-tuna-crostini/', '2019/06/Posts-06-scaled-600x600.jpg', ''),
+ ('迷你芝士手打漢堡', '/product/a0700-handmade-mini-cheeseburger/', '2019/06/Posts-07-scaled-600x600.jpg', ''),
+ ('懷舊芝麻蝦滑多士配泰汁', '/product/a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/', '2019/06/蝦多-03-600x600.jpg', ''),
+ ('法式龍蝦汁燴蛋餃', '/product/a3300-french-egg-dumplings-in-lobster-sauce/', '2019/06/KitchenAO_DEC2023-ALA-CARTE_工作區域-1-2-600x600.jpg', ''),
+]
+SALAD = [
+ ('油香煙三文魚特調凱撒沙律', '/product/s0300-smoked-salmon-caesar-salad/', '2019/06/Posts-17-scaled-600x600.jpg', ''),
+ ('啖啖松葉蟹三文魚籽芒果沙律', '/product/s0200-snow-crabmeat-and-salmon-roe-mango-salad/', '2019/06/Posts-26-scaled-600x600.jpg', ''),
+ ('照燒魷魚香橙紅酒醋沙律', '/product/s0400-teriyaki-squid-and-orange-salad-with-red-wine-vinegar-dressing/', '2019/06/Posts-20-scaled-600x600.jpg', ''),
+ ('慢煮水嫩雞胸青蘋果西芹合桃沙律', '/product/s0500-slow-cooked-chicken-breast-apple-celery-and-walnut-salad/', '2019/06/Posts-08-scaled-600x600.jpg', ''),
+ ('千島汁大蝦蜜桃沙律', '/product/shrimp-and-peach-salad-in-thousand-island-dressing/', '2019/06/KitchenAO_MAY2023-ALA-CARTE-06-600x600.png', ''),
+]
+HOT = [
+ ('全隻西班牙脆嫩乳香乳豬', '/product/m0600-whole-spanish-style-crispy-suckling-pig-sliced-or-unsliced/', '2023/12/20221114_AOKitchen_-321-600x600.jpg', '可切或免切'),
+ ('自家製黑松露牛油慢焗法國黃油雞', '/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/', '2019/06/Posts-21-scaled-600x600.jpg', '1.5 隻'),
+ ('紅酒慢燴鮮蕃茄和牛牛肋條', '/product/m0240-red-wine-braised-fresh-tomato-and-wagyu-beef-short-ribs-4-pounds/', '2019/06/Posts-34-600x600-1.jpg', '4 磅'),
+ ('「香港燒」烤燶邊香草蜜糖鹿兒島叉燒扒', '/product/m0140-roasted-kagoshima-pork-char-siu-with-herb-and-honey-glaze-4-pounds/', '2019/06/Posts-04-scaled-600x600.jpg', '4 磅'),
+ ('蜜蜜糖德國鹹豬手', '/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/', '2019/06/Posts-25-scaled-600x600.jpg', '1 隻'),
+ ('椰香咖哩海鮮龍脷柳配蒜蓉包', '/product/m07l-coconut-curry-seafood-sole-fillet-with-garlic-breads-4-pounds/', '2024/09/咖喱石班-03-600x600.jpg', '4 磅'),
+]
+SNACK = [
+ ('蜜蜜燒雞翼配脆薯角', '/product/a0500-honey-glazed-chicken-wings-w-potato-wedges/', '2019/06/Posts-16-scaled-600x600.jpg', ''),
+ ('日式雞皮餃子配酥炸洋蔥圈', '/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/', '2023/10/KitchenAO_MAY2023-ALA-CARTE-03-600x600.png', ''),
+ ('香烤沙嗲串燒（豬雞）', '/product/a0200-grilled-satay-skewer-pork-and-chicken/', '2019/06/Posts-10-scaled-600x600.jpg', ''),
+ ('避風塘炸海鮮豆腐配海鮮甜醬', '/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/', '2019/06/KitchenAO_MAY2023-ALA-CARTE-04-600x600.png', ''),
+ ('黑松露墨魚滑炸雲吞', '/product/a0600-fried-black-truffle-mashed-cuttlefish-wonton/', '2019/06/Posts-19-scaled-600x600.jpg', ''),
+ ('上海古早炸饅頭配煉奶', '/product/a3800-shanghai-style-deep-fried-buns-with-condensed-milk/', '2019/06/KitchenAO_DEC2023-ALA-CARTE-06-2-600x600.jpg', ''),
+ ('惹味蒜香焗茄子', '/product/a3900-grilled-garlic-eggplant/', '2019/06/KitchenAO_DEC2023-ALA-CARTE-02-2-600x600.jpg', ''),
+]
 
 # 共用菜式連結
 def menu_lunch(lang):
@@ -190,13 +273,9 @@ ZH = dict(
     intro=f'''<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>
 <h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
 <p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會），涵蓋七類活動：日常員工午餐、會議餐飲（早餐、午餐、下午茶及茶點）、全日培訓及研討會、年會、春茗及團年飯、公司聚會及員工活動、Event 及 PR 活動，以及學校、醫院及社福機構活動。</p>
-<p>一張訂單可按活動需要，配搭以下餐飲形式及服務：</p>
-<ul>
-<li><strong>每人一盒的餐盒：</strong>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}、{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}及{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}，方便派發，適合午餐、會議及培訓。</li>
-<li><strong>自助餐及到會套餐：</strong>熱盤主菜、小食、沙律及甜品，適合年會、公司聚會及員工活動。</li>
-<li><strong>Canapés 及 Finger Food：</strong>一口一件，適合 Event、PR 活動及酒會等站立形式的場合。</li>
-<li><strong>附加服務：</strong>可加配{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}、{a("/product-category/party-supplies/thin-crust-pizza/", "餐具及暖貼")}，大型活動亦可安排侍應服務。</li>
-</ul>
+<p>一張訂單可按活動需要，配搭不同的套餐及餐盒：每人一盒的餐盒方便派發，適合午餐、會議及培訓；分享式到會套餐以熱盤主菜、小食、沙律及甜品組成，適合年會、公司聚會及員工活動；Canapés 及 Finger Food 則適合 Event 及酒會等站立形式的場合。另有素食套餐照顧不同飲食需要。</p>
+{sl("推薦套餐及餐盒", "由 1 人一盒到 100 人慶典，按人數及活動形式選擇。", SETS, "/product-category/party-set-by-people/", "按人數查看全部套餐")}
+<p>以上套餐可再加配單點菜式，以及{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}、{a("/product-category/party-supplies/thin-crust-pizza/", "餐具及暖貼")}；大型活動亦可安排侍應服務。如需度身訂製餐單，歡迎提出。</p>
 <p>按下面的分頁，即可查看各類公司到會服務的菜式、人數及參考價。</p>''',
     img_alt='Kitchen AO 團隊在公司活動現場準備到會食物',
     img_alt2='Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點',
@@ -212,8 +291,8 @@ ZH = dict(
 <li>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}：想以分享形式一齊食，8 至 10 人 HK$1,988 起</li>
 <li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：有同事吃素，可另加素食套餐，6 至 8 人 HK$1,388 起</li>
 </ul>
-<h3>加配單點熱盤及小食</h3>
-{menu_lunch('zh')}
+<h3>加配意粉及意大利飯</h3>
+{sl('意粉及意大利飯', '以 4 磅份量供應，飽肚又方便分享，可配合餐盒一併送達。', PASTA, '/product-category/a-la-carte/pasta/', '查看全部意粉及意大利飯')}
 <div class="ao-custom"><b>想度身訂製？</b>如需指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出，客服會按人數及預算配搭。</div>
 <p>客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>'''),
         ('meeting', '會議餐飲', f'''
@@ -231,8 +310,9 @@ ZH = dict(
 <li>{a(C+"a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：適合貴賓及客戶會議</li>
 <li>{a("/product/5-people-self-selected-platter/", "5 人自選拼盤")}：小型會議，HK$498</li>
 </ul>
-<h3>加配單點甜品及小食</h3>
-<p>可加配{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}、{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}或{a("/product/a0700-handmade-mini-cheeseburger/", "迷你芝士手打漢堡")}，更多選擇見{a("/product-category/a-la-carte/snacks/", "惹味小食")}。素食與會者可配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}。</p>
+<h3>加配精緻小食</h3>
+{sl('精緻小食及酥盒', '一口大小、取用方便，適合會議中段的 Tea Break。', FINGER, '/product-category/a-la-carte/cold-cuts/', '查看全部冷盤小食')}
+<p>甜品可加配{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}或{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}；素食與會者可配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}。</p>
 <div class="ao-custom"><b>想度身訂製？</b>早餐菜式、茶點款式及份量，均可按會議人數及時段調整；如有特別要求，歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出。</div>'''),
         ('training', '培訓及研討會', f'''
 <h2>培訓、研討會及工作坊到會：全日活動餐飲一次安排</h2>
@@ -245,7 +325,9 @@ ZH = dict(
 <tr><td>午餐</td><td>每人一盒，方便即場派發</td><td>{a(C+"commercial-lunch-box/", "商務餐盒")}或{a(C+"executive-premium-meal-box/", "高級餐盒")}</td></tr>
 <tr><td>下午茶</td><td>一口小食，配合小休時間</td><td>{a(REFRESH, "輕食宴會套餐")}</td></tr>
 </tbody></table></div>
-<p>有學員吃素，可另配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}；想加配甜品或小食，可選{a("/product-category/a-la-carte/dessert/", "甜品")}及{a("/product-category/a-la-carte/snacks/", "惹味小食")}單點。</p>
+<h3>加配新鮮沙律</h3>
+{sl('新鮮沙律', '清爽開胃，適合配搭午餐餐盒，平衡全日的熱食。', SALAD, '/product-category/a-la-carte/salad/', '查看全部新鮮沙律')}
+<p>有學員吃素，可另配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}；亦可加配{a("/product-category/a-la-carte/dessert/", "甜品")}及{a("/product-category/a-la-carte/snacks/", "惹味小食")}單點。</p>
 <div class="ao-custom"><b>想度身訂製？</b>連續多日的培訓，可按日更換菜式；如需配合場地限制或指定送達時間，歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出。</div>
 <p class="ao-note">建議提前確認場地擺放食物的位置及各時段的開始時間，以便安排送達。</p>'''),
         ('annual-dinner', '年會及團年飯', f'''
@@ -259,8 +341,9 @@ ZH = dict(
 <li>{a(C+"a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}及{a(C+"royal-snackers-box/", "皇家小食盒")}：入場迎賓小食</li>
 <li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：照顧吃素的同事及嘉賓</li>
 </ul>
-<h3>加配單點菜式</h3>
-{menu_dinner('zh')}
+<h3>加配熱盤主菜</h3>
+{sl('熱盤主菜', '年會及團年飯的主角，以保溫包裝送達，開席即可上桌。', HOT, '/product-category/a-la-carte/meat/', '查看全部肉類熱盤')}
+<p>甜品可加配{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}或{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}，為晚宴作結。</p>
 <h3>公司春茗、團年飯及開年飯：旺季宜早預訂</h3>
 <p>2027 年農曆新年為 2 月 6 日，1 月至 2 月是公司團年飯、開年飯及春茗到會的高峰，熱門日子名額有限，建議盡早預訂。</p>
 <div class="ao-custom"><b>想度身訂製？</b>可加入中式菜式、按主題配搭擺盤，或安排侍應服務及{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}。人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出要求。</div>'''),
@@ -278,8 +361,9 @@ ZH = dict(
 <p>每月員工生日會、新同事迎新、同事歡送會及項目慶功，人數較少，可選{a("/product-category/party-set-by-people/", "人數選餐")}的小型套餐或{a("/product/5-people-self-selected-platter/", "5 人自選拼盤")}，再加配{a("/product-category/a-la-carte/dessert/", "甜品")}作慶祝。</p>
 <h3>公司家庭日及開放日</h3>
 <p>家庭日及開放日有不少小朋友參與，可配搭{a("/product-category/party/children/", "兒童套餐")}及容易取用的小食，照顧大人及小朋友的口味。</p>
-<h3>加配單點小食</h3>
-<p>{a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "日式雞皮餃子配洋蔥圈")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}、{a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "香烤沙嗲串燒")}，更多見{a("/product-category/a-la-carte/snacks/", "惹味小食")}。12 月的公司聖誕派對，可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}。</p>
+<h3>加配惹味小食</h3>
+{sl('惹味小食', '熱食小食最受歡迎，適合邊玩邊食的 Team Building 及派對。', SNACK, '/product-category/a-la-carte/snacks/', '查看全部惹味小食')}
+<p>12 月的公司聖誕派對，可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}。</p>
 <div class="ao-custom"><b>想度身訂製？</b>生日會、迎新及慶功可加入{a("/blog/laser-printed-food-party/", "激光打印食物")}，把公司 Logo 或祝福字句印在食物上；亦可訂製{a("/客製化紀念品訂製服務/", "客製化紀念品")}。歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出。</div>'''),
         ('business-event', 'Event 及 PR 活動', f'''
 <h2>Event 及 PR 活動到會：產品發佈會、記者會及品牌活動</h2>
