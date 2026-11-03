@@ -383,6 +383,40 @@ body:has(.ao-corp.ao-n){overflow-x:hidden;}
 .ao-corp.ao-n .ao-feat .ic .sv{width:22px;height:22px;display:block;}
 .ao-corp.ao-n .ao-trust .sv{width:17px;height:17px;flex:0 0 17px;color:#B8963E;}
 .ao-corp.ao-n .ao-pane{scroll-margin-top:90px;}
+/* v33：活動現場服務改為左文右圖（大標題設計） */
+.ao-corp.ao-n .ao-onsite2{display:grid;grid-template-columns:1fr 1.05fr;align-items:stretch;background:#fff;border:1px solid var(--ln);border-radius:18px;overflow:hidden;margin:56px 0 10px;}
+.ao-corp.ao-n .ao-onsite2 .tx{padding:46px 40px;display:flex;flex-direction:column;justify-content:center;}
+.ao-corp.ao-n .ao-onsite2 h2.hl{font-size:36px !important;line-height:1.25 !important;font-weight:900 !important;color:#1A1A1A !important;margin:0 0 16px !important;padding:0 !important;letter-spacing:.01em;}
+.ao-corp.ao-n .ao-onsite2 h2.hl:before,.ao-corp.ao-n .ao-onsite2 h2.hl:after{display:none !important;}
+.ao-corp.ao-n .ao-onsite2 h2.hl span{color:#9A7B2E;}
+.ao-corp.ao-n .ao-onsite2 h2.hl br{display:inline !important;}
+.ao-corp.ao-n .ao-onsite2 .ds{margin:0 0 18px !important;font-size:15.5px;line-height:1.85;color:#4a4540;}
+.ao-corp.ao-n .ao-onsite2 ul.ck{list-style:none !important;margin:0 0 24px !important;padding:0 !important;border:0 !important;display:grid;gap:8px;}
+.ao-corp.ao-n .ao-onsite2 ul.ck li{position:relative;padding:0 0 0 24px !important;border:0 !important;margin:0 !important;font-size:15px;line-height:1.7;color:#4a4540;}
+.ao-corp.ao-n .ao-onsite2 ul.ck li:before{content:"✓" !important;position:absolute;left:0;top:0;width:auto;height:auto;border-radius:0;background:none !important;color:#B8963E;font-weight:900;}
+.ao-corp.ao-n .ao-onsite2 ul.ck li b{color:#1A1A1A;font-weight:800;}
+.ao-corp.ao-n .ao-onsite2 .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.ao-corp.ao-n .ao-onsite2 .btns a{display:inline-block;padding:12px 24px;border-radius:40px;font-size:14.5px;font-weight:800;text-decoration:none !important;}
+.ao-corp.ao-n .ao-onsite2 .b1{background:#1A1A1A;color:#fff !important;}
+.ao-corp.ao-n .ao-onsite2 .b1:hover{background:#C8A24A;color:#1A1A1A !important;}
+.ao-corp.ao-n .ao-onsite2 .b2{border:1.5px solid #1A1A1A;color:#1A1A1A !important;}
+.ao-corp.ao-n .ao-onsite2 .ph{position:relative;min-height:420px;}
+.ao-corp.ao-n .ao-onsite2 .ph img{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;object-position:50% 55%;border-radius:0 !important;margin:0 !important;}
+.ao-corp.ao-n .ao-onsite2 br{display:none;}
+@media(max-width:768px){.ao-corp.ao-n .ao-onsite2{grid-template-columns:1fr;border-radius:16px;margin:40px 0 8px;}.ao-corp.ao-n .ao-onsite2 .ph{order:-1;min-height:260px;}.ao-corp.ao-n .ao-onsite2 .tx{padding:26px 20px 28px;}.ao-corp.ao-n .ao-onsite2 h2.hl{font-size:27px !important;}.ao-corp.ao-n .ao-onsite2 .btns a{flex:1;text-align:center;padding:12px 10px;}}
+/* v34：相片宣言橫幅（全幅；標題跟「活動現場服務」大標題同一款字） */
+.ao-corp.ao-n .ao-mission{position:relative;width:100vw;margin:56px calc(50% - 50vw) 0;min-height:440px;display:flex;align-items:center;background:#1b1714 center/cover no-repeat;}
+.ao-corp.ao-n .ao-mission:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,10,8,.9) 0%,rgba(12,10,8,.66) 50%,rgba(12,10,8,.3) 100%);}
+.ao-corp.ao-n .ao-mission .in{position:relative;width:100%;max-width:860px;margin:0 auto;padding:70px 18px;box-sizing:border-box;}
+.ao-corp.ao-n .ao-mission .eb{font-size:11.5px;letter-spacing:.32em;color:#D9C48A;font-weight:700;margin:0 0 14px !important;}
+.ao-corp.ao-n .ao-mission .hl{max-width:660px;margin:0 0 18px !important;font-size:36px;line-height:1.3;font-weight:900;color:#fff !important;letter-spacing:.01em;}
+.ao-corp.ao-n .ao-mission .hl .big{display:block;color:#D9B868;font-size:1em;font-weight:900;letter-spacing:.01em;margin:0 0 6px;}
+.ao-corp.ao-n .ao-mission .hl span:not(.big){color:#E4C77E;}
+.ao-corp.ao-n .ao-mission .sub{max-width:600px;margin:0 !important;font-size:17px;line-height:1.85;color:#D8D1C4 !important;}
+.ao-corp.ao-n .ao-mission .go{display:inline-block;margin-top:24px;border:1px solid #C8A24A;color:#fff !important;font-size:13.5px;letter-spacing:.14em;font-weight:700;padding:12px 26px;text-decoration:none !important;}
+.ao-corp.ao-n .ao-mission br{display:none;}
+.ao-corp.ao-n .ao-mission + .ao-area{margin-top:0;}
+@media(max-width:768px){.ao-corp.ao-n .ao-mission{min-height:380px;align-items:flex-end;margin-top:40px;}.ao-corp.ao-n .ao-mission:before{background:linear-gradient(0deg,rgba(12,10,8,.93) 0%,rgba(12,10,8,.62) 65%,rgba(12,10,8,.3) 100%);}.ao-corp.ao-n .ao-mission .in{padding:40px 20px;}.ao-corp.ao-n .ao-mission .hl{font-size:26px;}.ao-corp.ao-n .ao-mission .sub{font-size:15px;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -399,13 +433,22 @@ TAB_IMG = {'overview': PXS(31970816), 'office-lunch': PXS(13065230), 'meeting': 
 BN_IMG = 'https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=1600'  # 原 UGG 相有其他品牌 logo，已換
 KV1 = P + '/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg'
 KV2 = P + '/wp-content/uploads/2023/11/IMG_2358.jpg'
+
+# ---------- v34：相片宣言橫幅（可重用元件，其他頁面可沿用，只換內容及相片）----------
+def mission(d):
+    big = f'<span class="big">{d["big"]}</span>' if d.get('big') else ''
+    eb = f'<p class="eb">{d["eb"]}</p>' if d.get('eb') else ''
+    go = f'<a class="go" href="{d["cta_url"]}">{d["cta"]}</a>' if d.get('cta') else ''
+    return (f'<section class="ao-mission" role="img" aria-label="{d.get("alt", "")}" style="background-image:url(\'{d["img"]}\')"><div class="in">'
+            f'{eb}<p class="hl">{big}{d["hl"]}</p><p class="sub">{d["sub"]}</p>{go}</div></section>')
+
 def onsite(L):
+    # v33：左文字（兩行大標題，第一行部分金色）＋右邊單張大相（貼邊）
     t = L['onsite']
-    pts = ''.join(f'<li><span class="n">{k+1:02d}</span><b>{h}</b><span class="d">{d}</span></li>' for k, (h, d) in enumerate(t['pts']))
-    return (f'<section class="ao-onsite" id="onsite"><div class="ph"><img class="k1" decoding="async" loading="lazy" src="{KV1}" alt="{L["img_alt"]}" width="600" height="800" />'
-            f'<img class="k2" decoding="async" loading="lazy" src="{KV2}" alt="{L["img_alt2"]}" width="600" height="800" /></div>'
-            f'<div class="tx"><p class="eb">ON-SITE SERVICE</p><h2>{t["h2"]}</h2><p>{t["p"]}</p><ul>{pts}</ul>'
-            f'<div class="btns"><a class="b1" href="{P}/catering-quote-enquiry/">{t["b1"]}</a><a class="b2" href="{t["b2url"]}">{t["b2"]}</a></div></div></section>')
+    pts = ''.join(f'<li><b>{h}</b>{t.get("sep", "：")}{d}</li>' for h, d in t['pts'])
+    return (f'<section class="ao-onsite2" id="onsite"><div class="tx"><h2 class="hl">{t.get("h2html", t["h2"])}</h2><p class="ds">{t["p"]}</p><ul class="ck">{pts}</ul>'
+            f'<div class="btns"><a class="b1" href="{P}/catering-quote-enquiry/">{t["b1"]}</a><a class="b2" href="{t["b2url"]}">{t["b2"]}</a></div></div>'
+            f'<div class="ph"><img decoding="async" loading="lazy" src="{KV2}" alt="{L["img_alt2"]}" width="900" height="900" /></div></section>')
 
 
 # ---------- v30：活動簡介、賣點卡、全港地區 ----------
@@ -601,8 +644,12 @@ def build(L):
         o.append(f'<section class="ao-pane" id="{pid}">\n{nhead(pid, cust(pid, html.strip()), L)}\n</section>')
     if L.get('summary') and not main:
         o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
+    if L.get('mission_a'):
+        o.append(mission(L['mission_a']))
     if L.get('area'):
         o.append(area_sec(L, tabs))
+    if L.get('mission_b'):
+        o.append(mission(L['mission_b']))
     if L.get('onsite'):
         o.append(onsite(L))
     # 價錢及流程、常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
@@ -762,7 +809,7 @@ ZH = dict(
 {sl("推薦套餐及餐盒", "由 1 人一盒到 100 人慶典，按人數及活動形式選擇。", SETS, "/product-category/party-set-by-people/", "按人數查看全部套餐")}
 <p>以上套餐可再加配單點菜式，以及{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}、{a("/product-category/party-supplies/thin-crust-pizza/", "餐具及暖貼")}；大型活動亦可安排侍應服務。如需度身訂製餐單，歡迎提出。</p>
 ''',
-    onsite=dict(h2='活動現場擺設及侍應服務',
+    onsite=dict(h2='活動現場擺設及侍應服務', h2html='<span>活動現場</span>擺設<br>及侍應服務',
         p='年會、春茗、產品發佈會等大型活動，除送遞到會食物外，亦可安排 Kitchen AO 團隊到場擺設自助餐枱及提供侍應服務，讓主辦單位專心招待來賓。',
         pts=[('自助餐枱擺設', '按活動主題佈置餐枱及擺盤，配合公司或品牌形象。'),
              ('現場侍應服務', '活動期間補充食物，保持餐枱整齊。'),
@@ -776,6 +823,10 @@ ZH = dict(
     banner_desc='七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。',
     banner_cta='到會報價查詢',
     lang='zh',
+    mission_a=dict(big='We Serve, We WOW.', hl='公司活動的餐飲，往往是同事<span>最記得的細節</span>。',
+        sub='由每日的一盒午餐，到年尾的週年晚宴，Kitchen AO 按人數及預算度身安排餐單，讓每一次公司活動都更值得記住。', img='https://images.pexels.com/photos/14636170/pexels-photo-14636170.jpeg?auto=compress&cs=tinysrgb&w=1600', alt='公司活動宴會場地'),
+    mission_b=dict(eb='OUR PROMISE', hl='餐飲交給我們，<span>你專心招待來賓</span>。',
+        sub='一張訂單配搭餐盒、套餐及 Canapés，大型活動更可安排團隊到場擺設及侍應服務，全港送貨。', img='https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=1600', alt='廚師為活動擺盤'),
     area=dict(h2='香港全區公司到會：港島、九龍及新界', p='Kitchen AO 公司到會送遞港島、九龍、新界及東涌／機場，運費按送貨地區計算，滿 HK$1,450 全港免運費。離島及邊境禁區不設派送，如不確定地址是否在派送範圍，歡迎查詢。',
               occ='BY OCCASION　按活動', dist='WHERE WE DELIVER　送貨地區', more='查看送貨需知及運費'),
     panes=[
@@ -957,7 +1008,7 @@ EN_SCENES = [
 ]
 EN = dict(
     intro='<p>From the daily lunch box to the year-end annual dinner, the food is often what colleagues remember most about a company event. Kitchen AO provides <strong>corporate catering in Hong Kong</strong> for companies and organisations, with menus tailored to your headcount and budget, from a 10-person department lunch to a company gathering of 300, with delivery across Hong Kong.</p>',
-    onsite=dict(h2='On-site Setup and Waiter Service',
+    onsite=dict(h2='On-site Setup and Waiter Service', h2html='<span>On-site</span> Setup<br>and Waiter Service', sep=': ',
         p='For annual dinners, spring dinners, product launches and other large events, the Kitchen AO team can set up the buffet on site and provide waiter service, so hosts can focus on their guests.',
         pts=[('Buffet setup', 'Tables and food styling arranged to match your event theme and brand.'),
              ('On-site waiters', 'Food is replenished and the buffet kept tidy throughout the event.'),
@@ -965,6 +1016,10 @@ EN = dict(
         b1='Get a Catering Quote', b2='Partners and Service Records', b2url=P + '/合作伙伴/'),
     head_cta='Get a Quote',
     lang='en',
+    mission_a=dict(big='We Serve, We WOW.', hl='Food is often what colleagues <span>remember most</span> about a company event.',
+        sub='From a daily lunch box to the year-end annual dinner, Kitchen AO plans menus around your headcount and budget, so every company event is worth remembering.', img='https://images.pexels.com/photos/14636170/pexels-photo-14636170.jpeg?auto=compress&cs=tinysrgb&w=1600', alt='Company event banquet venue'),
+    mission_b=dict(eb='OUR PROMISE', hl='Leave the food to us, <span>focus on your guests</span>.',
+        sub='Mix meal boxes, sets and canapés in one order. For larger events, our team can set up on site and provide waiter service. Delivery across Hong Kong.', img='https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=1600', alt='Chef plating food for an event'),
     area=dict(h2='Corporate Catering Across Hong Kong', p='We deliver to Hong Kong Island, Kowloon, the New Territories, Tung Chung and the Airport. Delivery fees depend on the area, and orders of HK$1,450 or more get free delivery. Outlying islands and the Frontier Closed Area are not covered.',
               occ='BY OCCASION', dist='WHERE WE DELIVER', more='Delivery info and fees'),
     img_alt='Kitchen AO team preparing corporate catering at a company event in Hong Kong',

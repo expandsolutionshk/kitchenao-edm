@@ -37,5 +37,10 @@ h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border
 | [Nourish by Eileen](https://nourishbyeileen.framer.website/)（[Services](https://nourishbyeileen.framer.website/services)） | 內容排版 | 左大圖右文字、Signature dishes 相片 slider、承諾清單、全幅相片 CTA 橫幅 |
 | [Chanterelle Catering](https://www.chanterellecateringcompany.com/)（[Corporate lunch](https://www.chanterellecateringcompany.com/corporate-lunch-catering)、[Team meeting](https://www.chanterellecateringcompany.com/team-meeting-catering)、[Office breakfast](https://www.chanterellecateringcompany.com/office-breakfast-catering)） | 文案筆法、選單 | 每個活動一句簡介、3 張賣點卡、重點列（送貨／人數／起價）、By occasion ＋ Where we deliver 兩欄 |
 | [Jai Ambey Caterers](https://jaiambaycaterers.com/) | Section 及 icon | 服務 icon 卡、活動相片分類 tab（不跟動畫） |
+| [Curfew Coffee](https://www.curfew.coffee/) | 宣言橫幅 | 深色相片底、左邊大字宣言、下面一句說明 |
 
 使用方法：建議新設計時，先說明參考哪個網站的哪個部分，再按本規範（黑金白、無左邊直線、書面語）調整。
+
+## 可重用元件
+- **相片宣言橫幅（ao-mission）**：全幅深色相片底，左邊大標題（網站原有字體、粗 900、部分金色），英文口號可做第一行大字（例如 We Serve, We WOW.），下面一句說明，可選按鈕。程式見 18404 `build_corp.py` 的 `mission()`，其他頁面沿用時只換文字及相片。
+- **左文右圖大標題段（ao-onsite2）**：兩行大標題（第一行部分金色）＋說明＋✓ 清單＋一黑一白框圓角掣，右邊單張相貼邊填滿。
