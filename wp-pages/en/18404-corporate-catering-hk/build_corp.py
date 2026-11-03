@@ -417,10 +417,130 @@ body:has(.ao-corp.ao-n){overflow-x:hidden;}
 .ao-corp.ao-n .ao-mission br{display:none;}
 .ao-corp.ao-n .ao-mission + .ao-area{margin-top:0;}
 @media(max-width:768px){.ao-corp.ao-n .ao-mission{min-height:380px;align-items:flex-end;margin-top:40px;}.ao-corp.ao-n .ao-mission:before{background:linear-gradient(0deg,rgba(12,10,8,.93) 0%,rgba(12,10,8,.62) 65%,rgba(12,10,8,.3) 100%);}.ao-corp.ao-n .ao-mission .in{padding:40px 20px;}.ao-corp.ao-n .ao-mission .hl{font-size:26px;}.ao-corp.ao-n .ao-mission .sub{font-size:15px;}}
+/* v35：全港地區段手機版修正（放最後，覆蓋 v31 桌面欄寬） */
+@media(max-width:768px){
+.ao-corp.ao-n .ao-area .cols{grid-template-columns:1fr !important;padding:22px 18px !important;}
+.ao-corp.ao-n .ao-area .hd{letter-spacing:.16em;line-height:1.6;}
+.ao-corp.ao-n .ao-area .occ{padding:0 0 16px !important;margin:0 0 16px !important;border-bottom:1px solid var(--ln);}
+.ao-corp.ao-n .ao-area .occ ul{display:grid !important;grid-template-columns:1fr 1fr !important;gap:4px 10px !important;}
+.ao-corp.ao-n .ao-area .occ a{padding:8px 6px !important;}
+.ao-corp.ao-n .ao-area .occ b{font-size:15px;}
+.ao-corp.ao-n .ao-area .occ span{font-size:12.5px;}
+.ao-corp.ao-n .ao-area .dist{padding:0 !important;border-left:0 !important;}
+.ao-corp.ao-n .ao-area .rg{grid-template-columns:1fr !important;gap:4px !important;padding:12px 0 !important;}
+.ao-corp.ao-n .ao-area .rg:first-child{padding-top:0 !important;}
+.ao-corp.ao-n .ao-area .nm span{margin-right:12px;}}
+@media(max-width:360px){.ao-corp.ao-n .ao-area .occ ul{grid-template-columns:1fr !important;}}
+/* v36：Hero 底部品牌口號 */
+.ao-corp.ao-n .ao-bn .sl{margin:40px auto 0;padding-top:26px;max-width:560px;position:relative;}
+.ao-corp.ao-n .ao-bn .sl:before{content:"";position:absolute;left:50%;top:0;width:120px;height:1px;margin-left:-60px;background:rgba(200,162,74,.55);}
+.ao-corp.ao-n .ao-bn .s1{margin:0 0 8px !important;font-size:22px;font-weight:800;letter-spacing:.04em;color:#D9B868 !important;}
+.ao-corp.ao-n .ao-bn .s2{margin:0 0 10px !important;font-size:15px;line-height:1.75;font-style:italic;color:#BFB8AC !important;}
+.ao-corp.ao-n .ao-bn .by{margin:0 !important;font-size:10.5px;letter-spacing:.32em;color:#8E8576 !important;}
+@media(max-width:768px){.ao-corp.ao-n .ao-bn .sl{margin-top:30px;padding-top:22px;}.ao-corp.ao-n .ao-bn .s1{font-size:19px;}.ao-corp.ao-n .ao-bn .s2{font-size:14px;}}
+/* v37：重點列 li 修正（覆蓋分頁清單樣式） */
+.ao-corp.ao-n .ao-pane ul.ao-trust{border-bottom:0 !important;margin:16px 0 8px !important;}
+.ao-corp.ao-n .ao-pane ul.ao-trust li{padding:0 !important;border:0 !important;margin:0 !important;line-height:1.6;}
+.ao-corp.ao-n .ao-pane ul.ao-trust li:before{display:none !important;content:none !important;}
+/* v38：分頁開頭相片改直角（參考 Chanterelle），金線下多一行空間 */
+.ao-corp.ao-n .ao-nhead .ph{border-radius:0 !important;box-shadow:0 18px 40px rgba(20,18,16,.14);}
+/* v39：暫用提示、相片牆、客戶評語、專人客服 */
+.ao-corp.ao-n .ao-tmp{display:inline-block;background:#141414;color:#fff !important;font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border-radius:4px;margin:0 0 18px !important;}
+.ao-corp.ao-n .ao-gal{margin:56px 0 10px;}
+.ao-corp.ao-n .ao-gal .eb,.ao-corp.ao-n .ao-rev .eb{font-size:11px;letter-spacing:.32em;color:var(--mu);margin:0 0 8px !important;}
+.ao-corp.ao-n .ao-gal .tt,.ao-corp.ao-n .ao-rev .tt{font-size:30px;font-weight:900;line-height:1.3;color:#1A1A1A;margin:0 0 14px !important;}
+.ao-corp.ao-n .ao-gal .tt u{text-decoration:none;border-bottom:2px solid #C8A24A;padding-bottom:2px;}
+.ao-corp.ao-n .ao-gal .ds{color:#5d574f;margin:0 0 26px !important;line-height:1.85;max-width:620px;}
+.ao-corp.ao-n .ao-gal .grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:190px;gap:14px;}
+.ao-corp.ao-n .ao-gal figure{position:relative;margin:0 !important;overflow:hidden;background:#eee;}
+.ao-corp.ao-n .ao-gal figure img{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;border-radius:0 !important;margin:0 !important;}
+.ao-corp.ao-n .ao-gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(0deg,rgba(15,13,11,.82),rgba(15,13,11,0));color:#fff;font-size:13.5px;font-weight:700;line-height:1.4;}
+.ao-corp.ao-n .ao-gal .g1{grid-column:1;grid-row:1 / span 2;}
+.ao-corp.ao-n .ao-gal .g2{grid-column:2;grid-row:1;}
+.ao-corp.ao-n .ao-gal .g3{grid-column:3;grid-row:1;}
+.ao-corp.ao-n .ao-gal .g4{grid-column:2;grid-row:2 / span 2;}
+.ao-corp.ao-n .ao-gal .g5{grid-column:3;grid-row:2;}
+.ao-corp.ao-n .ao-gal .g6{grid-column:1;grid-row:3;}
+.ao-corp.ao-n .ao-gal .go{display:inline-block;margin-top:24px;background:#1A1A1A;color:#fff !important;padding:12px 24px;border-radius:40px;font-size:14.5px;font-weight:800;text-decoration:none !important;}
+.ao-corp.ao-n .ao-rev{margin:56px 0 10px;}
+.ao-corp.ao-n .ao-rev .hd{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:0 0 24px;}
+.ao-corp.ao-n .ao-rev .sc{margin:0 !important;text-align:right;font-size:12px;letter-spacing:.12em;color:#8a7a5a;font-weight:700;}
+.ao-corp.ao-n .ao-rev .sc span{display:block;color:#B8963E;font-size:17px;letter-spacing:.1em;}
+.ao-corp.ao-n .ao-rev .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.ao-corp.ao-n .ao-rev .c{background:#F3EFE6;border:1px solid var(--ln);padding:24px 22px;display:flex;flex-direction:column;}
+.ao-corp.ao-n .ao-rev .st{color:#B8963E;letter-spacing:.12em;margin:0 0 12px !important;font-size:15px;}
+.ao-corp.ao-n .ao-rev .q{font-style:italic;font-size:16px;line-height:1.8;color:#2E2E2E;margin:0 0 18px !important;flex:1;}
+.ao-corp.ao-n .ao-rev .by{font-size:12.5px;color:#7a7268;margin:0 !important;}
+.ao-corp.ao-n .ao-rev .by b{letter-spacing:.12em;margin-right:6px;color:#5d574f;}
+.ao-corp.ao-n .ao-rev .more{display:table;margin:26px auto 0;background:#F3EFE6;border:1px solid var(--ln);color:#1A1A1A !important;padding:11px 24px;border-radius:40px;font-size:14px;font-weight:700;text-decoration:none !important;}
+.ao-corp.ao-n .ao-cs{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;background:#F7F5F0;border-radius:22px;padding:36px 36px 0 40px;margin:56px 0 10px;overflow:hidden;}
+.ao-corp.ao-n .ao-cs .lf{display:flex;flex-direction:column;}
+.ao-corp.ao-n .ao-cs .tt{font-size:36px;font-weight:900;line-height:1.25;color:#1A1A1A;margin:4px 0 20px !important;}
+.ao-corp.ao-n .ao-cs .tt br{display:inline !important;}
+.ao-corp.ao-n .ao-cs .ph{position:relative;margin-top:auto;aspect-ratio:1/1;max-width:340px;}
+.ao-corp.ao-n .ao-cs .ph img{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;object-position:center 20%;border-radius:16px 16px 0 0 !important;margin:0 !important;}
+.ao-corp.ao-n .ao-cs .tag{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.88);color:#3a3530;font-size:12px;padding:4px 10px;border-radius:6px;}
+.ao-corp.ao-n .ao-cs .card{background:#fff;border-radius:18px;padding:28px 30px;margin-bottom:36px;align-self:start;}
+.ao-corp.ao-n .ao-cs .blk + .blk{border-top:1px solid var(--ln);margin-top:22px;padding-top:22px;}
+.ao-corp.ao-n .ao-cs .h{font-size:21px;font-weight:900;color:#1A1A1A;margin:0 0 6px !important;}
+.ao-corp.ao-n .ao-cs .d{font-size:14.5px;color:#4a4540;margin:0 0 16px !important;line-height:1.75;}
+.ao-corp.ao-n .ao-cs .row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.ao-corp.ao-n .ao-cs .lb{display:flex;align-items:center;gap:8px;font-size:15px;color:#1A1A1A;margin:0 0 6px !important;}
+.ao-corp.ao-n .ao-cs .lb .sv{width:17px;height:17px;color:#B8963E;}
+.ao-corp.ao-n .ao-cs .tm{font-size:14px;color:#8a8378;margin:0 !important;line-height:1.7;}
+.ao-corp.ao-n .ao-cs .btn{display:inline-block;background:#1A1A1A;color:#fff !important;padding:11px 24px;border-radius:40px;font-size:14.5px;font-weight:800;text-decoration:none !important;white-space:nowrap;}
+.ao-corp.ao-n .ao-cs .btn:hover{background:#C8A24A;color:#1A1A1A !important;}
+.ao-corp.ao-n .ao-cs .rt{text-align:center;}
+.ao-corp.ao-n .ao-cs .or{font-size:12.5px;color:#7a7268;margin:8px 0 0 !important;}
+.ao-corp.ao-n .ao-cs .or a{color:#9A7B2E !important;}
+.ao-corp.ao-n .ao-gal br,.ao-corp.ao-n .ao-rev br,.ao-corp.ao-n .ao-cs .card br{display:none;}
+@media(max-width:768px){
+.ao-corp.ao-n .ao-gal .tt,.ao-corp.ao-n .ao-rev .tt{font-size:23px;}
+.ao-corp.ao-n .ao-gal .grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:8px;}
+.ao-corp.ao-n .ao-gal .g1{grid-column:1;grid-row:1 / span 2;}
+.ao-corp.ao-n .ao-gal .g2{grid-column:2;grid-row:1;}
+.ao-corp.ao-n .ao-gal .g3{grid-column:2;grid-row:2;}
+.ao-corp.ao-n .ao-gal .g4{grid-column:2;grid-row:3 / span 2;}
+.ao-corp.ao-n .ao-gal .g5{grid-column:1;grid-row:3;}
+.ao-corp.ao-n .ao-gal .g6{grid-column:1;grid-row:4;}
+.ao-corp.ao-n .ao-gal figcaption{font-size:12px;padding:20px 8px 8px;}
+.ao-corp.ao-n .ao-rev .hd{flex-direction:column;align-items:flex-start;}
+.ao-corp.ao-n .ao-rev .sc{text-align:left;}
+.ao-corp.ao-n .ao-rev .cards{grid-template-columns:1fr;gap:12px;}
+.ao-corp.ao-n .ao-cs{grid-template-columns:1fr;padding:26px 18px 0;border-radius:18px;}
+.ao-corp.ao-n .ao-cs .tt{font-size:28px;margin-bottom:14px !important;}
+.ao-corp.ao-n .ao-cs .lf{order:0;}
+.ao-corp.ao-n .ao-cs .ph{display:none;}
+.ao-corp.ao-n .ao-cs .card{padding:22px 18px;margin-bottom:18px;}
+.ao-corp.ao-n .ao-cs .row{flex-direction:column;align-items:flex-start;}
+.ao-corp.ao-n .ao-cs .rt{text-align:left;}}
+/* v40：暫用提示放大 300%、重點列上方加空間、整體空間感（參考 Bowtie 留白） */
+.ao-corp.ao-n .ao-tmp{font-size:36px !important;line-height:1.35;padding:14px 26px !important;border-radius:8px !important;margin:0 0 28px !important;}
+.ao-corp.ao-n .ao-pane ul.ao-trust{margin-top:30px !important;padding-top:18px !important;}
+.ao-corp.ao-n .ao-gal,.ao-corp.ao-n .ao-rev,.ao-corp.ao-n .ao-cs,.ao-corp.ao-n .ao-onsite2{margin-top:96px !important;}
+.ao-corp.ao-n .ao-mission,.ao-corp.ao-n .ao-area{margin-top:96px !important;}
+.ao-corp.ao-n .ao-mission + .ao-area,.ao-corp.ao-n .ao-mission + .ao-rev{margin-top:96px !important;}
+.ao-corp.ao-n .ao-nhead{margin-top:72px !important;}
+.ao-corp.ao-n .ao-gal .tt,.ao-corp.ao-n .ao-rev .tt{font-size:34px;}
+.ao-corp.ao-n .ao-gal .ds,.ao-corp.ao-n .ao-nhead p,.ao-corp.ao-n .ao-area .ds{font-size:17px !important;line-height:1.85 !important;}
+.ao-corp.ao-n .ao-feat{margin-top:40px !important;gap:20px !important;}
+.ao-corp.ao-n .ao-feat .c{padding:30px 26px !important;}
+@media(max-width:768px){
+.ao-corp.ao-n .ao-tmp{font-size:22px !important;padding:10px 16px !important;}
+.ao-corp.ao-n .ao-gal,.ao-corp.ao-n .ao-rev,.ao-corp.ao-n .ao-cs,.ao-corp.ao-n .ao-onsite2,.ao-corp.ao-n .ao-mission,.ao-corp.ao-n .ao-area,.ao-corp.ao-n .ao-mission + .ao-area,.ao-corp.ao-n .ao-mission + .ao-rev{margin-top:64px !important;}
+.ao-corp.ao-n .ao-nhead{margin-top:48px !important;}
+.ao-corp.ao-n .ao-gal .tt,.ao-corp.ao-n .ao-rev .tt{font-size:25px;}
+.ao-corp.ao-n .ao-gal .ds,.ao-corp.ao-n .ao-nhead p,.ao-corp.ao-n .ao-area .ds{font-size:15.5px !important;}
+.ao-corp.ao-n .ao-feat .c{padding:22px 18px !important;}
+.ao-corp.ao-n .ao-pane ul.ao-trust{margin-top:22px !important;}}
+.ao-corp.ao-n .ao-cs .ph{aspect-ratio:4/5 !important;max-width:320px;}
+.ao-corp.ao-n .ao-cs .ph img{object-position:center 15% !important;}
+.ao-corp.ao-n .ao-bn .ds strong{color:#fff;font-weight:700;}
+.ao-corp.ao-n .ao-bn .in{max-width:720px !important;}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
-JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)return;var n=r.querySelector(".ao-tabs");if(!n)return;var T=[].slice.call(n.querySelectorAll("a")),P=T.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});if(P.some(function(p){return !p}))return;r.classList.add("js-tabs");n.setAttribute("role","tablist");function show(i,push){T.forEach(function(a,k){var on=k===i;a.classList.toggle("on",on);a.setAttribute("aria-selected",on?"true":"false");P[k].classList.toggle("on",on);});var a=T[i];if(n.scrollWidth>n.clientWidth)n.scrollTo({left:a.offsetLeft-(n.clientWidth-a.offsetWidth)/2,behavior:"smooth"});if(push&&history.replaceState)history.replaceState(null,"","#"+P[i].id);}T.forEach(function(a,i){a.setAttribute("role","tab");P[i].setAttribute("role","tabpanel");a.addEventListener("click",function(e){e.preventDefault();show(i,true);var top=P[i].getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:top,behavior:"smooth"});});});function fromHash(){var h=location.hash.slice(1);if(!h)return 0;var el=document.getElementById(h);if(!el)return 0;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el))return k;}return 0;}var s=fromHash();show(s,false);if(location.hash&&s){setTimeout(function(){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});},150);}window.addEventListener("hashchange",function(){show(fromHash(),false);});[].slice.call(r.querySelectorAll('a[href^="#"]')).forEach(function(l){if(n.contains(l))return;l.addEventListener("click",function(e){var el=document.getElementById(l.getAttribute("href").slice(1));if(!el)return;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el)){e.preventDefault();show(k,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;window.scrollTo({top:top,behavior:"smooth"});return;}}});});})();</script>'''
+JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)return;var n=r.querySelector(".ao-tabs");if(!n)return;var T=[].slice.call(n.querySelectorAll("a")),P=T.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});if(P.some(function(p){return !p}))return;r.classList.add("js-tabs");n.setAttribute("role","tablist");function show(i,push){T.forEach(function(a,k){var on=k===i;a.classList.toggle("on",on);a.setAttribute("aria-selected",on?"true":"false");P[k].classList.toggle("on",on);});var a=T[i];if(n.scrollWidth>n.clientWidth)n.scrollTo({left:a.offsetLeft-(n.clientWidth-a.offsetWidth)/2,behavior:"smooth"});if(push&&history.replaceState)history.replaceState(null,"","#"+P[i].id);}T.forEach(function(a,i){a.setAttribute("role","tab");P[i].setAttribute("role","tabpanel");a.addEventListener("click",function(e){e.preventDefault();show(i,true);var a0=r.querySelector(".ao-tabeb")||r.querySelector(".ao-tabtip")||n;var top=a0.getBoundingClientRect().top+window.pageYOffset-40;window.scrollTo({top:top,behavior:"smooth"});});});function fromHash(){var h=location.hash.slice(1);if(!h)return 0;var el=document.getElementById(h);if(!el)return 0;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el))return k;}return 0;}var s=fromHash();show(s,false);if(location.hash&&s){setTimeout(function(){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});},150);}window.addEventListener("hashchange",function(){show(fromHash(),false);});[].slice.call(r.querySelectorAll('a[href^="#"]')).forEach(function(l){if(n.contains(l))return;l.addEventListener("click",function(e){var el=document.getElementById(l.getAttribute("href").slice(1));if(!el)return;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el)){e.preventDefault();show(k,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;window.scrollTo({top:top,behavior:"smooth"});return;}}});});})();</script>'''
 
 # 度身訂製卡（方案 B2）：每個場景一張不同的 Pexels 免費相（上線前建議下載並上載到 WP 媒體庫）
 PX = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -572,7 +692,7 @@ _SV = {
  'fa-child': '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>',
  'fa-print': '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
  'fa-hand-holding': '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
- 'fa-palette': '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
+ 'fa-palette': '<path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/>',
 }
 def SV(n):
     return f'<svg class="sv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{_SV.get(n, "")}</svg>'
@@ -608,6 +728,68 @@ def cust(pid, html):
 JS_SL = '''<script>(function(){document.querySelectorAll(".ao-corp .ao-slwrap").forEach(function(w){var s=w.querySelector(".ao-slider"),p=w.querySelector(".prev"),n=w.querySelector(".next");function u(){var m=s.scrollWidth-s.clientWidth;p.hidden=s.scrollLeft<4;n.hidden=s.scrollLeft>m-4;}p.addEventListener("click",function(){s.scrollBy({left:-s.clientWidth*.8,behavior:"smooth"})});n.addEventListener("click",function(){s.scrollBy({left:s.clientWidth*.8,behavior:"smooth"})});s.addEventListener("scroll",u,{passive:true});window.addEventListener("resize",u);u();document.querySelectorAll(".ao-corp .ao-tabs a").forEach(function(a){a.addEventListener("click",function(){setTimeout(u,50)})});});})();</script>'''
 
 
+
+# ---------- v39：每個場景的實拍相片牆、客戶評語（假字）、專人客服 ----------
+def _pick(lst, names):
+    d = {it[0]: it for it in lst}
+    return [d[n] for n in names if n in d]
+
+GAL_PX = {
+ 31970816: '迷你三文治拼盤', 17597420: '健康午餐盒', 34321369: '精緻迎賓小食', 2291367: '自助餐熱盤', 7245482: '新鮮沙律',
+ 30095179: '咖啡及甜品', 13065230: '日式便當', 884596: '天婦羅蝦便當', 13048837: '營養午餐盒', 6249398: '炸雞配白飯',
+ 803963: '忌廉意粉', 27858799: '麵包、酥皮及咖啡', 3933162: '煙三文魚 Canapés 及鮮果', 38579053: '酥皮糕點及咖啡',
+ 8148261: '煙三文魚多士', 27898491: '葡撻及咖啡', 20807883: 'Canapés 及芝士冷盤', 38730067: '早餐分格餐盒',
+ 8385550: '蔬菜意粉沙律', 13427915: '冬甩', 15795823: '田園沙律', 6249394: '炸雞白飯配醬汁', 32689477: '自助餐菜式',
+ 35247186: '保溫爐炸物熱盤', 24863059: '自助餐鋁盤菜式', 9243: '煙三文魚合桃意粉沙律',
+}
+GAL_PICK = {
+ 'overview': [31970816, 17597420, 34321369, 2291367, 7245482, 30095179],
+ 'office-lunch': [13065230, 884596, 13048837, 6249398, 803963, 7245482],
+ 'meeting': [27858799, 3933162, 38579053, 8148261, 27898491, 20807883],
+ 'training': [38730067, 17597420, 8385550, 13427915, 15795823, 6249394],
+ 'annual-dinner': [32689477, 2291367, 35247186, 20807883, 34321369, 30095179],
+ 'festive': [24863059, 35247186, 31970816, 13427915, 9243, 6249398],
+ 'business-event': [34321369, 3933162, 8148261, 20807883, 30095179, 27898491],
+ 'institutions': [13048837, 13065230, 6249394, 2291367, 7245482, 27858799],
+}
+def gal_items(pid):
+    return [(GAL_PX[i], f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=700') for i in GAL_PICK.get(pid, [])]
+
+GAL_SCENE = {'overview': '公司到會', 'office-lunch': '員工午餐', 'meeting': '會議餐飲', 'training': '培訓及研討會',
+             'annual-dinner': '年會及團年飯', 'festive': '公司聚會', 'business-event': 'Event 及 PR 活動', 'institutions': '機構活動'}
+
+def gallery(pid):
+    it = gal_items(pid)
+    if len(it) < 6: return ''
+    cells = ''.join(f'<figure class="g{k+1}"><img src="{x[1]}" loading="lazy" alt="{x[0]}（示意圖）" width="700" height="700" /><figcaption>{x[0]}</figcaption></figure>' for k, x in enumerate(it[:6]))
+    return (f'<div class="ao-gal"><p class="ao-tmp">暫用圖片：正式上線前會換成真實送貨相片</p>'
+            f'<p class="eb">MADE FRESH, EVERY ORDER</p><p class="tt">這就是送到你手上的<u>{GAL_SCENE[pid]}</u>。</p>'
+            f'<p class="ds">以下為{GAL_SCENE[pid]}常見的餐盒及菜式，每張相片均附菜式名稱。</p>'
+            f'<div class="grid">{cells}</div>'
+            f'<a class="go" href="{P}/catering-quote-enquiry/">到會報價查詢 →</a></div>')
+
+def reviews():
+    q = '〔示範文字〕準時送達，擺盤整齊，同事及來賓反應很好，下次活動會再訂購。'
+    card = (f'<div class="c"><p class="st">★★★★★</p><p class="q">「{q}」</p><p class="by"><b>〔公司名稱〕</b>〔行業〕· 〔活動類型〕</p></div>')
+    return (f'<section class="ao-rev" id="reviews"><p class="ao-tmp">暫用假字：上線前必須換成真實客戶評語</p><div class="hd"><div>'
+            f'<p class="eb">WHAT CLIENTS SAY</p><p class="tt">企業及機構客戶的評價</p></div>'
+            f'<p class="sc"><span>★★★★★</span>〔評分及評語數目待補〕</p></div>'
+            f'<div class="cards">{card * 3}</div>'
+            f'<a class="more" href="{P}/客人好評/">查看更多客人好評 →</a></section>')
+
+CS_IMG = 'https://images.pexels.com/photos/7709229/pexels-photo-7709229.jpeg?auto=compress&cs=tinysrgb&w=900'
+def cs_support():
+    ic_cal = SV('fa-calendar-alt'); ic_ph = SV('fa-coffee') if False else '<svg class="sv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>'
+    return (f'<section class="ao-cs" id="cs"><div class="lf"><p class="tt">由專人<br>為你安排</p>'
+            f'<div class="ph"><img src="{CS_IMG}" loading="lazy" alt="客服人員示意圖" width="900" height="900" /><span class="tag">示意圖｜Kitchen AO 客服團隊</span></div></div>'
+            f'<div class="card">'
+            f'<div class="blk"><p class="h">不知道如何選擇合適套餐？</p><p class="d">客服會按人數、預算及活動形式，為你配搭餐單及報價，一對一跟進。</p>'
+            f'<div class="row"><div><p class="lb">{ic_cal}查詢時間：</p><p class="tm">12:00pm – 10:00pm</p></div>'
+            f'<div class="rt"><a class="btn" href="{WA}?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a>'
+            f'<p class="or">或 電郵 <a href="mailto:info@aoaodelivery.com">info@aoaodelivery.com</a></p></div></div></div>'
+            f'</div></section>')
+
+
 def build(L):
     o = ['<div class="ao-corp ao-n">', CSS, '']
     FIXED = ('faq', 'price')   # 固定顯示在所有分頁內容之後（不放 tab）
@@ -620,7 +802,10 @@ def build(L):
         top, rest = L['intro'][:k], L['intro'][k:]
         main = ('overview', L['main_label'], rest + '\n' + L.get('summary', ''))
         tabs = [('overview', L.get('all_label', '全部'), main[2])] + tabs
-        o.append(top)
+        if L.get('intro_in_banner'):
+            L = dict(L, banner_desc=re.sub(r'^\s*<p>|</p>\s*$', '', top.strip()))
+        else:
+            o.append(top)
     else:
         o.append(L['intro'])
     n = len(tabs); c = (n + 1) // 2; m = 4 if n % 4 == 0 else 3
@@ -628,7 +813,7 @@ def build(L):
     o.append('<div class="ao-tabwrap">')
     if main:
         tags = ''.join(f'<span>{t}</span>' for t in L.get('banner_tags', []))
-        o.append(f'<div class="ao-bn" role="img" aria-label="{L["img_alt"]}" style="background-image:url(\'{BN_IMG}\')"><div class="in"><p class="tt">{main[1]}</p><p class="ds">{L.get("banner_desc", "")}</p>' + (f'<div class="tg">{tags}</div>' if tags else '') + (f'<a class="go" href="{P}/catering-quote-enquiry/">{L["banner_cta"]}</a>' if L.get('banner_cta') else '') + '</div></div>')
+        o.append(f'<div class="ao-bn" role="img" aria-label="{L["img_alt"]}" style="background-image:url(\'{BN_IMG}\')"><div class="in"><p class="tt">{main[1]}</p><p class="ds">{L.get("banner_desc", "")}</p>' + (f'<div class="tg">{tags}</div>' if tags else '') + (f'<a class="go" href="{P}/catering-quote-enquiry/">{L["banner_cta"]}</a>' if L.get('banner_cta') else '') + (f'<div class="sl"><p class="s1">{L["banner_slogan"][0]}</p><p class="s2">{L["banner_slogan"][1]}</p><p class="by">BY KITCHEN AO</p></div>' if L.get('banner_slogan') else '') + '</div></div>')
     if L.get('tab_hint'):
         o.append(f'<p class="ao-tabeb">CHOOSE YOUR OCCASION</p><p class="ao-tabtip">{L["tab_hint"]}</p>')
     o.append(f'<nav class="ao-tabs" style="--n:{n}" aria-label="{L["nav_label"]}">')
@@ -641,17 +826,22 @@ def build(L):
     o.append('</nav></div>')
     allt = tabs
     for pid, label, html in allt:
-        o.append(f'<section class="ao-pane" id="{pid}">\n{nhead(pid, cust(pid, html.strip()), L)}\n</section>')
+        gl = gallery(pid) if L.get('gallery') else ''
+        o.append(f'<section class="ao-pane" id="{pid}">\n{nhead(pid, cust(pid, html.strip()), L)}\n{gl}\n</section>')
     if L.get('summary') and not main:
         o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
     if L.get('mission_a'):
         o.append(mission(L['mission_a']))
+    if L.get('reviews'):
+        o.append(reviews())
     if L.get('area'):
         o.append(area_sec(L, tabs))
     if L.get('mission_b'):
         o.append(mission(L['mission_b']))
     if L.get('onsite'):
         o.append(onsite(L))
+    if L.get('cs'):
+        o.append(cs_support())
     # 價錢及流程、常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
     for pid, label, html in fixed:
         o.append(f'<section class="ao-faqsec" id="{pid}">\n{html.strip()}\n</section>')
@@ -822,7 +1012,10 @@ ZH = dict(
     tab_hint='請選擇以下公司或企業到會活動',
     banner_desc='七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。',
     banner_cta='到會報價查詢',
+    intro_in_banner=True,
+    banner_slogan=('We Serve, We WOW.', 'We believe every order is a chance to make your event more special and memorable.'),
     lang='zh',
+    gallery=True, reviews=True, cs=True,
     mission_a=dict(big='We Serve, We WOW.', hl='公司活動的餐飲，往往是同事<span>最記得的細節</span>。',
         sub='由每日的一盒午餐，到年尾的週年晚宴，Kitchen AO 按人數及預算度身安排餐單，讓每一次公司活動都更值得記住。', img='https://images.pexels.com/photos/14636170/pexels-photo-14636170.jpeg?auto=compress&cs=tinysrgb&w=1600', alt='公司活動宴會場地'),
     mission_b=dict(eb='OUR PROMISE', hl='餐飲交給我們，<span>你專心招待來賓</span>。',
