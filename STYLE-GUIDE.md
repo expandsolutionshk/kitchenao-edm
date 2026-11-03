@@ -11,6 +11,10 @@ h2{position:relative;padding:16px 0 0;border:0;}
 h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A;}
 ```
 
+## 提示框、引言、卡片
+- **不用左邊金色直線**（border-left 色條）的 AI 風格設計，任何提示框、引言、備註、卡片都不用。
+- 可用：黑底置中區塊（EDM 風格）、米色卡＋圓形 icon、虛線優惠券框＋頂部標籤、頂部金色短線。
+
 ## 文案
 - 書面語、香港用詞；不用「——」；不用廣東話口語字（揀、唔、嘅、咗、睇、嚟、今個、定）。
 

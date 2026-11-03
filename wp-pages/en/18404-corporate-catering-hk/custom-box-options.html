@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>18404｜「想度身訂製？」提示框（3 個方案）</title>
+<style>
+body{margin:0;background:#F4F1EC;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;color:#3A342B}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.opt{background:#fff;border-radius:18px;padding:24px;margin:0 0 26px;box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.opt>h2{margin:0 0 4px;font-size:19px}.opt>h2 em{font-style:normal;color:#9A7B2E;margin-right:8px}
+.opt>p.d{margin:0 0 18px;color:#7A7268;font-size:14px;line-height:1.7}
+a{color:#9A7B2E;font-weight:700}
+
+/* 方案 A：黑底置中（參考 EDM「大量訂購／度身訂造餐單」黑色區塊） */
+.cA{background:#1A1A1A;border-radius:16px;padding:26px 24px;text-align:center;color:#fff}
+.cA .t{font-size:19px;font-weight:800;margin:0 0 6px}
+.cA .t span{color:#C8A24A}
+.cA p{margin:0 0 16px;color:#C9BFA8;font-size:15px;line-height:1.8}
+.cA .btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.cA .btns a{display:inline-block;padding:11px 24px;border-radius:40px;font-size:15px;font-weight:800;text-decoration:none}
+.cA .b1{background:#C8A24A;color:#1A1A1A}.cA .b2{border:1.5px solid #C8A24A;color:#C8A24A}
+
+/* 方案 B：米色卡＋圓形 icon（參考 Blog 側欄 CTA 卡） */
+.cB{display:flex;align-items:center;gap:18px;background:#FBF7EE;border:1px solid #EADFC8;border-radius:16px;padding:20px 22px}
+.cB .ic{flex:0 0 56px;height:56px;border-radius:50%;background:#1A1A1A;color:#C8A24A;display:flex;align-items:center;justify-content:center;font-size:26px}
+.cB .tx{flex:1}
+.cB .t{font-size:17px;font-weight:800;color:#1A1A1A;margin:0 0 4px}
+.cB p{margin:0;font-size:15px;line-height:1.75}
+.cB .go{flex:0 0 auto;background:#1A1A1A;color:#F7CE46;border-radius:40px;padding:11px 20px;font-size:14px;font-weight:800;text-decoration:none;white-space:nowrap}
+@media(max-width:640px){.cB{flex-direction:column;text-align:center}.cB .go{width:100%;text-align:center;box-sizing:border-box}}
+
+/* 方案 C：優惠券式虛線框（參考雙 11 滿額賞卡、送貨頁免運費卡） */
+.cC{position:relative;border:2px dashed #C8A24A;border-radius:16px;padding:28px 22px 20px;text-align:center;background:#fff}
+.cC .tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:#C8A24A;font-size:13px;font-weight:800;letter-spacing:2px;padding:4px 16px;border-radius:20px;white-space:nowrap}
+.cC p{margin:0 0 12px;font-size:15px;line-height:1.8}
+.cC mark{background:#F7CE46;color:#1A1A1A;padding:1px 6px;border-radius:4px}
+.cC .go{display:inline-block;background:#C8A24A;color:#1A1A1A;border-radius:40px;padding:10px 24px;font-size:15px;font-weight:800;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 style="font-size:21px;margin:0 0 4px">「想度身訂製？」提示框：3 個方案</h1>
+<p style="margin:0 0 22px;color:#7A7268;font-size:14px">全部唔用左邊金色直線。以員工午餐 tab 的內容示範。</p>
+
+<section class="opt">
+ <h2><em>方案 A</em>黑底置中＋兩個掣 ⭐ 推介</h2>
+ <p class="d">參考中秋及雙 11 EDM 的「大量訂購／度身訂造餐單」黑色區塊。同頁面上方的黑色 slider 及目錄列一致，最有企業感，亦直接帶出 WhatsApp 及報價兩個行動。</p>
+ <div class="cA">
+  <p class="t">想<span>度身訂製</span>餐單？</p>
+  <p>如需指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），客服會按人數及預算為你配搭。</p>
+  <div class="btns"><a class="b1" href="#">WhatsApp 查詢</a><a class="b2" href="#">到會報價查詢</a></div>
+ </div>
+</section>
+
+<section class="opt">
+ <h2><em>方案 B</em>米色卡＋圓形 icon＋右邊掣</h2>
+ <p class="d">參考 Blog 右側欄的 CTA 卡。較柔和，唔會太搶眼；手機版自動變成置中直排。</p>
+ <div class="cB">
+  <div class="ic">✎</div>
+  <div class="tx"><p class="t">想度身訂製？</p><p>指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），客服會按人數及預算配搭。</p></div>
+  <a class="go" href="#">到會報價查詢</a>
+ </div>
+</section>
+
+<section class="opt">
+ <h2><em>方案 C</em>優惠券式虛線框＋頂部標籤</h2>
+ <p class="d">參考雙 11 滿額賞卡及送貨頁免運費卡。重點字用黃色標記，最易留意，但風格偏促銷。</p>
+ <div class="cC">
+  <span class="tag">度身訂製</span>
+  <p>可指定菜式、<mark>每日不同餐單</mark>，或提出<mark>走五辛、無麩質</mark>等飲食要求，客服會按人數及預算配搭。</p>
+  <a class="go" href="#">到會報價查詢</a>
+ </div>
+</section>
+</div>
+</body>
+</html>

@@ -177,7 +177,7 @@ CSS = r'''
 .a11-tier small{display:block;color:#7A7268}
 .a11-tier strong{display:block;font-size:26px;margin:4px 0}
 .a11-tier span{font-weight:700}
-.a11-flag{display:flex;align-items:center;gap:12px;margin-top:18px;background:#fff1ec;border-left:5px solid var(--r);border-radius:10px;padding:12px 16px;font-size:14px;color:#6b2a1e}
+.a11-flag{display:flex;align-items:center;gap:12px;margin-top:18px;background:#fff1ec;border:1px solid #f3c9bd;border-radius:10px;padding:12px 16px;font-size:14px;color:#6b2a1e}
 .a11-flag b{flex:none;background:var(--r);color:#fff;border-radius:8px;padding:4px 10px}
 .a11-corp{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:center}
 .a11-corp img{width:100%;height:340px;object-fit:cover;border-radius:18px;border:3px solid var(--g)}
@@ -429,7 +429,7 @@ def edm():
     lv2 = (lv_head('02', '第二重', '滿額賞：買得越多，送得越多')
            + '<tr><td style="padding:6px 24px 0;background:#ffffff;"><p style="margin:0;color:#7A7268;font-size:15px;line-height:23px;">雙 11 期間單一訂單滿指定金額，即可獲贈禮品，與預購寄倉價可同時使用。</p></td></tr>'
            '<tr><td style="padding:8px 16px 4px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>' + ''.join(tier_td(i) for i in (1, 2, 3)) + '</tr></table></td></tr>'
-           f'<tr><td style="padding:8px 24px 22px;background:#ffffff;"><p style="margin:0;padding:10px 14px;background:#fff1ec;border-left:4px solid #C0392B;border-radius:8px;color:#6b2a1e;font-size:14px;"><b>限量 {TBD} 份</b>，送完即止。</p></td></tr>')
+           f'<tr><td style="padding:8px 24px 22px;background:#ffffff;"><p style="margin:0;padding:10px 14px;background:#fff1ec;border:1px solid #f3c9bd;border-radius:8px;color:#6b2a1e;font-size:14px;"><b>限量 {TBD} 份</b>，送完即止。</p></td></tr>')
     chk = ''.join(f'<p style="margin:0 0 6px;color:#ffffff;font-size:15px;line-height:22px;"><span style="color:#C8A24A;font-weight:bold;">✓</span>　{x}</p>' for x in ['11 月 11 日或之前確認年會報價', f'早鳥禮遇 <span style="color:#ff8a7a;">{TBD}</span>', '優先安排 12 月至 2 月旺季檔期', '專人跟進餐單、人數及送餐安排'])
     lv3 = (lv_head('03', '第三重', '企業早鳥賞：年會的主角是同事，餐飲交給我們', True)
            + f'<tr><td style="padding:10px 20px 0;background:#1A1A1A;"><img src="{IMG["corp"]}" width="600" alt="Kitchen AO 公司年會到會" style="width:100%;height:auto;border-radius:14px;display:block;"></td></tr>'

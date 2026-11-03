@@ -79,6 +79,7 @@ CSS = '''<style>
 .ao-corp .ao-slider::-webkit-scrollbar{display:none;}
 .ao-corp .ao-scard{flex:0 0 200px;scroll-snap-align:start;text-decoration:none !important;display:flex;flex-direction:column;}
 .ao-corp .ao-scard img{width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:contain;object-position:center top;background:#2A2622;border-radius:12px !important;display:block;margin:0 !important;}
+.ao-corp .ao-scard.fill img{object-fit:cover;object-position:center;}
 .ao-corp .ao-scard .nm{color:#EDE6D6;font-size:14px;font-weight:600;line-height:1.45;padding:8px 2px 0;}
 .ao-corp .ao-scard .pr{color:#C8A24A;font-size:13px;font-weight:700;padding:2px 2px 0;}
 .ao-corp .ao-sl-btn{position:absolute;top:84px;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid #C8A24A;background:rgba(26,26,26,.92);color:#F7CE46;font-size:24px;line-height:32px;text-align:center;padding:0;cursor:pointer;}
@@ -160,23 +161,23 @@ def scene(items):
 # ---------- Product card slider（參考船P blog）----------
 UP = P + '/wp-content/uploads/'
 def sl(title, desc, items, btn_url, btn_text, cls=''):
-    cards = ''.join(f'<a class="ao-scard" href="{P}{u}" target="_blank" rel="noopener"><img src="{UP}{img}" width="600" height="600" loading="lazy" alt="{n}｜Kitchen AO 公司到會"><span class="nm">{n}</span>' + (f'<span class="pr">{sub}</span>' if sub else '') + '</a>' for n, u, img, sub in items)
+    cards = ''.join(f'<a class="ao-scard{" fill" if len(it) > 4 else ""}" href="{P}{it[1]}" target="_blank" rel="noopener"><img src="{UP}{it[2]}" width="600" height="600" loading="lazy" alt="{it[0]}｜Kitchen AO 公司到會"><span class="nm">{it[0]}</span>' + (f'<span class="pr">{it[3]}</span>' if it[3] else '') + '</a>' for it in items)
     return (f'<div class="ao-shelf{cls}"><p class="ao-shelf-t">{title}</p><p class="ao-shelf-d">{desc}</p>'
             f'<div class="ao-slwrap"><button type="button" class="ao-sl-btn prev" aria-label="上一個">‹</button><div class="ao-slider">{cards}</div>'
             f'<button type="button" class="ao-sl-btn next" aria-label="下一個">›</button></div></div>'
             f'<a class="ao-btn-gold" href="{P}{btn_url}" target="_blank" rel="noopener">{btn_text}</a>')
 CB = '/product-category/商務活動/'
 SETS = [
- ('商務餐盒', CB+'commercial-lunch-box/', '2025/04/CAB-Commercial-Meal-Lv2_頁面_1-1-724x1024-1-600x600.jpg', '每人一盒｜HK$108 起'),
- ('高級餐盒', CB+'executive-premium-meal-box/', '2025/04/螢幕截圖-2026-10-17-下午5.20.52-593x600.png', '會議及貴賓｜HK$248 起'),
- ('員工膳食餐盒 Staff Meal', CB+'staff-meal/', '2024/07/SM-Staff-Meal-Lv1-600x600.jpg', '大量訂購'),
- ('皇家小食盒', CB+'royal-snackers-box/', '2025/04/Royal-Snacks-Box-600x600.jpg', '茶點及小休'),
- ('舌尖上的餐桌九宮格 Canapés', CB+'a-bit-of-cuisines-gourmet-in-a-box/', '2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-600x600.jpeg', 'Event 及迎賓'),
- ('美食派對 Gourmet 套餐', '/product-category/party/foot-party/', '2026/03/8-10_101-X-KITCHENAO-03-03-03-600x600.jpg', '8 至 85 人｜HK$1,988 起'),
- ('輕食宴會套餐 Refreshment', '/product-category/party/refreshment-set/', '2023/11/refreshmentparty-03-600x600.jpg', '12 至 40 人｜HK$2,688 起'),
- ('百人慶典派對到會套餐', '/product/ao100set/', '2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM.jpeg', '100 人｜HK$13,800'),
+ ('商務餐盒', CB+'commercial-lunch-box/', '2025/04/CAB-Commercial-Meal-Lv2_頁面_1-1-724x1024-1.jpg', '每人一盒｜HK$108 起'),
+ ('高級餐盒', CB+'executive-premium-meal-box/', '2025/04/螢幕截圖-2026-10-17-下午5.20.52.png', '會議及貴賓｜HK$248 起'),
+ ('員工膳食餐盒 Staff Meal', CB+'staff-meal/', '2024/07/SM-Staff-Meal-Lv1-724x1024.jpg', '大量訂購'),
+ ('皇家小食盒', CB+'royal-snackers-box/', '2025/04/Royal-Snacks-Box-768x543.jpg', '茶點及小休', 'fill'),
+ ('舌尖上的餐桌九宮格 Canapés', CB+'a-bit-of-cuisines-gourmet-in-a-box/', '2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-768x542.jpeg', 'Event 及迎賓', 'fill'),
+ ('美食派對 Gourmet 套餐', '/product-category/party/foot-party/', '2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg', '8 至 85 人｜HK$1,988 起'),
+ ('輕食宴會套餐 Refreshment', '/product-category/party/refreshment-set/', '2023/11/refreshmentparty-03-768x768.jpg', '12 至 40 人｜HK$2,688 起'),
+ ('百人慶典派對到會套餐', '/product/ao100set/', '2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg', '100 人｜HK$13,800'),
  ('「素」味人生素食套餐', '/product-category/party/vegetarians-set/', '2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg', '6 至 26 人｜HK$1,388 起'),
- ('肉食獸上將海港之選', '/product-category/party/meat-monster/', '2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-600x600.jpeg', '7 至 11 人｜HK$1,888 起'),
+ ('肉食獸上將海港之選', '/product-category/party/meat-monster/', '2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-768x512.jpeg', '7 至 11 人｜HK$1,888 起'),
  ('5 人自選拼盤', '/product/5-people-self-selected-platter/', '2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png', '小型聚會｜HK$498'),
 ]
 PASTA = [
