@@ -223,7 +223,7 @@ ZH = dict(
 </ul>'''),
         ('training', '培訓及研討會', f'''
 <h2>培訓、研討會及工作坊到會：全日活動餐飲一次安排</h2>
-<p>全日培訓、研討會、講座及工作坊，可一次過安排早上茶點、午餐及下午茶，由同一張訂單分時段送達，毋須分開訂購。提供日程及人數後，客服會按時段配搭餐單。</p>
+<p>全日培訓、研討會、講座及工作坊（Training Day、Seminar、Workshop），可一次過安排早上茶點、午餐及下午茶，由同一張訂單分時段送達，毋須分開訂購。提供日程及人數後，客服會按時段配搭餐單。</p>
 <div class="ao-tblwrap"><table>
 <thead><tr><th>時段</th><th>建議安排</th><th>選擇</th></tr></thead>
 <tbody>
@@ -234,14 +234,14 @@ ZH = dict(
 <p class="ao-note">建議提前確認場地擺放食物的位置及各時段的開始時間，以便安排送達。</p>'''),
         ('annual-dinner', '年會及團年飯', f'''
 <h2>年會、春茗及團年飯到會：Annual Dinner、公司開年飯一次安排</h2>
-<p>每年 12 月至農曆新年，是公司年會、春茗及團年飯最密集的時段。到會餐飲一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會，每位 HK$300 起。菜式參考：</p>
+<p>每年 12 月至農曆新年，是公司年會、頒獎晚宴、春茗（Spring Dinner）及團年飯最密集的時段。到會餐飲一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會，每位 HK$300 起。菜式參考：</p>
 {menu_dinner('zh')}
 <h3>公司春茗、團年飯及開年飯：旺季宜早預訂</h3>
 <p>2027 年農曆新年為 2 月 6 日，1 月至 2 月是公司團年飯、開年飯及春茗到會的高峰，熱門日子名額有限，建議盡早預訂。如想加入中式菜式，可在查詢時一併提出。</p>
 <p><strong>籌備貼士：</strong>人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再安排送達時間。如需要侍應服務，可在查詢時一併提出。</p>'''),
         ('festive', '公司聚會', f'''
 <h2>公司聚會及員工活動到會：Company Party、Team Building 及員工慶祝</h2>
-<p>公司聚會及員工活動到會多採用自助餐形式，賓客可隨意取用，適合 30 至 300 人，每位 HK$300 起。</p>
+<p>公司聚會及員工活動（Company Party &amp; Staff Events）到會多採用自助餐形式，賓客可隨意取用，適合 30 至 300 人，每位 HK$300 起。</p>
 <ul>
 <li><strong>自助餐菜式參考：</strong>{a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "日式雞皮餃子配洋蔥圈")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}、{a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "香烤沙嗲串燒")}</li>
 <li><strong>套餐：</strong>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}，按人數由 8 人至 85 人選擇</li>
@@ -254,7 +254,7 @@ ZH = dict(
 <p>12 月的公司聖誕派對，可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}。</p>'''),
         ('business-event', 'Event 及 PR 活動', f'''
 <h2>Event 及 PR 活動到會：產品發佈會、記者會及品牌活動</h2>
-<p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕，多以站立形式進行，賓客邊走邊交流。一口一件的 Canapés 及 Finger Food 既方便取用，擺盤亦配合品牌形象。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p>
+<p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕（Product Launch、Press Event、Brand Event），多以站立形式進行，賓客邊走邊交流。一口一件的 Canapés 及 Finger Food 既方便取用，擺盤亦配合品牌形象。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p>
 <ul>
 <li>{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：每人一盒，適合傳媒及嘉賓</li>
 <li>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}：方便即場派發</li>
