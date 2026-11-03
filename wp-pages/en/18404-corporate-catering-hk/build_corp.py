@@ -187,6 +187,134 @@ CSS = '''<style>
 /* v16：產品卡名稱貼近金線（上方對齊） */
 .ao-corp .ao-scard .ft{align-items:flex-start !important;padding:14px 14px 16px !important;}
 .ao-corp .ao-scard .buy{align-self:flex-start;margin-top:1px;}
+
+/* v23：圖片 tab（方案 3）＋一站式橫幅在上 */
+.ao-corp .ao-tabwrap{background:#141210;border-radius:18px;padding:14px 14px 18px;margin:26px 0 0;}
+.ao-corp .ao-bn{position:relative;border-radius:14px;overflow:hidden;min-height:240px;background:#222 center/cover no-repeat;display:flex;align-items:flex-end;}
+.ao-corp .ao-bn:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,16,.93) 0%,rgba(20,18,16,.6) 55%,rgba(20,18,16,.15) 100%);}
+.ao-corp .ao-bn .in{position:relative;padding:28px 30px;max-width:560px;}
+.ao-corp .ao-bn .mk{display:block;font-size:11.5px;letter-spacing:.3em;font-weight:800;color:#C8A24A;margin:0 0 6px;}
+.ao-corp .ao-bn .tt{margin:0 0 8px !important;font-size:26px;font-weight:900;line-height:1.3;color:#fff !important;}
+.ao-corp .ao-bn .ds{margin:0 0 14px !important;font-size:15px;line-height:1.75;color:#DCD3C2 !important;}
+.ao-corp .ao-bn .tg{display:flex;flex-wrap:wrap;gap:8px;}
+.ao-corp .ao-bn .tg span{border:1px solid #C8A24A;color:#E9D7A5;border-radius:20px;padding:3px 12px;font-size:12.5px;line-height:1.6;}
+.ao-corp .ao-tabwrap .ao-tabtip{display:block;text-align:center;color:#fff !important;font-size:19px;font-weight:800;letter-spacing:.06em;margin:22px 0 14px !important;padding:0;border:0;}
+.ao-corp .ao-tabwrap .ao-tabs{display:grid !important;gap:10px !important;background:none !important;padding:0 !important;border-radius:0;}
+.ao-corp .ao-tabwrap .ao-tabs a.t{flex-direction:column !important;gap:8px;min-height:0 !important;padding:12px 6px 13px !important;border:1px solid #33302b !important;border-radius:16px;background:#1c1915;color:#EDE6D6 !important;font-size:13.5px !important;font-weight:600 !important;letter-spacing:.02em !important;line-height:1.35 !important;white-space:normal !important;text-align:center;transition:border-color .2s,background .2s;}
+.ao-corp .ao-tabwrap .ao-tabs a.t .ic{display:block;width:60px;height:60px;border-radius:50%;background:#333 center/cover no-repeat;border:2px solid #3a3226;flex:0 0 auto;transition:.2s;}
+.ao-corp .ao-tabwrap .ao-tabs a.t:hover{border-color:#6b5a38 !important;color:#F7E3A8 !important;}
+.ao-corp .ao-tabwrap .ao-tabs a.t.on{border-color:#C8A24A !important;background:#2B2622;color:#F7E3A8 !important;font-weight:800 !important;}
+.ao-corp .ao-tabwrap .ao-tabs a.t.on .ic{border-color:#C8A24A;box-shadow:0 0 12px rgba(200,162,74,.55);}
+.ao-corp .ao-tabwrap .ao-tabs a.t:before,.ao-corp .ao-tabwrap .ao-tabs a.t.on:before,.ao-corp .ao-tabwrap .ao-tabs a.t:after,.ao-corp .ao-tabwrap .ao-tabs a.t.on:after{display:none !important;content:none !important;}
+.ao-corp .ao-tabwrap .ao-tabs br{display:none;}
+@media(max-width:768px){.ao-corp .ao-tabwrap{padding:10px 10px 14px;border-radius:16px;}.ao-corp .ao-bn{min-height:210px;}.ao-corp .ao-bn:before{background:linear-gradient(0deg,rgba(20,18,16,.95) 0%,rgba(20,18,16,.6) 60%,rgba(20,18,16,.2) 100%);}.ao-corp .ao-bn .in{padding:22px 18px;}.ao-corp .ao-bn .tt{font-size:22px;}.ao-corp .ao-bn .ds{font-size:14px;}.ao-corp .ao-tabwrap .ao-tabtip{font-size:16.5px;margin:18px 0 12px !important;}.ao-corp .ao-tabwrap .ao-tabs{gap:8px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{font-size:12.5px !important;padding:10px 4px 11px !important;gap:6px;border-radius:14px;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:56px;height:56px;}}
+@media(max-width:380px){.ao-corp .ao-tabwrap .ao-tabs{gap:6px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{font-size:12px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:50px;height:50px;}}
+.ao-corp .ao-bn .ds{margin:0 !important;}
+.ao-corp .ao-tabwrap .ao-tabs{gap:12px !important;}
+.ao-corp .ao-tabwrap .ao-tabs a.t{gap:12px;padding:18px 8px 16px !important;font-size:15.5px !important;border-radius:18px;}
+.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:104px;height:104px;border-width:3px;}
+@media(max-width:768px){.ao-corp .ao-tabwrap .ao-tabs{gap:8px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{gap:7px;padding:10px 3px 11px !important;font-size:12.5px !important;border-radius:14px;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:64px;height:64px;border-width:2px;}}
+@media(max-width:380px){.ao-corp .ao-tabwrap .ao-tabs{gap:6px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{font-size:12px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:56px;height:56px;}}
+/* v25：所有產品卡相片統一填滿正方形（cover） */
+.ao-corp .ao-scard .im,.ao-corp .ao-scard.fill .im{padding:0 !important;background:#1f1a15 !important;}
+.ao-corp .ao-scard .im img,.ao-corp .ao-scard.fill .im img{width:100% !important;height:100% !important;object-fit:cover !important;object-position:center !important;border-radius:0 !important;}
+/* v26：正方形相框鎖死高度，相片絕對定位填滿 */
+.ao-corp .ao-scard .im,.ao-corp .ao-scard.fill .im{position:relative !important;display:block !important;width:100% !important;height:0 !important;padding:0 0 100% !important;aspect-ratio:auto !important;overflow:hidden !important;flex:0 0 auto !important;}
+.ao-corp .ao-scard .im img,.ao-corp .ao-scard.fill .im img{position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important;max-width:none !important;object-fit:cover !important;object-position:center !important;}
+.ao-corp .ao-scard .im br,.ao-corp .ao-scard .im p{display:none !important;}
+/* v27：活動現場服務（原 KV 兩張相） */
+.ao-corp .ao-onsite{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center;background:#FAF7F1;border:1px solid #EADFC8;border-radius:20px;padding:26px;margin:44px 0 10px;}
+.ao-corp .ao-onsite .ph{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ao-corp .ao-onsite .ph img{display:block;width:100% !important;height:auto !important;aspect-ratio:3/4;object-fit:cover;border-radius:14px !important;margin:0 !important;}
+.ao-corp .ao-onsite .ph img.k1{object-position:50% 30%;}
+.ao-corp .ao-onsite .ph img.k2{object-position:50% 55%;margin-top:28px !important;}
+.ao-corp .ao-onsite .eb{font-size:12px;font-weight:800;letter-spacing:.3em;color:#9A7B2E;margin:0 0 2px !important;}
+.ao-corp .ao-onsite h2{margin:10px 0 12px !important;}
+.ao-corp .ao-onsite .tx>p{margin:0 0 14px !important;line-height:1.85;}
+.ao-corp .ao-onsite ul{list-style:none !important;margin:0 0 18px !important;padding:0 !important;display:grid;gap:10px;}
+.ao-corp .ao-onsite li{display:grid;grid-template-columns:38px 1fr;column-gap:10px;align-items:start;background:#fff;border:1px solid #EFE6D3;border-radius:12px;padding:11px 14px;margin:0 !important;}
+.ao-corp .ao-onsite li .n{grid-row:1 / span 2;width:34px;height:34px;border-radius:50%;background:#1A1A1A;color:#C8A24A;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.ao-corp .ao-onsite li b{color:#1A1A1A;font-size:15.5px;line-height:1.5;}
+.ao-corp .ao-onsite li .d{font-size:14px;line-height:1.65;color:#5d534d;}
+.ao-corp .ao-onsite .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.ao-corp .ao-onsite .btns a{display:inline-block;padding:11px 22px;border-radius:40px;font-size:14.5px;font-weight:800;text-decoration:none !important;}
+.ao-corp .ao-onsite .b1{background:#1A1A1A;color:#F7CE46 !important;}
+.ao-corp .ao-onsite .b2{border:1.5px solid #1A1A1A;color:#1A1A1A !important;}
+.ao-corp .ao-onsite br{display:none;}
+@media(max-width:768px){.ao-corp .ao-onsite{grid-template-columns:1fr;gap:20px;padding:16px;border-radius:16px;margin:36px 0 8px;}.ao-corp .ao-onsite .ph{gap:8px;}.ao-corp .ao-onsite .ph img.k2{margin-top:18px !important;}.ao-corp .ao-onsite .btns a{flex:1;text-align:center;padding:11px 12px;}}
+
+/* ===== v29：方案 C 黑白分段＋Nourish 式內容（字體沿用網站原有字體） ===== */
+.ao-corp.ao-n{--ln:#E6E1D8;--mu:#8A8378;}
+.ao-corp.ao-n .ao-tabwrap{background:#fff !important;padding:0 0 8px !important;border-radius:0 !important;margin:26px 0 0 !important;}
+.ao-corp.ao-n .ao-bn{background:#141414 !important;background-image:none !important;min-height:0 !important;border-radius:18px;justify-content:center;text-align:center;}
+.ao-corp.ao-n .ao-bn:before{display:none !important;}
+.ao-corp.ao-n .ao-bn .in{max-width:640px;padding:54px 26px 50px !important;margin:0 auto;}
+.ao-corp.ao-n .ao-bn .mk{color:#D9C48A !important;font-size:11.5px;letter-spacing:.34em;margin:0 0 10px;}
+.ao-corp.ao-n .ao-bn .tt{font-size:34px !important;font-weight:800 !important;letter-spacing:.06em;margin:0 !important;}
+.ao-corp.ao-n .ao-bn .tt:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:18px auto;}
+.ao-corp.ao-n .ao-bn .ds{color:#CFCAC0 !important;font-size:15.5px !important;line-height:1.9 !important;}
+.ao-corp.ao-n .ao-bn .go{display:inline-block;margin-top:22px;border:1px solid #C8A24A;color:#fff !important;font-size:13.5px;letter-spacing:.16em;font-weight:700;padding:12px 28px;text-decoration:none !important;transition:.2s;}
+.ao-corp.ao-n .ao-bn .go:hover{background:#C8A24A;color:#141414 !important;}
+.ao-corp.ao-n .ao-tabeb{display:block;text-align:center;font-size:11px;letter-spacing:.32em;color:var(--mu);margin:48px 0 6px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabtip{color:#141414 !important;font-size:24px !important;font-weight:800 !important;margin:0 0 6px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabtip:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:16px auto 30px;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs{gap:30px 14px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t,.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on,.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t:hover{border:0 !important;background:none !important;border-radius:0 !important;padding:4px 2px !important;gap:12px !important;font-size:15px !important;color:#555 !important;font-weight:500 !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on{color:#141414 !important;font-weight:800 !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:122px !important;height:122px !important;border:1px solid var(--ln) !important;box-shadow:none !important;outline:1.5px solid transparent;outline-offset:6px;transition:outline-color .2s,transform .2s;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t:hover .ic{transform:scale(1.03);}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on .ic{outline-color:#C8A24A;}
+/* 分頁標題列：左大圖＋右文字 */
+.ao-corp.ao-n .ao-nhead{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:center;margin:56px 0 10px;}
+.ao-corp.ao-n .ao-nhead .ph{aspect-ratio:4/5;border-radius:18px;background:#eee center/cover no-repeat;}
+.ao-corp.ao-n .ao-nhead .eb{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mu);margin:0 0 2px !important;}
+.ao-corp.ao-n .ao-nhead h2{margin:14px 0 16px !important;font-size:27px;line-height:1.4;}
+.ao-corp.ao-n .ao-nhead p{line-height:1.95;color:#4a4540;margin:0 0 12px !important;}
+.ao-corp.ao-n .ao-nhead .go{display:inline-block;margin-top:10px;font-size:13.5px;letter-spacing:.16em;font-weight:800;color:#141414 !important;border-bottom:1px solid #141414;padding-bottom:3px;text-decoration:none !important;}
+.ao-corp.ao-n .ao-pane h3{font-size:20px;font-weight:800;margin:46px 0 14px !important;}
+/* 清單：幼線分隔（無左邊線） */
+.ao-corp.ao-n .ao-pane ul{list-style:none !important;padding:0 !important;margin:0 0 18px !important;border-top:1px solid var(--ln);}
+.ao-corp.ao-n .ao-pane ul li{position:relative;padding:14px 0 14px 26px !important;margin:0 !important;border-bottom:1px solid var(--ln);line-height:1.8;}
+.ao-corp.ao-n .ao-pane ul li:before{content:"";position:absolute;left:4px;top:25px;width:7px;height:7px;border-radius:50%;background:#C8A24A;}
+/* 產品 slider：Signature dishes 式 */
+.ao-corp.ao-n .ao-shelf{background:none !important;border:0 !important;padding:0 !important;margin:40px 0 0 !important;border-radius:0 !important;}
+.ao-corp.ao-n .ao-shelf-t{color:#141414 !important;font-size:22px !important;text-align:center;margin:0 0 4px !important;}
+.ao-corp.ao-n .ao-shelf-t:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:12px auto 0;}
+.ao-corp.ao-n .ao-shelf-d{color:var(--mu) !important;text-align:center;margin:12px 0 20px !important;}
+.ao-corp.ao-n .ao-slider{gap:18px !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard{flex:0 0 230px !important;background:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;overflow:visible !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .im{border-radius:16px !important;border:0 !important;background:#F3F0EA !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard:hover .im img{transform:scale(1.04);}
+.ao-corp.ao-n .ao-shelf .ao-scard .im img{transition:transform .4s;}
+.ao-corp.ao-n .ao-shelf .ao-scard .ft{padding:12px 2px 4px !important;display:block !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .nm{color:#141414 !important;font-weight:700 !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .pr{color:#9A7B2E !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .buy{display:inline-block !important;margin-top:8px;background:none !important;color:#141414 !important;border:0 !important;border-bottom:1px solid #141414 !important;border-radius:0 !important;padding:0 0 2px !important;font-size:13px !important;font-weight:700;box-shadow:none !important;}
+.ao-corp.ao-n .ao-sl-btn{background:#fff !important;color:#141414 !important;border:1px solid var(--ln) !important;box-shadow:0 4px 14px rgba(0,0,0,.08);top:96px !important;}
+.ao-corp.ao-n .ao-btn-gold{background:#141414 !important;border-color:#141414 !important;color:#fff !important;border-radius:0 !important;letter-spacing:.12em;}
+.ao-corp.ao-n .ao-btn-gold:hover{background:#C8A24A !important;border-color:#C8A24A !important;color:#141414 !important;}
+/* 度身訂製：全幅相片 CTA 橫幅 */
+.ao-corp.ao-n .ao-cust{position:relative;display:block !important;background:#141414 !important;border:0 !important;border-radius:18px !important;text-align:center;margin:46px 0 18px !important;}
+.ao-corp.ao-n .ao-cust .ph{position:absolute !important;inset:0;min-height:0 !important;}
+.ao-corp.ao-n .ao-cust:after{content:"";position:absolute;inset:0;background:rgba(15,13,11,.68);}
+.ao-corp.ao-n .ao-cust .tx{position:relative;z-index:1;padding:56px 26px !important;max-width:620px;margin:0 auto;align-items:center;}
+.ao-corp.ao-n .ao-cust .eb{color:#D9C48A !important;}
+.ao-corp.ao-n .ao-cust .t{color:#fff !important;font-size:26px !important;}
+.ao-corp.ao-n .ao-cust .d{color:#E4DED3 !important;}
+.ao-corp.ao-n .ao-cust .d a{color:#D9C48A !important;}
+.ao-corp.ao-n .ao-cust .btns{justify-content:center;}
+.ao-corp.ao-n .ao-cust .b1{background:#C8A24A !important;color:#141414 !important;border-radius:0 !important;}
+.ao-corp.ao-n .ao-cust .b2{border:1px solid #fff !important;color:#fff !important;border-radius:0 !important;}
+@media(max-width:768px){
+.ao-corp.ao-n .ao-bn .in{padding:40px 18px 36px !important;}.ao-corp.ao-n .ao-bn .tt{font-size:26px !important;}
+.ao-corp.ao-n .ao-tabeb{margin:36px 0 4px !important;}.ao-corp.ao-n .ao-tabwrap .ao-tabtip{font-size:19px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs{gap:22px 6px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t,.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on{font-size:12.5px !important;gap:9px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:72px !important;height:72px !important;outline-offset:4px;}
+.ao-corp.ao-n .ao-nhead{grid-template-columns:1fr;gap:22px;margin:40px 0 6px;}.ao-corp.ao-n .ao-nhead .ph{aspect-ratio:4/3;}.ao-corp.ao-n .ao-nhead h2{font-size:22px;}
+.ao-corp.ao-n .ao-shelf .ao-scard{flex-basis:64% !important;}.ao-corp.ao-n .ao-sl-btn{top:30% !important;}
+.ao-corp.ao-n .ao-cust .tx{padding:40px 18px !important;}.ao-corp.ao-n .ao-cust .t{font-size:21px !important;}}
+@media(max-width:380px){.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:62px !important;height:62px !important;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -197,6 +325,33 @@ PX = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto
 CUST_IMG = {'office-lunch': PX(13065230), 'meeting': PX(30507463), 'training': PX(38730067),
             'annual-dinner': P + '/wp-content/uploads/2023/12/20221114_AOKitchen_-321-1024x1024.jpg',
             'festive': PX(24863059), 'business-event': PX(38958593), 'institutions': PX(2291367)}
+PXS = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop'
+TAB_IMG = {'overview': PXS(31970816), 'office-lunch': PXS(13065230), 'meeting': PXS(30507463), 'training': PXS(38730067),
+           'annual-dinner': PXS(14636170), 'festive': PXS(24863059), 'business-event': PXS(38958593), 'institutions': PXS(2291367)}
+BN_IMG = 'https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=1600'  # 原 UGG 相有其他品牌 logo，已換
+KV1 = P + '/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg'
+KV2 = P + '/wp-content/uploads/2023/11/IMG_2358.jpg'
+def onsite(L):
+    t = L['onsite']
+    pts = ''.join(f'<li><span class="n">{k+1:02d}</span><b>{h}</b><span class="d">{d}</span></li>' for k, (h, d) in enumerate(t['pts']))
+    return (f'<section class="ao-onsite" id="onsite"><div class="ph"><img class="k1" decoding="async" loading="lazy" src="{KV1}" alt="{L["img_alt"]}" width="600" height="800" />'
+            f'<img class="k2" decoding="async" loading="lazy" src="{KV2}" alt="{L["img_alt2"]}" width="600" height="800" /></div>'
+            f'<div class="tx"><p class="eb">ON-SITE SERVICE</p><h2>{t["h2"]}</h2><p>{t["p"]}</p><ul>{pts}</ul>'
+            f'<div class="btns"><a class="b1" href="{P}/catering-quote-enquiry/">{t["b1"]}</a><a class="b2" href="{t["b2url"]}">{t["b2"]}</a></div></div></section>')
+
+PXL = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=900'
+HEAD_IMG = {'overview': PXL(31970816), 'office-lunch': PXL(13065230), 'meeting': PXL(30507463), 'training': PXL(38730067),
+            'annual-dinner': PXL(14636170), 'festive': PXL(24863059), 'business-event': PXL(38958593), 'institutions': PXL(2291367)}
+HEAD_EB = {'overview': 'All Services', 'office-lunch': 'Office Lunch', 'meeting': 'Meeting', 'training': 'Training &amp; Seminar',
+           'annual-dinner': 'Annual Dinner', 'festive': 'Company Party', 'business-event': 'Events &amp; PR', 'institutions': 'Institutions'}
+def nhead(pid, html, L):
+    img = HEAD_IMG.get(pid)
+    m = re.match(r'\s*<h2>(.*?)</h2>\s*<p>(.*?)</p>', html, flags=re.S)
+    if not img or not m: return html
+    go = f'<a class="go" href="{P}/catering-quote-enquiry/">{L.get("head_cta", "到會報價查詢")} →</a>'
+    return (f'<div class="ao-nhead"><div class="ph" role="img" aria-label="{L["img_alt"]}" style="background-image:url(\'{img}\')"></div>'
+            f'<div class="tx"><p class="eb">{HEAD_EB.get(pid, "")}</p><h2>{m.group(1)}</h2><p>{m.group(2)}</p>{go}</div></div>' + html[m.end():])
+
 def cust(pid, html):
     def f(m):
         img = CUST_IMG.get(pid)
@@ -211,7 +366,7 @@ JS_SL = '''<script>(function(){document.querySelectorAll(".ao-corp .ao-slwrap").
 
 
 def build(L):
-    o = ['<div class="ao-corp">', CSS, '']
+    o = ['<div class="ao-corp ao-n">', CSS, '']
     FIXED = ('faq', 'price')   # 固定顯示在所有分頁內容之後（不放 tab）
     tabs = [p for p in L['panes'] if p[0] not in FIXED]
     fixed = [p for p in L['panes'] if p[0] == 'price']
@@ -225,23 +380,28 @@ def build(L):
         o.append(top)
     else:
         o.append(L['intro'])
-    o.append(f'<div class="ao-kv"><img class="k1" decoding="async" src="{P}/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="{L["img_alt"]}" width="600" height="300" /><img class="k2" decoding="async" src="{P}/wp-content/uploads/2023/11/IMG_2358.jpg" alt="{L["img_alt2"]}" width="600" height="300" /></div>')
-    n = len(tabs); c = (n + 1) // 2; m = 2
-    o.append(f'<style>.ao-corp .ao-tabs a.t{{border-bottom:0 !important;border-top:1px solid #33302b;}}@media(min-width:769px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a.d1{{border-top:0;}}}}@media(max-width:768px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({m},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a.m1{{border-top:0;}}}}</style>')
-    o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:{n}" aria-label="{L["nav_label"]}">')
+    n = len(tabs); c = (n + 1) // 2; m = 4 if n % 4 == 0 else 3
+    o.append(f'<style>@media(min-width:769px){{.ao-corp .ao-tabwrap .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}}}@media(max-width:768px){{.ao-corp .ao-tabwrap .ao-tabs{{grid-template-columns:repeat({m},minmax(0,1fr)) !important;}}}}</style>')
+    o.append('<div class="ao-tabwrap">')
     if main:
-        o.append(f'<div class="main">{main[1]}</div>')
-        if L.get('tab_hint'):
-            o.append(f'<span class="ao-tabtip">{L["tab_hint"]}</span>')
+        tags = ''.join(f'<span>{t}</span>' for t in L.get('banner_tags', []))
+        o.append(f'<div class="ao-bn" role="img" aria-label="{L["img_alt"]}" style="background-image:url(\'{BN_IMG}\')"><div class="in"><p class="tt">{main[1]}</p><p class="ds">{L.get("banner_desc", "")}</p>' + (f'<div class="tg">{tags}</div>' if tags else '') + (f'<a class="go" href="{P}/catering-quote-enquiry/">{L["banner_cta"]}</a>' if L.get('banner_cta') else '') + '</div></div>')
+    if L.get('tab_hint'):
+        o.append(f'<p class="ao-tabeb">CHOOSE YOUR OCCASION</p><p class="ao-tabtip">{L["tab_hint"]}</p>')
+    o.append(f'<nav class="ao-tabs" style="--n:{n}" aria-label="{L["nav_label"]}">')
     for i, (pid, label, _) in enumerate(tabs):
-        cls = ['t'] + (['d1'] if i < c else []) + (['m1'] if i < m else []) + (['on'] if i == 0 else [])
-        o.append(f'<a href="#{pid}" class="{" ".join(cls)}">{label}</a>')
+        cls = ['t'] + (['on'] if i == 0 else [])
+        ic = TAB_IMG.get(pid)
+        ich = f'<span class="ic" style="background-image:url(\'{ic}\')" aria-hidden="true"></span>' if ic else ''
+        o.append(f'<a href="#{pid}" class="{" ".join(cls)}">{ich}{label}</a>')
     o.append('</nav></div>')
     allt = tabs
     for pid, label, html in allt:
-        o.append(f'<section class="ao-pane" id="{pid}">\n{cust(pid, html.strip())}\n</section>')
+        o.append(f'<section class="ao-pane" id="{pid}">\n{nhead(pid, cust(pid, html.strip()), L)}\n</section>')
     if L.get('summary') and not main:
         o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
+    if L.get('onsite'):
+        o.append(onsite(L))
     # 價錢及流程、常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
     for pid, label, html in fixed:
         o.append(f'<section class="ao-faqsec" id="{pid}">\n{html.strip()}\n</section>')
@@ -399,11 +559,19 @@ ZH = dict(
 {sl("推薦套餐及餐盒", "由 1 人一盒到 100 人慶典，按人數及活動形式選擇。", SETS, "/product-category/party-set-by-people/", "按人數查看全部套餐")}
 <p>以上套餐可再加配單點菜式，以及{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}、{a("/product-category/party-supplies/thin-crust-pizza/", "餐具及暖貼")}；大型活動亦可安排侍應服務。如需度身訂製餐單，歡迎提出。</p>
 ''',
+    onsite=dict(h2='活動現場擺設及侍應服務',
+        p='年會、春茗、產品發佈會等大型活動，除送遞到會食物外，亦可安排 Kitchen AO 團隊到場擺設自助餐枱及提供侍應服務，讓主辦單位專心招待來賓。',
+        pts=[('自助餐枱擺設', '按活動主題佈置餐枱及擺盤，配合公司或品牌形象。'),
+             ('現場侍應服務', '活動期間補充食物，保持餐枱整齊。'),
+             ('飲品配搭', f'可加配{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}，一併安排。')],
+        b1='到會報價查詢', b2='合作伙伴及服務紀錄', b2url=P + '/合作伙伴/'),
     img_alt='Kitchen AO 團隊在公司活動現場準備到會食物',
     img_alt2='Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點',
     nav_label='公司到會目錄',
     main_label='<span class="mk">ALL SERVICES</span>一站式企業到會',
     tab_hint='請選擇以下公司或企業到會活動',
+    banner_desc='七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。',
+    banner_cta='到會報價查詢',
     panes=[
         ('office-lunch', '員工午餐', f'''
 <h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2>
@@ -583,6 +751,13 @@ EN_SCENES = [
 ]
 EN = dict(
     intro='<p>From the daily lunch box to the year-end annual dinner, the food is often what colleagues remember most about a company event. Kitchen AO provides <strong>corporate catering in Hong Kong</strong> for companies and organisations, with menus tailored to your headcount and budget, from a 10-person department lunch to a company gathering of 300, with delivery across Hong Kong.</p>',
+    onsite=dict(h2='On-site Setup and Waiter Service',
+        p='For annual dinners, spring dinners, product launches and other large events, the Kitchen AO team can set up the buffet on site and provide waiter service, so hosts can focus on their guests.',
+        pts=[('Buffet setup', 'Tables and food styling arranged to match your event theme and brand.'),
+             ('On-site waiters', 'Food is replenished and the buffet kept tidy throughout the event.'),
+             ('Drinks', f'Add our {a("/飲品及雞尾酒服務/", "drinks and cocktail service")} in the same booking.')],
+        b1='Get a Catering Quote', b2='Partners and Service Records', b2url=P + '/合作伙伴/'),
+    head_cta='Get a Quote',
     img_alt='Kitchen AO team preparing corporate catering at a company event in Hong Kong',
     img_alt2='Kitchen AO staff setting up a catering buffet at a business event',
     nav_label='Corporate catering contents',

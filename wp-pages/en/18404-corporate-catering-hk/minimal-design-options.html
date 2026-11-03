@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>18404｜簡約黑金白設計（3 個方案）</title>
+<style>
+:root{--k:#141414;--g:#B8963E;--gl:#D9C48A;--w:#fff;--cr:#F7F5F0;--tx:#2E2E2E;--mu:#8A8378;--ln:#E6E1D8}
+*{box-sizing:border-box}
+body{margin:0;background:#EDEAE4;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;color:var(--tx)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.top{max-width:1180px;margin:0 auto;padding:26px 18px 0}
+.top h1{margin:0 0 4px;font-size:21px}.top p{margin:0;color:#6b6252;font-size:14px;line-height:1.7}
+.dir{max-width:1180px;margin:26px auto;background:#fff;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.lab{padding:14px 22px;background:#f6f3ee;border-bottom:1px solid var(--ln);font-size:14px;color:#6b6252;line-height:1.6}
+.lab em{font-style:normal;color:#9A7B2E;font-weight:800;margin-right:8px}.lab b{color:var(--k);font-size:16.5px;margin-right:6px}
+.serif{font-family:"Didot","Bodoni 72",Georgia,"Songti TC",serif;font-weight:400}
+.eb{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mu)}
+.rule{width:46px;height:2px;background:var(--g);margin:14px auto}
+.ul{display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:700;border-bottom:1px solid var(--k);padding-bottom:3px}
+
+/* ===== 方案 A：Gallery Minimal 白色畫廊 ===== */
+.A{padding:0 0 56px}
+.A .hero{display:grid;grid-template-columns:1.2fr 1fr;min-height:420px}
+.A .hero .im{background:#ddd center/cover no-repeat}
+.A .hero .tx{padding:56px 52px;display:flex;flex-direction:column;justify-content:center}
+.A .hero h2{font-size:40px;line-height:1.25;margin:12px 0 0;color:var(--k)}
+.A .hero .rule{margin:18px 0}
+.A .hero p{margin:0 0 26px;line-height:1.9;font-size:15.5px;color:#555}
+.A .sec{padding:60px 52px 0;text-align:center}
+.A .sec h3{font-size:30px;margin:8px 0 0;color:var(--k)}
+.A .sec .st{color:var(--mu);font-size:14px;margin:0 0 30px}
+.A .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 16px;text-align:left}
+.A .tile{cursor:pointer}
+.A .tile .im{aspect-ratio:3/4;background:#ddd center/cover no-repeat;transition:.3s;filter:grayscale(.15)}
+.A .tile:hover .im{filter:none}
+.A .tile .eb{margin:12px 0 2px;font-size:10px}
+.A .tile b{display:block;font-size:16px;font-weight:600;color:var(--k);padding-bottom:6px;border-bottom:1px solid transparent;width:fit-content}
+.A .tile.on b{border-bottom-color:var(--g)}
+.A .tile.on .im{outline:1px solid var(--g);outline-offset:5px;filter:none}
+.A .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 18px;text-align:left;margin-top:8px}
+.A .p .im{aspect-ratio:1/1;background:#f3f1ec center/cover no-repeat}
+.A .p b{display:block;margin:12px 0 2px;font-size:15px;font-weight:600;color:var(--k)}
+.A .p span{font-size:13px;color:var(--mu)}
+.A .p i{display:block;font-style:normal;margin-top:6px;font-size:14px;color:var(--k)}
+@media(max-width:760px){.A .hero{grid-template-columns:1fr}.A .hero .im{min-height:260px}.A .hero .tx{padding:30px 20px}.A .hero h2{font-size:28px}.A .sec{padding:44px 18px 0}.A .tiles,.A .prods{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== 方案 B：White Page, Black Line 白底黑線 ===== */
+.B{background:#fff}
+.B .bar{background:var(--k);color:#fff;text-align:center;font-size:12px;letter-spacing:.22em;padding:9px 10px}
+.B .bar span{color:var(--gl)}
+.B .head{text-align:center;padding:52px 20px 34px}
+.B .head h2{font-size:42px;margin:10px 0 0;color:var(--k);letter-spacing:.04em}
+.B .head p{max-width:620px;margin:0 auto;color:#555;line-height:1.9}
+.B .nav{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 34px;border-top:1px solid var(--k);border-bottom:1px solid var(--ln);padding:0 20px;margin:0 52px}
+.B .nav a{position:relative;padding:16px 0 15px;font-size:14.5px;letter-spacing:.1em;color:#666;cursor:pointer}
+.B .nav a.on{color:var(--k);font-weight:700}
+.B .nav a.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--g)}
+.B .feat{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:34px 52px 0;border:1px solid var(--ln)}
+.B .feat .im{background:#ddd center/cover no-repeat;min-height:360px}
+.B .feat .tx{padding:44px 42px;display:flex;flex-direction:column;justify-content:center}
+.B .feat h3{font-size:28px;margin:8px 0 12px;color:var(--k)}
+.B .feat p{margin:0 0 18px;line-height:1.9;color:#555}
+.B .feat .meta{display:flex;gap:28px;margin:0 0 24px;padding:14px 0;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.B .feat .meta b{display:block;font-size:20px;color:var(--k)}.B .feat .meta span{font-size:12px;color:var(--mu);letter-spacing:.1em}
+.B .btn{display:inline-block;background:var(--k);color:#fff;padding:13px 28px;font-size:13px;letter-spacing:.2em;font-weight:700;width:fit-content}
+.B .btn:hover{background:var(--g);color:var(--k)}
+.B .list{padding:52px 52px 60px}
+.B .list .hd{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--k);padding-bottom:10px;margin-bottom:22px}
+.B .list h4{margin:0;font-size:22px;color:var(--k)}
+.B .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.B .p{border:1px solid var(--ln);background:#fff}
+.B .p .im{aspect-ratio:1/1;background:#f3f1ec center/cover no-repeat}
+.B .p .ft{padding:12px 14px 14px;border-top:1px solid var(--ln)}
+.B .p b{display:block;font-size:15px;color:var(--k);font-weight:600}
+.B .p span{font-size:13px;color:var(--g);font-weight:700}
+@media(max-width:760px){.B .head h2{font-size:30px}.B .nav{margin:0 16px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;gap:24px}.B .nav a{white-space:nowrap}.B .feat{grid-template-columns:1fr;margin:24px 16px 0}.B .feat .im{min-height:240px}.B .feat .tx{padding:26px 20px}.B .list{padding:40px 16px 44px}.B .prods{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+/* ===== 方案 C：Monochrome Bands 黑白分段 ===== */
+.C .band-k{background:var(--k);color:#fff;text-align:center;padding:64px 24px 58px}
+.C .band-k .eb{color:var(--gl)}
+.C .band-k h2{font-size:44px;margin:12px 0 0;letter-spacing:.06em}
+.C .band-k p{max-width:600px;margin:0 auto 28px;color:#cfcac0;line-height:1.9}
+.C .band-k .ln{display:inline-block;color:#fff;font-size:13px;letter-spacing:.2em;font-weight:700;border:1px solid var(--g);padding:13px 30px}
+.C .band-w{background:#fff;text-align:center;padding:56px 40px}
+.C .band-w h3{font-size:28px;margin:8px 0 0;color:var(--k)}
+.C .chips{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 18px;max-width:880px;margin:32px auto 0}
+.C .chip{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:14.5px;color:#555}
+.C .chip i{width:118px;height:118px;border-radius:50%;background:#ddd center/cover no-repeat;border:1px solid var(--ln);outline:1px solid transparent;outline-offset:5px;transition:.25s}
+.C .chip.on{color:var(--k);font-weight:700}
+.C .chip.on i{outline-color:var(--g)}
+.C .band-c{background:var(--cr);padding:54px 40px}
+.C .split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;max-width:1000px;margin:0 auto}
+.C .split .im{aspect-ratio:4/3;background:#ddd center/cover no-repeat}
+.C .split h4{font-size:28px;margin:8px 0 12px;color:var(--k)}
+.C .split p{margin:0 0 20px;line-height:1.9;color:#555}
+.C .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1000px;margin:40px auto 0}
+.C .p{background:#fff;text-align:center;padding:0 0 16px}
+.C .p .im{aspect-ratio:1/1;background:#eee center/cover no-repeat}
+.C .p b{display:block;margin:12px 10px 2px;font-size:14.5px;color:var(--k);font-weight:600}
+.C .p span{font-size:12.5px;color:var(--mu)}
+@media(max-width:760px){.C .band-k h2{font-size:30px}.C .band-w,.C .band-c{padding:42px 16px}.C .chips{gap:20px 10px}.C .chip{font-size:12.5px;gap:8px}.C .chip i{width:72px;height:72px;outline-offset:3px}.C .split{grid-template-columns:1fr;gap:20px}.C .prods{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+.cmp{max-width:1180px;margin:0 auto 60px;background:#fff;padding:22px;font-size:14px}
+.cmp table{width:100%;border-collapse:collapse}.cmp th,.cmp td{padding:10px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}.cmp th{background:var(--k);color:var(--gl);font-weight:600}
+</style>
+</head>
+<body>
+<div class="top">
+ <h1>18404 公司到會：簡約黑金白設計（3 個方案）</h1>
+ <p>參考 agnès b. CAFÉ &amp; FLEURISTE 的簡約風格：大量留白、細字距英文小標、幼線分隔、直身相片格、文字連結代替大按鈕。顏色只用黑、白、米白及少量金色。撳分類可試切換。</p>
+</div>
+
+<!-- A -->
+<section class="dir">
+ <div class="lab"><em>方案 A</em><b>Gallery Minimal 白色畫廊</b>白底為主，分類用直身 3:4 相片格（似 agnès b. 的 Explore / Discover 格），已選分類只加一條金色幼框及金底線。產品卡無框無底色，最乾淨。</div>
+ <div class="A">
+  <div class="hero"><div class="im" data-px="38958593"></div><div class="tx">
+   <span class="eb">Corporate Catering</span>
+   <h2 class="serif">一站式企業到會</h2><div class="rule"></div>
+   <p>由員工午餐、會議茶點，到年會及品牌活動，按人數及預算配搭餐盒、套餐及 Canapés，全港送貨。</p>
+   <a class="ul">查看套餐 →</a>
+  </div></div>
+  <div class="sec">
+   <span class="eb">Explore</span><h3 class="serif">請選擇公司或企業到會活動</h3><div class="rule"></div><p class="st"></p>
+   <div class="tiles" data-g="A"></div>
+  </div>
+  <div class="sec">
+   <span class="eb">Signature</span><h3 class="serif">推薦套餐及餐盒</h3><div class="rule"></div><p class="st">每人一盒至百人慶典</p>
+   <div class="prods" data-p="A"></div>
+  </div>
+ </div>
+</section>
+
+<!-- B -->
+<section class="dir">
+ <div class="lab"><em>方案 B</em><b>White Page, Black Line 白底黑線</b>頂部一條黑色資訊列，分類變成置中文字選單（黑色頂線、金色底線表示已選），下面一格左相右文的已選分類介紹。似高級品牌網店，資訊最清楚。</div>
+ <div class="B">
+  <div class="bar">全港送貨 · 滿 <span>HK$1,450</span> 免運費</div>
+  <div class="head"><span class="eb">Kitchen AO · Corporate Catering</span><h2 class="serif">香港公司到會</h2><div class="rule"></div><p>按人數及預算度身安排餐單，10 人部門午餐至 300 人公司聚會。</p></div>
+  <nav class="nav" data-g="B"></nav>
+  <div class="feat"><div class="im"></div><div class="tx"><span class="eb">Selected</span><h3 class="serif"></h3><p class="ds"></p><div class="meta"></div><a class="btn">查看餐單</a></div></div>
+  <div class="list"><div class="hd"><h4 class="serif">推薦套餐及餐盒</h4><a class="ul">查看全部 →</a></div><div class="prods" data-p="B"></div></div>
+ </div>
+</section>
+
+<!-- C -->
+<section class="dir">
+ <div class="lab"><em>方案 C</em><b>Monochrome Bands 黑白分段</b>黑、白、米白三段交替。黑色開場大標題，白色段用大圓形相片分類（已選加金色外圈），米白段放已選分類介紹及產品。保留現有圓形 tab 概念，但更簡約、更多留白。</div>
+ <div class="C">
+  <div class="band-k"><span class="eb">All Services</span><h2 class="serif">一站式企業到會</h2><div class="rule"></div><p>七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。</p><a class="ln">到會報價查詢</a></div>
+  <div class="band-w"><span class="eb">Choose your occasion</span><h3 class="serif">請選擇以下公司或企業到會活動</h3><div class="rule"></div><div class="chips" data-g="C"></div></div>
+  <div class="band-c"><div class="split"><div class="im"></div><div><span class="eb">Selected</span><h4 class="serif"></h4><p class="ds"></p><a class="ul">查看詳情 →</a></div></div><div class="prods" data-p="C"></div></div>
+ </div>
+</section>
+
+<div class="cmp"><table>
+ <tr><th></th><th>A 白色畫廊</th><th>B 白底黑線</th><th>C 黑白分段</th></tr>
+ <tr><td>感覺</td><td>最似 agnès b.，最空靈</td><td>高級網店，資訊清楚</td><td>黑金品牌感最強</td></tr>
+ <tr><td>分類 tab</td><td>直身相片格</td><td>置中文字選單</td><td>大圓形相片</td></tr>
+ <tr><td>相片需求</td><td>高（8 張直身相）</td><td>中（每類一張橫相）</td><td>中（8 張圓形＋介紹相）</td></tr>
+ <tr><td>同現有頁面改動</td><td>大</td><td>中</td><td>小至中（沿用圓形 tab）</td></tr>
+</table></div>
+
+<script>
+var U='https://aoaodelivery.com/wp-content/uploads/';
+function PX(i,w){return 'https://images.pexels.com/photos/'+i+'/pexels-photo-'+i+'.jpeg?auto=compress&cs=tinysrgb&w='+(w||600)}
+var S=[
+ {n:'全部',e:'All',px:31970816,d:'七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés。',m:[['10–300','人數'],['HK$108','每位起']]},
+ {n:'員工午餐',e:'Office Lunch',px:13065230,d:'商務餐盒每人一盒，日常午餐及部門聚餐都適用。',m:[['HK$108','每位起'],['10–100','人數']]},
+ {n:'會議餐飲',e:'Meeting',px:30507463,d:'早餐會議、會議午餐、下午茶及茶點。',m:[['HK$248','會議午餐起'],['10–100','人數']]},
+ {n:'培訓及研討會',e:'Training',px:38730067,d:'全日培訓一次過安排早上茶點、午餐及下午茶。',m:[['3 時段','分時送達'],['可多日','每日轉菜']]},
+ {n:'年會及團年飯',e:'Annual Dinner',px:14636170,d:'迎賓小食、熱盤主菜及甜品，配合年會流程。',m:[['HK$300','每位起'],['50–200+','人數']]},
+ {n:'公司聚會',e:'Company Party',px:24863059,d:'Team Building、員工生日會及家庭日，自助餐形式。',m:[['HK$300','每位起'],['30–300','人數']]},
+ {n:'Event 及 PR 活動',e:'Events',px:38958593,d:'產品發佈會及品牌活動，一口一件的 Canapés。',m:[['20–200+','人數'],['按餐單','報價']]},
+ {n:'機構活動',e:'Institutions',px:2291367,d:'學校、醫院及社福機構的講座及活動餐飲。',m:[['按人數','報價'],['素食','可配']]}
+];
+var PR=[
+ ['2025/04/CAB-Commercial-Meal-Lv2_%E9%A0%81%E9%9D%A2_1-1-724x1024-1.jpg','商務餐盒','每人一盒','HK$108 起'],
+ ['2024/07/SM-Staff-Meal-Lv1-724x1024.jpg','員工膳食餐盒 Staff Meal','大量訂購','查詢'],
+ ['2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg','美食派對 Gourmet 套餐','8 至 85 人','HK$1,988 起'],
+ ['2023/11/refreshmentparty-03-768x768.jpg','輕食宴會套餐 Refreshment','12 至 40 人','HK$2,688 起']
+];
+document.querySelectorAll('[data-px]').forEach(function(e){e.style.backgroundImage='url('+PX(e.dataset.px,1400)+')'});
+function bg(u){return 'background-image:url(\''+u+'\')'}
+document.querySelectorAll('[data-p]').forEach(function(w){var k=w.dataset.p;w.innerHTML=PR.map(function(p){var im='<div class="im" style="'+bg(U+p[0])+'"></div>';
+ if(k=='A')return '<div class="p">'+im+'<b>'+p[1]+'</b><span>'+p[2]+'</span><i>'+p[3]+'</i></div>';
+ if(k=='B')return '<div class="p">'+im+'<div class="ft"><b>'+p[1]+'</b><span>'+p[3]+'</span></div></div>';
+ return '<div class="p">'+im+'<b>'+p[1]+'</b><span>'+p[2]+'｜'+p[3]+'</span></div>';}).join('')});
+function bind(g,mk,render){var w=document.querySelector('[data-g="'+g+'"]');w.innerHTML=S.map(mk).join('');var it=w.children;[].forEach.call(it,function(x,i){x.onclick=function(){[].forEach.call(it,function(y){y.classList.remove('on')});x.classList.add('on');render&&render(S[i])}});it[0].classList.add('on');render&&render(S[0]);}
+bind('A',function(s){return '<div class="tile"><div class="im" style="'+bg(PX(s.px))+'"></div><div class="eb">'+s.e+'</div><b>'+s.n+'</b></div>'},function(s){document.querySelector('.A .sec .st').textContent=s.d});
+var fb=document.querySelector('.B .feat');
+bind('B',function(s){return '<a>'+s.n+'</a>'},function(s){fb.querySelector('.im').style.backgroundImage='url('+PX(s.px,1000)+')';fb.querySelector('h3').textContent=s.n=='全部'?'一站式企業到會':s.n;fb.querySelector('.ds').textContent=s.d;fb.querySelector('.meta').innerHTML=s.m.map(function(m){return '<div><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'}).join('')});
+var fc=document.querySelector('.C .split');
+bind('C',function(s){return '<div class="chip"><i style="'+bg(PX(s.px,300))+'"></i>'+s.n+'</div>'},function(s){fc.querySelector('.im').style.backgroundImage='url('+PX(s.px,1000)+')';fc.querySelector('h4').textContent=s.n=='全部'?'一站式企業到會':s.n;fc.querySelector('.ds').textContent=s.d});
+</script>
+</body>
+</html>

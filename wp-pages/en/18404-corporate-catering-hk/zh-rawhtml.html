@@ -1,4 +1,4 @@
-<div class="ao-corp">
+<div class="ao-corp ao-n">
 <style>
 .page-id-18404 h1.heading-title{word-break:keep-all;text-wrap:balance;}
 .ao-corp{max-width:860px;margin:0 auto;padding-top:28px;color:#3A342B;font-size:16px;line-height:1.8;}
@@ -178,27 +178,154 @@
 /* v16：產品卡名稱貼近金線（上方對齊） */
 .ao-corp .ao-scard .ft{align-items:flex-start !important;padding:14px 14px 16px !important;}
 .ao-corp .ao-scard .buy{align-self:flex-start;margin-top:1px;}
+
+/* v23：圖片 tab（方案 3）＋一站式橫幅在上 */
+.ao-corp .ao-tabwrap{background:#141210;border-radius:18px;padding:14px 14px 18px;margin:26px 0 0;}
+.ao-corp .ao-bn{position:relative;border-radius:14px;overflow:hidden;min-height:240px;background:#222 center/cover no-repeat;display:flex;align-items:flex-end;}
+.ao-corp .ao-bn:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,16,.93) 0%,rgba(20,18,16,.6) 55%,rgba(20,18,16,.15) 100%);}
+.ao-corp .ao-bn .in{position:relative;padding:28px 30px;max-width:560px;}
+.ao-corp .ao-bn .mk{display:block;font-size:11.5px;letter-spacing:.3em;font-weight:800;color:#C8A24A;margin:0 0 6px;}
+.ao-corp .ao-bn .tt{margin:0 0 8px !important;font-size:26px;font-weight:900;line-height:1.3;color:#fff !important;}
+.ao-corp .ao-bn .ds{margin:0 0 14px !important;font-size:15px;line-height:1.75;color:#DCD3C2 !important;}
+.ao-corp .ao-bn .tg{display:flex;flex-wrap:wrap;gap:8px;}
+.ao-corp .ao-bn .tg span{border:1px solid #C8A24A;color:#E9D7A5;border-radius:20px;padding:3px 12px;font-size:12.5px;line-height:1.6;}
+.ao-corp .ao-tabwrap .ao-tabtip{display:block;text-align:center;color:#fff !important;font-size:19px;font-weight:800;letter-spacing:.06em;margin:22px 0 14px !important;padding:0;border:0;}
+.ao-corp .ao-tabwrap .ao-tabs{display:grid !important;gap:10px !important;background:none !important;padding:0 !important;border-radius:0;}
+.ao-corp .ao-tabwrap .ao-tabs a.t{flex-direction:column !important;gap:8px;min-height:0 !important;padding:12px 6px 13px !important;border:1px solid #33302b !important;border-radius:16px;background:#1c1915;color:#EDE6D6 !important;font-size:13.5px !important;font-weight:600 !important;letter-spacing:.02em !important;line-height:1.35 !important;white-space:normal !important;text-align:center;transition:border-color .2s,background .2s;}
+.ao-corp .ao-tabwrap .ao-tabs a.t .ic{display:block;width:60px;height:60px;border-radius:50%;background:#333 center/cover no-repeat;border:2px solid #3a3226;flex:0 0 auto;transition:.2s;}
+.ao-corp .ao-tabwrap .ao-tabs a.t:hover{border-color:#6b5a38 !important;color:#F7E3A8 !important;}
+.ao-corp .ao-tabwrap .ao-tabs a.t.on{border-color:#C8A24A !important;background:#2B2622;color:#F7E3A8 !important;font-weight:800 !important;}
+.ao-corp .ao-tabwrap .ao-tabs a.t.on .ic{border-color:#C8A24A;box-shadow:0 0 12px rgba(200,162,74,.55);}
+.ao-corp .ao-tabwrap .ao-tabs a.t:before,.ao-corp .ao-tabwrap .ao-tabs a.t.on:before,.ao-corp .ao-tabwrap .ao-tabs a.t:after,.ao-corp .ao-tabwrap .ao-tabs a.t.on:after{display:none !important;content:none !important;}
+.ao-corp .ao-tabwrap .ao-tabs br{display:none;}
+@media(max-width:768px){.ao-corp .ao-tabwrap{padding:10px 10px 14px;border-radius:16px;}.ao-corp .ao-bn{min-height:210px;}.ao-corp .ao-bn:before{background:linear-gradient(0deg,rgba(20,18,16,.95) 0%,rgba(20,18,16,.6) 60%,rgba(20,18,16,.2) 100%);}.ao-corp .ao-bn .in{padding:22px 18px;}.ao-corp .ao-bn .tt{font-size:22px;}.ao-corp .ao-bn .ds{font-size:14px;}.ao-corp .ao-tabwrap .ao-tabtip{font-size:16.5px;margin:18px 0 12px !important;}.ao-corp .ao-tabwrap .ao-tabs{gap:8px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{font-size:12.5px !important;padding:10px 4px 11px !important;gap:6px;border-radius:14px;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:56px;height:56px;}}
+@media(max-width:380px){.ao-corp .ao-tabwrap .ao-tabs{gap:6px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{font-size:12px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:50px;height:50px;}}
+.ao-corp .ao-bn .ds{margin:0 !important;}
+.ao-corp .ao-tabwrap .ao-tabs{gap:12px !important;}
+.ao-corp .ao-tabwrap .ao-tabs a.t{gap:12px;padding:18px 8px 16px !important;font-size:15.5px !important;border-radius:18px;}
+.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:104px;height:104px;border-width:3px;}
+@media(max-width:768px){.ao-corp .ao-tabwrap .ao-tabs{gap:8px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{gap:7px;padding:10px 3px 11px !important;font-size:12.5px !important;border-radius:14px;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:64px;height:64px;border-width:2px;}}
+@media(max-width:380px){.ao-corp .ao-tabwrap .ao-tabs{gap:6px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t{font-size:12px !important;}.ao-corp .ao-tabwrap .ao-tabs a.t .ic{width:56px;height:56px;}}
+/* v25：所有產品卡相片統一填滿正方形（cover） */
+.ao-corp .ao-scard .im,.ao-corp .ao-scard.fill .im{padding:0 !important;background:#1f1a15 !important;}
+.ao-corp .ao-scard .im img,.ao-corp .ao-scard.fill .im img{width:100% !important;height:100% !important;object-fit:cover !important;object-position:center !important;border-radius:0 !important;}
+/* v26：正方形相框鎖死高度，相片絕對定位填滿 */
+.ao-corp .ao-scard .im,.ao-corp .ao-scard.fill .im{position:relative !important;display:block !important;width:100% !important;height:0 !important;padding:0 0 100% !important;aspect-ratio:auto !important;overflow:hidden !important;flex:0 0 auto !important;}
+.ao-corp .ao-scard .im img,.ao-corp .ao-scard.fill .im img{position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important;max-width:none !important;object-fit:cover !important;object-position:center !important;}
+.ao-corp .ao-scard .im br,.ao-corp .ao-scard .im p{display:none !important;}
+/* v27：活動現場服務（原 KV 兩張相） */
+.ao-corp .ao-onsite{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center;background:#FAF7F1;border:1px solid #EADFC8;border-radius:20px;padding:26px;margin:44px 0 10px;}
+.ao-corp .ao-onsite .ph{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ao-corp .ao-onsite .ph img{display:block;width:100% !important;height:auto !important;aspect-ratio:3/4;object-fit:cover;border-radius:14px !important;margin:0 !important;}
+.ao-corp .ao-onsite .ph img.k1{object-position:50% 30%;}
+.ao-corp .ao-onsite .ph img.k2{object-position:50% 55%;margin-top:28px !important;}
+.ao-corp .ao-onsite .eb{font-size:12px;font-weight:800;letter-spacing:.3em;color:#9A7B2E;margin:0 0 2px !important;}
+.ao-corp .ao-onsite h2{margin:10px 0 12px !important;}
+.ao-corp .ao-onsite .tx>p{margin:0 0 14px !important;line-height:1.85;}
+.ao-corp .ao-onsite ul{list-style:none !important;margin:0 0 18px !important;padding:0 !important;display:grid;gap:10px;}
+.ao-corp .ao-onsite li{display:grid;grid-template-columns:38px 1fr;column-gap:10px;align-items:start;background:#fff;border:1px solid #EFE6D3;border-radius:12px;padding:11px 14px;margin:0 !important;}
+.ao-corp .ao-onsite li .n{grid-row:1 / span 2;width:34px;height:34px;border-radius:50%;background:#1A1A1A;color:#C8A24A;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.ao-corp .ao-onsite li b{color:#1A1A1A;font-size:15.5px;line-height:1.5;}
+.ao-corp .ao-onsite li .d{font-size:14px;line-height:1.65;color:#5d534d;}
+.ao-corp .ao-onsite .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.ao-corp .ao-onsite .btns a{display:inline-block;padding:11px 22px;border-radius:40px;font-size:14.5px;font-weight:800;text-decoration:none !important;}
+.ao-corp .ao-onsite .b1{background:#1A1A1A;color:#F7CE46 !important;}
+.ao-corp .ao-onsite .b2{border:1.5px solid #1A1A1A;color:#1A1A1A !important;}
+.ao-corp .ao-onsite br{display:none;}
+@media(max-width:768px){.ao-corp .ao-onsite{grid-template-columns:1fr;gap:20px;padding:16px;border-radius:16px;margin:36px 0 8px;}.ao-corp .ao-onsite .ph{gap:8px;}.ao-corp .ao-onsite .ph img.k2{margin-top:18px !important;}.ao-corp .ao-onsite .btns a{flex:1;text-align:center;padding:11px 12px;}}
+
+/* ===== v29：方案 C 黑白分段＋Nourish 式內容（字體沿用網站原有字體） ===== */
+.ao-corp.ao-n{--ln:#E6E1D8;--mu:#8A8378;}
+.ao-corp.ao-n .ao-tabwrap{background:#fff !important;padding:0 0 8px !important;border-radius:0 !important;margin:26px 0 0 !important;}
+.ao-corp.ao-n .ao-bn{background:#141414 !important;background-image:none !important;min-height:0 !important;border-radius:18px;justify-content:center;text-align:center;}
+.ao-corp.ao-n .ao-bn:before{display:none !important;}
+.ao-corp.ao-n .ao-bn .in{max-width:640px;padding:54px 26px 50px !important;margin:0 auto;}
+.ao-corp.ao-n .ao-bn .mk{color:#D9C48A !important;font-size:11.5px;letter-spacing:.34em;margin:0 0 10px;}
+.ao-corp.ao-n .ao-bn .tt{font-size:34px !important;font-weight:800 !important;letter-spacing:.06em;margin:0 !important;}
+.ao-corp.ao-n .ao-bn .tt:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:18px auto;}
+.ao-corp.ao-n .ao-bn .ds{color:#CFCAC0 !important;font-size:15.5px !important;line-height:1.9 !important;}
+.ao-corp.ao-n .ao-bn .go{display:inline-block;margin-top:22px;border:1px solid #C8A24A;color:#fff !important;font-size:13.5px;letter-spacing:.16em;font-weight:700;padding:12px 28px;text-decoration:none !important;transition:.2s;}
+.ao-corp.ao-n .ao-bn .go:hover{background:#C8A24A;color:#141414 !important;}
+.ao-corp.ao-n .ao-tabeb{display:block;text-align:center;font-size:11px;letter-spacing:.32em;color:var(--mu);margin:48px 0 6px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabtip{color:#141414 !important;font-size:24px !important;font-weight:800 !important;margin:0 0 6px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabtip:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:16px auto 30px;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs{gap:30px 14px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t,.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on,.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t:hover{border:0 !important;background:none !important;border-radius:0 !important;padding:4px 2px !important;gap:12px !important;font-size:15px !important;color:#555 !important;font-weight:500 !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on{color:#141414 !important;font-weight:800 !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:122px !important;height:122px !important;border:1px solid var(--ln) !important;box-shadow:none !important;outline:1.5px solid transparent;outline-offset:6px;transition:outline-color .2s,transform .2s;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t:hover .ic{transform:scale(1.03);}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on .ic{outline-color:#C8A24A;}
+/* 分頁標題列：左大圖＋右文字 */
+.ao-corp.ao-n .ao-nhead{display:grid;grid-template-columns:1fr 1.1fr;gap:46px;align-items:center;margin:56px 0 10px;}
+.ao-corp.ao-n .ao-nhead .ph{aspect-ratio:4/5;border-radius:18px;background:#eee center/cover no-repeat;}
+.ao-corp.ao-n .ao-nhead .eb{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mu);margin:0 0 2px !important;}
+.ao-corp.ao-n .ao-nhead h2{margin:14px 0 16px !important;font-size:27px;line-height:1.4;}
+.ao-corp.ao-n .ao-nhead p{line-height:1.95;color:#4a4540;margin:0 0 12px !important;}
+.ao-corp.ao-n .ao-nhead .go{display:inline-block;margin-top:10px;font-size:13.5px;letter-spacing:.16em;font-weight:800;color:#141414 !important;border-bottom:1px solid #141414;padding-bottom:3px;text-decoration:none !important;}
+.ao-corp.ao-n .ao-pane h3{font-size:20px;font-weight:800;margin:46px 0 14px !important;}
+/* 清單：幼線分隔（無左邊線） */
+.ao-corp.ao-n .ao-pane ul{list-style:none !important;padding:0 !important;margin:0 0 18px !important;border-top:1px solid var(--ln);}
+.ao-corp.ao-n .ao-pane ul li{position:relative;padding:14px 0 14px 26px !important;margin:0 !important;border-bottom:1px solid var(--ln);line-height:1.8;}
+.ao-corp.ao-n .ao-pane ul li:before{content:"";position:absolute;left:4px;top:25px;width:7px;height:7px;border-radius:50%;background:#C8A24A;}
+/* 產品 slider：Signature dishes 式 */
+.ao-corp.ao-n .ao-shelf{background:none !important;border:0 !important;padding:0 !important;margin:40px 0 0 !important;border-radius:0 !important;}
+.ao-corp.ao-n .ao-shelf-t{color:#141414 !important;font-size:22px !important;text-align:center;margin:0 0 4px !important;}
+.ao-corp.ao-n .ao-shelf-t:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:12px auto 0;}
+.ao-corp.ao-n .ao-shelf-d{color:var(--mu) !important;text-align:center;margin:12px 0 20px !important;}
+.ao-corp.ao-n .ao-slider{gap:18px !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard{flex:0 0 230px !important;background:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;overflow:visible !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .im{border-radius:16px !important;border:0 !important;background:#F3F0EA !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard:hover .im img{transform:scale(1.04);}
+.ao-corp.ao-n .ao-shelf .ao-scard .im img{transition:transform .4s;}
+.ao-corp.ao-n .ao-shelf .ao-scard .ft{padding:12px 2px 4px !important;display:block !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .nm{color:#141414 !important;font-weight:700 !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .pr{color:#9A7B2E !important;}
+.ao-corp.ao-n .ao-shelf .ao-scard .buy{display:inline-block !important;margin-top:8px;background:none !important;color:#141414 !important;border:0 !important;border-bottom:1px solid #141414 !important;border-radius:0 !important;padding:0 0 2px !important;font-size:13px !important;font-weight:700;box-shadow:none !important;}
+.ao-corp.ao-n .ao-sl-btn{background:#fff !important;color:#141414 !important;border:1px solid var(--ln) !important;box-shadow:0 4px 14px rgba(0,0,0,.08);top:96px !important;}
+.ao-corp.ao-n .ao-btn-gold{background:#141414 !important;border-color:#141414 !important;color:#fff !important;border-radius:0 !important;letter-spacing:.12em;}
+.ao-corp.ao-n .ao-btn-gold:hover{background:#C8A24A !important;border-color:#C8A24A !important;color:#141414 !important;}
+/* 度身訂製：全幅相片 CTA 橫幅 */
+.ao-corp.ao-n .ao-cust{position:relative;display:block !important;background:#141414 !important;border:0 !important;border-radius:18px !important;text-align:center;margin:46px 0 18px !important;}
+.ao-corp.ao-n .ao-cust .ph{position:absolute !important;inset:0;min-height:0 !important;}
+.ao-corp.ao-n .ao-cust:after{content:"";position:absolute;inset:0;background:rgba(15,13,11,.68);}
+.ao-corp.ao-n .ao-cust .tx{position:relative;z-index:1;padding:56px 26px !important;max-width:620px;margin:0 auto;align-items:center;}
+.ao-corp.ao-n .ao-cust .eb{color:#D9C48A !important;}
+.ao-corp.ao-n .ao-cust .t{color:#fff !important;font-size:26px !important;}
+.ao-corp.ao-n .ao-cust .d{color:#E4DED3 !important;}
+.ao-corp.ao-n .ao-cust .d a{color:#D9C48A !important;}
+.ao-corp.ao-n .ao-cust .btns{justify-content:center;}
+.ao-corp.ao-n .ao-cust .b1{background:#C8A24A !important;color:#141414 !important;border-radius:0 !important;}
+.ao-corp.ao-n .ao-cust .b2{border:1px solid #fff !important;color:#fff !important;border-radius:0 !important;}
+@media(max-width:768px){
+.ao-corp.ao-n .ao-bn .in{padding:40px 18px 36px !important;}.ao-corp.ao-n .ao-bn .tt{font-size:26px !important;}
+.ao-corp.ao-n .ao-tabeb{margin:36px 0 4px !important;}.ao-corp.ao-n .ao-tabwrap .ao-tabtip{font-size:19px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs{gap:22px 6px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t,.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t.on{font-size:12.5px !important;gap:9px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:72px !important;height:72px !important;outline-offset:4px;}
+.ao-corp.ao-n .ao-nhead{grid-template-columns:1fr;gap:22px;margin:40px 0 6px;}.ao-corp.ao-n .ao-nhead .ph{aspect-ratio:4/3;}.ao-corp.ao-n .ao-nhead h2{font-size:22px;}
+.ao-corp.ao-n .ao-shelf .ao-scard{flex-basis:64% !important;}.ao-corp.ao-n .ao-sl-btn{top:30% !important;}
+.ao-corp.ao-n .ao-cust .tx{padding:40px 18px !important;}.ao-corp.ao-n .ao-cust .t{font-size:21px !important;}}
+@media(max-width:380px){.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:62px !important;height:62px !important;}}
 </style>
 
 <p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>
 
-<div class="ao-kv"><img class="k1" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="Kitchen AO 團隊在公司活動現場準備到會食物" width="600" height="300" /><img class="k2" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2023/11/IMG_2358.jpg" alt="Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點" width="600" height="300" /></div>
-<style>.ao-corp .ao-tabs a.t{border-bottom:0 !important;border-top:1px solid #33302b;}@media(min-width:769px){.ao-corp .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a.d1{border-top:0;}}@media(max-width:768px){.ao-corp .ao-tabs{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a.m1{border-top:0;}}</style>
-<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:8" aria-label="公司到會目錄">
-<div class="main"><span class="mk">ALL SERVICES</span>一站式企業到會</div>
-<span class="ao-tabtip">請選擇以下公司或企業到會活動</span>
-<a href="#overview" class="t d1 m1 on">全部</a>
-<a href="#office-lunch" class="t d1 m1">員工午餐</a>
-<a href="#meeting" class="t d1">會議餐飲</a>
-<a href="#training" class="t d1">培訓及研討會</a>
-<a href="#annual-dinner" class="t">年會及團年飯</a>
-<a href="#festive" class="t">公司聚會</a>
-<a href="#business-event" class="t">Event 及 PR 活動</a>
-<a href="#institutions" class="t">機構活動</a>
+<style>@media(min-width:769px){.ao-corp .ao-tabwrap .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}}@media(max-width:768px){.ao-corp .ao-tabwrap .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}}</style>
+<div class="ao-tabwrap">
+<div class="ao-bn" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=1600')"><div class="in"><p class="tt"><span class="mk">ALL SERVICES</span>一站式企業到會</p><p class="ds">七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div>
+<p class="ao-tabeb">CHOOSE YOUR OCCASION</p><p class="ao-tabtip">請選擇以下公司或企業到會活動</p>
+<nav class="ao-tabs" style="--n:8" aria-label="公司到會目錄">
+<a href="#overview" class="t on"><span class="ic" style="background-image:url('https://images.pexels.com/photos/31970816/pexels-photo-31970816.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>全部</a>
+<a href="#office-lunch" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/13065230/pexels-photo-13065230.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>員工午餐</a>
+<a href="#meeting" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/30507463/pexels-photo-30507463.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>會議餐飲</a>
+<a href="#training" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/38730067/pexels-photo-38730067.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>培訓及研討會</a>
+<a href="#annual-dinner" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/14636170/pexels-photo-14636170.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>年會及團年飯</a>
+<a href="#festive" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/24863059/pexels-photo-24863059.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>公司聚會</a>
+<a href="#business-event" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>Event 及 PR 活動</a>
+<a href="#institutions" class="t"><span class="ic" style="background-image:url('https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop')" aria-hidden="true"></span>機構活動</a>
 </nav></div>
 <section class="ao-pane" id="overview">
-<h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
-<p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會），涵蓋七類活動：日常員工午餐、會議餐飲（早餐、午餐、下午茶及茶點）、全日培訓及研討會、年會、春茗及團年飯、公司聚會及員工活動、Event 及 PR 活動，以及學校、醫院及社福機構活動。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/31970816/pexels-photo-31970816.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">All Services</p><h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2><p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會），涵蓋七類活動：日常員工午餐、會議餐飲（早餐、午餐、下午茶及茶點）、全日培訓及研討會、年會、春茗及團年飯、公司聚會及員工活動、Event 及 PR 活動，以及學校、醫院及社福機構活動。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <p>一張訂單可按活動需要，配搭不同的套餐及餐盒：每人一盒的餐盒方便派發，適合午餐、會議及培訓；分享式到會套餐以熱盤主菜、小食、沙律及甜品組成，適合年會、公司聚會及員工活動；Canapés 及 Finger Food 則適合 Event 及酒會等站立形式的場合。另有素食套餐照顧不同飲食需要。</p>
 <div class="ao-shelf"><p class="ao-shelf-t">推薦套餐及餐盒</p><p class="ao-shelf-d">由 1 人一盒到 100 人慶典，按人數及活動形式選擇。</p><div class="ao-slwrap"><button type="button" class="ao-sl-btn prev" aria-label="上一個">‹</button><div class="ao-slider"><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/commercial-lunch-box/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/CAB-Commercial-Meal-Lv2_頁面_1-1-724x1024-1.jpg" width="600" height="600" loading="lazy" alt="商務餐盒｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">商務餐盒</span><span class="pr">每人一盒｜HK$108 起</span></span><span class="buy">選購</span></span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/executive-premium-meal-box/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/螢幕截圖-2026-10-17-下午5.20.52.png" width="600" height="600" loading="lazy" alt="高級餐盒｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">高級餐盒</span><span class="pr">會議及貴賓｜HK$248 起</span></span><span class="buy">選購</span></span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/staff-meal/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2024/07/SM-Staff-Meal-Lv1-724x1024.jpg" width="600" height="600" loading="lazy" alt="員工膳食餐盒 Staff Meal｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">員工膳食餐盒 Staff Meal</span><span class="pr">大量訂購</span></span><span class="buy">選購</span></span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/商務活動/royal-snackers-box/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/Royal-Snacks-Box-768x543.jpg" width="600" height="600" loading="lazy" alt="皇家小食盒｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">皇家小食盒</span><span class="pr">茶點及小休</span></span><span class="buy">選購</span></span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-768x542.jpeg" width="600" height="600" loading="lazy" alt="舌尖上的餐桌九宮格 Canapés｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">舌尖上的餐桌九宮格 Canapés</span><span class="pr">Event 及迎賓</span></span><span class="buy">選購</span></span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/foot-party/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" width="600" height="600" loading="lazy" alt="美食派對 Gourmet 套餐｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">美食派對 Gourmet 套餐</span><span class="pr">8 至 85 人｜HK$1,988 起</span></span><span class="buy">選購</span></span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/refreshment-set/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/refreshmentparty-03-768x768.jpg" width="600" height="600" loading="lazy" alt="輕食宴會套餐 Refreshment｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">輕食宴會套餐 Refreshment</span><span class="pr">12 至 40 人｜HK$2,688 起</span></span><span class="buy">選購</span></span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product/ao100set/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg" width="600" height="600" loading="lazy" alt="百人慶典派對到會套餐｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">百人慶典派對到會套餐</span><span class="pr">100 人｜HK$13,800</span></span><span class="buy">選購</span></span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" width="600" height="600" loading="lazy" alt="「素」味人生素食套餐｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">「素」味人生素食套餐</span><span class="pr">6 至 26 人｜HK$1,388 起</span></span><span class="buy">選購</span></span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/party/meat-monster/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-768x512.jpeg" width="600" height="600" loading="lazy" alt="肉食獸上將海港之選｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">肉食獸上將海港之選</span><span class="pr">7 至 11 人｜HK$1,888 起</span></span><span class="buy">選購</span></span></a><a class="ao-scard" href="https://aoaodelivery.com/product/5-people-self-selected-platter/" target="_blank" rel="noopener"><span class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png" width="600" height="600" loading="lazy" alt="5 人自選拼盤｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">5 人自選拼盤</span><span class="pr">小型聚會｜HK$498</span></span><span class="buy">選購</span></span></a></div><button type="button" class="ao-sl-btn next" aria-label="下一個">›</button></div></div><a class="ao-btn-gold" href="https://aoaodelivery.com/product-category/party-set-by-people/" target="_blank" rel="noopener">按人數查看全部套餐</a>
 <p>以上套餐可再加配單點菜式，以及<a href="https://aoaodelivery.com/飲品及雞尾酒服務/">飲品及雞尾酒服務</a>、<a href="https://aoaodelivery.com/product-category/party-supplies/thin-crust-pizza/">餐具及暖貼</a>；大型活動亦可安排侍應服務。如需度身訂製餐單，歡迎提出。</p>
@@ -227,8 +354,7 @@
 </ul>
 </section>
 <section class="ao-pane" id="office-lunch">
-<h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2>
-<p>員工午餐到會以每人一盒的餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/13065230/pexels-photo-13065230.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Office Lunch</p><h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2><p>員工午餐到會以每人一盒的餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>推薦餐盒及套餐</h3>
 <ul>
 <li><a href="https://aoaodelivery.com/product-category/商務活動/commercial-lunch-box/">商務餐盒</a>：每位 HK$108 起，多款主菜選擇，每人一盒</li>
@@ -242,8 +368,7 @@
 <p>客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>
 </section>
 <section class="ao-pane" id="meeting">
-<h2>會議餐飲：早餐會議、會議午餐、下午茶及茶點到會</h2>
-<p>會議餐飲按時段可分為早餐、午餐及會議中段的茶點。Kitchen AO 可按會議時間安排送達：會議午餐每位 HK$248 起；下午茶及茶點到會可選輕食宴會套餐，12 至 16 人 HK$2,688 起。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/30507463/pexels-photo-30507463.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Meeting</p><h2>會議餐飲：早餐會議、會議午餐、下午茶及茶點到會</h2><p>會議餐飲按時段可分為早餐、午餐及會議中段的茶點。Kitchen AO 可按會議時間安排送達：會議午餐每位 HK$248 起；下午茶及茶點到會可選輕食宴會套餐，12 至 16 人 HK$2,688 起。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>早餐會議 Breakfast Meeting</h3>
 <p>早上會議或培訓開始前，可安排<a href="https://aoaodelivery.com/product-category/商務活動/royal-snackers-box/">皇家小食盒</a>或小食拼盤，於會議開始前送達，方便與會者一邊交流一邊享用。</p>
 <h3>會議午餐 Meeting Lunch：每位 HK$248 起</h3>
@@ -262,8 +387,7 @@
 <div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url('https://images.pexels.com/photos/30507463/pexels-photo-30507463.jpeg?auto=compress&cs=tinysrgb&w=800')"></div><div class="tx"><p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">早餐菜式、茶點款式及份量，均可按會議人數及時段調整；如有特別要求，歡迎透過 <a href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a> 提出。</p><div class="btns"><a class="b1" href="https://wa.me/85269011987?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a><a class="b2" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div></div>
 </section>
 <section class="ao-pane" id="training">
-<h2>培訓、研討會及工作坊到會：全日活動餐飲一次安排</h2>
-<p>全日培訓、研討會、講座及工作坊（Training Day、Seminar、Workshop），可一次過安排早上茶點、午餐及下午茶，由同一張訂單分時段送達，毋須分開訂購。提供日程及人數後，客服會按時段配搭餐單。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/38730067/pexels-photo-38730067.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Training &amp; Seminar</p><h2>培訓、研討會及工作坊到會：全日活動餐飲一次安排</h2><p>全日培訓、研討會、講座及工作坊（Training Day、Seminar、Workshop），可一次過安排早上茶點、午餐及下午茶，由同一張訂單分時段送達，毋須分開訂購。提供日程及人數後，客服會按時段配搭餐單。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>推薦全日餐飲配搭</h3>
 <div class="ao-tblwrap"><table>
 <thead><tr><th>時段</th><th>建議安排</th><th>推薦套餐或餐盒</th></tr></thead>
@@ -279,8 +403,7 @@
 <p class="ao-note">建議提前確認場地擺放食物的位置及各時段的開始時間，以便安排送達。</p>
 </section>
 <section class="ao-pane" id="annual-dinner">
-<h2>年會、春茗及團年飯到會：Annual Dinner、公司開年飯一次安排</h2>
-<p>每年 12 月至農曆新年，是公司年會、頒獎晚宴、春茗（Spring Dinner）及團年飯最密集的時段。可按人數及形式，先選擇合適的到會套餐，再加配單點菜式，50 至 200 人以上的年會到會每位 HK$300 起。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/14636170/pexels-photo-14636170.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Annual Dinner</p><h2>年會、春茗及團年飯到會：Annual Dinner、公司開年飯一次安排</h2><p>每年 12 月至農曆新年，是公司年會、頒獎晚宴、春茗（Spring Dinner）及團年飯最密集的時段。可按人數及形式，先選擇合適的到會套餐，再加配單點菜式，50 至 200 人以上的年會到會每位 HK$300 起。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>推薦年會套餐</h3>
 <ul>
 <li><a href="https://aoaodelivery.com/product-category/party/foot-party/">美食派對 Gourmet 套餐</a>：熱盤主菜為主，8 至 85 人，適合團年飯及開年飯</li>
@@ -297,8 +420,7 @@
 <div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url('https://aoaodelivery.com/wp-content/uploads/2023/12/20221114_AOKitchen_-321-1024x1024.jpg')"></div><div class="tx"><p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">可加入中式菜式、按主題配搭擺盤，或安排侍應服務及<a href="https://aoaodelivery.com/飲品及雞尾酒服務/">飲品及雞尾酒服務</a>。人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再透過 <a href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a> 提出要求。</p><div class="btns"><a class="b1" href="https://wa.me/85269011987?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a><a class="b2" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div></div>
 </section>
 <section class="ao-pane" id="festive">
-<h2>公司聚會及員工活動到會：Company Party、Team Building 及員工慶祝</h2>
-<p>公司聚會及員工活動（Company Party &amp; Staff Events）到會多採用自助餐形式，賓客可隨意取用，適合 30 至 300 人，每位 HK$300 起。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/24863059/pexels-photo-24863059.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Company Party</p><h2>公司聚會及員工活動到會：Company Party、Team Building 及員工慶祝</h2><p>公司聚會及員工活動（Company Party &amp; Staff Events）到會多採用自助餐形式，賓客可隨意取用，適合 30 至 300 人，每位 HK$300 起。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>推薦聚會套餐</h3>
 <ul>
 <li><a href="https://aoaodelivery.com/product-category/party/foot-party/">美食派對 Gourmet 套餐</a>：按人數由 8 人至 85 人選擇，適合 Team Building 及公司派對</li>
@@ -316,8 +438,7 @@
 <div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url('https://images.pexels.com/photos/24863059/pexels-photo-24863059.jpeg?auto=compress&cs=tinysrgb&w=800')"></div><div class="tx"><p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">生日會、迎新及慶功可加入<a href="https://aoaodelivery.com/blog/laser-printed-food-party/">激光打印食物</a>，把公司 Logo 或祝福字句印在食物上；亦可訂製<a href="https://aoaodelivery.com/客製化紀念品訂製服務/">客製化紀念品</a>。歡迎透過 <a href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a> 提出。</p><div class="btns"><a class="b1" href="https://wa.me/85269011987?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a><a class="b2" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div></div>
 </section>
 <section class="ao-pane" id="business-event">
-<h2>Event 及 PR 活動到會：產品發佈會、記者會及品牌活動</h2>
-<p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕（Product Launch、Press Event、Brand Event），多以站立形式進行，賓客邊走邊交流，一口一件的 Canapés 及 Finger Food 最合適。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Events &amp; PR</p><h2>Event 及 PR 活動到會：產品發佈會、記者會及品牌活動</h2><p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕（Product Launch、Press Event、Brand Event），多以站立形式進行，賓客邊走邊交流，一口一件的 Canapés 及 Finger Food 最合適。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>推薦活動套餐及小食盒</h3>
 <ul>
 <li><a href="https://aoaodelivery.com/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/">舌尖上的餐桌九宮格 Canapés</a>：每人一盒，適合傳媒及嘉賓</li>
@@ -329,8 +450,7 @@
 <div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url('https://images.pexels.com/photos/38958593/pexels-photo-38958593.jpeg?auto=compress&cs=tinysrgb&w=800')"></div><div class="tx"><p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">可按品牌主題配搭擺盤，或以<a href="https://aoaodelivery.com/blog/laser-printed-food-party/">激光打印</a>把品牌 Logo 印在食物上，配合拍照及傳媒報道。酒會、開張及其他商務活動，詳情可參考<a href="https://aoaodelivery.com/business-event/">商務活動</a>。</p><div class="btns"><a class="b1" href="https://wa.me/85269011987?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a><a class="b2" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div></div>
 </section>
 <section class="ao-pane" id="institutions">
-<h2>機構活動到會：學校、醫院及社福機構（Schools, Hospitals &amp; NGOs）</h2>
-<p>除了企業，學校、醫院、診所、社福機構及政府部門亦經常需要到會。這類活動的人數、時間及場地各有不同，可先選擇合適的套餐或餐盒，再按需要加配：</p>
+<div class="ao-nhead"><div class="ph" role="img" aria-label="Kitchen AO 團隊在公司活動現場準備到會食物" style="background-image:url('https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=900')"></div><div class="tx"><p class="eb">Institutions</p><h2>機構活動到會：學校、醫院及社福機構（Schools, Hospitals &amp; NGOs）</h2><p>除了企業，學校、醫院、診所、社福機構及政府部門亦經常需要到會。這類活動的人數、時間及場地各有不同，可先選擇合適的套餐或餐盒，再按需要加配：</p><a class="go" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢 →</a></div></div>
 <h3>學校到會：家長日、開放日、畢業禮及教職員聚餐</h3>
 <p>學校活動可選<a href="https://aoaodelivery.com/product-category/party/foot-party/">美食派對 Gourmet 套餐</a>、<a href="https://aoaodelivery.com/product-category/party/refreshment-set/">輕食宴會套餐</a>或<a href="https://aoaodelivery.com/product/5-people-self-selected-platter/">5 人自選拼盤</a>；有小朋友參與的活動，可加配<a href="https://aoaodelivery.com/product-category/party/children/">兒童套餐</a>。12 月是學校活動及教職員聚餐的高峰，建議提早查詢。</p>
 <h3>醫院、社福機構及政府部門</h3>
@@ -341,6 +461,7 @@
 </ul>
 <div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url('https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=800')"></div><div class="tx"><p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">可按機構預算、採購要求及單據安排配搭餐單；歡迎填寫 <a href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a>，提供活動日期、人數及預算。</p><div class="btns"><a class="b1" href="https://wa.me/85269011987?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a><a class="b2" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div></div>
 </section>
+<section class="ao-onsite" id="onsite"><div class="ph"><img class="k1" decoding="async" loading="lazy" src="https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="Kitchen AO 團隊在公司活動現場準備到會食物" width="600" height="800" /><img class="k2" decoding="async" loading="lazy" src="https://aoaodelivery.com/wp-content/uploads/2023/11/IMG_2358.jpg" alt="Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點" width="600" height="800" /></div><div class="tx"><p class="eb">ON-SITE SERVICE</p><h2>活動現場擺設及侍應服務</h2><p>年會、春茗、產品發佈會等大型活動，除送遞到會食物外，亦可安排 Kitchen AO 團隊到場擺設自助餐枱及提供侍應服務，讓主辦單位專心招待來賓。</p><ul><li><span class="n">01</span><b>自助餐枱擺設</b><span class="d">按活動主題佈置餐枱及擺盤，配合公司或品牌形象。</span></li><li><span class="n">02</span><b>現場侍應服務</b><span class="d">活動期間補充食物，保持餐枱整齊。</span></li><li><span class="n">03</span><b>飲品配搭</b><span class="d">可加配<a href="https://aoaodelivery.com/飲品及雞尾酒服務/">飲品及雞尾酒服務</a>，一併安排。</span></li></ul><div class="btns"><a class="b1" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a><a class="b2" href="https://aoaodelivery.com/合作伙伴/">合作伙伴及服務紀錄</a></div></div></section>
 <section class="ao-faqsec" id="price">
 <h2>公司到會價錢怎樣計算？四個預算例子</h2>
 <p>公司到會的價錢主要由人數、菜式及送貨地區決定。以下例子可作初步預算參考：</p>
