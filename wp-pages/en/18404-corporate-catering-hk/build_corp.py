@@ -156,6 +156,19 @@ CSS = '''<style>
 .ao-corp .ao-tabs a.t.on:after{content:"✓" !important;position:relative !important;left:auto !important;bottom:auto !important;width:auto !important;height:auto !important;margin:0 0 0 6px !important;background:none !important;color:#C8A24A;font-weight:900;}
 .ao-corp .ao-tabs a.t.on:before{content:"";position:absolute;inset:7px 5px;border:1.5px solid #C8A24A;border-radius:10px;background:rgba(200,162,74,.08);pointer-events:none;}
 .ao-corp .ao-tabs a.t{display:flex;align-items:center;justify-content:center;}
+/* v14：產品卡＝方案 B 黑金 */
+.ao-corp .ao-scard{flex:0 0 240px !important;background:#221E1A;border:1px solid #3a3226;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.25);}
+.ao-corp .ao-scard .im{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;padding:14px;background:radial-gradient(circle at 50% 35%,#3a2f22 0%,#1f1a15 72%);border-bottom:1px solid #C8A24A;box-sizing:border-box;}
+.ao-corp .ao-scard .im img{width:100% !important;height:100% !important;aspect-ratio:auto !important;object-fit:contain !important;background:none !important;border-radius:8px !important;}
+.ao-corp .ao-scard.fill .im{padding:0;}
+.ao-corp .ao-scard.fill .im img{object-fit:cover !important;border-radius:0 !important;}
+.ao-corp .ao-scard .ft{display:flex;align-items:center;gap:10px;padding:12px 14px 14px;flex:1;}
+.ao-corp .ao-scard .tx{flex:1;min-width:0;display:block;}
+.ao-corp .ao-scard .nm{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#F4ECDD !important;font-size:14.5px !important;font-weight:700 !important;line-height:1.4 !important;padding:0 !important;}
+.ao-corp .ao-scard .pr{display:block;color:#C8A24A !important;font-size:12.5px !important;font-weight:700;padding:3px 0 0 !important;}
+.ao-corp .ao-scard .buy{flex:none;background:linear-gradient(135deg,#A9832F,#E4C77E 50%,#B8913E);color:#1A1A1A;border-radius:30px;padding:7px 13px;font-size:13px;font-weight:800;}
+.ao-corp .ao-sl-btn{top:100px;}
+@media(max-width:768px){.ao-corp .ao-scard{flex-basis:72% !important;}.ao-corp .ao-sl-btn{top:32%;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -250,7 +263,7 @@ def scene(items):
 # ---------- Product card slider（參考船P blog）----------
 UP = P + '/wp-content/uploads/'
 def sl(title, desc, items, btn_url, btn_text, cls=''):
-    cards = ''.join(f'<a class="ao-scard{" fill" if len(it) > 4 else ""}" href="{P}{it[1]}" target="_blank" rel="noopener"><img src="{UP}{it[2]}" width="600" height="600" loading="lazy" alt="{it[0]}｜Kitchen AO 公司到會"><span class="nm">{it[0]}</span>' + (f'<span class="pr">{it[3]}</span>' if it[3] else '') + '</a>' for it in items)
+    cards = ''.join(f'<a class="ao-scard{" fill" if len(it) > 4 else ""}" href="{P}{it[1]}" target="_blank" rel="noopener"><span class="im"><img src="{UP}{it[2]}" width="600" height="600" loading="lazy" alt="{it[0]}｜Kitchen AO 公司到會"></span><span class="ft"><span class="tx"><span class="nm">{it[0]}</span>' + (f'<span class="pr">{it[3]}</span>' if it[3] else '') + '</span><span class="buy">選購</span></span></a>' for it in items)
     return (f'<div class="ao-shelf{cls}"><p class="ao-shelf-t">{title}</p><p class="ao-shelf-d">{desc}</p>'
             f'<div class="ao-slwrap"><button type="button" class="ao-sl-btn prev" aria-label="上一個">‹</button><div class="ao-slider">{cards}</div>'
             f'<button type="button" class="ao-sl-btn next" aria-label="下一個">›</button></div></div>'
