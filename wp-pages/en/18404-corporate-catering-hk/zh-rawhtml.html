@@ -99,19 +99,36 @@
 .ao-corp .ao-tabs a.on:after{content:"";position:absolute;left:50%;bottom:7px;width:22px;height:2px;margin-left:-11px;background:#C8A24A;}
 .ao-corp .ao-faqsec{margin-top:40px;padding-top:6px;border-top:1px solid #EEE9DF;}
 @media(max-width:768px){.ao-corp .ao-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:4px 6px;}.ao-corp .ao-tabs a{min-height:50px;font-size:13px !important;letter-spacing:.03em;padding:12px 2px 15px !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+6){border-bottom:1px solid #33302b;}}
+/* v10：主分類 tab＋間距 */
+.ao-corp .ao-tabs a.main{grid-column:1 / -1;min-height:58px;font-size:17px !important;font-weight:800 !important;letter-spacing:.12em;color:#C8A24A !important;gap:12px;}
+.ao-corp .ao-tabs a.main .mk{font-size:11px;letter-spacing:.25em;color:#8E836F;font-weight:700;}
+.ao-corp .ao-tabs a.main.on{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
+.ao-corp .ao-tabs a.main.on:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
+@keyframes aoCorpShine{0%,60%{left:-40%;}85%,100%{left:120%;}}
+@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs a.main.on:before{animation:none;display:none;}}
+.ao-corp .ao-tabs a.main.on .mk{color:#4a3c1c;}
+.ao-corp .ao-tabs a.main.on:after{display:none;}
+.ao-corp .ao-pane{padding-top:8px;}
+.ao-corp p{margin:0 0 20px;line-height:1.9;}
+.ao-corp ul,.ao-corp ol{margin:0 0 22px;}
+.ao-corp li{margin:0 0 9px;}
+.ao-corp h2{margin:44px 0 18px !important;}
+.ao-corp .ao-pane > h2:first-child{margin-top:34px !important;}
+.ao-corp h3{margin:34px 0 12px;}
+.ao-corp .ao-shelf{margin:32px 0 0 !important;}
+.ao-corp .ao-btn-gold{margin:20px auto 34px !important;}
+.ao-corp .ao-tblwrap{margin:0 0 20px;}
+.ao-corp .ao-cust{margin:34px 0 14px !important;}
+@media(max-width:768px){.ao-corp .ao-tabs a.main{font-size:15px !important;min-height:52px;}.ao-corp h2{margin:36px 0 14px !important;}}
 </style>
 
 <p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>
-<h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
-<p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會），涵蓋七類活動：日常員工午餐、會議餐飲（早餐、午餐、下午茶及茶點）、全日培訓及研討會、年會、春茗及團年飯、公司聚會及員工活動、Event 及 PR 活動，以及學校、醫院及社福機構活動。</p>
-<p>一張訂單可按活動需要，配搭不同的套餐及餐盒：每人一盒的餐盒方便派發，適合午餐、會議及培訓；分享式到會套餐以熱盤主菜、小食、沙律及甜品組成，適合年會、公司聚會及員工活動；Canapés 及 Finger Food 則適合 Event 及酒會等站立形式的場合。另有素食套餐照顧不同飲食需要。</p>
-<div class="ao-shelf"><p class="ao-shelf-t">推薦套餐及餐盒</p><p class="ao-shelf-d">由 1 人一盒到 100 人慶典，按人數及活動形式選擇。</p><div class="ao-slwrap"><button type="button" class="ao-sl-btn prev" aria-label="上一個">‹</button><div class="ao-slider"><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/commercial-lunch-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/CAB-Commercial-Meal-Lv2_頁面_1-1-724x1024-1.jpg" width="600" height="600" loading="lazy" alt="商務餐盒｜Kitchen AO 公司到會"><span class="nm">商務餐盒</span><span class="pr">每人一盒｜HK$108 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/executive-premium-meal-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/螢幕截圖-2026-10-17-下午5.20.52.png" width="600" height="600" loading="lazy" alt="高級餐盒｜Kitchen AO 公司到會"><span class="nm">高級餐盒</span><span class="pr">會議及貴賓｜HK$248 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/staff-meal/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2024/07/SM-Staff-Meal-Lv1-724x1024.jpg" width="600" height="600" loading="lazy" alt="員工膳食餐盒 Staff Meal｜Kitchen AO 公司到會"><span class="nm">員工膳食餐盒 Staff Meal</span><span class="pr">大量訂購</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/商務活動/royal-snackers-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/Royal-Snacks-Box-768x543.jpg" width="600" height="600" loading="lazy" alt="皇家小食盒｜Kitchen AO 公司到會"><span class="nm">皇家小食盒</span><span class="pr">茶點及小休</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-768x542.jpeg" width="600" height="600" loading="lazy" alt="舌尖上的餐桌九宮格 Canapés｜Kitchen AO 公司到會"><span class="nm">舌尖上的餐桌九宮格 Canapés</span><span class="pr">Event 及迎賓</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/foot-party/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" width="600" height="600" loading="lazy" alt="美食派對 Gourmet 套餐｜Kitchen AO 公司到會"><span class="nm">美食派對 Gourmet 套餐</span><span class="pr">8 至 85 人｜HK$1,988 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/refreshment-set/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/refreshmentparty-03-768x768.jpg" width="600" height="600" loading="lazy" alt="輕食宴會套餐 Refreshment｜Kitchen AO 公司到會"><span class="nm">輕食宴會套餐 Refreshment</span><span class="pr">12 至 40 人｜HK$2,688 起</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product/ao100set/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg" width="600" height="600" loading="lazy" alt="百人慶典派對到會套餐｜Kitchen AO 公司到會"><span class="nm">百人慶典派對到會套餐</span><span class="pr">100 人｜HK$13,800</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" width="600" height="600" loading="lazy" alt="「素」味人生素食套餐｜Kitchen AO 公司到會"><span class="nm">「素」味人生素食套餐</span><span class="pr">6 至 26 人｜HK$1,388 起</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/party/meat-monster/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-768x512.jpeg" width="600" height="600" loading="lazy" alt="肉食獸上將海港之選｜Kitchen AO 公司到會"><span class="nm">肉食獸上將海港之選</span><span class="pr">7 至 11 人｜HK$1,888 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product/5-people-self-selected-platter/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png" width="600" height="600" loading="lazy" alt="5 人自選拼盤｜Kitchen AO 公司到會"><span class="nm">5 人自選拼盤</span><span class="pr">小型聚會｜HK$498</span></a></div><button type="button" class="ao-sl-btn next" aria-label="下一個">›</button></div></div><a class="ao-btn-gold" href="https://aoaodelivery.com/product-category/party-set-by-people/" target="_blank" rel="noopener">按人數查看全部套餐</a>
-<p>以上套餐可再加配單點菜式，以及<a href="https://aoaodelivery.com/飲品及雞尾酒服務/">飲品及雞尾酒服務</a>、<a href="https://aoaodelivery.com/product-category/party-supplies/thin-crust-pizza/">餐具及暖貼</a>；大型活動亦可安排侍應服務。如需度身訂製餐單，歡迎提出。</p>
-<p>按下面的分頁，即可查看各類公司到會服務的菜式、人數及參考價。</p>
+
 <div class="ao-kv"><img class="k1" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="Kitchen AO 團隊在公司活動現場準備到會食物" width="600" height="300" /><img class="k2" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2023/11/IMG_2358.jpg" alt="Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點" width="600" height="300" /></div>
-<style>@media(min-width:769px){.ao-corp .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+4){border-bottom:1px solid #33302b;}}</style>
+<style>@media(min-width:769px){.ao-corp .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:1px solid #33302b;}}@media(max-width:768px){.ao-corp .ao-tabs a:nth-child(-n+6){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+7){border-bottom:1px solid #33302b;}.ao-corp .ao-tabs a.main{border-bottom:1px solid #33302b;}}</style>
 <div class="ao-tabwrap"><nav class="ao-tabs" style="--n:8" aria-label="公司到會目錄">
-<a href="#office-lunch" class="on">員工午餐</a>
+<a href="#overview" class="main on"><span class="mk">ALL SERVICES</span>一站式企業到會</a>
+<a href="#office-lunch">員工午餐</a>
 <a href="#meeting">會議餐飲</a>
 <a href="#training">培訓及研討會</a>
 <a href="#annual-dinner">年會及團年飯</a>
@@ -120,6 +137,36 @@
 <a href="#institutions">機構活動</a>
 <a href="#price">價錢及流程</a>
 </nav></div>
+<section class="ao-pane" id="overview">
+<h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
+<p>Kitchen AO 為企業及機構提供一站式公司到會服務（又稱企業到會），涵蓋七類活動：日常員工午餐、會議餐飲（早餐、午餐、下午茶及茶點）、全日培訓及研討會、年會、春茗及團年飯、公司聚會及員工活動、Event 及 PR 活動，以及學校、醫院及社福機構活動。</p>
+<p>一張訂單可按活動需要，配搭不同的套餐及餐盒：每人一盒的餐盒方便派發，適合午餐、會議及培訓；分享式到會套餐以熱盤主菜、小食、沙律及甜品組成，適合年會、公司聚會及員工活動；Canapés 及 Finger Food 則適合 Event 及酒會等站立形式的場合。另有素食套餐照顧不同飲食需要。</p>
+<div class="ao-shelf"><p class="ao-shelf-t">推薦套餐及餐盒</p><p class="ao-shelf-d">由 1 人一盒到 100 人慶典，按人數及活動形式選擇。</p><div class="ao-slwrap"><button type="button" class="ao-sl-btn prev" aria-label="上一個">‹</button><div class="ao-slider"><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/commercial-lunch-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/CAB-Commercial-Meal-Lv2_頁面_1-1-724x1024-1.jpg" width="600" height="600" loading="lazy" alt="商務餐盒｜Kitchen AO 公司到會"><span class="nm">商務餐盒</span><span class="pr">每人一盒｜HK$108 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/executive-premium-meal-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/螢幕截圖-2026-10-17-下午5.20.52.png" width="600" height="600" loading="lazy" alt="高級餐盒｜Kitchen AO 公司到會"><span class="nm">高級餐盒</span><span class="pr">會議及貴賓｜HK$248 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/商務活動/staff-meal/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2024/07/SM-Staff-Meal-Lv1-724x1024.jpg" width="600" height="600" loading="lazy" alt="員工膳食餐盒 Staff Meal｜Kitchen AO 公司到會"><span class="nm">員工膳食餐盒 Staff Meal</span><span class="pr">大量訂購</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/商務活動/royal-snackers-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/Royal-Snacks-Box-768x543.jpg" width="600" height="600" loading="lazy" alt="皇家小食盒｜Kitchen AO 公司到會"><span class="nm">皇家小食盒</span><span class="pr">茶點及小休</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-768x542.jpeg" width="600" height="600" loading="lazy" alt="舌尖上的餐桌九宮格 Canapés｜Kitchen AO 公司到會"><span class="nm">舌尖上的餐桌九宮格 Canapés</span><span class="pr">Event 及迎賓</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/foot-party/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" width="600" height="600" loading="lazy" alt="美食派對 Gourmet 套餐｜Kitchen AO 公司到會"><span class="nm">美食派對 Gourmet 套餐</span><span class="pr">8 至 85 人｜HK$1,988 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/refreshment-set/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/refreshmentparty-03-768x768.jpg" width="600" height="600" loading="lazy" alt="輕食宴會套餐 Refreshment｜Kitchen AO 公司到會"><span class="nm">輕食宴會套餐 Refreshment</span><span class="pr">12 至 40 人｜HK$2,688 起</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product/ao100set/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg" width="600" height="600" loading="lazy" alt="百人慶典派對到會套餐｜Kitchen AO 公司到會"><span class="nm">百人慶典派對到會套餐</span><span class="pr">100 人｜HK$13,800</span></a><a class="ao-scard" href="https://aoaodelivery.com/product-category/party/vegetarians-set/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg" width="600" height="600" loading="lazy" alt="「素」味人生素食套餐｜Kitchen AO 公司到會"><span class="nm">「素」味人生素食套餐</span><span class="pr">6 至 26 人｜HK$1,388 起</span></a><a class="ao-scard fill" href="https://aoaodelivery.com/product-category/party/meat-monster/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-768x512.jpeg" width="600" height="600" loading="lazy" alt="肉食獸上將海港之選｜Kitchen AO 公司到會"><span class="nm">肉食獸上將海港之選</span><span class="pr">7 至 11 人｜HK$1,888 起</span></a><a class="ao-scard" href="https://aoaodelivery.com/product/5-people-self-selected-platter/" target="_blank" rel="noopener"><img src="https://aoaodelivery.com/wp-content/uploads/2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png" width="600" height="600" loading="lazy" alt="5 人自選拼盤｜Kitchen AO 公司到會"><span class="nm">5 人自選拼盤</span><span class="pr">小型聚會｜HK$498</span></a></div><button type="button" class="ao-sl-btn next" aria-label="下一個">›</button></div></div><a class="ao-btn-gold" href="https://aoaodelivery.com/product-category/party-set-by-people/" target="_blank" rel="noopener">按人數查看全部套餐</a>
+<p>以上套餐可再加配單點菜式，以及<a href="https://aoaodelivery.com/飲品及雞尾酒服務/">飲品及雞尾酒服務</a>、<a href="https://aoaodelivery.com/product-category/party-supplies/thin-crust-pizza/">餐具及暖貼</a>；大型活動亦可安排侍應服務。如需度身訂製餐單，歡迎提出。</p>
+
+
+<h3>人數及預算一覽</h3>
+<div class="ao-tblwrap"><table>
+<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>參考價</th></tr></thead>
+<tbody>
+<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td><a href="https://aoaodelivery.com/product-category/商務活動/commercial-lunch-box/">商務餐盒</a></td><td>每位 HK$108 起</td></tr>
+<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td><a href="https://aoaodelivery.com/product-category/商務活動/executive-premium-meal-box/">高級餐盒</a></td><td>每位 HK$248 起</td></tr>
+<tr><td>會議茶點及下午茶 Tea Break</td><td>12 人起</td><td><a href="https://aoaodelivery.com/product-category/party/refreshment-set/">輕食宴會套餐</a>、小食盒</td><td>12 至 16 人 HK$2,688 起</td></tr>
+<tr><td>培訓及研討會（全日）</td><td>按活動而定</td><td>早上茶點、午餐、下午茶</td><td>按日程報價</td></tr>
+<tr><td>年會、春茗及團年飯</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>每位 HK$300 起</td></tr>
+<tr><td>公司聚會及員工活動</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>每位 HK$300 起</td></tr>
+<tr><td>Event 及 PR 活動</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
+<tr><td>機構活動 Schools &amp; NGOs</td><td>按活動而定</td><td>餐盒、自助餐或小食拼盤</td><td>按人數及形式報價</td></tr>
+</tbody></table></div>
+<p class="ao-note">以上為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
+<h3>企業及機構選擇 Kitchen AO 公司到會服務的四個原因</h3>
+<ul>
+<li><strong>菜單跟著活動走：</strong>中西菜式自由配搭，並設素食及無麩質選擇，照顧不同同事的飲食需要。</li>
+<li><strong>人數可多可少：</strong>由 10 人部門午餐到 300 人公司聚會，份量都可以按人數調整。</li>
+<li><strong>熱盤保持溫度：</strong>熱盤以保溫包裝送達，活動一開始即可上桌。</li>
+<li><strong>報價清楚直接：</strong>提供人數、日期及預算，客服便會提供餐單、價錢及送貨安排。</li>
+</ul>
+</section>
 <section class="ao-pane" id="office-lunch">
 <h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2>
 <p>員工午餐到會以每人一盒的餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p>
@@ -255,29 +302,6 @@
 <li><strong>活動當日：</strong>按約定時間送達。</li>
 </ol>
 <p>船河及戶外活動另行報價。可以直接填寫<a href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a>，或參考我們的<a href="https://aoaodelivery.com/合作伙伴/">合作夥伴與服務實績</a>。</p>
-</section>
-<section class="ao-faqsec" id="summary">
-<h3>人數及預算一覽</h3>
-<div class="ao-tblwrap"><table>
-<thead><tr><th>服務</th><th>人數</th><th>到會形式</th><th>參考價</th></tr></thead>
-<tbody>
-<tr><td>員工午餐 Office Lunch</td><td>10 至 100 人</td><td><a href="https://aoaodelivery.com/product-category/商務活動/commercial-lunch-box/">商務餐盒</a></td><td>每位 HK$108 起</td></tr>
-<tr><td>會議午餐 Meeting Lunch</td><td>10 至 100 人</td><td><a href="https://aoaodelivery.com/product-category/商務活動/executive-premium-meal-box/">高級餐盒</a></td><td>每位 HK$248 起</td></tr>
-<tr><td>會議茶點及下午茶 Tea Break</td><td>12 人起</td><td><a href="https://aoaodelivery.com/product-category/party/refreshment-set/">輕食宴會套餐</a>、小食盒</td><td>12 至 16 人 HK$2,688 起</td></tr>
-<tr><td>培訓及研討會（全日）</td><td>按活動而定</td><td>早上茶點、午餐、下午茶</td><td>按日程報價</td></tr>
-<tr><td>年會、春茗及團年飯</td><td>50 至 200 人以上</td><td>迎賓小食、熱盤主菜、甜品</td><td>每位 HK$300 起</td></tr>
-<tr><td>公司聚會及員工活動</td><td>30 至 300 人</td><td>自助餐式到會套餐</td><td>每位 HK$300 起</td></tr>
-<tr><td>Event 及 PR 活動</td><td>20 至 200 人以上</td><td>Canapés、Finger Food</td><td>按餐單報價</td></tr>
-<tr><td>機構活動 Schools &amp; NGOs</td><td>按活動而定</td><td>餐盒、自助餐或小食拼盤</td><td>按人數及形式報價</td></tr>
-</tbody></table></div>
-<p class="ao-note">以上為參考價，實際價錢按人數、菜式及送貨地區計算。</p>
-<h3>企業及機構選擇 Kitchen AO 公司到會服務的四個原因</h3>
-<ul>
-<li><strong>菜單跟著活動走：</strong>中西菜式自由配搭，並設素食及無麩質選擇，照顧不同同事的飲食需要。</li>
-<li><strong>人數可多可少：</strong>由 10 人部門午餐到 300 人公司聚會，份量都可以按人數調整。</li>
-<li><strong>熱盤保持溫度：</strong>熱盤以保溫包裝送達，活動一開始即可上桌。</li>
-<li><strong>報價清楚直接：</strong>提供人數、日期及預算，客服便會提供餐單、價錢及送貨安排。</li>
-</ul>
 </section>
 <section class="ao-faqsec" id="faq">
 <h2>公司到會常見問題</h2>
