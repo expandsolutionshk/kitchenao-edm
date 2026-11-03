@@ -68,6 +68,8 @@ CSS = '''<style>
 @media(max-width:768px){.ao-corp .ao-scene a{width:calc((100% - 14px)/2);}}
 @media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/4;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;min-width:0;max-width:320px;white-space:normal;}}
 
+.ao-corp .ao-custom{margin:18px 0 8px;padding:14px 18px;background:#FBF7EE;border:1px solid #E9D9AE;border-left:4px solid #C8A24A;border-radius:10px;font-size:15px;line-height:1.75;color:#4a4238;}
+.ao-corp .ao-custom b{display:block;color:#1A1A1A;margin-bottom:2px;}
 /* v9：深色目錄列｜桌面 2 行（5＋4）、字一行；手機 3 欄 × 3 行 */
 .ao-corp .ao-tabwrap{margin:22px 0 0;}
 .ao-corp .ao-tabs{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;height:auto !important;overflow:visible !important;background:#1A1A1A;border:0 !important;border-radius:6px;padding:6px 12px;}
@@ -151,13 +153,13 @@ def menu_lunch(lang):
 def menu_dinner(lang):
     if lang == 'zh':
         return f'''<ul>
-<li><strong>迎賓小食：</strong>{a("/product/c1201-照燒慢煮雞卷配牛油果蓉-1件/", "照燒慢煮雞卷配牛油果蓉")}、{a("/product/c0701-炙燒帶子芋頭紫椰菜串-1串/", "炙燒帶子芋頭紫椰菜串")}、{a("/product/c0101-一口和牛野菌串-1串/", "一口和牛野菌串")}</li>
-<li><strong>主菜：</strong>{a("/product/ms02l-西京燒「富士金襴」威士忌白味噌燒鹿兒島叉燒/", "西京燒威士忌白味噌燒鹿兒島叉燒")}、{a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "自家製黑松露牛油慢焗法國黃油雞")}、{a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "清酒煮蟹皇灸燒左口魚醬油煲仔飯")}</li>
+<li><strong>迎賓小食：</strong>{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}</li>
+<li><strong>主菜：</strong>{a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "自家製黑松露牛油慢焗法國黃油雞")}、{a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "清酒煮蟹皇灸燒左口魚醬油煲仔飯")}、{a("/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/", "蜜蜜糖德國鹹豬手")}</li>
 <li><strong>甜品：</strong>{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}、{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}</li>
 </ul>'''
     return f'''<ul>
-<li><strong>Welcome canapés:</strong> {a("/product/c1201-照燒慢煮雞卷配牛油果蓉-1件/", "Teriyaki Chicken Roll with Avocado")}, {a("/product/c0701-炙燒帶子芋頭紫椰菜串-1串/", "Seared Scallop, Taro &amp; Red Cabbage Skewer")}, {a("/product/c0101-一口和牛野菌串-1串/", "Wagyu &amp; Wild Mushroom Skewer")}</li>
-<li><strong>Mains:</strong> {a("/product/ms02l-西京燒「富士金襴」威士忌白味噌燒鹿兒島叉燒/", "Saikyo Miso &amp; Whisky Glazed Kagoshima Char Siu")}, {a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "Slow-roasted French Yellow Spring Chicken with Black Truffle Butter")}, {a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "Sharaku Sake-Braised Crab Roe &amp; Seared Flounder Claypot Rice")}</li>
+<li><strong>Welcome canapés:</strong> {a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "A Bit of Cuisines Canapé Box")}, {a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "Braised Abalone Vol-au-vent with Mushrooms")}</li>
+<li><strong>Mains:</strong> {a("/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/", "Slow-roasted French Yellow Spring Chicken with Black Truffle Butter")}, {a("/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/", "Sharaku Sake-Braised Crab Roe &amp; Seared Flounder Claypot Rice")}, {a("/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/", "Honey Glazed German Pork Knuckle")}</li>
 <li><strong>Desserts:</strong> {a("/product/d01-french-colorful-macarons-10-pieces/", "French Rainbow Macarons")}, {a("/product/d06-caramel-tart-10個/", "Caramel Portuguese Tarts")}</li>
 </ul>'''
 
@@ -183,6 +185,7 @@ ZH_SCENES = [
     ('institutions', '🏫', '機構活動', 'Schools, Hospitals &amp; NGOs', '學校家長日、醫院員工午餐、社福機構講座', '按人數及形式報價', ''),
 ]
 REFRESH = '/product-category/party/refreshment-set/'
+C = '/product-category/商務活動/'
 ZH = dict(
     intro=f'''<p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>
 <h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
@@ -201,76 +204,107 @@ ZH = dict(
     panes=[
         ('office-lunch', '員工午餐', f'''
 <h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2>
-<p>員工午餐到會以每人一盒的商務餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p>
-<h3>兩款午餐餐盒選擇</h3>
-<p>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}提供多款主菜選擇；另有{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}，適合需要大量訂購的公司午餐。</p>
-<h3>想更豐富？加配熱盤及小食</h3>
+<p>員工午餐到會以每人一盒的餐盒為主，每位 HK$108 起，適合 10 至 100 人的日常午餐、部門聚餐及內部會議，準時送到，派發快捷，亦方便按人數增減。</p>
+<h3>推薦餐盒及套餐</h3>
+<ul>
+<li>{a(C+"commercial-lunch-box/", "商務餐盒")}：每位 HK$108 起，多款主菜選擇，每人一盒</li>
+<li>{a(C+"staff-meal/", "員工膳食餐盒")}：適合需要大量訂購的公司午餐</li>
+<li>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}：想以分享形式一齊食，8 至 10 人 HK$1,988 起</li>
+<li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：有同事吃素，可另加素食套餐，6 至 8 人 HK$1,388 起</li>
+</ul>
+<h3>加配單點熱盤及小食</h3>
 {menu_lunch('zh')}
-<p>想按人數一次過訂購，可參考{a("/product-category/party-set-by-people/", "人數選餐")}。客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>'''),
+<div class="ao-custom"><b>想度身訂製？</b>如需指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出，客服會按人數及預算配搭。</div>
+<p>客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>'''),
         ('meeting', '會議餐飲', f'''
 <h2>會議餐飲：早餐會議、會議午餐、下午茶及茶點到會</h2>
-<p>會議餐飲按時段可分為早餐、午餐及會議中段的茶點。Kitchen AO 可按會議時間安排送達：會議午餐可選高級餐盒，每位 HK$248 起；下午茶及茶點到會可選輕食宴會套餐，12 至 16 人 HK$2,688 起。</p>
+<p>會議餐飲按時段可分為早餐、午餐及會議中段的茶點。Kitchen AO 可按會議時間安排送達：會議午餐每位 HK$248 起；下午茶及茶點到會可選輕食宴會套餐，12 至 16 人 HK$2,688 起。</p>
 <h3>早餐會議 Breakfast Meeting</h3>
-<p>早上會議或培訓開始前，可安排輕食拼盤、小食盒及飲品，於會議開始前送達，方便與會者一邊交流一邊享用。人數及菜式請向客服查詢。</p>
+<p>早上會議或培訓開始前，可安排{a(C+"royal-snackers-box/", "皇家小食盒")}或小食拼盤，於會議開始前送達，方便與會者一邊交流一邊享用。</p>
 <h3>會議午餐 Meeting Lunch：每位 HK$248 起</h3>
-<p>適合 10 至 100 人的客戶會議、董事會及貴賓接待。菜式及包裝更講究，即使是一頓會議午餐，也能為公司形象加分。詳情見{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}。</p>
+<p>適合 10 至 100 人的客戶會議、董事會及貴賓接待，可選{a(C+"executive-premium-meal-box/", "高級餐盒")}，菜式及包裝更講究，即使是一頓會議午餐，也能為公司形象加分。</p>
 <h3>會議茶點及下午茶 Tea Break</h3>
-<p>會議中段的 Tea Break 以一口大小的小食為主，取用方便，不會打斷會議節奏。可選：</p>
+<p>會議中段的 Tea Break 以一口大小的小食為主，取用方便，不會打斷會議節奏：</p>
 <ul>
-<li>{a(REFRESH, "輕食宴會套餐 Refreshment")}：12 至 40 人，適合會議茶點及下午茶到會</li>
-<li>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}：每人一盒，方便派發</li>
-<li>{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：適合貴賓及客戶會議</li>
-</ul>'''),
+<li>{a(REFRESH, "輕食宴會套餐 Refreshment")}：12 至 40 人，12 至 16 人 HK$2,688 起，適合下午茶及茶點到會</li>
+<li>{a(C+"royal-snackers-box/", "皇家小食盒")}：每人一盒，方便派發</li>
+<li>{a(C+"a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：適合貴賓及客戶會議</li>
+<li>{a("/product/5-people-self-selected-platter/", "5 人自選拼盤")}：小型會議，HK$498</li>
+</ul>
+<h3>加配單點甜品及小食</h3>
+<p>可加配{a("/product/d01-french-colorful-macarons-10-pieces/", "法式七彩馬卡龍")}、{a("/product/d06-caramel-tart-10個/", "焦糖葡撻")}或{a("/product/a0700-handmade-mini-cheeseburger/", "迷你芝士手打漢堡")}，更多選擇見{a("/product-category/a-la-carte/snacks/", "惹味小食")}。素食與會者可配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}。</p>
+<div class="ao-custom"><b>想度身訂製？</b>早餐菜式、茶點款式及份量，均可按會議人數及時段調整；如有特別要求，歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出。</div>'''),
         ('training', '培訓及研討會', f'''
 <h2>培訓、研討會及工作坊到會：全日活動餐飲一次安排</h2>
 <p>全日培訓、研討會、講座及工作坊（Training Day、Seminar、Workshop），可一次過安排早上茶點、午餐及下午茶，由同一張訂單分時段送達，毋須分開訂購。提供日程及人數後，客服會按時段配搭餐單。</p>
+<h3>推薦全日餐飲配搭</h3>
 <div class="ao-tblwrap"><table>
-<thead><tr><th>時段</th><th>建議安排</th><th>選擇</th></tr></thead>
+<thead><tr><th>時段</th><th>建議安排</th><th>推薦套餐或餐盒</th></tr></thead>
 <tbody>
-<tr><td>早上（開始前）</td><td>茶點及飲品</td><td>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}</td></tr>
-<tr><td>午餐</td><td>每人一盒，方便即場派發</td><td>{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}或{a("/product-category/商務活動/executive-premium-meal-box/", "高級餐盒")}</td></tr>
+<tr><td>早上（開始前）</td><td>茶點及飲品</td><td>{a(C+"royal-snackers-box/", "皇家小食盒")}</td></tr>
+<tr><td>午餐</td><td>每人一盒，方便即場派發</td><td>{a(C+"commercial-lunch-box/", "商務餐盒")}或{a(C+"executive-premium-meal-box/", "高級餐盒")}</td></tr>
 <tr><td>下午茶</td><td>一口小食，配合小休時間</td><td>{a(REFRESH, "輕食宴會套餐")}</td></tr>
 </tbody></table></div>
+<p>有學員吃素，可另配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}；想加配甜品或小食，可選{a("/product-category/a-la-carte/dessert/", "甜品")}及{a("/product-category/a-la-carte/snacks/", "惹味小食")}單點。</p>
+<div class="ao-custom"><b>想度身訂製？</b>連續多日的培訓，可按日更換菜式；如需配合場地限制或指定送達時間，歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出。</div>
 <p class="ao-note">建議提前確認場地擺放食物的位置及各時段的開始時間，以便安排送達。</p>'''),
         ('annual-dinner', '年會及團年飯', f'''
 <h2>年會、春茗及團年飯到會：Annual Dinner、公司開年飯一次安排</h2>
-<p>每年 12 月至農曆新年，是公司年會、頒獎晚宴、春茗（Spring Dinner）及團年飯最密集的時段。到會餐飲一般分為三部分：賓客入場時的迎賓小食、正式開席的熱盤主菜，以及為晚宴作結的甜品。這個配搭適合 50 至 200 人以上的年會到會，每位 HK$300 起。菜式參考：</p>
+<p>每年 12 月至農曆新年，是公司年會、頒獎晚宴、春茗（Spring Dinner）及團年飯最密集的時段。可按人數及形式，先選擇合適的到會套餐，再加配單點菜式，50 至 200 人以上的年會到會每位 HK$300 起。</p>
+<h3>推薦年會套餐</h3>
+<ul>
+<li>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}：熱盤主菜為主，8 至 85 人，適合團年飯及開年飯</li>
+<li>{a(REFRESH, "輕食宴會套餐 Refreshment")}：一口小食為主，12 至 40 人，適合站立形式的年會及春茗酒會</li>
+<li>{a("/product/ao100set/", "百人慶典派對到會套餐")}：100 人大型年會，HK$13,800</li>
+<li>{a(C+"a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}及{a(C+"royal-snackers-box/", "皇家小食盒")}：入場迎賓小食</li>
+<li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：照顧吃素的同事及嘉賓</li>
+</ul>
+<h3>加配單點菜式</h3>
 {menu_dinner('zh')}
 <h3>公司春茗、團年飯及開年飯：旺季宜早預訂</h3>
-<p>2027 年農曆新年為 2 月 6 日，1 月至 2 月是公司團年飯、開年飯及春茗到會的高峰，熱門日子名額有限，建議盡早預訂。如想加入中式菜式，可在查詢時一併提出。</p>
-<p><strong>籌備貼士：</strong>人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再安排送達時間。如需要侍應服務，可在查詢時一併提出。</p>'''),
+<p>2027 年農曆新年為 2 月 6 日，1 月至 2 月是公司團年飯、開年飯及春茗到會的高峰，熱門日子名額有限，建議盡早預訂。</p>
+<div class="ao-custom"><b>想度身訂製？</b>可加入中式菜式、按主題配搭擺盤，或安排侍應服務及{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}。人數較多的年會，宜先確定開席時間及場地擺放食物的空間，再透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出要求。</div>'''),
         ('festive', '公司聚會', f'''
 <h2>公司聚會及員工活動到會：Company Party、Team Building 及員工慶祝</h2>
 <p>公司聚會及員工活動（Company Party &amp; Staff Events）到會多採用自助餐形式，賓客可隨意取用，適合 30 至 300 人，每位 HK$300 起。</p>
+<h3>推薦聚會套餐</h3>
 <ul>
-<li><strong>自助餐菜式參考：</strong>{a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "日式雞皮餃子配洋蔥圈")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}、{a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "香烤沙嗲串燒")}</li>
-<li><strong>套餐：</strong>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}，按人數由 8 人至 85 人選擇</li>
+<li>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}：按人數由 8 人至 85 人選擇，適合 Team Building 及公司派對</li>
+<li>{a(REFRESH, "輕食宴會套餐 Refreshment")}：一口小食為主，適合邊玩邊食的活動</li>
+<li>{a("/product-category/party/meat-monster/", "肉食獸上將海港之選")}：7 至 11 人，肉類盛盒</li>
+<li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：6 至 26 人，照顧吃素的同事</li>
 </ul>
 <h3>員工活動：生日會、迎新、歡送及慶功</h3>
-<p>每月員工生日會、新同事迎新、同事歡送會及項目慶功，人數較少，可選{a("/product-category/party-set-by-people/", "人數選餐")}的小型套餐，或加配{a("/product-category/a-la-carte/dessert/", "甜品")}作慶祝。</p>
+<p>每月員工生日會、新同事迎新、同事歡送會及項目慶功，人數較少，可選{a("/product-category/party-set-by-people/", "人數選餐")}的小型套餐或{a("/product/5-people-self-selected-platter/", "5 人自選拼盤")}，再加配{a("/product-category/a-la-carte/dessert/", "甜品")}作慶祝。</p>
 <h3>公司家庭日及開放日</h3>
 <p>家庭日及開放日有不少小朋友參與，可配搭{a("/product-category/party/children/", "兒童套餐")}及容易取用的小食，照顧大人及小朋友的口味。</p>
-<h3>公司聖誕派對</h3>
-<p>12 月的公司聖誕派對，可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}。</p>'''),
+<h3>加配單點小食</h3>
+<p>{a("/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/", "日式雞皮餃子配洋蔥圈")}、{a("/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/", "蠔油鮑汁野菌鮑魚酥")}、{a("/product/a0200-grilled-satay-skewer-pork-and-chicken/", "香烤沙嗲串燒")}，更多見{a("/product-category/a-la-carte/snacks/", "惹味小食")}。12 月的公司聖誕派對，可參考{a("/blog/christmas-catering-hong-kong/", "聖誕到會套餐")}。</p>
+<div class="ao-custom"><b>想度身訂製？</b>生日會、迎新及慶功可加入{a("/blog/laser-printed-food-party/", "激光打印食物")}，把公司 Logo 或祝福字句印在食物上；亦可訂製{a("/客製化紀念品訂製服務/", "客製化紀念品")}。歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出。</div>'''),
         ('business-event', 'Event 及 PR 活動', f'''
 <h2>Event 及 PR 活動到會：產品發佈會、記者會及品牌活動</h2>
-<p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕（Product Launch、Press Event、Brand Event），多以站立形式進行，賓客邊走邊交流。一口一件的 Canapés 及 Finger Food 既方便取用，擺盤亦配合品牌形象。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p>
+<p>產品發佈會、記者會、傳媒活動、品牌活動及 Pop-up 開幕（Product Launch、Press Event、Brand Event），多以站立形式進行，賓客邊走邊交流，一口一件的 Canapés 及 Finger Food 最合適。這類活動適合 20 至 200 人以上，價錢按餐單報價。</p>
+<h3>推薦活動套餐及小食盒</h3>
 <ul>
-<li>{a("/product-category/商務活動/a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：每人一盒，適合傳媒及嘉賓</li>
-<li>{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}：方便即場派發</li>
+<li>{a(C+"a-bit-of-cuisines-gourmet-in-a-box/", "舌尖上的餐桌九宮格 Canapés")}：每人一盒，適合傳媒及嘉賓</li>
+<li>{a(C+"royal-snackers-box/", "皇家小食盒")}：方便即場派發</li>
+<li>{a(REFRESH, "輕食宴會套餐 Refreshment")}：12 至 40 人，自助形式擺放</li>
 </ul>
-<p>酒會、開張及其他商務活動，詳情可參考{a("/business-event/", "商務活動")}。</p>'''),
+<h3>加配單點及飲品</h3>
+<p>可加配{a("/product-category/a-la-carte/snacks/", "惹味小食")}、{a("/product-category/a-la-carte/dessert/", "甜品")}，以及{a("/飲品及雞尾酒服務/", "飲品及雞尾酒服務")}。</p>
+<div class="ao-custom"><b>想度身訂製？</b>可按品牌主題配搭擺盤，或以{a("/blog/laser-printed-food-party/", "激光打印")}把品牌 Logo 印在食物上，配合拍照及傳媒報道。酒會、開張及其他商務活動，詳情可參考{a("/business-event/", "商務活動")}。</div>'''),
         ('institutions', '機構活動', f'''
 <h2>機構活動到會：學校、醫院及社福機構（Schools, Hospitals &amp; NGOs）</h2>
-<p>除了企業，學校、醫院、診所、社福機構及政府部門亦經常需要到會。這類活動的人數、時間及場地各有不同，Kitchen AO 可按需要配搭餐盒、自助餐或小食拼盤：</p>
+<p>除了企業，學校、醫院、診所、社福機構及政府部門亦經常需要到會。這類活動的人數、時間及場地各有不同，可先選擇合適的套餐或餐盒，再按需要加配：</p>
 <h3>學校到會：家長日、開放日、畢業禮及教職員聚餐</h3>
-<p>學校活動可選自助餐或小食拼盤；12 月是學校活動及教職員聚餐的高峰，建議提早查詢。</p>
+<p>學校活動可選{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}、{a(REFRESH, "輕食宴會套餐")}或{a("/product/5-people-self-selected-platter/", "5 人自選拼盤")}；有小朋友參與的活動，可加配{a("/product-category/party/children/", "兒童套餐")}。12 月是學校活動及教職員聚餐的高峰，建議提早查詢。</p>
 <h3>醫院、社福機構及政府部門</h3>
 <ul>
-<li><strong>醫院及診所：</strong>員工午餐及答謝活動，可選{a("/product-category/商務活動/commercial-lunch-box/", "商務餐盒")}或{a("/product-category/商務活動/staff-meal/", "員工膳食餐盒")}，每人一盒方便分派。</li>
-<li><strong>社福機構及政府部門：</strong>講座、工作坊及義工活動，可選小食拼盤或{a("/product-category/商務活動/royal-snackers-box/", "皇家小食盒")}。</li>
+<li><strong>醫院及診所：</strong>員工午餐及答謝活動，可選{a(C+"commercial-lunch-box/", "商務餐盒")}或{a(C+"staff-meal/", "員工膳食餐盒")}，每人一盒方便分派。</li>
+<li><strong>社福機構及政府部門：</strong>講座、工作坊及義工活動，可選{a(C+"royal-snackers-box/", "皇家小食盒")}或小食拼盤。</li>
+<li><strong>素食需要：</strong>可配{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}。</li>
 </ul>
-<p>機構訂購如有採購或單據要求，請在查詢時一併說明。歡迎填寫{a("/catering-quote-enquiry/", "到會報價查詢")}，提供活動日期、人數及預算。</p>'''),
+<div class="ao-custom"><b>想度身訂製？</b>可按機構預算、採購要求及單據安排配搭餐單；歡迎填寫 {a("/catering-quote-enquiry/", "到會報價查詢")}，提供活動日期、人數及預算。</div>'''),
         ('price', '價錢及流程', f'''
 <h2>公司到會價錢怎樣計算？四個預算例子</h2>
 <p>公司到會的價錢主要由人數、菜式及送貨地區決定。以下例子可作初步預算參考：</p>

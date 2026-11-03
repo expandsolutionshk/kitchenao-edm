@@ -23,7 +23,7 @@ IMG = dict(
  lunch=U + '2025/04/CAB-Commercial-Meal-Lv2_%E9%A0%81%E9%9D%A2_1-1-724x1024-1.jpg',
  corp=U + '2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-768x1024.jpeg',
  veg=U + '2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg',
- charsiu=U + '2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-2-1.jpeg',
+ charsiu=U + '2019/06/Posts-04-scaled-600x600.jpg',
  claypot=U + '2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-4.jpeg',
  kids=U + '2023/10/202308-KIDS-thumbnail-02.jpg',
  snacks=U + '2023/10/2.jpg',
@@ -42,7 +42,7 @@ SCENES = [
    ('gourmet', '美食派對 Gourmet Set', '30 人以上大型套餐', 'HK$5,188 起', '/product-category/party-set-by-people/30%e4%ba%ba%e4%bb%a5%e4%b8%8a%e5%88%86%e4%ba%ab%e9%81%b8%e9%a0%85/')]),
  ('cny', '🧧', '團年飯、開年飯', '團年飯在家吃，大廚送上門', '一家團聚，毋須下廚', [
    ('gourmet', '美食派對 Gourmet Set', '按人數選擇・8 人起', 'HK$1,988 起', '/product-category/party/foot-party/'),
-   ('charsiu', '「黑白叉燒」鹿兒島叉燒扒', '西京燒及香港燒・可於套餐內選擇', '套餐內選擇', '/product-category/party-set-by-people/'),
+   ('charsiu', '「香港燒」鹿兒島叉燒扒', '烤燶邊香草蜜糖・4 磅', '單點', '/product/m0140-roasted-kagoshima-pork-char-siu-with-herb-and-honey-glaze-4-pounds/'),
    ('claypot', '「冩樂」蟹皇左口魚煲仔飯', '清酒灸燒・可於套餐內選擇', '套餐內選擇', '/product-category/party-set-by-people/'),
    ('veg', '「素」味人生素食套餐', '6 至 26 人・長輩吃素之選', 'HK$1,388 起', '/product-category/party/vegetarians-set/')]),
  ('nye', '🎆', '12/31 除夕倒數', '倒數不用排隊，派對美食準時送到', '朋友聚會、家庭倒數派對', [

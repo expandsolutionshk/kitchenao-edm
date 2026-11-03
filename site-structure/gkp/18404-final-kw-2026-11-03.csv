@@ -1,0 +1,88 @@
+﻿語言,類別,關鍵字,數據來源,放在哪裏
+中,主要,公司到會,GKP 50／月；GSC 約 160 曝光／月,Title／H1／首段 100 字內／Intro H2
+中,次要,企業到會,GSC,Intro H2 及首段／Meta
+中,次要,公司到會服務,GSC,Intro H2 及首段／Meta
+中,次要,下午茶到會,GKP 11-03：90／70／40,H2（分頁：會議餐飲）
+中,次要,早餐到會,GKP 11-03：90／70／40,H2（分頁：會議餐飲）
+中,次要,茶點到會,GKP 11-03：90／70／40,H2（分頁：會議餐飲）
+中,次要,公司春茗,GKP 11-03：90（2–3 月 260）／50（2 月 480）／30／30,H2／H3（分頁：年會、春茗及團年飯；12 月前上線）
+中,次要,公司開年飯,GKP 11-03：90（2–3 月 260）／50（2 月 480）／30／30,H2／H3（分頁：年會、春茗及團年飯；12 月前上線）
+中,次要,公司團年飯,GKP 11-03：90（2–3 月 260）／50（2 月 480）／30／30,H2／H3（分頁：年會、春茗及團年飯；12 月前上線）
+中,次要,團年飯到會,GKP 11-03：90（2–3 月 260）／50（2 月 480）／30／30,H2／H3（分頁：年會、春茗及團年飯；12 月前上線）
+中,次要,午餐到會,GKP 11-03：20／10／10,H2（分頁：員工午餐）
+中,次要,員工午餐,GKP 11-03：20／10／10,H2（分頁：員工午餐）
+中,次要,公司午餐,GKP 11-03：20／10／10,H2（分頁：員工午餐）
+中,次要,學校到會,GKP 11-03：30（12 月 70）,H3（分頁：機構活動）
+中,相關,會議到會,GKP 11-03,H3／內文（分頁：會議餐飲）
+中,相關,會議茶點,GKP 11-03,H3／內文（分頁：會議餐飲）
+中,相關,會議下午茶,GKP 11-03,H3／內文（分頁：會議餐飲）
+中,相關,早餐會議,GKP 11-03,H3／內文（分頁：會議餐飲）
+中,相關,tea break 到會,GKP 11-03,H3／內文（分頁：會議餐飲）
+中,相關,研討會到會,建議,H2／內文（分頁：培訓及研討會）
+中,相關,講座到會,建議,H2／內文（分頁：培訓及研討會）
+中,相關,培訓到會,建議,H2／內文（分頁：培訓及研討會）
+中,相關,工作坊到會,建議,H2／內文（分頁：培訓及研討會）
+中,相關,全日會議 午餐 茶點,建議,H2／內文（分頁：培訓及研討會）
+中,相關,年會到會,GKP 11-03,H2／內文（分頁：年會、春茗及團年飯）
+中,相關,annual dinner 到會,GKP 11-03,H2／內文（分頁：年會、春茗及團年飯）
+中,相關,春茗到會,GKP 11-03,H2／內文（分頁：年會、春茗及團年飯）
+中,相關,開年飯到會,GKP 11-03,H2／內文（分頁：年會、春茗及團年飯）
+中,相關,頒獎晚宴 到會,GKP 11-03,H2／內文（分頁：年會、春茗及團年飯）
+中,相關,公司聚會到會,GKP 11-03：員工活動 30,H2／H3（分頁：公司聚會及員工活動；聖誕只作連結）
+中,相關,員工活動,GKP 11-03：員工活動 30,H2／H3（分頁：公司聚會及員工活動；聖誕只作連結）
+中,相關,公司生日會,GKP 11-03：員工活動 30,H2／H3（分頁：公司聚會及員工活動；聖誕只作連結）
+中,相關,公司家庭日,GKP 11-03：員工活動 30,H2／H3（分頁：公司聚會及員工活動；聖誕只作連結）
+中,相關,team building 到會,GKP 11-03：員工活動 30,H2／H3（分頁：公司聚會及員工活動；聖誕只作連結）
+中,相關,公司聖誕派對到會,GKP 11-03：員工活動 30,H2／H3（分頁：公司聚會及員工活動；聖誕只作連結）
+中,相關,產品發佈會到會,建議,H2（分頁：Event 及 PR 活動；酒會、開張交商務活動頁）
+中,相關,記者會到會,建議,H2（分頁：Event 及 PR 活動；酒會、開張交商務活動頁）
+中,相關,品牌活動到會,建議,H2（分頁：Event 及 PR 活動；酒會、開張交商務活動頁）
+中,相關,機構到會,建議,H2／內文（分頁：機構活動）
+中,相關,醫院到會,建議,H2／內文（分頁：機構活動）
+中,相關,社福機構到會,建議,H2／內文（分頁：機構活動）
+中,相關,家長日到會,建議,H2／內文（分頁：機構活動）
+中,長尾,公司午餐到會,建議,內文
+中,長尾,公司下午茶到會,建議,內文
+中,長尾,辦公室到會,建議,內文
+中,長尾,公司活動到會,建議,內文
+中,長尾,公司週年晚宴到會,建議,內文
+中,長尾,公司派對到會,建議,內文
+中,長尾,企業午餐,建議,內文
+中,長尾,公司到會套餐,建議,內文
+中,長尾,公司到會外賣,建議,內文
+中,長尾,office lunch 到會,建議,內文
+中,FAQ,公司到會價錢,建議,FAQ（FAQPage schema）
+中,FAQ,公司到會要提前多少日預訂,建議,FAQ（FAQPage schema）
+中,FAQ,公司到會有沒有素食,建議,FAQ（FAQPage schema）
+中,FAQ,公司到會可否開發票,建議,FAQ（FAQPage schema）
+中,FAQ,會議下午茶到會,建議,FAQ（FAQPage schema）
+中,FAQ,全日培訓餐飲,建議,FAQ（FAQPage schema）
+EN,主要,corporate catering hong kong,Semrush 90，KD 43，#56,EN Title／H1
+EN,次要,corporate catering,Semrush 50（KD 32，#51）／70（KD 10，#41）／30（KD 18，#70）,EN H2（office lunch delivery、corporate lunch catering 最易見效）
+EN,次要,office lunch delivery,Semrush 50（KD 32，#51）／70（KD 10，#41）／30（KD 18，#70）,EN H2（office lunch delivery、corporate lunch catering 最易見效）
+EN,次要,corporate lunch catering,Semrush 50（KD 32，#51）／70（KD 10，#41）／30（KD 18，#70）,EN H2（office lunch delivery、corporate lunch catering 最易見效）
+EN,相關,office lunch catering,Semrush／GSC,EN H3／內文
+EN,相關,office catering hong kong,Semrush／GSC,EN H3／內文
+EN,相關,office lunch,Semrush／GSC,EN H3／內文
+EN,相關,afternoon tea catering,Semrush／GSC,EN H3／內文
+EN,相關,breakfast catering,Semrush／GSC,EN H3／內文
+EN,相關,breakfast meeting,Semrush／GSC,EN H3／內文
+EN,相關,meeting catering,Semrush／GSC,EN H3／內文
+EN,相關,annual lunch,Semrush／GSC,EN H3／內文
+EN,相關,company annual dinner planning hk,Semrush／GSC,EN H3／內文
+EN,相關,corporate catering service,Semrush／GSC,EN H3／內文
+EN,相關,office party catering hk,Semrush／GSC,EN H3／內文
+EN,長尾,corporate catering services hong kong,建議,EN 內文／FAQ
+EN,長尾,meeting catering hong kong,建議,EN 內文／FAQ
+EN,長尾,corporate event catering hong kong,建議,EN 內文／FAQ
+EN,長尾,annual dinner catering,建議,EN 內文／FAQ
+EN,長尾,office lunch delivery hong kong,建議,EN 內文／FAQ
+EN,長尾,spring dinner catering,建議,EN 內文／FAQ
+EN,長尾,year-end dinner catering,建議,EN 內文／FAQ
+EN,長尾,seminar catering,建議,EN 內文／FAQ
+EN,長尾,workshop catering,建議,EN 內文／FAQ
+EN,長尾,training day catering,建議,EN 內文／FAQ
+EN,長尾,tea break catering,建議,EN 內文／FAQ
+EN,長尾,school catering hong kong,建議,EN 內文／FAQ
+EN,長尾,hospital catering hong kong,建議,EN 內文／FAQ
+EN,長尾,ngo catering hong kong,建議,EN 內文／FAQ
