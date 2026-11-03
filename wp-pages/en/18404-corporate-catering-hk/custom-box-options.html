@@ -36,6 +36,20 @@ a{color:#9A7B2E;font-weight:700}
 .cC p{margin:0 0 12px;font-size:15px;line-height:1.8}
 .cC mark{background:#F7CE46;color:#1A1A1A;padding:1px 6px;border-radius:4px}
 .cC .go{display:inline-block;background:#C8A24A;color:#1A1A1A;border-radius:40px;padding:10px 24px;font-size:15px;font-weight:800;text-decoration:none}
+
+/* 方案 B2：左圖右文（廚師／團隊現場相）＋兩個掣 */
+.cB2{display:grid;grid-template-columns:38% 1fr;background:#FBF7EE;border:1px solid #EADFC8;border-radius:18px;overflow:hidden}
+.cB2 .ph{position:relative;min-height:230px;background:#2A2622 url("https://aoaodelivery.com/wp-content/uploads/2026/07/catering-hongkong-corporate.jpg") center 20%/cover no-repeat}
+.cB2 .ph span{position:absolute;left:14px;bottom:14px;background:rgba(26,26,26,.85);color:#C8A24A;font-size:12px;font-weight:800;letter-spacing:2px;padding:5px 12px;border-radius:20px}
+.cB2 .tx{padding:24px 26px;display:flex;flex-direction:column;justify-content:center}
+.cB2 .eb{font-size:12px;font-weight:800;letter-spacing:3px;color:#9A7B2E;margin:0 0 4px}
+.cB2 .t{font-size:20px;font-weight:800;color:#1A1A1A;margin:0 0 8px}
+.cB2 p{margin:0 0 16px;font-size:15px;line-height:1.8}
+.cB2 .btns{display:flex;gap:10px;flex-wrap:wrap}
+.cB2 .btns a{display:inline-block;padding:10px 20px;border-radius:40px;font-size:14px;font-weight:800;text-decoration:none}
+.cB2 .b1{background:#1A1A1A;color:#F7CE46}.cB2 .b2{border:1.5px solid #1A1A1A;color:#1A1A1A}
+@media(max-width:640px){.cB2{grid-template-columns:1fr}.cB2 .ph{min-height:190px}.cB2 .tx{padding:20px}.cB2 .btns a{flex:1;text-align:center}}
+.cB .ic{flex:0 0 56px;width:56px;min-width:56px;height:56px}
 </style>
 </head>
 <body>
@@ -44,7 +58,7 @@ a{color:#9A7B2E;font-weight:700}
 <p style="margin:0 0 22px;color:#7A7268;font-size:14px">全部唔用左邊金色直線。以員工午餐 tab 的內容示範。</p>
 
 <section class="opt">
- <h2><em>方案 A</em>黑底置中＋兩個掣 ⭐ 推介</h2>
+ <h2><em>方案 A</em>黑底置中＋兩個掣</h2>
  <p class="d">參考中秋及雙 11 EDM 的「大量訂購／度身訂造餐單」黑色區塊。同頁面上方的黑色 slider 及目錄列一致，最有企業感，亦直接帶出 WhatsApp 及報價兩個行動。</p>
  <div class="cA">
   <p class="t">想<span>度身訂製</span>餐單？</p>
@@ -54,12 +68,27 @@ a{color:#9A7B2E;font-weight:700}
 </section>
 
 <section class="opt">
- <h2><em>方案 B</em>米色卡＋圓形 icon＋右邊掣</h2>
+ <h2><em>方案 B</em>米色卡＋圓形 icon＋右邊掣（已修正 icon 變形）</h2>
  <p class="d">參考 Blog 右側欄的 CTA 卡。較柔和，唔會太搶眼；手機版自動變成置中直排。</p>
  <div class="cB">
   <div class="ic">✎</div>
   <div class="tx"><p class="t">想度身訂製？</p><p>指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），客服會按人數及預算配搭。</p></div>
   <a class="go" href="#">到會報價查詢</a>
+ </div>
+</section>
+
+
+<section class="opt">
+ <h2><em>方案 B2</em>左邊廚師現場相＋右邊文字及兩個掣 ⭐ 新推介</h2>
+ <p class="d">左邊用 Kitchen AO 團隊在活動現場的真實相片（首頁 Hero 同一張），右邊米色底放文字及「WhatsApp」「報價查詢」兩個掣。有真人相，比 icon 更有信任感；手機版相片在上、文字在下。</p>
+ <div class="cB2">
+  <div class="ph"><span>WE SERVE, WE WOW</span></div>
+  <div class="tx">
+   <p class="eb">CUSTOM MENU</p>
+   <p class="t">想度身訂製餐單？</p>
+   <p>指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），客服會按人數及預算為你配搭。</p>
+   <div class="btns"><a class="b1" href="#">WhatsApp 查詢</a><a class="b2" href="#">到會報價查詢</a></div>
+  </div>
  </div>
 </section>
 

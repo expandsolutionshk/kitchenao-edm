@@ -175,9 +175,9 @@ SETS = [
  ('舌尖上的餐桌九宮格 Canapés', CB+'a-bit-of-cuisines-gourmet-in-a-box/', '2025/04/WhatsApp-Image-2026-10-19-at-11.37.40-AM-768x542.jpeg', 'Event 及迎賓', 'fill'),
  ('美食派對 Gourmet 套餐', '/product-category/party/foot-party/', '2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg', '8 至 85 人｜HK$1,988 起'),
  ('輕食宴會套餐 Refreshment', '/product-category/party/refreshment-set/', '2023/11/refreshmentparty-03-768x768.jpg', '12 至 40 人｜HK$2,688 起'),
- ('百人慶典派對到會套餐', '/product/ao100set/', '2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg', '100 人｜HK$13,800'),
+ ('百人慶典派對到會套餐', '/product/ao100set/', '2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg', '100 人｜HK$13,800', 'fill'),
  ('「素」味人生素食套餐', '/product-category/party/vegetarians-set/', '2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-600x600.jpg', '6 至 26 人｜HK$1,388 起'),
- ('肉食獸上將海港之選', '/product-category/party/meat-monster/', '2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-768x512.jpeg', '7 至 11 人｜HK$1,888 起'),
+ ('肉食獸上將海港之選', '/product-category/party/meat-monster/', '2025/04/WhatsApp-Image-2025-04-14-at-6.13.46-PM-768x512.jpeg', '7 至 11 人｜HK$1,888 起', 'fill'),
  ('5 人自選拼盤', '/product/5-people-self-selected-platter/', '2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png', '小型聚會｜HK$498'),
 ]
 PASTA = [
