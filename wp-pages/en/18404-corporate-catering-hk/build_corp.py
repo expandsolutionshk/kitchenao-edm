@@ -109,15 +109,15 @@ CSS = '''<style>
 .ao-corp .ao-faqsec{margin-top:40px;padding-top:6px;border-top:1px solid #EEE9DF;}
 @media(max-width:768px){.ao-corp .ao-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:4px 6px;}.ao-corp .ao-tabs a{min-height:50px;font-size:13px !important;letter-spacing:.03em;padding:12px 2px 15px !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+6){border-bottom:1px solid #33302b;}}
 /* v10：主分類 tab＋間距 */
-.ao-corp .ao-tabs a.main{grid-column:1 / -1;min-height:58px;font-size:17px !important;font-weight:800 !important;letter-spacing:.12em;color:#C8A24A !important;gap:12px;}
-.ao-corp .ao-tabs a.main .mk{font-size:11px;letter-spacing:.25em;color:#8E836F;font-weight:700;}
-.ao-corp .ao-tabs a.main{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
-.ao-corp .ao-tabs a.main:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
+.ao-corp .ao-tabs .main{grid-column:1 / -1;min-height:58px;font-size:17px !important;font-weight:800 !important;letter-spacing:.12em;color:#C8A24A !important;gap:12px;}
+.ao-corp .ao-tabs .main .mk{font-size:11px;letter-spacing:.25em;color:#8E836F;font-weight:700;}
+.ao-corp .ao-tabs .main{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
+.ao-corp .ao-tabs .main:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
 @keyframes aoCorpShine{0%,60%{left:-40%;}85%,100%{left:120%;}}
-@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs a.main:before{animation:none;display:none;}}
-.ao-corp .ao-tabs a.main .mk{color:#4a3c1c !important;}
-.ao-corp .ao-tabs a.main:after{display:none;}
-.ao-corp .ao-tabs a.main,.ao-corp .ao-tabs a.main:hover{color:#1A1A1A !important;}
+@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs .main:before{animation:none;display:none;}}
+.ao-corp .ao-tabs .main .mk{color:#4a3c1c !important;}
+.ao-corp .ao-tabs .main:after{display:none;}
+.ao-corp .ao-tabs .main{color:#1A1A1A !important;display:flex;align-items:center;justify-content:center;position:relative;cursor:default;}
 .ao-corp .ao-pane{padding-top:8px;}
 .ao-corp p{margin:0 0 20px;line-height:1.9;}
 .ao-corp ul,.ao-corp ol{margin:0 0 22px;}
@@ -129,7 +129,7 @@ CSS = '''<style>
 .ao-corp .ao-btn-gold{margin:20px auto 34px !important;}
 .ao-corp .ao-tblwrap{margin:0 0 20px;}
 .ao-corp .ao-cust{margin:34px 0 14px !important;}
-@media(max-width:768px){.ao-corp .ao-tabs a.main{font-size:15px !important;min-height:52px;}.ao-corp h2{margin:36px 0 14px !important;}}
+@media(max-width:768px){.ao-corp .ao-tabs .main{font-size:15px !important;min-height:52px;}.ao-corp h2{margin:36px 0 14px !important;}}
 /* v11：手機版左右留白＋responsive 修正 */
 @media(max-width:768px){
 .ao-corp{padding-left:18px !important;padding-right:18px !important;box-sizing:border-box;-webkit-text-size-adjust:100%;font-size:15.5px;}
@@ -148,6 +148,14 @@ CSS = '''<style>
 .ao-corp .ao-kv{margin:0 0 18px;}
 }
 @media(max-width:380px){.ao-corp{padding-left:14px !important;padding-right:14px !important;}.ao-corp .ao-tabs a{font-size:12.5px !important;}.ao-corp .ao-scard{flex-basis:66%;}}
+/* v12：主分類下提示語 */
+.ao-corp .ao-tabs .ao-tabtip{grid-column:1 / -1;display:block;text-align:center;color:#C9BFA8;font-size:13.5px;letter-spacing:.12em;padding:12px 8px 10px;border-bottom:1px solid #33302b;}
+@media(max-width:768px){.ao-corp .ao-tabs .ao-tabtip{font-size:12.5px;letter-spacing:.06em;padding:10px 6px 8px;}}
+/* v13：已選擇＝方案 A 金色外框＋✓ */
+.ao-corp .ao-tabs a.t.on{color:#F7E3A8 !important;font-weight:700 !important;}
+.ao-corp .ao-tabs a.t.on:after{content:"✓" !important;position:relative !important;left:auto !important;bottom:auto !important;width:auto !important;height:auto !important;margin:0 0 0 6px !important;background:none !important;color:#C8A24A;font-weight:900;}
+.ao-corp .ao-tabs a.t.on:before{content:"";position:absolute;inset:7px 5px;border:1.5px solid #C8A24A;border-radius:10px;background:rgba(200,162,74,.08);pointer-events:none;}
+.ao-corp .ao-tabs a.t{display:flex;align-items:center;justify-content:center;}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -173,37 +181,39 @@ JS_SL = '''<script>(function(){document.querySelectorAll(".ao-corp .ao-slwrap").
 
 def build(L):
     o = ['<div class="ao-corp">', CSS, '']
-    tabs = [p for p in L['panes'] if p[0] != 'faq']
+    FIXED = ('faq', 'price')   # 固定顯示在所有分頁內容之後（不放 tab）
+    tabs = [p for p in L['panes'] if p[0] not in FIXED]
+    fixed = [p for p in L['panes'] if p[0] == 'price']
     faqp = [p for p in L['panes'] if p[0] == 'faq']
     main = None
     if L.get('main_label'):
-        # 主分類（一站式企業到會）：放在目錄最頂，預設顯示；內容＝Intro H2 以下＋人數及預算一覽＋四個原因
         k = L['intro'].index('<h2>')
         top, rest = L['intro'][:k], L['intro'][k:]
         main = ('overview', L['main_label'], rest + '\n' + L.get('summary', ''))
+        tabs = [('overview', L.get('all_label', '全部'), main[2])] + tabs
         o.append(top)
     else:
         o.append(L['intro'])
     o.append(f'<div class="ao-kv"><img class="k1" decoding="async" src="{P}/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="{L["img_alt"]}" width="600" height="300" /><img class="k2" decoding="async" src="{P}/wp-content/uploads/2023/11/IMG_2358.jpg" alt="{L["img_alt2"]}" width="600" height="300" /></div>')
-    c = (len(tabs) + 1) // 2  # 桌面兩行
+    n = len(tabs); c = (n + 1) // 2; m = 3 if n > 4 else 2
+    o.append(f'<style>.ao-corp .ao-tabs a.t{{border-bottom:0 !important;border-top:1px solid #33302b;}}@media(min-width:769px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a.d1{{border-top:0;}}}}@media(max-width:768px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({m},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a.m1{{border-top:0;}}}}</style>')
+    o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:{n}" aria-label="{L["nav_label"]}">')
     if main:
-        n = len(tabs); c = (n + 1) // 2
-        o.append(f'<style>@media(min-width:769px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a:nth-child(-n+5){{border-bottom:0;}}.ao-corp .ao-tabs a:nth-child(-n+{c + 1}){{border-bottom:1px solid #33302b;}}}}@media(max-width:768px){{.ao-corp .ao-tabs a:nth-child(-n+6){{border-bottom:0;}}.ao-corp .ao-tabs a:nth-child(-n+7){{border-bottom:1px solid #33302b;}}.ao-corp .ao-tabs a.main{{border-bottom:1px solid #33302b;}}}}</style>')
-    else:
-        o.append(f'<style>@media(min-width:769px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a:nth-child(-n+5){{border-bottom:0;}}.ao-corp .ao-tabs a:nth-child(-n+{c}){{border-bottom:1px solid #33302b;}}}}</style>')
-    o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:{len(tabs)}" aria-label="{L["nav_label"]}">')
-    allt = ([main] if main else []) + tabs
-    for i, (pid, label, _) in enumerate(allt):
-        cls = ['main'] if (main and i == 0) else []
-        if i == 0: cls.append('on')
-        ca = f' class="{" ".join(cls)}"' if cls else ''
-        o.append(f'<a href="#{pid}"{ca}>{label}</a>')
+        o.append(f'<div class="main">{main[1]}</div>')
+        if L.get('tab_hint'):
+            o.append(f'<span class="ao-tabtip">{L["tab_hint"]}</span>')
+    for i, (pid, label, _) in enumerate(tabs):
+        cls = ['t'] + (['d1'] if i < c else []) + (['m1'] if i < m else []) + (['on'] if i == 0 else [])
+        o.append(f'<a href="#{pid}" class="{" ".join(cls)}">{label}</a>')
     o.append('</nav></div>')
+    allt = tabs
     for pid, label, html in allt:
         o.append(f'<section class="ao-pane" id="{pid}">\n{cust(pid, html.strip())}\n</section>')
     if L.get('summary') and not main:
         o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
-    # 常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
+    # 價錢及流程、常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
+    for pid, label, html in fixed:
+        o.append(f'<section class="ao-faqsec" id="{pid}">\n{html.strip()}\n</section>')
     for pid, label, html in faqp:
         o.append(f'<section class="ao-faqsec" id="{pid}">\n{html.strip()}\n</section>')
     faq = L['faq']
@@ -362,6 +372,7 @@ ZH = dict(
     img_alt2='Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點',
     nav_label='公司到會目錄',
     main_label='<span class="mk">ALL SERVICES</span>一站式企業到會',
+    tab_hint='請選擇以下公司或企業到會活動',
     panes=[
         ('office-lunch', '員工午餐', f'''
 <h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2>

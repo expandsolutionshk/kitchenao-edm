@@ -101,15 +101,15 @@
 .ao-corp .ao-faqsec{margin-top:40px;padding-top:6px;border-top:1px solid #EEE9DF;}
 @media(max-width:768px){.ao-corp .ao-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:4px 6px;}.ao-corp .ao-tabs a{min-height:50px;font-size:13px !important;letter-spacing:.03em;padding:12px 2px 15px !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+6){border-bottom:1px solid #33302b;}}
 /* v10：主分類 tab＋間距 */
-.ao-corp .ao-tabs a.main{grid-column:1 / -1;min-height:58px;font-size:17px !important;font-weight:800 !important;letter-spacing:.12em;color:#C8A24A !important;gap:12px;}
-.ao-corp .ao-tabs a.main .mk{font-size:11px;letter-spacing:.25em;color:#8E836F;font-weight:700;}
-.ao-corp .ao-tabs a.main{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
-.ao-corp .ao-tabs a.main:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
+.ao-corp .ao-tabs .main{grid-column:1 / -1;min-height:58px;font-size:17px !important;font-weight:800 !important;letter-spacing:.12em;color:#C8A24A !important;gap:12px;}
+.ao-corp .ao-tabs .main .mk{font-size:11px;letter-spacing:.25em;color:#8E836F;font-weight:700;}
+.ao-corp .ao-tabs .main{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
+.ao-corp .ao-tabs .main:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
 @keyframes aoCorpShine{0%,60%{left:-40%;}85%,100%{left:120%;}}
-@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs a.main:before{animation:none;display:none;}}
-.ao-corp .ao-tabs a.main .mk{color:#4a3c1c !important;}
-.ao-corp .ao-tabs a.main:after{display:none;}
-.ao-corp .ao-tabs a.main,.ao-corp .ao-tabs a.main:hover{color:#1A1A1A !important;}
+@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs .main:before{animation:none;display:none;}}
+.ao-corp .ao-tabs .main .mk{color:#4a3c1c !important;}
+.ao-corp .ao-tabs .main:after{display:none;}
+.ao-corp .ao-tabs .main{color:#1A1A1A !important;display:flex;align-items:center;justify-content:center;position:relative;cursor:default;}
 .ao-corp .ao-pane{padding-top:8px;}
 .ao-corp p{margin:0 0 20px;line-height:1.9;}
 .ao-corp ul,.ao-corp ol{margin:0 0 22px;}
@@ -121,7 +121,7 @@
 .ao-corp .ao-btn-gold{margin:20px auto 34px !important;}
 .ao-corp .ao-tblwrap{margin:0 0 20px;}
 .ao-corp .ao-cust{margin:34px 0 14px !important;}
-@media(max-width:768px){.ao-corp .ao-tabs a.main{font-size:15px !important;min-height:52px;}.ao-corp h2{margin:36px 0 14px !important;}}
+@media(max-width:768px){.ao-corp .ao-tabs .main{font-size:15px !important;min-height:52px;}.ao-corp h2{margin:36px 0 14px !important;}}
 /* v11：手機版左右留白＋responsive 修正 */
 @media(max-width:768px){
 .ao-corp{padding-left:18px !important;padding-right:18px !important;box-sizing:border-box;-webkit-text-size-adjust:100%;font-size:15.5px;}
@@ -140,22 +140,31 @@
 .ao-corp .ao-kv{margin:0 0 18px;}
 }
 @media(max-width:380px){.ao-corp{padding-left:14px !important;padding-right:14px !important;}.ao-corp .ao-tabs a{font-size:12.5px !important;}.ao-corp .ao-scard{flex-basis:66%;}}
+/* v12：主分類下提示語 */
+.ao-corp .ao-tabs .ao-tabtip{grid-column:1 / -1;display:block;text-align:center;color:#C9BFA8;font-size:13.5px;letter-spacing:.12em;padding:12px 8px 10px;border-bottom:1px solid #33302b;}
+@media(max-width:768px){.ao-corp .ao-tabs .ao-tabtip{font-size:12.5px;letter-spacing:.06em;padding:10px 6px 8px;}}
+/* v13：已選擇＝方案 A 金色外框＋✓ */
+.ao-corp .ao-tabs a.t.on{color:#F7E3A8 !important;font-weight:700 !important;}
+.ao-corp .ao-tabs a.t.on:after{content:"✓" !important;position:relative !important;left:auto !important;bottom:auto !important;width:auto !important;height:auto !important;margin:0 0 0 6px !important;background:none !important;color:#C8A24A;font-weight:900;}
+.ao-corp .ao-tabs a.t.on:before{content:"";position:absolute;inset:7px 5px;border:1.5px solid #C8A24A;border-radius:10px;background:rgba(200,162,74,.08);pointer-events:none;}
+.ao-corp .ao-tabs a.t{display:flex;align-items:center;justify-content:center;}
 </style>
 
 <p>由每日的一盒午餐，到年尾的週年晚宴，公司活動的餐飲往往是同事最記得的細節。Kitchen AO 的<strong>香港公司到會</strong>服務，按人數及預算為企業及機構度身安排餐單，由 10 人部門午餐到 300 人公司聚會都可以配合，並設全港送貨。</p>
 
 <div class="ao-kv"><img class="k1" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="Kitchen AO 團隊在公司活動現場準備到會食物" width="600" height="300" /><img class="k2" decoding="async" src="https://aoaodelivery.com/wp-content/uploads/2023/11/IMG_2358.jpg" alt="Kitchen AO 侍應在商務活動現場擺放自助餐到會餐點" width="600" height="300" /></div>
-<style>@media(min-width:769px){.ao-corp .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+5){border-bottom:1px solid #33302b;}}@media(max-width:768px){.ao-corp .ao-tabs a:nth-child(-n+6){border-bottom:0;}.ao-corp .ao-tabs a:nth-child(-n+7){border-bottom:1px solid #33302b;}.ao-corp .ao-tabs a.main{border-bottom:1px solid #33302b;}}</style>
+<style>.ao-corp .ao-tabs a.t{border-bottom:0 !important;border-top:1px solid #33302b;}@media(min-width:769px){.ao-corp .ao-tabs{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a.d1{border-top:0;}}@media(max-width:768px){.ao-corp .ao-tabs{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}.ao-corp .ao-tabs a.m1{border-top:0;}}</style>
 <div class="ao-tabwrap"><nav class="ao-tabs" style="--n:8" aria-label="公司到會目錄">
-<a href="#overview" class="main on"><span class="mk">ALL SERVICES</span>一站式企業到會</a>
-<a href="#office-lunch">員工午餐</a>
-<a href="#meeting">會議餐飲</a>
-<a href="#training">培訓及研討會</a>
-<a href="#annual-dinner">年會及團年飯</a>
-<a href="#festive">公司聚會</a>
-<a href="#business-event">Event 及 PR 活動</a>
-<a href="#institutions">機構活動</a>
-<a href="#price">價錢及流程</a>
+<div class="main"><span class="mk">ALL SERVICES</span>一站式企業到會</div>
+<span class="ao-tabtip">請選擇以下公司或企業到會活動</span>
+<a href="#overview" class="t d1 m1 on">全部</a>
+<a href="#office-lunch" class="t d1 m1">員工午餐</a>
+<a href="#meeting" class="t d1 m1">會議餐飲</a>
+<a href="#training" class="t d1">培訓及研討會</a>
+<a href="#annual-dinner" class="t">年會及團年飯</a>
+<a href="#festive" class="t">公司聚會</a>
+<a href="#business-event" class="t">Event 及 PR 活動</a>
+<a href="#institutions" class="t">機構活動</a>
 </nav></div>
 <section class="ao-pane" id="overview">
 <h2>Kitchen AO 公司到會服務：由員工午餐到年會的一站式企業到會</h2>
@@ -302,7 +311,7 @@
 </ul>
 <div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url('https://images.pexels.com/photos/2291367/pexels-photo-2291367.jpeg?auto=compress&cs=tinysrgb&w=800')"></div><div class="tx"><p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">可按機構預算、採購要求及單據安排配搭餐單；歡迎填寫 <a href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a>，提供活動日期、人數及預算。</p><div class="btns"><a class="b1" href="https://wa.me/85269011987?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a><a class="b2" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></div></div>
 </section>
-<section class="ao-pane" id="price">
+<section class="ao-faqsec" id="price">
 <h2>公司到會價錢怎樣計算？四個預算例子</h2>
 <p>公司到會的價錢主要由人數、菜式及送貨地區決定。以下例子可作初步預算參考：</p>
 <div class="ao-tblwrap"><table>

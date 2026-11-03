@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>18404｜「已選擇」tab 顯示方式（3 個方案）</title>
+<style>
+body{margin:0;background:#F4F1EC;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;color:#3A342B}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 80px}
+.opt{background:#fff;border-radius:18px;padding:22px;margin:0 0 24px;box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.opt>h2{margin:0 0 4px;font-size:19px}.opt>h2 em{font-style:normal;color:#9A7B2E;margin-right:8px}
+.opt>p{margin:0 0 16px;color:#7A7268;font-size:14px;line-height:1.7}
+.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#1A1A1A;border-radius:6px;padding:6px 12px}
+.nav .main{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:12px;min-height:58px;border-radius:4px 4px 0 0;background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A;font-weight:800;font-size:17px;letter-spacing:.12em;text-decoration:none}
+.nav .main small{font-size:11px;letter-spacing:.25em;color:#4a3c1c;font-weight:700}
+.nav .tip{grid-column:1/-1;text-align:center;color:#C9BFA8;font-size:13.5px;letter-spacing:.12em;padding:12px 8px 10px;border-bottom:1px solid #33302b}
+.nav a.t{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;min-height:54px;padding:14px 6px 16px;color:#E9E2D3;text-decoration:none;font-size:14.5px;letter-spacing:.08em;cursor:pointer;transition:.2s}
+.nav a.t:nth-child(n+7){border-top:1px solid #33302b}
+@media(max-width:700px){.nav{grid-template-columns:repeat(3,minmax(0,1fr))}.nav a.t{font-size:13px;letter-spacing:.03em}.nav a.t:nth-child(n+6){border-top:1px solid #33302b}}
+
+/* 方案 A：金色外框＋✓ */
+.oA a.t.on{color:#F7E3A8;font-weight:700}
+.oA a.t.on:before{content:"";position:absolute;inset:6px 4px;border:1.5px solid #C8A24A;border-radius:10px;background:rgba(200,162,74,.08)}
+.oA a.t.on:after{content:"✓";color:#C8A24A;font-weight:900;margin-left:2px;position:relative}
+
+/* 方案 B：淺色底塊（似實體 tab 被按下） */
+.oB a.t.on{background:#2E2A25;color:#C8A24A;font-weight:700;border-radius:10px;box-shadow:inset 0 0 0 1px #4a4236}
+.oB a.t.on:before{content:"";position:absolute;left:50%;top:8px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#C8A24A;box-shadow:0 0 8px #C8A24A}
+
+/* 方案 C：「已選擇」小標籤 */
+.oC a.t.on{color:#fff;font-weight:700;flex-direction:column;gap:3px}
+.oC a.t.on:after{content:"已選擇";display:inline-block;font-size:10.5px;letter-spacing:.1em;font-weight:800;color:#1A1A1A;background:#C8A24A;border-radius:20px;padding:1px 8px}
+
+.cur{margin:12px 0 0;font-size:14px;color:#5d534d}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 style="font-size:21px;margin:0 0 4px">「已選擇」tab 顯示方式：3 個方案</h1>
+<p style="margin:0 0 22px;color:#7A7268;font-size:14px">撳任何一格試切換。現時做法係金色字加底線。</p>
+
+<section class="opt"><h2><em>方案 A</em>金色外框＋✓</h2><p>揀咗嗰格有金色圓角外框同 ✓，最清楚，一眼見到。</p><div class="nav oA" data-g></div><p class="cur"></p></section>
+<section class="opt"><h2><em>方案 B</em>淺色底塊＋金色亮點 ⭐ 推介</h2><p>揀咗嗰格變深啡底、金色字，頂部有一粒發光金點，似實體按鈕被按下。同金色主 tab 最夾，亦最 elegant。</p><div class="nav oB" data-g></div><p class="cur"></p></section>
+<section class="opt"><h2><em>方案 C</em>「已選擇」小標籤</h2><p>字下面加一粒金色「已選擇」小標籤，文字最直接，適合唔熟網站嘅長輩或 HR 同事。</p><div class="nav oC" data-g></div><p class="cur"></p></section>
+</div>
+<script>
+var T=['員工午餐','會議餐飲','培訓及研討會','年會及團年飯','公司聚會','Event 及 PR 活動','機構活動'];
+document.querySelectorAll('[data-g]').forEach(function(n){
+ n.innerHTML='<a class="main"><small>ALL SERVICES</small>一站式企業到會</a><span class="tip">請選擇以下公司或企業到會活動</span>'+T.map(function(t,i){return '<a class="t'+(i==3?' on':'')+'">'+t+'</a>'}).join('');
+ var cur=n.nextElementSibling;cur.textContent='已選擇：年會及團年飯';
+ n.querySelectorAll('a.t').forEach(function(a){a.onclick=function(){n.querySelectorAll('a.t').forEach(function(x){x.classList.remove('on')});a.classList.add('on');cur.textContent='已選擇：'+a.textContent;}});
+});
+</script>
+</body>
+</html>
