@@ -169,6 +169,24 @@ CSS = '''<style>
 .ao-corp .ao-scard .buy{flex:none;background:linear-gradient(135deg,#A9832F,#E4C77E 50%,#B8913E);color:#1A1A1A;border-radius:30px;padding:7px 13px;font-size:13px;font-weight:800;}
 .ao-corp .ao-sl-btn{top:100px;}
 @media(max-width:768px){.ao-corp .ao-scard{flex-basis:72% !important;}.ao-corp .ao-sl-btn{top:32%;}}
+/* v15：手機 tab 2 欄、表格可見、slider 淺色底 */
+@media(max-width:768px){
+.ao-corp .ao-tabs a.t{white-space:normal !important;letter-spacing:.02em !important;font-size:14px !important;padding:12px 8px 13px !important;line-height:1.35 !important;}
+.ao-corp .ao-tabs a.t.on:before{inset:6px 4px;}
+.ao-corp .ao-tabs a.t.on:after{margin-left:4px !important;}
+.ao-corp table{min-width:0 !important;table-layout:auto;font-size:13px !important;}
+.ao-corp th,.ao-corp td{padding:8px 6px !important;line-height:1.45;}
+.ao-corp th{white-space:normal;}
+.ao-corp td:first-child,.ao-corp th:first-child{width:30%;}
+.ao-corp td:not(:first-child){white-space:nowrap;}
+.ao-corp td:last-child{white-space:normal;}
+}
+.ao-corp .ao-shelf{background:#2B2622 !important;border:1px solid #4a3f30 !important;}
+.ao-corp .ao-shelf-t{color:#F4ECDD !important;}
+.ao-corp .ao-shelf-d{color:#C9BFA8 !important;}
+/* v16：產品卡名稱貼近金線（上方對齊） */
+.ao-corp .ao-scard .ft{align-items:flex-start !important;padding:14px 14px 16px !important;}
+.ao-corp .ao-scard .buy{align-self:flex-start;margin-top:1px;}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
@@ -208,7 +226,7 @@ def build(L):
     else:
         o.append(L['intro'])
     o.append(f'<div class="ao-kv"><img class="k1" decoding="async" src="{P}/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg" alt="{L["img_alt"]}" width="600" height="300" /><img class="k2" decoding="async" src="{P}/wp-content/uploads/2023/11/IMG_2358.jpg" alt="{L["img_alt2"]}" width="600" height="300" /></div>')
-    n = len(tabs); c = (n + 1) // 2; m = 3 if n > 4 else 2
+    n = len(tabs); c = (n + 1) // 2; m = 2
     o.append(f'<style>.ao-corp .ao-tabs a.t{{border-bottom:0 !important;border-top:1px solid #33302b;}}@media(min-width:769px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({c},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a.d1{{border-top:0;}}}}@media(max-width:768px){{.ao-corp .ao-tabs{{grid-template-columns:repeat({m},minmax(0,1fr)) !important;}}.ao-corp .ao-tabs a.m1{{border-top:0;}}}}</style>')
     o.append(f'<div class="ao-tabwrap"><nav class="ao-tabs" style="--n:{n}" aria-label="{L["nav_label"]}">')
     if main:
@@ -397,8 +415,8 @@ ZH = dict(
 <li>{a("/product-category/party/foot-party/", "美食派對 Gourmet 套餐")}：想以分享形式一齊食，8 至 10 人 HK$1,988 起</li>
 <li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：有同事吃素，可另加素食套餐，6 至 8 人 HK$1,388 起</li>
 </ul>
-<h3>加配意粉及意大利飯</h3>
-{sl('意粉及意大利飯', '飽肚又方便分享，可配合餐盒一併送達。', PASTA, '/product-category/a-la-carte/pasta/', '查看全部意粉及意大利飯')}
+<h3>加配意粉、意大利飯及煲仔飯</h3>
+{sl('意粉、意大利飯及煲仔飯', '飽肚又方便分享，可配合餐盒一併送達。', PASTA, '/product-category/a-la-carte/pasta/', '查看全部意粉及意大利飯')}
 <div class="ao-custom"><b>想度身訂製？</b>如需指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出，客服會按人數及預算配搭。</div>
 <p>客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>'''),
         ('meeting', '會議餐飲', f'''
