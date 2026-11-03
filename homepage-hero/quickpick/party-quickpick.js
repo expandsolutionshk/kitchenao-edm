@@ -85,3 +85,27 @@
 
   })();
 })();
+
+/* v3：派對分類 SEO 內容移到產品列表下面＋FAQPage＋ItemList 結構化資料 */
+(function(){
+  if(window.__aoSEO)return;window.__aoSEO=1;
+  function run(){
+    var seo=document.getElementById('aoSeo');
+    var list=document.querySelector('ul.products');
+    if(seo&&list){
+      var anchor=document.querySelector('.woocommerce-pagination')||list;
+      anchor.parentNode.insertBefore(seo,anchor.nextSibling);
+      seo.classList.add('ao-on');
+    }else if(seo){seo.classList.add('ao-on');}
+    function ld(obj){var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify(obj);document.head.appendChild(s);}
+    if(seo){
+      var q=[].slice.call(seo.querySelectorAll('details')).map(function(d){var sm=d.querySelector('summary'),p=d.querySelector('p');return sm&&p?{"@type":"Question","name":sm.textContent.trim(),"acceptedAnswer":{"@type":"Answer","text":p.textContent.trim()}}:null}).filter(Boolean);
+      if(q.length)ld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":q});
+    }
+    if(list){
+      var items=[].slice.call(list.querySelectorAll('li.product')).map(function(li,i){var a=li.querySelector('a[href]');var n=li.querySelector('h2,h3,.woocommerce-loop-product__title');return a?{"@type":"ListItem","position":i+1,"url":a.href,"name":n?n.textContent.trim():undefined}:null}).filter(Boolean);
+      if(items.length)ld({"@context":"https://schema.org","@type":"ItemList","name":document.title.split('|')[0].trim(),"numberOfItems":items.length,"itemListElement":items});
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();

@@ -1,0 +1,22 @@
+/* 派對分類 SEO 內容（v3）：JS 移到產品列表下面之前先隱藏，避免 CLS */
+.ao-seo-move{display:none}
+.ao-seo-move.ao-on{display:block}
+.ao-seo{max-width:900px;margin:40px auto 10px;font-size:15px;line-height:1.85;color:#3A342B}
+.ao-seo h2{position:relative;font-size:21px;margin:30px 0 10px;padding-top:14px}.ao-seo h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A}
+.ao-seo table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+.ao-seo th{background:#f4ead6;color:#6b4e16;text-align:left;padding:8px}
+.ao-seo td{padding:8px;border-bottom:1px solid #eee}
+.ao-seo td:last-child{font-weight:700;color:#8a6420;white-space:nowrap}
+.ao-seo .sm{font-size:12px;color:#999}
+.ao-seo ul{padding-left:20px}.ao-seo li{margin:4px 0}
+.ao-seo a{color:#9a6c1c}
+.ao-occ{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0}
+.ao-occ a{display:block;border:1px solid #eadfc8;border-radius:10px;padding:10px 12px;text-decoration:none;color:#2b2b2b;background:#fffaf1}
+.ao-occ a b{display:block;color:#8a6420}.ao-occ a span{font-size:13px;color:#777}
+.ao-seo details{border:1px solid #eee;border-radius:10px;margin:8px 0;padding:0 14px;background:#fff}
+.ao-seo summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none;position:relative;padding-right:24px}
+.ao-seo summary::-webkit-details-marker{display:none}
+.ao-seo summary::after{content:"";position:absolute;right:4px;top:50%;width:8px;height:8px;border-right:2px solid #b8893b;border-bottom:2px solid #b8893b;transform:translateY(-70%) rotate(45deg);transition:.2s}
+.ao-seo details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.ao-seo details p{margin:0 0 12px;color:#555}
+@media(max-width:600px){.ao-seo{padding:0 4px}.ao-seo table{font-size:13px}.ao-seo td,.ao-seo th{padding:7px 6px}}
