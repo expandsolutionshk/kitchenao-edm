@@ -1,3 +1,4 @@
+import re
 """公司到會（18404）中英 Raw HTML 產生器
 python3 build_corp.py → zh-rawhtml.html（Extra class：ao-zh）、en-rawhtml.html（Extra class：ao-en）
 Tab 做法：所有內容都在 HTML 內（Google 可讀取）；JavaScript 載入後才把非當前分頁隱藏，沒有 JS 時全部顯示。
@@ -69,8 +70,6 @@ CSS = '''<style>
 @media(max-width:768px){.ao-corp .ao-scene a{width:calc((100% - 14px)/2);}}
 @media(max-width:600px){.ao-corp .ao-cards{grid-template-columns:1fr;}.ao-corp .ao-scene a{width:100%;}.ao-corp .ao-tabs{height:46px;}.ao-corp .ao-tabs a{flex:0 0 auto;padding:0 14px;font-size:14px;}.ao-corp .ao-kv{gap:6px;}.ao-corp .ao-kv img{aspect-ratio:3/4;border-radius:10px;}.ao-corp h2{font-size:21px;}.ao-corp .ao-cta a{width:100%;min-width:0;max-width:320px;white-space:normal;}}
 
-.ao-corp .ao-custom{margin:18px 0 8px;padding:14px 18px;background:#FBF7EE;border:1px solid #E9D9AE;border-left:4px solid #C8A24A;border-radius:10px;font-size:15px;line-height:1.75;color:#4a4238;}
-.ao-corp .ao-custom b{display:block;color:#1A1A1A;margin-bottom:2px;}
 .ao-corp .ao-shelf{background:#1A1A1A;border-radius:18px;padding:18px 18px 14px;margin:20px 0 0;}
 .ao-corp .ao-shelf-t{color:#fff !important;font-size:19px;font-weight:800;margin:0 0 2px !important;}
 .ao-corp .ao-shelf-d{color:#C9BFA8 !important;font-size:14px;margin:0 0 12px !important;line-height:1.6;}
@@ -88,6 +87,17 @@ CSS = '''<style>
 .ao-corp .ao-btn-gold{display:block;width:fit-content;margin:14px auto 10px;background:#C8A24A;color:#1A1A1A !important;border:2px solid #C8A24A;border-radius:40px;padding:10px 28px;font-size:15px;font-weight:800;text-decoration:none !important;}
 .ao-corp .ao-btn-gold:hover{background:#1A1A1A;color:#F7CE46 !important;}
 @media(max-width:600px){.ao-corp .ao-scard{flex-basis:62%;}.ao-corp .ao-sl-btn{top:30%;}}
+.ao-corp .ao-cust{display:grid;grid-template-columns:38% 1fr;background:#FBF7EE;border:1px solid #EADFC8;border-radius:18px;overflow:hidden;margin:24px 0 10px;}
+.ao-corp .ao-cust .ph{min-height:230px;background:#2A2622 center/cover no-repeat;}
+.ao-corp .ao-cust .tx{padding:24px 26px;display:flex;flex-direction:column;justify-content:center;}
+.ao-corp .ao-cust .eb{font-size:12px;font-weight:800;letter-spacing:3px;color:#9A7B2E;margin:0 0 4px !important;}
+.ao-corp .ao-cust .t{font-size:20px;font-weight:800;color:#1A1A1A;margin:0 0 8px !important;}
+.ao-corp .ao-cust .d{margin:0 0 16px !important;font-size:15px;line-height:1.8;color:#4a4238;}
+.ao-corp .ao-cust .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.ao-corp .ao-cust .btns a{display:inline-block;padding:10px 20px;border-radius:40px;font-size:14px;font-weight:800;text-decoration:none !important;}
+.ao-corp .ao-cust .b1{background:#1A1A1A;color:#F7CE46 !important;}
+.ao-corp .ao-cust .b2{border:1.5px solid #1A1A1A;color:#1A1A1A !important;}
+@media(max-width:640px){.ao-corp .ao-cust{grid-template-columns:1fr;}.ao-corp .ao-cust .ph{min-height:180px;}.ao-corp .ao-cust .tx{padding:20px;}.ao-corp .ao-cust .btns a{flex:1;text-align:center;}}
 /* v9：深色目錄列｜桌面 2 行（5＋4）、字一行；手機 3 欄 × 3 行 */
 .ao-corp .ao-tabwrap{margin:22px 0 0;}
 .ao-corp .ao-tabs{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;height:auto !important;overflow:visible !important;background:#1A1A1A;border:0 !important;border-radius:6px;padding:6px 12px;}
@@ -102,6 +112,20 @@ CSS = '''<style>
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
 JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)return;var n=r.querySelector(".ao-tabs");if(!n)return;var T=[].slice.call(n.querySelectorAll("a")),P=T.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});if(P.some(function(p){return !p}))return;r.classList.add("js-tabs");n.setAttribute("role","tablist");function show(i,push){T.forEach(function(a,k){var on=k===i;a.classList.toggle("on",on);a.setAttribute("aria-selected",on?"true":"false");P[k].classList.toggle("on",on);});var a=T[i];if(n.scrollWidth>n.clientWidth)n.scrollTo({left:a.offsetLeft-(n.clientWidth-a.offsetWidth)/2,behavior:"smooth"});if(push&&history.replaceState)history.replaceState(null,"","#"+P[i].id);}T.forEach(function(a,i){a.setAttribute("role","tab");P[i].setAttribute("role","tabpanel");a.addEventListener("click",function(e){e.preventDefault();show(i,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;if(window.pageYOffset>top)window.scrollTo({top:top,behavior:"smooth"});});});function fromHash(){var h=location.hash.slice(1);if(!h)return 0;var el=document.getElementById(h);if(!el)return 0;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el))return k;}return 0;}var s=fromHash();show(s,false);if(location.hash&&s){setTimeout(function(){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});},150);}window.addEventListener("hashchange",function(){show(fromHash(),false);});[].slice.call(r.querySelectorAll('a[href^="#"]')).forEach(function(l){if(n.contains(l))return;l.addEventListener("click",function(e){var el=document.getElementById(l.getAttribute("href").slice(1));if(!el)return;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el)){e.preventDefault();show(k,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;window.scrollTo({top:top,behavior:"smooth"});return;}}});});})();</script>'''
+
+# 度身訂製卡（方案 B2）：每個場景一張不同的 Pexels 免費相（上線前建議下載並上載到 WP 媒體庫）
+PX = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=800'
+CUST_IMG = {'office-lunch': PX(36430082), 'meeting': PX(30507463), 'training': PX(15671274), 'annual-dinner': PX(15671380),
+            'festive': PX(36904788), 'business-event': PX(38958593), 'institutions': PX(27101539)}
+def cust(pid, html):
+    def f(m):
+        img = CUST_IMG.get(pid)
+        if not img: return m.group(0)
+        return (f'<div class="ao-cust"><div class="ph" role="img" aria-label="廚師準備到會菜式" style="background-image:url(\'{img}\')"></div><div class="tx">'
+                f'<p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">{m.group(1)}</p>'
+                f'<div class="btns"><a class="b1" href="{WA}?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a>'
+                f'<a class="b2" href="{P}/catering-quote-enquiry/">到會報價查詢</a></div></div></div>')
+    return re.sub(r'<div class="ao-custom"><b>想度身訂製？</b>(.*?)</div>', f, html, flags=re.S)
 
 JS_SL = '''<script>(function(){document.querySelectorAll(".ao-corp .ao-slwrap").forEach(function(w){var s=w.querySelector(".ao-slider"),p=w.querySelector(".prev"),n=w.querySelector(".next");function u(){var m=s.scrollWidth-s.clientWidth;p.hidden=s.scrollLeft<4;n.hidden=s.scrollLeft>m-4;}p.addEventListener("click",function(){s.scrollBy({left:-s.clientWidth*.8,behavior:"smooth"})});n.addEventListener("click",function(){s.scrollBy({left:s.clientWidth*.8,behavior:"smooth"})});s.addEventListener("scroll",u,{passive:true});window.addEventListener("resize",u);u();document.querySelectorAll(".ao-corp .ao-tabs a").forEach(function(a){a.addEventListener("click",function(){setTimeout(u,50)})});});})();</script>'''
 
@@ -120,7 +144,7 @@ def build(L):
         o.append(f'<a href="#{pid}"{on}>{label}</a>')
     o.append('</nav></div>')
     for pid, label, html in tabs:
-        o.append(f'<section class="ao-pane" id="{pid}">\n{html.strip()}\n</section>')
+        o.append(f'<section class="ao-pane" id="{pid}">\n{cust(pid, html.strip())}\n</section>')
     # 人數及預算一覽、四個原因：不放 tab，固定顯示在分頁內容之後
     if L.get('summary'):
         o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
