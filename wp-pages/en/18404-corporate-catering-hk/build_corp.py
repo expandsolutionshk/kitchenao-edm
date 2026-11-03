@@ -130,6 +130,24 @@ CSS = '''<style>
 .ao-corp .ao-tblwrap{margin:0 0 20px;}
 .ao-corp .ao-cust{margin:34px 0 14px !important;}
 @media(max-width:768px){.ao-corp .ao-tabs a.main{font-size:15px !important;min-height:52px;}.ao-corp h2{margin:36px 0 14px !important;}}
+/* v11：手機版左右留白＋responsive 修正 */
+@media(max-width:768px){
+.ao-corp{padding-left:18px !important;padding-right:18px !important;box-sizing:border-box;-webkit-text-size-adjust:100%;font-size:15.5px;}
+.ao-corp .ao-tabs{padding:4px 8px;}
+.ao-corp .ao-shelf{padding:16px 14px 12px;border-radius:16px;}
+.ao-corp .ao-scard{flex-basis:58%;}
+.ao-corp .ao-sl-btn{width:34px;height:34px;font-size:22px;line-height:28px;}
+.ao-corp .ao-sl-btn.prev{left:-6px;}.ao-corp .ao-sl-btn.next{right:-6px;}
+.ao-corp .ao-cust .tx{padding:20px 18px;}
+.ao-corp table{font-size:13.5px;min-width:480px;}
+.ao-corp th,.ao-corp td{padding:8px 9px !important;}
+.ao-corp .ao-tblwrap{margin:0 0 20px;border-radius:10px;}
+.ao-corp h3{font-size:17px;margin:28px 0 10px;}
+.ao-corp ul,.ao-corp ol{padding-left:20px;}
+.ao-corp .ao-faq summary{padding:12px 40px 12px 14px;font-size:15px;}
+.ao-corp .ao-kv{margin:0 0 18px;}
+}
+@media(max-width:380px){.ao-corp{padding-left:14px !important;padding-right:14px !important;}.ao-corp .ao-tabs a{font-size:12.5px !important;}.ao-corp .ao-scard{flex-basis:66%;}}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
