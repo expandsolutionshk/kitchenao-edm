@@ -3,7 +3,8 @@
 <style>
 .page-id-18404 h1.heading-title{word-break:keep-all;text-wrap:balance;}
 .ao-corp{max-width:860px;margin:0 auto;padding-top:28px;color:#3A342B;font-size:16px;line-height:1.8;}
-.ao-corp h2{font-size:24px;font-weight:900;color:#1A1A1A;margin:32px 0 12px;padding-left:12px;border-left:6px solid #C8A24A;line-height:1.4;scroll-margin-top:110px;}
+.ao-corp h2{position:relative;font-size:24px;font-weight:900;color:#1A1A1A;margin:36px 0 14px;padding:16px 0 0;border:0;line-height:1.4;scroll-margin-top:110px;}
+.ao-corp h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A;}
 .ao-corp h3{font-size:18px;font-weight:800;color:#1A1A1A;margin:24px 0 8px;scroll-margin-top:110px;}
 .ao-corp p{margin:0 0 14px;}
 .ao-corp ul,.ao-corp ol{margin:0 0 16px;padding-left:22px;}
@@ -70,7 +71,7 @@
 .ao-corp .ao-slider{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding:0 0 4px;}
 .ao-corp .ao-slider::-webkit-scrollbar{display:none;}
 .ao-corp .ao-scard{flex:0 0 200px;scroll-snap-align:start;text-decoration:none !important;display:flex;flex-direction:column;}
-.ao-corp .ao-scard img{width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:cover;border-radius:12px !important;display:block;margin:0 !important;}
+.ao-corp .ao-scard img{width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:contain;object-position:center top;background:#2A2622;border-radius:12px !important;display:block;margin:0 !important;}
 .ao-corp .ao-scard .nm{color:#EDE6D6;font-size:14px;font-weight:600;line-height:1.45;padding:8px 2px 0;}
 .ao-corp .ao-scard .pr{color:#C8A24A;font-size:13px;font-weight:700;padding:2px 2px 0;}
 .ao-corp .ao-sl-btn{position:absolute;top:84px;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid #C8A24A;background:rgba(26,26,26,.92);color:#F7CE46;font-size:24px;line-height:32px;text-align:center;padding:0;cursor:pointer;}

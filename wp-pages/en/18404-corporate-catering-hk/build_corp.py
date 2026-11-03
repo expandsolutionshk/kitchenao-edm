@@ -10,7 +10,8 @@ WA = 'https://wa.me/85269011987'
 CSS = '''<style>
 .page-id-18404 h1.heading-title{word-break:keep-all;text-wrap:balance;}
 .ao-corp{max-width:860px;margin:0 auto;padding-top:28px;color:#3A342B;font-size:16px;line-height:1.8;}
-.ao-corp h2{font-size:24px;font-weight:900;color:#1A1A1A;margin:32px 0 12px;padding-left:12px;border-left:6px solid #C8A24A;line-height:1.4;scroll-margin-top:110px;}
+.ao-corp h2{position:relative;font-size:24px;font-weight:900;color:#1A1A1A;margin:36px 0 14px;padding:16px 0 0;border:0;line-height:1.4;scroll-margin-top:110px;}
+.ao-corp h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A;}
 .ao-corp h3{font-size:18px;font-weight:800;color:#1A1A1A;margin:24px 0 8px;scroll-margin-top:110px;}
 .ao-corp p{margin:0 0 14px;}
 .ao-corp ul,.ao-corp ol{margin:0 0 16px;padding-left:22px;}
@@ -77,7 +78,7 @@ CSS = '''<style>
 .ao-corp .ao-slider{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding:0 0 4px;}
 .ao-corp .ao-slider::-webkit-scrollbar{display:none;}
 .ao-corp .ao-scard{flex:0 0 200px;scroll-snap-align:start;text-decoration:none !important;display:flex;flex-direction:column;}
-.ao-corp .ao-scard img{width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:cover;border-radius:12px !important;display:block;margin:0 !important;}
+.ao-corp .ao-scard img{width:100% !important;height:auto !important;aspect-ratio:1/1;object-fit:contain;object-position:center top;background:#2A2622;border-radius:12px !important;display:block;margin:0 !important;}
 .ao-corp .ao-scard .nm{color:#EDE6D6;font-size:14px;font-weight:600;line-height:1.45;padding:8px 2px 0;}
 .ao-corp .ao-scard .pr{color:#C8A24A;font-size:13px;font-weight:700;padding:2px 2px 0;}
 .ao-corp .ao-sl-btn{position:absolute;top:84px;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid #C8A24A;background:rgba(26,26,26,.92);color:#F7CE46;font-size:24px;line-height:32px;text-align:center;padding:0;cursor:pointer;}
@@ -179,12 +180,12 @@ SETS = [
  ('5 人自選拼盤', '/product/5-people-self-selected-platter/', '2023/10/KitchenAO_platter_thumbnail_工作區域-1-600x600-1.png', '小型聚會｜HK$498'),
 ]
 PASTA = [
- ('「冩樂」清酒煮蟹皇灸燒左口魚醬油煲仔飯', '/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/', '2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-4-600x600.jpeg', '4 磅'),
- ('黑松露野菌蘆筍忌廉意粉', '/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/', '2023/10/cafcfef6-09ff-4233-be66-84dd307ea036-600x600.jpg', '4 磅'),
- ('黑椒牛柳絲韭菜花炒意粉', '/product/p22l-黑椒牛柳絲韭菜花炒意粉-4磅p22l-black-pepper-wagyu-strips-garlic-chive-blossom-spaghetti-4-pounds/', '2025/05/KitchenAO_DEC2023-ALA-CARTE-09-600x600.jpg', '4 磅'),
- ('爆炒 XO 醬蜆肉香蒜意大利麵', '/product/p04l-pan-fried-xo-sauce-clam-and-garlic-pasta-4-pounds/', '2019/06/Posts-27-scaled-600x600.jpg', '4 磅'),
- ('芝士腐乳卡邦尼長通粉', '/product/p07l-carbonara-penne-with-fermented-tofu-sauce-4-pounds/', '2019/06/Posts-03-scaled-600x600.jpg', '4 磅'),
- ('芝士焗特調肉醬蝴蝶粉', '/product/baked-chessy-farfalle-bolognese-4-pounds/', '2019/06/KitchenAO_JUN2023-ALA-CARTE-02-600x600.png', '4 磅'),
+ ('「冩樂」清酒煮蟹皇灸燒左口魚醬油煲仔飯', '/product/ps01l「冩樂」清酒煮蟹皇灸燒左口魚醬油㷛仔飯-4磅/', '2026/03/WhatsApp-Image-2026-03-18-at-16.36.27-4-600x600.jpeg', ''),
+ ('黑松露野菌蘆筍忌廉意粉', '/product/p03l-black-truffle-wild-mushroom-and-asparagus-cream-pasta-4-pounds/', '2023/10/cafcfef6-09ff-4233-be66-84dd307ea036-600x600.jpg', ''),
+ ('黑椒牛柳絲韭菜花炒意粉', '/product/p22l-黑椒牛柳絲韭菜花炒意粉-4磅p22l-black-pepper-wagyu-strips-garlic-chive-blossom-spaghetti-4-pounds/', '2025/05/KitchenAO_DEC2023-ALA-CARTE-09-600x600.jpg', ''),
+ ('爆炒 XO 醬蜆肉香蒜意大利麵', '/product/p04l-pan-fried-xo-sauce-clam-and-garlic-pasta-4-pounds/', '2019/06/Posts-27-scaled-600x600.jpg', ''),
+ ('芝士腐乳卡邦尼長通粉', '/product/p07l-carbonara-penne-with-fermented-tofu-sauce-4-pounds/', '2019/06/Posts-03-scaled-600x600.jpg', ''),
+ ('芝士焗特調肉醬蝴蝶粉', '/product/baked-chessy-farfalle-bolognese-4-pounds/', '2019/06/KitchenAO_JUN2023-ALA-CARTE-02-600x600.png', ''),
 ]
 FINGER = [
  ('蠔油鮑汁野菌鮑魚酥', '/product/a3000-braised-abalone-vol-au-vent-with-mushrooms-in-oyster-sauce/', '2023/12/KitchenAO_DEC2023-ALA-CARTE-06-600x600.jpg', ''),
@@ -202,12 +203,12 @@ SALAD = [
  ('千島汁大蝦蜜桃沙律', '/product/shrimp-and-peach-salad-in-thousand-island-dressing/', '2019/06/KitchenAO_MAY2023-ALA-CARTE-06-600x600.png', ''),
 ]
 HOT = [
- ('全隻西班牙脆嫩乳香乳豬', '/product/m0600-whole-spanish-style-crispy-suckling-pig-sliced-or-unsliced/', '2023/12/20221114_AOKitchen_-321-600x600.jpg', '可切或免切'),
- ('自家製黑松露牛油慢焗法國黃油雞', '/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/', '2019/06/Posts-21-scaled-600x600.jpg', '1.5 隻'),
- ('紅酒慢燴鮮蕃茄和牛牛肋條', '/product/m0240-red-wine-braised-fresh-tomato-and-wagyu-beef-short-ribs-4-pounds/', '2019/06/Posts-34-600x600-1.jpg', '4 磅'),
- ('「香港燒」烤燶邊香草蜜糖鹿兒島叉燒扒', '/product/m0140-roasted-kagoshima-pork-char-siu-with-herb-and-honey-glaze-4-pounds/', '2019/06/Posts-04-scaled-600x600.jpg', '4 磅'),
- ('蜜蜜糖德國鹹豬手', '/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/', '2019/06/Posts-25-scaled-600x600.jpg', '1 隻'),
- ('椰香咖哩海鮮龍脷柳配蒜蓉包', '/product/m07l-coconut-curry-seafood-sole-fillet-with-garlic-breads-4-pounds/', '2024/09/咖喱石班-03-600x600.jpg', '4 磅'),
+ ('全隻西班牙脆嫩乳香乳豬', '/product/m0600-whole-spanish-style-crispy-suckling-pig-sliced-or-unsliced/', '2023/12/20221114_AOKitchen_-321-600x600.jpg', ''),
+ ('自家製黑松露牛油慢焗法國黃油雞', '/product/m0315-homemade-black-truffle-butter-baked-cornish-hen-1-5-chickens/', '2019/06/Posts-21-scaled-600x600.jpg', ''),
+ ('紅酒慢燴鮮蕃茄和牛牛肋條', '/product/m0240-red-wine-braised-fresh-tomato-and-wagyu-beef-short-ribs-4-pounds/', '2019/06/Posts-34-600x600-1.jpg', ''),
+ ('「香港燒」烤燶邊香草蜜糖鹿兒島叉燒扒', '/product/m0140-roasted-kagoshima-pork-char-siu-with-herb-and-honey-glaze-4-pounds/', '2019/06/Posts-04-scaled-600x600.jpg', ''),
+ ('蜜蜜糖德國鹹豬手', '/product/m0500-honey-glazed-german-salted-pork-knuckle-1-pcs/', '2019/06/Posts-25-scaled-600x600.jpg', ''),
+ ('椰香咖哩海鮮龍脷柳配蒜蓉包', '/product/m07l-coconut-curry-seafood-sole-fillet-with-garlic-breads-4-pounds/', '2024/09/咖喱石班-03-600x600.jpg', ''),
 ]
 SNACK = [
  ('蜜蜜燒雞翼配脆薯角', '/product/a0500-honey-glazed-chicken-wings-w-potato-wedges/', '2019/06/Posts-16-scaled-600x600.jpg', ''),
@@ -292,7 +293,7 @@ ZH = dict(
 <li>{a("/product-category/party/vegetarians-set/", "「素」味人生素食套餐")}：有同事吃素，可另加素食套餐，6 至 8 人 HK$1,388 起</li>
 </ul>
 <h3>加配意粉及意大利飯</h3>
-{sl('意粉及意大利飯', '以 4 磅份量供應，飽肚又方便分享，可配合餐盒一併送達。', PASTA, '/product-category/a-la-carte/pasta/', '查看全部意粉及意大利飯')}
+{sl('意粉及意大利飯', '飽肚又方便分享，可配合餐盒一併送達。', PASTA, '/product-category/a-la-carte/pasta/', '查看全部意粉及意大利飯')}
 <div class="ao-custom"><b>想度身訂製？</b>如需指定菜式、每日不同餐單或特別飲食要求（例如走五辛、無麩質），歡迎透過 {a("/catering-quote-enquiry/", "到會報價查詢")} 提出，客服會按人數及預算配搭。</div>
 <p>客戶會議及董事會的午餐，可參考<a href="#meeting">會議餐飲</a>。</p>'''),
         ('meeting', '會議餐飲', f'''
