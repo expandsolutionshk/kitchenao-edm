@@ -315,10 +315,78 @@ CSS = '''<style>
 .ao-corp.ao-n .ao-shelf .ao-scard{flex-basis:64% !important;}.ao-corp.ao-n .ao-sl-btn{top:30% !important;}
 .ao-corp.ao-n .ao-cust .tx{padding:40px 18px !important;}.ao-corp.ao-n .ao-cust .t{font-size:21px !important;}}
 @media(max-width:380px){.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .ic{width:62px !important;height:62px !important;}}
+
+/* ===== v30：全幅黑色段、活動簡介、賣點卡、全港地區 ===== */
+body:has(.ao-corp.ao-n){overflow-x:hidden;}
+.ao-corp.ao-n .ao-tabwrap{overflow:visible !important;}
+.ao-corp.ao-n .ao-bn{width:100vw !important;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important;border-radius:0 !important;}
+.ao-corp.ao-n .ao-bn .in{padding:72px 26px 68px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .lb{display:block;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .cd{display:block;margin-top:-6px;font-size:12.5px;font-weight:400;color:#9A7B2E;line-height:1.5;letter-spacing:0;}
+.ao-corp.ao-n .ao-trust{display:flex !important;flex-wrap:wrap;gap:8px 22px;border-top:1px solid var(--ln) !important;border-bottom:0 !important;padding:14px 0 0 !important;margin:16px 0 6px !important;}
+.ao-corp.ao-n .ao-trust li{padding:0 !important;border:0 !important;font-size:14px;color:#555;display:flex;align-items:center;gap:8px;}
+.ao-corp.ao-n .ao-trust li:before{display:none !important;}
+.ao-corp.ao-n .ao-trust i{color:#B8963E;width:16px;text-align:center;}
+.ao-corp.ao-n .ao-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0 8px;}
+.ao-corp.ao-n .ao-feat .c{background:#F7F5F0;border:1px solid var(--ln);border-radius:16px;padding:26px 22px;}
+.ao-corp.ao-n .ao-feat .ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#141414;color:#D9C48A;font-size:18px;margin:0 0 16px;}
+.ao-corp.ao-n .ao-feat .t{font-size:17px;font-weight:800;color:#141414;margin:0 0 8px !important;}
+.ao-corp.ao-n .ao-feat .d{font-size:14.5px;line-height:1.8;color:#5d574f;margin:0 !important;}
+.ao-corp.ao-n .ao-area{width:100vw;margin:56px calc(50% - 50vw) 0;background:#F7F5F0;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);}
+.ao-corp.ao-n .ao-area .in{max-width:860px;margin:0 auto;padding:60px 18px 56px;}
+.ao-corp.ao-n .ao-area .eb{text-align:center;font-size:11px;letter-spacing:.32em;color:var(--mu);margin:0 !important;}
+.ao-corp.ao-n .ao-area h2{text-align:center;margin:10px 0 12px !important;padding-top:0 !important;}
+.ao-corp.ao-n .ao-area h2:before{display:none;}
+.ao-corp.ao-n .ao-area h2:after{content:"";display:block;width:46px;height:2px;background:#C8A24A;margin:16px auto 0;}
+.ao-corp.ao-n .ao-area .ds{text-align:center;color:#5d574f;max-width:620px;margin:0 auto 34px !important;line-height:1.85;}
+.ao-corp.ao-n .ao-area .cols{display:grid;grid-template-columns:1fr 1.25fr;gap:0;background:#FCFBF8;border:1px solid var(--ln);border-radius:16px;padding:28px 30px;}
+.ao-corp.ao-n .ao-area .hd{font-size:11.5px;letter-spacing:.24em;color:#6b6252;font-weight:700;margin:0 0 14px !important;}
+.ao-corp.ao-n .ao-area ul{list-style:none !important;margin:0 !important;padding:0 !important;border:0 !important;}
+.ao-corp.ao-n .ao-area li{padding:0 !important;border:0 !important;margin:0 !important;}
+.ao-corp.ao-n .ao-area li:before{display:none !important;}
+.ao-corp.ao-n .ao-area .occ{padding-right:28px;}
+.ao-corp.ao-n .ao-area .occ a{display:block;padding:8px;border-radius:8px;text-decoration:none !important;}
+.ao-corp.ao-n .ao-area .occ a:hover{background:#F2EEE6;}
+.ao-corp.ao-n .ao-area .occ b{display:block;color:#141414;font-size:15.5px;font-weight:600;}
+.ao-corp.ao-n .ao-area .occ span{display:block;color:#9A7B2E;font-size:13px;line-height:1.5;}
+.ao-corp.ao-n .ao-area .dist{padding-left:28px;border-left:1px solid var(--ln);}
+.ao-corp.ao-n .ao-area .rgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ao-corp.ao-n .ao-area .r{font-size:12.5px;font-weight:800;color:#141414;margin:0 0 6px !important;padding-bottom:6px;border-bottom:1px solid var(--ln);}
+.ao-corp.ao-n .ao-area .rg a{display:block;padding:6px 0;color:#2E2E2E !important;font-size:15px;text-decoration:none !important;}
+.ao-corp.ao-n .ao-area .rg a:hover{color:#9A7B2E !important;}
+.ao-corp.ao-n .ao-area .more{display:inline-block;margin-top:18px;font-size:13.5px;font-weight:800;letter-spacing:.08em;color:#141414 !important;border-bottom:1px solid #141414;padding-bottom:2px;text-decoration:none !important;}
+.ao-corp.ao-n .ao-area br,.ao-corp.ao-n .ao-feat br,.ao-corp.ao-n .ao-trust br,.ao-corp.ao-n .ao-tabs br{display:none;}
+@media(max-width:768px){
+.ao-corp.ao-n .ao-bn .in{padding:48px 20px 44px !important;}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .cd{font-size:11px;margin-top:-4px;}
+.ao-corp.ao-n .ao-feat{grid-template-columns:1fr;gap:12px;margin:22px 0 6px;}
+.ao-corp.ao-n .ao-feat .c{padding:20px 18px;display:grid;grid-template-columns:46px 1fr;column-gap:14px;}
+.ao-corp.ao-n .ao-feat .ic{grid-row:1 / span 2;margin:0;}
+.ao-corp.ao-n .ao-area .in{padding:44px 18px 40px;}
+.ao-corp.ao-n .ao-area .cols{grid-template-columns:1fr;padding:20px 18px;}
+.ao-corp.ao-n .ao-area .occ{padding:0 0 18px;border-bottom:1px solid var(--ln);margin-bottom:18px;}
+.ao-corp.ao-n .ao-area .occ ul{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;}
+.ao-corp.ao-n .ao-area .dist{padding:0;border-left:0;}
+.ao-corp.ao-n .ao-area .rg a{font-size:14px;}}
+@media(max-width:380px){.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t .cd{display:none;}.ao-corp.ao-n .ao-area .rgs{grid-template-columns:1fr 1fr;}}
+.ao-corp.ao-n .ao-tabwrap .ao-tabs a.t{justify-content:flex-start !important;align-self:start;}
+/* v31：送貨地區改為純文字（不連結），跟運費表分區 */
+.ao-corp.ao-n .ao-area .cols{grid-template-columns:1fr 1.7fr;}
+.ao-corp.ao-n .ao-area .rgs{display:block !important;}
+.ao-corp.ao-n .ao-area .rg{display:grid;grid-template-columns:96px 1fr;gap:4px 14px;padding:12px 0;border-bottom:1px solid var(--ln);}
+.ao-corp.ao-n .ao-area .rg:first-child{padding-top:2px;}
+.ao-corp.ao-n .ao-area .r{border:0 !important;padding:0 !important;margin:0 !important;font-size:14px;line-height:1.9;}
+.ao-corp.ao-n .ao-area .nm{margin:0 !important;font-size:14.5px;line-height:1.9;color:#3a3530;}
+.ao-corp.ao-n .ao-area .nm span{display:inline-block;margin-right:14px;white-space:nowrap;}
+@media(max-width:768px){.ao-corp.ao-n .ao-area .rg{grid-template-columns:1fr;gap:2px;}.ao-corp.ao-n .ao-area .nm{font-size:14px;}.ao-corp.ao-n .ao-area .nm span{margin-right:12px;}}
+/* v32：SVG icon */
+.ao-corp.ao-n .ao-feat .ic .sv{width:22px;height:22px;display:block;}
+.ao-corp.ao-n .ao-trust .sv{width:17px;height:17px;flex:0 0 17px;color:#B8963E;}
+.ao-corp.ao-n .ao-pane{scroll-margin-top:90px;}
 </style>'''
 
 # 分頁：按下去只換內容；網址 #hash 同步，方便分享及 FAQ 直達
-JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)return;var n=r.querySelector(".ao-tabs");if(!n)return;var T=[].slice.call(n.querySelectorAll("a")),P=T.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});if(P.some(function(p){return !p}))return;r.classList.add("js-tabs");n.setAttribute("role","tablist");function show(i,push){T.forEach(function(a,k){var on=k===i;a.classList.toggle("on",on);a.setAttribute("aria-selected",on?"true":"false");P[k].classList.toggle("on",on);});var a=T[i];if(n.scrollWidth>n.clientWidth)n.scrollTo({left:a.offsetLeft-(n.clientWidth-a.offsetWidth)/2,behavior:"smooth"});if(push&&history.replaceState)history.replaceState(null,"","#"+P[i].id);}T.forEach(function(a,i){a.setAttribute("role","tab");P[i].setAttribute("role","tabpanel");a.addEventListener("click",function(e){e.preventDefault();show(i,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;if(window.pageYOffset>top)window.scrollTo({top:top,behavior:"smooth"});});});function fromHash(){var h=location.hash.slice(1);if(!h)return 0;var el=document.getElementById(h);if(!el)return 0;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el))return k;}return 0;}var s=fromHash();show(s,false);if(location.hash&&s){setTimeout(function(){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});},150);}window.addEventListener("hashchange",function(){show(fromHash(),false);});[].slice.call(r.querySelectorAll('a[href^="#"]')).forEach(function(l){if(n.contains(l))return;l.addEventListener("click",function(e){var el=document.getElementById(l.getAttribute("href").slice(1));if(!el)return;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el)){e.preventDefault();show(k,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;window.scrollTo({top:top,behavior:"smooth"});return;}}});});})();</script>'''
+JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)return;var n=r.querySelector(".ao-tabs");if(!n)return;var T=[].slice.call(n.querySelectorAll("a")),P=T.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});if(P.some(function(p){return !p}))return;r.classList.add("js-tabs");n.setAttribute("role","tablist");function show(i,push){T.forEach(function(a,k){var on=k===i;a.classList.toggle("on",on);a.setAttribute("aria-selected",on?"true":"false");P[k].classList.toggle("on",on);});var a=T[i];if(n.scrollWidth>n.clientWidth)n.scrollTo({left:a.offsetLeft-(n.clientWidth-a.offsetWidth)/2,behavior:"smooth"});if(push&&history.replaceState)history.replaceState(null,"","#"+P[i].id);}T.forEach(function(a,i){a.setAttribute("role","tab");P[i].setAttribute("role","tabpanel");a.addEventListener("click",function(e){e.preventDefault();show(i,true);var top=P[i].getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:top,behavior:"smooth"});});});function fromHash(){var h=location.hash.slice(1);if(!h)return 0;var el=document.getElementById(h);if(!el)return 0;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el))return k;}return 0;}var s=fromHash();show(s,false);if(location.hash&&s){setTimeout(function(){var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});},150);}window.addEventListener("hashchange",function(){show(fromHash(),false);});[].slice.call(r.querySelectorAll('a[href^="#"]')).forEach(function(l){if(n.contains(l))return;l.addEventListener("click",function(e){var el=document.getElementById(l.getAttribute("href").slice(1));if(!el)return;for(var k=0;k<P.length;k++){if(P[k]===el||P[k].contains(el)){e.preventDefault();show(k,true);var top=n.getBoundingClientRect().top+window.pageYOffset-120;window.scrollTo({top:top,behavior:"smooth"});return;}}});});})();</script>'''
 
 # 度身訂製卡（方案 B2）：每個場景一張不同的 Pexels 免費相（上線前建議下載並上載到 WP 媒體庫）
 PX = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=800'
@@ -339,6 +407,133 @@ def onsite(L):
             f'<div class="tx"><p class="eb">ON-SITE SERVICE</p><h2>{t["h2"]}</h2><p>{t["p"]}</p><ul>{pts}</ul>'
             f'<div class="btns"><a class="b1" href="{P}/catering-quote-enquiry/">{t["b1"]}</a><a class="b2" href="{t["b2url"]}">{t["b2"]}</a></div></div></section>')
 
+
+# ---------- v30：活動簡介、賣點卡、全港地區 ----------
+CHIP_DESC = {
+ 'zh': {'overview': '七類活動一站安排', 'office-lunch': '每人一盒，準時派發', 'meeting': '早餐、午餐及茶點', 'training': '全日餐飲分時送達',
+        'annual-dinner': '熱盤主菜，旺季早訂', 'festive': '自助形式，輕鬆共享', 'business-event': '一口 Canapés，配合品牌', 'institutions': '學校、醫院及社福機構'},
+ 'en': {'overview': 'Every occasion, one order', 'office-lunch': 'One box per person', 'annual-dinner': 'Hot mains for big nights',
+        'festive': 'Buffet-style sharing', 'business-event': 'Canapés for standing events', 'institutions': 'Schools, hospitals and NGOs'},
+}
+TRUST = {
+ 'zh': {'overview': [('fa-users', '10 至 300 人'), ('fa-tag', '每位 HK$108 起'), ('fa-truck', '全港送貨')],
+        'office-lunch': [('fa-users', '10 至 100 人'), ('fa-tag', '每位 HK$108 起'), ('fa-truck', '全港送貨')],
+        'meeting': [('fa-users', '10 至 100 人'), ('fa-tag', '會議午餐每位 HK$248 起'), ('fa-clock', '按會議時段送達')],
+        'training': [('fa-clock', '早、午、茶三個時段'), ('fa-file-invoice', '按日程報價'), ('fa-truck', '全港送貨')],
+        'annual-dinner': [('fa-users', '50 至 200 人以上'), ('fa-tag', '每位 HK$300 起'), ('fa-calendar-alt', '1 月至 2 月旺季')],
+        'festive': [('fa-users', '30 至 300 人'), ('fa-tag', '每位 HK$300 起'), ('fa-truck', '全港送貨')],
+        'business-event': [('fa-users', '20 至 200 人以上'), ('fa-file-invoice', '按餐單報價'), ('fa-glass-cheers', '可加配飲品服務')],
+        'institutions': [('fa-users', '按人數配搭'), ('fa-file-invoice', '配合採購及單據'), ('fa-truck', '全港送貨')]},
+ 'en': {'overview': [('fa-users', '10 to 300 guests'), ('fa-tag', 'From HK$108 per person'), ('fa-truck', 'Delivery across Hong Kong')],
+        'office-lunch': [('fa-users', '10 to 100 guests'), ('fa-tag', 'From HK$108 per person'), ('fa-truck', 'Delivery across Hong Kong')],
+        'annual-dinner': [('fa-users', '50 to 200+ guests'), ('fa-tag', 'From HK$300 per person'), ('fa-calendar-alt', 'Peak season: Jan to Feb')],
+        'festive': [('fa-users', '30 to 300 guests'), ('fa-tag', 'From HK$300 per person'), ('fa-truck', 'Delivery across Hong Kong')],
+        'business-event': [('fa-users', '20 to 200+ guests'), ('fa-file-invoice', 'Quoted by menu'), ('fa-glass-cheers', 'Drinks service available')],
+        'institutions': [('fa-users', 'Planned by headcount'), ('fa-file-invoice', 'Procurement-friendly'), ('fa-truck', 'Delivery across Hong Kong')]},
+}
+FEAT = {
+ 'zh': {
+  'overview': [('fa-layer-group', '一張訂單，七類活動', '由員工午餐、會議、培訓，到年會及 Event，同一位客服跟進，毋須分開找不同供應商。'),
+               ('fa-users', '人數由 10 至 300', '每人一盒的餐盒或分享式套餐，按人數配搭份量，大小活動都合適。'),
+               ('fa-leaf', '照顧不同飲食需要', '可安排素食套餐，或按要求提供走五辛及無麩質菜式，人人都有得食。')],
+  'office-lunch': [('fa-box', '每人一盒，即取即食', '餐盒逐份包裝，同事到場即可取用，毋須分餐，午飯時間更從容。'),
+                   ('fa-utensils', '多款主菜選擇', '商務餐盒提供多款主菜，日常午餐亦不會天天一樣。'),
+                   ('fa-sliders-h', '人數隨時增減', '按當日出席人數調整份量，部門聚餐或內部會議都方便。')],
+  'meeting': [('fa-clock', '配合會議時段送達', '早餐、午餐及茶點按議程時間送到，會議開始前已準備就緒。'),
+              ('fa-gem', '貴賓級菜式及包裝', '高級餐盒菜式及包裝更講究，接待客戶及董事會亦得體。'),
+              ('fa-coffee', '小食不打斷會議', 'Tea Break 以一口大小的小食為主，取用方便，會議節奏不受影響。')],
+  'training': [('fa-calendar-check', '一張訂單，全日餐飲', '早上茶點、午餐及下午茶由同一張訂單分時段送達，毋須重複落單。'),
+               ('fa-sync-alt', '多日培訓按日轉菜', '連續多日的培訓可按日更換菜式，學員每天都有新鮮感。'),
+               ('fa-map-marker-alt', '配合場地安排', '可按場地限制及各時段的開始時間安排送達。')],
+  'annual-dinner': [('fa-fire', '熱盤主菜做主角', '主菜以保溫包裝送達，開席即可上桌，賓客不用久等。'),
+                    ('fa-users', '團年飯至百人年會', '由部門團年飯到 100 人以上的年會，都可按人數配搭套餐。'),
+                    ('fa-calendar-alt', '旺季宜早預訂', '1 月至 2 月是年會及春茗高峰，熱門日子名額有限。')],
+  'festive': [('fa-concierge-bell', '自助形式，隨意取用', '自助餐形式適合 Team Building 及公司派對，邊玩邊食。'),
+              ('fa-child', '大人小朋友都照顧到', '家庭日及開放日可配搭兒童套餐及容易取用的小食。'),
+              ('fa-print', '加入公司 Logo', '可以激光打印把 Logo 或祝福字句印在食物上，亦可訂製紀念品。')],
+  'business-event': [('fa-hand-holding', '一口一件，邊走邊食', 'Canapés 及 Finger Food 適合站立形式，賓客交流時取用方便。'),
+                     ('fa-palette', '配合品牌主題', '可按品牌主題擺盤，或把品牌 Logo 印在食物上，方便拍照。'),
+                     ('fa-glass-cheers', '飲品一併安排', '可加配飲品及雞尾酒服務，一張訂單處理活動餐飲。')],
+  'institutions': [('fa-file-invoice', '配合採購及單據', '可按機構預算、採購要求及單據安排配搭餐單。'),
+                   ('fa-box', '餐盒方便分派', '醫院及診所的員工午餐每人一盒，分派及點算都簡單。'),
+                   ('fa-leaf', '素食及兒童選擇', '可配素食套餐，有小朋友參與的活動亦可加配兒童套餐。')]},
+ 'en': {
+  'overview': [('fa-layer-group', 'One order, every occasion', 'From office lunches to annual dinners and events, one team handles it all.'),
+               ('fa-users', 'From 10 to 300 guests', 'Individual boxes or sharing sets, portioned to your headcount.'),
+               ('fa-leaf', 'Dietary needs covered', 'Vegetarian sets, plus no-five-pungent and gluten-free dishes on request.')],
+  'office-lunch': [('fa-box', 'One box per person', 'Individually packed, so your team can grab lunch and get back to work.'),
+                   ('fa-utensils', 'A choice of mains', 'The commercial lunch box comes with a range of mains, so lunch never feels repetitive.'),
+                   ('fa-sliders-h', 'Scales with headcount', "Adjust portions to the day's attendance, for team lunches or internal meetings.")],
+  'annual-dinner': [('fa-fire', 'Hot mains take centre stage', 'Delivered in insulated packaging, ready to serve when dinner starts.'),
+                    ('fa-users', 'Team dinners to 100+ guests', 'Sets for department dinners right up to large annual parties.'),
+                    ('fa-calendar-alt', 'Book early for peak season', 'January and February are the busiest months, and popular dates fill up.')],
+  'festive': [('fa-concierge-bell', 'Buffet-style sharing', 'Guests help themselves, ideal for team building and company parties.'),
+              ('fa-child', 'Something for the kids', "Kids' sets and easy finger food for family days and open days."),
+              ('fa-print', 'Add your logo', 'Laser-print your logo or a message on food, or order custom souvenirs.')],
+  'business-event': [('fa-hand-holding', 'One bite, on the move', 'Canapés and finger food suit standing receptions and networking.'),
+                     ('fa-palette', 'Styled to your brand', 'Food styling to match your theme, or your logo printed on food for photos.'),
+                     ('fa-glass-cheers', 'Drinks in the same order', 'Add our drinks and cocktail service and keep it to one booking.')],
+  'institutions': [('fa-file-invoice', 'Procurement-friendly', 'Menus planned around your budget, procurement process and invoicing needs.'),
+                   ('fa-box', 'Easy to hand out', 'One box per person for hospital and clinic staff lunches.'),
+                   ('fa-leaf', "Vegetarian and kids' options", "Vegetarian sets, plus kids' sets for events with children.")]},
+}
+AREAS = [  # 跟送貨需知運費表的分區（v31：不連去地區頁）
+ ('港島', 'Hong Kong Island', [('山頂/半山', 'The Peak / Mid-Levels'), ('西環/西營盤', 'Western / Sai Ying Pun'), ('堅尼地城', 'Kennedy Town'), ('上環', 'Sheung Wan'), ('中環', 'Central'), ('金鐘', 'Admiralty'),
+   ('灣仔', 'Wan Chai'), ('跑馬地', 'Happy Valley'), ('銅鑼灣', 'Causeway Bay'), ('天后', 'Tin Hau'), ('炮台山', 'Fortress Hill'), ('北角', 'North Point'), ('鰂魚涌', 'Quarry Bay'), ('太古', 'Tai Koo'),
+   ('西灣河', 'Sai Wan Ho'), ('筲箕灣', 'Shau Kei Wan'), ('小西灣', 'Siu Sai Wan'), ('柴灣', 'Chai Wan'), ('杏花邨', 'Heng Fa Chuen'), ('深水灣', 'Deep Water Bay'), ('黃竹坑', 'Wong Chuk Hang'),
+   ('鴨脷洲', 'Ap Lei Chau'), ('香港仔', 'Aberdeen'), ('貝沙灣', 'Residence Bel-Air'), ('薄扶林', 'Pok Fu Lam'), ('淺水灣', 'Repulse Bay'), ('赤柱', 'Stanley'), ('石澳', 'Shek O')]),
+ ('九龍', 'Kowloon', [('南昌', 'Nam Cheong'), ('深水埗', 'Sham Shui Po'), ('長沙灣', 'Cheung Sha Wan'), ('荔枝角', 'Lai Chi Kok'), ('美孚', 'Mei Foo'), ('大角咀', 'Tai Kok Tsui'), ('佐敦', 'Jordan'),
+   ('油麻地', 'Yau Ma Tei'), ('旺角', 'Mong Kok'), ('太子', 'Prince Edward'), ('石硤尾', 'Shek Kip Mei'), ('九龍塘', 'Kowloon Tong'), ('九龍城', 'Kowloon City'), ('土瓜灣', 'To Kwa Wan'), ('黃埔', 'Whampoa'),
+   ('紅磡', 'Hung Hom'), ('尖沙咀', 'Tsim Sha Tsui'), ('何文田', 'Ho Man Tin'), ('新蒲崗', 'San Po Kong'), ('鑽石山', 'Diamond Hill'), ('黃大仙', 'Wong Tai Sin'), ('樂富', 'Lok Fu'), ('觀塘', 'Kwun Tong'),
+   ('牛頭角', 'Ngau Tau Kok'), ('九龍灣', 'Kowloon Bay'), ('啟德', 'Kai Tak'), ('彩虹', 'Choi Hung'), ('油塘', 'Yau Tong'), ('藍田', 'Lam Tin'), ('秀茂坪', 'Sau Mau Ping')]),
+ ('新界東', 'New Territories East', [('沙田', 'Sha Tin'), ('火炭', 'Fo Tan'), ('大圍', 'Tai Wai'), ('馬鞍山', 'Ma On Shan'), ('烏溪沙', 'Wu Kai Sha'), ('將軍澳', 'Tseung Kwan O'), ('調景嶺', 'Tiu Keng Leng'),
+   ('大埔', 'Tai Po'), ('獅子山', 'Lion Rock'), ('上水', 'Sheung Shui'), ('粉嶺', 'Fanling'), ('蠔涌', 'Ho Chung'), ('西貢', 'Sai Kung'), ('沙頭角', 'Sha Tau Kok'), ('打鼓嶺', 'Ta Kwu Ling'), ('古洞', 'Kwu Tung'), ('八鄉', 'Pat Heung')]),
+ ('新界西', 'New Territories West', [('荃灣', 'Tsuen Wan'), ('葵涌', 'Kwai Chung'), ('葵興', 'Kwai Hing'), ('葵芳', 'Kwai Fong'), ('荔景', 'Lai King'), ('青衣', 'Tsing Yi'), ('深井', 'Sham Tseng'), ('屯門', 'Tuen Mun'),
+   ('元朗', 'Yuen Long'), ('大帽山', 'Tai Mo Shan'), ('馬灣/珀麗灣', 'Ma Wan / Park Island'), ('天水圍', 'Tin Shui Wai'), ('屏山', 'Ping Shan'), ('洪水橋', 'Hung Shui Kiu'), ('錦田', 'Kam Tin')]),
+ ('東涌及機場', 'Tung Chung &amp; Airport', [('東涌', 'Tung Chung'), ('機場', 'Airport')]),
+]
+
+def area_sec(L, tabs):
+    lg = L.get('lang', 'zh'); A = L['area']
+    occ = ''.join(f'<li><a href="#{pid}"><b>{label}</b><span>{CHIP_DESC[lg].get(pid, "")}</span></a></li>' for pid, label, _ in tabs)
+    base = P + ('/en' if lg == 'en' else '')
+    rg = ''.join(f'<div class="rg"><p class="r">{zr if lg == "zh" else er}</p><p class="nm">' + ''.join(
+            f'<span>{zn if lg == "zh" else en}</span>' for zn, en in items) + '</p></div>' for zr, er, items in AREAS)
+    return (f'<section class="ao-area" id="area"><div class="in"><p class="eb">WHERE WE SERVE</p><h2>{A["h2"]}</h2><p class="ds">{A["p"]}</p>'
+            f'<div class="cols"><div class="col occ"><p class="hd">{A["occ"]}</p><ul>{occ}</ul></div>'
+            f'<div class="col dist"><p class="hd">{A["dist"]}</p><div class="rgs">{rg}</div>'
+            f'<a class="more" href="{base}/delivery/">{A["more"]} →</a></div></div></div></section>')
+
+
+# v32：內嵌 SVG 線條 icon（網站沒有載入 Font Awesome 5，改用 SVG）
+_SV = {
+ 'fa-users': '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+ 'fa-tag': '<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>',
+ 'fa-truck': '<rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+ 'fa-clock': '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+ 'fa-file-invoice': '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+ 'fa-calendar-alt': '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+ 'fa-calendar-check': '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/>',
+ 'fa-glass-cheers': '<path d="M8 2h8l-1 7a3 3 0 0 1-6 0z"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/>',
+ 'fa-layer-group': '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+ 'fa-leaf': '<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/>',
+ 'fa-box': '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>',
+ 'fa-utensils': '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>',
+ 'fa-sliders-h': '<line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>',
+ 'fa-gem': '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+ 'fa-coffee': '<path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>',
+ 'fa-sync-alt': '<polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>',
+ 'fa-map-marker-alt': '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+ 'fa-fire': '<path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>',
+ 'fa-concierge-bell': '<path d="M3 18h18"/><path d="M5 18a7 7 0 0 1 14 0"/><line x1="12" y1="8" x2="12" y2="11"/><line x1="10" y1="8" x2="14" y2="8"/>',
+ 'fa-child': '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>',
+ 'fa-print': '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
+ 'fa-hand-holding': '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+ 'fa-palette': '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',
+}
+def SV(n):
+    return f'<svg class="sv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{_SV.get(n, "")}</svg>'
+
 PXL = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=900'
 HEAD_IMG = {'overview': PXL(31970816), 'office-lunch': PXL(13065230), 'meeting': PXL(30507463), 'training': PXL(38730067),
             'annual-dinner': PXL(14636170), 'festive': PXL(24863059), 'business-event': PXL(38958593), 'institutions': PXL(2291367)}
@@ -349,8 +544,13 @@ def nhead(pid, html, L):
     m = re.match(r'\s*<h2>(.*?)</h2>\s*<p>(.*?)</p>', html, flags=re.S)
     if not img or not m: return html
     go = f'<a class="go" href="{P}/catering-quote-enquiry/">{L.get("head_cta", "到會報價查詢")} →</a>'
+    lg = L.get('lang', 'zh')
+    tr = TRUST[lg].get(pid, [])
+    trust = ('<ul class="ao-trust">' + ''.join(f'<li>{SV(ic)}{t}</li>' for ic, t in tr) + '</ul>') if tr else ''
+    fe = FEAT[lg].get(pid, [])
+    feat = ('<div class="ao-feat">' + ''.join(f'<div class="c"><span class="ic">{SV(ic)}</span><p class="t">{t}</p><p class="d">{d}</p></div>' for ic, t, d in fe) + '</div>') if fe else ''
     return (f'<div class="ao-nhead"><div class="ph" role="img" aria-label="{L["img_alt"]}" style="background-image:url(\'{img}\')"></div>'
-            f'<div class="tx"><p class="eb">{HEAD_EB.get(pid, "")}</p><h2>{m.group(1)}</h2><p>{m.group(2)}</p>{go}</div></div>' + html[m.end():])
+            f'<div class="tx"><p class="eb">{HEAD_EB.get(pid, "")}</p><h2>{m.group(1)}</h2><p>{m.group(2)}</p>{trust}{go}</div></div>{feat}' + html[m.end():])
 
 def cust(pid, html):
     def f(m):
@@ -393,13 +593,16 @@ def build(L):
         cls = ['t'] + (['on'] if i == 0 else [])
         ic = TAB_IMG.get(pid)
         ich = f'<span class="ic" style="background-image:url(\'{ic}\')" aria-hidden="true"></span>' if ic else ''
-        o.append(f'<a href="#{pid}" class="{" ".join(cls)}">{ich}{label}</a>')
+        cd = CHIP_DESC[L.get('lang', 'zh')].get(pid, '')
+        o.append(f'<a href="#{pid}" class="{" ".join(cls)}">{ich}<span class="lb">{label}</span>' + (f'<span class="cd">{cd}</span>' if cd else '') + '</a>')
     o.append('</nav></div>')
     allt = tabs
     for pid, label, html in allt:
         o.append(f'<section class="ao-pane" id="{pid}">\n{nhead(pid, cust(pid, html.strip()), L)}\n</section>')
     if L.get('summary') and not main:
         o.append(f'<section class="ao-faqsec" id="summary">\n{L["summary"].strip()}\n</section>')
+    if L.get('area'):
+        o.append(area_sec(L, tabs))
     if L.get('onsite'):
         o.append(onsite(L))
     # 價錢及流程、常見問題：不放 tab，固定顯示在每個分頁最底（只輸出一次）
@@ -572,6 +775,9 @@ ZH = dict(
     tab_hint='請選擇以下公司或企業到會活動',
     banner_desc='七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。',
     banner_cta='到會報價查詢',
+    lang='zh',
+    area=dict(h2='香港全區公司到會：港島、九龍及新界', p='Kitchen AO 公司到會送遞港島、九龍、新界及東涌／機場，運費按送貨地區計算，滿 HK$1,450 全港免運費。離島及邊境禁區不設派送，如不確定地址是否在派送範圍，歡迎查詢。',
+              occ='BY OCCASION　按活動', dist='WHERE WE DELIVER　送貨地區', more='查看送貨需知及運費'),
     panes=[
         ('office-lunch', '員工午餐', f'''
 <h2>員工午餐到會：Office Lunch 每位 HK$108 起</h2>
@@ -758,6 +964,9 @@ EN = dict(
              ('Drinks', f'Add our {a("/飲品及雞尾酒服務/", "drinks and cocktail service")} in the same booking.')],
         b1='Get a Catering Quote', b2='Partners and Service Records', b2url=P + '/合作伙伴/'),
     head_cta='Get a Quote',
+    lang='en',
+    area=dict(h2='Corporate Catering Across Hong Kong', p='We deliver to Hong Kong Island, Kowloon, the New Territories, Tung Chung and the Airport. Delivery fees depend on the area, and orders of HK$1,450 or more get free delivery. Outlying islands and the Frontier Closed Area are not covered.',
+              occ='BY OCCASION', dist='WHERE WE DELIVER', more='Delivery info and fees'),
     img_alt='Kitchen AO team preparing corporate catering at a company event in Hong Kong',
     img_alt2='Kitchen AO staff setting up a catering buffet at a business event',
     nav_label='Corporate catering contents',
