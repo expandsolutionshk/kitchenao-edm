@@ -111,12 +111,13 @@ CSS = '''<style>
 /* v10：主分類 tab＋間距 */
 .ao-corp .ao-tabs a.main{grid-column:1 / -1;min-height:58px;font-size:17px !important;font-weight:800 !important;letter-spacing:.12em;color:#C8A24A !important;gap:12px;}
 .ao-corp .ao-tabs a.main .mk{font-size:11px;letter-spacing:.25em;color:#8E836F;font-weight:700;}
-.ao-corp .ao-tabs a.main.on{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
-.ao-corp .ao-tabs a.main.on:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
+.ao-corp .ao-tabs a.main{background:linear-gradient(135deg,#A9832F 0%,#D9B868 38%,#F3DD9A 52%,#D2AD57 66%,#A9832F 100%);color:#1A1A1A !important;border-radius:4px 4px 0 0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.15);}
+.ao-corp .ao-tabs a.main:before{content:"";position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));transform:skewX(-20deg);animation:aoCorpShine 5s ease-in-out infinite;pointer-events:none;}
 @keyframes aoCorpShine{0%,60%{left:-40%;}85%,100%{left:120%;}}
-@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs a.main.on:before{animation:none;display:none;}}
-.ao-corp .ao-tabs a.main.on .mk{color:#4a3c1c;}
-.ao-corp .ao-tabs a.main.on:after{display:none;}
+@media (prefers-reduced-motion:reduce){.ao-corp .ao-tabs a.main:before{animation:none;display:none;}}
+.ao-corp .ao-tabs a.main .mk{color:#4a3c1c !important;}
+.ao-corp .ao-tabs a.main:after{display:none;}
+.ao-corp .ao-tabs a.main,.ao-corp .ao-tabs a.main:hover{color:#1A1A1A !important;}
 .ao-corp .ao-pane{padding-top:8px;}
 .ao-corp p{margin:0 0 20px;line-height:1.9;}
 .ao-corp ul,.ao-corp ol{margin:0 0 22px;}
@@ -136,13 +137,14 @@ JS = '''<script>(function(){var r=document.querySelector(".ao-corp");if(!r)retur
 
 # 度身訂製卡（方案 B2）：每個場景一張不同的 Pexels 免費相（上線前建議下載並上載到 WP 媒體庫）
 PX = lambda i: f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=800'
-CUST_IMG = {'office-lunch': PX(36430082), 'meeting': PX(30507463), 'training': PX(15671274), 'annual-dinner': PX(15671380),
-            'festive': PX(36904788), 'business-event': PX(38958593), 'institutions': PX(27101539)}
+CUST_IMG = {'office-lunch': PX(13065230), 'meeting': PX(30507463), 'training': PX(38730067),
+            'annual-dinner': P + '/wp-content/uploads/2023/12/20221114_AOKitchen_-321-1024x1024.jpg',
+            'festive': PX(24863059), 'business-event': PX(38958593), 'institutions': PX(2291367)}
 def cust(pid, html):
     def f(m):
         img = CUST_IMG.get(pid)
         if not img: return m.group(0)
-        return (f'<div class="ao-cust"><div class="ph" role="img" aria-label="廚師準備到會菜式" style="background-image:url(\'{img}\')"></div><div class="tx">'
+        return (f'<div class="ao-cust"><div class="ph" role="img" aria-label="Kitchen AO 到會菜式" style="background-image:url(\'{img}\')"></div><div class="tx">'
                 f'<p class="eb">CUSTOM MENU</p><p class="t">想度身訂製餐單？</p><p class="d">{m.group(1)}</p>'
                 f'<div class="btns"><a class="b1" href="{WA}?text=%E6%83%B3%E6%9F%A5%E8%A9%A2%E5%BA%A6%E8%BA%AB%E8%A8%82%E8%A3%BD%E5%85%AC%E5%8F%B8%E5%88%B0%E6%9C%83" target="_blank" rel="noopener">WhatsApp 查詢</a>'
                 f'<a class="b2" href="{P}/catering-quote-enquiry/">到會報價查詢</a></div></div></div>')
