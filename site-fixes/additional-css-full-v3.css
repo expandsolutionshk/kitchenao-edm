@@ -250,3 +250,16 @@ body:not(.lafka_transparent_header):not(.lafka_boxed){padding-top:175px}
 .ao-seo br,.ao-occ br{display:none !important;}
 .ao-seo p:empty{display:none !important;}
 .ao-occ a{text-align:left !important;}
+/* v3.2：摺疊段落＋頁頂跳轉連結 */
+.ao-cat-seo .ao-jump{display:inline-block;margin-left:6px;color:#1A1A1A !important;font-weight:800;text-decoration:underline !important;text-underline-offset:3px;white-space:nowrap;}
+#aoSeo{scroll-margin-top:140px;}
+.ao-seo details.ao-fold{border:1px solid #EADFC8 !important;border-radius:14px !important;background:#FFFDF8 !important;margin:14px 0 !important;padding:0 18px !important;}
+.ao-seo details.ao-fold>summary{list-style:none;cursor:pointer;padding:16px 34px 16px 0 !important;position:relative;}
+.ao-seo details.ao-fold>summary::-webkit-details-marker{display:none;}
+.ao-seo details.ao-fold>summary h2{margin:0 !important;padding:0 !important;font-size:18px !important;display:inline;}
+.ao-seo details.ao-fold>summary h2:before{display:none !important;}
+.ao-seo details.ao-fold>summary:before{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:#C8A24A;font-size:22px;font-weight:700;}
+.ao-seo details.ao-fold[open]>summary:before{content:"－";}
+.ao-seo details.ao-fold>summary::after{display:none !important;}
+.ao-seo .ao-foldin{padding:0 0 14px;}
+.ao-seo .ao-foldin details{background:#fff !important;}

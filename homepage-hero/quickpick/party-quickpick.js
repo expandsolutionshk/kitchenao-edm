@@ -99,7 +99,7 @@
     }else if(seo){seo.classList.add('ao-on');}
     function ld(obj){var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify(obj);document.head.appendChild(s);}
     if(seo){
-      var q=[].slice.call(seo.querySelectorAll('details')).map(function(d){var sm=d.querySelector('summary'),p=d.querySelector('p');return sm&&p?{"@type":"Question","name":sm.textContent.trim(),"acceptedAnswer":{"@type":"Answer","text":p.textContent.trim()}}:null}).filter(Boolean);
+      var q=[].slice.call(seo.querySelectorAll('.ao-faqlist .ao-foldin details')).map(function(d){var sm=d.querySelector('summary'),p=d.querySelector('p');return sm&&p?{"@type":"Question","name":sm.textContent.trim(),"acceptedAnswer":{"@type":"Answer","text":p.textContent.trim()}}:null}).filter(Boolean);
       if(q.length)ld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":q});
     }
     if(list){
