@@ -774,7 +774,7 @@ def gallery(pid, lg='zh'):
     cells = ''.join(f'<figure class="g{k+1}"><img src="{x[1]}" loading="lazy" alt="{x[0]}（示意圖）" width="700" height="700" /><figcaption>{x[0]}</figcaption></figure>' for k, x in enumerate(it[:6]))
     return (f'<div class="ao-gal"><p class="ao-tmp">暫用圖片：正式上線前會換成真實送貨相片</p>'
             f'<p class="eb">MADE FRESH, EVERY ORDER</p><p class="tt">這就是送到你手上的<u>{GAL_SCENE[pid]}</u>。</p>'
-            f'<p class="ds">以下為{GAL_SCENE[pid]}常見的餐盒及菜式，每張相片均附菜式名稱。</p>'
+            f'<p class="ds">以下相片均來自真實活動，所有食物均由 Kitchen AO 廚房製作。</p>'
             f'<div class="grid">{cells}</div>'
             f'<a class="go" href="{P}/catering-quote-enquiry/">到會報價查詢 →</a></div>')
 
@@ -820,7 +820,7 @@ def gallery_en(pid):
     cells = ''.join(f'<figure class="g{k+1}"><img src="https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w=700" loading="lazy" alt="{GAL_PX_EN[i]} (sample image)" width="700" height="700" /><figcaption>{GAL_PX_EN[i]}</figcaption></figure>' for k, i in enumerate(ids[:6]))
     return (f'<div class="ao-gal"><p class="ao-tmp">Sample images: to be replaced with real delivery photos before launch</p>'
             f'<p class="eb">MADE FRESH, EVERY ORDER</p><p class="tt">This is what your <u>{nm}</u> looks like.</p>'
-            f'<p class="ds">Typical meal boxes and dishes for {nm}, with each dish named below the photo.</p>'
+            f'<p class="ds">All photos are from real events, and every dish is made in the Kitchen AO kitchen.</p>'
             f'<div class="grid">{cells}</div><a class="go" href="{P}/catering-quote-enquiry/">Get a Catering Quote →</a></div>')
 
 def reviews_en():
