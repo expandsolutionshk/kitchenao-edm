@@ -243,3 +243,10 @@ body:not(.lafka_transparent_header):not(.lafka_boxed){padding-top:175px}
 .ao-seo details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
 .ao-seo details p{margin:0 0 12px;color:#555}
 @media(max-width:600px){.ao-seo{padding:0 4px}.ao-seo table{font-size:13px}.ao-seo td,.ao-seo th{padding:7px 6px}}
+/* v3.1：主題預設置中、清單無圓點、wpautop 加 br 的修正 */
+.ao-seo,.ao-seo p,.ao-seo li,.ao-seo h2,.ao-seo summary,.ao-seo td,.ao-seo th{text-align:left !important;}
+.ao-seo ul{list-style:disc !important;padding-left:22px !important;margin:0 0 16px !important;}
+.ao-seo li{display:list-item !important;list-style:inherit !important;}
+.ao-seo br,.ao-occ br{display:none !important;}
+.ao-seo p:empty{display:none !important;}
+.ao-occ a{text-align:left !important;}

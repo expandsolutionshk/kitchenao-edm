@@ -91,9 +91,9 @@
   if(window.__aoSEO)return;window.__aoSEO=1;
   function run(){
     var seo=document.getElementById('aoSeo');
-    var list=document.querySelector('ul.products');
+    var list=document.querySelector('ul.products')||document.querySelector('.box-products');
     if(seo&&list){
-      var anchor=document.querySelector('.woocommerce-pagination')||list;
+      var anchor=document.querySelector('.woocommerce-pagination')||list.closest('.box-product-list')||list;
       anchor.parentNode.insertBefore(seo,anchor.nextSibling);
       seo.classList.add('ao-on');
     }else if(seo){seo.classList.add('ao-on');}
