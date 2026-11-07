@@ -10,8 +10,20 @@
 .ao-occ-b h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A}
 .ao-occ-b .sub{font-size:16px;line-height:1.8;color:#5d574f;margin:0 !important;max-width:640px}
 .ao-occ-b .t{font-weight:900 !important;color:#141414;margin:0 !important}
+.ao-occ-b .sub a.rec{color:#9A7B2E !important;font-weight:700;border-bottom:1px solid #C8A24A}
 .ao-occ-b br{display:none}
 @media(max-width:860px){.ao-occ-b{padding:44px 16px 28px}.ao-occ-b h2{font-size:24px !important}.ao-occ-b .sub{font-size:15px}}
+
+/* v3：全幅背景＋清走 WPBakery row 多餘上下留白 */
+body:has(.ao-occ-b){overflow-x:hidden}
+.vc_row:has(.ao-occ-b){padding-top:0 !important;padding-bottom:0 !important;background:transparent !important}
+.wpb_column:has(.ao-occ-b){padding-bottom:0 !important}
+.wpb_raw_code:has(.ao-occ-b),.wpb_raw_code:has(.ao-set-a){margin-bottom:0 !important}
+.vc_inner:has(.ao-set-a){padding:0 !important;margin:0 !important;background:transparent !important;border:0 !important}
+.vc_inner:has(.ao-set-a) .vc_column-inner{padding-top:0 !important;padding-bottom:0 !important}
+.ao-occ-b{width:100vw !important;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important}
+.ao-occ-b{background:#F7F5F0;padding:56px 0 60px !important}
+.ao-occ-b .in{max-width:1180px;margin:0 auto;padding:0 20px}
 .ao-occ-b .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .ao-occ-b .card{position:relative;display:block;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:#222}
 .ao-occ-b .card img{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;margin:0 !important;transition:transform .6s}
@@ -25,7 +37,7 @@
 .ao-occ-b .card:hover .go{background:#fff}
 @media(max-width:860px){.ao-occ-b .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-16px;padding-right:16px}.ao-occ-b .card{flex:0 0 80%;scroll-snap-align:start}}
 </style>
-<div class="hd"><p class="eb">OCCASIONS</p><h2>按活動場合選擇香港到會服務</h2><p class="sub">由生日派對到公司活動，Kitchen AO 按人數及場合配搭餐單，準時送到指定地點。</p></div><div class="grid"><a class="card" href="https://aoaodelivery.com/product-category/party/"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" alt="派對到會｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">派對到會</p><p class="d">生日會、朋友聚會及家庭聚餐，套餐份量靈活，方便多人分享。</p><span class="go">查看派對套餐</span></div></a><a class="card" href="https://aoaodelivery.com/corporate-catering-hk/"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/IMG_2358.jpg" alt="公司活動到會｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">公司活動到會</p><p class="d">會議茶點、開幕酒會及員工聚餐，準時送達，商務場合更體面。</p><span class="go">了解公司到會</span></div></a><a class="card" href="https://aoaodelivery.com/product-category/party/boat-party-set/"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.26-PM-600x600.jpeg" alt="船河到會及商務午餐｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">船河到會及商務午餐</p><p class="d">船河聚會、戶外活動及商務午餐，保溫包裝，方便攜帶及分發。</p><span class="go">查看船河套餐</span></div></a></div>
+<div class="in"><div class="hd"><p class="eb">OCCASIONS</p><h2>按活動場合選擇香港到會服務</h2><p class="sub">由生日派對到公司活動，Kitchen AO 按人數及場合配搭餐單，準時送到指定地點。想比較不同到會服務，可參考我們的<a class="rec" href="https://aoaodelivery.com/hong-kong-catering-recommendation/">香港到會推介</a>。</p></div><div class="grid"><a class="card" href="https://aoaodelivery.com/product-category/party/"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" alt="派對到會｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">派對到會</p><p class="d">生日會、朋友聚會及家庭聚餐，套餐份量靈活，方便多人分享。</p><span class="go">查看派對套餐</span></div></a><a class="card" href="https://aoaodelivery.com/corporate-catering-hk/"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/IMG_2358.jpg" alt="公司活動到會｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">公司活動到會</p><p class="d">會議茶點、開幕酒會及員工聚餐，準時送達，商務場合更體面。</p><span class="go">了解公司到會</span></div></a><a class="card" href="https://aoaodelivery.com/product-category/party/boat-party-set/"><img src="https://aoaodelivery.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-12-at-4.08.26-PM-600x600.jpeg" alt="船河到會及商務午餐｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">船河到會及商務午餐</p><p class="d">船河聚會、戶外活動及商務午餐，保溫包裝，方便攜帶及分發。</p><span class="go">查看船河套餐</span></div></a></div></div>
 </section>
 <section class="ao-set-a">
 <style>
@@ -38,9 +50,11 @@
 .ao-set-a h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A}
 .ao-set-a .sub{font-size:16px;line-height:1.8;color:#5d574f;margin:0 !important;max-width:640px}
 .ao-set-a .t{font-weight:900 !important;color:#141414;margin:0 !important}
+.ao-set-a .sub a.rec{color:#9A7B2E !important;font-weight:700;border-bottom:1px solid #C8A24A}
 .ao-set-a br{display:none}
 @media(max-width:860px){.ao-set-a{padding:44px 16px 28px}.ao-set-a h2{font-size:24px !important}.ao-set-a .sub{font-size:15px}}
-.ao-set-a{max-width:none;background:#0F0E0C;padding:68px 20px 60px}
+.ao-set-a{background:#0F0E0C;padding:60px 0 64px !important;width:100vw !important;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important}
+.ao-set-a .in{padding:0 20px}
 .ao-set-a .in{max-width:1180px;margin:0 auto}
 .ao-set-a .eb{color:#D9C48A !important}.ao-set-a h2{color:#fff !important}.ao-set-a .sub{color:#CFCAC0 !important}
 .ao-set-a .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -59,8 +73,10 @@
 .ao-set-a .pr{display:block;font-size:17px;font-weight:900;color:#E4C77E}
 .ao-set-a .go{font-size:13.5px;font-weight:800;color:#141414;background:#E4C77E;border-radius:40px;padding:9px 18px;white-space:nowrap}
 .ao-set-a .card:hover .go{background:#fff}
-@media(max-width:860px){.ao-set-a{padding:46px 16px 38px}.ao-set-a .grid{grid-template-columns:1fr;gap:16px}}
+
+.ao-set-a .hint{display:none}
+@media(max-width:860px){.ao-set-a{padding:44px 0 40px !important}.ao-set-a .in{padding:0 16px}.ao-set-a .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-16px;padding-right:16px;-webkit-overflow-scrolling:touch}.ao-set-a .grid::-webkit-scrollbar{display:none}.ao-set-a .card{flex:0 0 82%;scroll-snap-align:start}.ao-set-a .hint{display:block;font-size:12.5px;color:#9C9385;margin:14px 0 0;text-align:center;letter-spacing:.06em}}
 </style>
-<div class="in"><div class="hd"><p class="eb">POPULAR SETS</p><h2>熱門到會套餐推介</h2><p class="sub">精選適合派對、公司聚會及輕食場合的人氣餐單，按人數快速開始預訂。</p></div><div class="grid"><a class="card" href="https://aoaodelivery.com/product-category/party/"><div class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" alt="美食派對到會套餐｜Kitchen AO" loading="lazy"><span class="lab">PARTY SET</span></div><div class="tx"><p class="t">美食派對到會套餐</p><p class="d">熱盤主菜、小食及甜品一應俱全，適合生日會、朋友聚餐及節日慶祝。</p><div class="ft"><div><span class="meta">8 至 85 人</span><span class="pr">HK$1,988 起</span></div><span class="go">查看套餐</span></div></div></a><a class="card" href="https://aoaodelivery.com/product-category/party/refreshment-set/"><div class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/refreshmentparty-03-768x768.jpg" alt="輕食宴會套餐｜Kitchen AO" loading="lazy"><span class="lab">REFRESHMENT</span></div><div class="tx"><p class="t">輕食宴會套餐</p><p class="d">一口大小的精緻小食，適合會議茶點、開幕活動及下午茶聚會。</p><div class="ft"><div><span class="meta">12 至 40 人</span><span class="pr">HK$2,688 起</span></div><span class="go">查看套餐</span></div></div></a><a class="card" href="https://aoaodelivery.com/product-category/a-la-carte/"><div class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-16-scaled-600x600.jpg" alt="單點美食精選｜Kitchen AO" loading="lazy"><span class="lab">À LA CARTE</span></div><div class="tx"><p class="t">單點美食精選</p><p class="d">自由配搭小食、主菜、甜品及飲品，加配或自組專屬餐單都方便。</p><div class="ft"><div><span class="meta">小食・主菜・甜品・飲品</span><span class="pr">按需要配搭</span></div><span class="go">查看美食</span></div></div></a></div></div>
+<div class="in"><div class="hd"><p class="eb">POPULAR SETS</p><h2>熱門到會套餐推介</h2><p class="sub">精選適合派對、公司聚會及輕食場合的人氣餐單，按人數快速開始預訂。</p></div><div class="grid"><a class="card" href="https://aoaodelivery.com/product-category/party/"><div class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg" alt="美食派對到會套餐｜Kitchen AO" loading="lazy"><span class="lab">PARTY SET</span></div><div class="tx"><p class="t">美食派對到會套餐</p><p class="d">熱盤主菜、小食及甜品一應俱全，適合生日會、朋友聚餐及節日慶祝。</p><div class="ft"><div><span class="meta">適合 5 至 100 人以上</span><span class="pr">HK$1,988 起</span></div><span class="go">查看套餐</span></div></div></a><a class="card" href="https://aoaodelivery.com/product-category/party/refreshment-set/"><div class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2023/11/refreshmentparty-03-768x768.jpg" alt="輕食宴會套餐｜Kitchen AO" loading="lazy"><span class="lab">REFRESHMENT</span></div><div class="tx"><p class="t">輕食宴會套餐</p><p class="d">一口大小的精緻小食，適合會議茶點、開幕活動及下午茶聚會。</p><div class="ft"><div><span class="meta">適合 12 至 100 人以上</span><span class="pr">HK$2,688 起</span></div><span class="go">查看套餐</span></div></div></a><a class="card" href="https://aoaodelivery.com/product-category/a-la-carte/"><div class="im"><img src="https://aoaodelivery.com/wp-content/uploads/2019/06/Posts-16-scaled-600x600.jpg" alt="單點美食精選｜Kitchen AO" loading="lazy"><span class="lab">À LA CARTE</span></div><div class="tx"><p class="t">單點美食精選</p><p class="d">自由配搭小食、主菜、甜品及飲品，加配或自組專屬餐單都方便。</p><div class="ft"><div><span class="meta">小食・主菜・甜品・飲品</span><span class="pr">按需要配搭</span></div><span class="go">查看美食</span></div></div></a></div><p class="hint">向左滑動查看更多套餐 →</p></div>
 </section>
 </body></html>

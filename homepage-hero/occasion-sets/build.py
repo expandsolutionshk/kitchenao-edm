@@ -8,7 +8,7 @@ U = P + '/wp-content/uploads/'
 
 # ---------- 內容（書面語，已優化） ----------
 S1 = dict(eb='OCCASIONS', h2='按活動場合選擇香港到會服務',
-          sub='由生日派對到公司活動，Kitchen AO 按人數及場合配搭餐單，準時送到指定地點。')
+          sub='由生日派對到公司活動，Kitchen AO 按人數及場合配搭餐單，準時送到指定地點。想比較不同到會服務，可參考我們的<a class="rec" href="https://aoaodelivery.com/hong-kong-catering-recommendation/">香港到會推介</a>。')
 SCENES = [
     dict(k='party', n='01', t='派對到會', d='生日會、朋友聚會及家庭聚餐，套餐份量靈活，方便多人分享。', tip='小型聚會至百人派對均可安排',
          img=U + '2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg', url=P + '/product-category/party/', go='查看派對套餐',
@@ -23,13 +23,24 @@ SCENES = [
 S2 = dict(eb='POPULAR SETS', h2='熱門到會套餐推介',
           sub='精選適合派對、公司聚會及輕食場合的人氣餐單，按人數快速開始預訂。')
 SETS = [
-    dict(lab='PARTY SET', t='美食派對到會套餐', d='熱盤主菜、小食及甜品一應俱全，適合生日會、朋友聚餐及節日慶祝。', meta='8 至 85 人', pr='HK$1,988 起',
+    dict(lab='PARTY SET', t='美食派對到會套餐', d='熱盤主菜、小食及甜品一應俱全，適合生日會、朋友聚餐及節日慶祝。', meta='適合 5 至 100 人以上', pr='HK$1,988 起',
          img=U + '2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg', url=P + '/product-category/party/', go='查看套餐'),
-    dict(lab='REFRESHMENT', t='輕食宴會套餐', d='一口大小的精緻小食，適合會議茶點、開幕活動及下午茶聚會。', meta='12 至 40 人', pr='HK$2,688 起',
+    dict(lab='REFRESHMENT', t='輕食宴會套餐', d='一口大小的精緻小食，適合會議茶點、開幕活動及下午茶聚會。', meta='適合 12 至 100 人以上', pr='HK$2,688 起',
          img=U + '2023/11/refreshmentparty-03-768x768.jpg', url=P + '/product-category/party/refreshment-set/', go='查看套餐'),
     dict(lab='À LA CARTE', t='單點美食精選', d='自由配搭小食、主菜、甜品及飲品，加配或自組專屬餐單都方便。', meta='小食・主菜・甜品・飲品', pr='按需要配搭',
          img=U + '2019/06/Posts-16-scaled-600x600.jpg', url=P + '/product-category/a-la-carte/', go='查看美食'),
 ]
+
+FULL1 = '''
+/* v3：全幅背景＋清走 WPBakery row 多餘上下留白 */
+body:has(.ao-occ-b){{overflow-x:hidden}}
+.vc_row:has(.ao-occ-b){{padding-top:0 !important;padding-bottom:0 !important;background:transparent !important}}
+.wpb_column:has(.ao-occ-b){{padding-bottom:0 !important}}
+.wpb_raw_code:has(.ao-occ-b),.wpb_raw_code:has(.ao-set-a){{margin-bottom:0 !important}}
+.vc_inner:has(.ao-set-a){{padding:0 !important;margin:0 !important;background:transparent !important;border:0 !important}}
+.vc_inner:has(.ao-set-a) .vc_column-inner{{padding-top:0 !important;padding-bottom:0 !important}}
+.{c}{{width:100vw !important;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important}}
+'''
 
 def sv(path, cls='sv'):
     return f'<svg class="{cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{path}</svg>'
@@ -43,6 +54,7 @@ BASE = '''.{c}{{max-width:1180px;margin:0 auto;padding:64px 20px 40px;box-sizing
 .{c} h2:before{{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A}}
 .{c} .sub{{font-size:16px;line-height:1.8;color:#5d574f;margin:0 !important;max-width:640px}}
 .{c} .t{{font-weight:900 !important;color:#141414;margin:0 !important}}
+.{c} .sub a.rec{{color:#9A7B2E !important;font-weight:700;border-bottom:1px solid #C8A24A}}
 .{c} br{{display:none}}
 @media(max-width:860px){{.{c}{{padding:44px 16px 28px}}.{c} h2{{font-size:24px !important}}.{c} .sub{{font-size:15px}}}}
 '''
@@ -75,7 +87,9 @@ def s1_a():
 
 def s1_b():
     c = 'ao-occ-b'
-    css = BASE.format(c=c) + f'''.{c} .grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}}
+    css = BASE.format(c=c) + FULL1.format(c=c) + f'''.{c}{{background:#F7F5F0;padding:56px 0 60px !important}}
+.{c} .in{{max-width:1180px;margin:0 auto;padding:0 20px}}
+.{c} .grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}}
 .{c} .card{{position:relative;display:block;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:#222}}
 .{c} .card img{{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;margin:0 !important;transition:transform .6s}}
 .{c} .card:hover img{{transform:scale(1.05)}}
@@ -88,7 +102,7 @@ def s1_b():
 .{c} .card:hover .go{{background:#fff}}
 @media(max-width:860px){{.{c} .grid{{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-16px;padding-right:16px}}.{c} .card{{flex:0 0 80%;scroll-snap-align:start}}}}'''
     cards = ''.join(f'<a class="card" href="{s["url"]}"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><span class="go">{s["go"]}</span></div></a>' for s in SCENES)
-    return c, css, head(c, S1) + f'<div class="grid">{cards}</div>'
+    return c, css, '<div class="in">' + head(c, S1) + f'<div class="grid">{cards}</div></div>'
 
 def s1_c():
     c = 'ao-occ-c'
@@ -113,7 +127,8 @@ def s1_c():
 # ================= Section 2：熱門套餐 =================
 def s2_a():
     c = 'ao-set-a'
-    css = BASE.format(c=c) + f'''.{c}{{max-width:none;background:#0F0E0C;padding:68px 20px 60px}}
+    css = BASE.format(c=c) + f'''.{c}{{background:#0F0E0C;padding:60px 0 64px !important;width:100vw !important;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important}}
+.{c} .in{{padding:0 20px}}
 .{c} .in{{max-width:1180px;margin:0 auto}}
 .{c} .eb{{color:#D9C48A !important}}.{c} h2{{color:#fff !important}}.{c} .sub{{color:#CFCAC0 !important}}
 .{c} .grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}}
@@ -132,10 +147,12 @@ def s2_a():
 .{c} .pr{{display:block;font-size:17px;font-weight:900;color:#E4C77E}}
 .{c} .go{{font-size:13.5px;font-weight:800;color:#141414;background:#E4C77E;border-radius:40px;padding:9px 18px;white-space:nowrap}}
 .{c} .card:hover .go{{background:#fff}}
-@media(max-width:860px){{.{c}{{padding:46px 16px 38px}}.{c} .grid{{grid-template-columns:1fr;gap:16px}}}}'''
+
+.{c} .hint{{display:none}}
+@media(max-width:860px){{.{c}{{padding:44px 0 40px !important}}.{c} .in{{padding:0 16px}}.{c} .grid{{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-16px;padding-right:16px;-webkit-overflow-scrolling:touch}}.{c} .grid::-webkit-scrollbar{{display:none}}.{c} .card{{flex:0 0 82%;scroll-snap-align:start}}.{c} .hint{{display:block;font-size:12.5px;color:#9C9385;margin:14px 0 0;text-align:center;letter-spacing:.06em}}}}'''
     cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"><span class="lab">{s["lab"]}</span></div>'
                     f'<div class="tx"><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><div class="ft"><div><span class="meta">{s["meta"]}</span><span class="pr">{s["pr"]}</span></div><span class="go">{s["go"]}</span></div></div></a>' for s in SETS)
-    return c, css, '<div class="in">' + head(c, S2) + f'<div class="grid">{cards}</div></div>'
+    return c, css, '<div class="in">' + head(c, S2) + f'<div class="grid">{cards}</div><p class="hint">向左滑動查看更多套餐 →</p></div>'
 
 def s2_b():
     c = 'ao-set-b'

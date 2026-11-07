@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>會員優惠條（10 秒後收起）</title><style>body{margin:0;font-family:-apple-system,"PingFang HK",sans-serif;background:#fff}.fake{max-width:1180px;margin:20px auto;height:300px;border:1px dashed #d8d0c0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a99d88}</style></head><body>
+<div class="ao-mbar">
+<style>
+body:has(.ao-mbar){overflow-x:hidden}
+.ao-mbar{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:#141414;color:#F4ECDD;font-size:14px;line-height:1.5;font-family:inherit;position:relative;z-index:5;max-height:120px;overflow:visible;animation:aoMbarHide .6s ease 10s forwards}
+/* 顯示 10 秒後收起；滑鼠停留或打開「了解詳情」時暫停 */
+@keyframes aoMbarHide{0%{max-height:120px;opacity:1}99%{opacity:0}100%{max-height:0;opacity:0;overflow:hidden;visibility:hidden}}
+.ao-mbar:hover,.ao-mbar:has(details[open]){animation-play-state:paused}
+.ao-mbar *{box-sizing:border-box}
+.ao-mbar .in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center}
+.ao-mbar .tg{font-size:11.5px;font-weight:800;letter-spacing:.14em;color:#141414;background:#E4C77E;border-radius:20px;padding:3px 10px}
+.ao-mbar b{color:#E4C77E}
+.ao-mbar details{position:relative}
+.ao-mbar summary{list-style:none;cursor:pointer;color:#fff;font-weight:700;border-bottom:1px solid #C8A24A;padding-bottom:1px}
+.ao-mbar summary::-webkit-details-marker{display:none}
+.ao-mbar .pop{position:absolute;right:50%;transform:translateX(50%);top:30px;z-index:20;width:320px;background:#fff;color:#3A342B;border-radius:14px;padding:18px 18px 14px;text-align:left;box-shadow:0 16px 40px rgba(0,0,0,.25);font-size:14px;line-height:1.75}
+.ao-mbar .pop p{margin:0 0 8px !important}
+.ao-mbar .pop b{color:#141414}
+.ao-mbar .pop ul{margin:0 !important;padding:0 0 0 18px !important;font-size:13px;color:#5d574f}
+.ao-mbar .pop li{margin:0 !important}
+.ao-mbar br{display:none}
+@media(max-width:600px){.ao-mbar{font-size:13px}.ao-mbar .in{gap:8px;padding:9px 14px}.ao-mbar .pop{width:290px}}
+</style>
+<div class="in">
+ <span class="tg">會員優惠</span>
+ <span>上次訂單滿 <b>HK$2,000</b>，今次自動減 <b>HK$100</b>，如此類推</span>
+ <details><summary>了解詳情</summary><div class="pop">
+  <p><b>會員優惠</b><br>系統按你上一張訂單金額，自動為今次訂單減價：上次滿 HK$2,000，今次減 HK$100；滿 HK$4,000 減 HK$200，如此類推。</p>
+  <ul><li>可與「買賞」同時使用</li><li>不可合併訂單計算</li><li>不適用於客服代為落單的訂單</li></ul>
+ </div></details>
+</div>
+</div>
+<div class="fake">（網站頂部選單及 Hero）10 秒後上面優惠條會收起</div></body></html>
