@@ -38,6 +38,7 @@ h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border
 | [Chanterelle Catering](https://www.chanterellecateringcompany.com/)（[Corporate lunch](https://www.chanterellecateringcompany.com/corporate-lunch-catering)、[Team meeting](https://www.chanterellecateringcompany.com/team-meeting-catering)、[Office breakfast](https://www.chanterellecateringcompany.com/office-breakfast-catering)） | 文案筆法、選單 | 每個活動一句簡介、3 張賣點卡、重點列（送貨／人數／起價）、By occasion ＋ Where we deliver 兩欄 |
 | [Jai Ambey Caterers](https://jaiambaycaterers.com/) | Section 及 icon | 服務 icon 卡、活動相片分類 tab（不跟動畫） |
 | [Curfew Coffee](https://www.curfew.coffee/) | 宣言橫幅 | 深色相片底、左邊大字宣言、下面一句說明 |
+| [Four Seasons Sydney](https://www.fourseasons.com/sydney/) | 高級感段落（Hero 賣點、特色體驗） | 大圖加細圖疊放、金色英文小標、幼線分隔、幼身標題、文字底線連結、1 / N 輪播計數。每次提出設計方案都要提醒有此參考 |
 
 使用方法：建議新設計時，先說明參考哪個網站的哪個部分，再按本規範（黑金白、無左邊直線、書面語）調整。
 
