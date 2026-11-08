@@ -1,7 +1,9 @@
 <!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WIN95 優惠預覽</title><style>body{margin:0;padding-top:20px;font-family:-apple-system,"PingFang HK",sans-serif;background:#fff}</style></head><body>
 <section class="ao-win95">
 <style>
-.ao-win95{max-width:1180px;margin:16px auto 28px;padding:0 20px;box-sizing:border-box;font-family:inherit}
+.vc_inner:has(.ao-win95){padding-top:0 !important;padding-bottom:0 !important;margin:0 !important}
+.wpb_raw_code:has(.ao-win95){margin-bottom:0 !important}
+.ao-win95{max-width:1180px;margin:40px auto 48px;padding:0 20px;box-sizing:border-box;font-family:inherit}
 .ao-win95 *{box-sizing:border-box}
 .ao-win95 a{text-decoration:none !important}
 .ao-win95 .kv{display:block;border-radius:18px;overflow:hidden;margin:0 0 12px}
@@ -21,7 +23,19 @@
 .ao-win95 .go{display:inline-block;background:#E4C77E;color:#141414 !important;border-radius:40px;padding:12px 22px;font-size:14.5px;font-weight:800;white-space:nowrap;transition:background .2s}
 .ao-win95 .go:hover{background:#fff}
 .ao-win95 .note{font-size:12px;color:#8A8378;margin:8px 4px 0 !important;text-align:right}
-@media(max-width:860px){.ao-win95 .code{justify-content:center}.ao-win95{padding:0 16px}.ao-win95 .bar{grid-template-columns:1fr;gap:14px;text-align:center;padding:20px 18px}.ao-win95 .tt{font-size:20px;white-space:normal}.ao-win95 .go{display:block}.ao-win95 .note{text-align:center}}
+@media(max-width:860px){.ao-win95 .code{justify-content:center}.ao-win95{padding:0 16px;margin:28px auto 32px}.ao-win95 .bar{grid-template-columns:1fr;gap:14px;text-align:center;padding:20px 18px}.ao-win95 .tt{font-size:20px;white-space:normal}.ao-win95 .go{display:block}.ao-win95 .note{text-align:center}}
+
+/* v3 手機修正：脫離窄欄、內容不溢出 */
+.ao-win95 .bar>*{min-width:0}
+@media(max-width:860px){
+body:has(.ao-win95){overflow-x:hidden}
+.ao-win95{width:100vw !important;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important;padding:0 16px !important}
+.ao-win95 .bar{padding:20px 16px}
+.ao-win95 .code{width:100%;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 8px 8px 14px}
+.ao-win95 .code small{flex:1 0 100%;text-align:left;font-size:12px}
+.ao-win95 .code strong{font-size:20px}
+.ao-win95 .go{width:100%;text-align:center}
+}
 </style>
 <a class="kv" href="https://aoaodelivery.com/product-category/party/foot-party/"><img src="https://aoaodelivery.com/wp-content/uploads/2026/07/左口魚煲仔飯-黑白叉燒-到會-catering-1000px.jpg" alt="Kitchen AO 美食派對到會套餐" loading="lazy"></a>
 <div class="bar">

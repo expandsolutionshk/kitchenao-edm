@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>會員優惠條（10 秒後收起）</title><style>body{margin:0;font-family:-apple-system,"PingFang HK",sans-serif;background:#fff}.fake{max-width:1180px;margin:20px auto;height:300px;border:1px dashed #d8d0c0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a99d88}</style></head><body>
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>會員優惠條</title><style>body{margin:0;font-family:-apple-system,"PingFang HK",sans-serif;background:#fff}.fake{max-width:1180px;margin:20px auto;height:300px;border:1px dashed #d8d0c0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a99d88}</style></head><body>
 <div class="ao-mbar">
 <style>
 body:has(.ao-mbar){overflow-x:hidden}
@@ -20,14 +20,25 @@ body:has(.ao-mbar){overflow-x:hidden}
 .ao-mbar .pop li{margin:0 !important}
 .ao-mbar br{display:none}
 @media(max-width:600px){.ao-mbar{font-size:13px}.ao-mbar .in{gap:8px;padding:9px 14px}.ao-mbar .pop{width:290px}}
+
+/* v3：彈出框尺寸及位置（手機不超出畫面）、清單樣式 */
+.ao-mbar .in{position:relative}
+.ao-mbar details{position:static}
+.ao-mbar .pop{left:50% !important;right:auto !important;transform:translateX(-50%) !important;top:calc(100% + 6px) !important;width:min(360px,calc(100vw - 32px)) !important;padding:18px 20px 16px !important;font-size:14px;line-height:1.7}
+.ao-mbar .pop .ph{margin:0 0 4px !important}
+.ao-mbar .pop .ph b{font-size:15.5px;color:#141414}
+.ao-mbar .pop ul{list-style:none !important;margin:12px 0 0 !important;padding:12px 0 0 !important;border-top:1px solid #EFE9DD}
+.ao-mbar .pop li{position:relative;padding:0 0 0 20px !important;margin:0 0 6px !important;font-size:13px;line-height:1.6;color:#5d574f;list-style:none !important}
+.ao-mbar .pop li:before{content:"\2713";position:absolute;left:0;top:0;color:#C8A24A;font-weight:900}
+.ao-mbar .pop li:last-child{margin-bottom:0 !important}
 </style>
 <div class="in">
  <span class="tg">會員優惠</span>
  <span>上次訂單滿 <b>HK$2,000</b>，今次自動減 <b>HK$100</b>，如此類推</span>
  <details><summary>了解詳情</summary><div class="pop">
-  <p><b>會員優惠</b><br>系統按你上一張訂單金額，自動為今次訂單減價：上次滿 HK$2,000，今次減 HK$100；滿 HK$4,000 減 HK$200，如此類推。</p>
-  <ul><li>可與「買賞」同時使用</li><li>不可合併訂單計算</li><li>不適用於客服代為落單的訂單</li></ul>
+  <p class="ph"><b>會員優惠</b></p><p>系統按你上一張訂單金額，自動為今次訂單減價：上次滿 HK$2,000，今次減 HK$100；滿 HK$4,000 減 HK$200，如此類推。</p>
+  <ul><li>可與「多買多賞」同時使用</li><li>不可合併訂單計算</li><li>不適用於客服代為落單的訂單</li></ul>
  </div></details>
 </div>
 </div>
-<div class="fake">（網站頂部選單及 Hero）10 秒後上面優惠條會收起</div></body></html>
+<div class="fake">（網站頂部選單及 Hero）</div></body></html>

@@ -1,0 +1,12 @@
+<script>
+/* Kitchen AO：按實際 header 高度設定頁頂留白（取代固定 175px／212px），電腦及手機都不會多出白位或被選單遮住 */
+(function(){
+  var h=document.getElementById('header'),b=document.body;
+  if(!h||b.classList.contains('lafka_transparent_header')||b.classList.contains('lafka_boxed'))return;
+  function fit(){ if(window.scrollY>5)return; b.style.setProperty('padding-top',h.offsetHeight+'px','important'); }
+  fit();
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  if('ResizeObserver' in window){ new ResizeObserver(fit).observe(h); }
+})();
+</script>

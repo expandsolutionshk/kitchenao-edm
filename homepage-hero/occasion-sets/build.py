@@ -81,7 +81,7 @@ def s1_a():
 .{c} .tip{{font-size:12.5px;font-weight:700;color:#8A6D24;background:#FBF6EA;border:1px solid #E8D9B2;border-radius:20px;padding:4px 10px;white-space:nowrap}}
 .{c} .go{{font-size:14px;font-weight:800;color:#141414;border-bottom:1.5px solid #C8A24A;padding-bottom:2px;white-space:nowrap}}
 @media(max-width:860px){{.{c} .grid{{grid-template-columns:1fr;gap:18px}}}}'''
-    cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><div class="ph"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"></div><span class="ic">{sv(s["ic"])}</span></div>'
+    cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><div class="ph"><img src="{s["img"]}" alt="{s["alt"]}｜Kitchen AO" loading="lazy"></div><span class="ic">{sv(s["ic"])}</span></div>'
                     f'<div class="tx"><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><div class="ft"><span class="tip">{s["tip"]}</span><span class="go">{s["go"]}</span></div></div></a>' for s in SCENES)
     return c, css, head(c, S1) + f'<div class="grid">{cards}</div>'
 
@@ -101,7 +101,7 @@ def s1_b():
 .{c} .go{{display:inline-block;font-size:13.5px;font-weight:800;color:#141414;background:#E4C77E;border-radius:40px;padding:9px 18px}}
 .{c} .card:hover .go{{background:#fff}}
 @media(max-width:860px){{.{c} .grid{{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-16px;padding-right:16px}}.{c} .card{{flex:0 0 80%;scroll-snap-align:start}}}}'''
-    cards = ''.join(f'<a class="card" href="{s["url"]}"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><span class="go">{s["go"]}</span></div></a>' for s in SCENES)
+    cards = ''.join(f'<a class="card" href="{s["url"]}"><img src="{s["img"]}" alt="{s["alt"]}｜Kitchen AO" loading="lazy"><div class="tx"><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><span class="go">{s["go"]}</span></div></a>' for s in SCENES)
     return c, css, '<div class="in">' + head(c, S1) + f'<div class="grid">{cards}</div></div>'
 
 def s1_c():
@@ -150,9 +150,9 @@ def s2_a():
 
 .{c} .hint{{display:none}}
 @media(max-width:860px){{.{c}{{padding:44px 0 40px !important}}.{c} .in{{padding:0 16px}}.{c} .grid{{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-16px;padding-right:16px;-webkit-overflow-scrolling:touch}}.{c} .grid::-webkit-scrollbar{{display:none}}.{c} .card{{flex:0 0 82%;scroll-snap-align:start}}.{c} .hint{{display:block;font-size:12.5px;color:#9C9385;margin:14px 0 0;text-align:center;letter-spacing:.06em}}}}'''
-    cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"><span class="lab">{s["lab"]}</span></div>'
+    cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["alt"]}｜Kitchen AO" loading="lazy"><span class="lab">{s["lab"]}</span></div>'
                     f'<div class="tx"><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><div class="ft"><div><span class="meta">{s["meta"]}</span><span class="pr">{s["pr"]}</span></div><span class="go">{s["go"]}</span></div></div></a>' for s in SETS)
-    return c, css, '<div class="in">' + head(c, S2) + f'<div class="grid">{cards}</div><p class="hint">向左滑動查看更多套餐 →</p></div>'
+    return c, css, '<div class="in">' + head(c, S2) + f'<div class="grid">{cards}</div><p class="hint">{bi("向左滑動查看更多套餐 →","Swipe for more sets →")}</p></div>'
 
 def s2_b():
     c = 'ao-set-b'
@@ -174,7 +174,7 @@ def s2_b():
 .{c} .go{{font-size:13.5px;font-weight:800;color:#141414;background:#E4C77E;border-radius:40px;padding:9px 18px;white-space:nowrap}}
 .{c} .card:hover .go{{background:#fff}}
 @media(max-width:860px){{.{c}{{padding:44px 16px 36px}}.{c} .grid{{grid-template-columns:1fr;gap:16px}}}}'''
-    cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"></div>'
+    cards = ''.join(f'<a class="card" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["alt"]}｜Kitchen AO" loading="lazy"></div>'
                     f'<div class="tx"><span class="lab">{s["lab"]}</span><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><div class="ft"><span class="pr">{s["meta"]}｜{s["pr"]}</span><span class="go">{s["go"]}</span></div></div></a>' for s in SETS)
     return c, css, '<div class="in">' + head(c, S2) + f'<div class="grid">{cards}</div></div>'
 
@@ -194,7 +194,7 @@ def s2_c():
 .{c} .go{{display:inline-block;font-size:14px;font-weight:800;color:#fff;background:#141414;border-radius:40px;padding:11px 22px;white-space:nowrap}}
 .{c} .row:hover .go{{background:#C8A24A;color:#141414}}
 @media(max-width:860px){{.{c} .row{{grid-template-columns:1fr;gap:14px;padding:14px 14px 18px}}.{c} .rt{{text-align:left;display:flex;justify-content:space-between;align-items:center}}.{c} .pr{{margin:0}}}}'''
-    rows = ''.join(f'<a class="row" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["t"]}｜Kitchen AO" loading="lazy"></div>'
+    rows = ''.join(f'<a class="row" href="{s["url"]}"><div class="im"><img src="{s["img"]}" alt="{s["alt"]}｜Kitchen AO" loading="lazy"></div>'
                    f'<div class="mid"><p class="lab">{s["lab"]}</p><p class="t">{s["t"]}</p><p class="d">{s["d"]}</p><span class="meta">{s["meta"]}</span></div>'
                    f'<div class="rt"><span class="pr">{s["pr"]}</span><span class="go">{s["go"]}</span></div></a>' for s in SETS)
     return c, css, head(c, S2) + f'<div class="list">{rows}</div>'
@@ -208,14 +208,42 @@ OPTS = [
  ('s2-c', '熱門套餐｜方案 C：橫向清單', '左相、中間介紹、右邊價錢及黑色按鈕，似餐單列表，最易比較三款套餐；手機變直排。', s2_c),
 ]
 
+
+# ---------- 中英雙語（按 html lang 自動切換；TranslatePress 不再翻譯）----------
+def bi(zh, en):
+    return f'<span class="ao-zh" data-no-translation>{zh}</span><span class="ao-en" data-no-translation>{en}</span>'
+BI_CSS = 'html[lang^="en"] .ao-zh{display:none !important}html:not([lang^="en"]) .ao-en{display:none !important}'
+BI_JS = '<script>(function(){var en=/^en/i.test(document.documentElement.lang||"");var d=document.currentScript&&document.currentScript.parentNode;if(!d)return;[].forEach.call(d.querySelectorAll(en?".ao-zh":".ao-en"),function(x){x.parentNode.removeChild(x)})})();</script>'
+EN_S1 = dict(eb='OCCASIONS', h2='Choose Hong Kong Catering by Occasion',
+             sub='From birthday parties to company events, Kitchen AO plans menus around your headcount and occasion, delivered on time to your venue. Comparing caterers? See our <a class="rec" href="https://aoaodelivery.com/hong-kong-catering-recommendation/">Hong Kong catering recommendations</a>.')
+EN_SCENES = [dict(t='Party Catering', d='Birthdays, gatherings with friends and family dinners, with flexible sharing sets.', go='View Party Sets'),
+             dict(t='Corporate Catering', d='Meeting refreshments, opening receptions and staff meals, delivered on time for business occasions.', go='Corporate Catering'),
+             dict(t='Junk Trip and Business Lunch', d='Junk trips, outdoor events and business lunches, in insulated packaging that is easy to carry and hand out.', go='View Junk Trip Sets')]
+EN_S2 = dict(eb='POPULAR SETS', h2='Popular Catering Sets', sub='Our most popular menus for parties, company gatherings and light refreshments. Choose by headcount to get started.')
+EN_SETS = [dict(t='Gourmet Party Set', d='Hot mains, snacks and desserts in one set, for birthdays, gatherings and festive celebrations.', meta='For 5 to 100+ guests', pr='From HK$1,988', go='View Sets'),
+           dict(t='Refreshment Set', d='Bite-sized finger food for meeting tea breaks, openings and afternoon tea gatherings.', meta='For 12 to 100+ guests', pr='From HK$2,688', go='View Sets'),
+           dict(t='À La Carte Selection', d='Mix and match snacks, mains, desserts and drinks to add on or build your own menu.', meta='Snacks, mains, desserts, drinks', pr='Mix and match', go='View Menu')]
+def make_bilingual():
+    for k in ('eb', 'h2', 'sub'):
+        S1[k] = bi(S1[k], EN_S1[k]); S2[k] = bi(S2[k], EN_S2[k])
+    for zh, en in zip(SCENES, EN_SCENES):
+        zh['alt'] = zh['t']
+        for k in ('t', 'd', 'go'): zh[k] = bi(zh[k], en[k])
+    for zh, en in zip(SETS, EN_SETS):
+        zh['alt'] = zh['t']
+        for k in ('t', 'd', 'meta', 'pr', 'go'): zh[k] = bi(zh[k], en[k])
+
 def raw(c, css, body):
     return f'<section class="{c}">\n<style>\n{css}\n</style>\n{body}\n</section>\n'
 
 if __name__ == '__main__':
     prev = ['<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>首頁兩個 section：各 3 個方案</title>'
             '<style>body{margin:0;font-family:-apple-system,"PingFang HK",sans-serif;background:#fff}.lab{max-width:1180px;margin:40px auto 0;padding:12px 20px;background:#EEE9DF;border-radius:10px;font-size:14px;color:#5d534d;line-height:1.6}.lab b{color:#141414;font-size:16px;display:block}.lab code{font-size:12px;color:#9A7B2E}</style></head><body>']
+    make_bilingual()
     for key, name, desc, fn in OPTS:
         c, css, body = fn()
+        css = css + '\n' + BI_CSS
+        body = body + BI_JS
         r = raw(c, css, body)
         open(os.path.join(HERE, f'{key}-rawhtml.html'), 'w', encoding='utf-8').write(r)
         prev.append(f'<div class="lab"><b>{name}</b>{desc}<br><code>Raw HTML 檔：{key}-rawhtml.html</code></div>' + r)

@@ -1,0 +1,12 @@
+
+/* ===== Mobile header (max 1024px): menu + WhatsApp in gold bar, no floating phone/WhatsApp, less white space ===== */
+#header_top .ao-hd-wa{display:none;position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:20;width:38px;height:38px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+#header_top .ao-hd-wa svg{width:21px;height:21px;fill:#fff}
+@media (max-width:1024px){
+ #header{min-height:0 !important;height:auto !important}
+ #header .main_menu_holder{min-height:0 !important;height:34px !important;z-index:auto !important}
+ #header .lafka-top-bar-message{display:none !important}
+ #header .mob-menu-toggle{top:-53px !important;right:10px !important;left:auto !important;transform:scale(.82);transform-origin:center;z-index:10000 !important}
+ #header_top .ao-hd-wa{display:flex}
+ .wa__btn_popup,.wa__popup_chat_box,.wa__btn_popup_txt{display:none !important}
+}
