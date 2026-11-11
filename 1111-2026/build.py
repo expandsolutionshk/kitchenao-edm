@@ -338,21 +338,35 @@ def u(path): return f'{B}{path}{"&" if "?" in path else "?"}{UTM}'
 def btn_primary(t, href, w=320):
     return (f'<table role="presentation" cellpadding="0" cellspacing="0" align="center" class="btn-primary" width="100%" style="margin:0 auto;width:100%;max-width:{w}px;"><tr><td align="center" style="border-radius:40px;">'
             f'<a href="{href}" target="_blank" rel="noopener noreferrer" style="display:block;padding:16px 20px;font-size:18px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;">{t}</a></td></tr></table>')
+GIFT = dict(
+ a1600=('A1600 日式雞皮餃子配酥炸洋蔥圈', 198, U + '2023/10/KitchenAO_MAY2023-ALA-CARTE-03.png', '/product/a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/'),
+ a0500=('A0500 蜜蜜燒雞翼配脆薯角', 188, U + '2019/06/Posts-16-1024x1024.jpg', '/product/a0500-honey-glazed-chicken-wings-w-potato-wedges/'),
+ a1500=('A1500 避風塘炸海鮮豆腐配海鮮甜醬', 178, U + '2019/06/KitchenAO_MAY2023-ALA-CARTE-04.png', '/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/'),
+)
+TIERS = [('B1', '1,500', ['a1600']), ('B2', '2,200', ['a1600', 'a0500']), ('B3', '3,000', ['a1600', 'a0500', 'a1500'])]
+RED = '#C0392B'
+
 def edm_card(k, n, d, pr, path):
     return (f'<td class="stack" width="50%" valign="top" style="padding:6px;"><a href="{u(path)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">'
             f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:3px solid #C8A24A;border-radius:14px;overflow:hidden;">'
             f'<tr><td style="padding:0;font-size:0;line-height:0;"><img src="{IMG[k]}" width="280" alt="{n}" style="width:100%;height:auto;display:block;"></td></tr>'
             f'<tr><td style="padding:10px 12px 12px;background:#ffffff;"><p style="margin:0 0 3px;color:#1A1A1A;font-size:15px;font-weight:bold;line-height:20px;">{n}</p>'
             f'<p style="margin:0 0 6px;color:#7A7268;font-size:13px;line-height:17px;">{d}</p>'
-            f'<p style="margin:0;font-size:13px;"><span style="color:#999;text-decoration:line-through;">{pr}</span>　<span style="color:#C0392B;font-weight:bold;">雙 11 價 {TBD}</span></p></td></tr></table></a></td>')
+            f'<p style="margin:0;font-size:13px;"><span style="color:#7A7268;">{pr}</span>　<span style="color:{RED};font-weight:bold;">雙 11 再減 11%</span></p></td></tr></table></a></td>')
+
+def code_box(code, dark=False):
+    bg = '#ffffff' if dark else '#1A1A1A'; fg = '#1A1A1A' if dark else '#C8A24A'
+    return (f'<table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;"><tr>'
+            f'<td style="padding:6px 12px;color:#9A8F7E;font-size:12px;font-weight:bold;letter-spacing:2px;">優惠碼</td>'
+            f'<td bgcolor="{bg}" style="background:{bg};border:2px solid #C8A24A;border-radius:10px;padding:8px 22px;color:{fg};font-family:Georgia,serif;font-size:26px;line-height:30px;font-weight:bold;letter-spacing:4px;">{code}</td>'
+            '</tr></table>')
 
 def edm():
     src = open(os.path.join(H, '..', 'midautumn-sets-2026-v2', 'index.html'), encoding='utf-8').read().split('\n')
-    head = '\n'.join(src[7:65])        # <!DOCTYPE> ... container open
-    tail = '\n'.join(src[213:236] + src[272:284] + src[298:])   # 人氣到會、WhatsApp 黑底、Social proof、footer；跳過招牌菜（已在團年飯出現）及會員優惠橫額
-    head = head.replace('<title>Kitchen AO 中秋團圓套餐 2026</title>', '<title>Kitchen AO 雙 11 年尾飯局預購</title>')
-    head = re.sub(r'(<div style="display:none;max-height:0;[^>]*>\n).*?(\n</div>)', r'\1🔥 年尾飯局，雙 11 先鎖定｜公司 Party、年會、團年飯預購｜送餐期至 2027 年 3 月 15 日\2', head, flags=re.S)
-    # tail：UTM＋口語改書面語
+    head = '\n'.join(src[7:65])
+    tail = '\n'.join(src[213:236] + src[272:284] + src[298:])
+    head = head.replace('<title>Kitchen AO 中秋團圓套餐 2026</title>', '<title>Kitchen AO 雙 11 全網 89 折</title>')
+    head = re.sub(r'(<div style="display:none;max-height:0;[^>]*>\n).*?(\n</div>)', r'\1🔥 雙 11 全網 89 折｜11 月 11 日至 17 日｜滿 HK$1,500 再送人氣小食，會員優惠照常享用\2', head, flags=re.S)
     tail = re.sub(r'utm_campaign=midautumn2026', 'utm_campaign=1111_2026', tail)
     for a, b in [('睇 Reels →', '觀看 Reels →'), ('大品牌活動都揀 Kitchen AO', '大品牌活動之選 Kitchen AO'), ('需於套餐內揀選', '可於套餐內選擇'),
                  ('以下為人氣主菜，可於「人數選餐」套餐內揀選', '以下為人氣主菜，可於「人數選餐」套餐內選擇'), ('👥 按人數揀套餐 →', '👥 按人數選擇套餐 →'),
@@ -362,49 +376,65 @@ def edm():
            f'<tr><td align="center" style="padding-bottom:11px;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer"><img class="hlogo" src="{B}/wp-content/uploads/2023/08/kitchenAO_logo_horizontal.png" width="185" alt="Kitchen AO" style="width:185px;height:auto;margin:0 auto;display:block;"></a></td></tr>'
            f'<tr><td align="center" class="nav"><table role="presentation" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse;"><tr>'
            f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-radius:6px 0 0 6px;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">網站首頁</a></td>'
-           f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-left:1px solid #C8A24A;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">雙 11 預購</a></td>'
+           f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-left:1px solid #C8A24A;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">雙 11 優惠</a></td>'
            f'<td class="navgold" bgcolor="#C8A24A" style="background:#C8A24A;border-radius:0 6px 6px 0;border-left:1px solid #ffffff;"><a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#1A1A1A;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">WhatsApp</a></td>'
            f'</tr></table></td></tr></table></td></tr>')
     greet = ('<tr><td style="padding:11px 24px;background:#FBF7EE;border-bottom:1px solid #EEE6D6;"><div style="font-size:14.5px;color:#1A1A1A;font-weight:bold;">{{contact.first_name|"朋友"}}，你好 👋</div>'
-             '<div style="font-size:13.5px;color:#9A8f7e;margin-top:3px;">電子報・2026 年 11 月・雙 11 年尾飯局號</div></td></tr>')
+             '<div style="font-size:13.5px;color:#9A8f7e;margin-top:3px;">電子報・2026 年 11 月・雙 11 優惠號</div></td></tr>')
     kv = (f'<tr><td style="padding:20px 20px 0;background:#ffffff;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">'
           '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#1A1A1A" style="background:#1A1A1A;border-radius:14px;"><tr><td align="center" style="padding:30px 16px 26px;">'
           '<p style="margin:0;color:#C8A24A;font-family:Georgia,serif;font-size:72px;line-height:76px;font-weight:bold;">11.11</p>'
-          '<p style="margin:4px 0 12px;color:#C8A24A;font-size:12px;font-weight:bold;letter-spacing:4px;">YEAR-END FEAST PRE-ORDER</p>'
-          '<p style="margin:0 0 6px;color:#ffffff;font-size:24px;line-height:32px;font-weight:800;">雙 11 年尾飯局<br><span style="color:#C8A24A;">預購三重賞</span></p>'
-          '<p style="margin:0;color:#d8cfbf;font-size:15px;line-height:22px;">今日預訂，年尾享用</p></td></tr></table></a></td></tr>')
+          '<p style="margin:4px 0 12px;color:#C8A24A;font-size:12px;font-weight:bold;letter-spacing:4px;">DOUBLE 11・11% OFF SITEWIDE</p>'
+          '<p style="margin:0 0 8px;color:#ffffff;font-size:26px;line-height:34px;font-weight:800;">雙 11 全網 <span style="color:#C8A24A;">89 折</span><br>滿 HK$1,500 再送人氣小食</p>'
+          '<p style="margin:0;color:#d8cfbf;font-size:15px;line-height:22px;">2026 年 11 月 11 日至 17 日</p></td></tr></table></a></td></tr>')
     intro = ('<tr><td align="center" style="padding:20px 36px 4px;background:#ffffff;">'
-             '<p style="margin:0;color:#7A7268;font-size:16px;line-height:24px;">多謝你一直支持 Kitchen AO。今年雙 11，以 11 月的價錢預購年尾飯局，公司 Party、年會、團年飯及除夕倒數，一次安排妥當。</p></td></tr>')
-    def tri_td(ic, lv, t, d, anchor, badge=''):
-        bd = f'<span style="display:inline-block;margin-left:4px;background:#C0392B;color:#ffffff;font-size:11px;font-weight:bold;padding:1px 7px;border-radius:10px;vertical-align:2px;">{badge}</span>' if badge else ''
-        return (f'<td class="stack" width="33.33%" valign="top" style="padding:5px;"><a href="{u("/1111/")}#{anchor}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">'
-                '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #ECE6DA;border-radius:14px;"><tr><td align="center" style="padding:16px 8px 14px;">'
-                f'<p style="margin:0 auto 6px;width:48px;height:48px;line-height:48px;border-radius:24px;background:#FBF3E2;font-size:24px;text-align:center;">{ic}</p>'
-                f'<p style="margin:0;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:2px;">{lv}{bd}</p>'
-                f'<p style="margin:2px 0;color:#1A1A1A;font-size:16px;font-weight:800;">{t}</p>'
-                f'<p style="margin:2px 0;color:#C0392B;font-size:20px;font-weight:800;">{TBD}</p>'
-                f'<p style="margin:0;color:#7A7268;font-size:13px;line-height:18px;">{d}</p></td></tr></table></a></td>')
-    tri = ('<tr><td align="center" style="padding:24px 24px 4px;background:#FAF7F1;"><p style="margin:0 0 4px;color:#9A7B2E;font-size:13px;font-weight:bold;letter-spacing:3px;">11.11 TRIPLE REWARDS</p>'
-           '<p style="margin:0;color:#1A1A1A;font-size:21px;font-weight:800;">無論公司或家庭，優惠都三重加碼</p></td></tr>'
-           '<tr><td style="padding:10px 14px 18px;background:#FAF7F1;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
-           + tri_td('🔒', '第一重', '預購寄倉價', '11 月的價錢，年尾照樣享用', 'a11-1')
-           + tri_td('🎁', '第二重', '滿額賞', '買得越多，送得越多', 'a11-2', '限量')
-           + tri_td('🏆', '第三重', '企業早鳥賞', '年會檔期優先安排', 'a11-3')
-           + '</tr></table></td></tr>'
-           f'<tr><td align="center" style="padding:6px 30px 26px;background:#FAF7F1;">{btn_primary("🔥 立即預購年尾飯局", u("/1111/"))}</td></tr>')
-    def lv_head(no, lv, title, dark=False):
-        bg = '#1A1A1A' if dark else '#ffffff'; tc = '#ffffff' if dark else '#1A1A1A'
-        return (f'<tr><td style="padding:30px 24px 6px;background:{bg};"><table role="presentation" cellpadding="0" cellspacing="0"><tr>'
-                f'<td valign="middle" style="padding-right:12px;color:#C8A24A;font-family:Georgia,serif;font-size:44px;line-height:44px;font-weight:bold;">{no}</td>'
-                f'<td valign="middle"><p style="margin:0;color:#C8A24A;font-size:12px;font-weight:bold;letter-spacing:2px;">{lv}</p><p style="margin:2px 0 0;color:{tc};font-size:19px;line-height:26px;font-weight:800;">{title}</p></td>'
-                '</tr></table></td></tr>')
-    steps = ''.join(f'<td class="stack" width="33%" valign="top" align="center" style="padding:6px;"><p style="margin:0 auto 6px;width:32px;height:32px;line-height:32px;border-radius:16px;background:#1A1A1A;color:#C8A24A;font-weight:bold;font-size:16px;text-align:center;">{i}</p>'
-                    f'<p style="margin:0 0 3px;color:#ffffff;font-size:15px;font-weight:bold;">{t}</p><p style="margin:0;color:#C9BFA8;font-size:13px;line-height:19px;">{d}</p></td>'
-                    for i, (t, d) in enumerate([('11/8 至 11/13 付款', '以雙 11 價錢預購，價錢即時鎖定'), ('選擇送餐日期', '最少 7 日前 WhatsApp 通知客服'), ('準時送到', '2026/12/1 至 2027/3/15 全港送遞')], 1))
-    how = (lv_head('01', '第一重', '預購寄倉價：11 月的價錢，年尾照樣享用', True)
-           + '<tr><td style="padding:0;background:#1A1A1A;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:6px 20px 0;">'
-           '<p style="margin:0;color:#C9BFA8;font-size:14px;line-height:21px;">11 月 8 日至 13 日付款，送餐日期於 2026 年 12 月 1 日至 2027 年 3 月 15 日期間再選擇。</p></td></tr>'
-           f'<tr><td style="padding:12px 14px 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>{steps}</tr></table></td></tr></table></td></tr>')
+             '<p style="margin:0;color:#7A7268;font-size:16px;line-height:24px;">多謝你一直支持 Kitchen AO。雙 11 期間網站下單，全網即減 11%；單一訂單滿 HK$1,500，更可額外獲贈人氣小食，會員優惠亦照常享用。</p></td></tr>')
+    # ---- 優惠 A ----
+    offA = ('<tr><td style="padding:22px 20px 6px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:2px solid #C8A24A;border-radius:14px;"><tr><td align="center" style="padding:22px 16px 20px;">'
+            '<p style="margin:0 0 4px;display:inline-block;background:#1A1A1A;color:#C8A24A;font-size:12px;font-weight:bold;letter-spacing:2px;padding:4px 12px;border-radius:12px;">優惠 A</p>'
+            f'<p style="margin:8px 0 4px;color:#1A1A1A;font-size:24px;font-weight:800;">全網 <span style="color:{RED};">89 折</span></p>'
+            '<p style="margin:0 0 14px;color:#7A7268;font-size:14.5px;line-height:21px;">網站下單，結帳時輸入優惠碼，全單即減 11%。</p>'
+            + code_box('D11A') + '</td></tr></table></td></tr>')
+    # ---- 優惠 B ----
+    def gift_td(k):
+        n, p, img, path = GIFT[k]
+        return (f'<td width="33.33%" valign="top" align="center" style="padding:4px;"><a href="{u(path)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">'
+                f'<img src="{img}" width="150" alt="{n}" style="width:100%;max-width:150px;height:auto;display:block;margin:0 auto 6px;border-radius:10px;">'
+                f'<p style="margin:0;color:#1A1A1A;font-size:12.5px;line-height:17px;font-weight:bold;">{n.split(" ", 1)[1]}</p>'
+                f'<p style="margin:2px 0 0;color:#9A8F7E;font-size:12px;">價值 HK${p}</p></a></td>')
+    def tier(t, amt, ks):
+        val = sum(GIFT[k][1] for k in ks)
+        more = '或以上' if t == 'B3' else ''
+        cells = ''.join(gift_td(k) for k in ks) + ''.join('<td width="33.33%"></td>' for _ in range(3 - len(ks)))
+        return (f'<tr><td style="padding:8px 20px;background:#1A1A1A;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#262220;border:1px solid #3d362c;border-radius:14px;"><tr><td style="padding:16px 14px 14px;">'
+                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td valign="middle"><span style="display:inline-block;background:#C8A24A;color:#1A1A1A;font-size:12px;font-weight:bold;padding:3px 10px;border-radius:10px;">{t}</span>'
+                f'<span style="color:#ffffff;font-size:18px;font-weight:800;margin-left:8px;">滿 HK${amt}{more}</span></td>'
+                f'<td align="right" valign="middle" style="color:#C8A24A;font-size:13px;font-weight:bold;white-space:nowrap;">送 {len(ks)} 款・價值 HK${val}</td></tr></table>'
+                f'<p style="margin:6px 0 10px;color:#C9BFA8;font-size:13.5px;">89 折之外，額外送：</p>'
+                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:10px;"><tr>{cells}</tr></table>'
+                '</td></tr></table></td></tr>')
+    offB = ('<tr><td align="center" style="padding:30px 20px 10px;background:#1A1A1A;">'
+            '<p style="margin:0 0 4px;display:inline-block;background:#C8A24A;color:#1A1A1A;font-size:12px;font-weight:bold;letter-spacing:2px;padding:4px 12px;border-radius:12px;">優惠 B</p>'
+            '<p style="margin:8px 0 4px;color:#ffffff;font-size:23px;line-height:31px;font-weight:800;">89 折＋滿額送人氣小食</p>'
+            '<p style="margin:0 0 14px;color:#C9BFA8;font-size:14.5px;line-height:21px;">單一訂單滿指定金額，輸入以下優惠碼，除全單 89 折外，再送人氣小食。</p>'
+            + code_box('D11B', dark=True) + '</td></tr>'
+            + ''.join(tier(*x) for x in TIERS)
+            + '<tr><td style="padding:8px 24px 28px;background:#1A1A1A;"><p style="margin:0;padding:12px 14px;background:#2f2a24;border-radius:8px;color:#E9DFC9;font-size:13.5px;line-height:20px;">'
+              '每張訂單只可使用一個優惠碼：未滿 HK$1,500 請用 <b style="color:#C8A24A;">D11A</b>；滿 HK$1,500 請用 <b style="color:#C8A24A;">D11B</b>，89 折及贈品一併享有。</p></td></tr>')
+    # ---- 會員優惠照常享用 ----
+    mrow = lambda amt, g: (f'<tr><td style="padding:9px 0;border-bottom:1px solid #EEE3CC;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
+                           f'<td width="110" valign="middle" style="color:#1A1A1A;font-size:15px;font-weight:800;">每滿 HK${amt}</td>'
+                           f'<td valign="middle" style="color:#5d534d;font-size:14.5px;line-height:20px;">送 {g}</td></tr></table></td></tr>')
+    member = ('<tr><td style="padding:28px 20px 8px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:1px solid #E8D9B2;border-radius:14px;"><tr><td style="padding:20px 20px 18px;">'
+              '<p style="margin:0 0 2px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;">MEMBER ZONE</p>'
+              '<p style="margin:0 0 6px;color:#1A1A1A;font-size:20px;font-weight:800;">會員優惠照常享用</p>'
+              '<p style="margin:0 0 8px;color:#7A7268;font-size:14px;line-height:21px;">雙 11 優惠以外，網站原有的會員「多買多賞」亦同時適用，無封頂：</p>'
+              '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">'
+              + mrow('1,500', '精選堅果或薯片 1 包') + mrow('2,200', '「有得解」或冷泡茶 6 包') + mrow('3,000', '精選紅白葡萄酒 1 枝')
+              + '</table>'
+              '<p style="margin:12px 0 0;color:#1A1A1A;font-size:14px;line-height:21px;"><b>舊會員專屬：</b>上次訂單滿 HK$2,000，今次自動減 HK$100，如此類推。</p>'
+              f'<p style="margin:12px 0 0;padding:10px 12px;background:#ffffff;border-radius:8px;color:#6b2a1e;font-size:13.5px;line-height:20px;"><b>例如</b>：訂單滿 HK$1,500，輸入 D11B 即享全單 89 折，送日式雞皮餃子配酥炸洋蔥圈，再加會員多買多賞精選堅果或薯片 1 包。</p>'
+              '</td></tr></table></td></tr>')
     scenes = ''
     for k, ic, name, pl, sub, prods in SCENES:
         rows = ''.join('<tr>' + ''.join(edm_card(*p) for p in prods[i:i + 2]) + ('<td class="stack" width="50%"></td>' if len(prods[i:i + 2]) == 1 else '') + '</tr>' for i in range(0, len(prods), 2))
@@ -412,34 +442,24 @@ def edm():
                    f'<p style="margin:0 0 4px;color:#1A1A1A;font-size:20px;font-weight:800;line-height:28px;">「{pl}」</p><p style="margin:0;color:#7A7268;font-size:14px;">{sub}</p>'
                    '<div style="width:40px;height:2px;background:#C8A24A;margin:10px auto 0;"></div></td></tr>'
                    f'<tr><td style="padding:12px 16px 6px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table></td></tr>')
+    sc_head = ('<tr><td align="center" style="padding:30px 30px 0;background:#ffffff;"><p style="margin:0 0 4px;color:#9A7B2E;font-size:13px;font-weight:bold;letter-spacing:3px;">SHOP BY OCCASION</p>'
+               '<p style="margin:0;color:#1A1A1A;font-size:21px;font-weight:800;">年尾飯局，按場合選擇</p></td></tr>')
     ppl_btn = lambda t, k: f'<td width="33.33%" align="center" style="padding:4px;"><a href="{ppl_url(k)}?{UTM}" target="_blank" rel="noopener noreferrer" style="display:block;padding:11px 4px;border:1px solid #1A1A1A;border-radius:40px;color:#1A1A1A;font-size:15px;font-weight:bold;text-decoration:none;">{t}</a></td>'
     ppl = ('<tr><td align="center" style="padding:26px 30px 2px;background:#ffffff;"><p style="margin:0 0 6px;color:#1A1A1A;font-size:21px;font-weight:800;">按人數選擇套餐</p><p style="margin:0;color:#7A7268;font-size:15px;">由 2 人至 100 人以上，均有合適選擇</p></td></tr>'
            '<tr><td style="padding:10px 16px 6px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">'
            '<tr>' + ''.join(ppl_btn(*p) for p in PEOPLE[:3]) + '</tr><tr>' + ''.join(ppl_btn(*p) for p in PEOPLE[3:]) + '</tr></table></td></tr>')
-    info = ('<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:1px solid #C8A24A;border-radius:14px;"><tr><td align="center" style="padding:16px 18px;">'
-            '<p style="margin:0;color:#8a5a00;font-size:15px;font-weight:700;line-height:1.9;">📅 付款期：11 月 8 日至 13 日<br>🚚 送餐期：2026 年 12 月 1 日至 2027 年 3 月 15 日<br>'
-            f'🎁 雙 11 優惠：<span style="color:#C0392B;">{TBD}</span><br>⚠️ 12 月 24 至 26 日不適用；年三十及年初一至初三名額有限</p></td></tr></table></td></tr>'
-            f'<tr><td align="center" style="padding:18px 30px 30px;background:#ffffff;">{btn_primary("🔥 立即預購年尾飯局", u("/1111/"), 300)}'
+    info = ('<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:1px solid #C8A24A;border-radius:14px;"><tr><td align="left" style="padding:16px 18px;">'
+            '<p style="margin:0;color:#8a5a00;font-size:15px;font-weight:700;line-height:1.9;">📅 優惠期：2026 年 11 月 11 日至 17 日<br>'
+            '🏷️ 優惠 A：全網 89 折，優惠碼 D11A<br>🎁 優惠 B：89 折＋滿額送小食，優惠碼 D11B<br>⭐ 會員多買多賞及舊會員優惠照常享用</p></td></tr></table></td></tr>'
+            f'<tr><td align="center" style="padding:18px 30px 30px;background:#ffffff;">{btn_primary("🔥 立即網站下單", u("/1111/"), 300)}'
             '<table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:10px auto 0;width:100%;max-width:300px;"><tr><td align="center" bgcolor="#ffffff" style="border-radius:40px;border:1px solid #1A1A1A;">'
-            f'<a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:12px 20px;color:#1A1A1A;font-size:17px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;">企業年會報價查詢</a></td></tr></table></td></tr>')
-    tier_td = lambda i: (f'<td class="stack" width="33.33%" valign="top" style="padding:8px 5px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:2px dashed #C8A24A;border-radius:14px;"><tr><td align="center" style="padding:14px 8px;">'
-                         f'<p style="margin:0 0 4px;display:inline-block;background:#1A1A1A;color:#C8A24A;font-size:11px;font-weight:bold;padding:3px 10px;border-radius:10px;">滿額賞 0{i}</p>'
-                         f'<p style="margin:4px 0 0;color:#7A7268;font-size:12px;">單一訂單滿</p><p style="margin:2px 0;color:#1A1A1A;font-size:18px;font-weight:800;">HK$ <span style="color:#C0392B;">{TBD}</span></p>'
-                         f'<p style="margin:0;color:#1A1A1A;font-size:14px;font-weight:bold;">送 <span style="color:#C0392B;">{TBD}</span></p></td></tr></table></td>')
-    lv2 = (lv_head('02', '第二重', '滿額賞：買得越多，送得越多')
-           + '<tr><td style="padding:6px 24px 0;background:#ffffff;"><p style="margin:0;color:#7A7268;font-size:15px;line-height:23px;">雙 11 期間單一訂單滿指定金額，即可獲贈禮品，與預購寄倉價可同時使用。</p></td></tr>'
-           '<tr><td style="padding:8px 16px 4px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>' + ''.join(tier_td(i) for i in (1, 2, 3)) + '</tr></table></td></tr>'
-           f'<tr><td style="padding:8px 24px 22px;background:#ffffff;"><p style="margin:0;padding:10px 14px;background:#fff1ec;border:1px solid #f3c9bd;border-radius:8px;color:#6b2a1e;font-size:14px;"><b>限量 {TBD} 份</b>，送完即止。</p></td></tr>')
-    chk = ''.join(f'<p style="margin:0 0 6px;color:#ffffff;font-size:15px;line-height:22px;"><span style="color:#C8A24A;font-weight:bold;">✓</span>　{x}</p>' for x in ['11 月 11 日或之前確認年會報價', f'早鳥禮遇 <span style="color:#ff8a7a;">{TBD}</span>', '優先安排 12 月至 2 月旺季檔期', '專人跟進餐單、人數及送餐安排'])
-    lv3 = (lv_head('03', '第三重', '企業早鳥賞：年會的主角是同事，餐飲交給我們', True)
-           + f'<tr><td style="padding:10px 20px 0;background:#1A1A1A;"><img src="{IMG["corp"]}" width="600" alt="Kitchen AO 公司年會到會" style="width:100%;height:auto;border-radius:14px;display:block;"></td></tr>'
-           f'<tr><td style="padding:16px 28px 6px;background:#1A1A1A;">{chk}</td></tr>'
-           '<tr><td align="center" style="padding:10px 30px 30px;background:#1A1A1A;"><table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:300px;"><tr><td align="center" bgcolor="#C8A24A" style="border-radius:40px;">'
-           f'<a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:14px 20px;color:#1A1A1A;font-size:17px;font-weight:bold;text-decoration:none;border-radius:40px;">WhatsApp 企業客戶專員</a></td></tr></table>'
-           f'<p style="margin:12px 0 0;font-size:15px;"><a href="{u("/catering-quote-enquiry/")}" target="_blank" rel="noopener noreferrer" style="color:#C8A24A;">或填寫報價表格 →</a></p></td></tr>')
-    html = ('<!--\n============================================================\nKitchen AO — 2026 雙 11 年尾飯局預購 EDM — Raw HTML for FluentCRM\n'
-            '版型沿用 2026 中秋團圓套餐 EDM（黑金 clean 風）\nLanding: /1111/\n〔待定〕＝優惠數字未決定\n============================================================\n-->\n'
-            + head + '\n' + nav + greet + kv + intro + tri + how + scenes + lv2 + lv3 + ppl + info + '\n' + tail + '\n')
+            f'<a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:12px 20px;color:#1A1A1A;font-size:17px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;">WhatsApp 查詢</a></td></tr></table></td></tr>'
+            '<tr><td style="padding:0 30px 26px;background:#ffffff;"><p style="margin:0;color:#9A8F7E;font-size:12px;line-height:19px;">'
+            '條款：優惠只適用於 2026 年 11 月 11 日至 17 日期間於網站完成付款的訂單；每張訂單只可使用一個優惠碼；贈品數量有限，送完即止，不可兌換現金；如有任何爭議，Kitchen AO 保留最終決定權。</p></td></tr>')
+    cta1 = f'<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;">{btn_primary("🔥 立即網站下單", u("/1111/"))}</td></tr>'
+    html = ('<!--\n============================================================\nKitchen AO — 2026 雙 11 全網 89 折 EDM — Raw HTML for FluentCRM\n'
+            '版型沿用 2026 中秋團圓套餐 EDM（黑金 clean 風）\n優惠期 11/11 至 11/17｜A：D11A 89 折｜B：D11B 89 折＋滿額送小食\n============================================================\n-->\n'
+            + head + '\n' + nav + greet + kv + intro + offA + cta1 + offB + member + sc_head + scenes + ppl + info + '\n' + tail + '\n')
     open(os.path.join(H, 'email.html'), 'w', encoding='utf-8').write(html)
     return html
 
