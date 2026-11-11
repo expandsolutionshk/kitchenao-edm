@@ -467,7 +467,7 @@ def edm():
     cta1 = f'<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;">{btn_primary("🔥 立即網站下單", u("/1111/"))}</td></tr>'
     html = ('<!--\n============================================================\nKitchen AO — 2026 雙 11 全網 89 折 EDM — Raw HTML for FluentCRM\n'
             '版型沿用 2026 中秋團圓套餐 EDM（黑金 clean 風）\n優惠期 11/11 至 11/17｜A：D11A 89 折｜B：D11B 89 折＋滿額送小食\n============================================================\n-->\n'
-            + head + '\n' + nav + greet + kv + intro + offA + cta1 + offB + sc_head + scenes + ppl + info + '\n' + tail + '\n')
+            + head + '\n' + nav + greet + kv + intro + offA + cta1 + offB + info + '\n' + tail + '\n')
     open(os.path.join(H, 'email.html'), 'w', encoding='utf-8').write(html)
     return html
 
