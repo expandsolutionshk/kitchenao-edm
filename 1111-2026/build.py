@@ -383,7 +383,7 @@ def edm():
            f'<tr><td align="center" class="nav"><table role="presentation" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse;"><tr>'
            f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-radius:6px 0 0 6px;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">網站首頁</a></td>'
            f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-left:1px solid #C8A24A;"><a href="{u("/product-category/party/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">快速查看餐單</a></td>'
-           f'<td class="navgold" bgcolor="#C8A24A" style="background:#C8A24A;border-radius:0 6px 6px 0;border-left:1px solid #ffffff;"><a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#1A1A1A;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">WhatsApp</a></td>'
+           f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-radius:0 6px 6px 0;border-left:1px solid #C8A24A;"><a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">WhatsApp</a></td>'
            f'</tr></table></td></tr></table></td></tr>')
     greet = ('<tr><td style="padding:11px 24px;background:#FBF7EE;border-bottom:1px solid #EEE6D6;"><div style="font-size:14.5px;color:#1A1A1A;font-weight:bold;">{{contact.first_name|"朋友"}}，你好 👋</div>'
              '<div style="font-size:13.5px;color:#9A8f7e;margin-top:3px;">電子報・2026 年 11 月・雙 11 優惠號</div></td></tr>')
@@ -465,8 +465,8 @@ def edm():
             '<p style="margin:0;color:#8a5a00;font-size:15px;font-weight:700;line-height:1.9;">📅 優惠期：2026 年 11 月 11 日至 17 日<br>'
             '🏷️ 優惠碼：DOUBLE11<br>🎁 滿 HK$1,100 全網 11% OFF；滿 HK$1,500 起再送人氣小食<br>⭐ 會員多買多賞及舊會員優惠照常享用</p></td></tr></table></td></tr>'
             f'<tr><td align="center" style="padding:18px 30px 30px;background:#ffffff;">{btn_primary("立即預訂索取四重賞", u("/"), 300)}'
-            '<table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:10px auto 0;width:100%;max-width:300px;"><tr><td align="center" bgcolor="#ffffff" style="border-radius:40px;border:1px solid #1A1A1A;">'
-            f'<a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:12px 20px;color:#1A1A1A;font-size:17px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;">WhatsApp 查詢</a></td></tr></table></td></tr>'
+            '<table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:10px auto 0;width:100%;max-width:300px;"><tr><td align="center" style="border-radius:40px;">'
+            f'<a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:12px 20px;background:#ffffff;border:1.5px solid #1A1A1A;color:#1A1A1A;font-size:17px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;">WhatsApp 查詢</a></td></tr></table></td></tr>'
             '<tr><td style="padding:0 30px 26px;background:#ffffff;"><p style="margin:0;color:#9A8F7E;font-size:12px;line-height:19px;">'
             '條款：優惠只適用於 2026 年 11 月 11 日至 17 日期間於網站完成付款的訂單；贈品按單一訂單金額計算；贈品數量有限，送完即止，不可兌換現金；如有任何爭議，Kitchen AO 保留最終決定權。</p></td></tr>')
     cta1 = f'<tr><td align="center" style="padding:20px 30px 34px;background:#ffffff;">{btn_dark("立即預訂索取四重賞", u("/"))}</td></tr>'
