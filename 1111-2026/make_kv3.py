@@ -145,27 +145,27 @@ def _card_canvas(cw, ch):
     ImageDraw.Draw(mk).rounded_rectangle([0, 0, cw - 1, ch - 1], 18, fill=255)
     b = Image.new('RGBA', (cw, ch), (255, 255, 255, 255)); b.putalpha(mk); c.alpha_composite(b)
     ImageDraw.Draw(c).rounded_rectangle([1, 1, cw - 2, ch - 2], 18, outline=(232, 218, 190), width=2); return c
-def back_card(key, w=210):  # 後排：標題在上，壓在前卡後仍看得到（字加大）
-    pad = 10; ph = int(w * .6); cap = 86; cw, ch = w + 2 * pad, cap + ph + 2 * pad
+def back_card(key, w=222):  # 後排：標題在上，壓在前卡後仍看得到（字加大）
+    pad = 10; ph = int(w * .6); cap = 100; cw, ch = w + 2 * pad, cap + ph + 2 * pad
     c = _card_canvas(cw, ch); d = ImageDraw.Draw(c)
     if key == 'off': name, sub = '全單 11% OFF', '全網套餐及單點'
     else: name, sub = ITEMS[key][2], f'10 件・原價 ${ITEMS[key][3]}'
-    fn = f_cjk(28 if len(name) <= 6 else 26); fs = f_cjk(23, False)
+    fn = f_cjk(32 if len(name) <= 6 else 30); fs = f_cjk(27, False)
     d.text(((cw - d.textlength(name, font=fn)) / 2, pad - 4), name, font=fn, fill=INK)
-    d.text(((cw - d.textlength(sub, font=fs)) / 2, pad + 40), sub, font=fs, fill=GOLD_D)
+    d.text(((cw - d.textlength(sub, font=fs)) / 2, pad + 46), sub, font=fs, fill=GOLD_D)
     if key == 'off': _off_block(d, pad, pad + cap, w, ph, False)
     else: c.alpha_composite(_photo(key, w, ph), (pad, pad + cap))
     return c
 def front_card(key, verb, w=300):  # 前卡：標籤一行、名稱一行、件數一行（字加大）
-    pad = 12; ph = int(w * .6); lab = 150; cw, ch = w + 2 * pad, ph + 2 * pad + lab
+    pad = 12; ph = int(w * .6); lab = 170; cw, ch = w + 2 * pad, ph + 2 * pad + lab
     c = _card_canvas(cw, ch); d = ImageDraw.Draw(c)
     if key == 'off': _off_block(d, pad, pad, w, ph, True); name, sub = '全網 11% OFF', '全網所有套餐及單點'
     else: c.alpha_composite(_photo(key, w, ph), (pad, pad)); name, sub = ITEMS[key][2], f'10 件・原價 ${ITEMS[key][3]}'
-    fv = f_cjk(26); fn = f_cjk(32); fs = f_cjk(26, False); y = pad + ph + 12
+    fv = f_cjk(30); fn = f_cjk(36); fs = f_cjk(30, False); y = pad + ph + 12
     tw = d.textlength(verb, font=fv)
-    d.rounded_rectangle([(cw - tw) / 2 - 12, y + 2, (cw + tw) / 2 + 12, y + 42], 10, fill=GOLD); d.text(((cw - tw) / 2, y + 2), verb, font=fv, fill=(255, 255, 255))
-    d.text(((cw - d.textlength(name, font=fn)) / 2, y + 50), name, font=fn, fill=INK)
-    d.text(((cw - d.textlength(sub, font=fs)) / 2, y + 100), sub, font=fs, fill=GOLD_D)
+    d.rounded_rectangle([(cw - tw) / 2 - 12, y + 2, (cw + tw) / 2 + 12, y + 48], 10, fill=GOLD); d.text(((cw - tw) / 2, y + 2), verb, font=fv, fill=(255, 255, 255))
+    d.text(((cw - d.textlength(name, font=fn)) / 2, y + 56), name, font=fn, fill=INK)
+    d.text(((cw - d.textlength(sub, font=fs)) / 2, y + 114), sub, font=fs, fill=GOLD_D)
     return c
 def _float(c, rot, blur=12, off=(6, 10), alpha=65):
     c = c.rotate(rot, resample=Image.BICUBIC, expand=True)
@@ -181,7 +181,7 @@ BACK_POS = {0: [], 1: [(-130, 0, -6)], 2: [(-150, 0, -7), (150, 0, 7)], 3: [(-15
 PW, PH = 540, 860
 HEAD_STYLE = 'A'
 def panel(lv, amt, backs, front, verb, summ):
-    PH = {'orig': 860, 'A': 760, 'B': 800}[HEAD_STYLE]
+    PH = {'orig': 860, 'A': 800, 'B': 800}[HEAD_STYLE]
     p = Image.new('RGBA', (PW, PH + 80), (0, 0, 0, 0)); T = 80 if HEAD_STYLE != 'B' else 0
     mk = Image.new('L', p.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, T, PW - 1, T + PH - 1], 28, fill=255)
     b = Image.new('RGBA', p.size, (255, 255, 255, 235)); b.putalpha(ImageChops.multiply(mk, Image.new('L', p.size, 235))); p.alpha_composite(b)
@@ -196,14 +196,14 @@ def panel(lv, amt, backs, front, verb, summ):
     d = ImageDraw.Draw(p)
     # 底部深色資訊條（另一層背景）
     band = Image.new('RGBA', p.size, (0, 0, 0, 0)); bd = ImageDraw.Draw(band)
-    BH = 112
+    BH = 124
     bd.rounded_rectangle([0, T + PH - BH, PW - 1, T + PH - 1], 28, fill=INK + (255,)); bd.rectangle([0, T + PH - BH, PW - 1, T + PH - 60], fill=INK + (255,))
     band.putalpha(ImageChops.multiply(band.getchannel('A'), mk)); p.alpha_composite(band); d = ImageDraw.Draw(p)
     d.line([(40, T + PH - BH), (PW - 40, T + PH - BH)], fill=GOLD, width=2)
-    fs = f_cjk(28); lines = summ.split('・')
+    fs = f_cjk(32); lines = summ.split('・')
     if len(lines) == 1: d.text(((PW - d.textlength(summ, font=fs)) / 2, T + PH - BH / 2 - 22), summ, font=fs, fill=GOLD_L)
     else:
-        for k, t in enumerate(lines): d.text(((PW - d.textlength(t, font=fs)) / 2, T + PH - BH + 14 + k * 44), t, font=fs, fill=GOLD_L)
+        for k, t in enumerate(lines): d.text(((PW - d.textlength(t, font=fs)) / 2, T + PH - BH + 12 + k * 50), t, font=fs, fill=GOLD_L)
     if HEAD_STYLE == 'orig':
         fl = f_cjk(30); lw = d.textlength(lv, font=fl); ly = T + 84
         d.rounded_rectangle([cx - lw / 2 - 26, ly, cx + lw / 2 + 26, ly + 50], 25, fill=GOLD)
@@ -215,9 +215,9 @@ def panel(lv, amt, backs, front, verb, summ):
         d.text((sx - d.textlength('滿', font=fa) / 2, sy - 50), '滿', font=fa, fill=GOLD_L)
         d.text((sx - d.textlength('$' + amt, font=fb) / 2, sy - 16), '$' + amt, font=fb, fill=(255, 255, 255))
     elif HEAD_STYLE == 'A':   # 合併膠囊：一粒黑膠囊「第一賞｜滿 $1,100」，一半凸出卡頂
-        f1, f2 = f_cjk(30), f_cjk(30); t1, t2 = lv, '滿 $' + amt
+        f1, f2 = f_cjk(34), f_cjk(34); t1, t2 = lv, '滿 $' + amt
         w1, w2 = d.textlength(t1, font=f1), d.textlength(t2, font=f2); gap = 44; tw = w1 + gap + w2
-        x0, y0, hh = cx - tw / 2 - 34, T - 36, 72
+        x0, y0, hh = cx - tw / 2 - 34, T - 40, 78
         d.rounded_rectangle([x0 - 4, y0 - 4, x0 + tw + 72, y0 + hh + 4], 40, fill=(255, 255, 255))
         d.rounded_rectangle([x0, y0, x0 + tw + 68, y0 + hh], 36, fill=INK)
         d.rounded_rectangle([x0 + 6, y0 + 6, x0 + tw + 62, y0 + hh - 6], 30, outline=GOLD, width=2)
@@ -280,9 +280,9 @@ def kv_square():
 def rewards_img():
     """四重賞獨立圖：放在 EDM 優惠碼下面"""
     global HH, SY, GLOW_Y, ROW_Y
-    HH, SY, GLOW_Y = (2000 if HEAD_STYLE == 'orig' else 1760), 99999, -9999
+    HH, SY, GLOW_Y = (2000 if HEAD_STYLE == 'orig' else 1840), 99999, -9999
     bg = Image.new('RGBA', (W, HH), (243, 231, 210, 255))
-    ROW_Y = [60, 1040] if HEAD_STYLE == 'orig' else ([60, 920] if HEAD_STYLE == 'A' else [30, 880])
+    ROW_Y = [60, 1040] if HEAD_STYLE == 'orig' else ([64, 964] if HEAD_STYLE == 'A' else [30, 880])
     pos = [(48, ROW_Y[0]), (612, ROW_Y[0]), (48, ROW_Y[1]), (612, ROW_Y[1])]
     for t, (x, y) in zip(TIER, pos):
         p = panel(*t); sh = Image.new('RGBA', (p.width + 60, p.height + 60), (0, 0, 0, 0))
