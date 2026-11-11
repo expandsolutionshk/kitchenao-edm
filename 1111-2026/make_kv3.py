@@ -78,12 +78,48 @@ def framed(im, w, rot, border=16):
     s.paste((70, 45, 15, 120), (62, 78), fr.getchannel('A')); s = s.filter(ImageFilter.GaussianBlur(20)); s.alpha_composite(fr, (50, 50))
     return s
 
+def _src3():
+    pot = Image.open(SRC + 'd11src-c3.jpg').convert('RGB').crop((120, 585, 1600, 1600))
+    bento = Image.open(SRC + 'bento.jpg').convert('RGB').crop((0, 160, 1200, 1600))
+    buf = Image.open(SRC + 'photo3.jpg').convert('RGB').crop((0, 820, 1920, 2560))
+    return pot, bento, buf
+def fit(im, w, h):  # 置中裁切到指定比例
+    r = w / h
+    if im.width / im.height > r:
+        nw = int(im.height * r); x = (im.width - nw) // 2; im = im.crop((x, 0, x + nw, im.height))
+    else:
+        nh = int(im.width / r); y = (im.height - nh) // 2; im = im.crop((0, y, im.width, y + nh))
+    return im.resize((w, h), Image.LANCZOS)
+def tile(im, w, h, radius=20, border=10, rot=0, shadow=True):
+    im = fit(im, w, h).convert('RGBA')
+    m = Image.new('L', im.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius, fill=255); im.putalpha(m)
+    fw, fh = w + 2 * border, h + 2 * border
+    fr = Image.new('RGBA', (fw, fh), (0, 0, 0, 0))
+    mk = Image.new('L', (fw, fh), 0); ImageDraw.Draw(mk).rounded_rectangle([0, 0, fw - 1, fh - 1], radius + border, fill=255)
+    bb = Image.new('RGBA', (fw, fh), (255, 255, 255, 255)); bb.putalpha(mk); fr.alpha_composite(bb)
+    ImageDraw.Draw(fr).rounded_rectangle([2, 2, fw - 3, fh - 3], radius + border - 2, outline=GOLD, width=3)
+    fr.alpha_composite(im, (border, border))
+    if rot: fr = fr.rotate(rot, resample=Image.BICUBIC, expand=True)
+    s = Image.new('RGBA', (fr.width + 100, fr.height + 100), (0, 0, 0, 0))
+    if shadow: s.paste((70, 45, 15, 115), (60, 76), fr.getchannel('A')); s = s.filter(ImageFilter.GaussianBlur(20))
+    s.alpha_composite(fr, (50, 50)); return s
+def put(bg, t, x, y): bg.alpha_composite(t, (x - 50, y - 50))
+
+HERO_MODE = os.environ.get('HERO', 'B')
 def heroes(bg):
-    pot = Image.open(SRC + 'd11src-c3.jpg').convert('RGB').crop((120, 585, 1600, 1600))     # 完整煲仔飯（去掉酒樽）
-    bento = Image.open(SRC + 'bento.jpg').convert('RGB').crop((0, 160, 1200, 1600))         # 精緻餐盒
-    b = framed(bento, 300, 4); p = framed(pot, 610, -3)
-    bg.alpha_composite(b, (735, 705))
-    bg.alpha_composite(p, (30, 745))
+    pot, bento, buf = _src3()
+    if HERO_MODE == 'A':   # 三聯直幅：中間較大較高
+        put(bg, tile(bento, 300, 400, rot=0), 50, 800)
+        put(bg, tile(buf, 300, 400, rot=0), 830, 800)
+        put(bg, tile(pot, 400, 470, rot=0), 390, 760)
+    elif HERO_MODE == 'B': # 編輯式拼貼：左大圖＋右兩格，直角對齊
+        put(bg, tile(pot, 660, 480, radius=14), 40, 750)
+        put(bg, tile(bento, 420, 226, radius=14), 730, 750)
+        put(bg, tile(buf, 420, 226, radius=14), 730, 1004)
+    else:                  # 扇形疊卡：三張打斜重疊，中間最前
+        put(bg, tile(bento, 340, 420, rot=9), 700, 760)
+        put(bg, tile(buf, 340, 420, rot=-9), 70, 760)
+        put(bg, tile(pot, 480, 400, rot=0), 360, 790)
     return bg
 
 ITEMS = {
@@ -190,6 +226,6 @@ def tab_and_pill(bg):
 
 if __name__ == '__main__':
     bg = background(); bg = title(bg); bg = headline(bg); bg = heroes(bg); bg = rewards(bg); bg = tab_and_pill(bg)
-    im = bg.convert('RGB'); im.save(os.path.join(H, 'img', 'd11-kv.jpg'), quality=86, optimize=True, progressive=True)
-    im.resize((600, 1520)).save('/sessions/great-festive-darwin/mnt/outputs/kv3.jpg', quality=85)
+    im = bg.convert('RGB'); im.save(os.path.join(H, 'img', f'kv-hero-{HERO_MODE}.jpg'), quality=86, optimize=True, progressive=True)
+    im.crop((0, 380, 1200, 1300)).resize((600, 460)).save(f'/sessions/great-festive-darwin/mnt/outputs/hero_{HERO_MODE}.jpg', quality=85)
     print('ok', os.path.getsize(os.path.join(H, 'img', 'd11-kv.jpg')) // 1024, 'KB')
