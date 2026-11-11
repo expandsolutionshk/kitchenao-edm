@@ -179,7 +179,7 @@ TIER = [  # (第幾賞, 金額, 後排, 前卡, 動詞, 總結)
 ]
 BACK_POS = {0: [], 1: [(-130, 0, -6)], 2: [(-150, 0, -7), (150, 0, 7)], 3: [(-150, 40, -7), (0, -60, 0), (150, 40, 7)]}
 PW, PH = 540, 860
-HEAD_STYLE = 'orig'
+HEAD_STYLE = 'A'
 def panel(lv, amt, backs, front, verb, summ):
     PH = {'orig': 860, 'A': 760, 'B': 800}[HEAD_STYLE]
     p = Image.new('RGBA', (PW, PH + 80), (0, 0, 0, 0)); T = 80 if HEAD_STYLE != 'B' else 0
