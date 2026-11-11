@@ -11,7 +11,7 @@ H = os.path.dirname(os.path.abspath(__file__))
 B = 'https://aoaodelivery.com'
 U = B + '/wp-content/uploads/'
 LP = B + '/1111/'
-WA = 'https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E9%9B%99%2011%20%E5%B9%B4%E5%B0%BE%E9%A3%AF%E5%B1%80%E9%A0%90%E8%B3%BC'  # 你好，我想查詢雙 11 年尾飯局預購
+WA = 'https://wa.me/85269011987?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E9%9B%99%2011%20%E5%84%AA%E6%83%A0'  # 你好，我想查詢雙 11 優惠
 TBD = '〔待定〕'
 
 # ---------- 產品（全部有圖） ----------
@@ -413,7 +413,7 @@ def edm():
         return (f'<tr><td style="padding:8px 20px;background:#F3E7D2;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #E3CFA6;border-radius:14px;"><tr><td style="padding:16px 14px 14px;">'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td valign="middle"><span style="display:inline-block;background:#C8A24A;color:#1A1A1A;font-size:12px;font-weight:bold;padding:3px 10px;border-radius:10px;">{lv}</span>'
                 f'<span style="color:#1A1A1A;font-size:18px;font-weight:800;margin-left:8px;">滿 HK${amt}{more}</span></td>'
-                f'<td align="right" valign="middle" style="color:#9A7B2E;font-size:13px;font-weight:bold;white-space:nowrap;">送 {len(ks)} 款・總值 HK${val}</td></tr></table>'
+                f'<td align="right" valign="middle" style="color:#9A7B2E;font-size:13px;font-weight:bold;white-space:nowrap;">送 {len(ks)} 款・小食總值 HK${val}</td></tr></table>'
                 f'<p style="margin:6px 0 10px;color:#7A6A50;font-size:13.5px;">全單 11% OFF 之外，再送：</p>'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border-radius:10px;"><tr>{cells}</tr></table>'
                 '</td></tr></table></td></tr>')
