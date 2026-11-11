@@ -389,13 +389,13 @@ def edm():
              '<div style="font-size:13.5px;color:#9A8f7e;margin-top:3px;">電子報・2026 年 11 月・雙 11 優惠號</div></td></tr>')
     kv = (f'<tr><td style="padding:0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer">'
           f'<img src="{GH}d11-kv.jpg" width="680" alt="11.11 一連七天：滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食，最多送 3 款" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>')
-    coupon = ('<tr><td style="padding:22px 22px 26px;background:#F3E7D2;">'
-              '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:2px solid #C8A24A;border-radius:16px;overflow:hidden;">'
-              '<tr><td align="center" bgcolor="#1A1A1A" style="background:#1A1A1A;padding:12px 16px;color:#E4C77E;font-size:16px;font-weight:bold;letter-spacing:2px;">優惠期　2026.11.11 至 11.17</td></tr>'
-              '<tr><td align="center" valign="middle" style="padding:20px 16px 18px;"><p style="margin:0 0 4px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:4px;">優惠碼</p>'
-              '<p style="margin:0;color:#1A1A1A;font-family:Arial,Helvetica,sans-serif;font-size:34px;line-height:40px;font-weight:bold;letter-spacing:5px;">DOUBLE11</p>'
-              '<p style="margin:6px 0 0;color:#9A8F7E;font-size:12.5px;">結帳時輸入優惠碼（長按或選取即可複製）</p></td></tr>'
-              '</table></td></tr>')
+    coupon = ('<tr><td style="padding:28px 40px 32px;background:#F3E7D2;">'
+              '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background:#ffffff;border:1px solid #C8A24A;"><tr><td style="padding:6px;">'
+              '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E6D3A6;"><tr><td align="center" style="padding:26px 20px 24px;">'
+              '<p style="margin:0;padding-left:5px;color:#9A7B2E;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:5px;">PROMOTION CODE</p>'
+              '<p style="margin:12px 0 0;padding-left:8px;color:#1A1A1A;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:34px;line-height:40px;font-weight:300;letter-spacing:8px;">DOUBLE11</p>'
+              '<table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:16px auto 14px;"><tr><td width="60" style="border-top:1px solid #C8A24A;font-size:0;line-height:0;">&nbsp;</td></tr></table>'
+              '<p style="margin:0;color:#5d534d;font-size:14px;letter-spacing:1px;">優惠期　2026.11.11 至 11.17</p></td></tr></table></td></tr></table></td></tr>')
     intro = ('<tr><td align="center" style="padding:34px 40px 6px;background:#ffffff;"><div style="width:46px;height:4px;border-radius:3px;background:#C8A24A;margin:0 auto 18px;"></div>'
              '<p style="margin:0 auto;max-width:460px;color:#5d534d;font-size:15.5px;line-height:1.95;">多謝你一直支持 Kitchen AO。雙 11 一連七天，網站下單滿 HK$1,100，輸入優惠碼 DOUBLE11 即享全網 11% OFF；滿 HK$1,500 起更可額外獲贈人氣小食，會員優惠亦照常享用。</p></td></tr>')
     # ---- 優惠 B ----
@@ -425,8 +425,7 @@ def edm():
     offB = ('<tr><td align="center" style="padding:30px 20px 10px;background:#F3E7D2;">'
             '<p style="margin:0 0 4px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;">FOUR REWARDS</p>'
             '<p style="margin:0 0 4px;color:#1A1A1A;font-size:24px;line-height:32px;font-weight:800;">雙 11 四重賞</p>'
-            '<p style="margin:0 0 14px;color:#7A6A50;font-size:14.5px;line-height:21px;">一連七天，網站下單結帳時輸入優惠碼，系統按訂單金額自動計算。</p>'
-            + code_box('DOUBLE11') + '</td></tr>'
+            + '</td></tr>'
             + f'<tr><td style="padding:16px 0 0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer"><img src="{GH}d11-rewards.jpg" width="680" alt="雙 11 四重賞：第一賞滿 HK$1,100 全單 11% OFF；第二賞滿 HK$1,500 送日式雞皮餃子 10 件（原價 $198）；第三賞滿 HK$2,200 再加送避風塘海鮮豆腐 10 件（原價 $178）；第四賞滿 HK$3,000 再加送蜜蜜燒雞翼 10 件（原價 $188）" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>'
             + '<tr><td style="padding:0 0 22px;background:#F3E7D2;font-size:0;line-height:0;">&nbsp;</td></tr>')
     member2 = ('<tr><td align="center" style="padding:30px 24px 6px;background:#ffffff;">'
@@ -465,12 +464,12 @@ def edm():
     info = ('<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border:1px solid #C8A24A;border-radius:14px;"><tr><td align="left" style="padding:16px 18px;">'
             '<p style="margin:0;color:#8a5a00;font-size:15px;font-weight:700;line-height:1.9;">📅 優惠期：2026 年 11 月 11 日至 17 日<br>'
             '🏷️ 優惠碼：DOUBLE11<br>🎁 滿 HK$1,100 全網 11% OFF；滿 HK$1,500 起再送人氣小食<br>⭐ 會員多買多賞及舊會員優惠照常享用</p></td></tr></table></td></tr>'
-            f'<tr><td align="center" style="padding:18px 30px 30px;background:#ffffff;">{btn_primary("立即網站下單", u("/1111/"), 300)}'
+            f'<tr><td align="center" style="padding:18px 30px 30px;background:#ffffff;">{btn_primary("立即預約索取四重賞", u("/1111/"), 300)}'
             '<table role="presentation" cellpadding="0" cellspacing="0" align="center" width="100%" style="margin:10px auto 0;width:100%;max-width:300px;"><tr><td align="center" bgcolor="#ffffff" style="border-radius:40px;border:1px solid #1A1A1A;">'
             f'<a href="{WA}" target="_blank" rel="noopener noreferrer" style="display:block;padding:12px 20px;color:#1A1A1A;font-size:17px;font-weight:bold;letter-spacing:1px;text-decoration:none;border-radius:40px;text-align:center;">WhatsApp 查詢</a></td></tr></table></td></tr>'
             '<tr><td style="padding:0 30px 26px;background:#ffffff;"><p style="margin:0;color:#9A8F7E;font-size:12px;line-height:19px;">'
             '條款：優惠只適用於 2026 年 11 月 11 日至 17 日期間於網站完成付款的訂單；贈品按單一訂單金額計算；贈品數量有限，送完即止，不可兌換現金；如有任何爭議，Kitchen AO 保留最終決定權。</p></td></tr>')
-    cta1 = f'<tr><td align="center" style="padding:20px 30px 34px;background:#ffffff;">{btn_dark("立即網站下單", u("/1111/"))}</td></tr>'
+    cta1 = f'<tr><td align="center" style="padding:20px 30px 34px;background:#ffffff;">{btn_dark("立即預約索取四重賞", u("/1111/"))}</td></tr>'
     html = ('<!--\n============================================================\nKitchen AO — 2026 雙 11 四重賞 EDM — Raw HTML for FluentCRM\n'
             '版型沿用 2026 中秋團圓套餐 EDM（黑金 clean 風）\n優惠期 11/11 至 11/17｜優惠碼 DOUBLE11｜滿 $1,100 11% OFF＋滿 $1,500/$2,200/$3,000 送小食\n============================================================\n-->\n'
             + head + '\n' + nav + greet + kv + coupon + intro + cta1 + offB + member2 + info + '\n' + tail + '\n')

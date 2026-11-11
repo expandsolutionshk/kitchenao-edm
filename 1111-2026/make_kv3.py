@@ -145,32 +145,27 @@ def _card_canvas(cw, ch):
     ImageDraw.Draw(mk).rounded_rectangle([0, 0, cw - 1, ch - 1], 18, fill=255)
     b = Image.new('RGBA', (cw, ch), (255, 255, 255, 255)); b.putalpha(mk); c.alpha_composite(b)
     ImageDraw.Draw(c).rounded_rectangle([1, 1, cw - 2, ch - 2], 18, outline=(232, 218, 190), width=2); return c
-def back_card(key, w=180):  # 後排：標題在上，壓在前卡後仍看得到
-    pad = 10; ph = int(w * .6); cap = 62; cw, ch = w + 2 * pad, cap + ph + 2 * pad
+def back_card(key, w=210):  # 後排：標題在上，壓在前卡後仍看得到（字加大）
+    pad = 10; ph = int(w * .6); cap = 86; cw, ch = w + 2 * pad, cap + ph + 2 * pad
     c = _card_canvas(cw, ch); d = ImageDraw.Draw(c)
-    if key == 'off':
-        name, sub = '全單 11% OFF', '全網套餐及單點'
-    else:
-        name, sub = ITEMS[key][2], f'10 件・原價 ${ITEMS[key][3]}'
-    fn = f_cjk(22 if len(name) <= 6 else 19); fs = f_cjk(16, False)
-    d.text(((cw - d.textlength(name, font=fn)) / 2, pad - 2), name, font=fn, fill=INK)
-    d.text(((cw - d.textlength(sub, font=fs)) / 2, pad + 30), sub, font=fs, fill=GOLD_D)
+    if key == 'off': name, sub = '全單 11% OFF', '全網套餐及單點'
+    else: name, sub = ITEMS[key][2], f'10 件・原價 ${ITEMS[key][3]}'
+    fn = f_cjk(28 if len(name) <= 6 else 26); fs = f_cjk(23, False)
+    d.text(((cw - d.textlength(name, font=fn)) / 2, pad - 4), name, font=fn, fill=INK)
+    d.text(((cw - d.textlength(sub, font=fs)) / 2, pad + 40), sub, font=fs, fill=GOLD_D)
     if key == 'off': _off_block(d, pad, pad + cap, w, ph, False)
     else: c.alpha_composite(_photo(key, w, ph), (pad, pad + cap))
     return c
-def front_card(key, verb, w=260):
-    pad = 12; ph = int(w * .6); lab = 96; cw, ch = w + 2 * pad, ph + 2 * pad + lab
+def front_card(key, verb, w=300):  # 前卡：標籤一行、名稱一行、件數一行（字加大）
+    pad = 12; ph = int(w * .6); lab = 150; cw, ch = w + 2 * pad, ph + 2 * pad + lab
     c = _card_canvas(cw, ch); d = ImageDraw.Draw(c)
-    if key == 'off':
-        _off_block(d, pad, pad, w, ph, True); name, sub = '全單 11% OFF', '全網所有套餐及單點'
-    else:
-        c.alpha_composite(_photo(key, w, ph), (pad, pad)); name, sub = ITEMS[key][2], f'10 件・原價 ${ITEMS[key][3]}'
-    fv = f_cjk(22); fn = f_cjk(27 if len(name) <= 6 else 24)
-    tw = d.textlength(verb, font=fv); nw = d.textlength(name, font=fn)
-    x = (cw - (tw + 16 + 12 + nw)) / 2; y = pad + ph + 12
-    d.rounded_rectangle([x - 4, y + 3, x + tw + 12, y + 39], 9, fill=GOLD); d.text((x + 4, y + 3), verb, font=fv, fill=(255, 255, 255))
-    d.text((x + tw + 24, y), name, font=fn, fill=INK)
-    fs = f_cjk(20, False); d.text(((cw - d.textlength(sub, font=fs)) / 2, y + 48), sub, font=fs, fill=GOLD_D)
+    if key == 'off': _off_block(d, pad, pad, w, ph, True); name, sub = '全網 11% OFF', '全網所有套餐及單點'
+    else: c.alpha_composite(_photo(key, w, ph), (pad, pad)); name, sub = ITEMS[key][2], f'10 件・原價 ${ITEMS[key][3]}'
+    fv = f_cjk(26); fn = f_cjk(32); fs = f_cjk(26, False); y = pad + ph + 12
+    tw = d.textlength(verb, font=fv)
+    d.rounded_rectangle([(cw - tw) / 2 - 12, y + 2, (cw + tw) / 2 + 12, y + 42], 10, fill=GOLD); d.text(((cw - tw) / 2, y + 2), verb, font=fv, fill=(255, 255, 255))
+    d.text(((cw - d.textlength(name, font=fn)) / 2, y + 50), name, font=fn, fill=INK)
+    d.text(((cw - d.textlength(sub, font=fs)) / 2, y + 100), sub, font=fs, fill=GOLD_D)
     return c
 def _float(c, rot, blur=12, off=(6, 10), alpha=65):
     c = c.rotate(rot, resample=Image.BICUBIC, expand=True)
@@ -182,35 +177,41 @@ TIER = [  # (第幾賞, 金額, 後排, 前卡, 動詞, 總結)
  ('第三賞', '2,200', ['off', 'a1600'], 'a1500', '再加送', '11% OFF＋送 2 款小食・小食總值 $376'),
  ('第四賞', '3,000', ['off', 'a1600', 'a1500'], 'a0500', '再加送', '11% OFF＋送 3 款小食・小食總值 $564'),
 ]
-BACK_POS = {0: [], 1: [(-120, 10, -7)], 2: [(-150, 20, -9), (150, 20, 9)], 3: [(-160, 40, -10), (0, 0, 0), (160, 40, 10)]}
-PW, PH = 540, 700
+BACK_POS = {0: [], 1: [(-130, 0, -6)], 2: [(-150, 0, -7), (150, 0, 7)], 3: [(-150, 40, -7), (0, -60, 0), (150, 40, 7)]}
+PW, PH = 540, 860
 def panel(lv, amt, backs, front, verb, summ):
     p = Image.new('RGBA', (PW, PH + 80), (0, 0, 0, 0)); T = 80
     mk = Image.new('L', p.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, T, PW - 1, T + PH - 1], 28, fill=255)
     b = Image.new('RGBA', p.size, (255, 255, 255, 235)); b.putalpha(ImageChops.multiply(mk, Image.new('L', p.size, 235))); p.alpha_composite(b)
     ImageDraw.Draw(p).rounded_rectangle([2, T + 2, PW - 3, T + PH - 3], 26, outline=GOLD, width=2)
-    cx = PW // 2; top = T + 140
-    for key, (dx, dy, r) in zip(backs, BACK_POS[len(backs)]):
+    cx = PW // 2; top = T + 200
+    pos = list(zip(backs, BACK_POS[len(backs)]))
+    if len(pos) == 3: pos = [pos[1], pos[0], pos[2]]   # 中間那張先畫，左右壓在上面，標題都看得到
+    for key, (dx, dy, r) in pos:
         c = _float(back_card(key), r); p.alpha_composite(c, (int(cx + dx - c.width / 2), top + dy - 25))
-    fy = top + (150 if backs else 30)
-    c = _float(front_card(front, verb, 270 if backs else 320), 0, 14, (6, 12), 70); p.alpha_composite(c, (int(cx - c.width / 2), fy - 25))
+    fy = top + (150 if backs else 20)
+    c = _float(front_card(front, verb, 300 if backs else 330), 0, 14, (6, 12), 70); p.alpha_composite(c, (int(cx - c.width / 2), fy - 25))
     d = ImageDraw.Draw(p)
     # 底部深色資訊條（另一層背景）
     band = Image.new('RGBA', p.size, (0, 0, 0, 0)); bd = ImageDraw.Draw(band)
-    bd.rounded_rectangle([0, T + PH - 92, PW - 1, T + PH - 1], 28, fill=INK + (255,)); bd.rectangle([0, T + PH - 92, PW - 1, T + PH - 60], fill=INK + (255,))
+    BH = 112
+    bd.rounded_rectangle([0, T + PH - BH, PW - 1, T + PH - 1], 28, fill=INK + (255,)); bd.rectangle([0, T + PH - BH, PW - 1, T + PH - 60], fill=INK + (255,))
     band.putalpha(ImageChops.multiply(band.getchannel('A'), mk)); p.alpha_composite(band); d = ImageDraw.Draw(p)
-    d.line([(40, T + PH - 92), (PW - 40, T + PH - 92)], fill=GOLD, width=2)
-    fs = f_cjk(26); d.text(((PW - d.textlength(summ, font=fs)) / 2, T + PH - 66), summ, font=fs, fill=GOLD_L)
+    d.line([(40, T + PH - BH), (PW - 40, T + PH - BH)], fill=GOLD, width=2)
+    fs = f_cjk(28); lines = summ.split('・')
+    if len(lines) == 1: d.text(((PW - d.textlength(summ, font=fs)) / 2, T + PH - BH / 2 - 22), summ, font=fs, fill=GOLD_L)
+    else:
+        for k, t in enumerate(lines): d.text(((PW - d.textlength(t, font=fs)) / 2, T + PH - BH + 14 + k * 44), t, font=fs, fill=GOLD_L)
     # 第幾賞：放在圓章下面，金色膠囊突出
-    fl = f_cjk(28); lw = d.textlength(lv, font=fl); ly = T + 78
-    d.rounded_rectangle([cx - lw / 2 - 24, ly, cx + lw / 2 + 24, ly + 46], 23, fill=GOLD)
+    fl = f_cjk(30); lw = d.textlength(lv, font=fl); ly = T + 84
+    d.rounded_rectangle([cx - lw / 2 - 26, ly, cx + lw / 2 + 26, ly + 50], 25, fill=GOLD)
     d.text((cx - lw / 2, ly + 3), lv, font=fl, fill=INK)
-    R = 62; sx, sy = cx, T + 4
+    R = 66; sx, sy = cx, T + 4
     d.ellipse([sx - R - 4, sy - R - 4, sx + R + 4, sy + R + 4], fill=(255, 255, 255))
     d.ellipse([sx - R, sy - R, sx + R, sy + R], fill=INK); d.ellipse([sx - R + 8, sy - R + 8, sx + R - 8, sy + R - 8], outline=GOLD, width=3)
-    fa, fb = f_cjk(23), f_pop(29)
-    d.text((sx - d.textlength('滿', font=fa) / 2, sy - 44), '滿', font=fa, fill=GOLD_L)
-    d.text((sx - d.textlength('$' + amt, font=fb) / 2, sy - 13), '$' + amt, font=fb, fill=(255, 255, 255))
+    fa, fb = f_cjk(26), f_pop(32)
+    d.text((sx - d.textlength('滿', font=fa) / 2, sy - 50), '滿', font=fa, fill=GOLD_L)
+    d.text((sx - d.textlength('$' + amt, font=fb) / 2, sy - 16), '$' + amt, font=fb, fill=(255, 255, 255))
     return p
 ROW_Y = [1640, 2490]
 def rewards(bg):
@@ -259,9 +260,9 @@ def kv_square():
 def rewards_img():
     """四重賞獨立圖：放在 EDM 優惠碼下面"""
     global HH, SY, GLOW_Y, ROW_Y
-    HH, SY, GLOW_Y = 1700, 99999, -9999
+    HH, SY, GLOW_Y = 2000, 99999, -9999
     bg = Image.new('RGBA', (W, HH), (243, 231, 210, 255))
-    ROW_Y = [60, 900]
+    ROW_Y = [60, 1040]
     pos = [(48, ROW_Y[0]), (612, ROW_Y[0]), (48, ROW_Y[1]), (612, ROW_Y[1])]
     for t, (x, y) in zip(TIER, pos):
         p = panel(*t); sh = Image.new('RGBA', (p.width + 60, p.height + 60), (0, 0, 0, 0))
@@ -290,7 +291,7 @@ def kv_design(n, pill_on=True):
     HH, SY, GLOW_Y = 1240, (1030 if n in (1, 2) else 99999), 880
     bg = background(); bg = title(bg, top=70, size=300)
     d = ImageDraw.Draw(bg)
-    line(d, [('一連七天', INK)], f_cjk(104), 372)
+    line(d, [('一連七天　', INK), ('雙 11 四重賞', INK)], f_cjk(84), 384)
     line(d, [('滿 HK$1,100 ', INK), ('全網 11% OFF', RED)], f_cjk(54), 512)
     fs = f_cjk(28); sub = '滿 HK$1,500 起再送人氣小食，最多送 3 款'
     d.text(((W - d.textlength(sub, font=fs)) / 2, 596), sub, font=fs, fill=(107, 90, 63))
@@ -332,6 +333,23 @@ def kv_design(n, pill_on=True):
         bg.alpha_composite(_shadowed(strip, alpha=80), (m - 60, y0 - 60))
         C = _round(pot2, cw, h + 80, 24); fr = Image.new('RGBA', (cw + 12, h + 92), (0, 0, 0, 0)); ImageDraw.Draw(fr).rounded_rectangle([0, 0, cw + 11, h + 91], 28, fill=GOLD + (255,)); fr.alpha_composite(C, (6, 6))
         bg.alpha_composite(_shadowed(fr, alpha=130), (m + 352 + 6 - 60, y0 - 46 - 60))
+    elif n == 7:  # P1：三張等大圓角，平均分佈，中間不加框
+        y0 = 770; w, h = 344, 380; gap = 24; x0 = (W - (3 * w + 2 * gap)) // 2
+        for i, im in enumerate([bento, pot2, buf]):
+            bg.alpha_composite(_shadowed(_round(im, w, h, 22), alpha=90), (x0 + i * (w + gap) - 60, y0 - 60))
+    elif n == 8:  # P2：扇形，兩邊細、向外打斜放後，中間大放前
+        put(bg, tile(bento, 300, 330, radius=18, rot=7), 60, 800)
+        put(bg, tile(buf, 300, 330, radius=18, rot=-7), 820, 800)
+        put(bg, tile(pot2, 420, 420, radius=22), 390, 740)
+    elif n == 9:  # P3：拼貼，中間大圖，兩張細圖疊在左下及右上角
+        put(bg, tile(pot2, 560, 400, radius=22), 320, 770)
+        put(bg, tile(bento, 300, 230, radius=18, rot=-4), 70, 930)
+        put(bg, tile(buf, 300, 230, radius=18, rot=4), 830, 740)
+    elif n == 10:  # Kimpton 式：三張統一調色相，直角拼成全闊條，白幼隙
+        from make_kv_kimpton import grade as _grade
+        y0, h = 720, 440; segs = [(bento, 0, 396), (pot2, 400, 400), (buf, 804, 396)]
+        bg.alpha_composite(Image.new('RGBA', (W, h), (255, 255, 255, 255)), (0, y0))
+        for im, x, w in segs: bg.alpha_composite(fit(_grade(im), w, h).convert('RGBA'), (x, y0))
     elif n == 6:  # C3：全景接黑色底，KV 底部轉黑，無縫接白色區
         y0, h = 650, 380; ws = [372, 444, 372]; x = 0
         band = Image.new('RGBA', (W, HH - y0 - 190), INK + (255,)); bg.alpha_composite(band, (0, y0 + 190))
@@ -343,7 +361,7 @@ def kv_design(n, pill_on=True):
     bg.alpha_composite(tab, (W - 84, 110))
     d = ImageDraw.Draw(bg); fp = f_cjk(32); pill = '2026.11.11 至 11.17　優惠碼 DOUBLE11'
     pw = d.textlength(pill, font=fp) + 72; x0 = (W - pw) / 2; y0 = 1112
-    if not pill_on: return bg.convert('RGB').crop((0, 0, W, 1210 if n == 5 else 1100))
+    if not pill_on: return bg.convert('RGB').crop((0, 0, W, 1230 if n == 10 else (1210 if n in (5, 7, 8, 9) else 1100)))
     if n == 6: d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, outline=GOLD, width=3); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
     else: d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, fill=INK); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
     return bg.convert('RGB')
