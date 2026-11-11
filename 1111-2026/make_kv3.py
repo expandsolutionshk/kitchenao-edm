@@ -16,6 +16,7 @@ GOLD_D, GOLD, GOLD_L, INK, RED = (150, 108, 38), (200, 162, 74), (240, 214, 150)
 def lerp(a, b, t): return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
 def layer(): return Image.new('RGBA', (W, HH), (0, 0, 0, 0))
 SY = 1395
+GLOW_Y = 1130
 
 def background():
     bg = Image.new('RGB', (W, HH)); dd = ImageDraw.Draw(bg)
@@ -29,7 +30,7 @@ def background():
         d.polygon([(x0, 0), (x0 + w, 0), (x0 + w + 600, HH), (x0 + 600, HH)], fill=(255, 255, 255, a))
     bg = Image.alpha_composite(bg, beams.filter(ImageFilter.GaussianBlur(28)))
     g = Image.new('RGBA', (W, HH), (255, 252, 244, 0)); m = Image.new('L', (W, HH), 0)
-    ImageDraw.Draw(m).ellipse([600 - 520, 1130 - 360, 600 + 520, 1130 + 360], fill=235)
+    ImageDraw.Draw(m).ellipse([600 - 520, GLOW_Y - 360, 600 + 520, GLOW_Y + 360], fill=235)
     g.putalpha(m.filter(ImageFilter.GaussianBlur(170))); bg = Image.alpha_composite(bg, g)
     st = layer(); sd = ImageDraw.Draw(st)
     for y in range(SY, HH):
@@ -38,9 +39,9 @@ def background():
     hl = layer(); ImageDraw.Draw(hl).rectangle([0, SY + 3, W, SY + 26], fill=(255, 255, 255, 120))
     return Image.alpha_composite(bg, hl.filter(ImageFilter.GaussianBlur(6)))
 
-def title(bg):  # 方案 3：粗體雙層
-    f = ImageFont.truetype(LATO_BI, 320); bb = f.getbbox('11.11')
-    tx, ty = (W - (bb[2] - bb[0])) // 2 - bb[0], 140 - bb[1]
+def title(bg, top=140, size=320):  # 方案 3：粗體雙層
+    f = ImageFont.truetype(LATO_BI, size); bb = f.getbbox('11.11')
+    tx, ty = (W - (bb[2] - bb[0])) // 2 - bb[0], top - bb[1]
     d = ImageDraw.Draw(bg); d.text((tx + 16, ty + 14), '11.11', font=f, fill=(0, 0, 0, 0), stroke_width=5, stroke_fill=GOLD)
     sh = layer(); ImageDraw.Draw(sh).text((tx + 6, ty + 18), '11.11', font=f, fill=(60, 40, 10, 90))
     bg = Image.alpha_composite(bg, sh.filter(ImageFilter.GaussianBlur(14)))
@@ -233,9 +234,44 @@ def tab_and_pill(bg):
     d.rounded_rectangle([x0, y0, x0 + pw, y0 + 74], 37, fill=INK); d.text((x0 + 40, y0 + 12), pill, font=fp, fill=GOLD_L)
     return bg
 
+def kv_square():
+    """1:1 主 KV：11.11＋標題＋三張主圖＋膠囊（空間感參考 11.11 圖）"""
+    global HH, SY, GLOW_Y
+    HH, SY, GLOW_Y = 1200, 1030, 860
+    bg = background(); bg = title(bg, top=70, size=300)
+    d = ImageDraw.Draw(bg)
+    line(d, [('一連七天', INK)], f_cjk(104), 372)
+    line(d, [('滿 HK$1,100 ', INK), ('全網 11% OFF', RED)], f_cjk(54), 512)
+    fs = f_cjk(28); sub = '滿 HK$1,500 起再送人氣小食，最多送 3 款'
+    d.text(((W - d.textlength(sub, font=fs)) / 2, 596), sub, font=fs, fill=(107, 90, 63))
+    pot, bento, buf = _src3(); pot2 = Image.open(SRC + 'pot1024.jpg').convert('RGB')
+    put(bg, tile(bento, 250, 330), 70, 700)
+    put(bg, tile(buf, 250, 330), 880, 700)
+    put(bg, tile(pot2, 380, 380), 410, 670)
+    tab = Image.new('RGBA', (84, 270), INK + (255,)); td = ImageDraw.Draw(tab); fv = f_cjk(30)
+    for i, ch_ in enumerate('雙十一限定'): td.text(((84 - td.textlength(ch_, font=fv)) / 2, 20 + i * 47), ch_, font=fv, fill=GOLD_L)
+    bg.alpha_composite(tab, (W - 84, 110))
+    d = ImageDraw.Draw(bg); fp = f_cjk(32); pill = '2026.11.11 至 11.17　優惠碼 DOUBLE11'
+    pw = d.textlength(pill, font=fp) + 72; x0 = (W - pw) / 2; y0 = 1106
+    d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, fill=INK); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
+    return bg.convert('RGB')
+
+def rewards_img():
+    """四重賞獨立圖：放在 EDM 優惠碼下面"""
+    global HH, SY, GLOW_Y, ROW_Y
+    HH, SY, GLOW_Y = 1700, 99999, -9999
+    bg = Image.new('RGBA', (W, HH), (243, 231, 210, 255))
+    ROW_Y = [60, 900]
+    pos = [(48, ROW_Y[0]), (612, ROW_Y[0]), (48, ROW_Y[1]), (612, ROW_Y[1])]
+    for t, (x, y) in zip(TIER, pos):
+        p = panel(*t); sh = Image.new('RGBA', (p.width + 60, p.height + 60), (0, 0, 0, 0))
+        sh.paste((70, 45, 15, 60), (34, 42), p.getchannel('A')); sh = sh.filter(ImageFilter.GaussianBlur(16)); sh.alpha_composite(p, (30, 30))
+        bg.alpha_composite(sh, (x - 30, y - 30))
+    return bg.convert('RGB')
+
 if __name__ == '__main__':
-    bg = background(); bg = title(bg); bg = headline(bg); bg = heroes(bg); bg = rewards(bg); bg = tab_and_pill(bg)
-    im = bg.convert('RGB'); im.save(os.path.join(H, 'img', f'kv-hero-{HERO_MODE}.jpg'), quality=86, optimize=True, progressive=True)
-    im.save(os.path.join(H, 'img', 'd11-kv.jpg'), quality=86, optimize=True, progressive=True)
-    im.resize((600, 1760)).save('/sessions/great-festive-darwin/mnt/outputs/kv4.jpg', quality=85)
-    print('ok', os.path.getsize(os.path.join(H, 'img', 'd11-kv.jpg')) // 1024, 'KB')
+    k = kv_square(); k.save(os.path.join(H, 'img', 'd11-kv.jpg'), quality=86, optimize=True, progressive=True)
+    r = rewards_img(); r.save(os.path.join(H, 'img', 'd11-rewards.jpg'), quality=86, optimize=True, progressive=True)
+    k.resize((600, 600)).save('/sessions/great-festive-darwin/mnt/outputs/k.jpg', quality=85)
+    r.resize((600, 850)).save('/sessions/great-festive-darwin/mnt/outputs/r.jpg', quality=85)
+    print('ok')

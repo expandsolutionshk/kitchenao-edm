@@ -384,7 +384,7 @@ def edm():
     greet = ('<tr><td style="padding:11px 24px;background:#FBF7EE;border-bottom:1px solid #EEE6D6;"><div style="font-size:14.5px;color:#1A1A1A;font-weight:bold;">{{contact.first_name|"朋友"}}，你好 👋</div>'
              '<div style="font-size:13.5px;color:#9A8f7e;margin-top:3px;">電子報・2026 年 11 月・雙 11 優惠號</div></td></tr>')
     kv = (f'<tr><td style="padding:0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer">'
-          f'<img src="{GH}d11-kv.jpg" width="680" alt="雙 11 一連七天四重賞：滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食｜2026 年 11 月 11 日至 17 日｜優惠碼 DOUBLE11" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>')
+          f'<img src="{GH}d11-kv.jpg" width="680" alt="11.11 一連七天：滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食，最多送 3 款｜2026 年 11 月 11 日至 17 日｜優惠碼 DOUBLE11" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>')
     intro = ('<tr><td align="center" style="padding:20px 36px 4px;background:#ffffff;">'
              '<p style="margin:0;color:#7A7268;font-size:16px;line-height:24px;">多謝你一直支持 Kitchen AO。雙 11 一連七天，網站下單滿 HK$1,100，輸入優惠碼 DOUBLE11 即享全網 11% OFF；滿 HK$1,500 起更可額外獲贈人氣小食，會員優惠亦照常享用。</p></td></tr>')
     # ---- 優惠 B ----
@@ -416,7 +416,7 @@ def edm():
             '<p style="margin:0 0 4px;color:#1A1A1A;font-size:24px;line-height:32px;font-weight:800;">雙 11 四重賞</p>'
             '<p style="margin:0 0 14px;color:#7A6A50;font-size:14.5px;line-height:21px;">一連七天，網站下單結帳時輸入優惠碼，系統按訂單金額自動計算。</p>'
             + code_box('DOUBLE11') + '</td></tr>'
-            + tier1 + ''.join(tier(*x) for x in TIERS)
+            + f'<tr><td style="padding:16px 0 0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer"><img src="{GH}d11-rewards.jpg" width="680" alt="雙 11 四重賞：第一賞滿 HK$1,100 全單 11% OFF；第二賞滿 HK$1,500 送日式雞皮餃子 10 件（原價 $198）；第三賞滿 HK$2,200 再加送避風塘海鮮豆腐 10 件（原價 $178）；第四賞滿 HK$3,000 再加送蜜蜜燒雞翼 10 件（原價 $188）" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>'
             + '<tr><td style="padding:0 0 22px;background:#F3E7D2;font-size:0;line-height:0;">&nbsp;</td></tr>')
     member2 = ('<tr><td align="center" style="padding:30px 24px 6px;background:#ffffff;">'
                '<p style="margin:0 0 4px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;">MEMBER ZONE</p>'
