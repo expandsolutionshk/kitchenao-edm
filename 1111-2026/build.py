@@ -372,14 +372,16 @@ def edm():
     head = '\n'.join(src[7:65])
     tail = '\n'.join(src[213:236] + src[272:284] + src[298:])
     head = head.replace('<title>Kitchen AO 中秋團圓套餐 2026</title>', '<title>Kitchen AO 雙 11 四重賞</title>')
-    head = re.sub(r'(<div style="display:none;max-height:0;[^>]*>\n).*?(\n</div>)', r'\1雙 11 四重賞｜一連七天｜滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食｜優惠碼 DOUBLE11\2', head, flags=re.S)
+    head = head.replace('<meta name="color-scheme" content="light dark">', '<meta name="color-scheme" content="light only">').replace('<meta name="supported-color-schemes" content="light dark">', '<meta name="supported-color-schemes" content="light only">')
+    head = head.replace('<style', '<style>:root{color-scheme:light only;supported-color-schemes:light only;}</style>\n<style', 1)
+    head = re.sub(r'(<div style="display:none;max-height:0;[^>]*>\n).*?(\n</div>)', r'\1優惠碼 DOUBLE11｜滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食\2', head, flags=re.S)
     tail = re.sub(r'utm_campaign=midautumn2026', 'utm_campaign=1111_2026', tail)
     for a, b in [('睇 Reels →', '觀看 Reels →'), ('大品牌活動都揀 Kitchen AO', '大品牌活動之選 Kitchen AO'), ('需於套餐內揀選', '可於套餐內選擇'),
                  ('以下為人氣主菜，可於「人數選餐」套餐內揀選', '以下為人氣主菜，可於「人數選餐」套餐內選擇'), ('👥 按人數揀套餐 →', '👥 按人數選擇套餐 →'),
                  ('大量訂購 / 想度身訂造餐單？', '大量訂購或度身訂造餐單'), ('%E6%94%B6%E5%88%B0%E9%9B%BB%E9%83%B5%E6%8E%A8%E5%BB%A3%E6%83%B3%E6%9F%A5%E8%A9%A2', WA.split('text=')[1])]:
         tail = tail.replace(a, b)
     nav = (f'<tr><td style="padding:14px 20px 12px;background:#ffffff;border-bottom:2px solid #C8A24A;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">'
-           f'<tr><td align="center" style="padding-bottom:11px;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer"><img class="hlogo" src="{B}/wp-content/uploads/2023/08/kitchenAO_logo_horizontal.png" width="185" alt="Kitchen AO" style="width:185px;height:auto;margin:0 auto;display:block;"></a></td></tr>'
+           f'<tr><td align="center" style="padding-bottom:11px;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer"><img class="hlogo" src="{GH}logo-header-pill.png" width="210" alt="Kitchen AO" style="width:210px;height:auto;margin:0 auto;display:block;border:0;"></a></td></tr>'
            f'<tr><td align="center" class="nav"><table role="presentation" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse;"><tr>'
            f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-radius:6px 0 0 6px;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">網站首頁</a></td>'
            f'<td class="navblk" bgcolor="#1A1A1A" style="background:#1A1A1A;border-left:1px solid #C8A24A;"><a href="{u("/product-category/party/")}" target="_blank" rel="noopener noreferrer" style="display:block;padding:8px 13px;color:#ffffff;font-size:14px;font-weight:bold;text-decoration:none;white-space:nowrap;">快速查看餐單</a></td>'
