@@ -179,12 +179,14 @@ TIER = [  # (第幾賞, 金額, 後排, 前卡, 動詞, 總結)
 ]
 BACK_POS = {0: [], 1: [(-130, 0, -6)], 2: [(-150, 0, -7), (150, 0, 7)], 3: [(-150, 40, -7), (0, -60, 0), (150, 40, 7)]}
 PW, PH = 540, 860
+HEAD_STYLE = 'orig'
 def panel(lv, amt, backs, front, verb, summ):
-    p = Image.new('RGBA', (PW, PH + 80), (0, 0, 0, 0)); T = 80
+    PH = {'orig': 860, 'A': 760, 'B': 800}[HEAD_STYLE]
+    p = Image.new('RGBA', (PW, PH + 80), (0, 0, 0, 0)); T = 80 if HEAD_STYLE != 'B' else 0
     mk = Image.new('L', p.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, T, PW - 1, T + PH - 1], 28, fill=255)
     b = Image.new('RGBA', p.size, (255, 255, 255, 235)); b.putalpha(ImageChops.multiply(mk, Image.new('L', p.size, 235))); p.alpha_composite(b)
     ImageDraw.Draw(p).rounded_rectangle([2, T + 2, PW - 3, T + PH - 3], 26, outline=GOLD, width=2)
-    cx = PW // 2; top = T + 200
+    cx = PW // 2; top = T + {'orig': 200, 'A': 110, 'B': 160}[HEAD_STYLE]
     pos = list(zip(backs, BACK_POS[len(backs)]))
     if len(pos) == 3: pos = [pos[1], pos[0], pos[2]]   # 中間那張先畫，左右壓在上面，標題都看得到
     for key, (dx, dy, r) in pos:
@@ -202,16 +204,34 @@ def panel(lv, amt, backs, front, verb, summ):
     if len(lines) == 1: d.text(((PW - d.textlength(summ, font=fs)) / 2, T + PH - BH / 2 - 22), summ, font=fs, fill=GOLD_L)
     else:
         for k, t in enumerate(lines): d.text(((PW - d.textlength(t, font=fs)) / 2, T + PH - BH + 14 + k * 44), t, font=fs, fill=GOLD_L)
-    # 第幾賞：放在圓章下面，金色膠囊突出
-    fl = f_cjk(30); lw = d.textlength(lv, font=fl); ly = T + 84
-    d.rounded_rectangle([cx - lw / 2 - 26, ly, cx + lw / 2 + 26, ly + 50], 25, fill=GOLD)
-    d.text((cx - lw / 2, ly + 3), lv, font=fl, fill=INK)
-    R = 66; sx, sy = cx, T + 4
-    d.ellipse([sx - R - 4, sy - R - 4, sx + R + 4, sy + R + 4], fill=(255, 255, 255))
-    d.ellipse([sx - R, sy - R, sx + R, sy + R], fill=INK); d.ellipse([sx - R + 8, sy - R + 8, sx + R - 8, sy + R - 8], outline=GOLD, width=3)
-    fa, fb = f_cjk(26), f_pop(32)
-    d.text((sx - d.textlength('滿', font=fa) / 2, sy - 50), '滿', font=fa, fill=GOLD_L)
-    d.text((sx - d.textlength('$' + amt, font=fb) / 2, sy - 16), '$' + amt, font=fb, fill=(255, 255, 255))
+    if HEAD_STYLE == 'orig':
+        fl = f_cjk(30); lw = d.textlength(lv, font=fl); ly = T + 84
+        d.rounded_rectangle([cx - lw / 2 - 26, ly, cx + lw / 2 + 26, ly + 50], 25, fill=GOLD)
+        d.text((cx - lw / 2, ly + 3), lv, font=fl, fill=INK)
+        R = 66; sx, sy = cx, T + 4
+        d.ellipse([sx - R - 4, sy - R - 4, sx + R + 4, sy + R + 4], fill=(255, 255, 255))
+        d.ellipse([sx - R, sy - R, sx + R, sy + R], fill=INK); d.ellipse([sx - R + 8, sy - R + 8, sx + R - 8, sy + R - 8], outline=GOLD, width=3)
+        fa, fb = f_cjk(26), f_pop(32)
+        d.text((sx - d.textlength('滿', font=fa) / 2, sy - 50), '滿', font=fa, fill=GOLD_L)
+        d.text((sx - d.textlength('$' + amt, font=fb) / 2, sy - 16), '$' + amt, font=fb, fill=(255, 255, 255))
+    elif HEAD_STYLE == 'A':   # 合併膠囊：一粒黑膠囊「第一賞｜滿 $1,100」，一半凸出卡頂
+        f1, f2 = f_cjk(30), f_cjk(30); t1, t2 = lv, '滿 $' + amt
+        w1, w2 = d.textlength(t1, font=f1), d.textlength(t2, font=f2); gap = 44; tw = w1 + gap + w2
+        x0, y0, hh = cx - tw / 2 - 34, T - 36, 72
+        d.rounded_rectangle([x0 - 4, y0 - 4, x0 + tw + 72, y0 + hh + 4], 40, fill=(255, 255, 255))
+        d.rounded_rectangle([x0, y0, x0 + tw + 68, y0 + hh], 36, fill=INK)
+        d.rounded_rectangle([x0 + 6, y0 + 6, x0 + tw + 62, y0 + hh - 6], 30, outline=GOLD, width=2)
+        d.text((x0 + 34, y0 + 14), t1, font=f1, fill=GOLD_L)
+        d.line([(x0 + 34 + w1 + gap / 2, y0 + 20), (x0 + 34 + w1 + gap / 2, y0 + hh - 20)], fill=GOLD, width=2)
+        d.text((x0 + 34 + w1 + gap, y0 + 14), t2, font=f2, fill=(255, 255, 255))
+    else:                     # B 卡頂黑色標題條：左「第一賞」右「滿 $1,100」
+        hb = 78; hdr = Image.new('RGBA', p.size, (0, 0, 0, 0)); hd = ImageDraw.Draw(hdr)
+        hd.rounded_rectangle([0, T, PW - 1, T + hb + 30], 28, fill=INK + (255,)); hd.rectangle([0, T + 40, PW - 1, T + hb], fill=INK + (255,))
+        hdr.putalpha(ImageChops.multiply(hdr.getchannel('A'), mk)); hd2 = Image.new('RGBA', p.size, (0, 0, 0, 0))
+        hd2.paste(hdr.crop((0, 0, PW, T + hb)), (0, 0)); p.alpha_composite(hd2); d = ImageDraw.Draw(p)
+        d.line([(30, T + hb), (PW - 30, T + hb)], fill=GOLD, width=2)
+        f1 = f_cjk(32); d.text((34, T + 18), lv, font=f1, fill=GOLD_L)
+        f2 = f_cjk(32); t2 = '滿 $' + amt; d.text((PW - 34 - d.textlength(t2, font=f2), T + 18), t2, font=f2, fill=(255, 255, 255))
     return p
 ROW_Y = [1640, 2490]
 def rewards(bg):
@@ -260,9 +280,9 @@ def kv_square():
 def rewards_img():
     """四重賞獨立圖：放在 EDM 優惠碼下面"""
     global HH, SY, GLOW_Y, ROW_Y
-    HH, SY, GLOW_Y = 2000, 99999, -9999
+    HH, SY, GLOW_Y = (2000 if HEAD_STYLE == 'orig' else 1760), 99999, -9999
     bg = Image.new('RGBA', (W, HH), (243, 231, 210, 255))
-    ROW_Y = [60, 1040]
+    ROW_Y = [60, 1040] if HEAD_STYLE == 'orig' else ([60, 920] if HEAD_STYLE == 'A' else [30, 880])
     pos = [(48, ROW_Y[0]), (612, ROW_Y[0]), (48, ROW_Y[1]), (612, ROW_Y[1])]
     for t, (x, y) in zip(TIER, pos):
         p = panel(*t); sh = Image.new('RGBA', (p.width + 60, p.height + 60), (0, 0, 0, 0))
