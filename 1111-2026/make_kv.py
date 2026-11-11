@@ -5,7 +5,7 @@ import os, math
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageChops
 H = os.path.dirname(os.path.abspath(__file__))
 SRC = '/tmp/kv/'
-W, HH = 1200, 1500
+W, HH = 1200, 1620
 CJK = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 POP = '/usr/share/fonts/truetype/google-fonts/Poppins-BoldItalic.ttf'
 POPB = '/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf'
@@ -42,7 +42,7 @@ bg = Image.alpha_composite(bg, glow((W, HH), (600, 900), 430, (255, 252, 244), 2
 # 檯面：下方淺色平台＋金幼線（層次三）
 stage = Image.new('RGBA', (W, HH), (0, 0, 0, 0))
 sd = ImageDraw.Draw(stage)
-SY = 1110
+SY = 1230
 for y in range(SY, HH):
     t = (y - SY) / (HH - SY)
     sd.line([(0, y), (W, y)], fill=lerp((250, 240, 222), (232, 208, 166), t) + (255,))
@@ -84,16 +84,22 @@ bg = Image.alpha_composite(bg, hi)
 
 # ---------- 3. 標題 ----------
 d = ImageDraw.Draw(bg)
-FT = f_cjk(78)
-parts = [('全網 ', INK), ('89 折', (176, 52, 38)), ('　滿額送小食', INK)]
-total = sum(d.textlength(p, font=FT) for p, _ in parts)
-x = (W - total) / 2; y = 470
-for p, c in parts:
-    d.text((x + 3, y + 4), p, font=FT, fill=(255, 255, 255))
-    d.text((x, y), p, font=FT, fill=c); x += d.textlength(p, font=FT)
+def line(parts, font, y, sh=True):
+    total = sum(d.textlength(p, font=font) for p, _ in parts)
+    x = (W - total) / 2
+    for p, c in parts:
+        if sh: d.text((x + 3, y + 4), p, font=font, fill=(255, 255, 255))
+        d.text((x, y), p, font=font, fill=c); x += d.textlength(p, font=font)
+# 一連七天（大字，兩旁金線）
+F7 = f_cjk(120); t7 = '一連七天'; w7 = d.textlength(t7, font=F7)
+line([(t7, INK)], F7, 418)
+for sx in (-1, 1):
+    x0 = W / 2 + sx * (w7 / 2 + 30); x1 = x0 + sx * 120
+    d.line([(x0, 505), (x1, 505)], fill=GOLD, width=5)
+line([('全網所有套餐及單點 ', INK), ('11% OFF', (176, 52, 38))], f_cjk(62), 590)
 FS = f_cjk(32)
 sub = '雙 11 網站下單限定・滿 HK$1,500 再送人氣小食'
-d.text(((W - d.textlength(sub, font=FS)) / 2, 580), sub, font=FS, fill=(107, 90, 63))
+d.text(((W - d.textlength(sub, font=FS)) / 2, 690), sub, font=FS, fill=(107, 90, 63))
 
 # ---------- 4. 主圖：煲仔飯圓形（倒影＋陰影） ----------
 pot = Image.open(SRC + 'd11src-c3.jpg').convert('RGBA')
@@ -101,7 +107,7 @@ cx, cy, r = 890, 1045, 530          # 原圖煲邊（1600x1600）
 pot = pot.crop((cx - r, cy - r, cx + r, cy + r)).resize((560, 560), Image.LANCZOS)
 m = Image.new('L', (560 * 4, 560 * 4), 0); ImageDraw.Draw(m).ellipse([0, 0, 560 * 4 - 1, 560 * 4 - 1], fill=255)
 pot.putalpha(m.resize((560, 560), Image.LANCZOS))
-PX, PY = 320, 700
+PX, PY = 320, 810
 shadow = Image.new('RGBA', (W, HH), (0, 0, 0, 0))
 ImageDraw.Draw(shadow).ellipse([PX + 40, PY + 500, PX + 520, PY + 600], fill=(80, 55, 20, 150))
 bg = Image.alpha_composite(bg, shadow.filter(ImageFilter.GaussianBlur(26)))
@@ -118,9 +124,9 @@ refl.putalpha(ImageChops.multiply(refl.getchannel('A'), fade))
 bg.alpha_composite(refl, (PX, PY + 576))
 
 # ---------- 5. 浮起贈品卡（打斜、有陰影） ----------
-def card(src, crop, label, w=300, rot=0):
+def card(src, crop, label, amt, w=300, rot=0):
     im = Image.open(SRC + src).convert('RGB').crop(crop).resize((w, int(w * (crop[3] - crop[1]) / (crop[2] - crop[0]))), Image.LANCZOS)
-    pad, lh = 14, 58
+    pad, lh = 14, 108
     cw, ch = w + pad * 2, im.height + pad * 2 + lh
     c = Image.new('RGBA', (cw, ch), (0, 0, 0, 0))
     mk = Image.new('L', (cw, ch), 0); ImageDraw.Draw(mk).rounded_rectangle([0, 0, cw - 1, ch - 1], 22, fill=255)
@@ -128,9 +134,13 @@ def card(src, crop, label, w=300, rot=0):
     im2 = im.convert('RGBA'); m2 = Image.new('L', im.size, 0); ImageDraw.Draw(m2).rounded_rectangle([0, 0, im.width - 1, im.height - 1], 14, fill=255); im2.putalpha(m2)
     c.alpha_composite(im2, (pad, pad))
     cd = ImageDraw.Draw(c); fl = f_cjk(30)
+    fa = f_cjk(26); at = amt; aw = cd.textlength(at, font=fa)
+    ay = im.height + pad + 10
+    cd.rounded_rectangle([(cw - aw) / 2 - 14, ay, (cw + aw) / 2 + 14, ay + 38], 19, fill=INK)
+    cd.text(((cw - aw) / 2, ay + 1), at, font=fa, fill=GOLD_L)
     tag = '送'; tw2 = cd.textlength(tag, font=fl)
     lw = cd.textlength(label, font=fl) + tw2 + 30
-    lx = (cw - lw) / 2; ly = im.height + pad + 10
+    lx = (cw - lw) / 2; ly = ay + 50
     cd.rounded_rectangle([lx - 4, ly + 2, lx + tw2 + 14, ly + 42], 10, fill=GOLD)
     cd.text((lx + 5, ly + 1), tag, font=fl, fill=(255, 255, 255))
     cd.text((lx + tw2 + 26, ly + 1), label, font=fl, fill=INK)
@@ -140,9 +150,9 @@ def card(src, crop, label, w=300, rot=0):
     s = s.filter(ImageFilter.GaussianBlur(16)); s.alpha_composite(c, (40, 40))
     return s
 cards = [
-    (card('d11src-g1.png', (90, 90, 1042, 640), '日式雞皮餃子', 270, 7), (0, 640)),
-    (card('d11src-g2.jpg', (40, 60, 1024, 630), '蜜蜜燒雞翼', 250, -6), (848, 610)),
-    (card('d11src-g3.png', (100, 90, 1042, 640), '避風塘海鮮豆腐', 250, 4), (830, 960)),
+    (card('d11src-g1.png', (90, 90, 1042, 640), '日式雞皮餃子', '滿 HK$1,500', 270, 7), (0, 760)),
+    (card('d11src-g2.jpg', (40, 60, 1024, 630), '蜜蜜燒雞翼', '滿 HK$2,200 再加送', 250, -6), (848, 730)),
+    (card('d11src-g3.png', (100, 90, 1042, 640), '避風塘海鮮豆腐', '滿 HK$3,000 再加送', 250, 4), (830, 1090)),
 ]
 for c, (x, y) in cards: bg.alpha_composite(c, (x, y))
 
@@ -155,8 +165,8 @@ bg.alpha_composite(tab, (W - 92, 120))
 badge = Image.new('RGBA', (220, 220), (0, 0, 0, 0)); bd = ImageDraw.Draw(badge)
 bd.ellipse([0, 0, 219, 219], fill=(176, 52, 38)); bd.ellipse([10, 10, 209, 209], outline=(255, 226, 200), width=3)
 fb = ImageFont.truetype(POPB, 82); fz = f_cjk(40)
-bd.text(((220 - bd.textlength('89', font=fb)) / 2, 22), '89', font=fb, fill=(255, 255, 255))
-bd.text(((220 - bd.textlength('折', font=fz)) / 2, 128), '折', font=fz, fill=(255, 236, 210))
+fb = ImageFont.truetype(POPB, 70); bd.text(((220 - bd.textlength('11%', font=fb)) / 2, 34), '11%', font=fb, fill=(255, 255, 255))
+fo = ImageFont.truetype(POPB, 40); bd.text(((220 - bd.textlength('OFF', font=fo)) / 2, 118), 'OFF', font=fo, fill=(255, 236, 210))
 badge = badge.rotate(-10, resample=Image.BICUBIC, expand=True)
 bs = Image.new('RGBA', (badge.width + 40, badge.height + 40), (0, 0, 0, 0)); bs.paste((90, 30, 20, 120), (28, 32), badge.getchannel('A')); bs = bs.filter(ImageFilter.GaussianBlur(10)); bs.alpha_composite(badge, (20, 20))
 bg.alpha_composite(bs, (36, 40))
@@ -165,12 +175,12 @@ bg.alpha_composite(bs, (36, 40))
 d = ImageDraw.Draw(bg); fp = f_cjk(36)
 pill = '2026.11.11 至 11.17　優惠碼 D11A／D11B'
 pw = d.textlength(pill, font=fp) + 80
-px0 = (W - pw) / 2; py0 = 1380
+px0 = (W - pw) / 2; py0 = 1510
 d.rounded_rectangle([px0, py0, px0 + pw, py0 + 74], 37, fill=INK)
 d.text((px0 + 40, py0 + 12), pill, font=fp, fill=GOLD_L)
 
 os.makedirs(os.path.join(H, 'img'), exist_ok=True)
 out = bg.convert('RGB')
 out.save(os.path.join(H, 'img', 'd11-kv.jpg'), quality=86, optimize=True, progressive=True)
-out.resize((600, 750), Image.LANCZOS).save('/sessions/great-festive-darwin/mnt/outputs/kv_prev.jpg', quality=85)
+out.resize((600, 810), Image.LANCZOS).save('/sessions/great-festive-darwin/mnt/outputs/kv_prev.jpg', quality=85)
 print('saved', os.path.getsize(os.path.join(H, 'img', 'd11-kv.jpg')) // 1024, 'KB')
