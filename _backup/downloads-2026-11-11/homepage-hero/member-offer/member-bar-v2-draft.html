@@ -1,0 +1,31 @@
+<div class="ao-mbar2" id="aoMbar2">
+<style>
+body:has(.ao-mbar2){overflow-x:hidden}
+.ao-mbar2{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:#141414;color:#F4ECDD;font-size:14px;line-height:1.5;font-family:inherit;position:relative;z-index:5}
+.ao-mbar2 *{box-sizing:border-box}
+.ao-mbar2.off{display:none}
+.ao-mbar2 .in{max-width:1180px;margin:0 auto;padding:10px 52px;position:relative;min-height:44px;display:flex;align-items:center;justify-content:center}
+.ao-mbar2 .msg{display:none;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;animation:aoMbFade .5s ease}
+.ao-mbar2 .msg.on{display:flex}
+@keyframes aoMbFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.ao-mbar2 .tg{font-size:11.5px;font-weight:800;letter-spacing:.12em;color:#141414;background:#E4C77E;border-radius:20px;padding:3px 10px;white-space:nowrap}
+.ao-mbar2 b{color:#E4C77E;font-weight:800}
+.ao-mbar2 a.more{color:#fff !important;font-weight:700;border-bottom:1px solid #C8A24A;padding-bottom:1px;text-decoration:none !important;white-space:nowrap}
+.ao-mbar2 a.more:hover{color:#E4C77E !important}
+.ao-mbar2 .dots{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:flex;gap:6px}
+.ao-mbar2 .dots button{width:7px;height:7px;border-radius:50%;border:0;padding:0;background:#4a4238;cursor:pointer}
+.ao-mbar2 .dots button.on{background:#E4C77E}
+.ao-mbar2 .x{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:transparent;color:#BFB8AC;font-size:20px;line-height:30px;cursor:pointer;padding:0}
+.ao-mbar2 .x:hover{background:#2E2822;color:#fff}
+.ao-mbar2 br{display:none}
+@media(max-width:600px){.ao-mbar2{font-size:13px}.ao-mbar2 .in{padding:10px 40px 22px}.ao-mbar2 .msg{gap:6px 8px}.ao-mbar2 .dots{left:50%;top:auto;bottom:8px;transform:translateX(-50%)}.ao-mbar2 .x{right:6px}}
+</style>
+<div class="in">
+ <div class="msg on"><span class="tg">會員優惠</span><span>上次訂單滿 <b>HK$2,000</b>，今次自動減 <b>HK$100</b>，如此類推</span><a class="more" href="https://aoaodelivery.com/%e6%9c%80%e6%96%b0%e6%b6%88%e6%81%af/">了解詳情</a></div>
+ <div class="msg"><span class="tg">多買多賞</span><span>網站下單滿 <b>HK$1,500</b> 送小食、滿 <b>HK$2,200</b> 送冷泡茶、滿 <b>HK$3,000</b> 送紅白酒，無封頂</span><a class="more" href="https://aoaodelivery.com/%e6%9c%80%e6%96%b0%e6%b6%88%e6%81%af/">了解詳情</a></div>
+ <div class="msg"><span class="tg">免運費</span><span>單一訂單滿 <b>HK$1,450</b> 全港免運費；滿 <b>HK$700</b> 指定區域免運費</span><a class="more" href="https://aoaodelivery.com/delivery/">運費詳情</a></div>
+ <div class="dots"></div>
+ <button type="button" class="x" aria-label="關閉優惠訊息">×</button>
+</div>
+<script>(function(){var b=document.getElementById("aoMbar2");if(!b)return;try{if(sessionStorage.getItem("aoMbar2Off")){b.classList.add("off");return}}catch(e){}var m=[].slice.call(b.querySelectorAll(".msg")),d=b.querySelector(".dots"),i=0,t,paused=false;m.forEach(function(_,k){var x=document.createElement("button");x.type="button";x.setAttribute("aria-label","第 "+(k+1)+" 則優惠");x.addEventListener("click",function(){go(k)});d.appendChild(x)});var ds=[].slice.call(d.children);function go(k){m[i].classList.remove("on");ds[i].classList.remove("on");i=(k+m.length)%m.length;m[i].classList.add("on");ds[i].classList.add("on")}ds[0].classList.add("on");function loop(){clearInterval(t);t=setInterval(function(){if(!paused)go(i+1)},5000)}loop();b.addEventListener("mouseenter",function(){paused=true});b.addEventListener("mouseleave",function(){paused=false});b.querySelector(".x").addEventListener("click",function(){b.classList.add("off");clearInterval(t);try{sessionStorage.setItem("aoMbar2Off","1")}catch(e){}})})();</script>
+</div>

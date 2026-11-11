@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><title>複製首頁間距 CSS</title><style>body{font-family:-apple-system,"PingFang HK",sans-serif;max-width:900px;margin:30px auto;padding:0 16px}textarea{width:100%;height:420px;font:13px/1.5 monospace;padding:12px;border:1px solid #ccc;border-radius:8px}button{margin:10px 0;padding:10px 20px;border:0;border-radius:30px;background:#141414;color:#E4C77E;font-weight:800;cursor:pointer}</style></head><body><h2>首頁間距 CSS</h2><p>撳「複製」，然後貼入 WordPress：外觀 → 自訂 → 附加 CSS，取代上次貼入的首頁間距 CSS。</p><button id="b">複製</button><textarea id="t" readonly>/* Homepage spacing (Additional CSS) - affects body.home only */
+/* Desktop: even section spacing */
+body.home .vc_row.wpb_row:not(.vc_inner){padding-top:56px !important;padding-bottom:56px !important}
+body.home .vc_row.vc_inner{padding-top:32px !important;padding-bottom:32px !important}
+/* New sections have their own spacing: remove outer row padding */
+body.home .vc_row:has(.ao-hero),
+body.home .vc_row:has(.ao-occ-b),
+body.home .vc_inner:has(.ao-set-a),
+body.home .vc_inner:has(.ao-win95),
+body.home .vc_row:has(.ao-blogsec),
+body.home .vc_row:has(.ao-mbar),
+body.home .vc_row:has(.ao-mbar2){padding-top:0 !important;padding-bottom:0 !important}
+body.home .wpb_raw_code{margin-bottom:0 !important}
+/* Mobile: smaller spacing */
+@media(max-width:768px){
+ body.home .vc_row.wpb_row:not(.vc_inner){padding-top:36px !important;padding-bottom:36px !important}
+ body.home .vc_row.vc_inner{padding-top:20px !important;padding-bottom:20px !important}
+ body.home .vc_row:has(.ao-hero),body.home .vc_row:has(.ao-occ-b),body.home .vc_inner:has(.ao-set-a),body.home .vc_inner:has(.ao-win95),body.home .vc_row:has(.ao-blogsec),body.home .vc_row:has(.ao-mbar),
+body.home .vc_row:has(.ao-mbar2){padding-top:0 !important;padding-bottom:0 !important}
+ body.home .wpb_content_element{margin-bottom:20px !important}
+ body.home .vc_empty_space{height:12px !important}
+ body.home .vc_column-inner{padding-top:0 !important}
+}
+</textarea><script>document.getElementById("b").addEventListener("click",function(){var t=document.getElementById("t");t.select();navigator.clipboard.writeText(t.value).then(function(){document.getElementById("b").textContent="已複製"})})</script></body></html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>會員優惠：方法 1 及 2 預覽</title>
+<style>
+body{margin:0;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;background:#fff;color:#3A342B}
+.lab{max-width:1180px;margin:30px auto 16px;padding:12px 20px;background:#EEE9DF;border-radius:10px;font-size:14px;color:#5d534d;line-height:1.6}
+.lab b{display:block;color:#141414;font-size:16px}
+.fake{max-width:1180px;margin:0 auto;height:120px;border:1px dashed #d8d0c0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a99d88;font-size:14px}
+
+/* ===== 方法 1：頂部固定優惠條 ===== */
+.ao-mbar{background:#141414;color:#F4ECDD;font-size:14px;line-height:1.5}
+.ao-mbar .in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center}
+.ao-mbar .tg{font-size:11.5px;font-weight:800;letter-spacing:.14em;color:#141414;background:#E4C77E;border-radius:20px;padding:3px 10px}
+.ao-mbar b{color:#E4C77E}
+.ao-mbar details{position:relative}
+.ao-mbar summary{list-style:none;cursor:pointer;color:#fff;font-weight:700;border-bottom:1px solid #C8A24A;padding-bottom:1px}
+.ao-mbar summary::-webkit-details-marker{display:none}
+.ao-mbar .pop{position:absolute;right:50%;transform:translateX(50%);top:30px;z-index:20;width:320px;background:#fff;color:#3A342B;border-radius:14px;padding:18px 18px 14px;text-align:left;box-shadow:0 16px 40px rgba(0,0,0,.25);font-size:14px;line-height:1.75}
+.ao-mbar .pop p{margin:0 0 8px}
+.ao-mbar .pop ul{margin:0;padding:0 0 0 18px;font-size:13px;color:#5d574f}
+@media(max-width:600px){.ao-mbar{font-size:13px}.ao-mbar .in{gap:8px;padding:9px 14px}.ao-mbar .pop{width:290px}}
+
+/* ===== 方法 2：階梯優惠卡 ===== */
+.ao-moffer{max-width:1180px;margin:0 auto;padding:40px 20px;box-sizing:border-box}
+.ao-moffer *{box-sizing:border-box}
+.ao-moffer .card{display:grid;grid-template-columns:1fr 1.5fr;gap:34px;align-items:center;background:#F7F5F0;border:1px solid #E6E1D8;border-radius:22px;padding:34px 36px}
+.ao-moffer .eb{font-size:11.5px;letter-spacing:.3em;color:#8A8378;margin:0 0 8px}
+.ao-moffer .tt{position:relative;font-size:28px;font-weight:900;color:#141414;line-height:1.3;margin:0 0 12px;padding-top:18px}
+.ao-moffer .tt:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A}
+.ao-moffer .tt span{color:#9A7B2E}
+.ao-moffer .ds{font-size:15px;line-height:1.8;color:#5d574f;margin:0}
+.ao-moffer .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ao-moffer .tier{background:#fff;border:1px solid #E8D9B2;border-radius:16px;padding:20px 16px;text-align:center}
+.ao-moffer .tier .a{display:block;font-size:13px;color:#8A8378;margin:0 0 6px}
+.ao-moffer .tier .b{display:block;font-size:15px;font-weight:800;color:#141414}
+.ao-moffer .tier .c{display:block;font-size:30px;font-weight:900;color:#9A7B2E;line-height:1.2;margin:6px 0 0}
+.ao-moffer .tier.more{background:#141414;border-color:#141414}
+.ao-moffer .tier.more .b{color:#fff}.ao-moffer .tier.more .a{color:#BFB8AC}.ao-moffer .tier.more .c{color:#E4C77E;font-size:22px}
+.ao-moffer .fine{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:#8A8378;border-top:1px solid #E2D6BC;padding-top:14px;margin-top:4px}
+.ao-moffer .fine span:before{content:"✓ ";color:#C8A24A;font-weight:900}
+@media(max-width:860px){.ao-moffer{padding:28px 16px}.ao-moffer .card{grid-template-columns:1fr;gap:20px;padding:24px 18px}.ao-moffer .tt{font-size:23px}.ao-moffer .tier{padding:16px 8px}.ao-moffer .tier .c{font-size:22px}.ao-moffer .tier.more .c{font-size:17px}}
+</style>
+</head>
+<body>
+
+<div class="lab"><b>方法 1：頂部固定優惠條</b>網站最頂一條黑底金字，靜止不郁；撳「了解詳情」彈出細則（不用 JavaScript）。適合放全站頂部。</div>
+<div class="ao-mbar"><div class="in">
+ <span class="tg">會員優惠</span>
+ <span>上次訂單滿 <b>HK$2,000</b>，今次自動減 <b>HK$100</b>，如此類推</span>
+ <details><summary>了解詳情</summary><div class="pop">
+  <p><b style="color:#141414">會員優惠</b><br>系統按你上一張訂單金額，自動為今次訂單減價：上次滿 HK$2,000，今次減 HK$100；滿 HK$4,000 減 HK$200，如此類推。</p>
+  <ul><li>可與「多買多賞」同時使用</li><li>不可合併訂單計算</li><li>不適用於客服代為落單的訂單</li></ul>
+ </div></details>
+</div></div>
+<div class="fake" style="margin-top:20px">（網站頂部選單及 Hero）</div>
+
+<div class="lab" style="margin-top:50px"><b>方法 2：階梯優惠卡</b>放在首頁 Hero 下面，左邊標題及說明，右邊三格階梯，細則放底。一眼看明「買多減多」。</div>
+<section class="ao-moffer"><div class="card">
+ <div><p class="eb">MEMBER REWARDS</p><p class="tt">會員優惠<br><span>買得越多，減得越多</span></p><p class="ds">系統按你上一張訂單金額，自動為今次訂單減價，毋須輸入優惠碼。</p></div>
+ <div class="tiers">
+  <div class="tier"><span class="a">上次訂單滿</span><span class="b">HK$2,000</span><span class="c">減 $100</span></div>
+  <div class="tier"><span class="a">上次訂單滿</span><span class="b">HK$4,000</span><span class="c">減 $200</span></div>
+  <div class="tier more"><span class="a">金額更高</span><span class="b">如此類推</span><span class="c">買多減多</span></div>
+ </div>
+ <div class="fine"><span>可與「多買多賞」同時使用</span><span>不可合併訂單計算</span><span>不適用於客服代為落單的訂單</span></div>
+</div></section>
+
+</body>
+</html>

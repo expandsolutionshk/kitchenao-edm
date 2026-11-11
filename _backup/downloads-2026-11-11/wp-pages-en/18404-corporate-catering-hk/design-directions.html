@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>18404 公司到會｜整頁設計方向（3 個方案）</title>
+<style>
+:root{--k:#1A1A1A;--g:#C8A24A;--gl:#E9D7A5;--cr:#FAF7F1;--tx:#3A342B}
+*{box-sizing:border-box}
+body{margin:0;background:#E9E5DE;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;color:var(--tx)}
+.top{max-width:1200px;margin:0 auto;padding:26px 18px 6px}
+.top h1{margin:0 0 4px;font-size:22px}.top p{margin:0;color:#6b6252;font-size:14px;line-height:1.7}
+.dir{max-width:1200px;margin:26px auto;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.07)}
+.dir>.lab{padding:16px 22px;background:#f6f2ea;border-bottom:1px solid #e7dfcf;font-size:14px;color:#6b6252;line-height:1.6}
+.dir>.lab b{color:var(--k);font-size:17px;margin-right:6px}.dir>.lab em{font-style:normal;color:#9A7B2E;font-weight:800;margin-right:8px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ================= 方案 1：Editorial Luxury（參考 Wolfgang Puck） ================= */
+.d1 .hero{position:relative;min-height:430px;display:flex;align-items:flex-end;background:#111 center/cover no-repeat;color:#fff}
+.d1 .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.78))}
+.d1 .hero .in{position:relative;padding:48px 52px;max-width:760px}
+.d1 .eb{font-size:12px;letter-spacing:.35em;color:var(--gl);font-weight:700}
+.d1 .hero h2{font-family:Georgia,"Songti TC",serif;font-weight:400;font-size:44px;line-height:1.15;letter-spacing:.02em;margin:10px 0 14px}
+.d1 .hero p{margin:0 0 22px;color:#e8e0d0;font-size:16px;line-height:1.8}
+.d1 .btn{display:inline-block;border:1px solid var(--g);color:#fff;padding:13px 26px;font-size:13px;letter-spacing:.25em;font-weight:700}
+.d1 .btn.f{background:var(--g);color:var(--k);margin-right:10px}
+.d1 .sec{padding:56px 52px;background:var(--cr)}
+.d1 .sec h3.t{font-family:Georgia,"Songti TC",serif;font-weight:400;font-size:32px;text-align:center;margin:0 0 6px;color:var(--k)}
+.d1 .sec .st{text-align:center;color:#8b7f6e;font-size:14px;margin:0 0 26px;letter-spacing:.1em}
+.d1 .tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 30px;border-bottom:1px solid #e0d6c3;margin:0 0 34px}
+.d1 .tabs a{padding:12px 2px 14px;font-size:15px;letter-spacing:.12em;color:#8b7f6e;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer}
+.d1 .tabs a.on{color:var(--k);border-bottom-color:var(--g);font-weight:700}
+.d1 .pane{display:grid;grid-template-columns:1.25fr 1fr;gap:42px;align-items:center}
+.d1 .pane .im{aspect-ratio:4/3;background:#ddd center/cover no-repeat}
+.d1 .pane h4{font-family:Georgia,"Songti TC",serif;font-weight:400;font-size:28px;margin:0 0 12px;color:var(--k)}
+.d1 .pane p{margin:0 0 18px;line-height:1.9;font-size:15.5px}
+.d1 .facts{display:flex;gap:26px;margin:0 0 22px}
+.d1 .facts div{padding-top:10px;position:relative}.d1 .facts div:before{content:"";position:absolute;left:0;top:0;width:28px;height:2px;background:var(--g)}
+.d1 .facts b{display:block;font-family:Georgia,serif;font-size:22px;color:var(--k)}.d1 .facts span{font-size:12px;color:#8b7f6e;letter-spacing:.1em}
+.d1 .lnk{font-size:13px;letter-spacing:.25em;font-weight:800;color:var(--k);border-bottom:1px solid var(--g);padding-bottom:4px}
+@media(max-width:760px){.d1 .hero .in{padding:30px 22px}.d1 .hero h2{font-size:30px}.d1 .sec{padding:38px 20px}.d1 .pane{grid-template-columns:1fr;gap:20px}.d1 .tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;gap:22px}.d1 .tabs a{white-space:nowrap}}
+
+/* ================= 方案 2：Clean Visual Menu（參考 Pret） ================= */
+.d2 .hero{display:grid;grid-template-columns:1fr 1.1fr;align-items:stretch;background:#fff}
+.d2 .hero .tx{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.d2 .hero h2{font-size:38px;line-height:1.2;margin:0 0 14px;color:var(--k);font-weight:900}
+.d2 .hero h2 span{color:#9A7B2E}
+.d2 .hero p{margin:0 0 18px;line-height:1.85;font-size:15.5px}
+.d2 .promo{background:#FBF3E2;border-radius:10px;padding:10px 14px;font-size:14px;margin:0 0 20px}
+.d2 .promo b{color:#9A7B2E}
+.d2 .usp{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:8px}
+.d2 .usp li{font-weight:700;font-size:15px}.d2 .usp li:before{content:"✓";color:var(--g);font-weight:900;margin-right:8px}
+.d2 .btns{display:flex;gap:10px;flex-wrap:wrap}
+.d2 .btns a{padding:12px 22px;border-radius:40px;font-weight:800;font-size:14.5px}
+.d2 .b1{background:var(--k);color:#fff}.d2 .b2{border:1.5px solid var(--k)}
+.d2 .hero .im{background:#ddd center/cover no-repeat;min-height:380px}
+.d2 .sec{padding:48px 40px;background:#fff}
+.d2 .sec h3{font-size:28px;margin:0 0 6px;color:var(--k);text-align:center}
+.d2 .sec .st{text-align:center;color:#7a7268;margin:0 0 26px}
+.d2 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.d2 .tile{border-radius:16px;overflow:hidden;background:#FAF7F1;cursor:pointer;border:2px solid transparent;transition:.2s}
+.d2 .tile .im{aspect-ratio:1/1;background:#ddd center/cover no-repeat}
+.d2 .tile .tt{padding:12px 14px 14px}
+.d2 .tile b{display:block;font-size:16px;color:var(--k)}.d2 .tile span{font-size:13px;color:#7a7268}
+.d2 .tile.on{border-color:var(--g);box-shadow:0 8px 20px rgba(200,162,74,.25)}
+.d2 .tile.on b:after{content:" ✓";color:var(--g)}
+.d2 .detail{margin-top:26px;background:#FAF7F1;border-radius:18px;padding:26px 28px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
+.d2 .detail .ic{width:64px;height:64px;border-radius:50%;background:var(--k);color:var(--g);display:flex;align-items:center;justify-content:center;font-size:28px}
+.d2 .detail h4{margin:0 0 4px;font-size:20px;color:var(--k)}.d2 .detail p{margin:0;font-size:14.5px;line-height:1.7}
+.d2 .detail a{background:var(--g);color:var(--k);font-weight:800;padding:11px 20px;border-radius:40px;white-space:nowrap}
+@media(max-width:760px){.d2 .hero{grid-template-columns:1fr}.d2 .hero .tx{padding:30px 20px}.d2 .hero h2{font-size:28px}.d2 .hero .im{min-height:240px;order:-1}.d2 .sec{padding:34px 16px}.d2 .grid{grid-template-columns:repeat(2,1fr);gap:10px}.d2 .detail{grid-template-columns:1fr;text-align:center}.d2 .detail .ic{margin:auto}}
+
+/* ================= 方案 3：Black-Gold Visual Tabs（現有升級） ================= */
+.d3{background:#141210;color:#EDE6D6}
+.d3 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:400px}
+.d3 .hero .tx{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(120% 140% at 0% 0%,#3a2a20 0%,#1d1611 60%,#141210 100%)}
+.d3 .eb{font-size:12px;letter-spacing:.35em;color:var(--g);font-weight:800}
+.d3 .hero h2{font-size:38px;line-height:1.25;margin:10px 0 14px;color:#fff}
+.d3 .hero h2 span{background:linear-gradient(135deg,#A9832F,#F3DD9A 50%,#B8913E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.d3 .hero p{margin:0 0 22px;color:#C9BFA8;line-height:1.85}
+.d3 .stats{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 24px}
+.d3 .stats div{border:1px solid #4a3f30;border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.03)}
+.d3 .stats b{display:block;color:var(--g);font-size:20px}.d3 .stats span{font-size:12px;color:#a99d88}
+.d3 .btn{display:inline-block;background:linear-gradient(135deg,#A9832F,#E4C77E 50%,#B8913E);color:var(--k);font-weight:800;padding:13px 26px;border-radius:40px}
+.d3 .hero .im{background:#222 center/cover no-repeat}
+.d3 .sec{padding:44px 40px 50px}
+.d3 .sec h3{margin:0 0 18px;font-size:24px;color:#fff;text-align:center}
+.d3 .chips{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin:0 0 26px}
+.d3 .chip{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px;border-radius:16px;border:1px solid #33302b;background:#1c1915;cursor:pointer;text-align:center;font-size:13.5px;transition:.2s}
+.d3 .chip i{width:54px;height:54px;border-radius:50%;background:#333 center/cover no-repeat;border:2px solid #3a3226}
+.d3 .chip.on{border-color:var(--g);background:#2B2622;color:#F7E3A8;font-weight:700}
+.d3 .chip.on i{border-color:var(--g);box-shadow:0 0 12px rgba(200,162,74,.5)}
+.d3 .banner{position:relative;border-radius:20px;overflow:hidden;min-height:280px;background:#222 center/cover no-repeat;display:flex;align-items:flex-end}
+.d3 .banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,16,.92) 0%,rgba(20,18,16,.55) 55%,rgba(20,18,16,.15))}
+.d3 .banner .in{position:relative;padding:30px 32px;max-width:560px}
+.d3 .banner h4{margin:0 0 8px;font-size:24px;color:#fff}.d3 .banner p{margin:0 0 16px;color:#d8cfbf;line-height:1.75}
+.d3 .banner .tags{display:flex;gap:8px;flex-wrap:wrap}
+.d3 .banner .tags span{border:1px solid var(--g);color:var(--gl);border-radius:20px;padding:4px 12px;font-size:12.5px}
+@media(max-width:900px){.d3 .chips{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.d3 .hero{grid-template-columns:1fr}.d3 .hero .im{min-height:220px;order:-1}.d3 .hero .tx{padding:30px 20px}.d3 .hero h2{font-size:28px}.d3 .sec{padding:30px 14px}.d3 .chips{grid-template-columns:repeat(4,1fr);gap:6px}.d3 .chip{font-size:12px;padding:10px 4px}.d3 .chip i{width:44px;height:44px}.d3 .banner .in{padding:22px 18px}}
+
+.cmp{max-width:1200px;margin:0 auto 60px;background:#fff;border-radius:18px;padding:22px;font-size:14px}
+.cmp table{width:100%;border-collapse:collapse}.cmp th,.cmp td{padding:10px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}.cmp th{background:var(--k);color:#F7E3A8}
+</style>
+</head>
+<body>
+<div class="top">
+ <h1>18404 公司到會：整頁設計方向（3 個方案）</h1>
+ <p>參考 Wolfgang Puck Catering（高級雜誌風、tab 切換大圖）及 Pret Catering（清晰圖片分類、USP、下載餐單）。每個方案示範：Hero → 服務分類（tab）→ 已選分類內容。撳分類可試切換。圖片用網站現有活動及產品相。</p>
+</div>
+
+<!-- 方案 1 -->
+<section class="dir d1">
+ <div class="lab"><em>方案 1</em><b>Editorial Luxury 高級雜誌風</b>參考 Wolfgang Puck：全幅大相 Hero、襯線大標題、幼金線 tab、左大圖右文字，留白多，最有企業感。</div>
+ <div class="hero" data-bg="2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg"><div class="in">
+  <div class="eb">KITCHEN AO · CORPORATE CATERING</div>
+  <h2>香港公司到會<br>由一盒午餐到週年晚宴</h2>
+  <p>按人數及預算度身安排餐單，10 人部門午餐至 300 人公司聚會，全港送貨。</p>
+  <a class="btn f">查看套餐</a><a class="btn">WHATSAPP 查詢</a>
+ </div></div>
+ <div class="sec">
+  <h3 class="t">公司及企業到會服務</h3><p class="st">請選擇以下公司或企業到會活動</p>
+  <nav class="tabs" data-g="1"></nav>
+  <div class="pane"><div class="im"></div><div><h4></h4><p class="p"></p><div class="facts"></div><a class="lnk">了解更多 →</a></div></div>
+ </div>
+</section>
+
+<!-- 方案 2 -->
+<section class="dir d2">
+ <div class="lab"><em>方案 2</em><b>Clean Visual Menu 清晰圖片選單</b>參考 Pret：白底、左文右圖 Hero、3 個 USP ✓、方形圖片分類卡（撳卡＝選分類，金框＋✓），下面一條摘要列。最易用、最快揀。</div>
+ <div class="hero"><div class="tx">
+  <h2>香港<span>公司到會</span><br>員工午餐到年會一站式安排</h2>
+  <p>商務餐盒、會議茶點、年會熱盤及 Canapés，按人數及預算配搭，全港送貨。</p>
+  <div class="promo">🎁 推廣位置：<b>〔待定〕</b>例如年會旺季早鳥優惠</div>
+  <ul class="usp"><li>10 至 300 人，份量按人數調整</li><li>熱盤保溫包裝，準時送達</li><li>素食及無麩質選擇</li></ul>
+  <div class="btns"><a class="b1">查看套餐</a><a class="b2">下載公司到會餐單 PDF</a></div>
+ </div><div class="im" data-bg="2023/11/IMG_2358.jpg"></div></div>
+ <div class="sec">
+  <h3>按活動選擇</h3><p class="st">請選擇以下公司或企業到會活動</p>
+  <div class="grid" data-g="2"></div>
+  <div class="detail"><div class="ic">🍱</div><div><h4></h4><p class="p"></p></div><a>查看詳情 →</a></div>
+ </div>
+</section>
+
+<!-- 方案 3 -->
+<section class="dir d3">
+ <div class="lab" style="background:#1c1915;color:#a99d88;border-color:#33302b"><em>方案 3</em><b style="color:#fff">Black-Gold Visual Tabs 黑金圖片 tab</b>現有黑金風格升級：Hero 加數據卡（人數、起價、預訂日數），tab 變成圓形圖片按鈕，已選分類用大圖橫幅＋標籤。保留品牌一致性，最有質感。</div>
+ <div class="hero"><div class="tx">
+  <div class="eb">ALL SERVICES · 一站式企業到會</div>
+  <h2>香港公司到會<br><span>We Serve, We WOW.</span></h2>
+  <p>由員工午餐、會議茶點、全日培訓，到年會、春茗及 Event 活動，一張訂單配搭餐盒、套餐及 Canapés。</p>
+  <div class="stats"><div><b>10–300</b><span>人數</span></div><div><b>HK$108</b><span>每位起</span></div><div><b>3–5 日</b><span>建議預訂</span></div></div>
+  <a class="btn">查看套餐及報價</a>
+ </div><div class="im" data-bg="2026/07/kitchen-ao-catering-UGG-Event.jpg"></div></div>
+ <div class="sec">
+  <h3>請選擇以下公司或企業到會活動</h3>
+  <div class="chips" data-g="3"></div>
+  <div class="banner"><div class="in"><h4></h4><p class="p"></p><div class="tags"></div></div></div>
+ </div>
+</section>
+
+<div class="cmp"><table>
+ <tr><th></th><th>方案 1 雜誌風</th><th>方案 2 圖片選單</th><th>方案 3 黑金圖片 tab</th></tr>
+ <tr><td>感覺</td><td>最高級、留白多</td><td>最清楚、最易用</td><td>最有品牌質感</td></tr>
+ <tr><td>適合</td><td>年會、Event 等高預算客</td><td>HR、Admin 快速訂餐</td><td>延續現有黑金設計</td></tr>
+ <tr><td>需要素材</td><td>大量高質活動相</td><td>每個分類一張方形相</td><td>每個分類一張相＋橫幅相</td></tr>
+ <tr><td>改動量</td><td>大（重做版面）</td><td>中</td><td>小至中（升級現有）</td></tr>
+</table></div>
+
+<script>
+var U='https://aoaodelivery.com/wp-content/uploads/';
+var S=[
+ {n:'全部',ic:'✦',img:'2026/03/WhatsApp-Image-2026-03-25-at-3.58.36-PM-scaled.jpeg',p:'七類企業及機構活動，一張訂單配搭餐盒、套餐及 Canapés，全港送貨。',f:[['10–300','人數'],['HK$108','每位起'],['7 類','活動']],t:['員工午餐','會議','年會','Event']},
+ {n:'員工午餐',ic:'🍱',img:'2025/04/CAB-Commercial-Meal-Lv2_%E9%A0%81%E9%9D%A2_1-1-724x1024-1.jpg',p:'每人一盒的商務餐盒，準時送到、派發快捷，適合日常午餐及部門聚餐。',f:[['HK$108','每位起'],['10–100','人數'],['每人一盒','形式']],t:['商務餐盒','員工膳食餐盒','加配熱盤']},
+ {n:'會議餐飲',ic:'☕',img:'2023/11/refreshmentparty-03-768x768.jpg',p:'早餐會議、會議午餐、下午茶及茶點，按會議時段送達。',f:[['HK$248','會議午餐起'],['12–40','茶點人數'],['3 時段','早／午／茶']],t:['高級餐盒','輕食宴會','皇家小食盒']},
+ {n:'培訓及研討會',ic:'📋',img:'2025/04/Royal-Snacks-Box-768x543.jpg',p:'全日培訓、研討會及工作坊，一次過安排早上茶點、午餐及下午茶。',f:[['1 張單','全日餐飲'],['3 時段','分時送達'],['可多日','每日轉菜']],t:['小食盒','商務餐盒','輕食宴會']},
+ {n:'年會及團年飯',ic:'🏆',img:'2025/04/WhatsApp-Image-2025-04-15-at-5.37.03-PM-768x512.jpeg',p:'Annual Dinner、春茗、公司團年飯及開年飯，迎賓小食、熱盤主菜及甜品。',f:[['HK$300','每位起'],['50–200+','人數'],['1–2 月','旺季']],t:['美食派對','百人慶典','九宮格 Canapés']},
+ {n:'公司聚會',ic:'🎉',img:'2026/03/8-10_101-X-KITCHENAO-03-03-03-768x768.jpg',p:'Team Building、員工生日會、迎新歡送及家庭日，自助餐形式自由取用。',f:[['HK$300','每位起'],['30–300','人數'],['可訂製','激光打印']],t:['美食派對','肉食獸','兒童套餐']},
+ {n:'Event 及 PR 活動',ic:'🎤',img:'2026/07/kitchen-ao-catering-UGG-Event.jpg',p:'產品發佈會、記者會及品牌活動，一口一件的 Canapés 配合品牌擺盤。',f:[['20–200+','人數'],['按餐單','報價'],['品牌','擺盤']],t:['九宮格 Canapés','皇家小食盒','飲品服務']},
+ {n:'機構活動',ic:'🏫',img:'2025/05/9ee996d5-e50c-4745-b847-86d8e179c481-768x768.jpg',p:'學校家長日、醫院員工午餐、社福機構講座及工作坊。',f:[['按人數','報價'],['學校','12 月高峰'],['素食','可配']],t:['餐盒','自助餐','小食拼盤']}
+];
+document.querySelectorAll('[data-bg]').forEach(function(e){e.style.backgroundImage='url('+U+e.getAttribute('data-bg')+')'});
+function bind(g,render,mk){var w=document.querySelector('[data-g="'+g+'"]');w.innerHTML=S.map(mk).join('');var it=w.children;[].forEach.call(it,function(x,i){x.onclick=function(){[].forEach.call(it,function(y){y.classList.remove('on')});x.classList.add('on');render(S[i])}});it[0].classList.add('on');render(S[0]);}
+var d1=document.querySelector('.d1 .pane');
+bind(1,function(s){d1.querySelector('.im').style.backgroundImage='url('+U+s.img+')';d1.querySelector('h4').textContent=s.n==='全部'?'一站式企業到會':s.n+'到會';d1.querySelector('.p').textContent=s.p;d1.querySelector('.facts').innerHTML=s.f.map(function(f){return '<div><b>'+f[0]+'</b><span>'+f[1]+'</span></div>'}).join('')},function(s){return '<a>'+s.n+'</a>'});
+var d2=document.querySelector('.d2 .detail');
+bind(2,function(s){d2.querySelector('.ic').textContent=s.ic;d2.querySelector('h4').textContent=s.n==='全部'?'一站式企業到會':s.n;d2.querySelector('.p').textContent=s.p},function(s){return '<div class="tile"><div class="im" style="background-image:url('+U+s.img+')"></div><div class="tt"><b>'+s.n+'</b><span>'+s.f[0][0]+'｜'+s.f[0][1]+'</span></div></div>'});
+var d3=document.querySelector('.d3 .banner');
+bind(3,function(s){d3.style.backgroundImage='url('+U+s.img+')';d3.querySelector('h4').textContent=s.n==='全部'?'一站式企業到會':s.n;d3.querySelector('.p').textContent=s.p;d3.querySelector('.tags').innerHTML=s.t.map(function(t){return '<span>'+t+'</span>'}).join('')},function(s){return '<div class="chip"><i style="background-image:url('+U+s.img+')"></i>'+s.n+'</div>'});
+</script>
+</body>
+</html>

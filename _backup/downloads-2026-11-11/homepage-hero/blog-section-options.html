@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>首頁 Blog Section：3 個顯示方案</title>
+<style>
+body{margin:0;background:#fff;font-family:-apple-system,"PingFang HK","Noto Sans TC",sans-serif;color:#3A342B}
+a{text-decoration:none;color:inherit}
+.top{max-width:1180px;margin:0 auto;padding:26px 20px 0}
+.top h1{font-size:21px;margin:0 0 4px}.top p{margin:0;color:#6b6252;font-size:14px;line-height:1.7}
+.lab{max-width:1180px;margin:46px auto 0;padding:12px 20px;background:#f6f3ee;border-radius:10px;font-size:14px;color:#6b6252;line-height:1.6}
+.lab em{font-style:normal;color:#9A7B2E;font-weight:800;margin-right:8px}.lab b{color:#141414;font-size:16px;margin-right:6px}
+.sec{max-width:1180px;margin:0 auto;padding:44px 20px 10px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 26px}
+.eb{font-size:11.5px;letter-spacing:.3em;color:#8A8378;margin:0 0 8px}
+.h2{position:relative;font-size:30px;font-weight:900;color:#141414;margin:0;padding-top:18px;line-height:1.3}
+.h2:before{content:"";position:absolute;left:0;top:0;width:46px;height:4px;border-radius:3px;background:#C8A24A}
+.all{font-size:14px;font-weight:800;color:#141414;border-bottom:1px solid #141414;padding-bottom:3px;white-space:nowrap}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;padding:4px 11px;border-radius:20px;background:#141414;color:#E4C77E}
+.im{position:relative;overflow:hidden;background:#eee}
+.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+a:hover .im img{transform:scale(1.04)}
+.more{font-size:14px;font-weight:800;color:#141414}
+.more:after{content:" →"}
+
+/* 方案 A：三欄大卡 */
+.A .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.A .c{display:flex;flex-direction:column;background:#fff;border:1px solid #E6E1D8;border-radius:18px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.A .c:hover{box-shadow:0 16px 36px rgba(20,18,16,.12);transform:translateY(-3px)}
+.A .im{aspect-ratio:16/9}
+.A .tx{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.A .t{font-size:19px;font-weight:900;color:#141414;line-height:1.45;margin:12px 0 10px}
+.A .d{font-size:14.5px;line-height:1.75;color:#5d574f;margin:0 0 18px;flex:1}
+
+/* 方案 B：一大兩細（雜誌式） */
+.B .grid{display:grid;grid-template-columns:1.35fr 1fr;gap:24px}
+.B .big{display:flex;flex-direction:column}
+.B .big .im{aspect-ratio:16/10;border-radius:18px}
+.B .big .t{font-size:26px;font-weight:900;color:#141414;line-height:1.4;margin:16px 0 10px}
+.B .big .d{font-size:15.5px;line-height:1.8;color:#5d574f;margin:0 0 14px}
+.B .side{display:grid;grid-template-rows:1fr 1fr;gap:20px}
+.B .sm{display:grid;grid-template-columns:44% 1fr;gap:18px;align-items:center;background:#F7F5F0;border-radius:18px;padding:14px}
+.B .sm .im{aspect-ratio:4/3;border-radius:12px}
+.B .sm .t{font-size:17px;font-weight:900;color:#141414;line-height:1.45;margin:10px 0 8px}
+.B .sm .d{font-size:13.5px;line-height:1.7;color:#5d574f;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 方案 C：黑色全幅段＋圖上文字大卡 */
+.Cwrap{background:#141414;margin-top:0}
+.C .eb{color:#D9C48A}.C .h2{color:#fff}.C .all{color:#fff;border-color:#fff}
+.C .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:40px}
+.C .c{position:relative;display:block;border-radius:18px;overflow:hidden}
+.C .im{aspect-ratio:4/5}
+.C .c:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,10,8,.92) 0%,rgba(12,10,8,.45) 50%,rgba(12,10,8,0) 75%)}
+.C .tx{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 22px 24px}
+.C .tag{background:#C8A24A;color:#141414}
+.C .t{font-size:20px;font-weight:900;color:#fff;line-height:1.45;margin:12px 0 8px}
+.C .d{font-size:14px;line-height:1.7;color:#DCD3C2;margin:0 0 14px}
+.C .more{color:#E4C77E}
+
+@media(max-width:860px){
+.h2{font-size:24px}.hd{flex-direction:column;align-items:flex-start}
+.A .grid{grid-template-columns:1fr;gap:16px}
+.B .grid{grid-template-columns:1fr}.B .big .t{font-size:21px}.B .side{grid-template-rows:auto}
+.C .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;scrollbar-width:none;margin-right:-20px;padding-right:20px}
+.C .c{flex:0 0 78%;scroll-snap-align:start}}
+.note{max-width:1180px;margin:46px auto 80px;padding:18px 20px;background:#F7F5F0;border-radius:14px;font-size:14px;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="top">
+ <h1>首頁 Blog Section：3 個顯示方案</h1>
+ <p>放在首頁 Slider Banner 下面，先精選 3 篇文章。卡片可整張點擊；手機版已調整。Section 設有 <code>id="blog"</code>，IG 簡介可直接連到 aoaodelivery.com/#blog。</p>
+</div>
+
+<div class="lab"><em>方案 A</em><b>三欄大卡</b>三張同樣大小的卡，16:9 封面相、分類標籤、標題、摘要及「閱讀全文」。最清楚整齊，手機版變成一欄。</div>
+<section class="sec A" id="blog"><div class="hd"><div><p class="eb">KITCHEN AO JOURNAL</p><h2 class="h2">到會靈感及實用攻略</h2></div><a class="all" href="https://aoaodelivery.com/blog/">查看全部文章 →</a></div><div class="grid" data-k="A"></div></section>
+
+<div class="lab"><em>方案 B</em><b>一大兩細（雜誌式）</b>左邊一篇大圖主打（例如野餐搜尋器），右邊兩篇橫向細卡。可突出最想推的文章，似雜誌封面。</div>
+<section class="sec B"><div class="hd"><div><p class="eb">KITCHEN AO JOURNAL</p><h2 class="h2">到會靈感及實用攻略</h2></div><a class="all" href="https://aoaodelivery.com/blog/">查看全部文章 →</a></div><div class="grid" data-k="B"></div></section>
+
+<div class="lab"><em>方案 C</em><b>黑色全幅段＋圖上文字</b>沿用公司到會頁的黑白分段風格，直身大圖，文字疊在相片下方。最有質感；手機版可左右滑動。</div>
+<div class="Cwrap"><section class="sec C"><div class="hd"><div><p class="eb">KITCHEN AO JOURNAL</p><h2 class="h2">到會靈感及實用攻略</h2></div><a class="all" href="https://aoaodelivery.com/blog/">查看全部文章 →</a></div><div class="grid" data-k="C"></div></section></div>
+
+<div class="note"><b>建議：</b>想主打野餐搜尋器配合 IG 宣傳，選方案 B（大圖主打一篇）；想三篇平均曝光，選方案 A。三個方案都可以之後換文章，只需改標題、摘要、相片及連結。</div>
+
+<script>
+var U='https://aoaodelivery.com/';
+var P=[
+ {u:'blog/hong-kong-picnic-spots-picnic-box/',img:'wp-content/uploads/2026/10/hong-kong-picnic-spots-2026-kv.webp',tag:'野餐',t:'香港野餐好去處 2026｜全港 33 個野餐地點搜尋器',d:'按新界、九龍、港島篩選可泊車、寵物友善、大草地及海景地點，每個地點附鄰近停車場資料。'},
+ {u:'blog/boat-party-catering-guide/',img:'wp-content/uploads/2026/09/boat-party-catering-2026-kv.jpg',tag:'船河',t:'船P必備清單 2026｜船河食物及飲品懶人包',d:'整理落水人士、打卡舒適型及搞手的必備清單，連同食物飲品份量及冰塊準備，出發前逐項核對。'},
+ {u:'blog/vegetarian-types-guide/',img:'wp-content/uploads/2026/10/veg-b2-thumb-1000x563-1.webp',tag:'素食',t:'素食分類天書｜蛋奶素、五辛素、純素有甚麼分別？',d:'一表看清 10 種素食吃法及出處，附聚會訂餐時要問清楚的重點。'}];
+function card(p,cls){return '<a class="'+cls+'" href="'+U+p.u+'"><div class="im"><img src="'+U+p.img+'" alt="'+p.t+'" loading="lazy"></div><div class="tx"><span class="tag">'+p.tag+'</span><h3 class="t">'+p.t+'</h3><p class="d">'+p.d+'</p><span class="more">閱讀全文</span></div></a>';}
+document.querySelector('[data-k="A"]').innerHTML=P.map(function(p){return card(p,'c')}).join('');
+document.querySelector('[data-k="C"]').innerHTML=P.map(function(p){return card(p,'c')}).join('');
+document.querySelector('[data-k="B"]').innerHTML=card(P[0],'big')+'<div class="side">'+card(P[1],'sm')+card(P[2],'sm')+'</div>';
+</script>
+</body>
+</html>

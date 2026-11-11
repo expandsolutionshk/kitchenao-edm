@@ -1,0 +1,23 @@
+/* Homepage spacing (Additional CSS) - affects body.home only */
+/* Desktop: even section spacing */
+body.home .vc_row.wpb_row:not(.vc_inner){padding-top:56px !important;padding-bottom:56px !important}
+body.home .vc_row.vc_inner{padding-top:32px !important;padding-bottom:32px !important}
+/* New sections have their own spacing: remove outer row padding */
+body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-hero),
+body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-occ-b),
+body.home .vc_row.vc_inner.wpb_row:has(.ao-set-a),
+body.home .vc_row.vc_inner.wpb_row:has(.ao-win95),
+body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-blogsec),
+body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-mbar),
+body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-mbar2){padding-top:0 !important;padding-bottom:0 !important}
+body.home .wpb_raw_code{margin-bottom:0 !important}
+/* Mobile: smaller spacing */
+@media(max-width:768px){
+ body.home .vc_row.wpb_row:not(.vc_inner){padding-top:36px !important;padding-bottom:36px !important}
+ body.home .vc_row.vc_inner{padding-top:20px !important;padding-bottom:20px !important}
+ body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-hero),body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-occ-b),body.home .vc_row.vc_inner.wpb_row:has(.ao-set-a),body.home .vc_row.vc_inner.wpb_row:has(.ao-win95),body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-blogsec),body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-mbar),
+body.home .vc_row.wpb_row:not(.vc_inner):has(.ao-mbar2){padding-top:0 !important;padding-bottom:0 !important}
+ body.home .wpb_content_element{margin-bottom:20px !important}
+ body.home .vc_empty_space{height:12px !important}
+ body.home .vc_column-inner{padding-top:0 !important}
+}

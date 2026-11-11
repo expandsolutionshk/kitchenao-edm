@@ -4,7 +4,7 @@
 import os, math
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageChops
 H = os.path.dirname(os.path.abspath(__file__))
-SRC = '/tmp/kv/'
+SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src') + '/'
 W, HH = 1200, 1620
 CJK = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 POP = '/usr/share/fonts/truetype/google-fonts/Poppins-BoldItalic.ttf'
