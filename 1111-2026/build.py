@@ -343,6 +343,8 @@ GIFT = dict(
  a0500=('A0500 蜜蜜燒雞翼配脆薯角', 188, U + '2019/06/Posts-16-1024x1024.jpg', '/product/a0500-honey-glazed-chicken-wings-w-potato-wedges/'),
  a1500=('A1500 避風塘炸海鮮豆腐配海鮮甜醬', 178, U + '2019/06/KitchenAO_MAY2023-ALA-CARTE-04.png', '/product/a1500-crispy-seafood-tofu-in-traditional-typhoon-shelter-style/'),
 )
+GH = 'https://expandsolutionshk.github.io/kitchenao-edm/1111-2026/img/'
+MEMBER = {'B1': ('精選堅果或薯片 1 包', GH + 'd11-member-chips.jpg'), 'B2': ('「有得解」或冷泡茶 6 包', GH + 'd11-member-tea.jpg'), 'B3': ('精選紅白葡萄酒 1 枝', GH + 'd11-member-wine.jpg')}
 TIERS = [('B1', '1,500', ['a1600']), ('B2', '2,200', ['a1600', 'a0500']), ('B3', '3,000', ['a1600', 'a0500', 'a1500'])]
 RED = '#C0392B'
 
@@ -410,8 +412,13 @@ def edm():
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td valign="middle"><span style="display:inline-block;background:#C8A24A;color:#1A1A1A;font-size:12px;font-weight:bold;padding:3px 10px;border-radius:10px;">{t}</span>'
                 f'<span style="color:#ffffff;font-size:18px;font-weight:800;margin-left:8px;">滿 HK${amt}{more}</span></td>'
                 f'<td align="right" valign="middle" style="color:#C8A24A;font-size:13px;font-weight:bold;white-space:nowrap;">送 {len(ks)} 款・價值 HK${val}</td></tr></table>'
-                f'<p style="margin:6px 0 10px;color:#C9BFA8;font-size:13.5px;">89 折之外，額外送：</p>'
+                f'<p style="margin:6px 0 10px;color:#C9BFA8;font-size:13.5px;">89 折之外，雙 11 額外送：</p>'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:10px;"><tr>{cells}</tr></table>'
+                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background:#FBF3E2;border-radius:10px;"><tr>'
+                f'<td width="96" valign="middle" style="padding:8px;"><img src="{MEMBER[t][1]}" width="88" alt="{MEMBER[t][0]}" style="width:88px;height:auto;display:block;border-radius:8px;"></td>'
+                f'<td valign="middle" style="padding:8px 10px 8px 4px;"><p style="margin:0 0 2px;color:#9A7B2E;font-size:11px;font-weight:bold;letter-spacing:2px;">MEMBER ZONE・會員多買多賞</p>'
+                f'<p style="margin:0;color:#1A1A1A;font-size:15px;font-weight:800;line-height:21px;">再送 {MEMBER[t][0]}</p>'
+                f'<p style="margin:2px 0 0;color:#7A7268;font-size:12px;">網站下單自動送出，無封頂</p></td></tr></table>'
                 '</td></tr></table></td></tr>')
     offB = ('<tr><td align="center" style="padding:30px 20px 10px;background:#1A1A1A;">'
             '<p style="margin:0 0 4px;display:inline-block;background:#C8A24A;color:#1A1A1A;font-size:12px;font-weight:bold;letter-spacing:2px;padding:4px 12px;border-radius:12px;">優惠 B</p>'
@@ -420,7 +427,8 @@ def edm():
             + code_box('D11B', dark=True) + '</td></tr>'
             + ''.join(tier(*x) for x in TIERS)
             + '<tr><td style="padding:8px 24px 28px;background:#1A1A1A;"><p style="margin:0;padding:12px 14px;background:#2f2a24;border-radius:8px;color:#E9DFC9;font-size:13.5px;line-height:20px;">'
-              '每張訂單只可使用一個優惠碼：未滿 HK$1,500 請用 <b style="color:#C8A24A;">D11A</b>；滿 HK$1,500 請用 <b style="color:#C8A24A;">D11B</b>，89 折及贈品一併享有。</p></td></tr>')
+              '每張訂單只可使用一個優惠碼：未滿 HK$1,500 請用 <b style="color:#C8A24A;">D11A</b>；滿 HK$1,500 請用 <b style="color:#C8A24A;">D11B</b>，89 折及贈品一併享有。<br>'
+              '<b style="color:#C8A24A;">舊會員專屬：</b>上次訂單滿 HK$2,000，今次自動再減 HK$100，如此類推。</p></td></tr>')
     # ---- 會員優惠照常享用 ----
     mrow = lambda amt, g: (f'<tr><td style="padding:9px 0;border-bottom:1px solid #EEE3CC;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
                            f'<td width="110" valign="middle" style="color:#1A1A1A;font-size:15px;font-weight:800;">每滿 HK${amt}</td>'
@@ -459,7 +467,7 @@ def edm():
     cta1 = f'<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;">{btn_primary("🔥 立即網站下單", u("/1111/"))}</td></tr>'
     html = ('<!--\n============================================================\nKitchen AO — 2026 雙 11 全網 89 折 EDM — Raw HTML for FluentCRM\n'
             '版型沿用 2026 中秋團圓套餐 EDM（黑金 clean 風）\n優惠期 11/11 至 11/17｜A：D11A 89 折｜B：D11B 89 折＋滿額送小食\n============================================================\n-->\n'
-            + head + '\n' + nav + greet + kv + intro + offA + cta1 + offB + member + sc_head + scenes + ppl + info + '\n' + tail + '\n')
+            + head + '\n' + nav + greet + kv + intro + offA + cta1 + offB + sc_head + scenes + ppl + info + '\n' + tail + '\n')
     open(os.path.join(H, 'email.html'), 'w', encoding='utf-8').write(html)
     return html
 
