@@ -39,7 +39,7 @@
     + '#ao-d11-box img{display:block;width:100%;height:auto;border-radius:16px 16px 0 0}'
     + '#ao-d11-x{position:absolute;top:10px;left:10px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:2}'
     + '#ao-d11-box .bd{padding:16px 18px 20px;text-align:center}'
-    + '#ao-d11-box .cd{background:#fff;border:1px solid #C8A24A;padding:5px;margin:0 0 14px}'
+    + '#ao-d11-box .cd{background:#fff;border:1px solid #C8A24A;padding:5px;margin:0}'
     + '#ao-d11-box .cd>div{border:1px solid #E6D3A6;padding:14px 10px}'
     + '#ao-d11-box .cd small{display:block;padding-left:.3em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10.5px;letter-spacing:.3em;color:#9A7B2E}'
     + '#ao-d11-box .cd .r{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0 0}'
@@ -66,7 +66,7 @@
       + '<a href="' + T.menu + '"><img src="' + T.kv + '" alt="' + T.title + '：' + T.lead + '" width="768" height="787" loading="lazy"></a>'
       + '<div class="bd"><div class="cd"><div><small>' + T.code + '</small><div class="r"><strong>DOUBLE11</strong><button type="button" class="cp">' + T.copy + '</button></div>'
       + '<span class="dt">' + T.date + '</span></div></div>'
-      + '<a class="b dk" href="' + T.menu + '">' + T.cta + '</a><a class="b ol" href="' + T.home + '">' + T.more + '</a></div></div>';
+      + '</div></div>';
 
     function open(src){ ov.classList.add('on'); track('open_' + src); }
     function close(){ ov.classList.remove('on'); track('close'); }
