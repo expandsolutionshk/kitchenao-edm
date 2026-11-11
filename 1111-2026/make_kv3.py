@@ -5,7 +5,7 @@ import os
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageChops
 H = os.path.dirname(os.path.abspath(__file__))
 SRC = '/tmp/kv/'
-W, HH = 1200, 3160
+W, HH = 1200, 3520
 CJK = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 CJKR = '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc'
 POPB = '/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf'
@@ -15,7 +15,7 @@ def f_pop(s): return ImageFont.truetype(POPB, s)
 GOLD_D, GOLD, GOLD_L, INK, RED = (150, 108, 38), (200, 162, 74), (240, 214, 150), (26, 26, 26), (176, 52, 38)
 def lerp(a, b, t): return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
 def layer(): return Image.new('RGBA', (W, HH), (0, 0, 0, 0))
-SY = 1250
+SY = 1395
 
 def background():
     bg = Image.new('RGB', (W, HH)); dd = ImageDraw.Draw(bg)
@@ -29,7 +29,7 @@ def background():
         d.polygon([(x0, 0), (x0 + w, 0), (x0 + w + 600, HH), (x0 + 600, HH)], fill=(255, 255, 255, a))
     bg = Image.alpha_composite(bg, beams.filter(ImageFilter.GaussianBlur(28)))
     g = Image.new('RGBA', (W, HH), (255, 252, 244, 0)); m = Image.new('L', (W, HH), 0)
-    ImageDraw.Draw(m).ellipse([600 - 520, 1010 - 360, 600 + 520, 1010 + 360], fill=235)
+    ImageDraw.Draw(m).ellipse([600 - 520, 1130 - 360, 600 + 520, 1130 + 360], fill=235)
     g.putalpha(m.filter(ImageFilter.GaussianBlur(170))); bg = Image.alpha_composite(bg, g)
     st = layer(); sd = ImageDraw.Draw(st)
     for y in range(SY, HH):
@@ -40,7 +40,7 @@ def background():
 
 def title(bg):  # 方案 3：粗體雙層
     f = ImageFont.truetype(LATO_BI, 320); bb = f.getbbox('11.11')
-    tx, ty = (W - (bb[2] - bb[0])) // 2 - bb[0], 60 - bb[1]
+    tx, ty = (W - (bb[2] - bb[0])) // 2 - bb[0], 140 - bb[1]
     d = ImageDraw.Draw(bg); d.text((tx + 16, ty + 14), '11.11', font=f, fill=(0, 0, 0, 0), stroke_width=5, stroke_fill=GOLD)
     sh = layer(); ImageDraw.Draw(sh).text((tx + 6, ty + 18), '11.11', font=f, fill=(60, 40, 10, 90))
     bg = Image.alpha_composite(bg, sh.filter(ImageFilter.GaussianBlur(14)))
@@ -58,10 +58,10 @@ def line(d, parts, font, y, sh=True):
 
 def headline(bg):
     d = ImageDraw.Draw(bg)
-    line(d, [('一連七天', INK)], f_cjk(120), 410)
-    line(d, [('滿 HK$1,100 ', INK), ('全網 11% OFF', RED)], f_cjk(64), 580)
+    line(d, [('一連七天', INK)], f_cjk(120), 520)
+    line(d, [('滿 HK$1,100 ', INK), ('全網 11% OFF', RED)], f_cjk(64), 690)
     fs = f_cjk(32); sub = '滿 HK$1,500 起再送人氣小食，最多送 3 款'
-    d.text(((W - d.textlength(sub, font=fs)) / 2, 682), sub, font=fs, fill=(107, 90, 63))
+    d.text(((W - d.textlength(sub, font=fs)) / 2, 792), sub, font=fs, fill=(107, 90, 63))
     return bg
 
 def framed(im, w, rot, border=16):
@@ -110,9 +110,9 @@ def heroes(bg):
     pot, bento, buf = _src3()
     if HERO_MODE == 'A':   # 三聯直幅：中間較大較高
         pot2 = Image.open(SRC + 'pot1024.jpg').convert('RGB')
-        put(bg, tile(bento, 290, 390, rot=0), 40, 800)
-        put(bg, tile(buf, 290, 390, rot=0), 870, 800)
-        put(bg, tile(pot2, 440, 440, rot=0), 380, 760)
+        put(bg, tile(bento, 290, 390, rot=0), 40, 940)
+        put(bg, tile(buf, 290, 390, rot=0), 870, 940)
+        put(bg, tile(pot2, 440, 440, rot=0), 380, 905)
     elif HERO_MODE == 'B': # 編輯式拼貼：左大圖＋右兩格，直角對齊
         put(bg, tile(pot, 660, 480, radius=14), 40, 750)
         put(bg, tile(bento, 420, 226, radius=14), 730, 750)
@@ -171,7 +171,7 @@ def front_card(key, verb, w=260):
     d.text((x + tw + 24, y), name, font=fn, fill=INK)
     fs = f_cjk(20, False); d.text(((cw - d.textlength(sub, font=fs)) / 2, y + 48), sub, font=fs, fill=GOLD_D)
     return c
-def _float(c, rot, blur=12, off=(8, 14), alpha=95):
+def _float(c, rot, blur=12, off=(6, 10), alpha=65):
     c = c.rotate(rot, resample=Image.BICUBIC, expand=True)
     s = Image.new('RGBA', (c.width + 50, c.height + 50), (0, 0, 0, 0))
     s.paste((70, 45, 15, alpha), (25 + off[0], 25 + off[1]), c.getchannel('A')); s = s.filter(ImageFilter.GaussianBlur(blur)); s.alpha_composite(c, (25, 25)); return s
@@ -182,7 +182,7 @@ TIER = [  # (第幾賞, 金額, 後排, 前卡, 動詞, 總結)
  ('第四賞', '3,000', ['off', 'a1600', 'a1500'], 'a0500', '再加送', '11% OFF＋送 3 款小食・總值 $564'),
 ]
 BACK_POS = {0: [], 1: [(-120, 10, -7)], 2: [(-150, 20, -9), (150, 20, 9)], 3: [(-160, 40, -10), (0, 0, 0), (160, 40, 10)]}
-PW, PH = 560, 700
+PW, PH = 540, 700
 def panel(lv, amt, backs, front, verb, summ):
     p = Image.new('RGBA', (PW, PH + 80), (0, 0, 0, 0)); T = 80
     mk = Image.new('L', p.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, T, PW - 1, T + PH - 1], 28, fill=255)
@@ -192,7 +192,7 @@ def panel(lv, amt, backs, front, verb, summ):
     for key, (dx, dy, r) in zip(backs, BACK_POS[len(backs)]):
         c = _float(back_card(key), r); p.alpha_composite(c, (int(cx + dx - c.width / 2), top + dy - 25))
     fy = top + (150 if backs else 30)
-    c = _float(front_card(front, verb, 270 if backs else 320), 0, 16, (10, 18), 120); p.alpha_composite(c, (int(cx - c.width / 2), fy - 25))
+    c = _float(front_card(front, verb, 270 if backs else 320), 0, 14, (6, 12), 70); p.alpha_composite(c, (int(cx - c.width / 2), fy - 25))
     d = ImageDraw.Draw(p)
     # 底部深色資訊條（另一層背景）
     band = Image.new('RGBA', p.size, (0, 0, 0, 0)); bd = ImageDraw.Draw(band)
@@ -211,13 +211,13 @@ def panel(lv, amt, backs, front, verb, summ):
     d.text((sx - d.textlength('滿', font=fa) / 2, sy - 44), '滿', font=fa, fill=GOLD_L)
     d.text((sx - d.textlength('$' + amt, font=fb) / 2, sy - 13), '$' + amt, font=fb, fill=(255, 255, 255))
     return p
-ROW_Y = [1440, 2240]
+ROW_Y = [1640, 2490]
 def rewards(bg):
     d = ImageDraw.Draw(bg)
     fe = f_pop(22); s = 'F O U R   R E W A R D S'
-    d.text(((W - d.textlength(s, font=fe)) / 2, 1318), s, font=fe, fill=GOLD_D)
-    line(d, [('雙 11 四重賞', INK)], f_cjk(56), 1350, sh=False)
-    pos = [(24, ROW_Y[0]), (616, ROW_Y[0]), (24, ROW_Y[1]), (616, ROW_Y[1])]
+    d.text(((W - d.textlength(s, font=fe)) / 2, 1490), s, font=fe, fill=GOLD_D)
+    line(d, [('雙 11 四重賞', INK)], f_cjk(56), 1524, sh=False)
+    pos = [(48, ROW_Y[0]), (612, ROW_Y[0]), (48, ROW_Y[1]), (612, ROW_Y[1])]
     for t, (x, y) in zip(TIER, pos):
         p = panel(*t); sh = Image.new('RGBA', (p.width + 60, p.height + 60), (0, 0, 0, 0))
         sh.paste((70, 45, 15, 70), (36, 46), p.getchannel('A')); sh = sh.filter(ImageFilter.GaussianBlur(16)); sh.alpha_composite(p, (30, 30))
@@ -227,9 +227,9 @@ def rewards(bg):
 def tab_and_pill(bg):
     tab = Image.new('RGBA', (92, 300), INK + (255,)); td = ImageDraw.Draw(tab); fv = f_cjk(34)
     for i, ch_ in enumerate('雙十一限定'): td.text(((92 - td.textlength(ch_, font=fv)) / 2, 22 + i * 52), ch_, font=fv, fill=GOLD_L)
-    bg.alpha_composite(tab, (W - 92, 120))
+    bg.alpha_composite(tab, (W - 92, 170))
     d = ImageDraw.Draw(bg); fp = f_cjk(36); pill = '2026.11.11 至 11.17　優惠碼 DOUBLE11'
-    pw = d.textlength(pill, font=fp) + 80; x0 = (W - pw) / 2; y0 = 3050
+    pw = d.textlength(pill, font=fp) + 80; x0 = (W - pw) / 2; y0 = 3355
     d.rounded_rectangle([x0, y0, x0 + pw, y0 + 74], 37, fill=INK); d.text((x0 + 40, y0 + 12), pill, font=fp, fill=GOLD_L)
     return bg
 
@@ -237,5 +237,5 @@ if __name__ == '__main__':
     bg = background(); bg = title(bg); bg = headline(bg); bg = heroes(bg); bg = rewards(bg); bg = tab_and_pill(bg)
     im = bg.convert('RGB'); im.save(os.path.join(H, 'img', f'kv-hero-{HERO_MODE}.jpg'), quality=86, optimize=True, progressive=True)
     im.save(os.path.join(H, 'img', 'd11-kv.jpg'), quality=86, optimize=True, progressive=True)
-    im.resize((600, 1580)).save('/sessions/great-festive-darwin/mnt/outputs/kv4.jpg', quality=85)
+    im.resize((600, 1760)).save('/sessions/great-festive-darwin/mnt/outputs/kv4.jpg', quality=85)
     print('ok', os.path.getsize(os.path.join(H, 'img', 'd11-kv.jpg')) // 1024, 'KB')
