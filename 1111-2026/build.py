@@ -384,7 +384,7 @@ def edm():
     greet = ('<tr><td style="padding:11px 24px;background:#FBF7EE;border-bottom:1px solid #EEE6D6;"><div style="font-size:14.5px;color:#1A1A1A;font-weight:bold;">{{contact.first_name|"朋友"}}，你好 👋</div>'
              '<div style="font-size:13.5px;color:#9A8f7e;margin-top:3px;">電子報・2026 年 11 月・雙 11 優惠號</div></td></tr>')
     kv = (f'<tr><td style="padding:0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/1111/")}" target="_blank" rel="noopener noreferrer">'
-          f'<img src="{GH}d11-kv.jpg" width="600" alt="雙 11 一連七天四重賞：滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食｜2026 年 11 月 11 日至 17 日｜優惠碼 DOUBLE11" style="width:100%;max-width:600px;height:auto;display:block;border:0;"></a></td></tr>')
+          f'<img src="{GH}d11-kv.jpg" width="680" alt="雙 11 一連七天四重賞：滿 HK$1,100 全網 11% OFF，滿 HK$1,500 起再送人氣小食｜2026 年 11 月 11 日至 17 日｜優惠碼 DOUBLE11" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>')
     intro = ('<tr><td align="center" style="padding:20px 36px 4px;background:#ffffff;">'
              '<p style="margin:0;color:#7A7268;font-size:16px;line-height:24px;">多謝你一直支持 Kitchen AO。雙 11 一連七天，網站下單滿 HK$1,100，輸入優惠碼 DOUBLE11 即享全網 11% OFF；滿 HK$1,500 起更可額外獲贈人氣小食，會員優惠亦照常享用。</p></td></tr>')
     # ---- 優惠 B ----
@@ -405,11 +405,6 @@ def edm():
                 f'<td align="right" valign="middle" style="color:#9A7B2E;font-size:13px;font-weight:bold;white-space:nowrap;">送 {len(ks)} 款・總值 HK${val}</td></tr></table>'
                 f'<p style="margin:6px 0 10px;color:#7A6A50;font-size:13.5px;">全單 11% OFF 之外，再送：</p>'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border-radius:10px;"><tr>{cells}</tr></table>'
-                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background:#FBF3E2;border-radius:10px;"><tr>'
-                f'<td width="96" valign="middle" style="padding:8px;"><img src="{MEMBER[t][1]}" width="88" alt="{MEMBER[t][0]}" style="width:88px;height:auto;display:block;border-radius:8px;"></td>'
-                f'<td valign="middle" style="padding:8px 10px 8px 4px;"><p style="margin:0 0 2px;color:#9A7B2E;font-size:11px;font-weight:bold;letter-spacing:2px;">MEMBER ZONE・會員多買多賞</p>'
-                f'<p style="margin:0;color:#1A1A1A;font-size:15px;font-weight:800;line-height:21px;">再送 {MEMBER[t][0]}</p>'
-                f'<p style="margin:2px 0 0;color:#7A7268;font-size:12px;">網站下單自動送出，無封頂</p></td></tr></table>'
                 '</td></tr></table></td></tr>')
     tier1 = ('<tr><td style="padding:8px 20px;background:#F3E7D2;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#1A1A1A;border-radius:14px;"><tr><td style="padding:18px 16px;">'
              '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td valign="middle"><span style="display:inline-block;background:#C8A24A;color:#1A1A1A;font-size:12px;font-weight:bold;padding:3px 10px;border-radius:10px;">第一賞</span>'
@@ -422,8 +417,13 @@ def edm():
             '<p style="margin:0 0 14px;color:#7A6A50;font-size:14.5px;line-height:21px;">一連七天，網站下單結帳時輸入優惠碼，系統按訂單金額自動計算。</p>'
             + code_box('DOUBLE11') + '</td></tr>'
             + tier1 + ''.join(tier(*x) for x in TIERS)
-            + '<tr><td style="padding:8px 24px 28px;background:#F3E7D2;"><p style="margin:0;padding:12px 14px;background:#ffffff;border:1px solid #E3CFA6;border-radius:8px;color:#5d534d;font-size:13.5px;line-height:20px;">'
-              '<b style="color:#9A7B2E;">舊會員專屬：</b>上次訂單滿 HK$2,000，今次自動再減 HK$100，如此類推。</p></td></tr>')
+            + '<tr><td style="padding:0 0 22px;background:#F3E7D2;font-size:0;line-height:0;">&nbsp;</td></tr>')
+    member2 = ('<tr><td align="center" style="padding:30px 24px 6px;background:#ffffff;">'
+               '<p style="margin:0 0 4px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;">MEMBER ZONE</p>'
+               '<p style="margin:0 0 6px;color:#1A1A1A;font-size:22px;line-height:30px;font-weight:800;">雙 11 優惠以外，會員優惠照常享用</p>'
+               '<p style="margin:0;color:#7A7268;font-size:14.5px;line-height:22px;">網站下單，「多買多賞」及舊會員專屬優惠可與雙 11 四重賞同時享用。</p></td></tr>'
+               f'<tr><td style="padding:14px 20px 8px;background:#ffffff;"><a href="{u("/%e6%9c%80%e6%96%b0%e6%b6%88%e6%81%af/")}" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F-1-2048x852.jpg" width="640" alt="多買多賞：網站下單每滿 HK$1,500 送精選堅果或薯片 1 包，每滿 HK$2,200 送「有得解」或冷泡茶 6 包，每滿 HK$3,000 送精選紅白葡萄酒 1 枝，無封頂" style="width:100%;max-width:640px;height:auto;display:block;border:0;border-radius:12px;"></a></td></tr>'
+               f'<tr><td style="padding:8px 20px 26px;background:#ffffff;"><a href="{u("/%e6%9c%80%e6%96%b0%e6%b6%88%e6%81%af/")}" target="_blank" rel="noopener noreferrer"><img src="https://aoaodelivery.com/wp-content/uploads/2024/10/%E6%9C%83%E5%93%A1%E5%84%AA%E6%83%A0-02-2048x852.jpg" width="640" alt="舊會員專屬優惠：上一張訂單金額每 HK$2,000，是次消費減 HK$100，如此類推" style="width:100%;max-width:640px;height:auto;display:block;border:0;border-radius:12px;"></a></td></tr>')
     # ---- 會員優惠照常享用 ----
     mrow = lambda amt, g: (f'<tr><td style="padding:9px 0;border-bottom:1px solid #EEE3CC;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
                            f'<td width="110" valign="middle" style="color:#1A1A1A;font-size:15px;font-weight:800;">每滿 HK${amt}</td>'
@@ -462,7 +462,7 @@ def edm():
     cta1 = f'<tr><td align="center" style="padding:18px 30px 6px;background:#ffffff;">{btn_primary("🔥 立即網站下單", u("/1111/"))}</td></tr>'
     html = ('<!--\n============================================================\nKitchen AO — 2026 雙 11 四重賞 EDM — Raw HTML for FluentCRM\n'
             '版型沿用 2026 中秋團圓套餐 EDM（黑金 clean 風）\n優惠期 11/11 至 11/17｜優惠碼 DOUBLE11｜滿 $1,100 11% OFF＋滿 $1,500/$2,200/$3,000 送小食\n============================================================\n-->\n'
-            + head + '\n' + nav + greet + kv + intro + cta1 + offB + info + '\n' + tail + '\n')
+            + head + '\n' + nav + greet + kv + intro + cta1 + offB + member2 + info + '\n' + tail + '\n')
     open(os.path.join(H, 'email.html'), 'w', encoding='utf-8').write(html)
     return html
 
