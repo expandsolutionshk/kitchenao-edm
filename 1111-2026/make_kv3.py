@@ -269,7 +269,92 @@ def rewards_img():
         bg.alpha_composite(sh, (x - 30, y - 30))
     return bg.convert('RGB')
 
-if __name__ == '__main__':
+def _shadowed(im, blur=22, off=(0, 18), alpha=110, pad=60):
+    s = Image.new('RGBA', (im.width + 2 * pad, im.height + 2 * pad), (0, 0, 0, 0))
+    s.paste((60, 40, 15, alpha), (pad + off[0], pad + off[1]), im.getchannel('A')); s = s.filter(ImageFilter.GaussianBlur(blur)); s.alpha_composite(im, (pad, pad)); return s
+def _round(im, w, h, r):
+    im = fit(im, w, h).convert('RGBA'); m = Image.new('L', (w, h), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], r, fill=255); im.putalpha(m); return im
+def _arch(im, w, h, outline=True):
+    im = fit(im, w, h).convert('RGBA'); m = Image.new('L', (w * 3, h * 3), 0); dm = ImageDraw.Draw(m)
+    dm.ellipse([0, 0, w * 3 - 1, w * 3 - 1], fill=255); dm.rectangle([0, w * 3 // 2, w * 3 - 1, h * 3 - 1], fill=255)
+    m = m.resize((w, h), Image.LANCZOS); im.putalpha(m)
+    if outline:
+        o = Image.new('RGBA', (w + 28, h + 28), (0, 0, 0, 0)); om = Image.new('L', ((w + 28) * 3, (h + 28) * 3), 0); do = ImageDraw.Draw(om)
+        W3 = (w + 28) * 3; do.ellipse([0, 0, W3 - 1, W3 - 1], outline=255, width=9); do.line([(4, W3 // 2), (4, (h + 28) * 3)], fill=255, width=9); do.line([(W3 - 5, W3 // 2), (W3 - 5, (h + 28) * 3)], fill=255, width=9)
+        om = om.resize(o.size, Image.LANCZOS); g = Image.new('RGBA', o.size, GOLD + (255,)); g.putalpha(om)
+        o.alpha_composite(g); o.alpha_composite(im, (14, 14)); return o
+    return im
+CAP = ['精緻擺盤到會', '「冩樂」蟹皇左口魚煲仔飯', '自助餐到會']
+def kv_design(n, pill_on=True):
+    global HH, SY, GLOW_Y
+    HH, SY, GLOW_Y = 1200, (1030 if n in (1, 2) else 99999), 860
+    bg = background(); bg = title(bg, top=70, size=300)
+    d = ImageDraw.Draw(bg)
+    line(d, [('一連七天', INK)], f_cjk(104), 372)
+    line(d, [('滿 HK$1,100 ', INK), ('全網 11% OFF', RED)], f_cjk(54), 512)
+    fs = f_cjk(28); sub = '滿 HK$1,500 起再送人氣小食，最多送 3 款'
+    d.text(((W - d.textlength(sub, font=fs)) / 2, 596), sub, font=fs, fill=(107, 90, 63))
+    pot, bento, buf = _src3(); pot2 = Image.open(SRC + 'pot1024.jpg').convert('RGB')
+    fc = f_cjk(22, False)
+    if n == 1:   # 無框大圖＋輕微重疊＋柔和陰影＋圖下細字
+        L = _shadowed(_round(bento, 300, 330, 26)); R = _shadowed(_round(buf, 300, 330, 26)); C = _shadowed(_round(pot2, 400, 400, 30), alpha=140)
+        bg.alpha_composite(L, (70 - 60, 690 - 60)); bg.alpha_composite(R, (830 - 60, 690 - 60)); bg.alpha_composite(C, (400 - 60, 650 - 60))
+        d = ImageDraw.Draw(bg)
+        for t, x0, w, y in [(CAP[0], 70, 300, 1034), (CAP[1], 400, 400, 1064), (CAP[2], 830, 300, 1034)]:
+            d.text((x0 + (w - d.textlength(t, font=fc)) / 2, y), t, font=fc, fill=(107, 90, 63))
+    elif n == 2: # 拱形窗：Four Seasons 式，金幼線拱框，中間最高
+        L = _shadowed(_arch(bento, 270, 360), alpha=80); R = _shadowed(_arch(buf, 270, 360), alpha=80); C = _shadowed(_arch(pot2, 360, 430), alpha=100)
+        bg.alpha_composite(L, (90 - 74, 690 - 74)); bg.alpha_composite(R, (840 - 74, 690 - 74)); bg.alpha_composite(C, (406 - 74, 630 - 74))
+    elif n == 3:        # 全景條：三圖連成一條，白幼隙，底部漸黑加說明
+        y0, h = 660, 400; ws = [370, 448, 370]; x = 0
+        strip = Image.new('RGBA', (W, h), (255, 255, 255, 255))
+        for im, w, cap in zip([bento, pot2, buf], ws, CAP):
+            t = fit(im, w, h).convert('RGBA'); strip.alpha_composite(t, (x, 0))
+            gr = Image.new('RGBA', (w, 120), (0, 0, 0, 0)); gd = ImageDraw.Draw(gr)
+            for yy in range(120): gd.line([(0, yy), (w, yy)], fill=(15, 12, 8, int(170 * yy / 120)))
+            strip.alpha_composite(gr, (x, h - 120)); sd = ImageDraw.Draw(strip)
+            sd.text((x + (w - sd.textlength(cap, font=fc)) / 2, h - 44), cap, font=fc, fill=(255, 245, 225))
+            x += w + 6
+        bg.alpha_composite(strip, (0, y0)); d = ImageDraw.Draw(bg)
+        d.line([(0, y0 - 8), (W, y0 - 8)], fill=GOLD, width=3); d.line([(0, y0 + h + 8), (W, y0 + h + 8)], fill=GOLD, width=3)
+    elif n == 4:  # C1：全闊全景，無隙、無漸黑，上下金線
+        y0, h = 660, 400; ws = [376, 448, 376]; x = 0
+        for im, w in zip([bento, pot2, buf], ws):
+            bg.alpha_composite(fit(im, w, h).convert('RGBA'), (x, y0)); x += w
+        d = ImageDraw.Draw(bg)
+        for xx in (376, 824): d.line([(xx, y0), (xx, y0 + h)], fill=GOLD, width=3)
+        d.line([(0, y0 - 2), (W, y0 - 2)], fill=GOLD, width=4); d.line([(0, y0 + h + 1), (W, y0 + h + 1)], fill=GOLD, width=4)
+    elif n == 5:  # C2：內縮圓角全景，中間格加高凸出
+        y0, h = 690, 360; m = 40; ws = [352, 0, 352]; cw = W - 2 * m - 352 * 2 - 24
+        strip = Image.new('RGBA', (W - 2 * m, h), (0, 0, 0, 0))
+        strip.alpha_composite(fit(bento, 352, h).convert('RGBA'), (0, 0)); strip.alpha_composite(fit(buf, 352, h).convert('RGBA'), (352 + 12 + cw + 12, 0))
+        mk = Image.new('L', strip.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, 0, strip.width - 1, h - 1], 24, fill=255); strip.putalpha(ImageChops.multiply(strip.getchannel('A'), mk))
+        bg.alpha_composite(_shadowed(strip, alpha=80), (m - 60, y0 - 60))
+        C = _round(pot2, cw, h + 80, 24); fr = Image.new('RGBA', (cw + 12, h + 92), (0, 0, 0, 0)); ImageDraw.Draw(fr).rounded_rectangle([0, 0, cw + 11, h + 91], 28, fill=GOLD + (255,)); fr.alpha_composite(C, (6, 6))
+        bg.alpha_composite(_shadowed(fr, alpha=130), (m + 352 + 6 - 60, y0 - 46 - 60))
+    elif n == 6:  # C3：全景接黑色底，KV 底部轉黑，無縫接白色區
+        y0, h = 650, 380; ws = [372, 444, 372]; x = 0
+        band = Image.new('RGBA', (W, HH - y0 - 190), INK + (255,)); bg.alpha_composite(band, (0, y0 + 190))
+        for im, w in zip([bento, pot2, buf], ws):
+            t = _round(im, w, h, 18); bg.alpha_composite(t, (x, y0)); x += w + 6
+        d = ImageDraw.Draw(bg); d.line([(0, y0 + 190), (W, y0 + 190)], fill=INK, width=1)
+    tab = Image.new('RGBA', (84, 270), INK + (255,)); td = ImageDraw.Draw(tab); fv = f_cjk(30)
+    for i, ch_ in enumerate('雙十一限定'): td.text(((84 - td.textlength(ch_, font=fv)) / 2, 20 + i * 47), ch_, font=fv, fill=GOLD_L)
+    bg.alpha_composite(tab, (W - 84, 110))
+    d = ImageDraw.Draw(bg); fp = f_cjk(32); pill = '2026.11.11 至 11.17　優惠碼 DOUBLE11'
+    pw = d.textlength(pill, font=fp) + 72; x0 = (W - pw) / 2; y0 = 1112
+    if not pill_on: return bg.convert('RGB').crop((0, 0, W, 1100))
+    if n == 6: d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, outline=GOLD, width=3); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
+    else: d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, fill=INK); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
+    return bg.convert('RGB')
+
+if __name__ == '__main__' and os.environ.get('DESIGNS'):
+    for n in (4, 5, 6):
+        kv_design(n).save(os.path.join(H, 'img', f'kv-c{n - 3}.jpg'), quality=86, optimize=True, progressive=True)
+    for n in (4, 5, 6):
+        kv_design(n, False).save(os.path.join(H, 'img', f'kv-c{n - 3}-np.jpg'), quality=86, optimize=True, progressive=True)
+    print('designs ok')
+elif __name__ == '__main__':
     k = kv_square(); k.save(os.path.join(H, 'img', 'd11-kv.jpg'), quality=86, optimize=True, progressive=True)
     r = rewards_img(); r.save(os.path.join(H, 'img', 'd11-rewards.jpg'), quality=86, optimize=True, progressive=True)
     k.resize((600, 600)).save('/sessions/great-festive-darwin/mnt/outputs/k.jpg', quality=85)
