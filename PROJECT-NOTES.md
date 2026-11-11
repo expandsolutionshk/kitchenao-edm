@@ -39,7 +39,7 @@
 | 18404 公司到會頁 | `wp-pages/en/18404-corporate-catering-hk/build_corp.py` | |
 | 雙 11 EDM | `1111-2026/build.py` → `email.html` | KV：`1111-2026/make_kv3.py` |
 | 雙 11 圖片 | `1111-2026/img/` | `d11-kv.jpg`（C2 無膠囊）、`d11-rewards.jpg`、會員贈品圖 |
-| 雙 11 KV 來源相 | `1111-2026/src/` | make_kv3.py 讀 `/tmp/kv/`，重建前先 `cp 1111-2026/src/* /tmp/kv/` |
+| 雙 11 KV 來源相 | `1111-2026/src/` | make_kv3.py 直接讀此資料夾 |
 | Downloads 交付物備份 | `_backup/downloads-2026-11-11/` | 複製頁、預覽頁等 |
 
 ## 4. 雙 11（2026）最終內容
