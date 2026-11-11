@@ -1,7 +1,7 @@
 /* Kitchen AO 2026 Double 11 floating icon + promotion banner (zh / en auto)
    Install: WPCode > Add Snippet > JavaScript Snippet > Auto Insert > Site Wide Footer > Active
    - Floating "11.11" icon bottom-left (WhatsApp button stays bottom-right)
-   - Click icon to open the banner; auto opens once per 24 hours (first page view, after 4 s)
+   - Banner opens only when the icon is clicked (no auto popup)
    - Hidden on cart / checkout / my-account; removes itself after 17 Nov 2026 23:59 HKT */
 (function(){
   try{
@@ -84,12 +84,6 @@
         if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText('DOUBLE11').then(done); }
         else { var t = document.createElement('textarea'); t.value = 'DOUBLE11'; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); try{ document.execCommand('copy'); done(); }catch(e){} document.body.removeChild(t); }
       });
-      // 每 24 小時自動彈出一次
-      var KEY = 'ao_d11_seen', now = Date.now(), last = 0;
-      try{ last = +localStorage.getItem(KEY) || 0; }catch(e){}
-      if (now - last > 864e5) {
-        setTimeout(function(){ if (!ov.classList.contains('on')) { open('auto'); try{ localStorage.setItem(KEY, String(Date.now())); }catch(e){} } }, 4000);
-      }
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
   }catch(err){}
