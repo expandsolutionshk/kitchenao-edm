@@ -287,7 +287,7 @@ def _arch(im, w, h, outline=True):
 CAP = ['精緻擺盤到會', '「冩樂」蟹皇左口魚煲仔飯', '自助餐到會']
 def kv_design(n, pill_on=True):
     global HH, SY, GLOW_Y
-    HH, SY, GLOW_Y = 1200, (1030 if n in (1, 2) else 99999), 860
+    HH, SY, GLOW_Y = 1240, (1030 if n in (1, 2) else 99999), 880
     bg = background(); bg = title(bg, top=70, size=300)
     d = ImageDraw.Draw(bg)
     line(d, [('一連七天', INK)], f_cjk(104), 372)
@@ -325,7 +325,7 @@ def kv_design(n, pill_on=True):
         for xx in (376, 824): d.line([(xx, y0), (xx, y0 + h)], fill=GOLD, width=3)
         d.line([(0, y0 - 2), (W, y0 - 2)], fill=GOLD, width=4); d.line([(0, y0 + h + 1), (W, y0 + h + 1)], fill=GOLD, width=4)
     elif n == 5:  # C2：內縮圓角全景，中間格加高凸出
-        y0, h = 690, 360; m = 40; ws = [352, 0, 352]; cw = W - 2 * m - 352 * 2 - 24
+        y0, h = 750, 360; m = 40; ws = [352, 0, 352]; cw = W - 2 * m - 352 * 2 - 24
         strip = Image.new('RGBA', (W - 2 * m, h), (0, 0, 0, 0))
         strip.alpha_composite(fit(bento, 352, h).convert('RGBA'), (0, 0)); strip.alpha_composite(fit(buf, 352, h).convert('RGBA'), (352 + 12 + cw + 12, 0))
         mk = Image.new('L', strip.size, 0); ImageDraw.Draw(mk).rounded_rectangle([0, 0, strip.width - 1, h - 1], 24, fill=255); strip.putalpha(ImageChops.multiply(strip.getchannel('A'), mk))
@@ -343,7 +343,7 @@ def kv_design(n, pill_on=True):
     bg.alpha_composite(tab, (W - 84, 110))
     d = ImageDraw.Draw(bg); fp = f_cjk(32); pill = '2026.11.11 至 11.17　優惠碼 DOUBLE11'
     pw = d.textlength(pill, font=fp) + 72; x0 = (W - pw) / 2; y0 = 1112
-    if not pill_on: return bg.convert('RGB').crop((0, 0, W, 1100))
+    if not pill_on: return bg.convert('RGB').crop((0, 0, W, 1210 if n == 5 else 1100))
     if n == 6: d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, outline=GOLD, width=3); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
     else: d.rounded_rectangle([x0, y0, x0 + pw, y0 + 64], 32, fill=INK); d.text((x0 + 36, y0 + 10), pill, font=fp, fill=GOLD_L)
     return bg.convert('RGB')
