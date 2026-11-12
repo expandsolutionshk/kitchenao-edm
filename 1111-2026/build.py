@@ -428,7 +428,7 @@ def edm():
             '<p style="margin:0 0 4px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;">FOUR REWARDS</p>'
             '<p style="margin:0 0 4px;color:#1A1A1A;font-size:24px;line-height:32px;font-weight:800;">雙 11 四重賞</p>'
             + '</td></tr>'
-            + f'<tr><td style="padding:16px 0 0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer"><img src="{GH}d11-rewards.jpg" width="680" alt="雙 11 四重賞：第一賞滿 HK$1,100 全單 11% OFF；第二賞滿 HK$1,500 送日式雞皮餃子 10 件（原價 $198）；第三賞滿 HK$2,200 再加送避風塘海鮮豆腐 10 件（原價 $178）；第四賞滿 HK$3,000 再加送蜜蜜燒雞翼 10 件（原價 $188）" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>'
+            + f'<tr><td style="padding:16px 0 0;background:#F3E7D2;font-size:0;line-height:0;"><a href="{u("/")}" target="_blank" rel="noopener noreferrer"><img src="{GH}d11-rewards.jpg" width="680" alt="雙 11 四重賞：第一賞滿 HK$1,100 全單 11% OFF；第二賞滿 HK$1,500 送日式雞皮餃子配酥炸洋蔥圈 10 件（原價 $198）；第三賞滿 HK$2,200 再加送避風塘炸海鮮豆腐配海鮮甜醬 10 件（原價 $178）；第四賞滿 HK$3,000 再加送蜜蜜燒雞翼配脆薯角 10 件（原價 $188）" style="width:100%;max-width:680px;height:auto;display:block;border:0;"></a></td></tr>'
             + '<tr><td style="padding:0 0 22px;background:#F3E7D2;font-size:0;line-height:0;">&nbsp;</td></tr>')
     member2 = ('<tr><td align="center" style="padding:30px 24px 6px;background:#ffffff;">'
                '<p style="margin:0 0 4px;color:#9A7B2E;font-size:12px;font-weight:bold;letter-spacing:3px;">MEMBER ZONE</p>'

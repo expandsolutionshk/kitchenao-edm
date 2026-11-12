@@ -52,6 +52,8 @@
     + '#ao-d11-box a.b{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:40px;font-size:15px;font-weight:800;text-decoration:none!important;letter-spacing:.05em;margin:0 0 10px}'
     + '#ao-d11-box a.dk{background:#1A1A1A;color:#E4C77E!important}'
     + '#ao-d11-box a.ol{background:#fff;border:1.5px solid #1A1A1A;color:#1A1A1A!important;margin:0}'
+    + '#ao-d11-box button.go{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;margin:14px 0 0;border-radius:40px;background:#1A1A1A;border:0;color:#E4C77E;font:inherit;font-size:15px;font-weight:800;letter-spacing:.05em;cursor:pointer}'
+    + '#ao-d11-box button.go:hover{opacity:.88}'
     + '@media(max-width:640px){#ao-d11-fab{left:12px;bottom:14px;width:60px;height:60px}#ao-d11-fab b{font-size:15px}}'
     + '@media(prefers-reduced-motion:reduce){#ao-d11-fab,#ao-d11-fab:before,#ao-d11-box{animation:none}}';
     var st = document.createElement('style'); st.id = 'ao-d11-css'; st.textContent = css; document.head.appendChild(st);
@@ -68,7 +70,7 @@
       + '<a href="' + T.menu + '"><img src="' + T.kv + '" alt="' + T.title + '：' + T.lead + '" width="768" height="787" loading="lazy"></a>'
       + '<div class="bd"><div class="cd"><div><small>' + T.code + '</small><div class="r"><strong>DOUBLE11</strong><button type="button" class="cp">' + T.copy + '</button></div>'
       + '<span class="dt">' + T.date + '</span></div></div>'
-      + '</div></div>';
+      + '<button type="button" class="b ol go">' + T.more + '</button></div></div>';
 
     function open(src){ ov.classList.add('on'); track('open_' + src); }
     function close(){ ov.classList.remove('on'); track('close'); }
@@ -80,6 +82,14 @@
       document.body.appendChild(fab); document.body.appendChild(ov);
       document.getElementById('ao-d11-x').addEventListener('click', close);
       [].forEach.call(ov.querySelectorAll('a'), function(a){ a.addEventListener('click', function(){ track('click_' + (a.className.indexOf('dk') > -1 ? 'order' : a.className.indexOf('ol') > -1 ? 'rewards' : 'kv')); }); });
+      ov.querySelector('.go').addEventListener('click', function(){
+        track('click_rewards'); close();
+        var t = document.getElementById('double11');
+        if (t) {
+          var off = parseInt(getComputedStyle(document.body).paddingTop, 10) || 0;
+          window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - off - 10, behavior: 'smooth' });
+        } else { location.href = T.home; }
+      });
       var cp = ov.querySelector('.cp');
       cp.addEventListener('click', function(){
         function done(){ cp.classList.add('ok'); cp.textContent = T.copied; track('copy_code'); setTimeout(function(){ cp.classList.remove('ok'); cp.textContent = T.copy; }, 2000); }

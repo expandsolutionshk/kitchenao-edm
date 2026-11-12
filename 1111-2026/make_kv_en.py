@@ -13,15 +13,16 @@ R = [
  # 卡內文字
  ("'日式雞皮餃子', 198", "'Chicken Skin Gyoza', 198"), ("'避風塘海鮮豆腐', 178", "'Seafood Tofu', 178"), ("'蜜蜜燒雞翼', 188", "'Honey Chicken Wings', 188"),
  ("name, sub = '全單 11% OFF', '全網套餐及單點'", "name, sub = '11% OFF', 'All sets & a la carte'"),
- ("name, sub = '全網 11% OFF', '全網所有套餐及單點'", "name, sub = '11% OFF Sitewide', 'All sets & a la carte'"),
+ ("name, pair, sub = '全網 11% OFF', '', '全網所有套餐及單點'", "name, pair, sub = '11% OFF Sitewide', '', 'All sets & a la carte'"),
  ("f'10 件・原價 ${ITEMS[key][3]}'", "f'10 pcs · worth ${ITEMS[key][3]}'"),
  ("fn = f_cjk(32 if len(name) <= 6 else 30); fs = f_cjk(27, False)", "fn = f_cjk(22); fs = f_cjk(20, False)"),
- ("fv = f_cjk(30); fn = f_cjk(36); fs = f_cjk(30, False); y = pad + ph + 12", "fv = f_cjk(26); fn = f_cjk(28); fs = f_cjk(24, False); y = pad + ph + 12"),
  ("('第一賞', '1,100', [], 'off', '全單', '全網所有套餐及單點即減 11%')", "('Reward 1', '1,100', [], 'off', 'Whole order', '11% off everything')"),
  ("('第二賞', '1,500', ['off'], 'a1600', '送', '11% OFF＋送 1 款小食・小食總值 $198')", "('Reward 2', '1,500', ['off'], 'a1600', 'Free', '11% OFF + 1 free snack・Snacks worth $198')"),
  ("('第三賞', '2,200', ['off', 'a1600'], 'a1500', '再加送', '11% OFF＋送 2 款小食・小食總值 $376')", "('Reward 3', '2,200', ['off', 'a1600'], 'a1500', 'Plus', '11% OFF + 2 free snacks・Snacks worth $376')"),
  ("('第四賞', '3,000', ['off', 'a1600', 'a1500'], 'a0500', '再加送', '11% OFF＋送 3 款小食・小食總值 $564')", "('Reward 4', '3,000', ['off', 'a1600', 'a1500'], 'a0500', 'Plus', '11% OFF + 3 free snacks・Snacks worth $564')"),
  ("t1, t2 = lv, '滿 $' + amt", "t1, t2 = lv, 'Spend $' + amt"),
+ ("PAIR = {'a1600': '配酥炸洋蔥圈', 'a1500': '配海鮮甜醬', 'a0500': '配脆薯角'}", "PAIR = {'a1600': 'with Crispy Onion Rings', 'a1500': 'with Seafood Sweet Sauce', 'a0500': 'with Potato Wedges'}"),
+ ("fv = f_cjk(30); fn = f_cjk(36); fp = f_cjk(28); fs = f_cjk(30, False); y = pad + ph + 12", "fv = f_cjk(26); fn = f_cjk(28); fp = f_cjk(22); fs = f_cjk(24, False); y = pad + ph + 12"),
 ]
 for a, b in R:
     assert a in src, a[:60]
