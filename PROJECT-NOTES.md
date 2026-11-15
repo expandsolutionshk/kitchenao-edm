@@ -60,3 +60,7 @@
 - 聖誕：landing page 原定 11-10 前上線（已過期）；需確認 2026 聖誕套餐是否上架、有否早鳥。策略文件：Claude Docs「Kitchen AO 聖誕頁面 SEO 策略 2026」。
 - 18404：替換暫用相片及假評語；Pexels 圖上傳到 WP 媒體庫；產品卡 v2 選項未定。
 - 到會推介（REC）頁需重寫以配合「香港到會推介」KW。
+
+## 檔案存放規則（2026-11-15）
+- Production 檔案要放 OneDrive Desktop「cowork - aoao」對應資料夾（例如 cowork - aoao/xmas-2026/），唔好只放 Downloads。
+- Blog 寫作規則：cowork - aoao/blog/Blog寫作規則.md（最後一段用「編輯總結」、書面語、圖片 16:9＋4:5 WebP、英文檔名）。
