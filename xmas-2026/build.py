@@ -19,7 +19,7 @@ HOLLY = ('<svg viewBox="0 0 48 24" aria-hidden="true"><path d="M24 12c-6-8-14-8-
 
 IB = 'https://aoaodelivery.com/wp-content/uploads/2026/11/'
 V5 = ['寶箱煙燻慢煮美國牛翼板肉', '燒南乳香慢煮原隻黃油雞', '芒果粟子蓉冬日酥盒', '聖誕馴鹿脆脆開心果朱古力撻', '雙重龍蝦三重芝士煲仔鍋飯', '玫瑰醬泡菜海蝦意大利飯',
-      '紅寶神石榴大蝦柚肉沙律', '紅寶神石榴煙火雞胸蜜桃沙律', '皇帝蟹棒蟹肉芒果牛油果沙律', '聖誕樹芝士火腿拼盤', '西班牙辣肉腸熔岩芝士杯']
+      '紅寶神石榴大蝦柚肉沙律', '紅寶神石榴煙火雞胸蜜桃沙律', '皇帝蟹棒蟹肉芒果牛油果沙律', '聖誕樹芝士火腿拼盤', '西班牙辣肉腸熔岩芝士杯', '明太子芝士忌廉牛角酥']
 XS = '<span class="xs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5l-2-2M12 5l2-2M12 19l-2 2M12 19l2 2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>XMAS SPECIAL</span>'
 def xs(n): return XS if any(v in n for v in V5) else ''
 def ao(title, groups, cta, pics=()):
@@ -58,15 +58,15 @@ DES = [('彩繪薑餅人曲奇', '薑及肉桂香氣交織，畫上糖霜笑臉�
        ('暖心心太軟聖誕 Brownie', '加熱後內餡濃郁流心，配雲呢拿雪糕，冷熱交融。', 'photo-1654796605330-8a1248a2cb07', 'ABHISHEK HAJARE')]
 
 AO_SNK = ao('Kitchen AO 聖誕前菜及小食精選', [
-    ('聖誕前菜', '2026 聖誕新菜', [('芒果粟子蓉冬日酥盒', '日本栗子蓉配新鮮芒果粒，酸甜開胃', ''), ('西班牙辣肉腸熔岩芝士杯', '進口薩拉米辣肉腸配三重芝士，趁熱享用', '')]),
-    ('精緻一口酥點及烘焙', '適合拍照及站立交流', [('蠔油鮑汁野菌鮑魚酥', '中式鮑魚融入酥皮點心，節日感十足', ''), ('明太子芝士忌廉牛角酥', '日式鹹甜風味', ''), ('焗雙色芝士吞拿魚脆法包', '外脆內軟，芝士拉絲', '')]),
+    ('聖誕前菜', '2026 聖誕新菜', [('芒果粟子蓉冬日酥盒', '日本栗子蓉配新鮮芒果粒，酸甜開胃', ''), ('明太子芝士忌廉牛角酥', '牛角酥夾入明太子芝士忌廉，鹹香柔滑', ''), ('西班牙辣肉腸熔岩芝士杯', '進口薩拉米辣肉腸配三重芝士，趁熱享用', '')]),
+    ('精緻一口酥點及烘焙', '適合拍照及站立交流', [('蠔油鮑汁野菌鮑魚酥', '中式鮑魚融入酥皮點心，節日感十足', ''), ('焗雙色芝士吞拿魚脆法包', '外脆內軟，芝士拉絲', '')]),
     ('異國惹味熱食', '適合配啤酒及香檳', [('西班牙手工伊比利黑毛豬可樂餅', '外皮酥脆，內餡綿密', ''), ('墨西哥芝士粟米片配三色醬', '分享必備', P + 'a3100-cheese-nachos-with-flavorful-three-colour-salsa/'), ('忌廉芝士嫩雞墨西哥餡餅', '薄餅夾嫩雞及芝士', ''),
         ('日式雞皮餃子配酥炸洋蔥圈', '居酒屋風味', P + 'a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/'), ('九層塔香酥雞', '外酥內嫩，佐酒一流', P + 'a2800-crispy-basil-chicken-dice/')]),
     ('創意海鮮及手工肉丸', '老少咸宜', [('鹹蛋黃焗釀蟹蓋', '蟹肉鮮味突出', ''), ('法式聖誕龍蝦汁燴蛋餃', '龍蝦湯慢燴手工蛋餃', ''),
         ('懷舊芝麻蝦滑多士配泰汁', '港式經典', P + 'a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/'), ('迷你芝士手打漢堡', '手打肉餅多汁', P + 'a0700-handmade-mini-cheeseburger/'),
-        ('夏威夷茄醬菠蘿燴手工肉丸', '酸甜解膩', ''), ('蜜蜜燒雞翼配脆薯角', '最快被清盤的單品', P + 'a0500-honey-glazed-chicken-wings-w-potato-wedges/')])], '查看聖誕到會套餐', [('20_26xmas-chestnut-pastry.jpg', '芒果粟子蓉冬日酥盒')])
+        ('夏威夷茄醬菠蘿燴手工肉丸', '酸甜解膩', ''), ('蜜蜜燒雞翼配脆薯角', '最快被清盤的單品', P + 'a0500-honey-glazed-chicken-wings-w-potato-wedges/')])], '查看聖誕到會套餐', [('20_26xmas-chestnut-pastry.jpg', '芒果粟子蓉冬日酥盒'), ('20_26xmas-mentaiko-crossant.jpg', '明太子芝士忌廉牛角酥')])
 AO_SAL = ao('Kitchen AO 聖誕沙律及拼盤精選', [
-    ('海鮮及鮮果沙律', '', [('啖啖松葉蟹三文魚籽芒果沙律', '鮮味層次分明', ''), ('皇帝蟹棒蟹肉芒果牛油果沙律', '配檸檬蛋黃醬', ''),
+    ('海鮮及鮮果沙律', '', [('皇帝蟹棒蟹肉芒果牛油果沙律', '配檸檬蛋黃醬', ''),
         ('紅寶神石榴大蝦柚肉沙律', '柚子檸檬油醋汁，酸甜解膩', ''), ('紅寶神石榴煙火雞胸蜜桃沙律', '青瓜乳酪醬，清爽輕盈', ''),
         ('油香煙三文魚特調凱撒沙律', '特製凱撒醬', P + 's0300-smoked-salmon-caesar-salad/')]),
     ('聖誕神秘加配｜派對焦點冷盤', '', [('聖誕樹芝士火腿拼盤（Shiny Cold Cut Tree-style Platter）', '火腿及芝士砌成立體聖誕樹，上桌即成拍照焦點', '')])], '瀏覽造型拼盤及沙律', [('20_26xmas-prawn-salad.jpg', '紅寶神石榴大蝦柚肉沙律')])
@@ -85,8 +85,7 @@ AO_PAS = ao('Kitchen AO 節日意粉及飯精選', [
         ('泰國蝦頭油珍珠帶子海鮮蟹籽炒飯', '粒粒分明，鮮味滿溢', '')])], '預訂聖誕主食', [('20_26xmas-bowl-jai.jpg', '雙重龍蝦三重芝士煲仔鍋飯'), ('20_26xmas-korea-rice.jpg', '玫瑰醬泡菜海蝦意大利飯')])
 AO_DES = ao('Kitchen AO 冬日手工甜品', [('', '', [
     ('聖誕馴鹿脆脆開心果朱古力撻', '開心果白朱古力醬配脆脆及開心果碎，朱古力曲奇鹿角，輕盈應節', ''),
-    ('法式七彩馬卡龍', '小巧易拿', P + 'd01-french-colorful-macarons-10-pieces/'),
-    ('珍珠泡芙', '配咖啡及茶', P + 'd05-pearl-sugar-puffs-10pic/')])], '預訂聖誕甜品', [('20_26xmas-pistachio-tart.jpg', '聖誕馴鹿脆脆開心果朱古力撻')])
+    ('法式七彩馬卡龍', '小巧易拿', P + 'd01-french-colorful-macarons-10-pieces/')])], '預訂聖誕甜品', [('20_26xmas-pistachio-tart.jpg', '聖誕馴鹿脆脆開心果朱古力撻')])
 
 EB = ('<div class="xeb"><div class="xeb-l xbg"><svg class="sf" style="right:14px;top:12px;width:22px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5l-2-2M12 5l2-2M12 19l-2 2M12 19l2 2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg><small>MEGA EARLY BIRD</small><b>聖誕套餐 七九折</b><span>即日起至 2026 年 11 月 30 日 23:59</span></div>'
       '<div class="xeb-c"><small>優惠碼</small><b>MEGA79</b><span>21% OFF</span></div></div>')
