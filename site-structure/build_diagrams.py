@@ -141,9 +141,9 @@ D['聖誕節'] = dict(dir='LR', nodes=[
  N('S1', '惹味小食（單點）', '/product-category/a-la-carte/snacks/'), N('S2', '甜品（單點）', '/product-category/a-la-carte/dessert/'),
  N('V1', '公司到會（公司聖誕派對）', '/corporate-catering-hk/'), N('VE', '公司到會（英文）', '/en/corporate-catering-hk/'),
  N('DL', '送貨需知（平安夜送貨時段）', '/delivery/'), N('Q', '報價查詢', '/catering-quote-enquiry/'),
- N('SA', '系列分類｜聖誕寶藏箱<br/>煙燻美國牛翼板肉（6 個人數）', '', 'new'),
- N('SB', '系列分類｜聖誕金雞獻禮<br/>南乳香黃油原隻燒雞（6 個人數）', '', 'new'),
- N('SC', '系列分類｜聖誕開箱雙寶<br/>燒雞＋牛翼板肉（4 個人數）', '', 'new'),
+ N('SA', '系列分類｜煙燻慢煮美國牛翼板肉盛宴聖誕套餐（6 個人數）', '', 'new'),
+ N('SB', '系列分類｜燒南乳香慢煮原隻黃油雞聖誕套餐（6 個人數）', '', 'new'),
+ N('SC', '系列分類｜開箱雙寶聖誕套餐<br/>黃油雞＋牛翼板肉（4 個人數）', '', 'new'),
  N('PP', '16 個產品頁<br/>Focus：聖誕到會／聖誕套餐＋人數', '', 'new'),
 ], edges=['H -- 首頁 banner --> LP', 'LP --> SA & SB & SC', 'SA & SB & SC --> PP', 'PP -. "CTA：查看全部聖誕到會套餐" .-> LP', 'PP -. "12 人以上：公司聖誕派對" .-> V1', 'PP -. "送貨安排" .-> DL', 'LP --> C2 & C3 & C4', 'LP -. "CTA：公司聖誕派對" .-> V1', 'LP -. "CTA：平安夜送貨安排" .-> DL',
  'LP -. "CTA：大型活動報價" .-> Q', 'BL == 301 ==> LP', 'B2 -. "搵食工具：產品連結" .-> S1 & S2', 'B2 -. "CTA：聖誕到會套餐" .-> LP', 'B2 -. "公司聖誕派對" .-> V1', 'LP <-. 中英版本 .-> EN', 'EN -. "CTA：Office Christmas party" .-> VE'])
