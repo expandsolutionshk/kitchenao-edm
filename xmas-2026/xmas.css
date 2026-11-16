@@ -1,0 +1,119 @@
+
+/* ===== 聖誕 Blog 加入（黑金＋聖誕元素）===== */
+body{margin:0;background:#FBF8F2}
+.mk{background:#1A1A1A;color:#C9BFA8;font:13px/1.6 -apple-system,"PingFang HK",sans-serif;padding:8px 20px}.mk b{color:#F7CE46}
+.page{max-width:1240px;margin:0 auto;padding:0 20px 60px}
+.crumb{font:13px -apple-system,"PingFang HK",sans-serif;color:#9A8f7e;padding:16px 0 6px}.crumb a{color:#9A8f7e;text-decoration:none}
+.ttl{font:800 32px/1.4 -apple-system,"PingFang HK",sans-serif;color:#1A1A1A;margin:4px 0 8px;max-width:900px}
+.meta{font:13px -apple-system,"PingFang HK",sans-serif;color:#9A8f7e;margin:0 0 22px}
+.lay{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+.ao-article{max-width:none;margin:0}
+.src{font-size:14px;color:#6b6252}
+/* KV */
+.xkv{position:relative;overflow:hidden;border-radius:18px;background:radial-gradient(120% 90% at 80% 10%,#3a2c18 0,#1A1A1A 55%);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin:0 0 26px;color:#F7CE46}
+.xkv:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff22 1.2px,transparent 1.6px),radial-gradient(#F7CE4630 1px,transparent 1.4px);background-size:38px 38px,23px 23px;background-position:0 0,11px 17px}
+.xkv:after{content:"";position:absolute;inset:14px;border:1px solid #C8A24A66;border-radius:12px}
+.xkv .in{position:relative;text-align:center;font-family:-apple-system,"PingFang HK",sans-serif}
+.xkv small{display:block;letter-spacing:.5em;font-size:12px;color:#C8A24A}
+.xkv b{display:block;font-size:34px;color:#fff;margin:8px 0 6px;letter-spacing:.06em}
+.xkv span{font-size:13px;color:#C9BFA8}
+.xkv .sf{position:absolute;width:30px;color:#C8A24A;opacity:.55}
+/* intro & 30 秒答案 */
+/* H2 編號 */
+.ao-h2 .no{display:inline-block;font-size:14px;font-weight:800;color:#B03426;letter-spacing:.08em;margin-right:10px;vertical-align:4px}
+.sub{font-size:13px;font-weight:700;letter-spacing:.2em;color:#9A7B2E;margin:22px 0 10px!important}
+/* 市面常見：相片卡（統一 4:3） */
+.xd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:6px 0 22px}
+.xd{margin:0;background:#fff;border:1px solid #EBE3D2;border-radius:14px;overflow:hidden}
+.xd .ph{position:relative;aspect-ratio:4/3;background:#EFE7D4}
+.xd img{width:100%;height:100%;object-fit:cover;display:block}
+.xd .cr{position:absolute;right:8px;bottom:6px;font-size:10.5px;color:#fff;background:#0007;border-radius:10px;padding:1px 8px}
+.xd figcaption{padding:10px 13px 13px}.xd figcaption b{display:block;font-size:15px;color:#1A1A1A;margin:0 0 3px}.xd figcaption span{font-size:13.5px;color:#4A4238;line-height:1.65;display:block}
+/* Kitchen AO 精選：黑金面板 */
+.xa{background:#1A1A1A;border-radius:18px;padding:22px 24px 20px;margin:4px 0 30px;position:relative;overflow:hidden}
+.xa:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff14 1px,transparent 1.4px);background-size:26px 26px;pointer-events:none}
+.xa-h{position:relative;color:#F7CE46;font-size:19px;font-weight:800;margin:0 0 6px}.xa-h .star{color:#B03426;margin-right:8px}
+.xa .gt{position:relative;color:#C8A24A;font-weight:800;font-size:14px;letter-spacing:.06em;margin:16px 0 6px!important}.xa .gt small{color:#9A8f7e;font-weight:400;margin-left:8px;letter-spacing:0}
+.xa ul{position:relative;list-style:none;margin:0!important;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.xa li{margin:0!important;padding:9px 0;border-top:1px solid #3A3A3A;font-size:14.5px;line-height:1.6}
+.xa li a{color:#fff!important;text-decoration:none!important;font-weight:700;display:block}.xa li a:not(.todo):after{content:" ↗";color:#C8A24A}
+.xa li span{color:#B9AE97;font-size:13.5px}
+.xa-cta{position:relative;display:inline-block;margin-top:16px;background:#C8A24A;color:#1A1A1A!important;font-weight:800;text-decoration:none!important;border-radius:40px;padding:9px 22px;font-size:14.5px}
+a.todo{cursor:default}
+/* Mega Early Bird 優惠券 */
+.xeb{display:flex;align-items:stretch;border-radius:16px;overflow:hidden;margin:26px 0;background:#1A1A1A;border:1px solid #C8A24A;font-family:-apple-system,"PingFang HK",sans-serif}
+.xeb-l{flex:1;padding:20px 26px}.xeb-l small{color:#C8A24A;letter-spacing:.3em;font-size:11.5px;font-weight:700}.xeb-l b{display:block;color:#fff;font-size:22px;margin:2px 0}.xeb-l span{color:#C9BFA8;font-size:13.5px}
+.xeb-c{width:170px;background:#C8A24A;color:#1A1A1A;text-align:center;padding:16px 10px;border-left:2px dashed #1A1A1A;display:flex;flex-direction:column;justify-content:center}.xeb-c small{font-size:12px;font-weight:700}.xeb-c b{font-size:26px;letter-spacing:.08em}.xeb-c span{font-size:13px;font-weight:800;color:#B03426}
+/* 右欄 */
+aside .stk{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px;font-family:-apple-system,"PingFang HK",sans-serif}
+.sb{background:#fff;border:1px solid #EBE3D2;border-radius:16px;padding:16px 18px}
+.sb-h{font-size:12px;font-weight:800;letter-spacing:.25em;color:#C8A24A;margin:0 0 10px!important}
+.sb-meta{display:flex;gap:14px;font-size:13px;color:#4A4238}.sb-meta div b{display:block;font-size:11.5px;color:#9A8f7e;font-weight:400}
+.sb-toc{list-style:none;margin:0!important;padding:0!important}.sb-toc li{margin:0!important}.sb-toc a{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed #EBE3D2;color:#3f3a33!important;text-decoration:none!important;font-size:14.5px;font-weight:400!important}
+.sb-toc li:first-child a{border-top:0}.sb-toc i{font-style:normal;font-size:11.5px;font-weight:800;color:#C8A24A;width:20px}
+.sb-toc a.on{color:#1A1A1A!important;font-weight:800!important}.sb-toc a.on i{color:#B03426}
+.sb-eb{background:#1A1A1A;border-color:#C8A24A;color:#C9BFA8;text-align:center;position:relative;overflow:hidden}
+.sb-eb *{position:relative}.sb-eb small{color:#C8A24A;letter-spacing:.3em;font-size:11px;font-weight:700}.sb-eb b{display:block;color:#fff;font-size:18px;margin:4px 0}.sb-eb .code{display:inline-block;background:#C8A24A;color:#1A1A1A;font-weight:800;letter-spacing:.12em;border-radius:8px;padding:4px 14px;margin:6px 0;font-size:18px}.sb-eb span{display:block;font-size:12.5px}
+.sb-p{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px dashed #EBE3D2;color:#1A1A1A;text-decoration:none;font-size:14px}.sb-p:first-of-type{border-top:0}.sb-p b{color:#9A7B2E;white-space:nowrap}
+.sb-all{display:block;margin-top:8px;font-weight:800;color:#9A7B2E;text-decoration:none;font-size:14px}
+.sb-wa{background:#1A1A1A;color:#EDE6D6;font-size:14px;line-height:1.7}.sb-wa b{color:#F7CE46;display:block;font-size:16px;margin:0 0 4px}
+.sb-wa a{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;font-weight:800;border-radius:40px;padding:10px;margin-top:10px}
+.mtoc{display:none}
+@media(max-width:1000px){.lay{grid-template-columns:1fr}aside .stk{position:static}aside .stk>.sb:nth-child(2){display:none}.mtoc{display:block;margin:0 0 20px}.ttl{font-size:25px}}
+@media(max-width:640px){.xd-grid{grid-template-columns:1fr}.xa ul{grid-template-columns:1fr}.xeb{flex-direction:column}.xeb-c{width:auto;border-left:0;border-top:2px dashed #1A1A1A}.xkv b{font-size:24px}}
+
+/* 共用：KV 黑金聖誕底（CTA 用） */
+.xbg{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 80% 10%,#3a2c18 0,#1A1A1A 55%)!important;border-color:#C8A24A!important}
+.xbg:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff22 1.2px,transparent 1.6px),radial-gradient(#F7CE4630 1px,transparent 1.4px);background-size:38px 38px,23px 23px;background-position:0 0,11px 17px;pointer-events:none}
+.xbg:after{content:"";position:absolute;inset:8px;border:1px solid #C8A24A55;border-radius:10px;pointer-events:none}
+.xbg>*{position:relative;z-index:1}
+.xbg .sf{position:absolute;color:#C8A24A;opacity:.55;z-index:0}
+.xcta{border-radius:18px;text-align:center;padding:38px 24px 34px;margin:24px 0 36px;font-family:-apple-system,"PingFang HK",sans-serif}
+.xcta small{display:block;letter-spacing:.45em;font-size:11.5px;color:#C8A24A}
+.xcta b{display:block;color:#fff;font-size:24px;margin:8px 0 4px}
+.xcta span{display:block;color:#C9BFA8;font-size:14px}
+.xcta a{display:inline-block;margin-top:18px;background:#C8A24A;color:#1A1A1A!important;font-weight:800;text-decoration:none!important;border-radius:40px;padding:11px 30px;font-size:15.5px}
+.sb-wa.xbg{padding:20px 20px}
+
+.swipe{display:none}
+.ao-article ol{margin:0 0 18px;padding-left:22px}.ao-article ol li{margin:6px 0}
+@media(max-width:1000px) and (min-width:641px){.xd-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+.swipe{display:block;font-size:12.5px;color:#9A8f7e;margin:0 0 6px!important;text-align:right}
+.xd-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 2px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.xd-grid::-webkit-scrollbar{display:none}
+.xd{flex:0 0 78%;scroll-snap-align:start}
+}
+
+/* Kitchen AO 精選：Option A 象牙白聖誕餐牌卡 */
+.optA{background:#FFFCF5;border-radius:6px;padding:12px;margin:8px 0 34px;box-shadow:0 6px 24px rgba(60,40,15,.10)}
+.a-in{border:1px solid #C8A24A;outline:3px double #C8A24A;outline-offset:4px;padding:30px 34px;text-align:center}
+.a-top svg{width:56px;height:28px;display:block;margin:0 auto 6px}
+.a-k{font-size:11px;letter-spacing:.42em;color:#9A7B2E;margin:0!important}
+.optA h4{font-family:"Songti TC","Noto Serif TC",serif;font-size:26px;color:#1A1A1A;margin:8px 0 2px;letter-spacing:.06em}
+.a-orn{color:#C8A24A;margin:0 0 6px!important;letter-spacing:.3em}
+.a-st{display:flex;align-items:center;gap:14px;justify-content:center;font-family:"Songti TC","Noto Serif TC",serif;font-size:15px;letter-spacing:.3em;color:#B03426;margin:22px 0 10px!important}.a-st i{flex:0 0 46px;height:1px;background:#C8A24A}
+.a-sec{margin-top:14px}
+.optA ul{list-style:none;margin:0!important;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:14px 34px}
+.optA ul.one{grid-template-columns:1fr}
+.optA li{margin:0!important}
+.optA li a{display:block;font-family:"Songti TC","Noto Serif TC",serif;font-size:17px;font-weight:700;color:#1A1A1A!important;text-decoration:none!important}.optA li a:not(.todo):after{content:" ↗";color:#C8A24A;font-size:13px}
+.optA li span{display:block;font-size:13.5px;color:#7a6a52;font-style:italic;margin-top:2px;line-height:1.6}
+.a-cta{display:inline-block;margin-top:24px;border:1.5px solid #1A1A1A;color:#1A1A1A!important;text-decoration:none!important;font-weight:800;letter-spacing:.12em;padding:10px 28px;border-radius:2px;font-size:14px}
+@media(max-width:640px){.optA ul{grid-template-columns:1fr}.a-in{padding:24px 18px}}
+
+/* 餐牌卡內 Kitchen AO 實拍相 */
+.a-pics{display:grid;gap:12px;margin:14px auto 6px;align-items:start}
+.a-pics.n1{grid-template-columns:minmax(0,420px);justify-content:center}
+.a-pics.n2{grid-template-columns:1fr 1fr}
+.a-pics.n3{grid-template-columns:1fr 1fr 1fr}
+.a-pics figure{margin:0}
+.a-pics img{width:100%!important;height:auto!important;display:block;border:1px solid #E6D3A6;padding:4px;background:#fff;border-radius:2px!important}
+.a-pics figcaption{font-family:"Songti TC","Noto Serif TC",serif;font-size:13px;color:#7a6a52;font-style:italic;margin-top:6px}
+@media(max-width:640px){.a-pics.n3{grid-template-columns:1fr 1fr}.a-pics.n3 figure:first-child{grid-column:1/-1}}
+
+/* XMAS SPECIAL 標記（V5 主打菜式） */
+.optA .xs{display:inline-flex;align-items:center;gap:4px;background:#B03426;color:#F7CE46;font:800 10.5px/1 -apple-system,"PingFang HK",sans-serif;letter-spacing:.12em;padding:4px 9px 4px 7px;border-radius:20px;margin:0 0 5px;font-style:normal}
+.optA .xs svg{width:11px;height:11px;display:block}
+.optA .xs-note{font-size:12.5px;color:#7a6a52;margin:2px 0 4px!important}
+.optA .xs-note .xs{margin:0 4px 0 0;vertical-align:middle}
