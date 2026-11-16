@@ -90,7 +90,7 @@ aside .stk{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px;
 .a-in{border:1px solid #C8A24A;outline:3px double #C8A24A;outline-offset:4px;padding:30px 34px;text-align:center}
 .a-top svg{width:56px;height:28px;display:block;margin:0 auto 6px}
 .a-k{font-size:11px;letter-spacing:.42em;color:#9A7B2E;margin:0!important}
-.optA h4{font-family:"Songti TC","Noto Serif TC",serif;font-size:26px;color:#1A1A1A;margin:8px 0 2px;letter-spacing:.06em}
+.optA h4{font-family:"Songti TC","Noto Serif TC",serif;font-size:clamp(16px,4.8vw,26px);color:#1A1A1A;margin:8px 0 2px;letter-spacing:.04em;white-space:nowrap}
 .a-orn{color:#C8A24A;margin:0 0 6px!important;letter-spacing:.3em}
 .a-st{display:flex;align-items:center;gap:14px;justify-content:center;font-family:"Songti TC","Noto Serif TC",serif;font-size:15px;letter-spacing:.3em;color:#B03426;margin:22px 0 10px!important}.a-st i{flex:0 0 46px;height:1px;background:#C8A24A}
 .a-sec{margin-top:14px}
