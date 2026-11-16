@@ -29,8 +29,8 @@ def ao(title, groups, cta, pics=()):
         g += '<div class="a-sec">' + (f'<p class="a-st"><i></i>{t}<i></i></p>' if t else '') + f'<ul class="{one.strip()}">' + ''.join(
             (f'<li>{xs(n)}<a href="{u}">{n}</a><span>{d}</span></li>' if u else f'<li>{xs(n)}<a class="todo" href="#">{n}</a><span>{d}</span></li>')
             for n, d, u in its) + '</ul></div>'
-    return (f'<div class="optA"><div class="a-in"><div class="a-top">{HOLLY}</div><p class="a-k">KITCHEN AO · CHRISTMAS MENU</p>'
-            f'<h4>{title}</h4><p class="a-orn">— ✧ —</p><p class="xs-note">{XS} ＝ 2026 聖誕新菜及主打</p>' + (('<div class="a-pics n' + str(len(pics)) + '">' + ''.join(f'<figure><img src="{IB}{f}" alt="{c}" loading="lazy"><figcaption>{c}</figcaption></figure>' for f, c in pics) + '</div>') if pics else '') + f'{g}<a class="a-cta todo" href="#">{cta}</a></div></div>')
+    return (f'<div class="optA"><div class="a-in"><p class="xs-note">{XS} ＝ 2026 聖誕新菜及主打</p><div class="a-top">{HOLLY}</div><p class="a-k">KITCHEN AO · CHRISTMAS MENU</p>'
+            f'<h4>{title}</h4><p class="a-orn">— ✧ —</p>' + (('<div class="a-pics n' + str(len(pics)) + '">' + ''.join(f'<figure><img src="{IB}{f}" alt="{c}" loading="lazy"><figcaption>{c}</figcaption></figure>' for f, c in pics) + '</div>') if pics else '') + f'{g}<a class="a-cta todo" href="#">{cta}</a></div></div>')
 
 P = 'https://aoaodelivery.com/product/'
 SNK = [('芝士焗釀啡蘑菇', '啡蘑菇釀入香草麵包糠及芝士焗香，一口一件。不含肉類的做法亦適合素食朋友，宜焗好後盡快上桌。', 'photo-1640456604089-cc18763be2b5', 'Nick Nice'),
@@ -57,10 +57,10 @@ DES = [('彩繪薑餅人曲奇', '薑及肉桂香氣交織，畫上糖霜笑臉�
        ('法式聖誕馬卡龍', '紅、綠、白配色，外脆內軟，小巧易拿。', 'photo-1543921879-815164944436', 'Diliara Garifullina'),
        ('暖心心太軟聖誕 Brownie', '加熱後內餡濃郁流心，配雲呢拿雪糕，冷熱交融。', 'photo-1654796605330-8a1248a2cb07', 'ABHISHEK HAJARE')]
 
-AO_SNK = ao('Kitchen AO 聖誕小食精選', [
-    ('精緻一口酥點及烘焙', '適合拍照及站立交流', [('芒果粟子蓉冬日酥盒', '聖誕新菜｜日本栗子蓉配新鮮芒果粒，酸甜開胃的前菜', ''), ('蠔油鮑汁野菌鮑魚酥', '中式鮑魚融入酥皮點心，節日感十足', ''), ('明太子芝士忌廉牛角酥', '日式鹹甜風味', ''), ('焗雙色芝士吞拿魚脆法包', '外脆內軟，芝士拉絲', '')]),
-    ('異國惹味熱食', '適合配啤酒及香檳', [('西班牙手工伊比利黑毛豬可樂餅', '外皮酥脆，內餡綿密', ''), ('西班牙辣肉腸熔岩芝士杯', '微辣肉腸配三重芝士', ''),
-        ('墨西哥芝士粟米片配三色醬', '分享必備', P + 'a3100-cheese-nachos-with-flavorful-three-colour-salsa/'), ('忌廉芝士嫩雞墨西哥餡餅', '薄餅夾嫩雞及芝士', ''),
+AO_SNK = ao('Kitchen AO 聖誕前菜及小食精選', [
+    ('聖誕前菜', '2026 聖誕新菜', [('芒果粟子蓉冬日酥盒', '日本栗子蓉配新鮮芒果粒，酸甜開胃', ''), ('西班牙辣肉腸熔岩芝士杯', '進口薩拉米辣肉腸配三重芝士，趁熱享用', '')]),
+    ('精緻一口酥點及烘焙', '適合拍照及站立交流', [('蠔油鮑汁野菌鮑魚酥', '中式鮑魚融入酥皮點心，節日感十足', ''), ('明太子芝士忌廉牛角酥', '日式鹹甜風味', ''), ('焗雙色芝士吞拿魚脆法包', '外脆內軟，芝士拉絲', '')]),
+    ('異國惹味熱食', '適合配啤酒及香檳', [('西班牙手工伊比利黑毛豬可樂餅', '外皮酥脆，內餡綿密', ''), ('墨西哥芝士粟米片配三色醬', '分享必備', P + 'a3100-cheese-nachos-with-flavorful-three-colour-salsa/'), ('忌廉芝士嫩雞墨西哥餡餅', '薄餅夾嫩雞及芝士', ''),
         ('日式雞皮餃子配酥炸洋蔥圈', '居酒屋風味', P + 'a1600-japanese-chicken-skin-dumplings-with-crispy-onion-rings/'), ('九層塔香酥雞', '外酥內嫩，佐酒一流', P + 'a2800-crispy-basil-chicken-dice/')]),
     ('創意海鮮及手工肉丸', '老少咸宜', [('鹹蛋黃焗釀蟹蓋', '蟹肉鮮味突出', ''), ('法式聖誕龍蝦汁燴蛋餃', '龍蝦湯慢燴手工蛋餃', ''),
         ('懷舊芝麻蝦滑多士配泰汁', '港式經典', P + 'a3400-deep-fried-sesame-shrimp-toast-with-thai-sauce/'), ('迷你芝士手打漢堡', '手打肉餅多汁', P + 'a0700-handmade-mini-cheeseburger/'),
@@ -69,7 +69,7 @@ AO_SAL = ao('Kitchen AO 聖誕沙律及拼盤精選', [
     ('海鮮及鮮果沙律', '', [('啖啖松葉蟹三文魚籽芒果沙律', '鮮味層次分明', ''), ('皇帝蟹棒蟹肉芒果牛油果沙律', '配檸檬蛋黃醬', ''),
         ('紅寶神石榴大蝦柚肉沙律', '柚子檸檬油醋汁，酸甜解膩', ''), ('紅寶神石榴煙火雞胸蜜桃沙律', '青瓜乳酪醬，清爽輕盈', ''),
         ('油香煙三文魚特調凱撒沙律', '特製凱撒醬', P + 's0300-smoked-salmon-caesar-salad/')]),
-    ('聖誕神秘加配｜派對焦點冷盤', '', [('聖誕樹芝士火腿拼盤（Shiny Cold Cut Tree-style Platter）', '火腿、芝士、乾果及果仁砌成立體聖誕樹，上桌即成拍照焦點', '')])], '瀏覽造型拼盤及沙律', [('20_26xmas-prawn-salad.jpg', '紅寶神石榴大蝦柚肉沙律')])
+    ('聖誕神秘加配｜派對焦點冷盤', '', [('聖誕樹芝士火腿拼盤（Shiny Cold Cut Tree-style Platter）', '火腿及芝士砌成立體聖誕樹，上桌即成拍照焦點', '')])], '瀏覽造型拼盤及沙律', [('20_26xmas-prawn-salad.jpg', '紅寶神石榴大蝦柚肉沙律')])
 AO_MAIN = ao('Kitchen AO 聖誕主菜精選', [('', '', [
     ('寶箱煙燻慢煮美國牛翼板肉', '稀有下肩胛翼板肉，慢煮後煙燻炙烤，復古寶箱盛載，全港限量 100 個', ''),
     ('燒南乳香慢煮原隻黃油雞，配聖誕玫瑰金巴利汁', '本地黃油雞，皮脆肉滑，中西合璧', ''),
@@ -92,7 +92,7 @@ EB = ('<div class="xeb"><div class="xeb-l xbg"><svg class="sf" style="right:14px
       '<div class="xeb-c"><small>優惠碼</small><b>MEGA79</b><span>21% OFF</span></div></div>')
 SNOW = ('<svg class="sf" style="{s}" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5l-2-2M12 5l2-2M12 19l-2 2M12 19l2 2" '
         'stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>')
-TOC = [('snacks', '聖誕小食'), ('salad', '沙律、冷盤及拼盤'), ('mains', '聖誕主菜'), ('pasta', '意粉及飯'), ('dessert', '甜品、蛋糕及薑餅人'),
+TOC = [('snacks', '聖誕前菜及小食'), ('salad', '沙律、冷盤及拼盤'), ('mains', '聖誕主菜'), ('pasta', '意粉及飯'), ('dessert', '甜品、蛋糕及薑餅人'),
        ('diy', '聖誕小食 DIY'), ('portion', '份量配搭公式'), ('budget', '預算參考'), ('tips', '保溫及送貨貼士'), ('venues', '不同場地派對安排'), ('faq', '常見問題'), ('summary', '編輯總結')]
 tocli = ''.join(f'<li><a href="#{a}"><i>{i:02d}</i>{t}</a></li>' for i, (a, t) in enumerate(TOC, 1))
 def h2(i, a, t): return f'<h2 class="ao-h2" id="{a}"><span class="no">{i:02d}</span>{t}</h2>'
@@ -145,9 +145,9 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <p>簡單來說，聖誕派對菜單可按「小食、沙律、主菜、主食、甜品」五類配搭：小食負責暖場，沙律及冷盤平衡油膩，主菜是全場焦點，意粉或飯確保賓客吃得飽，最後以蛋糕或甜品作結。人數愈多，款數亦要相應增加：8 至 10 人約準備 7 至 8 款食物，18 至 22 人約 12 至 14 款，並可安排一款牛或豬配一款雞或海鮮作雙主菜。各人數的詳細配搭，可參考下文的<a href="#portion">份量配搭公式</a>。</p>
 <div class="sb mtoc"><p class="sb-h">目錄</p><ol class="sb-toc">{tocli}</ol></div>
 {EB}
-{h2(1, 'snacks', '聖誕小食：派對暖場的開胃手指食物')}
+{h2(1, 'snacks', '聖誕前菜及小食：派對暖場的開胃手指食物')}
 <p>籌備聖誕派對食物時，開胃小食的定位在於「暖場」與「方便」。賓客剛到場時忙於寒暄，方便拿取、不沾手的一口小食最受歡迎。</p>
-<p class="sub">市面常見聖誕小食</p>{dishes(SNK)}{AO_SNK}
+<p class="sub">市面常見聖誕前菜及小食</p>{dishes(SNK)}{AO_SNK}
 {h2(2, 'salad', '聖誕沙律、冷盤及拼盤：提升餐桌儀式感')}
 <p>在大魚大肉之間，清爽的沙律及視覺吸睛的冷盤，是平衡味蕾及提升餐桌顏值的關鍵。</p>
 <p class="sub">市面常見聖誕沙律及冷盤</p>{dishes(SAL)}{AO_SAL}
