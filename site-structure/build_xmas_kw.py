@@ -152,12 +152,12 @@ LP = card('LP', '交易型｜11 月 10 日前上線', [
   ('Focus Keyword', '<mark>聖誕到會</mark>（副：聖誕大餐、聖誕外賣、聖誕套餐）')], [
   '頁頂 150 至 300 字：聖誕到會套餐 2026、適合人數、截單日期及送貨時段（「聖誕到會」放在首段 100 字內）',
   '聖誕到會推介：按場合揀套餐（公司、家庭、小朋友、素食），承接舊 Blog 1 的「聖誕到會推介」「聖誕節到會」',
-  '按人數揀聖誕套餐：6 人、10 人、16 人、20 人、30 人以上，每個人數連去對應產品頁（「聖誕到會4人／6人」由 5-6 人產品頁主攻）',
+  '按人數揀聖誕套餐對照表（5 至 100 人，包括範圍之間的人數，例如 23 至 25 人：選 26-30 人套餐，或 18-22 人套餐加配單點），每行連去對應產品頁（詳見下方「LP 按人數揀套餐對照」）',
   '聖誕套餐列表（產品分類本身），每個套餐寫明人數、每位價錢及菜式',
   '聖誕小食加配：連去單點小食、甜品及 Blog 2 搵食工具',
   '公司聖誕派對到會：連去公司到會頁',
   '平安夜及聖誕節送貨安排、截單日期：連去送貨需知',
-  '常見問題（FAQPage schema）：要提早幾多預訂、平安夜可否送貨、有沒有火雞、可否加素食'], [
+  '常見問題（FAQPage schema）：要提早幾多預訂、平安夜可否送貨、有沒有火雞、可否加素食、「10 人／20 人聖誕派對應揀哪個套餐？」'], [
   '用產品分類頁做 Landing page（類似萬聖節狂嘩套餐分類），網址不帶年份，每年沿用。上線當日把舊 Blog「聖誕到會」301 轉到這頁。',
   'GKP 10-31：「聖誕到會」平均月搜 1,000，2025 年 11 月 3,600、12 月 8,100；「聖誕外賣」及「聖誕派對食物」12 月各 1,300；「聖誕套餐」12 月 880。11 月起急升，所以要 11 月 10 日前上線。',
   '對手做法（只作參考，頁面不寫品牌）：連鎖快餐及餐廳聖誕套餐約每位 HK$70 至 200，套餐按人數由 2 至 35 人；常見賣點是早鳥折扣（12 月中前預訂）、原隻燒火雞、滿額送贈品及熱食送到樓下。Kitchen AO 可突出食物質素、按人數配搭及全港送貨。',
@@ -226,8 +226,9 @@ SERC = f'''<div class="pc" id="SER" data-pg="SER"><div class="ph"><b>SER</b><spa
 _P = [('牛翼板肉','5-6','聖誕到會6人'),('牛翼板肉','8-10','聖誕到會10人'),('牛翼板肉','12-16','聖誕到會16人'),('牛翼板肉','18-22','聖誕到會20人'),('牛翼板肉','26-30','聖誕到會30人'),('牛翼板肉','35-40','聖誕到會40人'),
  ('原隻黃油雞','5-6','聖誕套餐6人'),('原隻黃油雞','8-10','聖誕套餐10人'),('原隻黃油雞','12-16','聖誕套餐16人'),('原隻黃油雞','18-22','聖誕套餐20人'),('原隻黃油雞','26-30','聖誕套餐30人'),('原隻黃油雞','35-40','聖誕套餐40人'),
  ('開箱雙寶','48-54','聖誕到會50人'),('開箱雙寶','63-68','聖誕到會65人'),('開箱雙寶','78-85','聖誕到會80人'),('開箱雙寶','90-100','聖誕到會100人')]
-_SC = {'5-6':'家庭小型聖誕聚會','8-10':'好友聖誕派對','12-16':'公司部門聖誕派對','18-22':'公司聖誕派對','26-30':'大型公司聖誕派對','35-40':'大型聖誕派對及年終聚餐','48-54':'公司年終派對','63-68':'大型公司聖誕活動','78-85':'大型企業聖誕活動','90-100':'百人企業聖誕活動'}
-PTAB = '<h2 id="prd-map">產品頁 Focus KW 對照（16 頁）</h2><div class="card"><div class="tw"><table class="pmap"><tr><th>#</th><th>系列</th><th>人數</th><th>Focus KW</th><th>場合（簡短說明首句）</th></tr>' + ''.join(f'<tr><td>{i}</td><td>{a}</td><td>{b}</td><td><mark>{c}</mark></td><td>{_SC[b]}</td></tr>' for i,(a,b,c) in enumerate(_P,1)) + '</table></div></div><style>.pmap{border-collapse:collapse;width:100%;font-size:14px}.pmap th,.pmap td{border:1px solid #eee;padding:6px 10px;text-align:left}.pmap th{background:#1A1A1A;color:#F7CE46}</style>'
+_SC = {'5-6':'小型聖誕聚會','8-10':'小型聖誕派對','12-16':'中型聖誕派對','18-22':'中型聖誕派對','26-30':'大型聖誕派對','35-40':'大型聖誕派對','48-54':'大型聖誕派對','63-68':'大型聖誕派對','78-85':'大型聖誕派對','90-100':'大型聖誕派對'}
+PTAB = '<h2 id="prd-map">產品頁 Focus KW 對照（16 頁）</h2><div class="card"><div class="tw"><table class="pmap"><tr><th>#</th><th>系列</th><th>人數</th><th>Focus KW</th><th>規模（簡短說明首句）</th></tr>' + ''.join(f'<tr><td>{i}</td><td>{a}</td><td>{b}</td><td><mark>{c}</mark></td><td>{_SC[b]}</td></tr>' for i,(a,b,c) in enumerate(_P,1)) + '</table><p style="margin:10px 0 0;font-size:14px;color:#6b6252">16 頁場合一致：「家庭聚會、好友派對、公司部門、學校、教會及機構聖誕活動皆宜」，只按人數寫規模。</p></div></div><style>.pmap{border-collapse:collapse;width:100%;font-size:14px}.pmap th,.pmap td{border:1px solid #eee;padding:6px 10px;text-align:left}.pmap th{background:#1A1A1A;color:#F7CE46}</style>'
+PAXTAB = '<h2 id="pax-map">LP 按人數揀套餐對照（5 至 100 人）</h2><div class="card"><p style="margin:0 0 8px;font-size:14px;color:#6b6252">放在 Landing page「按人數揀聖誕套餐」一節；黃底＝套餐人數之間的空隙，給兩個選擇。每行連去對應產品頁（5 至 40 人每個套餐都有牛翼板肉及原隻黃油雞兩款，兩款都要連）。</p><div class="tw"><table class="pmap"><tr><th>實際人數</th><th>建議套餐</th><th>另一選擇</th></tr><tr><td>5 至 6 人</td><td>5-6 人套餐</td><td></td></tr><tr class=gap><td>7 人</td><td>8-10 人套餐</td><td>或 5-6 人套餐加配單點</td></tr><tr><td>8 至 10 人</td><td>8-10 人套餐</td><td></td></tr><tr class=gap><td>11 人</td><td>12-16 人套餐</td><td>或 8-10 人套餐加配單點</td></tr><tr><td>12 至 16 人</td><td>12-16 人套餐</td><td></td></tr><tr class=gap><td>17 人</td><td>18-22 人套餐</td><td>或 12-16 人套餐加配單點</td></tr><tr><td>18 至 22 人</td><td>18-22 人套餐</td><td></td></tr><tr class=gap><td>23 至 25 人</td><td>26-30 人套餐</td><td>或 18-22 人套餐加配單點</td></tr><tr><td>26 至 30 人</td><td>26-30 人套餐</td><td></td></tr><tr class=gap><td>31 至 34 人</td><td>35-40 人套餐</td><td>或 26-30 人套餐加配單點</td></tr><tr><td>35 至 40 人</td><td>35-40 人套餐</td><td></td></tr><tr class=gap><td>41 至 47 人</td><td>48-54 人開箱雙寶聖誕套餐</td><td>或 35-40 人套餐加配單點</td></tr><tr><td>48 至 54 人</td><td>48-54 人開箱雙寶聖誕套餐</td><td></td></tr><tr class=gap><td>55 至 62 人</td><td>63-68 人開箱雙寶聖誕套餐</td><td>或 48-54 人套餐加配單點</td></tr><tr><td>63 至 68 人</td><td>63-68 人開箱雙寶聖誕套餐</td><td></td></tr><tr class=gap><td>69 至 77 人</td><td>78-85 人開箱雙寶聖誕套餐</td><td>或 63-68 人套餐加配單點</td></tr><tr><td>78 至 85 人</td><td>78-85 人開箱雙寶聖誕套餐</td><td></td></tr><tr class=gap><td>86 至 89 人</td><td>90-100 人開箱雙寶聖誕套餐</td><td>或 78-85 人套餐加配單點</td></tr><tr><td>90 至 100 人</td><td>90-100 人開箱雙寶聖誕套餐</td><td></td></tr><tr><td>100 人以上</td><td>報價查詢</td><td>連去報價查詢頁</td></tr></table></div></div><style>.pmap tr.gap td{background:#FFF8E6}</style>'
 OLDC = f'''<div class="pc" id="OLD" data-pg="OLD"><div class="ph"><b>OLD</b><span class="st">301 轉址｜Landing page 上線當日</span><a class="anc" href="#OLD" title="複製這頁的連結">🔗</a></div>
 <h3>舊 Blog：聖誕到會（併入 Landing page）</h3><p class="u"><a href="{P}/blog/christmas-catering-hong-kong/" target="_blank">/blog/christmas-catering-hong-kong/</a></p>
 <ul class="iss"><li><b>原因</b>：「聖誕到會推介」首頁全是傳媒的多品牌推介清單（HK01、星島），不寫對手就排不上；只寫自家套餐又和 Landing page 重疊，兩頁會互搶「聖誕到會」。</li>
@@ -274,6 +275,7 @@ page = f'''<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <h2>頁面分配</h2><div class="grid1">{LP}{PRD_C}{B2}{LPEN}</div>
 <div class="grid">{SERC}</div>
 {PTAB}
+{PAXTAB}
 <div class="grid">{OLDC}{XC}</div>
 <h2 id="after">🎄 節後設定（12 月 27 日起）</h2><div class="card snote"><ol>
 <li><b>Landing page（聖誕套餐分類）：保留，不 301。</b>網址用 <code>/product-category/christmas-set/</code>，不要加年份，每年 11 月沿用；H1、Title 內的年份每年更新即可。</li>
