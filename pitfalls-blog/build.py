@@ -7,7 +7,7 @@ IMG_KV = U + '/wp-content/uploads/2026/11/catering-pitfalls-guide-2026.jpg'
 IMG_CMP = U + '/wp-content/uploads/2025/04/ChatGPT-Image-2025%E5%B9%B44%E6%9C%888%E6%97%A5-%E4%B8%8B%E5%8D%8804_06_04.png'
 
 CSS = r'''
-.ao-pf{--k:#141414;--g:#C8A24A;--iv:#F7F5F0;--ln:#E6DFD0;--mu:#6b645c;color:#222;font-size:17px;line-height:1.85}
+.ao-pf{--k:#141414;--g:#C8A24A;--iv:#F7F5F0;--ln:#E6DFD0;--mu:#6b645c;color:#222;font-size:18px;line-height:1.85}
 .ao-pf *{box-sizing:border-box}
 .ao-pf p{margin:0 0 16px}
 .ao-pf a{color:#141414;text-decoration:underline;text-decoration-color:#C8A24A;text-underline-offset:3px}
@@ -116,8 +116,8 @@ CSS = r'''
 
 
 /* 兩欄版面 */
-.ao-pf{max-width:1240px;margin:0 auto}
-.ao-pf .lay{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:44px;align-items:start}
+.ao-pf{max-width:none;margin:0}
+.ao-pf .lay{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start;padding:10px 0 40px}
 .ao-pf .mn,.ao-pf .sd{min-width:0}
 .ao-pf{overflow-wrap:anywhere}
 .ao-pf .mob{display:none}
@@ -146,7 +146,7 @@ CSS = r'''
 .ao-pf .sb-wa{background:var(--iv);border-color:var(--iv);color:#4a443d;font-size:13.5px}
 .ao-pf .sb-wa b{display:block;color:#141414;font-size:15.5px;margin-bottom:4px}
 .ao-pf .sb-wa a{display:flex;align-items:center;justify-content:center;margin-top:12px;min-height:44px;border-radius:40px;background:#141414;color:#E4C77E;text-decoration:none;font-weight:800;font-size:14px;letter-spacing:.06em}
-@media(max-width:1000px){
+@media(max-width:1024px){
  .ao-pf .lay{grid-template-columns:minmax(0,1fr);gap:30px}
  .ao-pf .mob{display:block}
  .ao-pf .key.mob{display:grid}
@@ -308,11 +308,10 @@ def build():
     h = []
     h.append('<div class="ao-pf">')
     h.append('<style>' + CSS + '</style>')
-    h.append('<div class="lay"><main class="mn">')
     # 開場
-    h.append((HERE / 'kv-media.html').read_text(encoding='utf-8'))
+    h.append((HERE / 'kv-ed-a.html').read_text(encoding='utf-8'))
     h.append('<p>這份 2026 年版<strong>香港到會避伏指南</strong>，由 Kitchen AO 編輯部整理，拆解五個最常見的<strong>到會中伏</strong>位，附份量參考表、隱藏收費對照表，以及落單前必問的 10 條問題，教你如何選擇最穩妥的到會公司。</p>')
-    h.append('<div class="key mob">'
+    h.append('<div class="key">'
              '<div><i>01</i><b>看真實相片</b><span>要求近期活動相，避開照騙</span></div>'
              '<div><i>02</i><b>算清份量</b><span>按活動類型及時長計算</span></div>'
              '<div><i>03</i><b>問清收費</b><span>運費、樓梯費、附加費逐項確認</span></div></div>')
@@ -320,7 +319,7 @@ def build():
     toc = [('common-pitfalls', '香港到會 5 大常見陷阱'), ('portion', '到會份量參考表'), ('hidden-fees', '到會隱藏收費對照表'),
            ('expert-tips', '精明選擇到會公司 5 大秘訣'), ('checklist', '落單前必問 10 條問題'), ('kitchen-ao', 'Kitchen AO 的做法'),
            ('faq', '到會避伏常見問題'), ('conclusion', '編輯總結')]
-    h.append('<nav class="toc mob" aria-label="文章目錄"><span class="eb">Contents</span><ol>' + ''.join(f'<li><a href="#{a}">{t}</a></li>' for a, t in toc) + '</ol></nav>')
+    h.append('<nav class="toc ao-toc" aria-label="文章目錄"><span class="eb">Contents</span><ol>' + ''.join(f'<li><a href="#{a}">{t}</a></li>' for a, t in toc) + '</ol></nav>')
 
     # 陷阱
     h.append('<h2 id="common-pitfalls">香港到會 5 大常見陷阱</h2>')
@@ -386,21 +385,59 @@ def build():
              '<p>在香港叫到會想避開陷阱，關鍵是做足功課、問清楚、留紀錄。看真實相片、按活動計算份量、逐項確認收費，再選擇持有食環署牌照、收費透明、評價良好的到會公司，便可大大減低中伏機會。</p>'
              '<p>如正在籌備派對或公司活動，歡迎參考 <a href="' + U + '/hong-kong-catering-recommendation/">香港到會推介</a>，或直接 <a href="https://wa.me/85269011987">WhatsApp 查詢</a>。</p></div>')
 
-    h.append('</main>' + aside(toc) + '</div>')
     # FAQ schema
     sch = {"@context": "https://schema.org", "@type": "FAQPage",
            "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
     h.append('<script type="application/ld+json">' + json.dumps(sch, ensure_ascii=False) + '</script>')
-    h.append('<script>(function(){var r=document.currentScript.parentNode,L=[].slice.call(r.querySelectorAll(".sb-toc a")),S=L.map(function(a){return r.querySelector(a.getAttribute("href"))});function f(){var y=scrollY+120,i=-1;S.forEach(function(s,k){if(s&&s.getBoundingClientRect().top+scrollY<=y)i=k});L.forEach(function(a,k){a.classList.toggle("on",k===i)})}addEventListener("scroll",f,{passive:true});f()})();</script>')
     h.append('<script>(function(){var r=document.currentScript.parentNode,b=r.querySelectorAll(".chk input"),n=r.querySelector(".chk .n");if(!n)return;[].forEach.call(b,function(x){x.addEventListener("change",function(){n.textContent=r.querySelectorAll(".chk input:checked").length})})})();</script>')
     h.append('</div>')
     return '\n'.join(h)
 
-art = build()
+# ===== 套用已發佈 blog 版面（.ao-bl：左文章、右側欄、文末分享及有用投票），來源：初一十五 blog =====
+_tpl = (HERE.parent / 'vegetarian-blog' / 'b3-chu-yat-sap-ng-guide-WORDPRESS-layout.html').read_text(encoding='utf-8')
+TPL_CSS = _tpl[:_tpl.index('<div class="ao-bl"')]
+TPL_JS = _tpl[_tpl.index('</aside>') + 8:].split('</div>', 1)[1]
+SIDE_CSS = """<style>
+@media(max-width:1024px){.ao-bl-aside .ao-meta,.ao-bl-aside .ao-bshare{display:none!important}.ao-bl-aside{gap:14px}}
+@media(max-width:767px){.ao-bl .ao-fb{gap:10px 8px;padding:16px}.ao-bl .ao-fb .aoshare{margin-bottom:4px}.ao-bl .ao-fb-q{flex:1 1 100%}.ao-bl .ao-fb .ao-fb-b{flex:1 1 0;text-align:center}.ao-bl .ao-fb-msg{flex:1 1 100%}}
+.ao-bl .ao-fee{background:#141414;border-color:#141414;color:#EDE6D8}
+.ao-bl .ao-fee h4{color:#C8A24A!important}
+.ao-bl .ao-fee p{margin:0;padding:7px 0;border-top:1px solid #2c2a26;display:flex;justify-content:space-between;gap:10px;font-size:13.5px}
+.ao-bl .ao-fee h4+p{border-top:0}
+.ao-bl .ao-fee p b{color:#E4C77E;font-size:15px}
+.ao-bl .ao-fee a{display:block;margin-top:10px;color:#E4C77E!important;text-decoration:none!important;font-weight:700;font-size:13.5px}
+</style>"""
+FB = ('<div class="ao-fb" id="aoFb"><div class="aoshare ao-fb-sh" data-pos="article_end"><span class="shl">分享：</span>'
+      '<button type="button" class="sh-wa" aria-label="WhatsApp 分享" title="WhatsApp 分享"><i class="fab fa-whatsapp"></i></button>'
+      '<button type="button" class="sh-fb" aria-label="Facebook 分享" title="Facebook 分享"><i class="fab fa-facebook-f"></i></button>'
+      '<button type="button" class="sh-ig" aria-label="IG 分享" title="IG 分享"><i class="fab fa-instagram"></i></button>'
+      '<button type="button" class="sh-cp" aria-label="複製連結" title="複製連結"><i class="fas fa-link"></i></button><span class="shm" aria-live="polite"></span></div>'
+      '<span class="ao-fb-q">這篇文章對你有幫助嗎？</span><button type="button" class="ao-fb-b" data-v="yes">👍 有用</button><button type="button" class="ao-fb-b" data-v="no">👎 一般</button><span class="ao-fb-msg" aria-live="polite"></span></div>')
+TAGS = ('<div class="ao-sec"><h3>相關主題</h3><div class="ao-tags">'
+        '<a href="https://aoaodelivery.com/hong-kong-catering-recommendation/">香港到會推介</a>'
+        '<a href="https://aoaodelivery.com/blog/company-event-catering-guide/">公司活動到會</a>'
+        '<a href="https://aoaodelivery.com/product-category/party-set-by-people/">人數選餐</a>'
+        '<a href="https://aoaodelivery.com/delivery/">送貨及運費</a></div></div>')
+ASIDE = ('<aside class="ao-bl-aside">'
+         '<div class="ao-meta"><span>作者</span><b>Kitchen AO 編輯部</b><span>更新</span><b>2026-11-18</b><span>閱讀</span><b>約 8 分鐘</b></div>'
+         '<div class="ao-sc toc"><h4>目錄</h4><div class="ao-prog"><i id="prog"></i></div><ol class="ao-toc2" id="toc"></ol></div>'
+         '<div class="ao-bshare" aria-label="分享文章"><b>分享</b><a href="#" id="cpl" class="cp" title="複製連結"><i class="fas fa-link"></i><em>複製</em></a>'
+         '<a href="#" id="shwa" class="wa" target="_blank" rel="noopener" title="分享到 WhatsApp"><i class="fab fa-whatsapp"></i><em>WhatsApp</em></a>'
+         '<a href="#" id="shfb" class="fb" target="_blank" rel="noopener" title="分享到 Facebook"><i class="fab fa-facebook-f"></i><em>Facebook</em></a>'
+         '<a href="#" id="shig" class="ig" title="分享到 Instagram"><i class="fab fa-instagram"></i><em>IG</em></a></div>'
+         '<div class="ao-sc ao-fee"><h4>Kitchen AO 收費一覽</h4><p><b>HK$1,450</b>全港免運費</p><p><b>HK$700</b>九龍指定區域免運費</p><p><b>11:00–20:30</b>標準派送時段</p>'
+         '<a href="https://aoaodelivery.com/delivery/" target="_blank">查看各區運費 →</a></div>'
+         '<div class="ao-cta2"><b>籌備活動想問清楚？</b><p>告訴我們日期、人數及預算，客服為你配搭餐單及確認收費。</p><a href="https://wa.me/85269011987" target="_blank">WhatsApp 查詢</a></div>'
+         '</aside>')
+def wrap(article):
+    return (TPL_CSS + SIDE_CSS + '<div class="ao-bl"><main class="ao-bl-main" id="art">' + article +
+            '<div class="ao-end">' + FB + TAGS + '</div></main>' + ASIDE + '</div>' + TPL_JS)
+
+art = wrap(build())
 (HERE / 'catering-pitfalls-WORDPRESS.html').write_text(art, encoding='utf-8')
 title = '香港到會避伏指南 2026｜5 大常見陷阱＋落單前必問 10 條問題'
 prev = ('<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">'
-        '<title>預覽｜' + title + '</title><style>body{margin:0;background:#fff;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",sans-serif}'
+        '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><title>預覽｜' + title + '</title><style>body{margin:0;background:#fff;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",sans-serif}'
         '.wrap{max-width:1240px;margin:0 auto;padding:28px 20px 60px}.bc{font-size:13px;color:#888}.t{font-size:32px;line-height:1.35;font-weight:900;margin:8px 0 6px;color:#141414}.m{font-size:13px;color:#888;margin:0 0 24px}'
         '@media(max-width:767px){.t{font-size:24px}}</style></head><body><div class="wrap"><div class="bc">首頁 / 香港到會資訊</div>'
         '<div class="t">' + title + '</div><div class="m">Kitchen AO 編輯部　更新：2026-11-18</div>' + art + '</div></body></html>')
