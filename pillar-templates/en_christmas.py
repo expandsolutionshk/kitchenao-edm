@@ -179,3 +179,4 @@ D.update({'套餐系列': 'Set Series', '小食甜品': 'Add-ons', '菜式介紹
 D.update({'聖誕主菜': 'Mains'})
 HERO_ZH['@@Z9@@'] = '今年，交給 Kitchen AO'; D['今年，交給 Kitchen AO'] = '@@Z9@@'
 D.update({'精心呈獻三大聖誕套餐，照顧不同聚會需要，與摯愛分享開箱的寶藏。': 'We proudly present our Christmas sets to suit every gathering. Share the treasures with your loved ones.'})
+HERO_ZH['@@Z10@@'] = '今年，交給'; D['今年，交給'] = '@@Z10@@'
