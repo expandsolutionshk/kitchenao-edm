@@ -194,3 +194,4 @@ D.update({'套餐可搭配：': 'Sets can be paired with:', 'KITCHEN AO · 48 �
 D.update({'Kitchen AO 提供全港到會送貨服務，標準運費已包括將食物送達指定地址樓下或車輛可停泊的位置。預留至少 30 分鐘緩衝時間；Party Room、辦公室及學校請先確認收貨安排。詳情見': 'Kitchen AO delivers catering across Hong Kong. The standard delivery fee covers delivery to the ground floor of your address or wherever the vehicle can park. Please allow at least 30 minutes of buffer time, and confirm receiving arrangements in advance for party rooms, offices and schools. See our '})
 D.update({'WhatsApp 查詢 →': 'WhatsApp Us →'})
 D.update({'公司派對': 'Corporate', '聖誕餐牌': 'Full Menu'})
+D.update({'下載餐牌 PDF': 'Download Menu PDF'})
