@@ -35,7 +35,7 @@ D = {
    'Christmas Golden Roast features a local whole yellow chicken marinated in red beancurd, slow-cooked then roasted at high heat for crisp skin and tender meat, served with a Christmas rose Campari sauce. East meets West, with portions for intimate gatherings of 5-6 up to large parties of 35-40.',
  '聖誕寶藏箱以稀有的美國牛翼板肉為主角，慢煮至五成熟再以煙燻木料炙烤，配八款聖誕新菜，適合 5 至 40 人的家庭聖誕大餐、好友派對及':
    'Christmas Treasure Box stars rare US beef chuck flap, slow-cooked to medium and finished over smoking wood, with eight new Christmas dishes. Ideal for family Christmas dinners, parties with friends and',
- '公司聖誕派對到會': 'office Christmas party catering', '。全港限量 100 個，送到即可開箱上桌。': ' of 5 to 40 guests. Limited to 100 boxes in Hong Kong, ready to open and serve on arrival.',
+ '公司聖誕派對到會': 'Office Christmas party catering', '。全港限量 100 個，送到即可開箱上桌。': ' of 5 to 40 guests. Limited to 100 boxes in Hong Kong, ready to open and serve on arrival.',
  '寶箱煙燻慢煮美國牛翼板肉': 'Treasure Box Smoked Slow-Cooked US Beef Chuck Flap', 'KITCHEN AO · 全港限量 100 個': 'KITCHEN AO · LIMITED TO 100 BOXES',
  '聖誕寶藏箱．煙燻慢煮美國牛翼板肉盛宴': 'Christmas Treasure Box · Smoked Slow-Cooked US Beef Chuck Flap Feast',
  'HK$1,928 起': 'From HK$1,928',
@@ -180,3 +180,17 @@ D.update({'聖誕主菜': 'Mains'})
 HERO_ZH['@@Z9@@'] = '今年，交給 Kitchen AO'; D['今年，交給 Kitchen AO'] = '@@Z9@@'
 D.update({'精心呈獻三大聖誕套餐，照顧不同聚會需要，與摯愛分享開箱的寶藏。': 'We proudly present our Christmas sets to suit every gathering. Share the treasures with your loved ones.'})
 HERO_ZH['@@Z10@@'] = '今年，交給'; D['今年，交給'] = '@@Z10@@'
+D.update({'適合 5 至 40 人': 'For 5 to 40 guests', '適合 48 至 100 人': 'For 48 to 100 guests', '全新菜式一覽': 'Discover what’s new'})
+
+_tr0 = tr
+def tr(t):
+    m = re.fullmatch(r'(\d+)–(\d+) 人', t)
+    if m: return f'{m.group(1)}–{m.group(2)} guests'
+    return _tr0(t)
+D.update({'人': 'guests'})
+D.update({'48-100 人 · 年尾大型派對首選': '48-100 pax · For year-end celebrations', '5-40 人 · 全港限量 100 個': '5-40 pax · Limited to 100', '兩大主菜同場，以寶箱及專屬木箱送上': 'Both signature mains, delivered in the treasure chest and wooden box', '以專屬木箱原盒送上': 'Delivered in its own wooden box', '以復古寶箱原箱送上': 'Delivered in its vintage treasure chest', 'MEGA79 後': 'With MEGA79', '立即配搭菜式 →': 'Build your set now →', '稀有下肩胛翼板肉，每頭牛僅約 2 至 3 公斤。慢煮至五成熟後以煙燻木料炙烤，以復古寶箱盛載，全港限量 100 個。': 'Rare chuck flap, only 2 to 3 kg per cow. Slow-cooked to medium, then smoked over wood and served in a vintage treasure chest. Limited to 100 boxes in Hong Kong.', '兩大主菜同場：燒南乳香慢煮原隻黃油雞及寶箱煙燻慢煮美國牛翼板肉，專為 48 至 100 人的公司年終派對及大型活動而設。': 'Both signature mains together: the slow-cooked red beancurd whole yellow chicken and the smoked US beef chuck flap in a treasure chest, made for year-end office parties and large events of 48 to 100 guests.'})
+D.update({'聖誕開箱雙寶．燒南乳香慢煮原隻黃油雞 × 煙燻慢煮美國牛翼板肉': 'Christmas Twin Treasures · Whole Yellow Chicken × Smoked US Beef Chuck Flap'})
+D.update({'套餐可搭配：': 'Sets can be paired with:', 'KITCHEN AO · 48 至 100 人': 'KITCHEN AO · 48 TO 100 GUESTS', 'HK$1,688 起': 'From HK$1,688', 'HK$12,418 起': 'From HK$12,418', '第 1 款': 'Set 1', '第 2 款': 'Set 2', '第 3 款': 'Set 3', '本地優質黃油雞以南乳醬醃製，烹調前先以鹽水浸漬令肉質入味；低溫慢煮後以高溫炙燒逼出皮下脂肪，外皮金黃酥脆、內裏鮮嫩多汁，配聖誕玫瑰金巴利汁，以專屬木箱盛載。': 'Local yellow chicken marinated in red beancurd and brined for flavour, slow-cooked then roasted at high heat for golden, crisp skin and juicy meat. Served with Christmas rose Campari sauce in its own wooden box.', '兩大主菜同場：寶箱煙燻慢煮美國牛翼板肉配燒南乳香慢煮原隻黃油雞，以寶箱及專屬木箱一同送上，專為 48 至 100 人的公司年終派對及大型活動而設。': 'Both signature mains together: smoked US beef chuck flap in a treasure chest with the slow-cooked red beancurd whole yellow chicken in its wooden box, made for year-end office parties and large events of 48 to 100 guests.'})
+D.update({'Kitchen AO 提供全港到會送貨服務，標準運費已包括將食物送達指定地址樓下或車輛可停泊的位置。預留至少 30 分鐘緩衝時間；Party Room、辦公室及學校請先確認收貨安排。詳情見': 'Kitchen AO delivers catering across Hong Kong. The standard delivery fee covers delivery to the ground floor of your address or wherever the vehicle can park. Please allow at least 30 minutes of buffer time, and confirm receiving arrangements in advance for party rooms, offices and schools. See our '})
+D.update({'WhatsApp 查詢 →': 'WhatsApp Us →'})
+D.update({'公司派對': 'Corporate', '聖誕餐牌': 'Full Menu'})
