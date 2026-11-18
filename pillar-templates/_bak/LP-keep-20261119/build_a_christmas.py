@@ -35,7 +35,7 @@ PAX = [('5 至 6 人', '5-6 人套餐', ''), ('7 人', '8-10 人套餐', '或 5-
        ('48 至 54 人', '48-54 人開箱雙寶', ''), ('55 至 62 人', '63-68 人開箱雙寶', '或 48-54 人加配單點'), ('63 至 68 人', '63-68 人開箱雙寶', ''), ('69 至 77 人', '78-85 人開箱雙寶', '或 63-68 人加配單點'),
        ('78 至 85 人', '78-85 人開箱雙寶', ''), ('86 至 89 人', '90-100 人開箱雙寶', '或 78-85 人加配單點'), ('90 至 100 人', '90-100 人開箱雙寶', ''), ('100 人以上', '到會報價查詢', '')]
 DISH = [('ris', '玫瑰醬泡菜海蝦意大利飯', '韓式玫瑰醬配泡菜，奶香柔和、微辣開胃'), ('puff', '芒果粟子蓉冬日酥盒', '日本栗子蓉配新鮮芒果粒，酸甜開胃的前菜'), ('rice', '雙重龍蝦三重芝士煲仔鍋飯', '原個布袋芝士切開即流心，飯底吸滿濃郁龍蝦汁'), ('tart', '聖誕馴鹿脆脆開心果朱古力撻', '開心果白朱古力配脆脆，朱古力曲奇鹿角'), ('salad', '紅寶神石榴沙律系列', '大蝦柚肉或煙火雞胸蜜桃兩款任選'), ('cro', '明太子芝士忌廉牛角酥', '牛角酥夾入明太子芝士忌廉，鹹香柔滑')]
-OCC = [('公司聖誕派對', '部門聚餐、年終派對及客戶活動，按人數揀套餐，可索取正式報價。', 'https://aoaodelivery.com/corporate-catering-hk/', '公司聖誕派對到會'),
+OCC = [('公司聖誕派對', '部門聚餐、年終派對及客戶活動，按人數揀套餐，可索取正式報價。', 'https://aoaodelivery.com/catering-quote-enquiry/', '到會報價查詢'),
        ('家庭聖誕聚會', '5 至 10 人小型套餐，一款原隻主菜配前菜、沙律、主食及甜品，在家輕鬆開餐。', '#sets', '揀家庭聖誕套餐'),
        ('學校、教會及機構', '人數較多、年齡層闊，可加配兒童及素食選擇，並預先統計飲食需要。', 'https://aoaodelivery.com/catering-quote-enquiry/', '到會報價查詢'),
        ('素食朋友', '套餐以外可加配素食菜式，或選擇「素」味人生素食到會套餐。', 'https://aoaodelivery.com/product-category/party/vegetarians-set/', '素食到會套餐')]
@@ -44,11 +44,12 @@ FAQ = [
  ('聖誕套餐甚麼日子供應？', '聖誕套餐於 2026 年 12 月 12 日至 12 月 27 日供應及送貨。12 月 19 日前，其他套餐及單點照常供應；除企業訂單外，其他日子不供應聖誕套餐。供應情況會持續於網站更新，請留意送貨需知。'),
  ('平安夜及聖誕節可以送貨嗎？', '可以按落單頁面提供的日期及時段送貨。平安夜（12 月 24 日）及聖誕節（12 月 25 日）時段有限，建議預留至少 30 分鐘緩衝時間，詳情可參考送貨需知。'),
  ('聖誕到會套餐每位大約幾錢？', 'Kitchen AO 2026 聖誕套餐以原價計，每位約 HK$226 至 386，人數愈多每位愈低；11 月 30 日前以 MEGA79 再享七九折。'),
- ('聖誕大餐吃什麼？', '一桌完整的聖誕大餐一般包括一至兩款焦點主菜（例如原隻燒雞或燒牛肉）、前菜、沙律、意粉或飯，以及甜品。Kitchen AO 聖誕套餐已按人數配搭好以上各類菜式。'),
+ ('聖誕大餐吃什麼？', '一桌完整的聖誕大餐一般包括一至兩款焦點主菜（例如原隻燒雞或燒牛肉）、前菜、沙律、意粉或飯，以及甜品。Kitchen AO 的聖誕大餐到會套餐已按人數配搭好以上各類菜式。'),
  ('聖誕套餐有沒有火雞？', '2026 年聖誕套餐的主菜為燒南乳香慢煮原隻黃油雞及寶箱煙燻慢煮美國牛翼板肉。如有其他主菜需要，歡迎 WhatsApp 查詢。'),
  ('10 人或 20 人聖誕派對應揀哪個套餐？', '10 人可選 8-10 人套餐；20 人可選 18-22 人套餐。人數介乎兩個套餐之間時，可選較大的套餐，或選較小的套餐再加配單點小食，詳見上方「按人數揀聖誕套餐」。'),
  ('聖誕套餐的菜式可以更換嗎？', '套餐菜式可按喜好自由配搭；部分精選菜式需另加差價，實際價錢以落單頁面選項為準。'),
  ('可以加素食或兒童菜式嗎？', '可以在套餐以外加配單點小食及甜品，素食朋友亦可選擇「素」味人生素食到會套餐。'),
+ ('聖誕 party 到會可以送到 Party Room 或辦公室嗎？', '可以。聖誕到會外賣會送到指定地址樓下或車輛可停泊的位置；Party Room、辦公室及學校請先確認收貨安排。無論是聖誕外賣到會還是聖誕套餐到會，都建議預留至少 30 分鐘緩衝時間。'),
  ('公司聖誕派對可以索取報價嗎？', '可以。公司、學校及機構訂購如需正式報價及收據，可經到會報價查詢聯絡我們。'),
  ('聖誕到會包括餐具嗎？', '落單時可選擇是否需要碟及餐具，亦可加配食物夾等用品。'),
 ]
@@ -305,7 +306,7 @@ def xs_row(x, n):
     S = x['s']; a0, b0, p0 = S['rows'][0]
     tabs = ''.join(f'<button type="button" class="xt{" on" if j == 0 else ""}" data-u="{url(S, a, b)}" data-i="{U26}{x["imgs"][j % len(x["imgs"])]}" '
                    f'data-p="{pr:,.0f}" data-e="{round(pr * .79):,.0f}">{a}–{b} pax</button>' for j, (a, b, pr) in enumerate(S['rows']))
-    return (f'<div class="xr{" rv" if n % 2 else ""}" id="{S["id"]}"><div class="xim"><img class="{"trim" if "IG-11" in x["imgs"][0] else ""}" src="{U26}{x["imgs"][0]}" alt="{S["name"]}．{S["full"]}" loading="lazy"><span class="tag px"><b>{a0}–{b0}</b><i>pax</i></span></div>'
+    return (f'<div class="xr{" xrv" if n % 2 else ""}" id="{S["id"]}"><div class="xim"><img class="{"trim" if "IG-11" in x["imgs"][0] else ""}" src="{U26}{x["imgs"][0]}" alt="{S["name"]}．{S["full"]}" loading="lazy"><span class="tag px"><b>{a0}–{b0}</b><i>pax</i></span></div>'
             f'<div class="xtx"><p class="xk">{x["k"]}</p><h3 class="xn">{S["name"]}</h3><p class="xf">{S["full"]}</p><p class="xd">{x["d"]}</p>'
             f'<p class="xds">{S["desc"]}</p>'
             f'<p class="xp">HK$<em class="pv">{p0:,.0f}</em></p><p class="xe"><span>MEGA79 後</span> HK$<b class="ev">{round(p0 * .79):,.0f}</b></p>'
@@ -315,7 +316,7 @@ XS_ROWS = '<div class="xsr">' + ''.join(xs_row(x, n) for n, x in enumerate(XS)) 
 CSS += ('/* 三大系列：黑色全闊、首頁式排版 */'
  '.axl section[id^="sets"]{background:#111;color:#EDE6D8;border-top:0!important}'
  '.axl .xsr .xr{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;max-width:1040px;margin:0 auto;padding:clamp(34px,5vw,56px) 0;border-top:1px solid rgba(200,162,74,.35)}'
- '.axl .xsr .xr:first-child{border-top:0;padding-top:8px}.axl .xsr .xr.rv{grid-template-columns:minmax(0,1fr) minmax(0,440px)}.axl .xsr .xr.rv .xim{order:2}'
+ '.axl .xsr .xr:first-child{border-top:0;padding-top:8px}.axl .xsr .xr.xrv{grid-template-columns:minmax(0,1fr) minmax(0,440px)}.axl .xsr .xr.xrv .xim{order:2}'
  '.axl .xsr .xim{position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}'
  '.axl .xsr .xim img{width:100%!important;height:100%!important;object-fit:cover;transition:opacity .45s ease,transform 1.2s ease}.axl .xsr .xim img.fd{opacity:0}'
  '@media(hover:hover){.axl .xsr .xr:hover .xim img{transform:scale(1.04)}}'
@@ -335,7 +336,7 @@ CSS += ('/* 三大系列：黑色全闊、首頁式排版 */'
  '.axl .xsr .xgo{font-family:Baskerville,"Baskerville Old Face","Songti TC",Georgia,serif;font-size:19px;color:#E4C77E!important;text-decoration:none;border-bottom:1px solid #C8A24A;padding-bottom:4px;letter-spacing:.06em}'
  '.axl .xsr .xgo:hover{color:#fff!important;border-color:#fff}'
  '.axl .xsr .xall{font-size:12.5px;color:#9b948a!important;text-decoration:none;letter-spacing:.08em}.axl .xsr .xall:hover{color:#E4C77E!important}'
- '@media(max-width:760px){.axl .xsr .xr,.axl .xsr .xr.rv{grid-template-columns:1fr;gap:22px}.axl .xsr .xr.rv .xim{order:0}.axl .xsr .xim{max-width:420px;width:100%;margin:0 auto}.axl .xsr .xt{padding:9px 11px;font-size:12px}}\n')
+ '@media(max-width:760px){.axl .xsr .xr,.axl .xsr .xr.xrv{grid-template-columns:1fr;gap:22px}.axl .xsr .xr.xrv .xim{order:0}.axl .xsr .xim{max-width:420px;width:100%;margin:0 auto}.axl .xsr .xt{padding:9px 11px;font-size:12px}}\n')
 
 # ---- 精選套餐介紹：三個系列 slider ----
 _INCL = _BD['INCL']
@@ -378,6 +379,9 @@ CSS += '/* Responsive 優化 */.axl .crumb{padding-left:24px!important;padding-r
 CSS += '@media(max-width:640px){.axl .hero .mbt{text-align:center}.axl .hero .btn.p{margin:0 auto 10px!important;max-width:300px}}\n'
 CSS += '@media(max-width:640px){.axl section[id^="top"] .dbt{flex-wrap:nowrap!important;gap:6px!important;padding:0 2px}.axl section[id^="top"] .dbt .btn{flex:1 1 0;min-width:0;padding:9px 4px!important;font-size:11px!important;letter-spacing:.02em!important;white-space:normal;line-height:1.3;text-align:center;display:flex!important;align-items:center;justify-content:center}}@media(max-width:360px){.axl section[id^="top"] .dbt .btn{font-size:10px!important}}\n'
 CSS += '/* 排版：避免單字孤行 */.axl p,.axl li,.axl .bd,.axl summary,.axl .dcd{text-wrap:pretty}.axl h1,.axl h2,.axl h3,.axl .xn,.axl .xf,.axl .xd,.axl .xds,.axl .sh p,.axl .tsd,.axl .mn-n,.axl .gb .s,.axl .gb .d,.axl .hp p,.axl .wide p,.axl .end p,.axl .pc-n,.axl .tl b,.axl .tl em,.axl .xk{text-wrap:balance}\n'
+CSS += '@media(max-width:760px){.axl .wide{display:block!important;min-height:0!important}.axl .wide>img{position:static!important;display:block;width:100%!important;height:auto!important;aspect-ratio:auto;object-fit:contain;opacity:1!important}.axl .wide>.in{max-width:none;padding:28px 20px 34px!important;background:#111}}\n'
+CSS += '@media(min-width:641px){.axl .bxl section[id^="series"] .mg{align-items:stretch}.axl .bxl section[id^="series"] .mg>a.nd{aspect-ratio:auto!important;height:auto;min-height:100%}.axl .bxl .mg .hpg{padding:24px 20px!important}.axl .bxl .mg .hpg .hpt{font-size:clamp(22px,2.4vw,32px)!important}}\n'
+CSS += '@media(min-width:641px) and (max-width:1240px){.axl .pills{gap:6px!important;flex-wrap:nowrap!important;justify-content:center}.axl .pills a{padding:8px 11px!important;font-size:12.5px!important;white-space:nowrap}}\n'
 # ---- 手機排版修正：方格文字留邊、縮細；Hero 兩個按鈕同闊上下排 ----
 MFIX = ('@media(max-width:640px){.axl .bxl .mg span{padding:0 10px;font-size:15px;line-height:1.35;letter-spacing:.03em;text-align:center}'
         '.axl .hero .btn{display:block;width:100%;max-width:300px;box-sizing:border-box;text-align:center;margin:0 0 10px}'
@@ -385,7 +389,7 @@ MFIX = ('@media(max-width:640px){.axl .bxl .mg span{padding:0 10px;font-size:15p
 CSS += MFIX
 page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>聖誕到會 2026｜聖誕大餐外賣及派對套餐｜Kitchen AO</title>
-<meta name="description" content="Kitchen AO 2026 聖誕到會套餐：5 至 100 人，原隻黃油雞、寶箱煙燻牛翼板肉及八款聖誕新菜，公司聖誕派對及家庭聚會皆宜。11 月 30 日前 MEGA79 七九折。">
+<meta name="description" content="Kitchen AO 聖誕套餐 2026｜聖誕到會及聖誕外賣：5 至 100 人原隻黃油雞、寶箱煙燻牛翼板肉及八款聖誕新菜，公司聖誕派對及家庭聚會皆宜。">
 <style>body{{margin:0}}{CSS}</style><script type="application/ld+json">{LD}</script></head><body>
 <div class="axl">
 <div class="bar"><b>Mega Early Bird</b>｜聖誕套餐輸入優惠碼 <b>MEGA79</b> 享七九折，至 2026 年 11 月 30 日 23:59</div>
@@ -394,7 +398,7 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <span class="spk s1">✦</span><span class="spk s2">✦</span><span class="spk s3">✦</span><span class="spk s4">✦</span><span class="spk s5">✦</span><small class="m0">Christmas Catering 2026</small><p class="mt1"><span class="t">Open the Box! It&#8217;s Christmas!</span><span class="z"><span class="zs"><span class="zl on"><span class="z1">開箱，</span><span class="z2">就是聖誕</span></span><span class="zl">今年，交給<img class="wm" src="{WM}" alt="Kitchen AO" width="290" height="50"></span></span></span></p><span class="mln"></span><div class="mbt"><a class="btn p" href="#sets">選購聖誕套餐</a></div></div></div></div>
 
 <div class="intro"><h1 class="ser hh"><span class="h2g">聖誕到會 2026</span><br><span class="h2b">聖誕大餐外賣及派對套餐</span></h1>
-<p>Kitchen AO 聖誕到會套餐專為 5 至 100 人的聖誕聚會而設，由家庭聖誕大餐、好友派對到公司聖誕派對，都可以按人數揀選。今年三大系列分別以寶箱煙燻慢煮美國牛翼板肉、燒南乳香慢煮原隻黃油雞為主角，配前菜、沙律、意粉及飯和甜品，一份聖誕到會餐單就能照顧全場賓客。</p>
+<p>Kitchen AO 聖誕到會套餐專為 5 至 100 人的聖誕聚會而設，由家庭聖誕大餐、好友派對到公司聖誕派對，都可以按人數揀選。今年三大系列分別以寶箱煙燻慢煮美國牛翼板肉、燒南乳香慢煮原隻黃油雞為主角，配前菜、沙律、意粉及飯和甜品，一份聖誕到會餐單就能照顧全場賓客。不論是在家慶祝的聖誕節到會，還是公司 Xmas 到會，網上揀好套餐即可預訂，聖誕外賣直送府上或辦公室。</p>
 </div>
 <div class="stk"><nav class="pills" aria-label="頁內導覽"><a href="#top">聖誕新菜</a><a href="#mains">聖誕主菜</a><a href="#series">套餐系列</a><a href="#pax">按人數揀</a><a href="#corp">公司派對</a><a href="#delivery">送貨安排</a><a href="#faq">常見問題</a><a href="#ao-menu">聖誕餐牌</a></nav><details class="xav2"><summary><div class="w"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><g stroke="#C8A24A" stroke-width="1.5" fill="none" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5l-2-2M12 5l2-2M12 19l-2 2M12 19l2 2"/></g></svg><span>聖誕套餐只限</span><i>12.12 – 12.27</i><span>供應</span><em>詳情</em></div></summary><div class="bd"><div class="w"><ul><li>12 月 19 日前，其他套餐及單點照常供應。</li><li>除企業訂單外，其他日子不供應<a href="https://aoaodelivery.com/product-category/christmas-party-catering-set/" target="_blank" rel="noopener">聖誕套餐</a></li><li>套餐供應情況會持續於網站更新，請密切留意網站內容及參閱<a href="https://aoaodelivery.com/delivery/" target="_blank" rel="noopener">送貨需知</a></li></ul></div></div></details></div>
 <section class="s" id="top"><div class="w"><div class="sh"><h2><span class="h2g">聖誕到會精選推介</span><br><span class="h2b">2026 聖誕新菜式</span></h2><p class="sm">今年聖誕套餐全新加入的前菜、沙律、意粉及飯和甜品。</p></div>
@@ -414,13 +418,13 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <section class="s" id="occ"><div class="w"><div class="sh"><small>FOR EVERY OCCASION</small><h2>聖誕到會推介：按場合揀套餐</h2></div>
 <div class="occ">{"".join(f'<div class="oc"><h3>{t}</h3><p>{d}</p><a href="{u}">{l} →</a></div>' for t, d, u, l in OCC)}</div></div></section>
 
-<section class="s" id="addon" style="padding-top:0;border-top:0"><div class="w"><div class="sh"><small>ADD-ONS</small><h2>聖誕小食及甜品加配</h2><p>人數較多或想更豐富，可加配單點小食及甜品。</p></div>
+<section class="s" id="addon" style="padding-top:0;border-top:0"><div class="w"><div class="sh"><small>ADD-ONS</small><h2>聖誕小食及甜品加配</h2><p>人數較多或想令聖誕美食到會更豐富，可加配單點小食及甜品，一併安排聖誕小食到會。</p></div>
 <div class="occ"><div class="oc"><h3>惹味小食</h3><p>雞翼、迷你漢堡、九層塔香酥雞等派對熱門小食。</p><a href="https://aoaodelivery.com/product-category/a-la-carte/snacks/">選購小食 →</a></div>
 <div class="oc"><h3>甜品</h3><p>馬卡龍、芝士撻等一口甜品，為聖誕派對作結。</p><a href="https://aoaodelivery.com/product-category/a-la-carte/dessert/">選購甜品 →</a></div>
 <div class="oc"><h3>派對用品</h3><p>餐具、暖貼及三層食物架，方便擺放及保溫。</p><a href="https://aoaodelivery.com/product-category/party-supplies/">選購用品 →</a></div>
 <div class="oc"><h3>聖誕神秘加配</h3><p>聖誕樹芝士火腿拼盤，派對焦點冷盤，上桌即成拍照焦點。</p><a href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢 →</a></div></div></div></section>
 <section class="split" id="delivery"><img src="https://aoaodelivery.com/wp-content/uploads/2026/11/photo-1764009699066-473e36008bab.jpeg" alt="平安夜及聖誕節到會送貨安排" loading="lazy"><div class="tx"><small style="letter-spacing:.38em;font-size:11.5px;color:#9A7B2E">DELIVERY</small>
-<h2>平安夜及聖誕節送貨安排</h2><ul><li>聖誕套餐供應及送貨日期為 12 月 12 日至 27 日；12 月 19 日前，其他套餐及單點照常供應。</li><li>平安夜（12 月 24 日）及聖誕節（12 月 25 日）熱門時段較快額滿，宜盡早確定日期及時間。</li><li>預留至少 30 分鐘緩衝時間，避免開餐與送貨時間太接近。</li><li>落單時寫清楚收貨人、電話及大廈資料；Party Room、辦公室及學校請先確認收貨安排。</li></ul>
+<h2>平安夜及聖誕節送貨安排</h2><ul><li>聖誕套餐供應及送貨日期為 12 月 12 日至 27 日；12 月 19 日前，其他套餐及單點照常供應。</li><li>平安夜（12 月 24 日）及聖誕節（12 月 25 日）熱門時段較快額滿，宜盡早確定日期及時間。</li><li>聖誕大餐外送覆蓋全港，標準運費已包括送達指定地址樓下或車輛可停泊的位置。</li><li>預留至少 30 分鐘緩衝時間，避免開餐與送貨時間太接近。</li><li>落單時寫清楚收貨人、電話及大廈資料；Party Room、辦公室及學校請先確認收貨安排。</li></ul>
 <a class="btn d" href="https://aoaodelivery.com/delivery/">查看送貨需知</a><div class="dlx"><details><summary>套餐配搭說明</summary><div class="bd">套餐菜式可按喜好自由配搭；部分精選菜式需另加差價，實際價錢以落單頁面選項為準。</div></details><details><summary>溫馨提示</summary><div class="bd">煲仔鍋飯一般以原煲盛載；如瓦煲缺貨，會以錫紙盤代替，恕不另行通知。</div></details><details><summary>送貨安排</summary><div class="bd">Kitchen AO 提供全港到會送貨服務，標準運費已包括將食物送達指定地址樓下或車輛可停泊的位置。預留至少 30 分鐘緩衝時間；Party Room、辦公室及學校請先確認收貨安排。詳情見<a href="https://aoaodelivery.com/delivery/">送貨需知</a>。</div></details></div></div></section>
 <section class="s" id="faq"><div class="w"><div class="sh"><small>FAQ</small><h2>聖誕到會常見問題</h2></div><div class="faq">
 {"".join(f'<details{" open" if i == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for i, (q, a) in enumerate(FAQ))}</div></div></section>
@@ -458,7 +462,7 @@ def _imgfix(m):
     return t
 page = re.sub(r'<img [^>]*>', _imgfix, page)
 page = page.replace('href="#new"', 'href="#top"')
-(HERE / 'a-christmas.html').write_text(page.replace('@@DISHES@@', DM_ZH), encoding='utf-8')
+(HERE / 'a-christmas.html').write_text(page.replace(' →', '').replace('→', '').replace('@@DISHES@@', DM_ZH), encoding='utf-8')
 print('ok', len(page))
 # ---- WordPress 版：只保留 <style>、FAQ 結構化數據、內容及互動 JS，直接貼入 WPBakery Raw HTML ----
 import re as _re
@@ -496,7 +500,8 @@ assert not _left, ''.join(_left)[:200]
 for _k, _v in EN.HERO_ZH.items(): _en_html = _en_html.replace(_k, _v)
 _en_html = _en_html.replace('@@DISHES@@', DM_EN)
 _en_html = _en_html.replace('kitchen-ao-christmas-menu-2026-zh.pdf', 'kitchen-ao-christmas-menu-2026-en.pdf')
-_en_html = _en_html.replace('</a>。', '</a>.').replace('</a>，', '</a>, ')
+_en_html = _en_html.replace('</a>。', '</a>.').replace(' →', '').replace('→', '')
+_html = _html.replace(' →', '').replace('→', '').replace('</a>，', '</a>, ')
 _html = _html.replace('@@DISHES@@', DM_ZH)
 _ld_en = _json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": EN.D[q], "acceptedAnswer": {"@type": "Answer", "text": EN.D[a]}} for q, a in FAQ]}, ensure_ascii=False)
 _ld_js = ('<script>(function(){var en=/^en/i.test(document.documentElement.lang||""),s=document.createElement("script");s.type="application/ld+json";'
@@ -511,7 +516,7 @@ _bil_body = (f'<div class="ao-zh" data-no-translation>\n{_html.strip()}\n</div>\
              + '\n' + _en_js.replace('<script>(function(){', '<script>(function(){if(!document.querySelector(".ao-en .axl"))return;', 1) + '\n' + _ld_js)
 # 英文預覽版（獨立檔，lang=en）
 _en_page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>Christmas Catering 2026 | Christmas Dinner Delivery &amp; Party Sets | Kitchen AO</title>'
+            '<title>Christmas Catering Hong Kong 2026 | Christmas Dinner Delivery &amp; Party Sets | Kitchen AO</title><meta name="description" content="Christmas catering in Hong Kong for 5 to 100 guests: whole yellow chicken, smoked beef chuck flap in a treasure box and eight new dishes. Xmas catering for home and Xmas party catering for the office.">'
             f'<style>body{{margin:0}}</style>{_st}{BIL}</head><body>{_bil_body}</body></html>')
 (HERE / 'a-christmas-en.html').write_text(_en_page, encoding='utf-8')
 wp = ('<!-- Kitchen AO 聖誕到會場景頁 /catering/christmas/ ：整段貼入 WPBakery Raw HTML。中文頁顯示中文，/en/ 頁自動顯示英文。'
