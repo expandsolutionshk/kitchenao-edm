@@ -195,3 +195,6 @@ D.update({'Kitchen AO 提供全港到會送貨服務，標準運費已包括將�
 D.update({'WhatsApp 查詢 →': 'WhatsApp Us →'})
 D.update({'公司派對': 'Corporate', '聖誕餐牌': 'Full Menu'})
 D.update({'下載餐牌 PDF': 'Download Menu PDF'})
+D.update({'2026 聖誕新菜式': 'New Christmas Dishes 2026'})
+D.update({'查看完整聖誕餐牌': 'Full Christmas Menu', '下載餐牌 PDF': 'Menu PDF'})
+D.update({'查看完整聖誕餐牌': 'Full Menu'})
