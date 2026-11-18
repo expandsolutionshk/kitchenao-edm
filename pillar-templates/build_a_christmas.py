@@ -14,9 +14,9 @@ SER = [
       desc='稀有下肩胛翼板肉，每頭牛僅約 2 至 3 公斤。慢煮至五成熟後以煙燻木料炙烤，以復古寶箱盛載，全港限量 100 個。',
       rows=[(5, 6, 1928), (8, 10, 3028), (12, 16, 4588), (18, 22, 5888), (26, 30, 7888), (35, 40, 9888)]),
  dict(id='chk', name='聖誕金雞獻禮', full='燒南乳香慢煮原隻黃油雞', slug='golden-roast-chicken', img=IMG['chk2'], img2=IMG['tart'],
-      desc='本地原隻黃油雞以南乳醃製及鹽水浸漬，低溫慢煮後高溫炙燒至皮脆肉嫩，配聖誕玫瑰金巴利汁，專屬木箱盛載。',
+      desc='本地原隻黃油雞以南乳醃製及鹽水浸漬，低溫慢煮後高溫炙燒至皮脆肉嫩，配聖誕玫瑰金巴利汁，專屬木箱盛載，全港限量 100 個。',
       rows=[(5, 6, 1688), (8, 10, 2788), (12, 16, 4248), (18, 22, 5388), (26, 30, 7388), (35, 40, 9288)]),
- dict(id='dbl', name='聖誕開箱雙寶', full='原隻黃油雞 × 煙燻慢煮美國牛翼板肉', slug='twin-treasures-chicken-beef', img=IMG['chk1'], img2=IMG['beef'],
+ dict(id='dbl', name='聖誕開箱雙寶', full='燒南乳香慢煮原隻黃油雞 × 煙燻慢煮美國牛翼板肉', slug='twin-treasures-chicken-beef', img=IMG['chk1'], img2=IMG['beef'],
       desc='兩大主菜同場：燒南乳香慢煮原隻黃油雞及寶箱煙燻慢煮美國牛翼板肉，專為 48 至 100 人的公司年終派對及大型活動而設。',
       rows=[(48, 54, 12418), (63, 68, 15368), (78, 85, 19548), (90, 100, 22888)]),
 ]
@@ -34,15 +34,14 @@ PAX = [('5 至 6 人', '5-6 人套餐', ''), ('7 人', '8-10 人套餐', '或 5-
        ('26 至 30 人', '26-30 人套餐', ''), ('31 至 34 人', '35-40 人套餐', '或 26-30 人套餐加配單點'), ('35 至 40 人', '35-40 人套餐', ''), ('41 至 47 人', '48-54 人開箱雙寶', '或 35-40 人套餐加配單點'),
        ('48 至 54 人', '48-54 人開箱雙寶', ''), ('55 至 62 人', '63-68 人開箱雙寶', '或 48-54 人加配單點'), ('63 至 68 人', '63-68 人開箱雙寶', ''), ('69 至 77 人', '78-85 人開箱雙寶', '或 63-68 人加配單點'),
        ('78 至 85 人', '78-85 人開箱雙寶', ''), ('86 至 89 人', '90-100 人開箱雙寶', '或 78-85 人加配單點'), ('90 至 100 人', '90-100 人開箱雙寶', ''), ('100 人以上', '到會報價查詢', '')]
-DISH = [('rice', '雙重龍蝦三重芝士煲仔鍋飯', '原個布袋芝士切開即流心，飯底吸滿濃郁龍蝦汁'), ('ris', '玫瑰醬泡菜海蝦意大利飯', '韓式玫瑰醬配泡菜，奶香柔和、微辣開胃'),
-        ('puff', '芒果粟子蓉冬日酥盒', '日本栗子蓉配新鮮芒果粒，酸甜開胃的前菜'), ('cro', '明太子芝士忌廉牛角酥', '牛角酥夾入明太子芝士忌廉，鹹香柔滑'),
-        ('salad', '紅寶神石榴沙律系列', '大蝦柚肉或煙火雞胸蜜桃兩款任選'), ('tart', '聖誕馴鹿脆脆開心果朱古力撻', '開心果白朱古力配脆脆，朱古力曲奇鹿角')]
+DISH = [('ris', '玫瑰醬泡菜海蝦意大利飯', '韓式玫瑰醬配泡菜，奶香柔和、微辣開胃'), ('puff', '芒果粟子蓉冬日酥盒', '日本栗子蓉配新鮮芒果粒，酸甜開胃的前菜'), ('rice', '雙重龍蝦三重芝士煲仔鍋飯', '原個布袋芝士切開即流心，飯底吸滿濃郁龍蝦汁'), ('tart', '聖誕馴鹿脆脆開心果朱古力撻', '開心果白朱古力配脆脆，朱古力曲奇鹿角'), ('salad', '紅寶神石榴沙律系列', '大蝦柚肉或煙火雞胸蜜桃兩款任選'), ('cro', '明太子芝士忌廉牛角酥', '牛角酥夾入明太子芝士忌廉，鹹香柔滑')]
 OCC = [('公司聖誕派對', '部門聚餐、年終派對及客戶活動，按人數揀套餐，可索取正式報價。', 'https://aoaodelivery.com/corporate-catering-hk/', '公司聖誕派對到會'),
        ('家庭聖誕聚會', '5 至 10 人小型套餐，一款原隻主菜配前菜、沙律、主食及甜品，在家輕鬆開餐。', '#sets', '揀家庭聖誕套餐'),
        ('學校、教會及機構', '人數較多、年齡層闊，可加配兒童及素食選擇，並預先統計飲食需要。', 'https://aoaodelivery.com/catering-quote-enquiry/', '到會報價查詢'),
        ('素食朋友', '套餐以外可加配素食菜式，或選擇「素」味人生素食到會套餐。', 'https://aoaodelivery.com/product-category/party/vegetarians-set/', '素食到會套餐')]
 FAQ = [
  ('聖誕到會要提早幾多日預訂？', '平安夜及聖誕節是全年到會高峰，熱門送貨時段較快額滿，建議盡早預訂。2026 年 11 月 30 日 23:59 前輸入優惠碼 MEGA79，聖誕套餐更可享七九折。'),
+ ('聖誕套餐甚麼日子供應？', '聖誕套餐於 2026 年 12 月 12 日至 12 月 27 日供應及送貨。12 月 19 日前，其他套餐及單點照常供應；除企業訂單外，其他日子不供應聖誕套餐。供應情況會持續於網站更新，請留意送貨需知。'),
  ('平安夜及聖誕節可以送貨嗎？', '可以按落單頁面提供的日期及時段送貨。平安夜（12 月 24 日）及聖誕節（12 月 25 日）時段有限，建議預留至少 30 分鐘緩衝時間，詳情可參考送貨需知。'),
  ('聖誕到會套餐每位大約幾錢？', 'Kitchen AO 2026 聖誕套餐以原價計，每位約 HK$226 至 386，人數愈多每位愈低；11 月 30 日前以 MEGA79 再享七九折。'),
  ('聖誕大餐吃什麼？', '一桌完整的聖誕大餐一般包括一至兩款焦點主菜（例如原隻燒雞或燒牛肉）、前菜、沙律、意粉或飯，以及甜品。Kitchen AO 聖誕套餐已按人數配搭好以上各類菜式。'),
@@ -57,6 +56,27 @@ LD = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEnti
 SNOW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5l-2-2M12 5l2-2M12 19l-2 2M12 19l2 2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>'
 
 CSS = r'''
+.axl .xav{max-width:760px;margin:18px auto 6px;background:#111;border:1px solid rgba(200,162,74,.75);color:#EDE6D8;padding:14px 18px 12px;font-family:"Helvetica Neue","PingFang HK",Arial,sans-serif}
+.axl .xav-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(200,162,74,.35);padding-bottom:8px;margin-bottom:6px}
+.axl .xav-h b{font-size:14.5px;letter-spacing:.08em;color:#fff;font-weight:600}
+.axl .xav-h i{font-family:Baskerville,"Baskerville Old Face",Georgia,serif;font-style:italic;font-size:20px;color:#E4C77E}
+.axl .xav ul{list-style:none;margin:0;padding:0}
+.axl .xav li{position:relative;padding-left:20px;margin:5px 0;font-size:14px;line-height:1.7;color:#D9D2C3}
+.axl .xav li:before{content:"";position:absolute;left:0;top:.42em;width:12px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cg stroke=%27%23C8A24A%27 stroke-width=%271.6%27 fill=%27none%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7%27/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.axl .xav a{color:#E4C77E!important;text-decoration:none;border-bottom:1px solid rgba(200,162,74,.7)}
+.axl .hp{background:#111;color:#EDE6D8;text-align:center;padding:40px 20px 34px;margin:0 0 30px}
+.axl .hp small{display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.36em;color:#C8A24A;text-transform:uppercase}
+.axl .hp .hpt{font-family:Baskerville,"Baskerville Old Face",Georgia,serif;font-style:italic;font-weight:400;font-size:34px;line-height:1.3;color:#fff;margin:14px 0 10px;letter-spacing:.02em}
+.axl .hp .hpt2{font-family:Baskerville,"Baskerville Old Face",Georgia,serif;font-style:italic;font-size:21px;line-height:1.4;color:#EDE6D8;margin:0 0 10px}
+.axl .hp .hpt2 span{color:#C8A24A;letter-spacing:.06em}
+.axl .hp .hps{font-family:"Helvetica Neue","PingFang HK",Arial,sans-serif;font-size:14px;color:#9b948a;margin:0;line-height:1.8}
+.axl .hp .hps:empty{display:none}
+.axl .hp .orn{color:#C8A24A;font-size:12px;letter-spacing:.6em;margin:12px 0 0;padding-left:.6em}
+.axl .hp .hph{font-family:"Helvetica Neue","PingFang HK",Arial,sans-serif;font-size:13px!important;font-weight:600;letter-spacing:.12em;color:#C8A24A;margin:12px 0 0!important;line-height:1.9}
+.axl .hp .hps2{font-family:"Helvetica Neue","PingFang HK",Arial,sans-serif;font-size:13px;color:#C8A24A;letter-spacing:.12em;margin:0;line-height:1.9}
+.axl .hp .hpn{font-size:13px;color:#9b948a;margin:14px 0 0}
+@media(max-width:640px){.axl .hp .hpt{font-size:26px}.axl .hp .hpt2{font-size:17px}.axl .xav{margin:14px 14px 4px}}
+
 .axl{--ink:#1A1A1A;--sub:#5d534d;--g:#1E4A3B;--gd:#C8A24A;--bu:#8A453F;--iv:#FBF8F2;--ln:#E6DCC8;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",sans-serif;color:var(--ink);background:#fff;line-height:1.75}
 .axl *{box-sizing:border-box}.axl a{color:inherit}.axl img{max-width:100%;display:block}
 .axl .ser{font-family:"Songti TC","Noto Serif TC","PMingLiU",serif}
@@ -74,7 +94,7 @@ CSS = r'''
 .axl .btn.o{color:#fff!important}.axl .btn.d{background:var(--ink);border-color:var(--ink);color:#E4C77E!important}
 .axl .eb{background:var(--iv);border-bottom:1px solid var(--ln);text-align:center;padding:14px;font-size:14.5px}.axl .eb b{color:var(--bu)}.axl .eb .cd{font-variant-numeric:tabular-nums;color:var(--g);font-weight:700;margin-left:6px}
 .axl .intro{max-width:820px;margin:0 auto;text-align:center;padding:clamp(44px,7vw,80px) 24px 24px}
-.axl .intro h2,.axl .sh h2{font-family:"Songti TC","Noto Serif TC",serif;font-weight:600;font-size:clamp(24px,3.2vw,34px);margin:0 0 14px;letter-spacing:.04em}
+.axl .intro h1,.axl .intro h2,.axl .sh h2{font-family:"Songti TC","Noto Serif TC",serif;font-weight:600;font-size:clamp(24px,3.2vw,34px);margin:0 0 14px;letter-spacing:.04em}
 .axl .intro p{color:var(--sub);font-size:15.5px;margin:0 0 12px}
 .axl .pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:6px 24px 10px}
 .axl .pills a{text-decoration:none;border:1px solid var(--ln);padding:8px 18px;font-size:13.5px;letter-spacing:.06em;background:#fff}.axl .pills a:hover{border-color:var(--g);color:var(--g)}
@@ -140,6 +160,7 @@ if __name__ == '__main__':
     def _cut(start):
         i = _bp.index(start); return _bp[i:_bp.index('</section>', i) + 10]
     B_TILES = _cut('<section class="sec" id="sets"').replace('id="sets"', 'id="series"', 1)
+    B_TILES = B_TILES.replace('<div class="w"><div class="mg">', '<div class="w"><p class="sd tsd">精心呈獻三大聖誕套餐，照顧不同聚會需要，與摯愛分享開箱的寶藏。</p><div class="mg">', 1)
     B_LOOK = _cut('<section class="sec"><div class="w"><h2 class="st">開箱')
     B_FEAT = _cut('<section class="sec" style="border-top:1px solid var(--ln)"><div class="w"><div class="pd">').replace('style="border-top:1px solid var(--ln)"', 'id="feature"', 1)
     B_COLS = ''.join(_BD['collection'](s, crumb=False) for s in (SER[2], SER[1], SER[0]))
@@ -157,7 +178,7 @@ CSS += (f'.axl{{font-family:{SERIF}}}'
         '@media(max-width:640px){.axl .bar{font-size:11.5px;padding:8px 12px}.axl .crumb{padding:10px 0;font-size:11.5px}'
         '.axl .hero{height:540px}.axl .hero .in{padding:28px 18px}.axl .hero h1{font-size:25px}.axl .hero p{font-size:14px}'
         '.axl .btn{padding:12px 18px;font-size:12px;letter-spacing:.1em;margin:0 6px 8px 0}.axl .eb{font-size:13.5px;padding:12px}'
-        '.axl .intro{padding:36px 18px 12px}.axl .intro p{font-size:14.5px;text-align:left}.axl .intro h2,.axl .sh h2{font-size:23px}'
+        '.axl .intro{padding:36px 18px 12px}.axl .intro p{font-size:14.5px;text-align:left}.axl .intro h1,.axl .intro h2,.axl .sh h2{font-size:23px}'
         '.axl .pills{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;padding:6px 16px 12px}.axl .pills a{white-space:nowrap;flex:0 0 auto;font-size:13px;padding:7px 14px}'
         '.axl section.s{padding:40px 0}.axl .sh{margin-bottom:22px}.axl .sh p{font-size:14px}.axl .pc-n{font-size:15px}'
         '.axl .finder input{width:120px}.axl table.px th:nth-child(3),.axl table.px td:nth-child(3){font-size:12.5px}'
@@ -165,6 +186,83 @@ CSS += (f'.axl{{font-family:{SERIF}}}'
         '.axl .split img{min-height:240px}.axl .split .tx{padding:28px 18px}.axl .wide{min-height:360px}'
         '.axl summary{font-size:15.5px}.axl details p{font-size:14px}.axl .end{padding:40px 18px}.axl .end .btn{display:block;margin:0 auto 10px;max-width:280px}'
         '.axl .bxl .mg{padding:0}.axl .bxl .look .lk-card .bt{display:block;text-align:center}}\n')
+CSS += r'''
+/* ---- 段落眉題：Baskerville 斜體深金（Our Top Picks 款）---- */
+.axl .sh small{display:inline-block!important;font-family:Baskerville,"Baskerville Old Face","Songti TC",Georgia,serif!important;font-style:italic;font-weight:400!important;font-size:19px!important;letter-spacing:.04em!important;text-transform:none!important;background-image:linear-gradient(180deg,#C8961A 0%,#9C6C08 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent!important;margin-bottom:6px!important}
+.axl .sh h2:after,.axl .bxl .st:after{content:"";display:block;width:44px;height:1px;margin:14px auto 0;background:#C8961A}
+@media(max-width:640px){.axl .sh small{font-size:17px!important}}
+/* ---- 供應日期：全闊黑金摺合列 ---- */
+.axl .xav2{background:#111;color:#EDE6D8;border-top:1px solid rgba(200,162,74,.55);border-bottom:1px solid rgba(200,162,74,.55);font-family:"Helvetica Neue","PingFang HK",Arial,sans-serif}
+.axl .xav2 summary{list-style:none;cursor:pointer;display:block;padding:12px 0}
+.axl .xav2 summary:after,.axl .xav2[open] summary:after{content:none!important;display:none!important}.axl .xav2 summary .w{font-family:"Helvetica Neue","PingFang HK",Arial,sans-serif}.axl .xav2 summary::-webkit-details-marker{display:none}.axl .xav2 summary::marker{content:""}
+.axl .xav2 summary .w{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:14.5px;letter-spacing:.06em;color:#fff;font-weight:600}
+.axl .xav2 summary svg{flex:none;display:block}
+.axl .xav2 summary i{font-family:Baskerville,"Baskerville Old Face",Georgia,serif;font-style:italic;font-weight:400;font-size:20px;color:#E4C77E;letter-spacing:.02em}
+.axl .xav2 summary em{font-style:normal;font-size:12px;color:#C8A24A;letter-spacing:.14em;margin-left:14px;font-weight:600}
+.axl .xav2 summary em:after{content:" ▾"}.axl .xav2[open] summary em:after{content:" ▴"}
+.axl .xav2 .bd{border-top:1px solid rgba(200,162,74,.3);background:#161616;padding:12px 0 14px}
+.axl .xav2 ul{list-style:none;margin:0 auto;padding:0;max-width:720px}
+.axl .xav2 li{position:relative;padding-left:20px;margin:5px 0;font-size:14px;line-height:1.7;color:#D9D2C3}
+.axl .xav2 li:before{content:"";position:absolute;left:0;top:.42em;width:12px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cg stroke=%27%23C8A24A%27 stroke-width=%271.6%27 fill=%27none%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7%27/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.axl .xav2 a{color:#E4C77E!important;text-decoration:none;border-bottom:1px solid rgba(200,162,74,.7)}
+@media(max-width:640px){.axl .xav2 summary .w{font-size:13px;gap:6px}.axl .xav2 summary i{font-size:17px}.axl .xav2 summary em{margin-left:6px}.axl .xav2 li{font-size:13px}}
+/* ---- Hero 動態文字（CSS motion）---- */
+.axl .hero img{animation:axKB 20s ease-in-out infinite alternate;transform-origin:60% 50%}
+.axl .hero .in{background:linear-gradient(transparent,rgba(0,0,0,.72) 55%)}
+.axl .hero .in>.w{position:relative}
+.axl .hero .m0{display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;font-size:12px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:#C8A24A}
+.axl .hero .mt1{margin:18px 0 0!important;max-width:none}.axl .hero .mt1 .t{position:relative;display:inline-block;font-family:Baskerville,"Baskerville Old Face",Georgia,serif!important;font-style:italic;font-weight:400;font-size:clamp(30px,4.6vw,52px);line-height:1.15;color:#fff;animation:axOpen 1.5s .9s cubic-bezier(.7,0,.2,1) both}.axl .hero .mt1 .z{display:block;font-family:"Songti TC","Noto Serif TC",serif;font-size:clamp(22px,2.8vw,32px);letter-spacing:.3em;color:#E4C77E;margin-top:12px;}.axl .hero .mt1 .z1,.axl .hero .mt1 .z2{display:inline-block;animation:axUp 1.1s 2.4s cubic-bezier(.2,.6,.2,1) both}.axl .hero .mt1 .z2{animation-delay:3s}@keyframes axOpen{0%{opacity:0;clip-path:inset(0 50% 0 50%);filter:blur(4px)}100%{opacity:1;clip-path:inset(-25% -5% -25% -5%);filter:none}}@keyframes axGlow{0%{text-shadow:none}35%{text-shadow:0 0 18px rgba(240,210,130,.85),0 0 42px rgba(200,162,74,.5)}100%{text-shadow:0 0 6px rgba(200,162,74,.25)}}@keyframes axSweep{to{transform:translateX(420%) skewX(-18deg)}}
+.axl .hp .mt2{font-family:Baskerville,"Baskerville Old Face",Georgia,serif!important;font-style:italic;font-size:clamp(18px,2.1vw,23px);line-height:1.45;color:#EDE6D8;margin:4px 0 6px!important}.axl .hp .mt2 .pr{margin:0 14px 8px!important;text-align:center}.axl .hp .mt2 .pr .zh{color:#9b948a}
+.axl .hp .mt2 .pr{display:inline-block;vertical-align:top;margin:0 22px 6px 0}.axl .hp .mt2 .pr .en{display:block}.axl .hp .mt2 .pr .zh{display:block;font-family:"Songti TC","Noto Serif TC",serif;font-style:normal;font-size:13.5px;letter-spacing:.14em;color:#cfc7b8;margin-top:2px}.axl .hp .mt2 .pr .zh:empty{display:none}.axl .hp .mt2 .zh b{font-size:1.15em;letter-spacing:.14em}.axl .hp .mt2 .pr{opacity:0}.axl .hp.in .mt2 .pr{animation:axUp 1.6s .3s cubic-bezier(.2,.6,.2,1) both}.axl .hp.in .mt2 .pr.b{animation-delay:1.4s}.axl .hp.in .mt2 .pr.c{animation-delay:2.5s}
+.axl .hp .mt2 .l2{font-size:1.55em;line-height:1.2}
+.axl .hp .mt2 b{display:inline-block;font-weight:400;letter-spacing:.06em;background:linear-gradient(100deg,#B8913A 20%,#F6E3A6 45%,#C8A24A 60%,#B8913A 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:axShine 3.2s 4.6s linear infinite}.axl .hp .mt2 b{opacity:0}.axl .hp.in .mt2 b{animation:axPop 1.1s 3.4s cubic-bezier(.3,1.6,.5,1) both,axShine 3.2s 4.6s linear infinite}
+.axl .hero .mt3{font-size:14px!important;color:#cfc7b8!important;margin:0!important;letter-spacing:.06em;animation:axFade 1.2s 5.1s both}
+.axl .hero .mt3:empty{display:none}
+.axl .hero .mln{display:block;height:1px;width:64px;background:#C8A24A;margin:16px 0 14px;transform-origin:left;animation:axLine 1s 3.7s ease-out both}
+.axl .hero h1{font-size:clamp(19px,2.4vw,26px)!important;color:#EFE7D6!important;margin:0 0 16px!important;letter-spacing:.04em;animation:axFade 1s 5s both}
+.axl .hero .mbt{animation:axFade 1s 3.9s both}
+.axl .hero .spk{position:absolute;color:#E4C77E;font-size:14px;line-height:1;opacity:0;animation:axTw 3.6s ease-in-out infinite;pointer-events:none}
+.axl .hero .spk.s1{left:58%;top:4px;animation-delay:1.8s}.axl .hero .spk.s2{left:72%;top:46px;font-size:10px;animation-delay:2.9s}.axl .hero .spk.s3{left:46%;top:-18px;font-size:9px;animation-delay:4s}
+@keyframes axKB{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes axTrack{from{opacity:0;letter-spacing:.9em}to{opacity:1;letter-spacing:.38em}}
+@keyframes axUp{from{opacity:0;transform:translateY(14px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes axFade{from{opacity:0}to{opacity:1}}
+@keyframes axPop{0%{opacity:0;transform:scale(.6)}100%{opacity:1;transform:scale(1)}}
+@keyframes axShine{from{background-position:100% 0}to{background-position:-150% 0}}
+@keyframes axLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes axTw{0%,100%{opacity:0;transform:scale(.5) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+@media(max-width:640px){.axl .hero .m0{font-size:10.5px;letter-spacing:.3em}.axl .hero .mt1 .t{font-size:28px}.axl .hero .mt1 .z{font-size:21px;letter-spacing:.24em}.axl .hp .mt2{font-size:16px}.axl .hp .mt2 .pr{margin-right:16px}.axl .hp .mt2 .pr .zh{font-size:12px;letter-spacing:.1em}.axl .hero .mt3{font-size:13px!important}.axl .hero .mln{margin:12px 0 10px}.axl .hero h1{font-size:18px!important;margin-bottom:14px!important}.axl .hero .spk.s1{left:78%}.axl .hero .spk.s2{left:88%}.axl .hero .spk.s3{left:66%}}
+@media(prefers-reduced-motion:reduce){.axl .hero *,.axl .hp *{animation:none!important;opacity:1!important}}
+'''
+_EB = {'OUR TOP PICKS': 'Our Top Picks', 'FIND YOUR SET': 'Find Your Set', 'FOR EVERY OCCASION': 'For Every Occasion', 'ADD-ONS': 'Add-ons'}
+CSS += '/* Hero CTA：Option A 金色幼框 */.axl .hero .btn.p{background:transparent!important;border:1px solid #C8A24A!important;color:#E4C77E!important;font-size:13px;letter-spacing:.24em;padding:14px 34px;position:relative;overflow:hidden;z-index:0}.axl .hero .btn.p:before{content:"";position:absolute;inset:0;background:#C8A24A;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.6,0,.2,1);z-index:-1}.axl .hero .btn.p:hover{color:#111!important}.axl .hero .btn.p:hover:before{transform:scaleX(1)}\n'
+CSS += '/* 標題樣式：H2 gold（Our Top Picks 款）＋ H2 black */.axl .h2g{display:inline-block;font-family:Baskerville,"Baskerville Old Face","Songti TC",Georgia,serif!important;font-style:italic;font-weight:400!important;font-size:clamp(19px,2vw,24px);letter-spacing:.04em;background-image:linear-gradient(180deg,#C8961A 0%,#9C6C08 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;margin-bottom:6px}html:not([lang^="en"]) .axl .h2g{font-style:normal;letter-spacing:.12em}html:not([lang^="en"]) .axl .h2g.lt{font-style:italic;letter-spacing:.04em}.axl .h2b{display:inline-block;font-family:"Baskerville","Songti TC","Noto Serif TC","PMingLiU",Georgia,serif;font-weight:400;color:var(--ink);font-size:clamp(24px,3.2vw,34px);letter-spacing:.04em;line-height:1.35}.axl .intro h1.hh{line-height:1.2}.axl .intro h1.hh br{display:block}@media(max-width:640px){.axl .h2g{font-size:17px}.axl .h2b{font-size:23px}}\n'
+CSS += '/* 手機 Hero：固定左右留白、加深底部漸暗、標題唔再因字距動畫移位 */@media(max-width:640px){.axl .hero .in{padding:28px 20px 30px!important;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.55) 30%,rgba(0,0,0,.86) 100%)!important}.axl .hero .in>.w{padding:0!important;margin:0!important;max-width:none!important}.axl .hero .mt1 .t{white-space:nowrap;font-size:min(28px,7.4vw)!important}.axl .hero .m0{text-shadow:0 1px 6px rgba(0,0,0,.6)}.axl .crumb{padding:10px 20px!important}}\n'
+HERO_IMG = 'img/xmas-lp-hero-box.jpg'
+HERO_URL = 'https://aoaodelivery.com/wp-content/uploads/2026/11/xmas-lp-hero-box.jpg'
+CSS += '/* Hero 背景圖：寶藏箱（已去 logo），限制最大闊度，唔撐滿；文字出完先出圖 */.axl .hero{background:#0a0907!important}.axl .hero .hbox{position:absolute;top:0;right:max(0px,calc(50% - 640px));left:auto;height:100%;aspect-ratio:4/5;max-width:min(56%,600px);opacity:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 1px,#000 calc(100% - 1px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 1px,#000 calc(100% - 1px),transparent 100%);animation:axImg 1.4s 1.6s ease-out forwards;z-index:1}@keyframes axImg{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}.axl .hero .in{background:transparent!important;top:0;display:flex;align-items:flex-end}.axl .hero .in>.w{width:100%}.axl .hero .spk{color:#F6E3A6!important;text-shadow:0 0 6px rgba(246,227,166,.8),0 0 14px rgba(200,162,74,.45);animation:axTw2 3.2s ease-in-out infinite!important}.axl .hero .spk.s1{left:62%!important;top:-40px!important;font-size:16px!important;animation-delay:.6s!important}.axl .hero .spk.s2{left:78%!important;top:30px!important;font-size:11px!important;animation-delay:1.5s!important}.axl .hero .spk.s3{left:48%!important;top:-90px!important;font-size:9px!important;animation-delay:2.3s!important}.axl .hero .spk.s4{left:90%!important;top:-120px!important;font-size:13px!important;animation-delay:3.1s!important}.axl .hero .spk.s5{left:70%!important;top:-170px!important;font-size:8px!important;animation-delay:1s!important}@keyframes axTw2{0%,100%{opacity:0;transform:scale(.3) rotate(0)}45%{opacity:1;transform:scale(1.15) rotate(45deg)}60%{opacity:1;transform:scale(1) rotate(60deg)}}@media(max-width:640px){.axl .hero{height:auto!important;display:flex;flex-direction:column}.axl .hero .hbox{position:relative;right:auto;width:100%;max-width:520px;margin:0 auto;height:auto;aspect-ratio:4/5;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}.axl .hero .in{position:relative!important;inset:auto!important;margin-top:-70px;background:transparent!important}.axl .hero .spk.s1{left:72%!important;top:-150px!important;font-size:14px!important}.axl .hero .spk.s2{left:86%!important;top:-60px!important}.axl .hero .spk.s3{left:12%!important;top:-210px!important}.axl .hero .spk.s4{left:40%!important;top:-260px!important}.axl .hero .spk.s5{left:60%!important;top:-320px!important}}\n'
+HERO_OPEN = 'img/xmas-lp-hero-open.jpg'
+HERO_OPEN_URL = 'https://aoaodelivery.com/wp-content/uploads/2026/11/xmas-lp-hero-open.jpg'
+CSS += '/* 開箱互動：金鎖匙 Open it → 開箱金光、換相、出煙 */.axl .hero .hbox img.hbg{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover;opacity:1;margin:0}.axl .hero .hbox .h1i{object-position:50% 60%;transition:opacity 1.1s ease .35s,transform 1.4s ease .35s;animation:axKB 22s 3s ease-in-out infinite alternate;transform-origin:50% 60%}.axl .hero .hbox .h2i{object-position:50% 35%;opacity:0!important;transform:scale(1.08);transition:opacity 1.2s ease .5s,transform 2.4s cubic-bezier(.2,.7,.2,1) .5s;animation:none}.axl .hero.open .hbox .h1i{opacity:0!important;transform:scale(1.06)}.axl .hero.open .hbox .h2i{opacity:1!important;transform:scale(1)}.axl .hero .hbox.shake{animation:axShake .45s ease-in-out;opacity:1}.axl .hero.open .hbox{opacity:1;animation:none}@keyframes axShake{0%,100%{transform:none}20%{transform:rotate(-1.4deg)}40%{transform:rotate(1.2deg)}60%{transform:rotate(-.8deg)}80%{transform:rotate(.5deg)}}.axl .hero .hkey{position:absolute;left:51.5%;top:70%;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:8px;cursor:pointer;opacity:0;animation:axFade .8s 2s forwards}.axl .hero .hkey svg{filter:drop-shadow(0 0 6px rgba(246,227,166,.8));transition:transform .45s cubic-bezier(.3,1.5,.5,1);animation:axKey 2.4s 2.6s ease-in-out infinite}.axl .hero .hkey:before{content:"";position:absolute;left:50%;top:22px;width:58px;height:58px;margin:-29px 0 0 -29px;border:1px solid rgba(228,199,126,.7);border-radius:50%;animation:axRing 2.4s 2.6s ease-out infinite;opacity:0}.axl .hero .hkey em{font-family:Baskerville,"Baskerville Old Face",Georgia,serif;font-style:italic;font-size:15px;color:#F4E6C0;letter-spacing:.06em;text-shadow:0 1px 6px rgba(0,0,0,.8)}.axl .hero .hkey:hover svg{transform:rotate(-12deg) scale(1.1)}.axl .hero.open .hkey{opacity:0!important;pointer-events:none;transition:opacity .4s .3s}.axl .hero.open .hkey svg{transform:rotate(90deg) scale(1.15)}@keyframes axKey{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes axRing{0%{opacity:.8;transform:scale(.6)}100%{opacity:0;transform:scale(1.5)}}.axl .hero .hfl{position:absolute;left:51.5%;top:62%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:radial-gradient(circle,rgba(255,240,200,.95),rgba(232,196,110,.55) 35%,transparent 70%);opacity:0;z-index:2;pointer-events:none}.axl .hero.open .hfl{animation:axFlash 1.4s .3s ease-out forwards}@keyframes axFlash{0%{opacity:0;transform:scale(1)}25%{opacity:1;transform:scale(40)}100%{opacity:0;transform:scale(70)}}.axl .hero .hsm{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}.axl .hero .hsm i{position:absolute;left:var(--xd);top:var(--yd);width:26%;aspect-ratio:1;margin:-13% 0 0 -13%;border-radius:50%;background:radial-gradient(circle,rgba(240,236,228,.6) 0%,rgba(225,220,210,.25) 45%,transparent 70%);filter:blur(9px);opacity:0}.axl .hero.open .hsm i{animation:axSmoke 5.5s var(--dl) ease-out infinite}@keyframes axSmoke{0%{opacity:0;transform:translate(0,10%) scale(.5)}18%{opacity:.75}55%{opacity:.35}100%{opacity:0;transform:translate(10%,-150%) scale(2.2)}}@media(max-width:640px){.axl .hero .hsm i{left:var(--xm);top:var(--ym)}.axl .hero .hkey{top:72%}.axl .hero .hkey svg{width:38px;height:15px}.axl .hero .hkey em{font-size:14px}.axl .hero .hfl{top:64%}}@media(prefers-reduced-motion:reduce){.axl .hero .hsm{display:none}}\n'
+CSS += '/* Open it 下面加箭嘴，指向金鎖匙 */.axl .hero .hkey .hint{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:2px;white-space:nowrap}.axl .hero .hkey .arw{display:block;width:1px;height:22px;background:linear-gradient(rgba(228,199,126,0),#E4C77E);position:relative;animation:axArw 1.6s ease-in-out infinite}.axl .hero .hkey .arw:after{content:"";position:absolute;left:50%;bottom:0;width:7px;height:7px;margin-left:-4px;border-right:1px solid #E4C77E;border-bottom:1px solid #E4C77E;transform:rotate(45deg)}@keyframes axArw{0%,100%{transform:translateY(-3px);opacity:.6}50%{transform:translateY(3px);opacity:1}}\n'
+CSS += '/* Open it 明顯啲 */.axl .hero .hkey svg{width:54px!important;height:21px!important;filter:drop-shadow(0 0 8px rgba(246,227,166,.95)) drop-shadow(0 0 16px rgba(200,162,74,.6))!important}.axl .hero .hkey em{font-size:19px!important;color:#F6E3A6!important;background:rgba(10,9,7,.55);padding:3px 14px 4px;border:1px solid rgba(228,199,126,.6);border-radius:20px;text-shadow:0 0 8px rgba(246,227,166,.6)!important}.axl .hero .hkey .arw{height:30px!important;width:1.5px!important}.axl .hero .hkey .arw:after{width:9px!important;height:9px!important;margin-left:-5px!important;border-width:1.5px!important}.axl .hero .hkey:before{width:72px!important;height:72px!important;margin:-36px 0 0 -36px!important;border-width:1.5px!important}@media(max-width:640px){.axl .hero .hkey em{font-size:17px!important}}\n'
+CSS += '/* 精選推介：單點新菜滑動 */.axl section[id^="top"] .sh h2{margin:0 0 10px}.axl section[id^="top"] .sh .sm{font-size:14px;color:var(--sub)}.axl .dc .pc-im{border:1px solid var(--ln)}.axl .dc .pc-k{font-size:10.5px;letter-spacing:.2em;color:#9A7B2E;margin:12px 0 4px}.axl .dc .pc-n{margin:0 0 4px}.axl .dc .dcd{font-size:13px;color:var(--sub);line-height:1.6;margin:0}\n'
+DM_ZH = (HERE / 'dish-menu-zh.html').read_text(encoding='utf-8')
+DM_EN = (HERE / 'dish-menu-en.html').read_text(encoding='utf-8')
+CSS += '/* 精選推介：桌面一次顯示 6 款；菜式詳細介紹按鈕 */@media(min-width:1025px){.axl section[id^="top"] .track{grid-auto-columns:calc((100% - 80px)/5)!important;gap:20px;scroll-snap-type:none!important;scroll-behavior:auto}}.axl section[id^="top"] .dbt{text-align:left;margin:28px 0 0}.axl section[id^="top"] .dbt .btn{margin:0}.axl section[id^="dishes"]{border-top:1px solid var(--ln)}\n'
+CSS += '/* 手機 slider 箭嘴 */@media(max-width:1024px){.axl section[id^="top"] .nav{display:flex!important;align-items:center;justify-content:center;width:36px;height:36px;font-size:17px;top:calc(39vw - 18px);background:rgba(255,255,255,.92);border:1px solid #C8A24A;color:#9A7B2E;box-shadow:0 2px 8px rgba(0,0,0,.18);padding:0;line-height:1}.axl section[id^="top"] .nav.l{left:4px}.axl section[id^="top"] .nav.r{right:4px}}@media(min-width:641px) and (max-width:1024px){.axl section[id^="top"] .nav{top:calc(23vw - 18px)}}\n'
+CSS += '/* Hero 文字唔可以被右邊圖片遮住：文字區最闊 = 剩餘位置 */@media(min-width:641px){.axl .hero .m0,.axl .hero .mt1,.axl .hero .mln,.axl .hero .mbt{max-width:calc(100% - min(56%,600px) - 36px);position:relative;z-index:2}.axl .hero .mt1 .t{white-space:normal;font-size:clamp(28px,3.6vw,52px)!important}.axl .hero .mt1 .z{font-size:clamp(19px,2.2vw,32px)!important}.axl .hero .m0{letter-spacing:.3em!important}.axl .hero .btn.p{padding:14px 26px;letter-spacing:.18em}}@media(min-width:641px) and (max-width:900px){.axl .hero .hbox{max-width:46%}.axl .hero .m0,.axl .hero .mt1,.axl .hero .mln,.axl .hero .mbt{max-width:calc(54% - 36px)}.axl .hero .m0{font-size:11px;letter-spacing:.2em!important;white-space:nowrap}}\n'
+CSS += '/* 聖誕主菜：Option B 置中卡片 */.mo .gb{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:980px;margin:0 auto}.mo .gb .c{text-align:center}.mo .gb .im{display:block;aspect-ratio:1/1;overflow:hidden;background:#111}.mo .gb img{width:100%;height:100%;object-fit:cover}.mo .gb .ln{width:1px;height:34px;background:#C8A24A;margin:0 auto 14px}.mo .gb .k{font:700 10.5px/1.4 "Helvetica Neue","PingFang HK",Arial,sans-serif;letter-spacing:.2em;color:#9A7B2E;margin:0 0 10px}.mo .gb .n{font-family:Baskerville,"Baskerville Old Face","Songti TC","Noto Serif TC",Georgia,serif;font-size:clamp(24px,2.4vw,30px);line-height:1.25;margin:0 0 6px}.mo .gb .s{font-family:Baskerville,"Baskerville Old Face","Songti TC","Noto Serif TC",Georgia,serif;font-style:italic;font-size:15px;color:var(--sub);margin:0 0 6px}.mo .gb .d{font-size:14px;color:var(--sub);margin:0 0 16px}.mo .gb .bt{display:inline-block;font:700 11.5px/1 "Helvetica Neue","PingFang HK",Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9A7B2E;border:1px solid #C8A24A;padding:12px 26px;text-decoration:none}.mo .gb .bt:hover{background:#C8A24A;color:#111}@media(max-width:640px){.mo .gb{grid-template-columns:1fr;gap:44px}}\n'
+CSS += '/* 頁內導覽：捲動時置頂＋跟住段落亮起 */.axl .pills{position:-webkit-sticky;position:sticky;top:var(--ao-top,0px);z-index:50;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:0;margin:0;transition:box-shadow .3s;padding:10px 24px!important}.axl .pills a{transition:background .25s,color .25s,border-color .25s}.axl .pills+section.s,.axl .pills+*+section.s{border-top:0!important}.axl .pills.stuck{box-shadow:0 6px 14px -10px rgba(0,0,0,.35)}.axl .pills a.on{background:#111;border-color:#111;color:#E4C77E!important}.axl section[id]{scroll-margin-top:calc(var(--ao-top,0px) + 70px)}@media(max-width:640px){.axl .pills{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-flow:row;gap:6px!important;overflow:visible;padding:8px 12px!important}.axl .pills::-webkit-scrollbar{display:none}.axl .pills a{font-size:12px!important;padding:6px 2px!important;text-align:center;white-space:normal!important;line-height:1.25;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;min-width:0}html[lang^="en"] .axl .pills a{font-size:11px!important}}\n'
+CSS += '/* 餐牌錨點及按鈕 */.axl .anc{display:block;height:0;scroll-margin-top:calc(var(--ao-top,0px) + 80px)}.axl section[id^="top"] .dbt{display:flex;flex-wrap:wrap;gap:12px}.axl section[id^="top"] .dbt .btn{margin:0}.axl .btn.m{background:#fff;border:1px solid #C8A24A;color:#9A7B2E!important}.axl .btn.m:hover{background:#C8A24A;color:#111!important}\n'
+CSS += '/* 開箱，就是聖誕 ⇄ 今年，交給 Kitchen AO 自動切換 */.axl .hero .mt1 .zs{position:relative;display:block;height:1.45em;overflow:hidden}.axl .hero .mt1 .zl{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(110%);opacity:0;transition:transform .9s cubic-bezier(.6,0,.2,1),opacity .9s}.axl .hero .mt1 .zl.on{transform:none;opacity:1}.axl .hero .mt1 .zl.out{transform:translateY(-110%);opacity:0}\n'
+CSS += '.axl .bxl .tsd{margin:0 auto 26px!important;max-width:620px;font-style:italic;line-height:1.8}\n'
+CSS += '/* 主菜及新菜相片 mouse over：跟分類方格一樣慢慢放大 */.axl .mo .gb .im,.axl .dc .pc-im{overflow:hidden}.axl .mo .gb .im img,.axl .dc .pc-im img{transition:transform 1.2s ease,opacity .6s ease}@media(hover:hover){.axl .mo .gb .c:hover .im img,.axl .dc:hover .pc-im img{transform:scale(1.05);opacity:.88}}\n'
+# ---- 手機排版修正：方格文字留邊、縮細；Hero 兩個按鈕同闊上下排 ----
+MFIX = ('@media(max-width:640px){.axl .bxl .mg span{padding:0 10px;font-size:15px;line-height:1.35;letter-spacing:.03em;text-align:center}'
+        '.axl .hero .btn{display:block;width:100%;max-width:300px;box-sizing:border-box;text-align:center;margin:0 0 10px}'
+        '.axl .hero h1{font-size:24px;line-height:1.35}.axl .hero p{line-height:1.6;margin-bottom:16px}}\n')
+CSS += MFIX
 page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>聖誕到會 2026｜聖誕大餐外賣及派對套餐｜Kitchen AO</title>
 <meta name="description" content="Kitchen AO 2026 聖誕到會套餐：5 至 100 人，原隻黃油雞、寶箱煙燻牛翼板肉及八款聖誕新菜，公司聖誕派對及家庭聚會皆宜。11 月 30 日前 MEGA79 七九折。">
@@ -172,19 +270,18 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="axl">
 <div class="bar"><b>Mega Early Bird</b>｜聖誕套餐輸入優惠碼 <b>MEGA79</b> 享七九折，至 2026 年 11 月 30 日 23:59</div>
 <div class="w crumb"><a href="https://aoaodelivery.com/">首頁</a> / <a href="https://aoaodelivery.com/catering/">到會場景</a> / 聖誕到會</div>
-<div class="hero"><img src="{IMG['chk1']}" alt="聖誕到會 2026：燒南乳香慢煮原隻黃油雞聖誕套餐"><div class="in"><div class="w" style="padding:0">
-<small>CHRISTMAS 2026 · KITCHEN AO</small><h1>聖誕到會 2026｜聖誕大餐外賣及派對套餐</h1>
-<p>原隻黃油雞、寶箱煙燻牛翼板肉及八款聖誕新菜，5 至 100 人聖誕派對一站配搭，送到你的餐桌。</p>
-<a class="btn p" href="#sets">選購聖誕套餐</a><a class="btn o" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div></div></div>
-<div class="eb">早鳥優惠：輸入 <b>MEGA79</b> 聖誕套餐享七九折（21% OFF）<span class="cd" id="axl-cd"></span></div>
-<div class="intro"><h2 class="ser">2026 聖誕到會套餐</h2>
+<div class="hero"><div class="hbox"><img class="hbg h1i" src="{HERO_IMG}" alt="聖誕到會 2026：聖誕寶藏箱" width="1200" height="1500"><img class="hbg h2i" src="{HERO_OPEN}" alt="開箱：聖誕寶藏箱、原隻黃油雞及聖誕新菜" loading="lazy" width="1200" height="1500"><span class="hfl"></span><span class="hsm"><i style="--xd:50%;--yd:23%;--xm:50%;--ym:23%;--dl:.6s"></i><i style="--xd:46%;--yd:19.5%;--xm:46%;--ym:19.5%;--dl:2.2s"></i><i style="--xd:17%;--yd:59%;--xm:17%;--ym:59%;--dl:1.1s"></i><i style="--xd:21%;--yd:55%;--xm:21%;--ym:55%;--dl:2.9s"></i><i style="--xd:78%;--yd:57%;--xm:78%;--ym:57%;--dl:1.6s"></i><i style="--xd:74%;--yd:53%;--xm:74%;--ym:53%;--dl:3.5s"></i><i style="--xd:84%;--yd:13.5%;--xm:84%;--ym:13.5%;--dl:2.0s"></i><i style="--xd:80%;--yd:10%;--xm:80%;--ym:10%;--dl:4.1s"></i></span><button class="hkey" type="button" aria-label="Open the box"><svg viewBox="0 0 64 24" width="44" height="17" aria-hidden="true"><g fill="none" stroke="#E4C77E" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="12" r="7.5"/><circle cx="11" cy="12" r="2.6"/><path d="M18.5 12H58M48 12v6M54 12v5"/></g></svg><span class="hint"><em>Open it</em><b class="arw" aria-hidden="true"></b></span></button></div><div class="in"><div class="w" style="padding:0">
+<span class="spk s1">✦</span><span class="spk s2">✦</span><span class="spk s3">✦</span><span class="spk s4">✦</span><span class="spk s5">✦</span><small class="m0">Christmas Catering 2026</small><p class="mt1"><span class="t">Open the Box! It&#8217;s Christmas!</span><span class="z"><span class="zs"><span class="zl on"><span class="z1">開箱，</span><span class="z2">就是聖誕</span></span><span class="zl">今年，交給 Kitchen AO</span></span></span></p><span class="mln"></span><div class="mbt"><a class="btn p" href="#sets">選購聖誕套餐</a></div></div></div></div>
+<details class="xav2"><summary><div class="w"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><g stroke="#C8A24A" stroke-width="1.5" fill="none" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5l-2-2M12 5l2-2M12 19l-2 2M12 19l2 2"/></g></svg><span>聖誕套餐只限</span><i>12.12 – 12.27</i><span>供應</span><em>詳情</em></div></summary><div class="bd"><div class="w"><ul><li>12 月 19 日前，其他套餐及單點照常供應。</li><li>除企業訂單外，其他日子不供應<a href="https://aoaodelivery.com/product-category/christmas-party-catering-set/" target="_blank" rel="noopener">聖誕套餐</a></li><li>套餐供應情況會持續於網站更新，請密切留意網站內容及參閱<a href="https://aoaodelivery.com/delivery/" target="_blank" rel="noopener">送貨需知</a></li></ul></div></div></details>
+<div class="intro"><h1 class="ser hh"><span class="h2g">聖誕到會 2026</span><br><span class="h2b">聖誕大餐外賣及派對套餐</span></h1>
 <p>Kitchen AO 聖誕到會套餐專為 5 至 100 人的聖誕聚會而設，由家庭聖誕大餐、好友派對到公司聖誕派對，都可以按人數揀選。今年三大系列分別以寶箱煙燻慢煮美國牛翼板肉、燒南乳香慢煮原隻黃油雞為主角，配前菜、沙律、意粉及飯和甜品，一份聖誕到會餐單就能照顧全場賓客。</p>
-<p>平安夜及聖誕節是全年聖誕訂餐高峰，送貨時段有限，建議盡早預訂。</p></div>
-<nav class="pills"><a href="#top">精選推介</a><a href="#beef">聖誕寶藏箱</a><a href="#chk">聖誕金雞獻禮</a><a href="#dbl">聖誕開箱雙寶</a><a href="#pax">按人數揀</a><a href="#occ">按場合揀</a><a href="#new">聖誕新菜</a><a href="#delivery">送貨安排</a><a href="#faq">常見問題</a></nav>
-<section class="s" id="top"><div class="w"><div class="sh"><small>OUR TOP PICKS</small><h2>聖誕到會精選推介</h2><p>由 5 人家庭聖誕大餐到 100 人公司聖誕派對，先看最受歡迎的六款聖誕套餐。</p></div>
-<div class="rail"><button class="nav l" type="button" aria-label="上一個">‹</button><div class="track">{"".join(card(*t) for t in TOP)}</div><button class="nav r" type="button" aria-label="下一個">›</button></div></div></section>
-<div class="bxl">{B_TILES}{B_LOOK}</div>
-<section class="s" id="sets"><div class="w"><div class="sh"><small>CHRISTMAS SETS</small><h2>三大聖誕套餐系列</h2><p>全部套餐均可自由配搭菜式，部分精選菜式需另加差價。</p></div>
+</div>
+<nav class="pills" aria-label="頁內導覽"><a href="#top">聖誕新菜</a><a href="#mains">聖誕主菜</a><a href="#sets">套餐系列</a><a href="#pax">按人數揀</a><a href="#occ">按場合揀</a><a href="#addon">小食甜品</a><a href="#delivery">送貨安排</a><a href="#faq">常見問題</a><a href="#ao-dish-details">菜式介紹</a></nav>
+<section class="s" id="top"><div class="w"><div class="sh"><h2><span class="h2g">聖誕到會精選推介</span><br><span class="h2b">2026 聖誕新菜</span></h2><p class="sm">今年聖誕套餐全新加入的前菜、沙律、意粉及飯和甜品。</p></div>
+<div class="rail"><button class="nav l" type="button" aria-label="上一個">‹</button><div class="track">{"".join(f'<div class="pc dc"><div class="pc-im"><img src="{IMG[k]}" alt="{n}" loading="lazy"></div><p class="pc-k">XMAS SPECIAL</p><p class="pc-n">{n}</p></div>' for k, n, d in DISH)}</div><button class="nav r" type="button" aria-label="下一個">›</button></div><p class="dbt"><a class="btn d" href="#ao-dish-details">菜式詳細介紹</a><a class="btn m" href="#ao-menu">查看完整聖誕餐牌</a></p></div></section>
+<section class="s mo" id="mains"><div class="w"><div class="sh"><h2><span class="h2g lt">Featuring our bespoke meats to WOW</span><br><span class="h2b">2026 聖誕主菜</span></h2></div><div class="gb"><div class="c"><a class="im" href="#chk"><img loading="lazy" src="{IMG['chk2']}" alt="聖誕金雞獻禮"></a><div class="ln" style="margin-top:0"></div><p class="k">KITCHEN AO · 全港限量 100 個</p><p class="n">聖誕金雞獻禮</p><p class="s">燒南乳香慢煮原隻黃油雞</p><p class="d">原隻連木箱送到</p><a class="bt" href="#chk">查看套餐</a></div><div class="c"><a class="im" href="#beef"><img loading="lazy" src="{IMG['beef']}" alt="聖誕寶藏箱"></a><div class="ln" style="margin-top:0"></div><p class="k">KITCHEN AO · 全港限量 100 個</p><p class="n">聖誕寶藏箱</p><p class="s">煙燻慢煮美國牛翼板肉盛宴</p><p class="d">連復古寶箱送到</p><a class="bt" href="#beef">查看套餐</a></div></div></div></section>
+<div class="bxl">{B_TILES}</div>
+<section class="s" id="sets"><div class="w"><div class="hp"><small>Christmas Catering 2026</small><p class="hpt">Open the Box! It&#8217;s Christmas!</p><p class="mt2 hpp"><span class="pr a"><span class="en">Hours to slow-cook.</span><span class="zh">慢煮數小時</span></span><span class="pr b"><span class="en">Minutes to smoke.</span><span class="zh">煙燻數分鐘</span></span><br><span class="pr c"><span class="en l2">One second to <b>WOW</b></span><span class="zh">開箱<b>驚喜</b>只需一秒</span></span></p><p class="orn">✦ ✦ ✦</p><h2 class="hph">三大聖誕套餐系列</h2><p class="hps2">每款均可配八款 XMAS SPECIAL 全新菜式</p><p class="hpn">全部套餐均可自由配搭菜式，部分精選菜式需另加差價。</p></div>
 <div class="bxl">{B_COLS}</div></div></section>
 <div class="bxl">{B_FEAT}</div>
 <section class="s" id="pax" style="background:var(--iv)"><div class="w"><div class="sh"><small>FIND YOUR SET</small><h2>按人數揀聖誕套餐</h2><p>輸入出席人數，即時建議合適的聖誕到會套餐。</p></div>
@@ -193,26 +290,26 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 {"".join(f'<tr{" class=gap" if c else ""}><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a, b, c in PAX)}</tbody></table></div></section>
 <section class="s" id="occ"><div class="w"><div class="sh"><small>FOR EVERY OCCASION</small><h2>聖誕到會推介：按場合揀套餐</h2></div>
 <div class="occ">{"".join(f'<div class="oc"><h3>{t}</h3><p>{d}</p><a href="{u}">{l} →</a></div>' for t, d, u, l in OCC)}</div></div></section>
-<section class="s" id="new"><div class="w"><div class="sh"><span class="xs">{SNOW}XMAS SPECIAL</span><h2 style="margin-top:14px">2026 聖誕新菜</h2><p>今年聖誕套餐全新加入的前菜、沙律、意粉及飯和甜品。</p></div>
-<div class="dish">{"".join(f'<div class="ds"><img src="{IMG[k]}" alt="{n}" loading="lazy"><h3>{n}</h3><p>{d}</p></div>' for k, n, d in DISH)}</div></div></section>
+
 <section class="s" id="addon" style="padding-top:0;border-top:0"><div class="w"><div class="sh"><small>ADD-ONS</small><h2>聖誕小食及甜品加配</h2><p>人數較多或想更豐富，可加配單點小食及甜品。</p></div>
 <div class="occ"><div class="oc"><h3>惹味小食</h3><p>雞翼、迷你漢堡、九層塔香酥雞等派對熱門小食。</p><a href="https://aoaodelivery.com/product-category/a-la-carte/snacks/">選購小食 →</a></div>
 <div class="oc"><h3>甜品</h3><p>馬卡龍、芝士撻等一口甜品，為聖誕派對作結。</p><a href="https://aoaodelivery.com/product-category/a-la-carte/dessert/">選購甜品 →</a></div>
 <div class="oc"><h3>派對用品</h3><p>餐具、暖貼及三層食物架，方便擺放及保溫。</p><a href="https://aoaodelivery.com/product-category/party-supplies/">選購用品 →</a></div>
 <div class="oc"><h3>聖誕神秘加配</h3><p>聖誕樹芝士火腿拼盤，派對焦點冷盤，上桌即成拍照焦點。</p><a href="#sets">於套餐內加配 →</a></div></div></div></section>
 <section class="split" id="delivery"><img src="{IMG['beef']}" alt="平安夜及聖誕節到會送貨安排" loading="lazy"><div class="tx"><small style="letter-spacing:.38em;font-size:11.5px;color:#9A7B2E">DELIVERY</small>
-<h2>平安夜及聖誕節送貨安排</h2><ul><li>平安夜（12 月 24 日）及聖誕節（12 月 25 日）熱門時段較快額滿，宜盡早確定日期及時間。</li><li>預留至少 30 分鐘緩衝時間，避免開餐與送貨時間太接近。</li><li>落單時寫清楚收貨人、電話及大廈資料；Party Room、辦公室及學校請先確認收貨安排。</li></ul>
+<h2>平安夜及聖誕節送貨安排</h2><ul><li>聖誕套餐供應及送貨日期為 12 月 12 日至 27 日；12 月 19 日前，其他套餐及單點照常供應。</li><li>平安夜（12 月 24 日）及聖誕節（12 月 25 日）熱門時段較快額滿，宜盡早確定日期及時間。</li><li>預留至少 30 分鐘緩衝時間，避免開餐與送貨時間太接近。</li><li>落單時寫清楚收貨人、電話及大廈資料；Party Room、辦公室及學校請先確認收貨安排。</li></ul>
 <a class="btn d" href="https://aoaodelivery.com/delivery/">查看送貨需知</a></div></section>
 <section class="wide" id="corp"><img src="{IMG['rice']}" alt="公司聖誕派對到會" loading="lazy"><div class="in"><small style="letter-spacing:.38em;font-size:11.5px;color:#E9D29A">CORPORATE</small>
 <h2>公司聖誕派對到會</h2><p>部門聚餐、年終派對及客戶活動，按人數配搭聖誕套餐，可索取正式報價及收據。</p>
 <a class="btn p" href="https://aoaodelivery.com/corporate-catering-hk/">公司到會方案</a><a class="btn o" href="https://aoaodelivery.com/catering-quote-enquiry/">到會報價查詢</a></div></section>
 <section class="s" id="faq"><div class="w"><div class="sh"><small>FAQ</small><h2>聖誕到會常見問題</h2></div><div class="faq">
 {"".join(f'<details{" open" if i == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for i, (q, a) in enumerate(FAQ))}</div></div></section>
+<section class="s" id="dishes"><div class="w" style="max-width:820px">@@DISHES@@</div></section>
 <div class="end"><p class="ser" style="font-size:22px;margin:0 0 6px">今年聖誕，交給 Kitchen AO</p><p style="color:var(--sub);margin:0 0 18px">5 至 100 人聖誕到會套餐，11 月 30 日前 MEGA79 七九折。</p>
 <a class="btn p" href="#sets">選購聖誕套餐</a><a class="btn d" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 </div>
 <script>(function(){{var end=new Date('2026-11-30T23:59:59+08:00').getTime(),cd=document.getElementById('axl-cd');function t(){{var s=Math.max(0,Math.floor((end-Date.now())/1000));if(!cd)return;cd.textContent=s?'｜尚餘 '+Math.floor(s/86400)+' 天 '+Math.floor(s%86400/3600)+' 小時':'';}}t();setInterval(t,60000);
-document.querySelectorAll('.axl .rail').forEach(function(r){{var tr=r.querySelector('.track');r.querySelectorAll('.nav').forEach(function(b){{b.addEventListener('click',function(){{tr.scrollBy({{left:(b.classList.contains('l')?-1:1)*tr.clientWidth*.8,behavior:'smooth'}})}})}})}});
+document.querySelectorAll('.axl .rail').forEach(function(r){{var tr=r.querySelector('.track');r.querySelectorAll('.nav').forEach(function(b){{b.addEventListener('click',function(){{var c=tr.firstElementChild,st=innerWidth<1025&&c?c.offsetWidth+16:tr.clientWidth*.8;tr.scrollBy({{left:(b.classList.contains('l')?-1:1)*st,behavior:'smooth'}})}})}})}});
 var S=[[5,6,'5-6 人套餐（寶藏箱 HK$1,928／金雞獻禮 HK$1,688）'],[8,10,'8-10 人套餐（寶藏箱 HK$3,028／金雞獻禮 HK$2,788）'],[12,16,'12-16 人套餐（寶藏箱 HK$4,588／金雞獻禮 HK$4,248）'],[18,22,'18-22 人套餐（寶藏箱 HK$5,888／金雞獻禮 HK$5,388）'],[26,30,'26-30 人套餐（寶藏箱 HK$7,888／金雞獻禮 HK$7,388）'],[35,40,'35-40 人套餐（寶藏箱 HK$9,888／金雞獻禮 HK$9,288）'],[48,54,'48-54 人開箱雙寶（HK$12,418）'],[63,68,'63-68 人開箱雙寶（HK$15,368）'],[78,85,'78-85 人開箱雙寶（HK$19,548）'],[90,100,'90-100 人開箱雙寶（HK$22,888）']];
 function go(){{var n=parseInt(document.getElementById('axl-n').value,10),r=document.getElementById('axl-res');if(!n||n<1){{r.textContent='請輸入人數';return;}}if(n>100){{r.textContent='100 人以上請經到會報價查詢聯絡我們';return;}}
 for(var i=0;i<S.length;i++){{if(n<=S[i][1]){{r.textContent=(n>=S[i][0]?'建議：':'建議：')+S[i][2]+(n<S[i][0]&&i>0?'，或 '+S[i-1][0]+'-'+S[i-1][1]+' 人套餐加配單點':'');return;}}}}}}
@@ -220,9 +317,16 @@ var L=document.getElementById('bxl-look');if(L){{var sl=L.querySelectorAll('.ls'
 function show(i){{cur=(i+sl.length)%sl.length;sl.forEach(function(s,k){{s.hidden=k!==cur}});pp.forEach(function(p,k){{p.className=k===cur?'on':''}});}}
 pp.forEach(function(p,k){{p.addEventListener('click',function(){{show(k)}})}});L.querySelectorAll('.arw').forEach(function(b){{b.addEventListener('click',function(){{show(cur+ +b.dataset.d)}})}});
 sl.forEach(function(s){{s.querySelectorAll('.dot').forEach(function(d){{d.addEventListener('click',function(){{s.querySelectorAll('.dot').forEach(function(x){{x.classList.toggle('on',x===d)}});s.querySelectorAll('.lc').forEach(function(c){{c.hidden=c.dataset.p!==d.dataset.p}})}})}})}});}}
+document.querySelectorAll('.axl .hero .hkey').forEach(function(k){{k.addEventListener('click',function(){{var h=k.closest('.hero'),b=h.querySelector('.hbox');b.classList.add('shake');setTimeout(function(){{b.classList.remove('shake');h.classList.add('open')}},420);if(window.dataLayer)dataLayer.push({{event:'xmas_lp_open_box'}})}})}});
+document.querySelectorAll('.axl section[id^="top"] .track').forEach(function(t){{function c(){{if(innerWidth<1025)return;var f=t.firstElementChild;if(f)t.scrollLeft=(f.offsetWidth+20)/2}}c();addEventListener('load',c)}});
+(function(){{var nav=document.querySelector('.axl .pills');if(!nav)return;var ls=[].slice.call(nav.querySelectorAll('a')),cur=null;function top(){{var h=0;['#lafka-header-sticky','.lafka-sticky-header','header.sticky','.site-header.is-sticky','#wpadminbar'].forEach(function(q){{var e=document.querySelector(q);if(e){{var cs=getComputedStyle(e);if(cs.position==='fixed'||cs.position==='sticky')h=Math.max(h,e.getBoundingClientRect().bottom)}}}});document.querySelector('.axl').style.setProperty('--ao-top',Math.max(0,h)+'px')}}function spy(){{var r=nav.getBoundingClientRect();nav.classList.toggle('stuck',r.top<=parseFloat(getComputedStyle(document.querySelector('.axl')).getPropertyValue('--ao-top')||0)+1&&scrollY>0);var y=r.bottom+20,id=null;ls.forEach(function(a){{var t=document.getElementById(a.getAttribute('href').slice(1));if(t&&t.getBoundingClientRect().top<=y)id=a}});if(id!==cur){{if(cur)cur.classList.remove('on');cur=id;if(cur){{cur.classList.add('on');if(nav.scrollWidth>nav.clientWidth)nav.scrollTo({{left:cur.offsetLeft-nav.clientWidth/2+cur.offsetWidth/2,behavior:'smooth'}})}}}}}}top();spy();addEventListener('scroll',spy,{{passive:true}});addEventListener('resize',function(){{top();spy()}});addEventListener('load',top)}})();
+document.querySelectorAll('.axl .hero .zs').forEach(function(z){{var ls=z.querySelectorAll('.zl'),i=0;if(ls.length<2)return;setTimeout(function(){{setInterval(function(){{var a=ls[i];i=(i+1)%ls.length;var b=ls[i];a.classList.remove('on');a.classList.add('out');b.classList.remove('out');void b.offsetWidth;b.classList.add('on');setTimeout(function(){{a.classList.remove('out')}},950)}},4200)}},4800)}});
+var HP=document.querySelectorAll('.axl .hp');if('IntersectionObserver' in window){{var io=new IntersectionObserver(function(es){{es.forEach(function(e){{if(e.isIntersecting){{e.target.classList.add('in');io.unobserve(e.target)}}}})}},{{threshold:.35}});HP.forEach(function(h){{io.observe(h)}})}}else HP.forEach(function(h){{h.classList.add('in')}});
 document.getElementById('axl-go').addEventListener('click',go);document.getElementById('axl-n').addEventListener('keydown',function(e){{if(e.key==='Enter')go();}});}})();</script>
 </body></html>'''
-(HERE / 'a-christmas.html').write_text(page, encoding='utf-8')
+for _a, _b in _EB.items(): page = page.replace(f'<small>{_a}</small>', f'<small>{_b}</small>')
+page = page.replace('href="#new"', 'href="#top"')
+(HERE / 'a-christmas.html').write_text(page.replace('@@DISHES@@', DM_ZH), encoding='utf-8')
 print('ok', len(page))
 # ---- WordPress 版：只保留 <style>、FAQ 結構化數據、內容及互動 JS，直接貼入 WPBakery Raw HTML ----
 import re as _re
@@ -257,6 +361,9 @@ _zh_js = _js.replace("'.axl .rail'", "'.ao-zh .axl .rail'")
 assert not _miss, _miss
 _left = [x for x in _CJK.findall(_en_html + _en_js)]
 assert not _left, ''.join(_left)[:200]
+for _k, _v in EN.HERO_ZH.items(): _en_html = _en_html.replace(_k, _v)
+_en_html = _en_html.replace('@@DISHES@@', DM_EN)
+_html = _html.replace('@@DISHES@@', DM_ZH)
 _ld_en = _json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": EN.D[q], "acceptedAnswer": {"@type": "Answer", "text": EN.D[a]}} for q, a in FAQ]}, ensure_ascii=False)
 _ld_js = ('<script>(function(){var en=/^en/i.test(document.documentElement.lang||""),s=document.createElement("script");s.type="application/ld+json";'
           f's.text=en?{_json.dumps(_ld_en, ensure_ascii=False)}:{_json.dumps(LD, ensure_ascii=False)};document.head.appendChild(s);}})();</script>')
@@ -276,5 +383,6 @@ _en_page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta na
 wp = ('<!-- Kitchen AO 聖誕到會場景頁 /catering/christmas/ ：整段貼入 WPBakery Raw HTML。中文頁顯示中文，/en/ 頁自動顯示英文。'
       'Title／Meta／Focus KW 請在 Rank Math 及 TranslatePress 設定。 -->\n' + _st + '\n' + BIL + '\n' + _bil_body + '\n')
 (HERE / 'wp').mkdir(exist_ok=True)
+wp = wp.replace(HERO_IMG, HERO_URL).replace(HERO_OPEN, HERO_OPEN_URL)
 (HERE / 'wp' / 'a-christmas-wp.html').write_text(wp, encoding='utf-8')
 print('wp ok', len(wp))

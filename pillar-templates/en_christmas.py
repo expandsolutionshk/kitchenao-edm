@@ -4,7 +4,8 @@ import re
 SER_EN = {'聖誕寶藏箱': 'Christmas Treasure Box', '聖誕金雞獻禮': 'Christmas Golden Roast', '聖誕開箱雙寶': 'Christmas Twin Treasures'}
 FULL_EN = {'煙燻慢煮美國牛翼板肉盛宴': 'Smoked Slow-Cooked US Beef Chuck Flap Feast',
            '燒南乳香慢煮原隻黃油雞': 'Slow-Cooked Red Beancurd Whole Yellow Chicken',
-           '原隻黃油雞 × 煙燻慢煮美國牛翼板肉': 'Whole Yellow Chicken × Smoked Slow-Cooked US Beef Chuck Flap'}
+           '原隻黃油雞 × 煙燻慢煮美國牛翼板肉': 'Whole Yellow Chicken × Smoked Slow-Cooked US Beef Chuck Flap',
+           '燒南乳香慢煮原隻黃油雞 × 煙燻慢煮美國牛翼板肉': 'Whole Yellow Chicken × Smoked US Beef Chuck Flap'}
 NAME_ALL = {**SER_EN, **FULL_EN}
 D = {
  '｜聖誕套餐輸入優惠碼': '| Enter code', '享七九折，至 2026 年 11 月 30 日 23:59': 'for 21% off Christmas sets until 30 Nov 2026, 23:59',
@@ -116,6 +117,9 @@ D = {
  '建議：': 'Suggested: ', '，或 ': ', or ', ' 人套餐加配單點': ' pax set plus à la carte',
 }
 def money_en(m): return m
+# ---- 2026-11-19 新增 ----
+D.update({'本地原隻黃油雞以南乳醃製及鹽水浸漬，低溫慢煮後高溫炙燒至皮脆肉嫩，配聖誕玫瑰金巴利汁，專屬木箱盛載，全港限量 100 個。': 'Local whole yellow chicken marinated in red beancurd and brined, slow-cooked then roasted until crisp-skinned and tender, served with festive rose Campari sauce in its own wooden box. Limited to 100 sets in Hong Kong.', '聖誕金雞獻禮以本地原隻黃油雞配南乳醃製，低溫慢煮後高溫炙燒，皮脆肉嫩，再配聖誕玫瑰金巴利汁。全港限量 100 個，由 5-6 人小型聖誕聚會到 35-40 人大型聖誕派對都有合適份量。': 'Christmas Golden Roast features a whole local yellow chicken marinated in red beancurd, slow-cooked then roasted for crisp skin and tender meat, served with festive rose Campari sauce. Limited to 100 sets in Hong Kong, with portions from intimate gatherings of 5–6 to parties of 35–40.', '聖誕套餐供應及送貨日期': 'Christmas Set Availability', '12 月 19 日前，其他套餐及單點照常供應。': 'Other sets and à la carte items are available as usual until 19 December.', '除企業訂單外，其他日子不供應': 'Outside these dates, apart from corporate orders, we do not offer ', '聖誕套餐': 'Christmas sets', '套餐供應情況會持續於網站更新，請密切留意網站內容及參閱': 'Availability will be updated on our website. Please check regularly and see our ', '聖誕套餐於 2026 年 12 月 12 日至 27 日供應及送貨；平安夜及聖誕節是全年聖誕訂餐高峰，送貨時段有限，建議盡早預訂。': 'Christmas sets are available for delivery from 12 to 27 December 2026. Christmas Eve and Christmas Day are our busiest days, with limited delivery slots, so please book early.', '聖誕套餐供應及送貨日期為 12 月 12 日至 27 日；12 月 19 日前，其他套餐及單點照常供應。': 'Christmas sets are available for delivery from 12 to 27 December; other sets and à la carte items are available as usual until 19 December.', '慢煮數小時，煙燻數分鐘，開箱驚喜只需一秒。': '', '每款均可配八款 XMAS SPECIAL 全新菜式': 'each available with eight new XMAS SPECIAL dishes', '聖誕套餐甚麼日子供應？': 'When are the Christmas sets available?', '聖誕套餐於 2026 年 12 月 12 日至 12 月 27 日供應及送貨。12 月 19 日前，其他套餐及單點照常供應；除企業訂單外，其他日子不供應聖誕套餐。供應情況會持續於網站更新，請留意送貨需知。': 'Christmas sets are available for delivery from 12 to 27 December 2026. Other sets and à la carte items are available as usual until 19 December. Apart from corporate orders, Christmas sets are not offered on other dates. Availability will be updated on our website, so please check our delivery information.'})
+
 def tr(t):
     """翻譯一段中文；找不到回傳 None"""
     if t in D: return D[t]
@@ -151,3 +155,27 @@ def tr(t):
     m = re.fullmatch(r'(\d+-\d+) 人開箱雙寶（(HK\$[\d,]+)）', t)
     if m: return f'{m[1]} pax Twin Treasures ({m[2]})'
     return None
+
+D.update({'聖誕套餐只限': 'Christmas sets available', '供應': 'only', '詳情': 'Details'})
+D.update({'慢煮數小時': '', '煙燻數分鐘': '', '開箱驚喜只需一秒': ''})
+D.update({'開箱': '', '驚喜': '', '只需一秒': ''})
+# Hero 中英一樣：中文行保留（build 時還原）
+HERO_ZH = {'@@Z1@@': '慢煮數小時', '@@Z2@@': '煙燻數分鐘', '@@Z3@@': '開箱', '@@Z4@@': '驚喜', '@@Z5@@': '只需一秒'}
+D.update({v: k for k, v in HERO_ZH.items()})
+HERO_ZH['@@Z6@@'] = '，就是聖誕'; D['，就是聖誕'] = '@@Z6@@'
+D.update({'聖誕到會 2026｜': 'Christmas Catering 2026 |', '聖誕大餐外賣及派對套餐': 'Christmas Dinner Delivery & Party Sets'})
+D.update({'聖誕到會 2026': 'Christmas Catering 2026'})
+D.update({'聖誕到會 2026：聖誕寶藏箱': 'Christmas catering 2026: Christmas Treasure Box'})
+D.update({'開箱：聖誕寶藏箱煙燻慢煮美國牛翼板肉': 'Open the box: Christmas Treasure Box with smoked slow-cooked US beef chuck flap'})
+HERO_ZH['@@Z7@@'] = '開箱，'; D['開箱，'] = '@@Z7@@'
+HERO_ZH['@@Z8@@'] = '就是聖誕'; D['就是聖誕'] = '@@Z8@@'
+D.update({'開箱：聖誕寶藏箱、原隻黃油雞及聖誕新菜': 'Open the box: Christmas Treasure Box, whole yellow chicken and new Christmas dishes'})
+D.update({'菜式詳細介紹': 'Dish Details'})
+D.update({'2026 聖誕主菜': 'Our Christmas Mains', '原隻連木箱送到': 'Delivered with the Whole Box Set', '連復古寶箱送到': 'Delivered with the Whole Treasure Box'})
+D.update({'聖誕金雞獻禮．燒南乳香慢煮原隻黃油雞': 'Christmas Golden Roast · Slow-Cooked Red Beancurd Whole Yellow Chicken'})
+D.update({'聖誕主菜': 'Christmas Mains', '三大套餐系列': 'Set Series', '小食及甜品': 'Snacks & Desserts', '頁內導覽': 'On this page'})
+D.update({'查看完整聖誕餐牌': 'View Full Christmas Menu'})
+D.update({'套餐系列': 'Set Series', '小食甜品': 'Add-ons', '菜式介紹': 'Dish Details', '按人數揀': 'Headcount', '按場合揀': 'Occasions'})
+D.update({'聖誕主菜': 'Mains'})
+HERO_ZH['@@Z9@@'] = '今年，交給 Kitchen AO'; D['今年，交給 Kitchen AO'] = '@@Z9@@'
+D.update({'精心呈獻三大聖誕套餐，照顧不同聚會需要，與摯愛分享開箱的寶藏。': 'We proudly present our Christmas sets to suit every gathering. Share the treasures with your loved ones.'})
