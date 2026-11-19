@@ -15,7 +15,7 @@ ICONS = ('<div class="ao-hf ao-hf-fs1"><div class="it"><svg viewBox="0 0 24 24" 
  + b('生日派對到會','Birthday Parties') + '</b><span class="sb">' + b('小型至百人派對','Small to 100+ guests') + '</span></div><div class="it"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="1.5"/><path d="M9 7.5V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5v2M3 12.5h18"/></svg><b>'
  + b('公司活動餐飲','Corporate Catering') + '</b><span class="sb">' + b('年會、會議活動','Annual dinners, meetings') + '</span></div><div class="it"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18M4.5 17a7.5 7.5 0 0 1 15 0"/><path d="M12 9.5V8M10.5 8h3M2.5 20h19"/></svg><b>'
  + b('精緻擺盤到會','Styled Platters') + '</b><span class="sb">' + b('擺盤送到現場','Delivered to your venue') + '</span></div></div>')
-H1 = '<h1>' + b('香港到會服務<br><span class="ao-nw">派對・公司活動一站式安排</span>', 'Catering Services in Hong Kong<br>for Parties and Corporate Events') + '</h1>'
+H1 = '<h1>' + b('香港到會服務<br><span class="ao-nw">派對・公司活動一站式安排</span>', '<span class="ao-nw">Hong Kong Catering Services</span><br><span class="ao-nw">for Parties &amp; Corporate Events</span>') + '</h1>'
 DS = '<p class="ao-ds">' + b('Kitchen AO 提供香港到會服務，由精緻擺盤、主打熱食到特色到會套餐，適合公司到會、派對到會、生日派對、家庭聚餐及品牌活動，全港送貨，讓每次聚會都更體面、更方便。',
  'Kitchen AO provides catering services in Hong Kong, from styled platters and signature hot dishes to themed catering sets, for corporate catering, party catering, birthdays, family gatherings and brand events, delivered across Hong Kong.') + '</p>'
 CTAS = ('<div class="ao-hero-ctas">'
@@ -130,10 +130,17 @@ html[lang^="en"] .ao-hx .ao-xc-btn .go{{letter-spacing:.08em;font-size:12px}}
 @media(max-width:640px){{.ao-hx .ao-xc-btn{{min-height:100px}}.ao-hx .ao-xc-btn .go{{font-size:12px;padding:7px 14px 7px 16px}}}}
 @media (prefers-reduced-motion:reduce){{.ao-hx .ao-xc-btn,.ao-hx .ao-xc-btn .go svg{{animation:none}}}}
 /* 響應式 */
+html[lang^="en"] .ao-hx h1{{font-size:clamp(26px,2.6vw,38px)!important}}@media (min-width:641px) and (max-width:960px){{html[lang^="en"] .ao-hx h1{{font-size:32px!important}}}}
+
+@media (max-width:640px){{html[lang^="en"] .ao-hx h1{{font-size:min(30px,calc((100vw - 64px) / 12.8))!important;line-height:1.3!important;letter-spacing:0!important}}html[lang^="en"] .ao-hx h1 .ao-nw{{white-space:nowrap!important}}}}
+
+.ao-hx .ao-ds{{text-wrap:wrap}}html:not([lang^="en"]) .ao-hx .ao-ds{{text-align:justify!important;text-justify:inter-character}}@media (max-width:960px){{.ao-hx .ao-ds{{max-width:none!important}}}}
+
+@media (max-width:640px){{html:not([lang^="en"]) .ao-hx h1{{font-size:min(26px,calc((100vw - 64px) / 12.9))!important;letter-spacing:.02em!important;line-height:1.35!important}}html:not([lang^="en"]) .ao-hx h1 .ao-nw{{white-space:nowrap!important}}}}
+
 @media (min-width:961px) and (max-width:1200px){{.ao-hx .ao-hero-grid{{gap:28px}}.ao-hx h1{{font-size:clamp(30px,3.3vw,40px)}}.ao-hx .ao-hero-btn.k,.ao-hx .ao-hero-btn.g,.ao-hx .ao-hero-btn.o{{letter-spacing:.12em;padding:10px 8px;white-space:normal;line-height:1.35}}html[lang^="en"] .ao-hx .ao-hero-btn.k,html[lang^="en"] .ao-hx .ao-hero-btn.g,html[lang^="en"] .ao-hx .ao-hero-btn.o{{letter-spacing:.08em;white-space:normal;font-size:10.5px}}.ao-hx .ao-hero-img{{height:600px!important}}}}
 @media (max-width:960px){{.ao-hx .ao-hero-grid{{max-width:680px}}.ao-hx .ao-ds,.ao-hx .ao-hero-ctas,.ao-hf-fs1,.ao-xc-orn{{max-width:none}}}}
 @media (max-width:640px){{.ao-hx h1{{font-size:clamp(21px,6.9vw,26px)}}html[lang^="en"] .ao-hx h1{{font-size:clamp(19px,5.7vw,27px)}}.ao-hx .ao-hero-img{{height:auto!important;aspect-ratio:6/7}}.ao-hx .ao-hero-img2{{height:100%!important}}.ao-hx-frame{{padding:10px;border-radius:20px}}.ao-hx .ao-hero-img{{border-radius:14px}}.ao-hx .ao-xc-btn .tt{{gap:9px}}html[lang^="en"] .ao-hx .ao-xc-btn{{font-size:16px}}.ao-hx .ao-hero-btn.k,.ao-hx .ao-hero-btn.g,.ao-hx .ao-hero-btn.o{{min-height:50px}}}}
-@media (max-width:440px){{.ao-hx .ao-nw{{white-space:normal}}.ao-hx h1{{font-size:clamp(20px,6.3vw,26px)}}}}
 @media (max-width:360px){{.ao-hx{{padding:26px 12px}}.ao-hx .ao-eb{{letter-spacing:.2em;font-size:10.5px}}.ao-xc-orn em{{font-size:15px}}.ao-hf-fs1 b{{font-size:11.5px;letter-spacing:.02em}}}}
 '''}
 
