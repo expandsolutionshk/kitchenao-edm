@@ -4,9 +4,10 @@ H = Path(__file__).parent
 LPZ, LPE = 'https://aoaodelivery.com/catering/christmas/', 'https://aoaodelivery.com/en/catering/christmas/'
 DL = lambda l: f"window.dataLayer=window.dataLayer||[];dataLayer.push({{event:'cta_click',cta_label:'{l}'}});"
 def b(z, e): return f'<span class="ao-zh" data-no-translation>{z}</span><span class="ao-en" data-no-translation>{e}</span>'
+TB = ' target="_blank" rel="noopener"'
 def lp(cls, z, e, lab='xmas_lp'):
-    return (f'<a class="{cls} ao-zh" data-no-translation href="{LPZ}" onclick="{DL(lab)}">{z}</a>'
-            f'<a class="{cls} ao-en" data-no-translation href="{LPE}" onclick="{DL(lab)}">{e}</a>')
+    return (f'<a class="{cls} ao-zh" data-no-translation{TB if "xc-btn" in cls else ""} href="{LPZ}" onclick="{DL(lab)}">{z}</a>'
+            f'<a class="{cls} ao-en" data-no-translation{TB if "xc-btn" in cls else ""} href="{LPE}" onclick="{DL(lab)}">{e}</a>')
 STAR = '<svg class="st" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5c.5 4.6 3.9 8 8.5 8.5-4.6.5-8 3.9-8.5 8.5-.5-4.6-3.9-8-8.5-8.5 4.6-.5 8-3.9 8.5-8.5z"/></svg>'
 SERIF = '"Songti TC","Noto Serif TC",serif'
 BASK = 'Baskerville,"Baskerville Old Face",Georgia,serif'
