@@ -40,7 +40,7 @@ HOLLY = '<svg viewBox="18 7 31 27" aria-hidden="true"><path class="lf" d="M30 22
 FLAKES = ''.join(f'<i class="fk k{i}" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1v18M2.2 5.5l15.6 9M2.2 14.5l15.6-9M8 2.5l2 2 2-2M8 17.5l2-2 2 2"/></svg></i>' for i in range(1, 6))
 SNOW = SNOW.replace('</span>', FLAKES + '</span>', 1)
 HL = f'<span class="hl l" aria-hidden="true">{HOLLY}</span><span class="hl r" aria-hidden="true">{HOLLY}</span>'
-C_BTN = lp('ao-hero-btn ao-xc-btn', f'{SNOW}{HL}<span class="tt">{STAR}<span>聖誕到會套餐 2026</span>{STAR}</span><small>12 月 12 日至 27 日供應</small>', f'{SNOW}{HL}<span class="tt">{STAR}<span>Christmas Catering 2026</span>{STAR}</span><small>Available 12 to 27 Dec</small>')
+C_BTN = lp('ao-hero-btn ao-xc-btn', f'{SNOW}{HL}<span class="tt">{STAR}<span>聖誕到會套餐 2026</span>{STAR}</span><small>12 月 12 日至 27 日供應</small><span class="go">立即查看聖誕套餐<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg></span>', f'{SNOW}{HL}<span class="tt">{STAR}<span>Christmas Catering 2026</span>{STAR}</span><small>Available 12 to 27 Dec</small><span class="go">View Christmas Sets<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg></span>')
 
 def section(opt, top='', mid='', ctas=CTAS, img_extra=''):
     return (f'<section class="ao-hero ao-hx ao-hx-{opt}"><div class="ao-hero-grid"><div class="ao-hx-l">{top}'
@@ -50,7 +50,7 @@ SEC = {'a': section('a', mid=A_ROW),
        'c': section('c', top=C_TOP, ctas=CTAS.replace('<div class="ao-hero-ctas">', '<div class="ao-hero-ctas">' + C_BTN, 1))}
 
 BASE = f'''html[lang^="en"] .ao-hero .ao-zh{{display:none!important}}html:not([lang^="en"]) .ao-hero .ao-en{{display:none!important}}
-.ao-hx{{padding:44px 20px;background:#fbf8f3;border-bottom:1px solid #EDE4D3}}
+.ao-hx{{box-sizing:border-box;width:100%;max-width:100%;overflow:hidden;text-align:left;padding:44px 20px;background:#fbf8f3;border-bottom:1px solid #EDE4D3}}.ao-hx *,.ao-hx *:before,.ao-hx *:after{{box-sizing:border-box}}.ao-hx h1,.ao-hx p,.ao-hx .ao-eb{{text-align:left}}
 .ao-hx .ao-hero-grid{{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}}
 .ao-hx .ao-eb{{margin:0 0 16px;color:#9A7B2E;font-size:11.5px;font-weight:600;letter-spacing:.3em}}
 .ao-hx h1{{margin:0 0 16px;color:#1d1714;font-family:{SERIF};font-size:42px;line-height:1.25;font-weight:600;letter-spacing:.05em}}
@@ -70,7 +70,7 @@ html[lang^="en"] .ao-hx .ao-hero-btn{{white-space:normal;font-size:14px;line-hei
 @keyframes aoHeroFade{{0%,42%{{opacity:0}}50%,92%{{opacity:1}}100%{{opacity:0}}}}
 .ao-hf-fs1{{display:grid;grid-template-columns:repeat(3,1fr);max-width:620px;margin:0;background:rgba(255,255,255,.85);border-top:1px solid #1d1714;border-bottom:1px solid #1d1714}}.ao-hf-fs1 .it{{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 8px 16px}}.ao-hf-fs1 .it+.it{{border-left:1px solid #E6DDCB}}.ao-hf-fs1 svg{{width:30px;height:30px;fill:none;stroke:#9A7B2E;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;margin:0 0 10px}}.ao-hf-fs1 b{{font-size:14.5px;color:#1d1714;font-weight:600;letter-spacing:.14em}}.ao-hf-fs1 .sb{{font-size:12px;color:#8A8378;margin-top:4px;letter-spacing:.06em}}html[lang^="en"] .ao-hf-fs1 b{{letter-spacing:.08em;text-transform:uppercase;font-size:12.5px}}
 @media (prefers-reduced-motion:reduce){{.ao-hx .ao-hero-img2{{animation:none}}}}
-@media (max-width:960px){{.ao-hx .ao-hero-grid{{grid-template-columns:1fr;gap:0}}.ao-hx .ao-hx-l{{display:contents}}.ao-hx .ao-hx-l>*{{order:1}}.ao-hx .ao-hx-r{{order:2;margin:0 0 22px}}.ao-hx .ao-hero-ctas{{order:3}}.ao-hx .ao-hf-fs1{{order:4}}.ao-hx h1{{font-size:34px}}.ao-hx .ao-hero-img{{height:520px!important}}}}
+@media (max-width:960px){{.ao-hx .ao-hero-grid{{grid-template-columns:minmax(0,1fr);gap:0}}.ao-hx .ao-hx-l>*,.ao-hx .ao-hx-r{{min-width:0;max-width:100%}}.ao-hx .ao-hx-l{{display:contents}}.ao-hx .ao-hx-l>*{{order:1}}.ao-hx .ao-hx-r{{order:2;margin:0 0 22px}}.ao-hx .ao-hero-ctas{{order:3}}.ao-hx .ao-hf-fs1{{order:4}}.ao-hx h1{{font-size:34px}}.ao-hx .ao-hero-img{{height:520px!important}}}}
 @media (max-width:640px){{.ao-hx{{padding:30px 16px}}.ao-hx h1{{font-size:26px;line-height:1.35}}html[lang^="en"] .ao-hx h1{{font-size:27px}}.ao-hx .ao-ds{{font-size:15px;line-height:1.85}}.ao-hx .ao-hero-ctas{{grid-template-columns:1fr;gap:10px;max-width:none}}.ao-hx .ao-hero-img{{height:420px!important}}.ao-hf-fs1 .it{{padding:14px 4px 12px}}.ao-hf-fs1 svg{{width:26px;height:26px}}.ao-hf-fs1 b{{font-size:12.5px;letter-spacing:.06em}}.ao-hf-fs1 .sb{{font-size:10.5px;letter-spacing:0}}}}
 '''
 OPT = {
@@ -117,10 +117,22 @@ html[lang^="en"] .ao-hx .ao-xc-btn{{font-family:{BASK};letter-spacing:.04em;font
 @media(max-width:640px){{.ao-hx .ao-xc-btn .hl{{width:34px;height:29px;margin-top:-15px}}.ao-hx .ao-xc-btn .hl.l{{left:14px}}.ao-hx .ao-xc-btn .hl.r{{right:14px}}}}
 @media(max-width:360px){{.ao-hx .ao-xc-btn .hl{{width:28px;height:24px;margin-top:-12px}}}}
 @media (prefers-reduced-motion:reduce){{.ao-hx .ao-xc-btn .hl{{animation:none!important}}}}
+
+.ao-hx .ao-xc-btn{{min-height:96px;padding-top:14px;padding-bottom:14px;cursor:pointer;animation:aoXcGlow 2.8s ease-in-out infinite}}
+@keyframes aoXcGlow{{0%,100%{{box-shadow:inset 0 0 0 5px #1d1714,inset 0 0 0 6px rgba(200,162,74,.8),0 0 0 0 rgba(200,162,74,0)}}50%{{box-shadow:inset 0 0 0 5px #1d1714,inset 0 0 0 6px rgba(228,199,126,1),0 0 0 6px rgba(200,162,74,.18)}}}}
+.ao-hx .ao-xc-btn .go{{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:7px 16px 7px 18px;background:#C8A24A;color:#111;border-radius:999px;font-family:-apple-system,"PingFang HK","Helvetica Neue",sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.12em;line-height:1;transition:background .3s}}
+.ao-hx .ao-xc-btn .go svg{{width:10px;height:10px;fill:none;stroke:#111;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;animation:aoXcNudge 1.4s ease-in-out infinite}}
+@keyframes aoXcNudge{{0%,100%{{transform:translateX(0)}}50%{{transform:translateX(4px)}}}}
+.ao-hx .ao-xc-btn:hover .go{{background:#E4C77E}}
+.ao-hx .ao-xc-btn:hover{{animation:none}}
+html[lang^="en"] .ao-hx .ao-xc-btn .go{{letter-spacing:.08em;font-size:12px}}
+@media(max-width:640px){{.ao-hx .ao-xc-btn{{min-height:100px}}.ao-hx .ao-xc-btn .go{{font-size:12px;padding:7px 14px 7px 16px}}}}
+@media (prefers-reduced-motion:reduce){{.ao-hx .ao-xc-btn,.ao-hx .ao-xc-btn .go svg{{animation:none}}}}
 /* 響應式 */
 @media (min-width:961px) and (max-width:1200px){{.ao-hx .ao-hero-grid{{gap:28px}}.ao-hx h1{{font-size:clamp(30px,3.3vw,40px)}}.ao-hx .ao-hero-btn.k,.ao-hx .ao-hero-btn.g,.ao-hx .ao-hero-btn.o{{letter-spacing:.12em;padding:10px 8px;white-space:normal;line-height:1.35}}html[lang^="en"] .ao-hx .ao-hero-btn.k,html[lang^="en"] .ao-hx .ao-hero-btn.g,html[lang^="en"] .ao-hx .ao-hero-btn.o{{letter-spacing:.08em;white-space:normal;font-size:10.5px}}.ao-hx .ao-hero-img{{height:600px!important}}}}
 @media (max-width:960px){{.ao-hx .ao-hero-grid{{max-width:680px}}.ao-hx .ao-ds,.ao-hx .ao-hero-ctas,.ao-hf-fs1,.ao-xc-orn{{max-width:none}}}}
 @media (max-width:640px){{.ao-hx h1{{font-size:clamp(21px,6.9vw,26px)}}html[lang^="en"] .ao-hx h1{{font-size:clamp(19px,5.7vw,27px)}}.ao-hx .ao-hero-img{{height:auto!important;aspect-ratio:6/7}}.ao-hx .ao-hero-img2{{height:100%!important}}.ao-hx-frame{{padding:10px;border-radius:20px}}.ao-hx .ao-hero-img{{border-radius:14px}}.ao-hx .ao-xc-btn .tt{{gap:9px}}html[lang^="en"] .ao-hx .ao-xc-btn{{font-size:16px}}.ao-hx .ao-hero-btn.k,.ao-hx .ao-hero-btn.g,.ao-hx .ao-hero-btn.o{{min-height:50px}}}}
+@media (max-width:440px){{.ao-hx .ao-nw{{white-space:normal}}.ao-hx h1{{font-size:clamp(20px,6.3vw,26px)}}}}
 @media (max-width:360px){{.ao-hx{{padding:26px 12px}}.ao-hx .ao-eb{{letter-spacing:.2em;font-size:10.5px}}.ao-xc-orn em{{font-size:15px}}.ao-hf-fs1 b{{font-size:11.5px;letter-spacing:.02em}}}}
 '''}
 
