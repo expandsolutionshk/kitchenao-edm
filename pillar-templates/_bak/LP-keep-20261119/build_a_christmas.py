@@ -514,7 +514,7 @@ _ld_js = ('<script>(function(){var en=/^en/i.test(document.documentElement.lang|
           f's.text=en?{_json.dumps(_ld_en, ensure_ascii=False)}:{_json.dumps(LD, ensure_ascii=False)};document.head.appendChild(s);}})();</script>')
 BIL = ('<style>html[lang^="en"] .ao-zh{display:none!important}html:not([lang^="en"]) .ao-en{display:none!important}'
        # 呢頁：收起主題主選單；body 唔可以做捲動容器，否則置頂導覽失效
-       '#main-menu,.main_menu_holder #main-menu{display:none!important}body{overflow:visible!important;overflow-x:clip!important}'
+       'body{overflow:visible!important;overflow-x:clip!important}'
        # 全闊：不論 theme 容器多闊，都撐滿整個視窗
        'html,body{overflow-x:clip}.ao-zh>.axl,.ao-en>.axl{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}</style>')
 _bil_body = (f'<div class="ao-zh" data-no-translation>\n{_html.strip()}\n</div>\n<div class="ao-en" data-no-translation>\n{_en_html.strip()}\n</div>\n'
@@ -532,5 +532,13 @@ wp = ('<!-- Kitchen AO 聖誕到會場景頁 /catering/christmas/ ：整段貼�
 (HERE / 'wp').mkdir(exist_ok=True)
 wp = wp.replace(HERO_IMG, HERO_URL).replace(HERO_OPEN, HERO_OPEN_URL)
 wp = wp.replace('href="pdf/kitchen-ao-christmas-menu-2026', 'href="https://aoaodelivery.com/wp-content/uploads/2026/11/kitchen-ao-christmas-menu-2026')
+import sys as _sys; _sys.path.insert(0, str(HERE.parent / 'tools'))
+import img_opt as _io
+def _sz(fn, tag):
+    if fn.startswith('20_26xmas'): return '(max-width:640px) 75vw, 300px'
+    if fn.startswith('photo-'): return '(max-width:768px) 100vw, 600px'
+    if fn.startswith('2026-XMAS-IG'): return '(max-width:640px) 100vw, 480px'
+    return '(max-width:640px) 100vw, 600px'
+wp, _n = _io.opt(wp, _sz); print('img_opt', _n)
 (HERE / 'wp' / 'a-christmas-wp.html').write_text(wp, encoding='utf-8')
 print('wp ok', len(wp))

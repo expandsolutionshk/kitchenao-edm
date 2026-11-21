@@ -1,0 +1,141 @@
+# -*- coding: utf-8 -*-
+"""/catering/ Kitchen AO 主題 3 個設計方案（2026-11-21）"""
+from pathlib import Path
+H = Path(__file__).parent
+IC = {
+ 'tree':'M12 3l5 7h-3l4 6H6l4-6H7zM12 16v5',
+ 'cake':'M4 21h16M5 21v-7h14v7M5 17c2 1.5 4-1.5 7 0s5-1.5 7 0M12 14v-3M12 8.5c-.9-.9 0-2 0-3.2.9 1.1 1 2.2 0 3.2z',
+ 'kid':'M12 3a5 6 0 1 1 0 12a5 6 0 0 1 0-12zM11 15h2l-1 2zM12 17c0 2-2 2-2 4',
+ 'brief':'M3 8h18v11H3zM9 8V5h6v3M3 13h18',
+ 'glass':'M8 3h8l-1 7a3 3 0 0 1-6 0zM12 13v7M8 21h8',
+ 'box':'M3 7h18v12H3zM3 11h18M12 11v8',
+ 'boat':'M3 15h18l-3 5H6zM12 4v11M12 5l6 8h-6',
+ 'leaf':'M5 20C5 10 11 5 20 5c0 9-5 15-14 15M5 20l8-8',
+ 'bask':'M3 10h18l-2 10H5zM7 10l5-6 5 6M9 14v3M15 14v3',
+}
+def ic(k): return f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="{IC[k]}"/></svg>'
+OCC = [('tree','聖誕到會','5 至 100 人・12 月 12 日至 27 日',1),('cake','生日派對','熱盤主菜、小食及甜品',0),('kid','兒童派對','兒童餐及派對小食・5 人起',0),
+       ('brief','公司活動','年會、團年飯及員工聚餐',0),('glass','酒會及開張','Canapé、手指食物及會議茶點',0),('box','商務午餐','商務餐盒、員工午餐及高級餐盒',0),
+       ('boat','船河派對','碼頭交收・方便分發',0),('leaf','素食聚會','「素」味人生素食套餐',0),('bask','野餐及戶外','Chill 一下野餐盒',0)]
+PPL = [('2–6','小型聚會'),('7–11','家庭派對'),('12–16','生日派對'),('18–25','公司／朋友聚餐'),('30+','大型活動'),('100+','企業活動')]
+SER = [('聖誕派對到會套餐','限量寶箱牛肉 × 原隻黃油雞'),('美食派對 Gourmet','人氣之選・熱食主菜'),('輕食宴會 Refreshment','會議茶點・開幕酒會'),('肉食獸套餐','上將海港之選'),
+       ('兒童派對套餐','兒童生日派對'),('雙人套餐','二人慶祝・紀念日'),('「素」味人生','素食派對套餐'),('船河派對套餐','碼頭交收・方便分發'),
+       ('Chill 一下野餐盒','野餐・戶外活動'),('手指食物拼盤','Finger Food・Platter'),('單品 À la carte','小食・主菜・甜品自由配搭'),('派對用品','餐具・食物架・派對配件')]
+TABS = [('01','按場合','BY OCCASION'),('02','按人數','BY GUESTS'),('03','按產品系列','OUR MENU')]
+
+def block(o, title, note):
+    r = ''.join(f'<input type="radio" name="t{o}" id="t{o}{i}" class="r r{i}"{" checked" if i==1 else ""}>' for i in (1,2,3))
+    tabs = ''.join(f'<label for="t{o}{i}" class="tb tb{i}"><em>{n}</em><span>{z}</span><small>{e}</small></label>' for i,(n,z,e) in enumerate(TABS,1))
+    occ = ''.join(f'<a class="cd{" sp" if s else ""}"><i>{ic(k)}</i><span><b>{z}</b><small>{d}</small></span>{"<mark>季節限定</mark>" if s else ""}</a>' for k,z,d,s in OCC)
+    ppl = ''.join(f'<a class="pp"><b>{n}<small>人</small></b><em>{z}</em></a>' for n,z in PPL)
+    ser = ''.join(f'<a class="cd sr{" sp" if i==0 else ""}"><span><b>{z}</b><small>{d}</small></span>{"<mark>季節限定</mark>" if i==0 else ""}</a>' for i,(z,d) in enumerate(SER))
+    return f'''<h3 class="lab">{title}</h3><p class="note">{note}</p>
+<section class="op op{o}"><div class="hd"><p class="ey">KITCHEN AO CATERING</p><h2>按場合揀選到會套餐</h2><p class="sb">先揀活動場合，再按人數及預算選擇合適套餐，網上即可下單。</p></div>
+{r}<div class="tabs">{tabs}</div>
+<div class="pn p1"><div class="g3">{occ}</div></div><div class="pn p2"><div class="g6">{ppl}</div></div><div class="pn p3"><div class="g3">{ser}</div></div>
+<div class="biz"><span>商務到會 TIPS</span></div></section>'''
+
+CSS = '''
+body{margin:0;padding:28px 18px 60px;background:#e9e6e0;font-family:-apple-system,"PingFang HK","Microsoft JhengHei",sans-serif;color:#2b1b17}
+.lab{max-width:1180px;margin:40px auto 4px;font-size:20px}.note{max-width:1180px;margin:0 auto 14px;font-size:14px;color:#6b625a;line-height:1.7}
+.op{max-width:1180px;margin:0 auto;box-sizing:border-box}.op *{box-sizing:border-box}.op a{text-decoration:none;color:inherit;cursor:pointer}
+.op .r{position:absolute;opacity:0}.op .pn{display:none}
+.op .r1:checked~.p1,.op .r2:checked~.p2,.op .r3:checked~.p3{display:block}
+.op .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.op .g6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
+.op .tabs{display:grid;grid-template-columns:repeat(3,1fr)}.op .tb{cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
+.op .cd{position:relative;display:flex;align-items:center;gap:14px}.op .cd i svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;display:block}
+.op .cd span{display:flex;flex-direction:column;min-width:0}.op .cd b{font-weight:600}.op mark{position:absolute;top:10px;right:10px;background:none}
+.op .pp{display:flex;flex-direction:column;align-items:center;gap:6px}.op .pp b small{font-size:12px;margin-left:3px}.op .pp em{font-style:normal}
+.op .biz{display:flex;justify-content:center}.op .biz span{display:inline-block}
+.serif{font-family:"Songti TC","Noto Serif TC",serif}
+
+/* ===== A Ivory Gallery ===== */
+.op1{background:#FBF8F1;padding:48px 44px 40px;border:1px solid #E8DDC6}
+.op1 .hd{text-align:center;margin-bottom:30px}.op1 .ey{margin:0 0 10px;font-size:11px;letter-spacing:.32em;color:#9A7B2E}
+.op1 h2{margin:0;font-family:"Songti TC","Noto Serif TC",serif;font-size:32px;font-weight:600;letter-spacing:.1em;color:#2b1b17}
+.op1 .sb{margin:12px 0 0;font-size:15px;color:#6b625a}
+.op1 .hd::after{content:"";display:block;width:56px;height:1px;background:#C8A24A;margin:22px auto 0}
+.op1 .tabs{border-top:1px solid #E3D6BC;border-bottom:1px solid #E3D6BC;margin-bottom:26px}
+.op1 .tb{padding:18px 8px;flex-direction:column;gap:3px;color:#8a7d6e;position:relative;transition:color .25s}
+.op1 .tb em{font:italic 15px/1 Baskerville,Georgia,serif;color:#C8A24A}
+.op1 .tb span{font-family:"Songti TC","Noto Serif TC",serif;font-size:19px;font-weight:600;letter-spacing:.12em}
+.op1 .tb small{font-size:10px;letter-spacing:.28em}
+.op1 .tb+.tb{border-left:1px solid #E3D6BC}
+.op1 .tb::after{content:"";position:absolute;left:30%;right:30%;bottom:-1px;height:2px;background:#9A7B2E;transform:scaleX(0);transition:transform .3s}
+.op1 .r1:checked~.tabs .tb1,.op1 .r2:checked~.tabs .tb2,.op1 .r3:checked~.tabs .tb3{color:#2b1b17}
+.op1 .r1:checked~.tabs .tb1::after,.op1 .r2:checked~.tabs .tb2::after,.op1 .r3:checked~.tabs .tb3::after{transform:none}
+.op1 .g3{gap:14px}.op1 .cd{padding:20px 20px;background:#fff;border:1px solid #EDE3CF;transition:all .25s}
+.op1 .cd:hover{border-color:#C8A24A;box-shadow:0 14px 28px -20px rgba(43,27,23,.45);transform:translateY(-2px)}
+.op1 .cd i{color:#9A7B2E}.op1 .cd b{font-family:"Songti TC","Noto Serif TC",serif;font-size:18px;letter-spacing:.06em}
+.op1 .cd small{margin-top:3px;font-size:12.5px;color:#8a7d6e}
+.op1 .cd.sp{border-color:#C8A24A;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px rgba(200,162,74,.4)}
+.op1 mark{font-size:10px;letter-spacing:.2em;color:#9A7B2E}
+.op1 .g6{gap:12px}.op1 .pp{padding:22px 8px;background:#fff;border:1px solid #EDE3CF}.op1 .pp:hover{border-color:#C8A24A}
+.op1 .pp b{font:400 26px/1 Baskerville,Georgia,serif;color:#2b1b17}.op1 .pp b small{color:#9A7B2E}.op1 .pp em{font-size:12.5px;color:#8a7d6e}
+.op1 .biz{margin-top:26px}.op1 .biz span{padding:12px 30px;border:1px solid #2b1b17;font-size:13px;letter-spacing:.24em}
+
+/* ===== B Cocoa & Gold ===== */
+.op2{background:#F6F0E4;border-radius:22px;overflow:hidden;padding:0 0 34px}
+.op2 .hd{background:#2b1b17;color:#f3e7cf;text-align:center;padding:44px 24px 74px}
+.op2 .ey{margin:0 0 10px;font-size:11px;letter-spacing:.32em;color:#d4a93a}
+.op2 h2{margin:0;font-family:"Songti TC","Noto Serif TC",serif;font-size:30px;font-weight:600;letter-spacing:.1em;color:#fdfaed}
+.op2 .sb{margin:10px 0 0;font-size:14.5px;color:#cbb994}
+.op2 .tabs{max-width:760px;margin:-32px auto 26px;padding:6px;gap:6px;background:#fdfaed;border-radius:999px;box-shadow:0 14px 30px -14px rgba(43,27,23,.45)}
+.op2 .tb{padding:12px 8px;border-radius:999px;color:#61443e;transition:all .25s}
+.op2 .tb em{font-style:normal;font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#efe2c4;color:#61443e}
+.op2 .tb span{font-size:16px;font-weight:700;letter-spacing:.08em}.op2 .tb small{display:none}
+.op2 .r1:checked~.tabs .tb1,.op2 .r2:checked~.tabs .tb2,.op2 .r3:checked~.tabs .tb3{background:#2b1b17;color:#f0d39a}
+.op2 .r1:checked~.tabs .tb1 em,.op2 .r2:checked~.tabs .tb2 em,.op2 .r3:checked~.tabs .tb3 em{background:#d4a93a;color:#2b1b17}
+.op2 .pn,.op2 .biz{padding:0 34px}
+.op2 .g3{gap:12px}.op2 .cd{padding:18px;background:#fffdf8;border-radius:14px;border:1px solid #eadcc1;transition:all .25s}
+.op2 .cd:hover{border-color:#d4a93a;transform:translateY(-2px);box-shadow:0 12px 24px -18px rgba(43,27,23,.5)}
+.op2 .cd i{flex:0 0 46px;height:46px;border-radius:50%;background:#2b1b17;color:#d4a93a;display:flex;align-items:center;justify-content:center}
+.op2 .cd i svg{width:22px;height:22px}.op2 .cd b{font-size:16px;color:#2b1b17}.op2 .cd small{font-size:12.5px;color:#8a7360;margin-top:2px}
+.op2 .cd.sp{background:#2b1b17;border-color:#2b1b17}.op2 .cd.sp b{color:#fdfaed}.op2 .cd.sp small{color:#cbb994}.op2 .cd.sp i{background:#d4a93a;color:#2b1b17}
+.op2 mark{font-size:10.5px;font-weight:700;color:#2b1b17;background:#d4a93a!important;padding:2px 8px;border-radius:999px}
+.op2 .sr{padding-left:22px;border-left:4px solid #d4a93a}
+.op2 .g6{gap:10px}.op2 .pp{padding:18px 6px;background:#fffdf8;border-radius:14px;border:1px solid #eadcc1}.op2 .pp:hover{background:#2b1b17;color:#f0d39a}
+.op2 .pp b{font-size:24px;font-weight:800}.op2 .pp b small{color:#a88445}.op2 .pp em{font-size:12px;color:#8a7360}
+.op2 .biz{margin-top:24px}.op2 .biz span{padding:12px 28px;border-radius:999px;background:#d4a93a;color:#2b1b17;font-weight:700;font-size:14px;letter-spacing:.12em}
+
+/* ===== C Editorial Menu ===== */
+.op3{background:#fff;padding:52px 48px 40px;border-top:6px solid #2b1b17}
+.op3 .hd{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:24px;margin-bottom:34px;padding-bottom:22px;border-bottom:1px solid #1d1714}
+.op3 .ey{grid-column:1/-1;margin:0;font-size:11px;letter-spacing:.32em;color:#9A7B2E}
+.op3 h2{margin:0;font-family:"Songti TC","Noto Serif TC",serif;font-size:36px;font-weight:600;letter-spacing:.08em;line-height:1.25}
+.op3 .sb{margin:0;font-size:15px;color:#6b625a;line-height:1.8;text-align:right}
+.op3 .tabs{gap:0;margin-bottom:8px}
+.op3 .tb{justify-content:flex-start;align-items:baseline;gap:12px;padding:6px 0 14px;color:#b3a998;border-bottom:1px solid #e6e0d6;transition:color .25s}
+.op3 .tb em{font:400 40px/1 Baskerville,Georgia,serif;color:inherit}.op3 .tb span{font-family:"Songti TC","Noto Serif TC",serif;font-size:19px;font-weight:600;letter-spacing:.1em}
+.op3 .tb small{font-size:10px;letter-spacing:.26em}
+.op3 .r1:checked~.tabs .tb1,.op3 .r2:checked~.tabs .tb2,.op3 .r3:checked~.tabs .tb3{color:#1d1714;border-bottom:2px solid #1d1714}
+.op3 .r1:checked~.tabs .tb1 em,.op3 .r2:checked~.tabs .tb2 em,.op3 .r3:checked~.tabs .tb3 em{color:#9A7B2E}
+.op3 .g3{column-gap:40px}.op3 .cd{padding:18px 4px;border-bottom:1px solid #e6e0d6;transition:padding .25s,color .25s}
+.op3 .cd::after{content:"";margin-left:auto;width:8px;height:8px;border-top:1.3px solid #1d1714;border-right:1.3px solid #1d1714;transform:rotate(45deg);flex:0 0 auto}
+.op3 .cd:hover{padding-left:12px;color:#9A7B2E}.op3 .cd i{color:#9A7B2E}
+.op3 .cd b{font-family:"Songti TC","Noto Serif TC",serif;font-size:18px;letter-spacing:.06em}.op3 .cd small{font-size:12.5px;color:#8a7d6e;margin-top:3px}
+.op3 mark{position:static!important;margin-left:8px;font-size:10px;letter-spacing:.18em;color:#9A7B2E;border:1px solid #C8A24A;padding:2px 6px}
+.op3 .g6{border-top:1px solid #1d1714;border-bottom:1px solid #1d1714}.op3 .pp{padding:24px 6px}.op3 .pp+.pp{border-left:1px solid #e6e0d6}.op3 .pp:hover{background:#1d1714;color:#f0d39a}
+.op3 .pp b{font:400 30px/1 Baskerville,Georgia,serif}.op3 .pp b small{color:#9A7B2E}.op3 .pp em{font-size:12.5px;color:#8a7d6e}
+.op3 .biz{margin-top:28px;justify-content:flex-start}.op3 .biz span{padding:0 0 4px;border-bottom:1px solid #9A7B2E;font-family:"Songti TC",serif;font-size:16px;letter-spacing:.14em;color:#9A7B2E}
+
+@media(max-width:700px){
+ .op .g3{grid-template-columns:1fr 1fr}.op .g6{grid-template-columns:repeat(3,1fr)}
+ .op1,.op3{padding:32px 16px 28px}.op2 .pn,.op2 .biz{padding:0 14px}
+ .op1 h2,.op2 h2{font-size:24px}.op3 h2{font-size:26px}.op3 .hd{grid-template-columns:1fr}.op3 .sb{text-align:left}
+ .op1 .tb span,.op3 .tb span{font-size:15px;letter-spacing:.04em}.op1 .tb small,.op3 .tb small{display:none}.op3 .tb{flex-direction:column;gap:2px}.op3 .tb em{font-size:28px}
+ .op2 .tabs{margin:-28px 12px 20px}.op2 .tb span{font-size:13.5px}.op2 .tb em{display:none}
+ .op .cd{gap:10px}.op1 .cd,.op2 .cd{padding:14px 12px}.op .cd b{font-size:15px!important}.op .cd small{font-size:11.5px!important}
+ .op2 .cd i{flex-basis:36px;height:36px}.op3 .g3{column-gap:16px}
+ .op mark{display:none}
+}
+'''
+html = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>/catering/ 設計方案</title><style>{CSS}</style></head><body>
+<h1 style="max-width:1180px;margin:0 auto;font-size:24px">/catering/ 到會場景：Kitchen AO 主題 3 個方案</h1>
+<p class="note">每個方案都可以撳上面 3 個 tab 試。emoji 全部換成細線 icon；聖誕卡只用「季節限定」細標籤，唔再用聖誕色。</p>
+{block(1,"方案 A｜Ivory Gallery 象牙白藝廊","象牙白底、細金線、宋體標題、底線 tab。參考 Four Seasons Sydney 嘅酒店感：留白多、顏色少、靠線條同字體做質感。")}
+{block(2,"方案 B｜Cocoa & Gold 品牌啡金","用返網站主色：深啡 #2b1b17、金 #d4a93a、奶油 #fdfaed。頂部深啡標題帶，tab 係浮起嘅膠囊切換，卡片暖白底配深啡圓 icon，最貼近現有網站品牌。")}
+{block(3,"方案 C｜Editorial Menu 餐牌編排","純白底、黑字、金色只做點綴，大號襯線數字 01／02／03 做 tab，內容用餐牌式列表（細線分隔，冇卡片框），最簡潔高級。")}
+</body></html>'''
+(H/'catering-design-options.html').write_text(html, encoding='utf-8')
+print('ok')
