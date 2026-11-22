@@ -25,7 +25,7 @@ CTAS = ('<div class="ao-hero-ctas">'
  f'<a class="ao-hero-btn o" href="https://aoaodelivery.com/catering-quote-enquiry/" onclick="{DL("quote_form")}">' + b('專人活動報價查詢','Get an Event Quote') + '</a></div>')
 def IMGS(extra=''):
     return ('<div class="ao-hx-r"><div class="ao-hx-frame"><div class="ao-hero-rot">'
-     '<img class="ao-hero-img" src="https://aoaodelivery.com/wp-content/uploads/2026/07/catering-hongkong-corporate.jpg" alt="Kitchen AO 到會服務與精緻食物擺設" width="1200" height="1400" fetchpriority="high" decoding="async">'
+     '<img class="ao-hero-img" src="https://aoaodelivery.com/wp-content/uploads/2026/11/catering-hongkong-corporate-opt.jpg" alt="Kitchen AO 到會服務與精緻食物擺設" width="1200" height="1400" fetchpriority="high" decoding="async">'
      '<img class="ao-hero-img ao-hero-img2" src="https://aoaodelivery.com/wp-content/uploads/2023/11/%E7%87%88%E7%AE%B1-05-1024x1024.png" alt="Kitchen AO 到會美食" width="1024" height="1024" loading="lazy" decoding="async">'
      f'</div>{extra}</div></div>')
 SCRIPT = '<script>(function(){var en=/^en/i.test(document.documentElement.lang||"");var d=document.currentScript&&document.currentScript.parentNode;if(!d)return;[].forEach.call(d.querySelectorAll(en?".ao-zh":".ao-en"),function(x){x.parentNode.removeChild(x)})})();</script>'
