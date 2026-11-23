@@ -319,6 +319,74 @@ def xs_row(x, n):
             f'<div class="xtabs n{len(S["rows"])}">{tabs}</div>'
             f'<p class="xcta"><a class="xgo" href="{url(S, a0, b0)}">立即配搭菜式 →</a><a class="xall" href="{C}{S["slug"]}/">查看系列頁</a></p></div></div>')
 XS_ROWS = '<div class="xsr">' + ''.join(xs_row(x, n) for n, x in enumerate(XS)) + '</div>'
+
+# ---- 聖誕樹芝士火腿拼盤：Apple 式 sticky chapters（去背透明圖跟 scroll 郁，右邊文字逐段出現）----
+import random as _rnd
+_rnd.seed(26)
+TREE_IMG = [U26 + f'xmas-tree-platter-{i}-t.webp' for i in (1, 2)]
+_snow = ''.join(
+    f'<i data-o="{_rnd.uniform(0,1):.3f}" data-s="{_rnd.uniform(1.6,3.2) * (1.5 if sz > 7 else 1):.2f}" data-a="{_rnd.uniform(6,16):.0f}" '
+    f'style="left:{_rnd.uniform(0,100):.1f}%;width:{sz}px;height:{sz}px;opacity:{op:.2f};{"filter:blur(2px);" if sz > 7 else ""}"></i>'
+    for sz, op in [(_rnd.choice([3, 3, 4, 4, 5, 6, 9]), _rnd.uniform(.5, .85)) for _ in range(30)])
+TREE_PTS = [
+ ('三種口感', 'Coppa 脂肪細緻、口感軟嫩，入口即化；Salame 質地紮實有彈性；Pepperoni 乾爽而有嚼勁。軟嫩、紮實、耐嚼三種口感一次過品嚐，越吃越有層次。'),
+ ('風味平衡', 'Coppa 油脂香氣溫潤高雅；Salame 帶經典鹹香及大蒜黑胡椒風味；Pepperoni 則有鮮明辣味及紅椒香。在 Coppa 和 Salame 的濃郁油脂之間來一片微辣 Pepperoni，即時解膩開胃，整盤冷肉越吃越順口。'),
+ ('色彩繽紛', 'Coppa 帶大理石般的油花，Salame 有細碎白色脂肪粒及黑椒點綴，Pepperoni 呈鮮豔紅橙色，擺在一起色彩豐富，令人食指大動。'),
+ ('立體聖誕樹', '三款火腿配上雪球般的迷你水牛芝士，再以生果及橄欖點綴，砌成立體聖誕樹，一上桌即成全場焦點，讓你成為派對主角。'),
+]
+_ch = ['<div class="tc tc0"><p class="xk">聖誕神秘加配 · 派對焦點冷盤</p><h3 class="xn">聖誕樹芝士火腿拼盤</h3><p class="xf">Coppa · Salame · Pepperoni</p></div>']
+_ch += [f'<div class="tc"><p class="tq"><span class="tno">0{n}</span><b>{a}。</b>{b}</p></div>' for n, (a, b) in enumerate(TREE_PTS, 1)]
+_ch += [f'<div class="tc tcl"><p class="tq"><b>配紅白酒更佳。</b></p><p class="xcta"><a class="xgo" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢加配</a></p></div>']
+TREE_SEC = (
+ '<section class="s" id="tree"><div class="trw"><div class="trs"><div class="tri">'
+ '<div class="trv" aria-hidden="true">'
+ + ''.join(f'<img class="t{i}" src="{u}" alt="" loading="lazy" decoding="async">' for i, u in enumerate(TREE_IMG, 1))
+ + f'<span class="tsn">{_snow}</span>'
+ '<span class="tcap"><b>聖誕樹芝士火腿拼盤</b><em></em><small>三款火腿．三種口感</small></span></div>'
+ '<div class="tch">' + ''.join(_ch) + '</div>'
+ '</div></div></div></section>'
+ '<script>(function(){var W=document.querySelectorAll(".trw");if(!W.length)return;'
+ 'if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;'
+ 'W.forEach(function(w){w.classList.add("js")});'
+ 'function c(x){return x<0?0:x>1?1:x}function sg(p,a,b){return c((p-a)/(b-a))}var tk=0;'
+ 'function top(){var m=0;document.querySelectorAll(".axl .stk,.lafka-sticksy").forEach(function(e){var r=e.getBoundingClientRect();if(r.bottom>m&&r.top<200)m=r.bottom});return Math.min(Math.max(m,60),280)}'
+ 'function up(){tk=0;var vh=innerHeight,T=top();W.forEach(function(w){w.style.setProperty("--tro",T+"px");var R=w.getBoundingClientRect(),p=c(-R.top/Math.max(1,R.height-vh));'
+ 'var v=w.querySelector(".trv"),i1=v.querySelector(".t1"),i2=v.querySelector(".t2"),cp=v.querySelector(".tcap");'
+ 'i1.style.opacity=1-sg(p,.42,.55);i1.style.transform="scale("+(1+.08*sg(p,0,.55))+")";'
+ 'i2.style.opacity=sg(p,.42,.55);i2.style.objectPosition="50% "+(85-60*sg(p,.42,.92))+"%";i2.style.transform="scale("+(1.12-.12*sg(p,.42,.92))+")";'
+ 'var q=sg(p,.84,.94);cp.style.opacity=q;cp.style.transform="translateY("+(12*(1-q))+"px)";'
+ 'var H=v.offsetHeight;v.querySelectorAll(".tsn i").forEach(function(f){var o=+f.dataset.o,s=+f.dataset.s,a=+f.dataset.a;var y=((o+p*s)%1.08)-.04;f.style.transform="translate("+(Math.sin((o+p*s)*9)*a)+"px,"+(y*H)+"px)"});'
+ 'var C=w.querySelectorAll(".tc"),n=C.length,u=.92/n;C.forEach(function(e,i){var ci=(i+.5)*u,d=p-ci,o;'
+ 'if(i==0&&d<0)o=1;else if(i==n-1&&d>0)o=1;else o=c((u*.5-Math.abs(d))/(u*.22));e.style.opacity=o;e.style.transform="translateY(calc(-50% + "+(-d/u*36)+"px))";e.style.visibility=o>0?"visible":"hidden"})})}'
+ 'function on(){if(!tk){tk=1;requestAnimationFrame(up)}}addEventListener("scroll",on,{passive:true});addEventListener("resize",on);up()})();</script>')
+CSS += ('/* 聖誕樹芝士火腿拼盤：Apple 式 sticky chapters */'
+ '.axl section[id^="tree"]{background:#111;color:#EDE6D8;border-top:1px solid rgba(200,162,74,.35)!important;padding:0!important}'
+ '.axl .trw{position:relative}.axl .trw.js{height:360vh}'
+ '.axl .trs{padding:clamp(40px,6vw,80px) 20px}.axl .trw.js .trs{position:sticky;top:0;height:100vh;padding:var(--tro,120px) 20px 0;box-sizing:border-box;display:flex;align-items:center}'
+ '.axl .tri{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;max-width:1080px;width:100%;margin:0 auto}'
+ '.axl .trv{position:relative;height:min(calc(100vh - var(--tro,120px) - 40px),860px);width:auto;max-width:100%;aspect-ratio:9/16;margin:0 auto;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}'
+ '.axl .trv img{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;object-position:50% 50%;margin:0!important;will-change:opacity,transform}'
+ '.axl .trv .t2{object-position:50% 85%;opacity:0;transform:scale(1.12)}'
+ '.axl .trv .tsn{position:absolute;inset:0;pointer-events:none;z-index:2}'
+ '.axl .trv .tsn i{position:absolute;top:0;border-radius:50%;background:#fff;will-change:transform}'
+ '.axl .trw:not(.js) .trv .tsn{display:none}'
+ '.axl .trv .tcap{position:absolute;left:0;right:0;bottom:9%;z-index:3;display:flex;flex-direction:column;align-items:center;opacity:0;text-shadow:0 2px 14px rgba(0,0,0,.9),0 0 30px rgba(0,0,0,.8)}'
+ '.axl .trw:not(.js) .trv .tcap{opacity:1}'
+ '.axl .trv .tcap b{font-family:"Songti TC","Noto Serif TC",serif;font-weight:700;font-size:clamp(15px,1.8vw,19px);letter-spacing:.1em;color:#E4C77E;white-space:nowrap}'
+ '.axl .trv .tcap em{display:block;width:72px;height:1px;background:#E4C77E;margin:9px 0 8px}'
+ '.axl .trv .tcap small{font-family:"Songti TC","Noto Serif TC",serif;font-size:clamp(12px,1.3vw,14px);letter-spacing:.2em;color:#fff;white-space:nowrap}'
+ '.axl .tch{position:relative}.axl .trw.js .tch{height:min(60vh,520px)}'
+ '.axl .tc{margin:0 0 34px}.axl .trw.js .tc{position:absolute;left:0;right:0;top:50%;margin:0;transform:translateY(-50%);opacity:0;will-change:opacity,transform}.axl .trw.js .tc0{opacity:1}'
+ '.axl .tc .xk{font:700 11.5px/1.5 "Helvetica Neue","PingFang HK",Arial,sans-serif!important;letter-spacing:.2em;color:#C8A24A;margin:0 0 14px!important}'
+ '.axl .tc .xn{font-size:clamp(30px,3.6vw,46px)!important;color:#fff!important;margin:0 0 10px!important;font-weight:400;line-height:1.25}'
+ '.axl .tc .xf{font-family:Baskerville,"Baskerville Old Face",Georgia,serif;font-style:italic;font-size:clamp(17px,1.8vw,21px)!important;color:#E4C77E;margin:0!important;letter-spacing:.04em}'
+ '.axl .tc .tq{font-size:clamp(17px,1.7vw,21px)!important;line-height:1.75!important;color:#d8d0c2;margin:0 0 22px!important;max-width:460px}'
+ '.axl .tc .tq b{color:#E4C77E;font-weight:400;margin-right:.3em}'
+ '.axl .tc .tno{display:block;font:italic 400 15px/1 Baskerville,"Baskerville Old Face",Georgia,serif;color:#9a7b4f;letter-spacing:.1em;margin:0 0 14px}'
+ '.axl .tc .xcta{margin:0!important}.axl .tc .xgo{font-family:Baskerville,"Baskerville Old Face","Songti TC",Georgia,serif;font-size:19px;color:#E4C77E!important;text-decoration:none;border-bottom:1px solid #C8A24A;padding-bottom:4px;letter-spacing:.06em}.axl .tc .xgo:hover{color:#fff!important;border-color:#fff}'
+ '@media(max-width:900px){.axl .trw.js{height:420vh}.axl .tri{grid-template-columns:1fr;gap:10px}.axl .trw.js .trs{height:100svh;align-items:flex-start;padding-top:calc(var(--tro,120px) + 8px)}'
+ '.axl .trv{height:calc(100svh - var(--tro,120px) - 225px);min-height:300px}.axl .trw.js .tch{height:200px}.axl .tc{text-align:center}.axl .tc .tq{margin:0 auto 14px!important;font-size:15.5px!important;line-height:1.7!important}.axl .tc .xn{font-size:28px!important}.axl .tc .tno{margin-bottom:8px}}'
+ '.axl .trw:not(.js) .trv{height:auto;width:100%;max-width:420px}\n')
 CSS += ('/* 三大系列：黑色全闊、首頁式排版 */'
  '.axl section[id^="sets"]{background:#111;color:#EDE6D8;border-top:0!important}'
  '.axl .xsr .xr{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;max-width:1040px;margin:0 auto;padding:clamp(34px,5vw,56px) 0;border-top:1px solid rgba(200,162,74,.35)}'
@@ -420,6 +488,7 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <div class="bxl">{B_TILES}</div>
 <section class="s" id="sets"><div class="w">
 {XS_ROWS}</div></section>
+{TREE_SEC}
 <div class="bxl">{FEAT_SL}</div>
 <section class="s" id="pax" style="background:var(--iv)"><div class="w"><div class="sh"><small>FIND YOUR SET</small><h2>按人數揀聖誕套餐</h2><p>輸入出席人數，即時建議合適的聖誕到會套餐。</p></div>
 <div class="finder"><input id="axl-n" type="number" min="1" max="999" inputmode="numeric" placeholder="例如 20"><button class="btn p" type="button" id="axl-go" style="margin:0">建議套餐</button><div class="res" id="axl-res"></div></div>
