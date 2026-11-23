@@ -219,3 +219,5 @@ D.update({
 })
 
 D.update({'三種口感。':'Three textures.','風味平衡。':'Balanced flavours.','色彩繽紛。':'A feast of colour.','立體聖誕樹。':'A standing Christmas tree.','配紅白酒更佳。':'Best enjoyed with red or white wine.'})
+
+D.update({'所有聖誕套餐均可加配':'Add it to any Christmas set'})
