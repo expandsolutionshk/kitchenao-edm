@@ -362,20 +362,24 @@ TREE_SEC = (
 # ---- 全頁 scroll 效果（跟捲動進度：圖片慢慢縮放＋視差、標題金線伸展、系列文字錯位）----
 SX_JS = ('<script>(function(){function init(){if(window.__sx)return;window.__sx=1;if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;'
  'var G=[[".axl .xsr .xim img","z"],[".axl section.wide>img","z"],[".axl .split>img","z"],[".axl #mains .im img","z"],[".axl .xsr .xtx","t"],[".axl .sh h2","h"],[".axl .sh>p,.axl .sh>small","f"]],L=[];'
- 'G.forEach(function(g){document.querySelectorAll(g[0]).forEach(function(e){if(!e.closest(".hero"))L.push([e,g[1]])})});if(!L.length)return;'
+ 'G.forEach(function(g){document.querySelectorAll(g[0]).forEach(function(e){if(!e.closest(".hero"))L.push([e,g[1]])})});'
  'function c(x){return x<0?0:x>1?1:x}var tk=0;'
- 'function up(){tk=0;var vh=innerHeight;L.forEach(function(o){var e=o[0],r=e.getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)return;'
+ 'function up(){tk=0;var vh=innerHeight;uh(vh);L.forEach(function(o){var e=o[0],r=e.getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)return;'
  'var p=c((vh-r.top)/(vh+r.height)),q=c((vh-r.top)/(vh*.55));'
- 'if(o[1]=="z"){e.style.scale=(1.16-.1*q).toFixed(4);e.style.translate="0 "+((.5-p)*28).toFixed(1)+"px"}'
+ 'if(o[1]=="z"){var z=Math.max(e.__m||0,q);e.__m=z;e.style.scale=(1.16-.1*z).toFixed(4);e.style.translate="0 "+((.5-p)*28).toFixed(1)+"px"}'
  'else if(o[1]=="t"){e.style.translate="0 "+((.5-p)*-36).toFixed(1)+"px"}'
- 'else if(o[1]=="h"){e.style.setProperty("--sx",q.toFixed(3));e.style.translate="0 "+((1-q)*18).toFixed(1)+"px";e.style.letterSpacing=((1-q)*.12).toFixed(3)+"em"}'
- 'else if(o[1]=="f"){e.style.opacity=(.25+.75*c((vh-r.top)/(vh*.4))).toFixed(3)}})}'
+ 'else if(o[1]=="h"){q=Math.max(e.__m||0,c((vh-r.top)/(vh*.4)));e.__m=q;e.style.setProperty("--sx",q.toFixed(3));e.style.translate="0 "+((1-q)*18).toFixed(1)+"px";e.style.letterSpacing=((1-q)*.12).toFixed(3)+"em"}'
+ 'else if(o[1]=="f"){var f=Math.max(e.__m||0,c((vh-r.top)/(vh*.35)));e.__m=f;e.style.opacity=(.25+.75*f).toFixed(3)}})}'
+ 'var HP=[].slice.call(document.querySelectorAll(".axl .hp.hpg"));HP.forEach(function(h){h.classList.add("sxh");h.querySelectorAll(".mt2 .pr").forEach(function(x){x.style.opacity=1})});''function sg(p,a,b){return c((p-a)/(b-a))}''function uh(vh){HP.forEach(function(h){var r=h.getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)return;var p=Math.max(h.__m||0,c((vh*.68-r.top)/(vh*.4)));h.__m=p;''[[".pr.a",0],[".pr.b",.3],[".pr.c",.6]].forEach(function(k){var e=h.querySelector(".mt2 "+k[0]);if(!e)return;''[[".en",0],[".zh",.06]].forEach(function(j){var t=e.querySelector(j[0]);if(!t)return;var q=sg(p,k[1]+j[1],k[1]+j[1]+.14);t.style.opacity=q.toFixed(3);t.style.translate="0 "+((1-q)*18).toFixed(1)+"px";t.style.filter=q<1?"blur("+((1-q)*6).toFixed(1)+"px)":"none"})});''var w=sg(p,.84,.97);h.querySelectorAll(".mt2 b").forEach(function(b){b.style.opacity=w.toFixed(3);b.style.scale=(.6+.4*w).toFixed(3)});h.classList.toggle("wow",w>=1)})}'
  'function on(){if(!tk){tk=1;requestAnimationFrame(up)}}addEventListener("scroll",on,{passive:true});addEventListener("resize",on);up()}'
  'if(document.readyState=="loading")document.addEventListener("DOMContentLoaded",init);else init()})();</script>')
 CSS += ('/* 全頁 scroll 效果 */'
  '.axl section.wide,.axl .split{overflow:hidden}.axl #mains .im{display:block;overflow:hidden}'
  '.axl .xsr .xim img,.axl section.wide>img,.axl .split>img,.axl #mains .im img{will-change:scale,translate}'
  '.axl .sh h2:after{width:calc(44px * var(--sx,1))!important;transition:none}'
+ '@media(min-width:641px){.axl .mg>a.nd img{height:100%!important;aspect-ratio:auto!important;object-fit:cover!important}}'
+ '.axl .hp.hpg .mt2 .pr{display:block!important;margin:0 auto 16px!important}.axl .hp.hpg .mt2 br{display:none}.axl .hp.hpg .mt2 .pr .en{font-size:clamp(21px,2.2vw,27px);line-height:1.3;color:#F3ECDF}.axl .hp.hpg .mt2 .pr .en.l2{font-size:clamp(28px,3vw,38px)}.axl .hp.hpg .mt2 .pr .zh{font-size:15px!important;letter-spacing:.18em!important;color:#E9E1D2!important;margin-top:4px}@media(max-width:640px){.axl .hp.hpg .mt2 .pr .en{font-size:20px}.axl .hp.hpg .mt2 .pr .en.l2{font-size:27px}.axl .hp.hpg .mt2 .pr .zh{font-size:14px!important}}'
+ '.axl .hp.sxh .mt2 .pr,.axl .hp.sxh .mt2 b{animation:none!important}.axl .hp.sxh .mt2 .pr .en,.axl .hp.sxh .mt2 .pr .zh,.axl .hp.sxh .mt2 b{opacity:0;will-change:opacity,translate,filter}.axl .hp.sxh.wow .mt2 b{animation:axShine 3.2s linear infinite!important}'
  '@media(prefers-reduced-motion:reduce){.axl .sh h2:after{width:44px!important}}\n')
 CSS += ('/* 聖誕樹芝士火腿拼盤：Apple 式 sticky chapters */'
  '.axl section[id^="tree"]{background:#111;color:#EDE6D8;border-top:1px solid rgba(200,162,74,.35)!important;padding:0!important}'
@@ -511,7 +515,6 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 {XS_ROWS}</div></section>
 {TREE_SEC}
 {SX_JS}
-<div class="bxl">{FEAT_SL}</div>
 <section class="s" id="pax" style="background:var(--iv)"><div class="w"><div class="sh"><small>FIND YOUR SET</small><h2>按人數揀聖誕套餐</h2><p>輸入出席人數，即時建議合適的聖誕到會套餐。</p></div>
 <div class="finder"><input id="axl-n" type="number" min="1" max="999" inputmode="numeric" placeholder="例如 20"><button class="btn p" type="button" id="axl-go" style="margin:0">建議套餐</button><div class="res" id="axl-res"></div></div>
 <table class="px"><thead><tr><th>出席人數</th><th>建議套餐</th><th>另一選擇</th></tr></thead><tbody>
@@ -533,6 +536,7 @@ page = f'''<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta n
 <section class="s" id="faq"><div class="w"><div class="sh"><small>FAQ</small><h2>聖誕到會常見問題</h2></div><div class="faq">
 {"".join(f'<details{" open" if i == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for i, (q, a) in enumerate(FAQ))}</div></div></section>
 <section class="s" id="dishes"><div class="w" style="max-width:820px">@@DISHES@@</div></section>
+<div class="bxl">{FEAT_SL}</div>
 <div class="end"><p class="ser" style="font-size:22px;margin:0 0 6px">今年聖誕，交給 Kitchen AO</p><p style="color:var(--sub);margin:0 0 18px">5 至 100 人聖誕到會套餐，11 月 30 日前 MEGA79 七九折。</p>
 <a class="btn p" href="#sets">選購聖誕套餐</a><a class="btn d" href="{WA}" target="_blank" rel="noopener">WhatsApp 查詢</a></div>
 </div>
